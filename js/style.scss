@@ -46,13 +46,9 @@ body {
 .title {
   display: flex;
   justify-content: center;
+  margin: 11.5vh 0 2vh 1em;
   h3 {
-    margin: 10vh 0 2vh 0;
     font-size: 1.5em;
-  }
-  h4 {
-    margin: 11.5vh 0 2vh 1em;
-    font-size: 1em;
   }
 }
 
@@ -63,20 +59,28 @@ body {
 .artistInfo {
   position: absolute;
   top: 27vh;
-  right: 5vw;
-  width: 25%;
+  right: 3vw;
+  width: 30%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid red;
-  div {
+  img {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin-right: 1em;
+  }
+  .info div {
     float: left;
     max-width: calc(100% - 74px);
     & > p {
       vertical-align: top;
+      font-size: 1.3em;
+      margin-bottom: 0.3em;
     }
     a {
       color: white;
       text-decoration: none;
+      font-size: 1em;
       i {
         margin-right: 10px;
         float: left;
@@ -88,18 +92,13 @@ body {
         word-break: break-all;
         word-break: break-word;
       }
-      p {
-        clear: both;
-        display: block;
-        margin-top: 10px;
-      }
     }
   }
-  img {
-    float: left;
-    width: 64px;
-    height: 64px;
-    margin-right: 10px;
+  div.show {
+    margin-top: 1em;
+    clear: both;
+    width: 100%;
+    font-size: 1.2em;
   }
 }
 
@@ -165,12 +164,3 @@ body {
     width: auto;
   }
 }
-
-//
-//
-// <Sound
-//    url={this.state.track.preview}
-//    playStatus={this.state.playStatus}
-//    onPlaying={this.handleSongPlaying.bind(this)}
-//    playFromPosition={this.state.playFromPosition}
-//    onFinishedPlaying={this.randomTrack.bind(this)}/>

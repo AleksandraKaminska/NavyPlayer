@@ -7,8 +7,6 @@ class PlayerAndProgress extends React.Component {
   render(){
     return <div className="playerAndProgress">
         <Player
-          playOrPause={this.props.playOrPause}
-          playStatus={this.props.playStatus}
           randomTrack={this.props.randomTrack}
           track={this.props.track}
           playTrack={this.props.playTrack} />

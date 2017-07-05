@@ -8,9 +8,7 @@ import "./style.scss";
 document.addEventListener('DOMContentLoaded', function(){
   class App extends React.Component {
     render () {
-      return (
-        <AppContainer />
-      );
+      return <AppContainer />
     }
   }
 

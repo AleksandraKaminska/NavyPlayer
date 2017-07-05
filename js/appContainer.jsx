@@ -1,11 +1,9 @@
 import React from 'react';
-import Sound from 'react-sound';
 import Axios from 'axios';
 
 import Title from './components/title.jsx';
 import Cover from './components/cover.jsx';
 import ArtistInfo from './components/artistInfo.jsx';
-import Concerts from './components/concerts.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
@@ -18,33 +16,12 @@ class AppContainer extends React.Component {
        artistInfo: {},
        concerts: [],
        searchTracks: [],
-       playStatus: Sound.status.STOPPED,
        elapsed: '00:00',
        duration: '00:00',
        position: 0,
        playFromPosition: 0,
        autoCompleteValue: ''
      };
-  }
-
-  componentDidMount() {
-    this.randomTrack();
-  }
-
-  randomTrack = () => {
-    Axios.get('https://api.deezer.com/playlist/950408095')
-      .then(response => {
-        const playlistTracks = response.data.tracks.data;
-        const randomNumber = Math.floor(Math.random() * playlistTracks.length);
-        this.setState({
-          track: playlistTracks[randomNumber]
-        });
-        this.searchArtist();
-        this.searchConcerts();
-      })
-      .catch(err => {
-        console.log(err);
-      });
   }
 
   searchArtist = () => {
@@ -73,14 +50,28 @@ class AppContainer extends React.Component {
       });
   }
 
-  playTrack = () => {
-    DZ.player.playTracks([this.state.track.id]);
+  randomTrack = () => {
+    Axios.get('https://api.deezer.com/playlist/950408095')
+      .then(response => {
+        const playlistTracks = response.data.tracks.data;
+        const randomNumber = Math.floor(Math.random() * playlistTracks.length);
+        this.setState({
+          track: playlistTracks[randomNumber]
+        });
+        this.searchArtist();
+        this.searchConcerts();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-  playOrPause = () => {
-    this.setState({
-      playStatus: (this.state.playStatus === Sound.status.PLAYING) ? Sound.status.PAUSED : Sound.status.PLAYING
-    });
+  componentDidMount() {
+    this.randomTrack();
+  }
+
+  playTrack = () => {
+    DZ.player.playTracks([this.state.track.id]);
   }
 
   handleSelect = (value, item) => {
@@ -131,15 +122,13 @@ class AppContainer extends React.Component {
 
     return <div className="NavyPlayer">
         <Search
-          clientId={this.state.client_id}
           autoCompleteValue={this.state.autoCompleteValue}
           searchTracks={this.state.searchTracks}
-          handleSelect={this.handleSelect.bind(this)}
-          handleChange={this.handleChange.bind(this)}/>
+          handleSelect={this.handleSelect}
+          handleChange={this.handleChange}/>
         <Title title_short={this.state.track.title_short} artist={this.state.track.artist.name} />
         <Cover CoverStyle={CoverStyle} />
-        <ArtistInfo artistInfo={this.state.artistInfo} />
-        <Concerts concerts={this.state.concerts} />
+        <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
         <PlayerAndProgress
           playStatus={this.state.playStatus}
           playOrPause={this.playOrPause}

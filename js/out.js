@@ -335,7 +335,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -552,7 +552,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var _prodInvariant = __webpack_require__(3);
 
 var DOMProperty = __webpack_require__(15);
-var ReactDOMComponentFlags = __webpack_require__(63);
+var ReactDOMComponentFlags = __webpack_require__(64);
 
 var invariant = __webpack_require__(1);
 
@@ -776,6 +776,16 @@ module.exports = ExecutionEnvironment;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(20);
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1160,7 +1170,7 @@ module.exports = ReactComponentTreeHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1204,7 +1214,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1226,22 +1236,12 @@ module.exports = emptyFunction;
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactDebugTool = __webpack_require__(163);
+  var ReactDebugTool = __webpack_require__(165);
   debugTool = ReactDebugTool;
 }
 
 module.exports = { debugTool: debugTool };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(20);
-
 
 /***/ }),
 /* 11 */
@@ -1263,9 +1263,9 @@ module.exports = __webpack_require__(20);
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var CallbackQueue = __webpack_require__(61);
+var CallbackQueue = __webpack_require__(62);
 var PooledClass = __webpack_require__(16);
-var ReactFeatureFlags = __webpack_require__(66);
+var ReactFeatureFlags = __webpack_require__(67);
 var ReactReconciler = __webpack_require__(19);
 var Transaction = __webpack_require__(30);
 
@@ -1806,7 +1806,7 @@ var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(16);
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 var warning = __webpack_require__(2);
 
 var didWarnForAddedNewProperty = false;
@@ -2415,7 +2415,7 @@ var warning = __webpack_require__(2);
 var canDefineProperty = __webpack_require__(33);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(83);
+var REACT_ELEMENT_TYPE = __webpack_require__(84);
 
 var RESERVED_PROPS = {
   key: true,
@@ -2754,11 +2754,11 @@ module.exports = ReactElement;
 
 
 
-var DOMNamespaces = __webpack_require__(37);
+var DOMNamespaces = __webpack_require__(38);
 var setInnerHTML = __webpack_require__(32);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(44);
-var setTextContent = __webpack_require__(80);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(45);
+var setTextContent = __webpack_require__(81);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -2877,8 +2877,8 @@ module.exports = DOMLazyTree;
 
 
 
-var ReactRef = __webpack_require__(177);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactRef = __webpack_require__(179);
+var ReactInstrumentation = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -3051,24 +3051,24 @@ module.exports = ReactReconciler;
 
 var _assign = __webpack_require__(4);
 
-var ReactBaseClasses = __webpack_require__(82);
-var ReactChildren = __webpack_require__(208);
-var ReactDOMFactories = __webpack_require__(209);
+var ReactBaseClasses = __webpack_require__(83);
+var ReactChildren = __webpack_require__(210);
+var ReactDOMFactories = __webpack_require__(211);
 var ReactElement = __webpack_require__(17);
-var ReactPropTypes = __webpack_require__(211);
-var ReactVersion = __webpack_require__(213);
+var ReactPropTypes = __webpack_require__(213);
+var ReactVersion = __webpack_require__(215);
 
-var createReactClass = __webpack_require__(215);
-var onlyChild = __webpack_require__(217);
+var createReactClass = __webpack_require__(217);
+var onlyChild = __webpack_require__(219);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(51);
+  var lowPriorityWarning = __webpack_require__(52);
   var canDefineProperty = __webpack_require__(33);
-  var ReactElementValidator = __webpack_require__(84);
+  var ReactElementValidator = __webpack_require__(85);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3234,11 +3234,11 @@ module.exports = reactProdInvariant;
 var _prodInvariant = __webpack_require__(3);
 
 var EventPluginRegistry = __webpack_require__(27);
-var EventPluginUtils = __webpack_require__(38);
-var ReactErrorUtils = __webpack_require__(42);
+var EventPluginUtils = __webpack_require__(39);
+var ReactErrorUtils = __webpack_require__(43);
 
-var accumulateInto = __webpack_require__(73);
-var forEachAccumulated = __webpack_require__(74);
+var accumulateInto = __webpack_require__(74);
+var forEachAccumulated = __webpack_require__(75);
 var invariant = __webpack_require__(1);
 
 /**
@@ -3512,10 +3512,10 @@ module.exports = EventPluginHub;
 
 
 var EventPluginHub = __webpack_require__(22);
-var EventPluginUtils = __webpack_require__(38);
+var EventPluginUtils = __webpack_require__(39);
 
-var accumulateInto = __webpack_require__(73);
-var forEachAccumulated = __webpack_require__(74);
+var accumulateInto = __webpack_require__(74);
+var forEachAccumulated = __webpack_require__(75);
 var warning = __webpack_require__(2);
 
 var getListener = EventPluginHub.getListener;
@@ -3704,7 +3704,7 @@ module.exports = ReactInstanceMap;
 
 var SyntheticEvent = __webpack_require__(14);
 
-var getEventTarget = __webpack_require__(47);
+var getEventTarget = __webpack_require__(48);
 
 /**
  * @interface UIEvent
@@ -4054,11 +4054,11 @@ module.exports = EventPluginRegistry;
 var _assign = __webpack_require__(4);
 
 var EventPluginRegistry = __webpack_require__(27);
-var ReactEventEmitterMixin = __webpack_require__(167);
-var ViewportMetrics = __webpack_require__(72);
+var ReactEventEmitterMixin = __webpack_require__(169);
+var ViewportMetrics = __webpack_require__(73);
 
-var getVendorPrefixedEventName = __webpack_require__(202);
-var isEventSupported = __webpack_require__(48);
+var getVendorPrefixedEventName = __webpack_require__(204);
+var isEventSupported = __webpack_require__(49);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -4381,9 +4381,9 @@ module.exports = ReactBrowserEventEmitter;
 
 
 var SyntheticUIEvent = __webpack_require__(25);
-var ViewportMetrics = __webpack_require__(72);
+var ViewportMetrics = __webpack_require__(73);
 
-var getEventModifierState = __webpack_require__(46);
+var getEventModifierState = __webpack_require__(47);
 
 /**
  * @interface MouseEvent
@@ -4819,12 +4819,12 @@ module.exports = escapeTextContentForBrowser;
 
 
 var ExecutionEnvironment = __webpack_require__(6);
-var DOMNamespaces = __webpack_require__(37);
+var DOMNamespaces = __webpack_require__(38);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(44);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(45);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -4940,6 +4940,12 @@ module.exports = canDefineProperty;
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(90);
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -5010,7 +5016,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5031,7 +5037,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5048,13 +5054,13 @@ module.exports = ReactPropTypesSecret;
 
 
 var DOMLazyTree = __webpack_require__(18);
-var Danger = __webpack_require__(140);
+var Danger = __webpack_require__(142);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactInstrumentation = __webpack_require__(10);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(44);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(45);
 var setInnerHTML = __webpack_require__(32);
-var setTextContent = __webpack_require__(80);
+var setTextContent = __webpack_require__(81);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -5263,7 +5269,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5288,7 +5294,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5306,7 +5312,7 @@ module.exports = DOMNamespaces;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactErrorUtils = __webpack_require__(42);
+var ReactErrorUtils = __webpack_require__(43);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -5520,7 +5526,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5584,7 +5590,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5602,8 +5608,8 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactPropTypesSecret = __webpack_require__(71);
-var propTypesFactory = __webpack_require__(58);
+var ReactPropTypesSecret = __webpack_require__(72);
+var propTypesFactory = __webpack_require__(59);
 
 var React = __webpack_require__(20);
 var PropTypes = propTypesFactory(React.isValidElement);
@@ -5728,7 +5734,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5778,7 +5784,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5860,7 +5866,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5880,7 +5886,7 @@ var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(12);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactInstrumentation = __webpack_require__(10);
 var ReactUpdates = __webpack_require__(11);
 
 var invariant = __webpack_require__(1);
@@ -6100,7 +6106,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6137,7 +6143,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6192,7 +6198,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6240,7 +6246,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6280,7 +6286,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6345,7 +6351,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6392,7 +6398,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6410,7 +6416,7 @@ module.exports = shouldUpdateReactComponent;
 
 var _assign = __webpack_require__(4);
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 var warning = __webpack_require__(2);
 
 var validateDOMNesting = emptyFunction;
@@ -6769,7 +6775,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6840,17 +6846,17 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(148);
+module.exports = __webpack_require__(150);
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6859,7 +6865,7 @@ module.exports = __webpack_require__(148);
 var utils = __webpack_require__(13);
 var buildURL = __webpack_require__(96);
 var parseHeaders = __webpack_require__(101);
-var transformData = __webpack_require__(54);
+var transformData = __webpack_require__(55);
 var isURLSameOrigin = __webpack_require__(100);
 var btoa = window.btoa || __webpack_require__(95);
 
@@ -6987,7 +6993,7 @@ module.exports = function xhrAdapter(resolve, reject, config) {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7014,7 +7020,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7038,7 +7044,7 @@ module.exports = function transformData(data, headers, fns) {
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -7104,7 +7110,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7136,7 +7142,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7180,7 +7186,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7199,7 +7205,7 @@ module.exports = getActiveElement;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(59);
+var factory = __webpack_require__(60);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -7208,7 +7214,7 @@ module.exports = function(isValidElement) {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7223,12 +7229,12 @@ module.exports = function(isValidElement) {
 
 
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
-var ReactPropTypesSecret = __webpack_require__(35);
-var checkPropTypes = __webpack_require__(131);
+var ReactPropTypesSecret = __webpack_require__(36);
+var checkPropTypes = __webpack_require__(133);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -7728,7 +7734,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7887,7 +7893,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8012,7 +8018,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8030,9 +8036,9 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 
 var DOMProperty = __webpack_require__(15);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactInstrumentation = __webpack_require__(10);
 
-var quoteAttributeValueForBrowser = __webpack_require__(203);
+var quoteAttributeValueForBrowser = __webpack_require__(205);
 var warning = __webpack_require__(2);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -8253,7 +8259,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8276,7 +8282,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8294,7 +8300,7 @@ module.exports = ReactDOMComponentFlags;
 
 var _assign = __webpack_require__(4);
 
-var LinkedValueUtils = __webpack_require__(40);
+var LinkedValueUtils = __webpack_require__(41);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
@@ -8482,7 +8488,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8517,7 +8523,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8544,7 +8550,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8618,7 +8624,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8634,11 +8640,11 @@ module.exports = ReactHostComponent;
 
 
 
-var ReactDOMSelection = __webpack_require__(158);
+var ReactDOMSelection = __webpack_require__(160);
 
-var containsNode = __webpack_require__(119);
-var focusNode = __webpack_require__(56);
-var getActiveElement = __webpack_require__(57);
+var containsNode = __webpack_require__(121);
+var focusNode = __webpack_require__(57);
+var getActiveElement = __webpack_require__(58);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -8746,7 +8752,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8770,21 +8776,21 @@ var React = __webpack_require__(20);
 var ReactBrowserEventEmitter = __webpack_require__(28);
 var ReactCurrentOwner = __webpack_require__(12);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMContainerInfo = __webpack_require__(150);
-var ReactDOMFeatureFlags = __webpack_require__(152);
-var ReactFeatureFlags = __webpack_require__(66);
+var ReactDOMContainerInfo = __webpack_require__(152);
+var ReactDOMFeatureFlags = __webpack_require__(154);
+var ReactFeatureFlags = __webpack_require__(67);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(9);
-var ReactMarkupChecksum = __webpack_require__(172);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactMarkupChecksum = __webpack_require__(174);
 var ReactReconciler = __webpack_require__(19);
-var ReactUpdateQueue = __webpack_require__(43);
+var ReactUpdateQueue = __webpack_require__(44);
 var ReactUpdates = __webpack_require__(11);
 
 var emptyObject = __webpack_require__(26);
-var instantiateReactComponent = __webpack_require__(78);
+var instantiateReactComponent = __webpack_require__(79);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(32);
-var shouldUpdateReactComponent = __webpack_require__(49);
+var shouldUpdateReactComponent = __webpack_require__(50);
 var warning = __webpack_require__(2);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -9290,7 +9296,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9336,7 +9342,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9358,7 +9364,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9388,7 +9394,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9452,7 +9458,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9488,7 +9494,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9504,7 +9510,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ReactNodeTypes = __webpack_require__(70);
+var ReactNodeTypes = __webpack_require__(71);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -9523,7 +9529,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9561,7 +9567,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9689,7 +9695,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9708,11 +9714,11 @@ module.exports = inputValueTracking;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var ReactCompositeComponent = __webpack_require__(147);
-var ReactEmptyComponent = __webpack_require__(65);
-var ReactHostComponent = __webpack_require__(67);
+var ReactCompositeComponent = __webpack_require__(149);
+var ReactEmptyComponent = __webpack_require__(66);
+var ReactHostComponent = __webpack_require__(68);
 
-var getNextDebugID = __webpack_require__(216);
+var getNextDebugID = __webpack_require__(218);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -9824,7 +9830,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9880,7 +9886,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9937,7 +9943,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9956,11 +9962,11 @@ module.exports = setTextContent;
 var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(12);
-var REACT_ELEMENT_TYPE = __webpack_require__(166);
+var REACT_ELEMENT_TYPE = __webpack_require__(168);
 
-var getIteratorFn = __webpack_require__(200);
+var getIteratorFn = __webpack_require__(202);
 var invariant = __webpack_require__(1);
-var KeyEscapeUtils = __webpack_require__(39);
+var KeyEscapeUtils = __webpack_require__(40);
 var warning = __webpack_require__(2);
 
 var SEPARATOR = '.';
@@ -10119,7 +10125,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10138,12 +10144,12 @@ module.exports = traverseAllChildren;
 var _prodInvariant = __webpack_require__(21),
     _assign = __webpack_require__(4);
 
-var ReactNoopUpdateQueue = __webpack_require__(85);
+var ReactNoopUpdateQueue = __webpack_require__(86);
 
 var canDefineProperty = __webpack_require__(33);
 var emptyObject = __webpack_require__(26);
 var invariant = __webpack_require__(1);
-var lowPriorityWarning = __webpack_require__(51);
+var lowPriorityWarning = __webpack_require__(52);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -10268,7 +10274,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10293,7 +10299,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10317,15 +10323,15 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 var ReactCurrentOwner = __webpack_require__(12);
-var ReactComponentTreeHook = __webpack_require__(7);
+var ReactComponentTreeHook = __webpack_require__(8);
 var ReactElement = __webpack_require__(17);
 
-var checkReactTypeSpec = __webpack_require__(214);
+var checkReactTypeSpec = __webpack_require__(216);
 
 var canDefineProperty = __webpack_require__(33);
-var getIteratorFn = __webpack_require__(86);
+var getIteratorFn = __webpack_require__(87);
 var warning = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(51);
+var lowPriorityWarning = __webpack_require__(52);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -10554,7 +10560,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10655,7 +10661,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10701,7 +10707,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10713,43 +10719,35 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactSound = __webpack_require__(205);
-
-var _reactSound2 = _interopRequireDefault(_reactSound);
-
-var _axios = __webpack_require__(89);
+var _axios = __webpack_require__(34);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _title = __webpack_require__(110);
+var _title = __webpack_require__(112);
 
 var _title2 = _interopRequireDefault(_title);
 
-var _cover = __webpack_require__(104);
+var _cover = __webpack_require__(106);
 
 var _cover2 = _interopRequireDefault(_cover);
 
-var _artistInfo = __webpack_require__(225);
+var _artistInfo = __webpack_require__(104);
 
 var _artistInfo2 = _interopRequireDefault(_artistInfo);
 
-var _concerts = __webpack_require__(224);
-
-var _concerts2 = _interopRequireDefault(_concerts);
-
-var _playerAndProgress = __webpack_require__(107);
+var _playerAndProgress = __webpack_require__(109);
 
 var _playerAndProgress2 = _interopRequireDefault(_playerAndProgress);
 
-var _search = __webpack_require__(109);
+var _search = __webpack_require__(111);
 
 var _search2 = _interopRequireDefault(_search);
 
-var _footer = __webpack_require__(105);
+var _footer = __webpack_require__(107);
 
 var _footer2 = _interopRequireDefault(_footer);
 
@@ -10768,20 +10766,6 @@ var AppContainer = function (_React$Component) {
     _classCallCheck(this, AppContainer);
 
     var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this, props));
-
-    _this.randomTrack = function () {
-      _axios2.default.get('https://api.deezer.com/playlist/950408095').then(function (response) {
-        var playlistTracks = response.data.tracks.data;
-        var randomNumber = Math.floor(Math.random() * playlistTracks.length);
-        _this.setState({
-          track: playlistTracks[randomNumber]
-        });
-        _this.searchArtist();
-        _this.searchConcerts();
-      }).catch(function (err) {
-        console.log(err);
-      });
-    };
 
     _this.searchArtist = function () {
       var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
@@ -10805,14 +10789,22 @@ var AppContainer = function (_React$Component) {
       });
     };
 
-    _this.playTrack = function () {
-      DZ.player.playTracks([_this.state.track.id]);
+    _this.randomTrack = function () {
+      _axios2.default.get('https://api.deezer.com/playlist/950408095').then(function (response) {
+        var playlistTracks = response.data.tracks.data;
+        var randomNumber = Math.floor(Math.random() * playlistTracks.length);
+        _this.setState({
+          track: playlistTracks[randomNumber]
+        });
+        _this.searchArtist();
+        _this.searchConcerts();
+      }).catch(function (err) {
+        console.log(err);
+      });
     };
 
-    _this.playOrPause = function () {
-      _this.setState({
-        playStatus: _this.state.playStatus === _reactSound2.default.status.PLAYING ? _reactSound2.default.status.PAUSED : _reactSound2.default.status.PLAYING
-      });
+    _this.playTrack = function () {
+      DZ.player.playTracks([_this.state.track.id]);
     };
 
     _this.handleSelect = function (value, item) {
@@ -10847,7 +10839,6 @@ var AppContainer = function (_React$Component) {
       artistInfo: {},
       concerts: [],
       searchTracks: [],
-      playStatus: _reactSound2.default.status.STOPPED,
       elapsed: '00:00',
       duration: '00:00',
       position: 0,
@@ -10885,15 +10876,13 @@ var AppContainer = function (_React$Component) {
         'div',
         { className: 'NavyPlayer' },
         _react2.default.createElement(_search2.default, {
-          clientId: this.state.client_id,
           autoCompleteValue: this.state.autoCompleteValue,
           searchTracks: this.state.searchTracks,
-          handleSelect: this.handleSelect.bind(this),
-          handleChange: this.handleChange.bind(this) }),
+          handleSelect: this.handleSelect,
+          handleChange: this.handleChange }),
         _react2.default.createElement(_title2.default, { title_short: this.state.track.title_short, artist: this.state.track.artist.name }),
         _react2.default.createElement(_cover2.default, { CoverStyle: CoverStyle }),
-        _react2.default.createElement(_artistInfo2.default, { artistInfo: this.state.artistInfo }),
-        _react2.default.createElement(_concerts2.default, { concerts: this.state.concerts }),
+        _react2.default.createElement(_artistInfo2.default, { artistInfo: this.state.artistInfo, concerts: this.state.concerts }),
         _react2.default.createElement(_playerAndProgress2.default, {
           playStatus: this.state.playStatus,
           playOrPause: this.playOrPause,
@@ -10914,13 +10903,13 @@ var AppContainer = function (_React$Component) {
 exports.default = AppContainer;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(112);
+var content = __webpack_require__(114);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -10928,7 +10917,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(220)(content, options);
+var update = __webpack_require__(222)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -10945,12 +10934,6 @@ if(false) {
 }
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(90);
-
-/***/ }),
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10964,7 +10947,7 @@ var InterceptorManager = __webpack_require__(91);
 var isAbsoluteURL = __webpack_require__(99);
 var combineURLs = __webpack_require__(97);
 var bind = __webpack_require__(94);
-var transformData = __webpack_require__(54);
+var transformData = __webpack_require__(55);
 
 function Axios(defaultConfig) {
   this.defaults = utils.merge({}, defaultConfig);
@@ -11160,10 +11143,10 @@ module.exports = function dispatchRequest(config) {
         adapter = config.adapter;
       } else if (typeof XMLHttpRequest !== 'undefined') {
         // For browsers use XHR adapter
-        adapter = __webpack_require__(53);
+        adapter = __webpack_require__(54);
       } else if (typeof process !== 'undefined') {
         // For node use HTTP adapter
-        adapter = __webpack_require__(53);
+        adapter = __webpack_require__(54);
       }
 
       if (typeof adapter === 'function') {
@@ -11645,19 +11628,19 @@ module.exports = function spread(callback) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(52);
+var _reactDom = __webpack_require__(53);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _appContainer = __webpack_require__(87);
+var _appContainer = __webpack_require__(88);
 
 var _appContainer2 = _interopRequireDefault(_appContainer);
 
-__webpack_require__(88);
+__webpack_require__(89);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11703,7 +11686,194 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _concerts = __webpack_require__(105);
+
+var _concerts2 = _interopRequireDefault(_concerts);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ArtistInfo = function (_React$Component) {
+  _inherits(ArtistInfo, _React$Component);
+
+  function ArtistInfo(props) {
+    _classCallCheck(this, ArtistInfo);
+
+    var _this = _possibleConstructorReturn(this, (ArtistInfo.__proto__ || Object.getPrototypeOf(ArtistInfo)).call(this, props));
+
+    _this.show = function () {
+      _this.setState({
+        display: _this.state.display === 'none' ? 'block' : 'none'
+      });
+    };
+
+    _this.hasConcerts = function () {
+      if (_this.props.concerts.length) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'show' },
+          _react2.default.createElement(
+            'h2',
+            { onClick: _this.show, style: { cursor: 'pointer' } },
+            'Show Concerts'
+          ),
+          _react2.default.createElement(_concerts2.default, { display: _this.state.display, concerts: _this.props.concerts })
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: 'show' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'We don\'t have any concerts'
+          )
+        );
+      }
+    };
+
+    _this.state = {
+      display: 'none'
+    };
+    return _this;
+  }
+
+  _createClass(ArtistInfo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'artistInfo' },
+        _react2.default.createElement(
+          'div',
+          { className: 'info' },
+          _react2.default.createElement('img', { src: this.props.artistInfo.thumb_url }),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'p',
+              null,
+              this.props.artistInfo.name
+            ),
+            _react2.default.createElement(
+              'a',
+              { href: this.props.artistInfo.facebook_page_url, target: '_blank' },
+              this.props.artistInfo.facebook_page_url ? _react2.default.createElement('i', { className: 'fa fa-facebook-square', 'aria-hidden': 'true' }) : null,
+              _react2.default.createElement(
+                'span',
+                null,
+                this.props.artistInfo.facebook_page_url
+              )
+            )
+          )
+        ),
+        this.hasConcerts()
+      );
+    }
+  }]);
+
+  return ArtistInfo;
+}(_react2.default.Component);
+
+exports.default = ArtistInfo;
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Concerts = function (_React$Component) {
+  _inherits(Concerts, _React$Component);
+
+  function Concerts() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Concerts);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Concerts.__proto__ || Object.getPrototypeOf(Concerts)).call.apply(_ref, [this].concat(args))), _this), _this.showMore = function (event) {
+      console.log(event.target);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Concerts, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var li = this.props.concerts.map(function (elem, i) {
+        return _react2.default.createElement(
+          'li',
+          { onClick: _this2.showMore, key: i },
+          elem.venue.name
+        );
+      });
+      return _react2.default.createElement(
+        'div',
+        { style: { display: this.props.display }, className: 'concerts' },
+        _react2.default.createElement(
+          'ul',
+          { style: { listStyle: 'none' } },
+          li
+        )
+      );
+    }
+  }]);
+
+  return Concerts;
+}(_react2.default.Component);
+
+exports.default = Concerts;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -11737,7 +11907,7 @@ var Cover = function (_React$Component) {
 exports.default = Cover;
 
 /***/ }),
-/* 105 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11749,7 +11919,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -11780,7 +11950,11 @@ var Footer = function (_React$Component) {
           "p",
           null,
           "Powered by Deezer ",
-          _react2.default.createElement("img", { src: "images/DZ_Logo.png" })
+          _react2.default.createElement(
+            "a",
+            { href: "http://www.deezer.com/pl/", target: "_blank" },
+            _react2.default.createElement("img", { src: "images/DZ_Logo.png" })
+          )
         )
       );
     }
@@ -11792,7 +11966,7 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 106 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11804,7 +11978,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -11819,49 +11993,67 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Player = function (_React$Component) {
   _inherits(Player, _React$Component);
 
-  function Player() {
+  function Player(props) {
     _classCallCheck(this, Player);
 
-    return _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+
+    _this.changeIsPlaying = function () {
+      if (_this.state.counter === 0) {
+        _this.setState({
+          isPlaying: true,
+          counter: 1
+        });
+        _this.props.playTrack();
+      } else {
+        if (_this.state.isPlaying === false) {
+          _this.setState({
+            isPlaying: true
+          });
+          DZ.player.play();
+        } else {
+          _this.setState({
+            isPlaying: false
+          });
+          DZ.player.pause();
+        }
+      }
+    };
+
+    _this.changeTrack = function () {
+      _this.setState({
+        isPlaying: false,
+        counter: 0
+      });
+      DZ.player.pause();
+      _this.props.randomTrack();
+    };
+
+    _this.state = {
+      isPlaying: false,
+      counter: 0
+    };
+    return _this;
   }
 
   _createClass(Player, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'player' },
+        "div",
+        { className: "player" },
         _react2.default.createElement(
-          'button',
-          { onClick: this.props.playTrack },
-          'Play a song'
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: function onClick() {
-              DZ.player.play();console.log('play');
-            } },
-          _react2.default.createElement('i', { className: 'fa fa-pause' })
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: function onClick() {
-              DZ.player.pause();console.log('pause');
-            } },
-          _react2.default.createElement('i', { className: 'fa fa-play' })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'playerMain' },
+          "div",
+          { className: "playerMain" },
           _react2.default.createElement(
-            'button',
-            { onClick: this.props.playOrPause },
-            _react2.default.createElement('i', { className: this.props.playStatus === 'PLAYING' ? 'fa fa-pause' : 'fa fa-play' })
+            "button",
+            { onClick: this.changeIsPlaying },
+            _react2.default.createElement("i", { className: this.state.isPlaying ? 'fa fa-pause-circle' : 'fa fa-play-circle', "aria-hidden": "true" })
           ),
           _react2.default.createElement(
-            'button',
-            { onClick: this.props.randomTrack },
-            _react2.default.createElement('i', { className: 'fa fa-random' })
+            "button",
+            { onClick: this.changeTrack },
+            _react2.default.createElement("i", { className: "fa fa-angle-double-right", "aria-hidden": "true" })
           )
         )
       );
@@ -11874,7 +12066,7 @@ var Player = function (_React$Component) {
 exports.default = Player;
 
 /***/ }),
-/* 107 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11886,15 +12078,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _player = __webpack_require__(106);
+var _player = __webpack_require__(108);
 
 var _player2 = _interopRequireDefault(_player);
 
-var _progress = __webpack_require__(108);
+var _progress = __webpack_require__(110);
 
 var _progress2 = _interopRequireDefault(_progress);
 
@@ -11922,8 +12114,6 @@ var PlayerAndProgress = function (_React$Component) {
         'div',
         { className: 'playerAndProgress' },
         _react2.default.createElement(_player2.default, {
-          playOrPause: this.props.playOrPause,
-          playStatus: this.props.playStatus,
           randomTrack: this.props.randomTrack,
           track: this.props.track,
           playTrack: this.props.playTrack }),
@@ -11941,7 +12131,7 @@ var PlayerAndProgress = function (_React$Component) {
 exports.default = PlayerAndProgress;
 
 /***/ }),
-/* 108 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11953,7 +12143,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -12010,7 +12200,7 @@ var Progress = function (_React$Component) {
 exports.default = Progress;
 
 /***/ }),
-/* 109 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12022,11 +12212,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAutocomplete = __webpack_require__(134);
+var _reactAutocomplete = __webpack_require__(136);
 
 var _reactAutocomplete2 = _interopRequireDefault(_reactAutocomplete);
 
@@ -12116,7 +12306,7 @@ var Search = function (_React$Component) {
 exports.default = Search;
 
 /***/ }),
-/* 110 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12128,7 +12318,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(10);
+var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -12161,15 +12351,8 @@ var Title = function (_React$Component) {
           _react2.default.createElement(
             "h3",
             null,
-            this.props.title_short
-          )
-        ),
-        _react2.default.createElement(
-          "div",
-          null,
-          _react2.default.createElement(
-            "h4",
-            null,
+            this.props.title_short,
+            " - ",
             this.props.artist
           )
         )
@@ -12183,7 +12366,7 @@ var Title = function (_React$Component) {
 exports.default = Title;
 
 /***/ }),
-/* 111 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13063,21 +13246,21 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 112 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(113)(undefined);
+exports = module.exports = __webpack_require__(115)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: center; }\n  .search:first-child {\n    width: 25%; }\n    .search:first-child input {\n      width: 100%;\n      height: 100%;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 3px 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center; }\n  .title h3 {\n    margin: 10vh 0 2vh 0;\n    font-size: 1.5em; }\n  .title h4 {\n    margin: 11.5vh 0 2vh 1em;\n    font-size: 1em; }\n\n.cover {\n  margin: 3vh 0 0 0; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 5vw;\n  width: 25%;\n  display: flex;\n  flex-wrap: wrap;\n  border: 1px solid red; }\n  .artistInfo div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo div > p {\n      vertical-align: top; }\n    .artistInfo div a {\n      color: white;\n      text-decoration: none; }\n      .artistInfo div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n      .artistInfo div a p {\n        clear: both;\n        display: block;\n        margin-top: 10px; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 10px; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  display: flex;\n  justify-content: space-between;\n  padding: 0 1em;\n  position: absolute;\n  bottom: 0; }\n  .footer img {\n    height: 16px;\n    width: auto; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: center; }\n  .search:first-child {\n    width: 25%; }\n    .search:first-child input {\n      width: 100%;\n      height: 100%;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 3px 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 11.5vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.cover {\n  margin: 3vh 0 0 0; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 3vw;\n  width: 30%;\n  display: flex;\n  flex-wrap: wrap; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 1em; }\n  .artistInfo .info div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo .info div > p {\n      vertical-align: top;\n      font-size: 1.3em;\n      margin-bottom: 0.3em; }\n    .artistInfo .info div a {\n      color: white;\n      text-decoration: none;\n      font-size: 1em; }\n      .artistInfo .info div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo .info div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n  .artistInfo div.show {\n    margin-top: 1em;\n    clear: both;\n    width: 100%;\n    font-size: 1.2em; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  display: flex;\n  justify-content: space-between;\n  padding: 0 1em;\n  position: absolute;\n  bottom: 0; }\n  .footer img {\n    height: 16px;\n    width: auto; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 113 */
+/* 115 */
 /***/ (function(module, exports) {
 
 /*
@@ -13159,17 +13342,17 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 114 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(115);
+module.exports = __webpack_require__(117);
 
 
 /***/ }),
-/* 115 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var util = __webpack_require__(116);
+var util = __webpack_require__(118);
 
 function scrollIntoView(elem, container, config) {
   config = config || {};
@@ -13294,7 +13477,7 @@ module.exports = scrollIntoView;
 
 
 /***/ }),
-/* 116 */
+/* 118 */
 /***/ (function(module, exports) {
 
 var RE_NUM = /[\-+]?(?:\d*\.|)\d+(?:[eE][\-+]?\d+|)/.source;
@@ -13731,7 +13914,7 @@ mix(utils, domUtils);
 
 
 /***/ }),
-/* 117 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13768,7 +13951,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 118 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13785,7 +13968,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(117);
+var camelize = __webpack_require__(119);
 
 var msPattern = /^-ms-/;
 
@@ -13813,7 +13996,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 119 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13830,7 +14013,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(127);
+var isTextNode = __webpack_require__(129);
 
 /*eslint-disable no-bitwise */
 
@@ -13858,7 +14041,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 120 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13991,7 +14174,7 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14012,8 +14195,8 @@ module.exports = createArrayFromMixed;
 
 var ExecutionEnvironment = __webpack_require__(6);
 
-var createArrayFromMixed = __webpack_require__(120);
-var getMarkupWrap = __webpack_require__(122);
+var createArrayFromMixed = __webpack_require__(122);
+var getMarkupWrap = __webpack_require__(124);
 var invariant = __webpack_require__(1);
 
 /**
@@ -14081,7 +14264,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14182,7 +14365,7 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 123 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14226,7 +14409,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 124 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14264,7 +14447,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 125 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14281,7 +14464,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(124);
+var hyphenate = __webpack_require__(126);
 
 var msPattern = /^ms-/;
 
@@ -14308,7 +14491,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 126 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14338,7 +14521,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 127 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14355,7 +14538,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(126);
+var isNode = __webpack_require__(128);
 
 /**
  * @param {*} object The object to check.
@@ -14368,7 +14551,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 128 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14403,7 +14586,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 129 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14431,7 +14614,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 130 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14448,7 +14631,7 @@ module.exports = performance || {};
  * @typechecks
  */
 
-var performance = __webpack_require__(129);
+var performance = __webpack_require__(131);
 
 var performanceNow;
 
@@ -14470,7 +14653,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 131 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14488,7 +14671,7 @@ module.exports = performanceNow;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(1);
   var warning = __webpack_require__(2);
-  var ReactPropTypesSecret = __webpack_require__(35);
+  var ReactPropTypesSecret = __webpack_require__(36);
   var loggedTypeFailures = {};
 }
 
@@ -14539,7 +14722,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 132 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14554,9 +14737,9 @@ module.exports = checkPropTypes;
 
 
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(1);
-var ReactPropTypesSecret = __webpack_require__(35);
+var ReactPropTypesSecret = __webpack_require__(36);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -14605,7 +14788,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 133 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14632,17 +14815,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(59)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(60)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(132)();
+  module.exports = __webpack_require__(134)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 134 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14658,13 +14841,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = __webpack_require__(10);
-var PropTypes = __webpack_require__(133);
+var React = __webpack_require__(7);
+var PropTypes = __webpack_require__(135);
 
-var _require = __webpack_require__(52),
+var _require = __webpack_require__(53),
     findDOMNode = _require.findDOMNode;
 
-var scrollIntoView = __webpack_require__(114);
+var scrollIntoView = __webpack_require__(116);
 
 var IMPERATIVE_API = ['blur', 'checkValidity', 'click', 'focus', 'select', 'setCustomValidity', 'setSelectionRange', 'setRangeText'];
 
@@ -15218,10 +15401,10 @@ Autocomplete.keyDownHandlers = {
 
 
 module.exports = Autocomplete;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(222)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(224)))
 
 /***/ }),
-/* 135 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15300,7 +15483,7 @@ var ARIADOMPropertyConfig = {
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
-/* 136 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15318,7 +15501,7 @@ module.exports = ARIADOMPropertyConfig;
 
 var ReactDOMComponentTree = __webpack_require__(5);
 
-var focusNode = __webpack_require__(56);
+var focusNode = __webpack_require__(57);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -15329,7 +15512,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 137 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15347,9 +15530,9 @@ module.exports = AutoFocusUtils;
 
 var EventPropagators = __webpack_require__(23);
 var ExecutionEnvironment = __webpack_require__(6);
-var FallbackCompositionState = __webpack_require__(143);
-var SyntheticCompositionEvent = __webpack_require__(186);
-var SyntheticInputEvent = __webpack_require__(189);
+var FallbackCompositionState = __webpack_require__(145);
+var SyntheticCompositionEvent = __webpack_require__(188);
+var SyntheticInputEvent = __webpack_require__(191);
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -15718,7 +15901,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 138 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15734,14 +15917,14 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var CSSProperty = __webpack_require__(60);
+var CSSProperty = __webpack_require__(61);
 var ExecutionEnvironment = __webpack_require__(6);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactInstrumentation = __webpack_require__(10);
 
-var camelizeStyleName = __webpack_require__(118);
-var dangerousStyleValue = __webpack_require__(196);
-var hyphenateStyleName = __webpack_require__(125);
-var memoizeStringOnly = __webpack_require__(128);
+var camelizeStyleName = __webpack_require__(120);
+var dangerousStyleValue = __webpack_require__(198);
+var hyphenateStyleName = __webpack_require__(127);
+var memoizeStringOnly = __webpack_require__(130);
 var warning = __webpack_require__(2);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -15939,7 +16122,7 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 139 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15962,10 +16145,10 @@ var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 var SyntheticEvent = __webpack_require__(14);
 
-var inputValueTracking = __webpack_require__(77);
-var getEventTarget = __webpack_require__(47);
-var isEventSupported = __webpack_require__(48);
-var isTextInputElement = __webpack_require__(79);
+var inputValueTracking = __webpack_require__(78);
+var getEventTarget = __webpack_require__(48);
+var isEventSupported = __webpack_require__(49);
+var isTextInputElement = __webpack_require__(80);
 
 var eventTypes = {
   change: {
@@ -16256,7 +16439,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 140 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16277,8 +16460,8 @@ var _prodInvariant = __webpack_require__(3);
 var DOMLazyTree = __webpack_require__(18);
 var ExecutionEnvironment = __webpack_require__(6);
 
-var createNodesFromMarkup = __webpack_require__(121);
-var emptyFunction = __webpack_require__(8);
+var createNodesFromMarkup = __webpack_require__(123);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(1);
 
 var Danger = {
@@ -16308,7 +16491,7 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 141 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16339,7 +16522,7 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 142 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16442,7 +16625,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 143 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16462,7 +16645,7 @@ var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(16);
 
-var getTextContentAccessor = __webpack_require__(76);
+var getTextContentAccessor = __webpack_require__(77);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -16542,7 +16725,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 144 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16783,7 +16966,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 145 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16801,10 +16984,10 @@ module.exports = HTMLDOMPropertyConfig;
 
 var ReactReconciler = __webpack_require__(19);
 
-var instantiateReactComponent = __webpack_require__(78);
-var KeyEscapeUtils = __webpack_require__(39);
-var shouldUpdateReactComponent = __webpack_require__(49);
-var traverseAllChildren = __webpack_require__(81);
+var instantiateReactComponent = __webpack_require__(79);
+var KeyEscapeUtils = __webpack_require__(40);
+var shouldUpdateReactComponent = __webpack_require__(50);
+var traverseAllChildren = __webpack_require__(82);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -16815,7 +16998,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(7);
+  ReactComponentTreeHook = __webpack_require__(8);
 }
 
 function instantiateChild(childInstances, child, name, selfDebugID) {
@@ -16823,7 +17006,7 @@ function instantiateChild(childInstances, child, name, selfDebugID) {
   var keyUnique = childInstances[name] === undefined;
   if (process.env.NODE_ENV !== 'production') {
     if (!ReactComponentTreeHook) {
-      ReactComponentTreeHook = __webpack_require__(7);
+      ReactComponentTreeHook = __webpack_require__(8);
     }
     if (!keyUnique) {
       process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -16942,7 +17125,7 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 146 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16958,8 +17141,8 @@ module.exports = ReactChildReconciler;
 
 
 
-var DOMChildrenOperations = __webpack_require__(36);
-var ReactDOMIDOperations = __webpack_require__(153);
+var DOMChildrenOperations = __webpack_require__(37);
+var ReactDOMIDOperations = __webpack_require__(155);
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -16975,7 +17158,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 147 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16995,22 +17178,22 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
 var React = __webpack_require__(20);
-var ReactComponentEnvironment = __webpack_require__(41);
+var ReactComponentEnvironment = __webpack_require__(42);
 var ReactCurrentOwner = __webpack_require__(12);
-var ReactErrorUtils = __webpack_require__(42);
+var ReactErrorUtils = __webpack_require__(43);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(9);
-var ReactNodeTypes = __webpack_require__(70);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactNodeTypes = __webpack_require__(71);
 var ReactReconciler = __webpack_require__(19);
 
 if (process.env.NODE_ENV !== 'production') {
-  var checkReactTypeSpec = __webpack_require__(195);
+  var checkReactTypeSpec = __webpack_require__(197);
 }
 
 var emptyObject = __webpack_require__(26);
 var invariant = __webpack_require__(1);
-var shallowEqual = __webpack_require__(34);
-var shouldUpdateReactComponent = __webpack_require__(49);
+var shallowEqual = __webpack_require__(35);
+var shouldUpdateReactComponent = __webpack_require__(50);
 var warning = __webpack_require__(2);
 
 var CompositeTypes = {
@@ -17881,7 +18064,7 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 148 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17900,15 +18083,15 @@ module.exports = ReactCompositeComponent;
 
 
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDefaultInjection = __webpack_require__(165);
-var ReactMount = __webpack_require__(69);
+var ReactDefaultInjection = __webpack_require__(167);
+var ReactMount = __webpack_require__(70);
 var ReactReconciler = __webpack_require__(19);
 var ReactUpdates = __webpack_require__(11);
-var ReactVersion = __webpack_require__(180);
+var ReactVersion = __webpack_require__(182);
 
-var findDOMNode = __webpack_require__(197);
-var getHostComponentFromComposite = __webpack_require__(75);
-var renderSubtreeIntoContainer = __webpack_require__(204);
+var findDOMNode = __webpack_require__(199);
+var getHostComponentFromComposite = __webpack_require__(76);
+var renderSubtreeIntoContainer = __webpack_require__(206);
 var warning = __webpack_require__(2);
 
 ReactDefaultInjection.inject();
@@ -17984,10 +18167,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactInstrumentation = __webpack_require__(9);
-  var ReactDOMUnknownPropertyHook = __webpack_require__(162);
-  var ReactDOMNullInputValuePropHook = __webpack_require__(156);
-  var ReactDOMInvalidARIAHook = __webpack_require__(155);
+  var ReactInstrumentation = __webpack_require__(10);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(164);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(158);
+  var ReactDOMInvalidARIAHook = __webpack_require__(157);
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -17998,7 +18181,7 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 149 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18019,32 +18202,32 @@ module.exports = ReactDOM;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var AutoFocusUtils = __webpack_require__(136);
-var CSSPropertyOperations = __webpack_require__(138);
+var AutoFocusUtils = __webpack_require__(138);
+var CSSPropertyOperations = __webpack_require__(140);
 var DOMLazyTree = __webpack_require__(18);
-var DOMNamespaces = __webpack_require__(37);
+var DOMNamespaces = __webpack_require__(38);
 var DOMProperty = __webpack_require__(15);
-var DOMPropertyOperations = __webpack_require__(62);
+var DOMPropertyOperations = __webpack_require__(63);
 var EventPluginHub = __webpack_require__(22);
 var EventPluginRegistry = __webpack_require__(27);
 var ReactBrowserEventEmitter = __webpack_require__(28);
-var ReactDOMComponentFlags = __webpack_require__(63);
+var ReactDOMComponentFlags = __webpack_require__(64);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMInput = __webpack_require__(154);
-var ReactDOMOption = __webpack_require__(157);
-var ReactDOMSelect = __webpack_require__(64);
-var ReactDOMTextarea = __webpack_require__(160);
-var ReactInstrumentation = __webpack_require__(9);
-var ReactMultiChild = __webpack_require__(173);
-var ReactServerRenderingTransaction = __webpack_require__(178);
+var ReactDOMInput = __webpack_require__(156);
+var ReactDOMOption = __webpack_require__(159);
+var ReactDOMSelect = __webpack_require__(65);
+var ReactDOMTextarea = __webpack_require__(162);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactMultiChild = __webpack_require__(175);
+var ReactServerRenderingTransaction = __webpack_require__(180);
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 var escapeTextContentForBrowser = __webpack_require__(31);
 var invariant = __webpack_require__(1);
-var isEventSupported = __webpack_require__(48);
-var shallowEqual = __webpack_require__(34);
-var inputValueTracking = __webpack_require__(77);
-var validateDOMNesting = __webpack_require__(50);
+var isEventSupported = __webpack_require__(49);
+var shallowEqual = __webpack_require__(35);
+var inputValueTracking = __webpack_require__(78);
+var validateDOMNesting = __webpack_require__(51);
 var warning = __webpack_require__(2);
 
 var Flags = ReactDOMComponentFlags;
@@ -19014,7 +19197,7 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 150 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19030,7 +19213,7 @@ module.exports = ReactDOMComponent;
 
 
 
-var validateDOMNesting = __webpack_require__(50);
+var validateDOMNesting = __webpack_require__(51);
 
 var DOC_NODE_TYPE = 9;
 
@@ -19053,7 +19236,7 @@ module.exports = ReactDOMContainerInfo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 151 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19118,7 +19301,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
-/* 152 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19142,7 +19325,7 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
-/* 153 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19158,7 +19341,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var DOMChildrenOperations = __webpack_require__(36);
+var DOMChildrenOperations = __webpack_require__(37);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 /**
@@ -19180,7 +19363,7 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
-/* 154 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19199,8 +19382,8 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DOMPropertyOperations = __webpack_require__(62);
-var LinkedValueUtils = __webpack_require__(40);
+var DOMPropertyOperations = __webpack_require__(63);
+var LinkedValueUtils = __webpack_require__(41);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
@@ -19473,7 +19656,7 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 155 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19490,7 +19673,7 @@ module.exports = ReactDOMInput;
 
 
 var DOMProperty = __webpack_require__(15);
-var ReactComponentTreeHook = __webpack_require__(7);
+var ReactComponentTreeHook = __webpack_require__(8);
 
 var warning = __webpack_require__(2);
 
@@ -19572,7 +19755,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 156 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19588,7 +19771,7 @@ module.exports = ReactDOMInvalidARIAHook;
 
 
 
-var ReactComponentTreeHook = __webpack_require__(7);
+var ReactComponentTreeHook = __webpack_require__(8);
 
 var warning = __webpack_require__(2);
 
@@ -19621,7 +19804,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 157 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19641,7 +19824,7 @@ var _assign = __webpack_require__(4);
 
 var React = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMSelect = __webpack_require__(64);
+var ReactDOMSelect = __webpack_require__(65);
 
 var warning = __webpack_require__(2);
 var didWarnInvalidOptionChildren = false;
@@ -19749,7 +19932,7 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 158 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19767,8 +19950,8 @@ module.exports = ReactDOMOption;
 
 var ExecutionEnvironment = __webpack_require__(6);
 
-var getNodeForCharacterOffset = __webpack_require__(201);
-var getTextContentAccessor = __webpack_require__(76);
+var getNodeForCharacterOffset = __webpack_require__(203);
+var getTextContentAccessor = __webpack_require__(77);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -19966,7 +20149,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 159 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19985,13 +20168,13 @@ module.exports = ReactDOMSelection;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DOMChildrenOperations = __webpack_require__(36);
+var DOMChildrenOperations = __webpack_require__(37);
 var DOMLazyTree = __webpack_require__(18);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 var escapeTextContentForBrowser = __webpack_require__(31);
 var invariant = __webpack_require__(1);
-var validateDOMNesting = __webpack_require__(50);
+var validateDOMNesting = __webpack_require__(51);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -20134,7 +20317,7 @@ module.exports = ReactDOMTextComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 160 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20153,7 +20336,7 @@ module.exports = ReactDOMTextComponent;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var LinkedValueUtils = __webpack_require__(40);
+var LinkedValueUtils = __webpack_require__(41);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
@@ -20300,7 +20483,7 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 161 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20442,7 +20625,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 162 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20460,7 +20643,7 @@ module.exports = {
 
 var DOMProperty = __webpack_require__(15);
 var EventPluginRegistry = __webpack_require__(27);
-var ReactComponentTreeHook = __webpack_require__(7);
+var ReactComponentTreeHook = __webpack_require__(8);
 
 var warning = __webpack_require__(2);
 
@@ -20560,7 +20743,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 163 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20577,12 +20760,12 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 
 
-var ReactInvalidSetStateWarningHook = __webpack_require__(171);
-var ReactHostOperationHistoryHook = __webpack_require__(169);
-var ReactComponentTreeHook = __webpack_require__(7);
+var ReactInvalidSetStateWarningHook = __webpack_require__(173);
+var ReactHostOperationHistoryHook = __webpack_require__(171);
+var ReactComponentTreeHook = __webpack_require__(8);
 var ExecutionEnvironment = __webpack_require__(6);
 
-var performanceNow = __webpack_require__(130);
+var performanceNow = __webpack_require__(132);
 var warning = __webpack_require__(2);
 
 var hooks = [];
@@ -20927,7 +21110,7 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 164 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20948,7 +21131,7 @@ var _assign = __webpack_require__(4);
 var ReactUpdates = __webpack_require__(11);
 var Transaction = __webpack_require__(30);
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(9);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -21000,7 +21183,7 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
-/* 165 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21016,25 +21199,25 @@ module.exports = ReactDefaultBatchingStrategy;
 
 
 
-var ARIADOMPropertyConfig = __webpack_require__(135);
-var BeforeInputEventPlugin = __webpack_require__(137);
-var ChangeEventPlugin = __webpack_require__(139);
-var DefaultEventPluginOrder = __webpack_require__(141);
-var EnterLeaveEventPlugin = __webpack_require__(142);
-var HTMLDOMPropertyConfig = __webpack_require__(144);
-var ReactComponentBrowserEnvironment = __webpack_require__(146);
-var ReactDOMComponent = __webpack_require__(149);
+var ARIADOMPropertyConfig = __webpack_require__(137);
+var BeforeInputEventPlugin = __webpack_require__(139);
+var ChangeEventPlugin = __webpack_require__(141);
+var DefaultEventPluginOrder = __webpack_require__(143);
+var EnterLeaveEventPlugin = __webpack_require__(144);
+var HTMLDOMPropertyConfig = __webpack_require__(146);
+var ReactComponentBrowserEnvironment = __webpack_require__(148);
+var ReactDOMComponent = __webpack_require__(151);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMEmptyComponent = __webpack_require__(151);
-var ReactDOMTreeTraversal = __webpack_require__(161);
-var ReactDOMTextComponent = __webpack_require__(159);
-var ReactDefaultBatchingStrategy = __webpack_require__(164);
-var ReactEventListener = __webpack_require__(168);
-var ReactInjection = __webpack_require__(170);
-var ReactReconcileTransaction = __webpack_require__(176);
-var SVGDOMPropertyConfig = __webpack_require__(181);
-var SelectEventPlugin = __webpack_require__(182);
-var SimpleEventPlugin = __webpack_require__(183);
+var ReactDOMEmptyComponent = __webpack_require__(153);
+var ReactDOMTreeTraversal = __webpack_require__(163);
+var ReactDOMTextComponent = __webpack_require__(161);
+var ReactDefaultBatchingStrategy = __webpack_require__(166);
+var ReactEventListener = __webpack_require__(170);
+var ReactInjection = __webpack_require__(172);
+var ReactReconcileTransaction = __webpack_require__(178);
+var SVGDOMPropertyConfig = __webpack_require__(183);
+var SelectEventPlugin = __webpack_require__(184);
+var SimpleEventPlugin = __webpack_require__(185);
 
 var alreadyInjected = false;
 
@@ -21091,7 +21274,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 166 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21116,7 +21299,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 167 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21153,7 +21336,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 168 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21171,14 +21354,14 @@ module.exports = ReactEventEmitterMixin;
 
 var _assign = __webpack_require__(4);
 
-var EventListener = __webpack_require__(55);
+var EventListener = __webpack_require__(56);
 var ExecutionEnvironment = __webpack_require__(6);
 var PooledClass = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
-var getEventTarget = __webpack_require__(47);
-var getUnboundedScrollPosition = __webpack_require__(123);
+var getEventTarget = __webpack_require__(48);
+var getUnboundedScrollPosition = __webpack_require__(125);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -21313,7 +21496,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 169 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21352,7 +21535,7 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
-/* 170 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21370,11 +21553,11 @@ module.exports = ReactHostOperationHistoryHook;
 
 var DOMProperty = __webpack_require__(15);
 var EventPluginHub = __webpack_require__(22);
-var EventPluginUtils = __webpack_require__(38);
-var ReactComponentEnvironment = __webpack_require__(41);
-var ReactEmptyComponent = __webpack_require__(65);
+var EventPluginUtils = __webpack_require__(39);
+var ReactComponentEnvironment = __webpack_require__(42);
+var ReactEmptyComponent = __webpack_require__(66);
 var ReactBrowserEventEmitter = __webpack_require__(28);
-var ReactHostComponent = __webpack_require__(67);
+var ReactHostComponent = __webpack_require__(68);
 var ReactUpdates = __webpack_require__(11);
 
 var ReactInjection = {
@@ -21391,7 +21574,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 171 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21434,7 +21617,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 172 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21450,7 +21633,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 
 
 
-var adler32 = __webpack_require__(194);
+var adler32 = __webpack_require__(196);
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -21489,7 +21672,7 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
-/* 173 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21507,16 +21690,16 @@ module.exports = ReactMarkupChecksum;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactComponentEnvironment = __webpack_require__(41);
+var ReactComponentEnvironment = __webpack_require__(42);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactInstrumentation = __webpack_require__(10);
 
 var ReactCurrentOwner = __webpack_require__(12);
 var ReactReconciler = __webpack_require__(19);
-var ReactChildReconciler = __webpack_require__(145);
+var ReactChildReconciler = __webpack_require__(147);
 
-var emptyFunction = __webpack_require__(8);
-var flattenChildren = __webpack_require__(198);
+var emptyFunction = __webpack_require__(9);
+var flattenChildren = __webpack_require__(200);
 var invariant = __webpack_require__(1);
 
 /**
@@ -21941,7 +22124,7 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 174 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22040,7 +22223,7 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 175 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22071,7 +22254,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 176 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22089,13 +22272,13 @@ module.exports = ReactPropTypeLocationNames;
 
 var _assign = __webpack_require__(4);
 
-var CallbackQueue = __webpack_require__(61);
+var CallbackQueue = __webpack_require__(62);
 var PooledClass = __webpack_require__(16);
 var ReactBrowserEventEmitter = __webpack_require__(28);
-var ReactInputSelection = __webpack_require__(68);
-var ReactInstrumentation = __webpack_require__(9);
+var ReactInputSelection = __webpack_require__(69);
+var ReactInstrumentation = __webpack_require__(10);
 var Transaction = __webpack_require__(30);
-var ReactUpdateQueue = __webpack_require__(43);
+var ReactUpdateQueue = __webpack_require__(44);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -22255,7 +22438,7 @@ module.exports = ReactReconcileTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 177 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22272,7 +22455,7 @@ module.exports = ReactReconcileTransaction;
 
 
 
-var ReactOwner = __webpack_require__(174);
+var ReactOwner = __webpack_require__(176);
 
 var ReactRef = {};
 
@@ -22349,7 +22532,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22369,8 +22552,8 @@ var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(16);
 var Transaction = __webpack_require__(30);
-var ReactInstrumentation = __webpack_require__(9);
-var ReactServerUpdateQueue = __webpack_require__(179);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactServerUpdateQueue = __webpack_require__(181);
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -22445,7 +22628,7 @@ module.exports = ReactServerRenderingTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 179 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22464,7 +22647,7 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(43);
+var ReactUpdateQueue = __webpack_require__(44);
 
 var warning = __webpack_require__(2);
 
@@ -22590,7 +22773,7 @@ module.exports = ReactServerUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 180 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22609,7 +22792,7 @@ module.exports = ReactServerUpdateQueue;
 module.exports = '15.6.1';
 
 /***/ }),
-/* 181 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22916,7 +23099,7 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 182 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22935,12 +23118,12 @@ module.exports = SVGDOMPropertyConfig;
 var EventPropagators = __webpack_require__(23);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInputSelection = __webpack_require__(68);
+var ReactInputSelection = __webpack_require__(69);
 var SyntheticEvent = __webpack_require__(14);
 
-var getActiveElement = __webpack_require__(57);
-var isTextInputElement = __webpack_require__(79);
-var shallowEqual = __webpack_require__(34);
+var getActiveElement = __webpack_require__(58);
+var isTextInputElement = __webpack_require__(80);
+var shallowEqual = __webpack_require__(35);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -23109,7 +23292,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 183 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23128,23 +23311,23 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventListener = __webpack_require__(55);
+var EventListener = __webpack_require__(56);
 var EventPropagators = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(5);
-var SyntheticAnimationEvent = __webpack_require__(184);
-var SyntheticClipboardEvent = __webpack_require__(185);
+var SyntheticAnimationEvent = __webpack_require__(186);
+var SyntheticClipboardEvent = __webpack_require__(187);
 var SyntheticEvent = __webpack_require__(14);
-var SyntheticFocusEvent = __webpack_require__(188);
-var SyntheticKeyboardEvent = __webpack_require__(190);
+var SyntheticFocusEvent = __webpack_require__(190);
+var SyntheticKeyboardEvent = __webpack_require__(192);
 var SyntheticMouseEvent = __webpack_require__(29);
-var SyntheticDragEvent = __webpack_require__(187);
-var SyntheticTouchEvent = __webpack_require__(191);
-var SyntheticTransitionEvent = __webpack_require__(192);
+var SyntheticDragEvent = __webpack_require__(189);
+var SyntheticTouchEvent = __webpack_require__(193);
+var SyntheticTransitionEvent = __webpack_require__(194);
 var SyntheticUIEvent = __webpack_require__(25);
-var SyntheticWheelEvent = __webpack_require__(193);
+var SyntheticWheelEvent = __webpack_require__(195);
 
-var emptyFunction = __webpack_require__(8);
-var getEventCharCode = __webpack_require__(45);
+var emptyFunction = __webpack_require__(9);
+var getEventCharCode = __webpack_require__(46);
 var invariant = __webpack_require__(1);
 
 /**
@@ -23341,7 +23524,7 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 184 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23385,7 +23568,7 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
-/* 185 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23428,7 +23611,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 186 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23469,7 +23652,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 187 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23510,7 +23693,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 188 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23551,7 +23734,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 189 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23593,7 +23776,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 190 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23611,9 +23794,9 @@ module.exports = SyntheticInputEvent;
 
 var SyntheticUIEvent = __webpack_require__(25);
 
-var getEventCharCode = __webpack_require__(45);
-var getEventKey = __webpack_require__(199);
-var getEventModifierState = __webpack_require__(46);
+var getEventCharCode = __webpack_require__(46);
+var getEventKey = __webpack_require__(201);
+var getEventModifierState = __webpack_require__(47);
 
 /**
  * @interface KeyboardEvent
@@ -23682,7 +23865,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 191 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23700,7 +23883,7 @@ module.exports = SyntheticKeyboardEvent;
 
 var SyntheticUIEvent = __webpack_require__(25);
 
-var getEventModifierState = __webpack_require__(46);
+var getEventModifierState = __webpack_require__(47);
 
 /**
  * @interface TouchEvent
@@ -23732,7 +23915,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 192 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23776,7 +23959,7 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
-/* 193 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23832,7 +24015,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 194 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23881,7 +24064,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 195 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23899,8 +24082,8 @@ module.exports = adler32;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactPropTypeLocationNames = __webpack_require__(175);
-var ReactPropTypesSecret = __webpack_require__(71);
+var ReactPropTypeLocationNames = __webpack_require__(177);
+var ReactPropTypesSecret = __webpack_require__(72);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -23913,7 +24096,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(7);
+  ReactComponentTreeHook = __webpack_require__(8);
 }
 
 var loggedTypeFailures = {};
@@ -23955,7 +24138,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(7);
+            ReactComponentTreeHook = __webpack_require__(8);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -23974,7 +24157,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 196 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23990,7 +24173,7 @@ module.exports = checkReactTypeSpec;
 
 
 
-var CSSProperty = __webpack_require__(60);
+var CSSProperty = __webpack_require__(61);
 var warning = __webpack_require__(2);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -24059,7 +24242,7 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 197 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24081,7 +24264,7 @@ var ReactCurrentOwner = __webpack_require__(12);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstanceMap = __webpack_require__(24);
 
-var getHostComponentFromComposite = __webpack_require__(75);
+var getHostComponentFromComposite = __webpack_require__(76);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -24125,7 +24308,7 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 198 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24142,8 +24325,8 @@ module.exports = findDOMNode;
 
 
 
-var KeyEscapeUtils = __webpack_require__(39);
-var traverseAllChildren = __webpack_require__(81);
+var KeyEscapeUtils = __webpack_require__(40);
+var traverseAllChildren = __webpack_require__(82);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -24154,7 +24337,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(7);
+  ReactComponentTreeHook = __webpack_require__(8);
 }
 
 /**
@@ -24170,7 +24353,7 @@ function flattenSingleChildIntoContext(traverseContext, child, name, selfDebugID
     var keyUnique = result[name] === undefined;
     if (process.env.NODE_ENV !== 'production') {
       if (!ReactComponentTreeHook) {
-        ReactComponentTreeHook = __webpack_require__(7);
+        ReactComponentTreeHook = __webpack_require__(8);
       }
       if (!keyUnique) {
         process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -24207,7 +24390,7 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 199 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24223,7 +24406,7 @@ module.exports = flattenChildren;
 
 
 
-var getEventCharCode = __webpack_require__(45);
+var getEventCharCode = __webpack_require__(46);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -24324,7 +24507,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 200 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24370,7 +24553,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 201 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24449,7 +24632,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 202 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24555,7 +24738,7 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
-/* 203 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24586,7 +24769,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 204 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24602,233 +24785,13 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var ReactMount = __webpack_require__(69);
+var ReactMount = __webpack_require__(70);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 205 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _soundmanager2 = __webpack_require__(219);
-
-var pendingCalls = [];
-
-function _createSound(options, cb) {
-  if (_soundmanager2.soundManager.ok()) {
-    cb(_soundmanager2.soundManager.createSound(options));
-    return function () {};
-  } else {
-    var _ret = (function () {
-      var call = function call() {
-        cb(_soundmanager2.soundManager.createSound(options));
-      };
-
-      pendingCalls.push(call);
-
-      return {
-        v: function () {
-          pendingCalls.splice(pendingCalls.indexOf(call), 1);
-        }
-      };
-    })();
-
-    if (typeof _ret === 'object') return _ret.v;
-  }
-}
-
-_soundmanager2.soundManager.onready(function () {
-  pendingCalls.slice().forEach(function (cb) {
-    return cb();
-  });
-});
-
-function noop() {}
-
-var playStatuses = {
-  PLAYING: 'PLAYING',
-  STOPPED: 'STOPPED',
-  PAUSED: 'PAUSED'
-};
-
-var Sound = (function (_React$Component) {
-  function Sound() {
-    _classCallCheck(this, Sound);
-
-    _get(Object.getPrototypeOf(Sound.prototype), 'constructor', this).apply(this, arguments);
-  }
-
-  _inherits(Sound, _React$Component);
-
-  _createClass(Sound, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this = this;
-
-      this.createSound(function (sound) {
-        if (_this.props.playStatus === playStatuses.PLAYING) {
-          sound.play();
-        }
-      });
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.removeSound();
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps) {
-      var _this2 = this;
-
-      var withSound = function withSound(sound) {
-        if (!sound) {
-          return;
-        }
-
-        if (_this2.props.playStatus === playStatuses.PLAYING) {
-          if (sound.playState === 0) {
-            sound.play();
-          }
-
-          if (sound.paused) {
-            sound.resume();
-          }
-        } else if (_this2.props.playStatus === playStatuses.STOPPED) {
-          if (sound.playState !== 0) {
-            sound.stop();
-          }
-        } else {
-          // this.props.playStatus === playStatuses.PAUSED
-          if (!sound.paused) {
-            sound.pause();
-          }
-        }
-
-        if (_this2.props.playFromPosition !== prevProps.playFromPosition) {
-          sound.setPosition(_this2.props.playFromPosition);
-        }
-
-        if (_this2.props.position != null) {
-          if (sound.position !== _this2.props.position && Math.round(sound.position) !== Math.round(_this2.props.position)) {
-
-            sound.setPosition(_this2.props.position);
-          }
-        }
-      };
-
-      if (this.props.url !== prevProps.url) {
-        this.createSound(withSound);
-      } else {
-        withSound(this.sound);
-      }
-    }
-  }, {
-    key: 'createSound',
-    value: function createSound(callback) {
-      var _this3 = this;
-
-      this.removeSound();
-
-      var props = this.props;
-
-      if (!props.url) {
-        return;
-      }
-
-      this.stopCreatingSound = _createSound({
-        url: this.props.url,
-        whileloading: function whileloading() {
-          props.onLoading(this);
-        },
-        whileplaying: function whileplaying() {
-          props.onPlaying(this);
-        },
-        onfinish: function onfinish() {
-          props.onFinishedPlaying();
-        }
-      }, function (sound) {
-        _this3.sound = sound;
-        callback(sound);
-      });
-    }
-  }, {
-    key: 'removeSound',
-    value: function removeSound() {
-      if (this.stopCreatingSound) {
-        this.stopCreatingSound();
-        delete this.stopCreatingSound;
-      }
-
-      if (this.sound) {
-        try {
-          this.sound.destruct();
-        } catch (e) {} // eslint-disable-line
-
-        delete this.sound;
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return null;
-    }
-  }], [{
-    key: 'status',
-    value: playStatuses,
-    enumerable: true
-  }, {
-    key: 'propTypes',
-    value: {
-      url: _react.PropTypes.string.isRequired,
-      playStatus: _react.PropTypes.oneOf(Object.keys(playStatuses)).isRequired,
-      position: _react.PropTypes.number,
-      playFromPosition: _react.PropTypes.number,
-      onLoading: _react.PropTypes.func,
-      onPlaying: _react.PropTypes.func,
-      onFinishedPlaying: _react.PropTypes.func
-    },
-    enumerable: true
-  }, {
-    key: 'defaultProps',
-    value: {
-      playFromPosition: 0,
-      onLoading: noop,
-      onPlaying: noop,
-      onFinishedPlaying: noop
-    },
-    enumerable: true
-  }]);
-
-  return Sound;
-})(_react2['default'].Component);
-
-exports['default'] = Sound;
-module.exports = exports['default'];
-
-/***/ }),
-/* 206 */
+/* 207 */,
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24892,7 +24855,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 207 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25010,7 +24973,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 208 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25026,11 +24989,11 @@ module.exports = PooledClass;
 
 
 
-var PooledClass = __webpack_require__(207);
+var PooledClass = __webpack_require__(209);
 var ReactElement = __webpack_require__(17);
 
-var emptyFunction = __webpack_require__(8);
-var traverseAllChildren = __webpack_require__(218);
+var emptyFunction = __webpack_require__(9);
+var traverseAllChildren = __webpack_require__(220);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -25206,7 +25169,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 /***/ }),
-/* 209 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25231,7 +25194,7 @@ var ReactElement = __webpack_require__(17);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(84);
+  var ReactElementValidator = __webpack_require__(85);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -25381,7 +25344,7 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 210 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25412,7 +25375,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 211 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25431,12 +25394,12 @@ module.exports = ReactPropTypeLocationNames;
 var _require = __webpack_require__(17),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(58);
+var factory = __webpack_require__(59);
 
 module.exports = factory(isValidElement);
 
 /***/ }),
-/* 212 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25458,7 +25421,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 213 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25477,7 +25440,7 @@ module.exports = ReactPropTypesSecret;
 module.exports = '15.6.1';
 
 /***/ }),
-/* 214 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25495,8 +25458,8 @@ module.exports = '15.6.1';
 
 var _prodInvariant = __webpack_require__(21);
 
-var ReactPropTypeLocationNames = __webpack_require__(210);
-var ReactPropTypesSecret = __webpack_require__(212);
+var ReactPropTypeLocationNames = __webpack_require__(212);
+var ReactPropTypesSecret = __webpack_require__(214);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -25509,7 +25472,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(7);
+  ReactComponentTreeHook = __webpack_require__(8);
 }
 
 var loggedTypeFailures = {};
@@ -25551,7 +25514,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(7);
+            ReactComponentTreeHook = __webpack_require__(8);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -25570,7 +25533,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 215 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25586,19 +25549,19 @@ module.exports = checkReactTypeSpec;
 
 
 
-var _require = __webpack_require__(82),
+var _require = __webpack_require__(83),
     Component = _require.Component;
 
 var _require2 = __webpack_require__(17),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(85);
-var factory = __webpack_require__(111);
+var ReactNoopUpdateQueue = __webpack_require__(86);
+var factory = __webpack_require__(113);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 /***/ }),
-/* 216 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25624,7 +25587,7 @@ function getNextDebugID() {
 module.exports = getNextDebugID;
 
 /***/ }),
-/* 217 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25668,7 +25631,7 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25687,11 +25650,11 @@ module.exports = onlyChild;
 var _prodInvariant = __webpack_require__(21);
 
 var ReactCurrentOwner = __webpack_require__(12);
-var REACT_ELEMENT_TYPE = __webpack_require__(83);
+var REACT_ELEMENT_TYPE = __webpack_require__(84);
 
-var getIteratorFn = __webpack_require__(86);
+var getIteratorFn = __webpack_require__(87);
 var invariant = __webpack_require__(1);
-var KeyEscapeUtils = __webpack_require__(206);
+var KeyEscapeUtils = __webpack_require__(208);
 var warning = __webpack_require__(2);
 
 var SEPARATOR = '.';
@@ -25850,6309 +25813,8 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 219 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;/** @license
- *
- * SoundManager 2: JavaScript Sound for the Web
- * ----------------------------------------------
- * http://schillmania.com/projects/soundmanager2/
- *
- * Copyright (c) 2007, Scott Schiller. All rights reserved.
- * Code provided under the BSD License:
- * http://schillmania.com/projects/soundmanager2/license.txt
- *
- * V2.97a.20170601
- */
-
-/**
- * About this file
- * -------------------------------------------------------------------------------------
- * This is the fully-commented source version of the SoundManager 2 API,
- * recommended for use during development and testing.
- *
- * See soundmanager2-nodebug-jsmin.js for an optimized build (~11KB with gzip.)
- * http://schillmania.com/projects/soundmanager2/doc/getstarted/#basic-inclusion
- * Alternately, serve this file with gzip for 75% compression savings (~30KB over HTTP.)
- *
- * You may notice <d> and </d> comments in this source; these are delimiters for
- * debug blocks which are removed in the -nodebug builds, further optimizing code size.
- *
- * Also, as you may note: Whoa, reliable cross-platform/device audio support is hard! ;)
- */
-
-(function SM2(window, _undefined) {
-
-/* global Audio, document, window, navigator, define, module, SM2_DEFER, opera, setTimeout, setInterval, clearTimeout, sm2Debugger */
-
-'use strict';
-
-if (!window || !window.document) {
-
-  // Don't cross the [environment] streams. SM2 expects to be running in a browser, not under node.js etc.
-  // Additionally, if a browser somehow manages to fail this test, as Egon said: "It would be bad."
-
-  throw new Error('SoundManager requires a browser with window and document objects.');
-
-}
-
-var soundManager = null;
-
-/**
- * The SoundManager constructor.
- *
- * @constructor
- * @param {string} smURL Optional: Path to SWF files
- * @param {string} smID Optional: The ID to use for the SWF container element
- * @this {SoundManager}
- * @return {SoundManager} The new SoundManager instance
- */
-
-function SoundManager(smURL, smID) {
-
-  /**
-   * soundManager configuration options list
-   * defines top-level configuration properties to be applied to the soundManager instance (eg. soundManager.flashVersion)
-   * to set these properties, use the setup() method - eg., soundManager.setup({url: '/swf/', flashVersion: 9})
-   */
-
-  this.setupOptions = {
-
-    url: (smURL || null),             // path (directory) where SoundManager 2 SWFs exist, eg., /path/to/swfs/
-    flashVersion: 8,                  // flash build to use (8 or 9.) Some API features require 9.
-    debugMode: true,                  // enable debugging output (console.log() with HTML fallback)
-    debugFlash: false,                // enable debugging output inside SWF, troubleshoot Flash/browser issues
-    useConsole: true,                 // use console.log() if available (otherwise, writes to #soundmanager-debug element)
-    consoleOnly: true,                // if console is being used, do not create/write to #soundmanager-debug
-    waitForWindowLoad: false,         // force SM2 to wait for window.onload() before trying to call soundManager.onload()
-    bgColor: '#ffffff',               // SWF background color. N/A when wmode = 'transparent'
-    useHighPerformance: false,        // position:fixed flash movie can help increase js/flash speed, minimize lag
-    flashPollingInterval: null,       // msec affecting whileplaying/loading callback frequency. If null, default of 50 msec is used.
-    html5PollingInterval: null,       // msec affecting whileplaying() for HTML5 audio, excluding mobile devices. If null, native HTML5 update events are used.
-    flashLoadTimeout: 1000,           // msec to wait for flash movie to load before failing (0 = infinity)
-    wmode: null,                      // flash rendering mode - null, 'transparent', or 'opaque' (last two allow z-index to work)
-    allowScriptAccess: 'always',      // for scripting the SWF (object/embed property), 'always' or 'sameDomain'
-    useFlashBlock: false,             // *requires flashblock.css, see demos* - allow recovery from flash blockers. Wait indefinitely and apply timeout CSS to SWF, if applicable.
-    useHTML5Audio: true,              // use HTML5 Audio() where API is supported (most Safari, Chrome versions), Firefox (MP3/MP4 support varies.) Ideally, transparent vs. Flash API where possible.
-    forceUseGlobalHTML5Audio: false,  // if true, a single Audio() object is used for all sounds - and only one can play at a time.
-    ignoreMobileRestrictions: false,  // if true, SM2 will not apply global HTML5 audio rules to mobile UAs. iOS > 7 and WebViews may allow multiple Audio() instances.
-    html5Test: /^(probably|maybe)$/i, // HTML5 Audio() format support test. Use /^probably$/i; if you want to be more conservative.
-    preferFlash: false,               // overrides useHTML5audio, will use Flash for MP3/MP4/AAC if present. Potential option if HTML5 playback with these formats is quirky.
-    noSWFCache: false,                // if true, appends ?ts={date} to break aggressive SWF caching.
-    idPrefix: 'sound'                 // if an id is not provided to createSound(), this prefix is used for generated IDs - 'sound0', 'sound1' etc.
-
-  };
-
-  this.defaultOptions = {
-
-    /**
-     * the default configuration for sound objects made with createSound() and related methods
-     * eg., volume, auto-load behaviour and so forth
-     */
-
-    autoLoad: false,        // enable automatic loading (otherwise .load() will be called on demand with .play(), the latter being nicer on bandwidth - if you want to .load yourself, you also can)
-    autoPlay: false,        // enable playing of file as soon as possible (much faster if "stream" is true)
-    from: null,             // position to start playback within a sound (msec), default = beginning
-    loops: 1,               // how many times to repeat the sound (position will wrap around to 0, setPosition() will break out of loop when >0)
-    onid3: null,            // callback function for "ID3 data is added/available"
-    onerror: null,          // callback function for "load failed" (or, playback/network/decode error under HTML5.)
-    onload: null,           // callback function for "load finished"
-    whileloading: null,     // callback function for "download progress update" (X of Y bytes received)
-    onplay: null,           // callback for "play" start
-    onpause: null,          // callback for "pause"
-    onresume: null,         // callback for "resume" (pause toggle)
-    whileplaying: null,     // callback during play (position update)
-    onposition: null,       // object containing times and function callbacks for positions of interest
-    onstop: null,           // callback for "user stop"
-    onfinish: null,         // callback function for "sound finished playing"
-    multiShot: true,        // let sounds "restart" or layer on top of each other when played multiple times, rather than one-shot/one at a time
-    multiShotEvents: false, // fire multiple sound events (currently onfinish() only) when multiShot is enabled
-    position: null,         // offset (milliseconds) to seek to within loaded sound data.
-    pan: 0,                 // "pan" settings, left-to-right, -100 to 100
-    playbackRate: 1,        // rate at which to play the sound (HTML5-only)
-    stream: true,           // allows playing before entire file has loaded (recommended)
-    to: null,               // position to end playback within a sound (msec), default = end
-    type: null,             // MIME-like hint for file pattern / canPlay() tests, eg. audio/mp3
-    usePolicyFile: false,   // enable crossdomain.xml request for audio on remote domains (for ID3/waveform access)
-    volume: 100             // self-explanatory. 0-100, the latter being the max.
-
-  };
-
-  this.flash9Options = {
-
-    /**
-     * flash 9-only options,
-     * merged into defaultOptions if flash 9 is being used
-     */
-
-    onfailure: null,        // callback function for when playing fails (Flash 9, MovieStar + RTMP-only)
-    isMovieStar: null,      // "MovieStar" MPEG4 audio mode. Null (default) = auto detect MP4, AAC etc. based on URL. true = force on, ignore URL
-    usePeakData: false,     // enable left/right channel peak (level) data
-    useWaveformData: false, // enable sound spectrum (raw waveform data) - NOTE: May increase CPU load.
-    useEQData: false,       // enable sound EQ (frequency spectrum data) - NOTE: May increase CPU load.
-    onbufferchange: null,   // callback for "isBuffering" property change
-    ondataerror: null       // callback for waveform/eq data access error (flash playing audio in other tabs/domains)
-
-  };
-
-  this.movieStarOptions = {
-
-    /**
-     * flash 9.0r115+ MPEG4 audio options,
-     * merged into defaultOptions if flash 9+movieStar mode is enabled
-     */
-
-    bufferTime: 3,          // seconds of data to buffer before playback begins (null = flash default of 0.1 seconds - if AAC playback is gappy, try increasing.)
-    serverURL: null,        // rtmp: FMS or FMIS server to connect to, required when requesting media via RTMP or one of its variants
-    onconnect: null,        // rtmp: callback for connection to flash media server
-    duration: null          // rtmp: song duration (msec)
-
-  };
-
-  this.audioFormats = {
-
-    /**
-     * determines HTML5 support + flash requirements.
-     * if no support (via flash and/or HTML5) for a "required" format, SM2 will fail to start.
-     * flash fallback is used for MP3 or MP4 if HTML5 can't play it (or if preferFlash = true)
-     */
-
-    mp3: {
-      type: ['audio/mpeg; codecs="mp3"', 'audio/mpeg', 'audio/mp3', 'audio/MPA', 'audio/mpa-robust'],
-      required: true
-    },
-
-    mp4: {
-      related: ['aac', 'm4a', 'm4b'], // additional formats under the MP4 container
-      type: ['audio/mp4; codecs="mp4a.40.2"', 'audio/aac', 'audio/x-m4a', 'audio/MP4A-LATM', 'audio/mpeg4-generic'],
-      required: false
-    },
-
-    ogg: {
-      type: ['audio/ogg; codecs=vorbis'],
-      required: false
-    },
-
-    opus: {
-      type: ['audio/ogg; codecs=opus', 'audio/opus'],
-      required: false
-    },
-
-    wav: {
-      type: ['audio/wav; codecs="1"', 'audio/wav', 'audio/wave', 'audio/x-wav'],
-      required: false
-    },
-
-    flac: {
-      type: ['audio/flac'],
-      required: false
-    }
-
-  };
-
-  // HTML attributes (id + class names) for the SWF container
-
-  this.movieID = 'sm2-container';
-  this.id = (smID || 'sm2movie');
-
-  this.debugID = 'soundmanager-debug';
-  this.debugURLParam = /([#?&])debug=1/i;
-
-  // dynamic attributes
-
-  this.versionNumber = 'V2.97a.20170601';
-  this.version = null;
-  this.movieURL = null;
-  this.altURL = null;
-  this.swfLoaded = false;
-  this.enabled = false;
-  this.oMC = null;
-  this.sounds = {};
-  this.soundIDs = [];
-  this.muted = false;
-  this.didFlashBlock = false;
-  this.filePattern = null;
-
-  this.filePatterns = {
-    flash8: /\.mp3(\?.*)?$/i,
-    flash9: /\.mp3(\?.*)?$/i
-  };
-
-  // support indicators, set at init
-
-  this.features = {
-    buffering: false,
-    peakData: false,
-    waveformData: false,
-    eqData: false,
-    movieStar: false
-  };
-
-  // flash sandbox info, used primarily in troubleshooting
-
-  this.sandbox = {
-    // <d>
-    type: null,
-    types: {
-      remote: 'remote (domain-based) rules',
-      localWithFile: 'local with file access (no internet access)',
-      localWithNetwork: 'local with network (internet access only, no local access)',
-      localTrusted: 'local, trusted (local+internet access)'
-    },
-    description: null,
-    noRemote: null,
-    noLocal: null
-    // </d>
-  };
-
-  /**
-   * format support (html5/flash)
-   * stores canPlayType() results based on audioFormats.
-   * eg. { mp3: boolean, mp4: boolean }
-   * treat as read-only.
-   */
-
-  this.html5 = {
-    usingFlash: null // set if/when flash fallback is needed
-  };
-
-  // file type support hash
-  this.flash = {};
-
-  // determined at init time
-  this.html5Only = false;
-
-  // used for special cases (eg. iPad/iPhone/palm OS?)
-  this.ignoreFlash = false;
-
-  /**
-   * a few private internals (OK, a lot. :D)
-   */
-
-  var SMSound,
-  sm2 = this, globalHTML5Audio = null, flash = null, sm = 'soundManager', smc = sm + ': ', h5 = 'HTML5::', id, ua = navigator.userAgent, wl = window.location.href.toString(), doc = document, doNothing, setProperties, init, fV, on_queue = [], debugOpen = true, debugTS, didAppend = false, appendSuccess = false, didInit = false, disabled = false, windowLoaded = false, _wDS, wdCount = 0, initComplete, mixin, assign, extraOptions, addOnEvent, processOnEvents, initUserOnload, delayWaitForEI, waitForEI, rebootIntoHTML5, setVersionInfo, handleFocus, strings, initMovie, domContentLoaded, winOnLoad, didDCLoaded, getDocument, createMovie, catchError, setPolling, initDebug, debugLevels = ['log', 'info', 'warn', 'error'], defaultFlashVersion = 8, disableObject, failSafely, normalizeMovieURL, oRemoved = null, oRemovedHTML = null, str, flashBlockHandler, getSWFCSS, swfCSS, toggleDebug, loopFix, policyFix, complain, idCheck, waitingForEI = false, initPending = false, startTimer, stopTimer, timerExecute, h5TimerCount = 0, h5IntervalTimer = null, parseURL, messages = [],
-  canIgnoreFlash, needsFlash = null, featureCheck, html5OK, html5CanPlay, html5ErrorCodes, html5Ext, html5Unload, domContentLoadedIE, testHTML5, event, slice = Array.prototype.slice, useGlobalHTML5Audio = false, lastGlobalHTML5URL, hasFlash, detectFlash, badSafariFix, html5_events, showSupport, flushMessages, wrapCallback, idCounter = 0, didSetup, msecScale = 1000,
-  is_iDevice = ua.match(/(ipad|iphone|ipod)/i), isAndroid = ua.match(/android/i), isIE = ua.match(/msie|trident/i),
-  isWebkit = ua.match(/webkit/i),
-  isSafari = (ua.match(/safari/i) && !ua.match(/chrome/i)),
-  isOpera = (ua.match(/opera/i)),
-  mobileHTML5 = (ua.match(/(mobile|pre\/|xoom)/i) || is_iDevice || isAndroid),
-  isBadSafari = (!wl.match(/usehtml5audio/i) && !wl.match(/sm2-ignorebadua/i) && isSafari && !ua.match(/silk/i) && ua.match(/OS\sX\s10_6_([3-7])/i)), // Safari 4 and 5 (excluding Kindle Fire, "Silk") occasionally fail to load/play HTML5 audio on Snow Leopard 10.6.3 through 10.6.7 due to bug(s) in QuickTime X and/or other underlying frameworks. :/ Confirmed bug. https://bugs.webkit.org/show_bug.cgi?id=32159
-  hasConsole = (window.console !== _undefined && console.log !== _undefined),
-  isFocused = (doc.hasFocus !== _undefined ? doc.hasFocus() : null),
-  tryInitOnFocus = (isSafari && (doc.hasFocus === _undefined || !doc.hasFocus())),
-  okToDisable = !tryInitOnFocus,
-  flashMIME = /(mp3|mp4|mpa|m4a|m4b)/i,
-  emptyURL = 'about:blank', // safe URL to unload, or load nothing from (flash 8 + most HTML5 UAs)
-  emptyWAV = 'data:audio/wave;base64,/UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAD//w==', // tiny WAV for HTML5 unloading
-  overHTTP = (doc.location ? doc.location.protocol.match(/http/i) : null),
-  http = (!overHTTP ? '//' : ''),
-  // mp3, mp4, aac etc.
-  netStreamMimeTypes = /^\s*audio\/(?:x-)?(?:mpeg4|aac|flv|mov|mp4|m4v|m4a|m4b|mp4v|3gp|3g2)\s*(?:$|;)/i,
-  // Flash v9.0r115+ "moviestar" formats
-  netStreamTypes = ['mpeg4', 'aac', 'flv', 'mov', 'mp4', 'm4v', 'f4v', 'm4a', 'm4b', 'mp4v', '3gp', '3g2'],
-  netStreamPattern = new RegExp('\\.(' + netStreamTypes.join('|') + ')(\\?.*)?$', 'i');
-
-  this.mimePattern = /^\s*audio\/(?:x-)?(?:mp(?:eg|3))\s*(?:$|;)/i; // default mp3 set
-
-  // use altURL if not "online"
-  this.useAltURL = !overHTTP;
-
-  swfCSS = {
-    swfBox: 'sm2-object-box',
-    swfDefault: 'movieContainer',
-    swfError: 'swf_error', // SWF loaded, but SM2 couldn't start (other error)
-    swfTimedout: 'swf_timedout',
-    swfLoaded: 'swf_loaded',
-    swfUnblocked: 'swf_unblocked', // or loaded OK
-    sm2Debug: 'sm2_debug',
-    highPerf: 'high_performance',
-    flashDebug: 'flash_debug'
-  };
-
-  /**
-   * HTML5 error codes, per W3C
-   * Error code 1, MEDIA_ERR_ABORTED: Client aborted download at user's request.
-   * Error code 2, MEDIA_ERR_NETWORK: A network error of some description caused the user agent to stop fetching the media resource, after the resource was established to be usable.
-   * Error code 3, MEDIA_ERR_DECODE: An error of some description occurred while decoding the media resource, after the resource was established to be usable.
-   * Error code 4, MEDIA_ERR_SRC_NOT_SUPPORTED: Media (audio file) not supported ("not usable.")
-   * Reference: https://html.spec.whatwg.org/multipage/embedded-content.html#error-codes
-   */
-  html5ErrorCodes = [
-    null,
-    'MEDIA_ERR_ABORTED',
-    'MEDIA_ERR_NETWORK',
-    'MEDIA_ERR_DECODE',
-    'MEDIA_ERR_SRC_NOT_SUPPORTED'
-  ];
-
-  /**
-   * basic HTML5 Audio() support test
-   * try...catch because of IE 9 "not implemented" nonsense
-   * https://github.com/Modernizr/Modernizr/issues/224
-   */
-
-  this.hasHTML5 = (function() {
-    try {
-      // new Audio(null) for stupid Opera 9.64 case, which throws not_enough_arguments exception otherwise.
-      return (Audio !== _undefined && (isOpera && opera !== _undefined && opera.version() < 10 ? new Audio(null) : new Audio()).canPlayType !== _undefined);
-    } catch(e) {
-      return false;
-    }
-  }());
-
-  /**
-   * Public SoundManager API
-   * -----------------------
-   */
-
-  /**
-   * Configures top-level soundManager properties.
-   *
-   * @param {object} options Option parameters, eg. { flashVersion: 9, url: '/path/to/swfs/' }
-   * onready and ontimeout are also accepted parameters. call soundManager.setup() to see the full list.
-   */
-
-  this.setup = function(options) {
-
-    var noURL = (!sm2.url);
-
-    // warn if flash options have already been applied
-
-    if (options !== _undefined && didInit && needsFlash && sm2.ok() && (options.flashVersion !== _undefined || options.url !== _undefined || options.html5Test !== _undefined)) {
-      complain(str('setupLate'));
-    }
-
-    // TODO: defer: true?
-
-    assign(options);
-
-    if (!useGlobalHTML5Audio) {
-
-      if (mobileHTML5) {
-
-        // force the singleton HTML5 pattern on mobile, by default.
-        if (!sm2.setupOptions.ignoreMobileRestrictions || sm2.setupOptions.forceUseGlobalHTML5Audio) {
-          messages.push(strings.globalHTML5);
-          useGlobalHTML5Audio = true;
-        }
-
-      } else if (sm2.setupOptions.forceUseGlobalHTML5Audio) {
-
-        // only apply singleton HTML5 on desktop if forced.
-        messages.push(strings.globalHTML5);
-        useGlobalHTML5Audio = true;
-
-      }
-
-    }
-
-    if (!didSetup && mobileHTML5) {
-
-      if (sm2.setupOptions.ignoreMobileRestrictions) {
-
-        messages.push(strings.ignoreMobile);
-
-      } else {
-
-        // prefer HTML5 for mobile + tablet-like devices, probably more reliable vs. flash at this point.
-
-        // <d>
-        if (!sm2.setupOptions.useHTML5Audio || sm2.setupOptions.preferFlash) {
-          // notify that defaults are being changed.
-          sm2._wD(strings.mobileUA);
-        }
-        // </d>
-
-        sm2.setupOptions.useHTML5Audio = true;
-        sm2.setupOptions.preferFlash = false;
-
-        if (is_iDevice) {
-
-          // no flash here.
-          sm2.ignoreFlash = true;
-
-        } else if ((isAndroid && !ua.match(/android\s2\.3/i)) || !isAndroid) {
-
-          /**
-           * Android devices tend to work better with a single audio instance, specifically for chained playback of sounds in sequence.
-           * Common use case: exiting sound onfinish() -> createSound() -> play()
-           * Presuming similar restrictions for other mobile, non-Android, non-iOS devices.
-           */
-
-          // <d>
-          sm2._wD(strings.globalHTML5);
-          // </d>
-
-          useGlobalHTML5Audio = true;
-
-        }
-
-      }
-
-    }
-
-    // special case 1: "Late setup". SM2 loaded normally, but user didn't assign flash URL eg., setup({url:...}) before SM2 init. Treat as delayed init.
-
-    if (options) {
-
-      if (noURL && didDCLoaded && options.url !== _undefined) {
-        sm2.beginDelayedInit();
-      }
-
-      // special case 2: If lazy-loading SM2 (DOMContentLoaded has already happened) and user calls setup() with url: parameter, try to init ASAP.
-
-      if (!didDCLoaded && options.url !== _undefined && doc.readyState === 'complete') {
-        setTimeout(domContentLoaded, 1);
-      }
-
-    }
-
-    didSetup = true;
-
-    return sm2;
-
-  };
-
-  this.ok = function() {
-
-    return (needsFlash ? (didInit && !disabled) : (sm2.useHTML5Audio && sm2.hasHTML5));
-
-  };
-
-  this.supported = this.ok; // legacy
-
-  this.getMovie = function(movie_id) {
-
-    // safety net: some old browsers differ on SWF references, possibly related to ExternalInterface / flash version
-    return id(movie_id) || doc[movie_id] || window[movie_id];
-
-  };
-
-  /**
-   * Creates a SMSound sound object instance. Can also be overloaded, e.g., createSound('mySound', '/some.mp3');
-   *
-   * @param {object} oOptions Sound options (at minimum, url parameter is required.)
-   * @return {object} SMSound The new SMSound object.
-   */
-
-  this.createSound = function(oOptions, _url) {
-
-    var cs, cs_string, options, oSound = null;
-
-    // <d>
-    cs = sm + '.createSound(): ';
-    cs_string = cs + str(!didInit ? 'notReady' : 'notOK');
-    // </d>
-
-    if (!didInit || !sm2.ok()) {
-      complain(cs_string);
-      return false;
-    }
-
-    if (_url !== _undefined) {
-      // function overloading in JS! :) ... assume simple createSound(id, url) use case.
-      oOptions = {
-        id: oOptions,
-        url: _url
-      };
-    }
-
-    // inherit from defaultOptions
-    options = mixin(oOptions);
-
-    options.url = parseURL(options.url);
-
-    // generate an id, if needed.
-    if (options.id === _undefined) {
-      options.id = sm2.setupOptions.idPrefix + (idCounter++);
-    }
-
-    // <d>
-    if (options.id.toString().charAt(0).match(/^[0-9]$/)) {
-      sm2._wD(cs + str('badID', options.id), 2);
-    }
-
-    sm2._wD(cs + options.id + (options.url ? ' (' + options.url + ')' : ''), 1);
-    // </d>
-
-    if (idCheck(options.id, true)) {
-      sm2._wD(cs + options.id + ' exists', 1);
-      return sm2.sounds[options.id];
-    }
-
-    function make() {
-
-      options = loopFix(options);
-      sm2.sounds[options.id] = new SMSound(options);
-      sm2.soundIDs.push(options.id);
-      return sm2.sounds[options.id];
-
-    }
-
-    if (html5OK(options)) {
-
-      oSound = make();
-      // <d>
-      if (!sm2.html5Only) {
-        sm2._wD(options.id + ': Using HTML5');
-      }
-      // </d>
-      oSound._setup_html5(options);
-
-    } else {
-
-      if (sm2.html5Only) {
-        sm2._wD(options.id + ': No HTML5 support for this sound, and no Flash. Exiting.');
-        return make();
-      }
-
-      // TODO: Move HTML5/flash checks into generic URL parsing/handling function.
-
-      if (sm2.html5.usingFlash && options.url && options.url.match(/data:/i)) {
-        // data: URIs not supported by Flash, either.
-        sm2._wD(options.id + ': data: URIs not supported via Flash. Exiting.');
-        return make();
-      }
-
-      if (fV > 8) {
-        if (options.isMovieStar === null) {
-          // attempt to detect MPEG-4 formats
-          options.isMovieStar = !!(options.serverURL || (options.type ? options.type.match(netStreamMimeTypes) : false) || (options.url && options.url.match(netStreamPattern)));
-        }
-        // <d>
-        if (options.isMovieStar) {
-          sm2._wD(cs + 'using MovieStar handling');
-          if (options.loops > 1) {
-            _wDS('noNSLoop');
-          }
-        }
-        // </d>
-      }
-
-      options = policyFix(options, cs);
-      oSound = make();
-
-      if (fV === 8) {
-        flash._createSound(options.id, options.loops || 1, options.usePolicyFile);
-      } else {
-        flash._createSound(options.id, options.url, options.usePeakData, options.useWaveformData, options.useEQData, options.isMovieStar, (options.isMovieStar ? options.bufferTime : false), options.loops || 1, options.serverURL, options.duration || null, options.autoPlay, true, options.autoLoad, options.usePolicyFile);
-        if (!options.serverURL) {
-          // We are connected immediately
-          oSound.connected = true;
-          if (options.onconnect) {
-            options.onconnect.apply(oSound);
-          }
-        }
-      }
-
-      if (!options.serverURL && (options.autoLoad || options.autoPlay)) {
-        // call load for non-rtmp streams
-        oSound.load(options);
-      }
-
-    }
-
-    // rtmp will play in onconnect
-    if (!options.serverURL && options.autoPlay) {
-      oSound.play();
-    }
-
-    return oSound;
-
-  };
-
-  /**
-   * Destroys a SMSound sound object instance.
-   *
-   * @param {string} sID The ID of the sound to destroy
-   */
-
-  this.destroySound = function(sID, _bFromSound) {
-
-    // explicitly destroy a sound before normal page unload, etc.
-
-    if (!idCheck(sID)) return false;
-
-    var oS = sm2.sounds[sID], i;
-
-    oS.stop();
-
-    // Disable all callbacks after stop(), when the sound is being destroyed
-    oS._iO = {};
-
-    oS.unload();
-
-    for (i = 0; i < sm2.soundIDs.length; i++) {
-      if (sm2.soundIDs[i] === sID) {
-        sm2.soundIDs.splice(i, 1);
-        break;
-      }
-    }
-
-    if (!_bFromSound) {
-      // ignore if being called from SMSound instance
-      oS.destruct(true);
-    }
-
-    oS = null;
-    delete sm2.sounds[sID];
-
-    return true;
-
-  };
-
-  /**
-   * Calls the load() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {object} oOptions Optional: Sound options
-   */
-
-  this.load = function(sID, oOptions) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].load(oOptions);
-
-  };
-
-  /**
-   * Calls the unload() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   */
-
-  this.unload = function(sID) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].unload();
-
-  };
-
-  /**
-   * Calls the onPosition() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nPosition The position to watch for
-   * @param {function} oMethod The relevant callback to fire
-   * @param {object} oScope Optional: The scope to apply the callback to
-   * @return {SMSound} The SMSound object
-   */
-
-  this.onPosition = function(sID, nPosition, oMethod, oScope) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].onposition(nPosition, oMethod, oScope);
-
-  };
-
-  // legacy/backwards-compability: lower-case method name
-  this.onposition = this.onPosition;
-
-  /**
-   * Calls the clearOnPosition() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nPosition The position to watch for
-   * @param {function} oMethod Optional: The relevant callback to fire
-   * @return {SMSound} The SMSound object
-   */
-
-  this.clearOnPosition = function(sID, nPosition, oMethod) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].clearOnPosition(nPosition, oMethod);
-
-  };
-
-  /**
-   * Calls the play() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {object} oOptions Optional: Sound options
-   * @return {SMSound} The SMSound object
-   */
-
-  this.play = function(sID, oOptions) {
-
-    var result = null,
-        // legacy function-overloading use case: play('mySound', '/path/to/some.mp3');
-        overloaded = (oOptions && !(oOptions instanceof Object));
-
-    if (!didInit || !sm2.ok()) {
-      complain(sm + '.play(): ' + str(!didInit ? 'notReady' : 'notOK'));
-      return false;
-    }
-
-    if (!idCheck(sID, overloaded)) {
-
-      // no sound found for the given ID. Bail.
-      if (!overloaded) return false;
-
-      if (overloaded) {
-        oOptions = {
-          url: oOptions
-        };
-      }
-
-      if (oOptions && oOptions.url) {
-        // overloading use case, create+play: .play('someID', {url:'/path/to.mp3'});
-        sm2._wD(sm + '.play(): Attempting to create "' + sID + '"', 1);
-        oOptions.id = sID;
-        result = sm2.createSound(oOptions).play();
-      }
-
-    } else if (overloaded) {
-
-      // existing sound object case
-      oOptions = {
-        url: oOptions
-      };
-
-    }
-
-    if (result === null) {
-      // default case
-      result = sm2.sounds[sID].play(oOptions);
-    }
-
-    return result;
-
-  };
-
-  // just for convenience
-  this.start = this.play;
-
-  /**
-   * Calls the setPlaybackRate() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setPlaybackRate = function(sID, rate, allowOverride) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].setPlaybackRate(rate, allowOverride);
-
-  };
-
-  /**
-   * Calls the setPosition() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nMsecOffset Position (milliseconds)
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setPosition = function(sID, nMsecOffset) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].setPosition(nMsecOffset);
-
-  };
-
-  /**
-   * Calls the stop() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.stop = function(sID) {
-
-    if (!idCheck(sID)) return false;
-
-    sm2._wD(sm + '.stop(' + sID + ')', 1);
-
-    return sm2.sounds[sID].stop();
-
-  };
-
-  /**
-   * Stops all currently-playing sounds.
-   */
-
-  this.stopAll = function() {
-
-    var oSound;
-    sm2._wD(sm + '.stopAll()', 1);
-
-    for (oSound in sm2.sounds) {
-      if (sm2.sounds.hasOwnProperty(oSound)) {
-        // apply only to sound objects
-        sm2.sounds[oSound].stop();
-      }
-    }
-
-  };
-
-  /**
-   * Calls the pause() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.pause = function(sID) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].pause();
-
-  };
-
-  /**
-   * Pauses all currently-playing sounds.
-   */
-
-  this.pauseAll = function() {
-
-    var i;
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-      sm2.sounds[sm2.soundIDs[i]].pause();
-    }
-
-  };
-
-  /**
-   * Calls the resume() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.resume = function(sID) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].resume();
-
-  };
-
-  /**
-   * Resumes all currently-paused sounds.
-   */
-
-  this.resumeAll = function() {
-
-    var i;
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-      sm2.sounds[sm2.soundIDs[i]].resume();
-    }
-
-  };
-
-  /**
-   * Calls the togglePause() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.togglePause = function(sID) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].togglePause();
-
-  };
-
-  /**
-   * Calls the setPan() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nPan The pan value (-100 to 100)
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setPan = function(sID, nPan) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].setPan(nPan);
-
-  };
-
-  /**
-   * Calls the setVolume() method of a SMSound object by ID
-   * Overloaded case: pass only volume argument eg., setVolume(50) to apply to all sounds.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nVol The volume value (0 to 100)
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setVolume = function(sID, nVol) {
-
-    // setVolume(50) function overloading case - apply to all sounds
-
-    var i, j;
-
-    if (sID !== _undefined && !isNaN(sID) && nVol === _undefined) {
-      for (i = 0, j = sm2.soundIDs.length; i < j; i++) {
-        sm2.sounds[sm2.soundIDs[i]].setVolume(sID);
-      }
-      return false;
-    }
-
-    // setVolume('mySound', 50) case
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].setVolume(nVol);
-
-  };
-
-  /**
-   * Calls the mute() method of either a single SMSound object by ID, or all sound objects.
-   *
-   * @param {string} sID Optional: The ID of the sound (if omitted, all sounds will be used.)
-   */
-
-  this.mute = function(sID) {
-
-    var i = 0;
-
-    if (sID instanceof String) {
-      sID = null;
-    }
-
-    if (!sID) {
-
-      sm2._wD(sm + '.mute(): Muting all sounds');
-      for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-        sm2.sounds[sm2.soundIDs[i]].mute();
-      }
-      sm2.muted = true;
-
-    } else {
-
-      if (!idCheck(sID)) return false;
-
-      sm2._wD(sm + '.mute(): Muting "' + sID + '"');
-      return sm2.sounds[sID].mute();
-
-    }
-
-    return true;
-
-  };
-
-  /**
-   * Mutes all sounds.
-   */
-
-  this.muteAll = function() {
-
-    sm2.mute();
-
-  };
-
-  /**
-   * Calls the unmute() method of either a single SMSound object by ID, or all sound objects.
-   *
-   * @param {string} sID Optional: The ID of the sound (if omitted, all sounds will be used.)
-   */
-
-  this.unmute = function(sID) {
-
-    var i;
-
-    if (sID instanceof String) {
-      sID = null;
-    }
-
-    if (!sID) {
-
-      sm2._wD(sm + '.unmute(): Unmuting all sounds');
-      for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-        sm2.sounds[sm2.soundIDs[i]].unmute();
-      }
-      sm2.muted = false;
-
-    } else {
-
-      if (!idCheck(sID)) return false;
-
-      sm2._wD(sm + '.unmute(): Unmuting "' + sID + '"');
-
-      return sm2.sounds[sID].unmute();
-
-    }
-
-    return true;
-
-  };
-
-  /**
-   * Unmutes all sounds.
-   */
-
-  this.unmuteAll = function() {
-
-    sm2.unmute();
-
-  };
-
-  /**
-   * Calls the toggleMute() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.toggleMute = function(sID) {
-
-    if (!idCheck(sID)) return false;
-
-    return sm2.sounds[sID].toggleMute();
-
-  };
-
-  /**
-   * Retrieves the memory used by the flash plugin.
-   *
-   * @return {number} The amount of memory in use
-   */
-
-  this.getMemoryUse = function() {
-
-    // flash-only
-    var ram = 0;
-
-    if (flash && fV !== 8) {
-      ram = parseInt(flash._getMemoryUse(), 10);
-    }
-
-    return ram;
-
-  };
-
-  /**
-   * Undocumented: NOPs soundManager and all SMSound objects.
-   */
-
-  this.disable = function(bNoDisable) {
-
-    // destroy all functions
-    var i;
-
-    if (bNoDisable === _undefined) {
-      bNoDisable = false;
-    }
-
-    // already disabled?
-    if (disabled) return false;
-
-    disabled = true;
-
-    _wDS('shutdown', 1);
-
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-      disableObject(sm2.sounds[sm2.soundIDs[i]]);
-    }
-
-    disableObject(sm2);
-
-    // fire "complete", despite fail
-    initComplete(bNoDisable);
-
-    event.remove(window, 'load', initUserOnload);
-
-    return true;
-
-  };
-
-  /**
-   * Determines playability of a MIME type, eg. 'audio/mp3'.
-   */
-
-  this.canPlayMIME = function(sMIME) {
-
-    var result;
-
-    if (sm2.hasHTML5) {
-      result = html5CanPlay({
-        type: sMIME
-      });
-    }
-
-    if (!result && needsFlash) {
-      // if flash 9, test netStream (movieStar) types as well.
-      result = (sMIME && sm2.ok() ? !!((fV > 8 ? sMIME.match(netStreamMimeTypes) : null) || sMIME.match(sm2.mimePattern)) : null); // TODO: make less "weird" (per JSLint)
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Determines playability of a URL based on audio support.
-   *
-   * @param {string} sURL The URL to test
-   * @return {boolean} URL playability
-   */
-
-  this.canPlayURL = function(sURL) {
-
-    var result;
-
-    if (sm2.hasHTML5) {
-      result = html5CanPlay({
-        url: sURL
-      });
-    }
-
-    if (!result && needsFlash) {
-      result = (sURL && sm2.ok() ? !!(sURL.match(sm2.filePattern)) : null);
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Determines playability of an HTML DOM &lt;a&gt; object (or similar object literal) based on audio support.
-   *
-   * @param {object} oLink an HTML DOM &lt;a&gt; object or object literal including href and/or type attributes
-   * @return {boolean} URL playability
-   */
-
-  this.canPlayLink = function(oLink) {
-
-    if (oLink.type !== _undefined && oLink.type && sm2.canPlayMIME(oLink.type)) return true;
-
-    return sm2.canPlayURL(oLink.href);
-
-  };
-
-  /**
-   * Retrieves a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.getSoundById = function(sID, _suppressDebug) {
-
-    if (!sID) return null;
-
-    var result = sm2.sounds[sID];
-
-    // <d>
-    if (!result && !_suppressDebug) {
-      sm2._wD(sm + '.getSoundById(): Sound "' + sID + '" not found.', 2);
-    }
-    // </d>
-
-    return result;
-
-  };
-
-  /**
-   * Queues a callback for execution when SoundManager has successfully initialized.
-   *
-   * @param {function} oMethod The callback method to fire
-   * @param {object} oScope Optional: The scope to apply to the callback
-   */
-
-  this.onready = function(oMethod, oScope) {
-
-    var sType = 'onready',
-        result = false;
-
-    if (typeof oMethod === 'function') {
-
-      // <d>
-      if (didInit) {
-        sm2._wD(str('queue', sType));
-      }
-      // </d>
-
-      if (!oScope) {
-        oScope = window;
-      }
-
-      addOnEvent(sType, oMethod, oScope);
-      processOnEvents();
-
-      result = true;
-
-    } else {
-
-      throw str('needFunction', sType);
-
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Queues a callback for execution when SoundManager has failed to initialize.
-   *
-   * @param {function} oMethod The callback method to fire
-   * @param {object} oScope Optional: The scope to apply to the callback
-   */
-
-  this.ontimeout = function(oMethod, oScope) {
-
-    var sType = 'ontimeout',
-        result = false;
-
-    if (typeof oMethod === 'function') {
-
-      // <d>
-      if (didInit) {
-        sm2._wD(str('queue', sType));
-      }
-      // </d>
-
-      if (!oScope) {
-        oScope = window;
-      }
-
-      addOnEvent(sType, oMethod, oScope);
-      processOnEvents({ type: sType });
-
-      result = true;
-
-    } else {
-
-      throw str('needFunction', sType);
-
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Writes console.log()-style debug output to a console or in-browser element.
-   * Applies when debugMode = true
-   *
-   * @param {string} sText The console message
-   * @param {object} nType Optional log level (number), or object. Number case: Log type/style where 0 = 'info', 1 = 'warn', 2 = 'error'. Object case: Object to be dumped.
-   */
-
-  this._writeDebug = function(sText, sTypeOrObject) {
-
-    // pseudo-private console.log()-style output
-    // <d>
-
-    var sDID = 'soundmanager-debug', o, oItem;
-
-    if (!sm2.setupOptions.debugMode) return false;
-
-    if (hasConsole && sm2.useConsole) {
-      if (sTypeOrObject && typeof sTypeOrObject === 'object') {
-        // object passed; dump to console.
-        console.log(sText, sTypeOrObject);
-      } else if (debugLevels[sTypeOrObject] !== _undefined) {
-        console[debugLevels[sTypeOrObject]](sText);
-      } else {
-        console.log(sText);
-      }
-      if (sm2.consoleOnly) return true;
-    }
-
-    o = id(sDID);
-
-    if (!o) return false;
-
-    oItem = doc.createElement('div');
-
-    if (++wdCount % 2 === 0) {
-      oItem.className = 'sm2-alt';
-    }
-
-    if (sTypeOrObject === _undefined) {
-      sTypeOrObject = 0;
-    } else {
-      sTypeOrObject = parseInt(sTypeOrObject, 10);
-    }
-
-    oItem.appendChild(doc.createTextNode(sText));
-
-    if (sTypeOrObject) {
-      if (sTypeOrObject >= 2) {
-        oItem.style.fontWeight = 'bold';
-      }
-      if (sTypeOrObject === 3) {
-        oItem.style.color = '#ff3333';
-      }
-    }
-
-    // top-to-bottom
-    // o.appendChild(oItem);
-
-    // bottom-to-top
-    o.insertBefore(oItem, o.firstChild);
-
-    o = null;
-    // </d>
-
-    return true;
-
-  };
-
-  // <d>
-  // last-resort debugging option
-  if (wl.indexOf('sm2-debug=alert') !== -1) {
-    this._writeDebug = function(sText) {
-      window.alert(sText);
-    };
-  }
-  // </d>
-
-  // alias
-  this._wD = this._writeDebug;
-
-  /**
-   * Provides debug / state information on all SMSound objects.
-   */
-
-  this._debug = function() {
-
-    // <d>
-    var i, j;
-    _wDS('currentObj', 1);
-
-    for (i = 0, j = sm2.soundIDs.length; i < j; i++) {
-      sm2.sounds[sm2.soundIDs[i]]._debug();
-    }
-    // </d>
-
-  };
-
-  /**
-   * Restarts and re-initializes the SoundManager instance.
-   *
-   * @param {boolean} resetEvents Optional: When true, removes all registered onready and ontimeout event callbacks.
-   * @param {boolean} excludeInit Options: When true, does not call beginDelayedInit() (which would restart SM2).
-   * @return {object} soundManager The soundManager instance.
-   */
-
-  this.reboot = function(resetEvents, excludeInit) {
-
-    // reset some (or all) state, and re-init unless otherwise specified.
-
-    // <d>
-    if (sm2.soundIDs.length) {
-      sm2._wD('Destroying ' + sm2.soundIDs.length + ' SMSound object' + (sm2.soundIDs.length !== 1 ? 's' : '') + '...');
-    }
-    // </d>
-
-    var i, j, k;
-
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-      sm2.sounds[sm2.soundIDs[i]].destruct();
-    }
-
-    // trash ze flash (remove from the DOM)
-
-    if (flash) {
-
-      try {
-
-        if (isIE) {
-          oRemovedHTML = flash.innerHTML;
-        }
-
-        oRemoved = flash.parentNode.removeChild(flash);
-
-      } catch(e) {
-
-        // Remove failed? May be due to flash blockers silently removing the SWF object/embed node from the DOM. Warn and continue.
-
-        _wDS('badRemove', 2);
-
-      }
-
-    }
-
-    // actually, force recreate of movie.
-
-    oRemovedHTML = oRemoved = needsFlash = flash = null;
-
-    sm2.enabled = didDCLoaded = didInit = waitingForEI = initPending = didAppend = appendSuccess = disabled = useGlobalHTML5Audio = sm2.swfLoaded = false;
-
-    sm2.soundIDs = [];
-    sm2.sounds = {};
-
-    idCounter = 0;
-    didSetup = false;
-
-    if (!resetEvents) {
-      // reset callbacks for onready, ontimeout etc. so that they will fire again on re-init
-      for (i in on_queue) {
-        if (on_queue.hasOwnProperty(i)) {
-          for (j = 0, k = on_queue[i].length; j < k; j++) {
-            on_queue[i][j].fired = false;
-          }
-        }
-      }
-    } else {
-      // remove all callbacks entirely
-      on_queue = [];
-    }
-
-    // <d>
-    if (!excludeInit) {
-      sm2._wD(sm + ': Rebooting...');
-    }
-    // </d>
-
-    // reset HTML5 and flash canPlay test results
-
-    sm2.html5 = {
-      usingFlash: null
-    };
-
-    sm2.flash = {};
-
-    // reset device-specific HTML/flash mode switches
-
-    sm2.html5Only = false;
-    sm2.ignoreFlash = false;
-
-    window.setTimeout(function() {
-
-      // by default, re-init
-
-      if (!excludeInit) {
-        sm2.beginDelayedInit();
-      }
-
-    }, 20);
-
-    return sm2;
-
-  };
-
-  this.reset = function() {
-
-    /**
-     * Shuts down and restores the SoundManager instance to its original loaded state, without an explicit reboot. All onready/ontimeout handlers are removed.
-     * After this call, SM2 may be re-initialized via soundManager.beginDelayedInit().
-     * @return {object} soundManager The soundManager instance.
-     */
-
-    _wDS('reset');
-
-    return sm2.reboot(true, true);
-
-  };
-
-  /**
-   * Undocumented: Determines the SM2 flash movie's load progress.
-   *
-   * @return {number or null} Percent loaded, or if invalid/unsupported, null.
-   */
-
-  this.getMoviePercent = function() {
-
-    /**
-     * Interesting syntax notes...
-     * Flash/ExternalInterface (ActiveX/NPAPI) bridge methods are not typeof "function" nor instanceof Function, but are still valid.
-     * Furthermore, using (flash && flash.PercentLoaded) causes IE to throw "object doesn't support this property or method".
-     * Thus, 'in' syntax must be used.
-     */
-
-    return (flash && 'PercentLoaded' in flash ? flash.PercentLoaded() : null);
-
-  };
-
-  /**
-   * Additional helper for manually invoking SM2's init process after DOM Ready / window.onload().
-   */
-
-  this.beginDelayedInit = function() {
-
-    windowLoaded = true;
-    domContentLoaded();
-
-    setTimeout(function() {
-
-      if (initPending) return false;
-
-      createMovie();
-      initMovie();
-      initPending = true;
-
-      return true;
-
-    }, 20);
-
-    delayWaitForEI();
-
-  };
-
-  /**
-   * Destroys the SoundManager instance and all SMSound instances.
-   */
-
-  this.destruct = function() {
-
-    sm2._wD(sm + '.destruct()');
-    sm2.disable(true);
-
-  };
-
-  /**
-   * SMSound() (sound object) constructor
-   * ------------------------------------
-   *
-   * @param {object} oOptions Sound options (id and url are required attributes)
-   * @return {SMSound} The new SMSound object
-   */
-
-  SMSound = function(oOptions) {
-
-    var s = this, resetProperties, add_html5_events, remove_html5_events, stop_html5_timer, start_html5_timer, attachOnPosition, onplay_called = false, onPositionItems = [], onPositionFired = 0, detachOnPosition, applyFromTo, lastURL = null, lastHTML5State, urlOmitted;
-
-    lastHTML5State = {
-      // tracks duration + position (time)
-      duration: null,
-      time: null
-    };
-
-    this.id = oOptions.id;
-
-    // legacy
-    this.sID = this.id;
-
-    this.url = oOptions.url;
-    this.options = mixin(oOptions);
-
-    // per-play-instance-specific options
-    this.instanceOptions = this.options;
-
-    // short alias
-    this._iO = this.instanceOptions;
-
-    // assign property defaults
-    this.pan = this.options.pan;
-    this.volume = this.options.volume;
-
-    // whether or not this object is using HTML5
-    this.isHTML5 = false;
-
-    // internal HTML5 Audio() object reference
-    this._a = null;
-
-    // for flash 8 special-case createSound() without url, followed by load/play with url case
-    urlOmitted = (!this.url);
-
-    /**
-     * SMSound() public methods
-     * ------------------------
-     */
-
-    this.id3 = {};
-
-    /**
-     * Writes SMSound object parameters to debug console
-     */
-
-    this._debug = function() {
-
-      // <d>
-      sm2._wD(s.id + ': Merged options:', s.options);
-      // </d>
-
-    };
-
-    /**
-     * Begins loading a sound per its *url*.
-     *
-     * @param {object} options Optional: Sound options
-     * @return {SMSound} The SMSound object
-     */
-
-    this.load = function(options) {
-
-      var oSound = null, instanceOptions;
-
-      if (options !== _undefined) {
-        s._iO = mixin(options, s.options);
-      } else {
-        options = s.options;
-        s._iO = options;
-        if (lastURL && lastURL !== s.url) {
-          _wDS('manURL');
-          s._iO.url = s.url;
-          s.url = null;
-        }
-      }
-
-      if (!s._iO.url) {
-        s._iO.url = s.url;
-      }
-
-      s._iO.url = parseURL(s._iO.url);
-
-      // ensure we're in sync
-      s.instanceOptions = s._iO;
-
-      // local shortcut
-      instanceOptions = s._iO;
-
-      sm2._wD(s.id + ': load (' + instanceOptions.url + ')');
-
-      if (!instanceOptions.url && !s.url) {
-        sm2._wD(s.id + ': load(): url is unassigned. Exiting.', 2);
-        return s;
-      }
-
-      // <d>
-      if (!s.isHTML5 && fV === 8 && !s.url && !instanceOptions.autoPlay) {
-        // flash 8 load() -> play() won't work before onload has fired.
-        sm2._wD(s.id + ': Flash 8 load() limitation: Wait for onload() before calling play().', 1);
-      }
-      // </d>
-
-      if (instanceOptions.url === s.url && s.readyState !== 0 && s.readyState !== 2) {
-        _wDS('onURL', 1);
-        // if loaded and an onload() exists, fire immediately.
-        if (s.readyState === 3 && instanceOptions.onload) {
-          // assume success based on truthy duration.
-          wrapCallback(s, function() {
-            instanceOptions.onload.apply(s, [(!!s.duration)]);
-          });
-        }
-        return s;
-      }
-
-      // reset a few state properties
-
-      s.loaded = false;
-      s.readyState = 1;
-      s.playState = 0;
-      s.id3 = {};
-
-      // TODO: If switching from HTML5 -> flash (or vice versa), stop currently-playing audio.
-
-      if (html5OK(instanceOptions)) {
-
-        oSound = s._setup_html5(instanceOptions);
-
-        if (!oSound._called_load) {
-
-          s._html5_canplay = false;
-
-          // TODO: review called_load / html5_canplay logic
-
-          // if url provided directly to load(), assign it here.
-
-          if (s.url !== instanceOptions.url) {
-
-            sm2._wD(_wDS('manURL') + ': ' + instanceOptions.url);
-
-            s._a.src = instanceOptions.url;
-
-            // TODO: review / re-apply all relevant options (volume, loop, onposition etc.)
-
-            // reset position for new URL
-            s.setPosition(0);
-
-          }
-
-          // given explicit load call, try to preload.
-
-          // early HTML5 implementation (non-standard)
-          s._a.autobuffer = 'auto';
-
-          // standard property, values: none / metadata / auto
-          // reference: http://msdn.microsoft.com/en-us/library/ie/ff974759%28v=vs.85%29.aspx
-          s._a.preload = 'auto';
-
-          s._a._called_load = true;
-
-        } else {
-
-          sm2._wD(s.id + ': Ignoring request to load again');
-
-        }
-
-      } else {
-
-        if (sm2.html5Only) {
-          sm2._wD(s.id + ': No flash support. Exiting.');
-          return s;
-        }
-
-        if (s._iO.url && s._iO.url.match(/data:/i)) {
-          // data: URIs not supported by Flash, either.
-          sm2._wD(s.id + ': data: URIs not supported via Flash. Exiting.');
-          return s;
-        }
-
-        try {
-          s.isHTML5 = false;
-          s._iO = policyFix(loopFix(instanceOptions));
-          // if we have "position", disable auto-play as we'll be seeking to that position at onload().
-          if (s._iO.autoPlay && (s._iO.position || s._iO.from)) {
-            sm2._wD(s.id + ': Disabling autoPlay because of non-zero offset case');
-            s._iO.autoPlay = false;
-          }
-          // re-assign local shortcut
-          instanceOptions = s._iO;
-          if (fV === 8) {
-            flash._load(s.id, instanceOptions.url, instanceOptions.stream, instanceOptions.autoPlay, instanceOptions.usePolicyFile);
-          } else {
-            flash._load(s.id, instanceOptions.url, !!(instanceOptions.stream), !!(instanceOptions.autoPlay), instanceOptions.loops || 1, !!(instanceOptions.autoLoad), instanceOptions.usePolicyFile);
-          }
-        } catch(e) {
-          _wDS('smError', 2);
-          debugTS('onload', false);
-          catchError({
-            type: 'SMSOUND_LOAD_JS_EXCEPTION',
-            fatal: true
-          });
-        }
-
-      }
-
-      // after all of this, ensure sound url is up to date.
-      s.url = instanceOptions.url;
-
-      return s;
-
-    };
-
-    /**
-     * Unloads a sound, canceling any open HTTP requests.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.unload = function() {
-
-      // Flash 8/AS2 can't "close" a stream - fake it by loading an empty URL
-      // Flash 9/AS3: Close stream, preventing further load
-      // HTML5: Most UAs will use empty URL
-
-      if (s.readyState !== 0) {
-
-        sm2._wD(s.id + ': unload()');
-
-        if (!s.isHTML5) {
-
-          if (fV === 8) {
-            flash._unload(s.id, emptyURL);
-          } else {
-            flash._unload(s.id);
-          }
-
-        } else {
-
-          stop_html5_timer();
-
-          if (s._a) {
-
-            s._a.pause();
-
-            // update empty URL, too
-            lastURL = html5Unload(s._a);
-
-          }
-
-        }
-
-        // reset load/status flags
-        resetProperties();
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Unloads and destroys a sound.
-     */
-
-    this.destruct = function(_bFromSM) {
-
-      sm2._wD(s.id + ': Destruct');
-
-      if (!s.isHTML5) {
-
-        // kill sound within Flash
-        // Disable the onfailure handler
-        s._iO.onfailure = null;
-        flash._destroySound(s.id);
-
-      } else {
-
-        stop_html5_timer();
-
-        if (s._a) {
-          s._a.pause();
-          html5Unload(s._a);
-          if (!useGlobalHTML5Audio) {
-            remove_html5_events();
-          }
-          // break obvious circular reference
-          s._a._s = null;
-          s._a = null;
-        }
-
-      }
-
-      if (!_bFromSM) {
-        // ensure deletion from controller
-        sm2.destroySound(s.id, true);
-      }
-
-    };
-
-    /**
-     * Begins playing a sound.
-     *
-     * @param {object} options Optional: Sound options
-     * @return {SMSound} The SMSound object
-     */
-
-    this.play = function(options, _updatePlayState) {
-
-      var fN, allowMulti, a, onready,
-          audioClone, onended, oncanplay,
-          startOK = true;
-
-      // <d>
-      fN = s.id + ': play(): ';
-      // </d>
-
-      // default to true
-      _updatePlayState = (_updatePlayState === _undefined ? true : _updatePlayState);
-
-      if (!options) {
-        options = {};
-      }
-
-      // first, use local URL (if specified)
-      if (s.url) {
-        s._iO.url = s.url;
-      }
-
-      // mix in any options defined at createSound()
-      s._iO = mixin(s._iO, s.options);
-
-      // mix in any options specific to this method
-      s._iO = mixin(options, s._iO);
-
-      s._iO.url = parseURL(s._iO.url);
-
-      s.instanceOptions = s._iO;
-
-      // RTMP-only
-      if (!s.isHTML5 && s._iO.serverURL && !s.connected) {
-        if (!s.getAutoPlay()) {
-          sm2._wD(fN + ' Netstream not connected yet - setting autoPlay');
-          s.setAutoPlay(true);
-        }
-        // play will be called in onconnect()
-        return s;
-      }
-
-      if (html5OK(s._iO)) {
-        s._setup_html5(s._iO);
-        start_html5_timer();
-      }
-
-      if (s.playState === 1 && !s.paused) {
-
-        allowMulti = s._iO.multiShot;
-
-        if (!allowMulti) {
-
-          sm2._wD(fN + 'Already playing (one-shot)', 1);
-
-          if (s.isHTML5) {
-            // go back to original position.
-            s.setPosition(s._iO.position);
-          }
-
-          return s;
-
-        }
-
-        sm2._wD(fN + 'Already playing (multi-shot)', 1);
-
-      }
-
-      // edge case: play() with explicit URL parameter
-      if (options.url && options.url !== s.url) {
-
-        // special case for createSound() followed by load() / play() with url; avoid double-load case.
-        if (!s.readyState && !s.isHTML5 && fV === 8 && urlOmitted) {
-
-          urlOmitted = false;
-
-        } else {
-
-          // load using merged options
-          s.load(s._iO);
-
-        }
-
-      }
-
-      if (!s.loaded) {
-
-        if (s.readyState === 0) {
-
-          sm2._wD(fN + 'Attempting to load');
-
-          // try to get this sound playing ASAP
-          if (!s.isHTML5 && !sm2.html5Only) {
-
-            // flash: assign directly because setAutoPlay() increments the instanceCount
-            s._iO.autoPlay = true;
-            s.load(s._iO);
-
-          } else if (s.isHTML5) {
-
-            // iOS needs this when recycling sounds, loading a new URL on an existing object.
-            s.load(s._iO);
-
-          } else {
-
-            sm2._wD(fN + 'Unsupported type. Exiting.');
-
-            return s;
-
-          }
-
-          // HTML5 hack - re-set instanceOptions?
-          s.instanceOptions = s._iO;
-
-        } else if (s.readyState === 2) {
-
-          sm2._wD(fN + 'Could not load - exiting', 2);
-
-          return s;
-
-        } else {
-
-          sm2._wD(fN + 'Loading - attempting to play...');
-
-        }
-
-      } else {
-
-        // "play()"
-        sm2._wD(fN.substr(0, fN.lastIndexOf(':')));
-
-      }
-
-      if (!s.isHTML5 && fV === 9 && s.position > 0 && s.position === s.duration) {
-        // flash 9 needs a position reset if play() is called while at the end of a sound.
-        sm2._wD(fN + 'Sound at end, resetting to position: 0');
-        options.position = 0;
-      }
-
-      /**
-       * Streams will pause when their buffer is full if they are being loaded.
-       * In this case paused is true, but the song hasn't started playing yet.
-       * If we just call resume() the onplay() callback will never be called.
-       * So only call resume() if the position is > 0.
-       * Another reason is because options like volume won't have been applied yet.
-       * For normal sounds, just resume.
-       */
-
-      if (s.paused && s.position >= 0 && (!s._iO.serverURL || s.position > 0)) {
-
-        // https://gist.github.com/37b17df75cc4d7a90bf6
-        sm2._wD(fN + 'Resuming from paused state', 1);
-        s.resume();
-
-      } else {
-
-        s._iO = mixin(options, s._iO);
-
-        /**
-         * Preload in the event of play() with position under Flash,
-         * or from/to parameters and non-RTMP case
-         */
-        if (((!s.isHTML5 && s._iO.position !== null && s._iO.position > 0) || (s._iO.from !== null && s._iO.from > 0) || s._iO.to !== null) && s.instanceCount === 0 && s.playState === 0 && !s._iO.serverURL) {
-
-          onready = function() {
-            // sound "canplay" or onload()
-            // re-apply position/from/to to instance options, and start playback
-            s._iO = mixin(options, s._iO);
-            s.play(s._iO);
-          };
-
-          // HTML5 needs to at least have "canplay" fired before seeking.
-          if (s.isHTML5 && !s._html5_canplay) {
-
-            // this hasn't been loaded yet. load it first, and then do this again.
-            sm2._wD(fN + 'Beginning load for non-zero offset case');
-
-            s.load({
-              // note: custom HTML5-only event added for from/to implementation.
-              _oncanplay: onready
-            });
-
-          } else if (!s.isHTML5 && !s.loaded && (!s.readyState || s.readyState !== 2)) {
-
-            // to be safe, preload the whole thing in Flash.
-
-            sm2._wD(fN + 'Preloading for non-zero offset case');
-
-            s.load({
-              onload: onready
-            });
-
-          }
-
-          // otherwise, we're ready to go. re-apply local options, and continue
-
-          s._iO = applyFromTo();
-
-        }
-
-        // sm2._wD(fN + 'Starting to play');
-
-        // increment instance counter, where enabled + supported
-        if (!s.instanceCount || s._iO.multiShotEvents || (s.isHTML5 && s._iO.multiShot && !useGlobalHTML5Audio) || (!s.isHTML5 && fV > 8 && !s.getAutoPlay())) {
-          s.instanceCount++;
-        }
-
-        // if first play and onposition parameters exist, apply them now
-        if (s._iO.onposition && s.playState === 0) {
-          attachOnPosition(s);
-        }
-
-        s.playState = 1;
-        s.paused = false;
-
-        s.position = (s._iO.position !== _undefined && !isNaN(s._iO.position) ? s._iO.position : 0);
-
-        if (!s.isHTML5) {
-          s._iO = policyFix(loopFix(s._iO));
-        }
-
-        if (s._iO.onplay && _updatePlayState) {
-          s._iO.onplay.apply(s);
-          onplay_called = true;
-        }
-
-        s.setVolume(s._iO.volume, true);
-        s.setPan(s._iO.pan, true);
-
-        if (s._iO.playbackRate !== 1) {
-          s.setPlaybackRate(s._iO.playbackRate);
-        }
-
-        if (!s.isHTML5) {
-
-          startOK = flash._start(s.id, s._iO.loops || 1, (fV === 9 ? s.position : s.position / msecScale), s._iO.multiShot || false);
-
-          if (fV === 9 && !startOK) {
-            // edge case: no sound hardware, or 32-channel flash ceiling hit.
-            // applies only to Flash 9, non-NetStream/MovieStar sounds.
-            // http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Sound.html#play%28%29
-            sm2._wD(fN + 'No sound hardware, or 32-sound ceiling hit', 2);
-            if (s._iO.onplayerror) {
-              s._iO.onplayerror.apply(s);
-            }
-
-          }
-
-        } else if (s.instanceCount < 2) {
-
-            // HTML5 single-instance case
-
-            start_html5_timer();
-
-            a = s._setup_html5();
-
-            s.setPosition(s._iO.position);
-
-            a.play();
-
-          } else {
-
-            // HTML5 multi-shot case
-
-            sm2._wD(s.id + ': Cloning Audio() for instance #' + s.instanceCount + '...');
-
-            audioClone = new Audio(s._iO.url);
-
-            onended = function() {
-              event.remove(audioClone, 'ended', onended);
-              s._onfinish(s);
-              // cleanup
-              html5Unload(audioClone);
-              audioClone = null;
-            };
-
-            oncanplay = function() {
-              event.remove(audioClone, 'canplay', oncanplay);
-              try {
-                audioClone.currentTime = s._iO.position / msecScale;
-              } catch(err) {
-                complain(s.id + ': multiShot play() failed to apply position of ' + (s._iO.position / msecScale));
-              }
-              audioClone.play();
-            };
-
-            event.add(audioClone, 'ended', onended);
-
-            // apply volume to clones, too
-            if (s._iO.volume !== _undefined) {
-              audioClone.volume = Math.max(0, Math.min(1, s._iO.volume / 100));
-            }
-
-            // playing multiple muted sounds? if you do this, you're weird ;) - but let's cover it.
-            if (s.muted) {
-              audioClone.muted = true;
-            }
-
-            if (s._iO.position) {
-              // HTML5 audio can't seek before onplay() event has fired.
-              // wait for canplay, then seek to position and start playback.
-              event.add(audioClone, 'canplay', oncanplay);
-            } else {
-              // begin playback at currentTime: 0
-              audioClone.play();
-            }
-
-          }
-
-      }
-
-      return s;
-
-    };
-
-    // just for convenience
-    this.start = this.play;
-
-    /**
-     * Stops playing a sound (and optionally, all sounds)
-     *
-     * @param {boolean} bAll Optional: Whether to stop all sounds
-     * @return {SMSound} The SMSound object
-     */
-
-    this.stop = function(bAll) {
-
-      var instanceOptions = s._iO,
-          originalPosition;
-
-      if (s.playState === 1) {
-
-        sm2._wD(s.id + ': stop()');
-
-        s._onbufferchange(0);
-        s._resetOnPosition(0);
-        s.paused = false;
-
-        if (!s.isHTML5) {
-          s.playState = 0;
-        }
-
-        // remove onPosition listeners, if any
-        detachOnPosition();
-
-        // and "to" position, if set
-        if (instanceOptions.to) {
-          s.clearOnPosition(instanceOptions.to);
-        }
-
-        if (!s.isHTML5) {
-
-          flash._stop(s.id, bAll);
-
-          // hack for netStream: just unload
-          if (instanceOptions.serverURL) {
-            s.unload();
-          }
-
-        } else if (s._a) {
-
-            originalPosition = s.position;
-
-            // act like Flash, though
-            s.setPosition(0);
-
-            // hack: reflect old position for onstop() (also like Flash)
-            s.position = originalPosition;
-
-            // html5 has no stop()
-            // NOTE: pausing means iOS requires interaction to resume.
-            s._a.pause();
-
-            s.playState = 0;
-
-            // and update UI
-            s._onTimer();
-
-            stop_html5_timer();
-
-          }
-
-        s.instanceCount = 0;
-        s._iO = {};
-
-        if (instanceOptions.onstop) {
-          instanceOptions.onstop.apply(s);
-        }
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Undocumented/internal: Sets autoPlay for RTMP.
-     *
-     * @param {boolean} autoPlay state
-     */
-
-    this.setAutoPlay = function(autoPlay) {
-
-      sm2._wD(s.id + ': Autoplay turned ' + (autoPlay ? 'on' : 'off'));
-      s._iO.autoPlay = autoPlay;
-
-      if (!s.isHTML5) {
-        flash._setAutoPlay(s.id, autoPlay);
-        if (autoPlay) {
-          // only increment the instanceCount if the sound isn't loaded (TODO: verify RTMP)
-          if (!s.instanceCount && s.readyState === 1) {
-            s.instanceCount++;
-            sm2._wD(s.id + ': Incremented instance count to ' + s.instanceCount);
-          }
-        }
-      }
-
-    };
-
-    /**
-     * Undocumented/internal: Returns the autoPlay boolean.
-     *
-     * @return {boolean} The current autoPlay value
-     */
-
-    this.getAutoPlay = function() {
-
-      return s._iO.autoPlay;
-
-    };
-
-    /**
-     * Sets the playback rate of a sound (HTML5-only.)
-     *
-     * @param {number} playbackRate (+/-)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setPlaybackRate = function(playbackRate) {
-
-      // Per Mozilla, limit acceptable values to prevent playback from stopping (unless allowOverride is truthy.)
-      // https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/WebAudio_playbackRate_explained
-      var normalizedRate = Math.max(0.5, Math.min(4, playbackRate));
-
-      // <d>
-      if (normalizedRate !== playbackRate) {
-        sm2._wD(s.id + ': setPlaybackRate(' + playbackRate + '): limiting rate to ' + normalizedRate, 2);
-      }
-      // </d>
-
-      if (s.isHTML5) {
-        try {
-          s._iO.playbackRate = normalizedRate;
-          s._a.playbackRate = normalizedRate;
-        } catch(e) {
-          sm2._wD(s.id + ': setPlaybackRate(' + normalizedRate + ') failed: ' + e.message, 2);
-        }
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Sets the position of a sound.
-     *
-     * @param {number} nMsecOffset Position (milliseconds)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setPosition = function(nMsecOffset) {
-
-      if (nMsecOffset === _undefined) {
-        nMsecOffset = 0;
-      }
-
-      var position, position1K,
-          // Use the duration from the instance options, if we don't have a track duration yet.
-          // position >= 0 and <= current available (loaded) duration
-          offset = (s.isHTML5 ? Math.max(nMsecOffset, 0) : Math.min(s.duration || s._iO.duration, Math.max(nMsecOffset, 0)));
-
-      s.position = offset;
-      position1K = s.position / msecScale;
-      s._resetOnPosition(s.position);
-      s._iO.position = offset;
-
-      if (!s.isHTML5) {
-
-        position = (fV === 9 ? s.position : position1K);
-
-        if (s.readyState && s.readyState !== 2) {
-          // if paused or not playing, will not resume (by playing)
-          flash._setPosition(s.id, position, (s.paused || !s.playState), s._iO.multiShot);
-        }
-
-      } else if (s._a) {
-
-        // Set the position in the canplay handler if the sound is not ready yet
-        if (s._html5_canplay) {
-
-          if (s._a.currentTime.toFixed(3) !== position1K.toFixed(3)) {
-
-            /**
-             * DOM/JS errors/exceptions to watch out for:
-             * if seek is beyond (loaded?) position, "DOM exception 11"
-             * "INDEX_SIZE_ERR": DOM exception 1
-             */
-            sm2._wD(s.id + ': setPosition(' + position1K + ')');
-
-            try {
-              s._a.currentTime = position1K;
-              if (s.playState === 0 || s.paused) {
-                // allow seek without auto-play/resume
-                s._a.pause();
-              }
-            } catch(e) {
-              sm2._wD(s.id + ': setPosition(' + position1K + ') failed: ' + e.message, 2);
-            }
-
-          }
-
-        } else if (position1K) {
-
-          // warn on non-zero seek attempts
-          sm2._wD(s.id + ': setPosition(' + position1K + '): Cannot seek yet, sound not ready', 2);
-          return s;
-
-        }
-
-        if (s.paused) {
-
-          // if paused, refresh UI right away by forcing update
-          s._onTimer(true);
-
-        }
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Pauses sound playback.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.pause = function(_bCallFlash) {
-
-      if (s.paused || (s.playState === 0 && s.readyState !== 1)) return s;
-
-      sm2._wD(s.id + ': pause()');
-      s.paused = true;
-
-      if (!s.isHTML5) {
-        if (_bCallFlash || _bCallFlash === _undefined) {
-          flash._pause(s.id, s._iO.multiShot);
-        }
-      } else {
-        s._setup_html5().pause();
-        stop_html5_timer();
-      }
-
-      if (s._iO.onpause) {
-        s._iO.onpause.apply(s);
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Resumes sound playback.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    /**
-     * When auto-loaded streams pause on buffer full they have a playState of 0.
-     * We need to make sure that the playState is set to 1 when these streams "resume".
-     * When a paused stream is resumed, we need to trigger the onplay() callback if it
-     * hasn't been called already. In this case since the sound is being played for the
-     * first time, I think it's more appropriate to call onplay() rather than onresume().
-     */
-
-    this.resume = function() {
-
-      var instanceOptions = s._iO;
-
-      if (!s.paused) return s;
-
-      sm2._wD(s.id + ': resume()');
-      s.paused = false;
-      s.playState = 1;
-
-      if (!s.isHTML5) {
-
-        if (instanceOptions.isMovieStar && !instanceOptions.serverURL) {
-          // Bizarre Webkit bug (Chrome reported via 8tracks.com dudes): AAC content paused for 30+ seconds(?) will not resume without a reposition.
-          s.setPosition(s.position);
-        }
-
-        // flash method is toggle-based (pause/resume)
-        flash._pause(s.id, instanceOptions.multiShot);
-
-      } else {
-
-        s._setup_html5().play();
-        start_html5_timer();
-
-      }
-
-      if (!onplay_called && instanceOptions.onplay) {
-
-        instanceOptions.onplay.apply(s);
-        onplay_called = true;
-
-      } else if (instanceOptions.onresume) {
-
-        instanceOptions.onresume.apply(s);
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Toggles sound playback.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.togglePause = function() {
-
-      sm2._wD(s.id + ': togglePause()');
-
-      if (s.playState === 0) {
-        s.play({
-          position: (fV === 9 && !s.isHTML5 ? s.position : s.position / msecScale)
-        });
-        return s;
-      }
-
-      if (s.paused) {
-        s.resume();
-      } else {
-        s.pause();
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Sets the panning (L-R) effect.
-     *
-     * @param {number} nPan The pan value (-100 to 100)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setPan = function(nPan, bInstanceOnly) {
-
-      if (nPan === _undefined) {
-        nPan = 0;
-      }
-
-      if (bInstanceOnly === _undefined) {
-        bInstanceOnly = false;
-      }
-
-      if (!s.isHTML5) {
-        flash._setPan(s.id, nPan);
-      } // else { no HTML5 pan? }
-
-      s._iO.pan = nPan;
-
-      if (!bInstanceOnly) {
-        s.pan = nPan;
-        s.options.pan = nPan;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Sets the volume.
-     *
-     * @param {number} nVol The volume value (0 to 100)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setVolume = function(nVol, _bInstanceOnly) {
-
-      /**
-       * Note: Setting volume has no effect on iOS "special snowflake" devices.
-       * Hardware volume control overrides software, and volume
-       * will always return 1 per Apple docs. (iOS 4 + 5.)
-       * http://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/HTML-canvas-guide/AddingSoundtoCanvasAnimations/AddingSoundtoCanvasAnimations.html
-       */
-
-      if (nVol === _undefined) {
-        nVol = 100;
-      }
-
-      if (_bInstanceOnly === _undefined) {
-        _bInstanceOnly = false;
-      }
-
-      if (!s.isHTML5) {
-
-        flash._setVolume(s.id, (sm2.muted && !s.muted) || s.muted ? 0 : nVol);
-
-      } else if (s._a) {
-
-        if (sm2.muted && !s.muted) {
-          s.muted = true;
-          s._a.muted = true;
-        }
-
-        // valid range for native HTML5 Audio(): 0-1
-        s._a.volume = Math.max(0, Math.min(1, nVol / 100));
-
-      }
-
-      s._iO.volume = nVol;
-
-      if (!_bInstanceOnly) {
-        s.volume = nVol;
-        s.options.volume = nVol;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Mutes the sound.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.mute = function() {
-
-      s.muted = true;
-
-      if (!s.isHTML5) {
-        flash._setVolume(s.id, 0);
-      } else if (s._a) {
-        s._a.muted = true;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Unmutes the sound.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.unmute = function() {
-
-      s.muted = false;
-      var hasIO = (s._iO.volume !== _undefined);
-
-      if (!s.isHTML5) {
-        flash._setVolume(s.id, hasIO ? s._iO.volume : s.options.volume);
-      } else if (s._a) {
-        s._a.muted = false;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Toggles the muted state of a sound.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.toggleMute = function() {
-
-      return (s.muted ? s.unmute() : s.mute());
-
-    };
-
-    /**
-     * Registers a callback to be fired when a sound reaches a given position during playback.
-     *
-     * @param {number} nPosition The position to watch for
-     * @param {function} oMethod The relevant callback to fire
-     * @param {object} oScope Optional: The scope to apply the callback to
-     * @return {SMSound} The SMSound object
-     */
-
-    this.onPosition = function(nPosition, oMethod, oScope) {
-
-      // TODO: basic dupe checking?
-
-      onPositionItems.push({
-        position: parseInt(nPosition, 10),
-        method: oMethod,
-        scope: (oScope !== _undefined ? oScope : s),
-        fired: false
-      });
-
-      return s;
-
-    };
-
-    // legacy/backwards-compability: lower-case method name
-    this.onposition = this.onPosition;
-
-    /**
-     * Removes registered callback(s) from a sound, by position and/or callback.
-     *
-     * @param {number} nPosition The position to clear callback(s) for
-     * @param {function} oMethod Optional: Identify one callback to be removed when multiple listeners exist for one position
-     * @return {SMSound} The SMSound object
-     */
-
-    this.clearOnPosition = function(nPosition, oMethod) {
-
-      var i;
-
-      nPosition = parseInt(nPosition, 10);
-
-      if (isNaN(nPosition)) {
-        // safety check
-        return;
-      }
-
-      for (i = 0; i < onPositionItems.length; i++) {
-
-        if (nPosition === onPositionItems[i].position) {
-          // remove this item if no method was specified, or, if the method matches
-
-          if (!oMethod || (oMethod === onPositionItems[i].method)) {
-
-            if (onPositionItems[i].fired) {
-              // decrement "fired" counter, too
-              onPositionFired--;
-            }
-
-            onPositionItems.splice(i, 1);
-
-          }
-
-        }
-
-      }
-
-    };
-
-    this._processOnPosition = function() {
-
-      var i, item, j = onPositionItems.length;
-
-      if (!j || !s.playState || onPositionFired >= j) return false;
-
-      for (i = j - 1; i >= 0; i--) {
-
-        item = onPositionItems[i];
-
-        if (!item.fired && s.position >= item.position) {
-
-          item.fired = true;
-          onPositionFired++;
-          item.method.apply(item.scope, [item.position]);
-
-          //  reset j -- onPositionItems.length can be changed in the item callback above... occasionally breaking the loop.
-          j = onPositionItems.length;
-
-        }
-
-      }
-
-      return true;
-
-    };
-
-    this._resetOnPosition = function(nPosition) {
-
-      // reset "fired" for items interested in this position
-      var i, item, j = onPositionItems.length;
-
-      if (!j) return false;
-
-      for (i = j - 1; i >= 0; i--) {
-
-        item = onPositionItems[i];
-
-        if (item.fired && nPosition <= item.position) {
-          item.fired = false;
-          onPositionFired--;
-        }
-
-      }
-
-      return true;
-
-    };
-
-    /**
-     * SMSound() private internals
-     * --------------------------------
-     */
-
-    applyFromTo = function() {
-
-      var instanceOptions = s._iO,
-          f = instanceOptions.from,
-          t = instanceOptions.to,
-          start, end;
-
-      end = function() {
-
-        // end has been reached.
-        sm2._wD(s.id + ': "To" time of ' + t + ' reached.');
-
-        // detach listener
-        s.clearOnPosition(t, end);
-
-        // stop should clear this, too
-        s.stop();
-
-      };
-
-      start = function() {
-
-        sm2._wD(s.id + ': Playing "from" ' + f);
-
-        // add listener for end
-        if (t !== null && !isNaN(t)) {
-          s.onPosition(t, end);
-        }
-
-      };
-
-      if (f !== null && !isNaN(f)) {
-
-        // apply to instance options, guaranteeing correct start position.
-        instanceOptions.position = f;
-
-        // multiShot timing can't be tracked, so prevent that.
-        instanceOptions.multiShot = false;
-
-        start();
-
-      }
-
-      // return updated instanceOptions including starting position
-      return instanceOptions;
-
-    };
-
-    attachOnPosition = function() {
-
-      var item,
-          op = s._iO.onposition;
-
-      // attach onposition things, if any, now.
-
-      if (op) {
-
-        for (item in op) {
-          if (op.hasOwnProperty(item)) {
-            s.onPosition(parseInt(item, 10), op[item]);
-          }
-        }
-
-      }
-
-    };
-
-    detachOnPosition = function() {
-
-      var item,
-          op = s._iO.onposition;
-
-      // detach any onposition()-style listeners.
-
-      if (op) {
-
-        for (item in op) {
-          if (op.hasOwnProperty(item)) {
-            s.clearOnPosition(parseInt(item, 10));
-          }
-        }
-
-      }
-
-    };
-
-    start_html5_timer = function() {
-
-      if (s.isHTML5) {
-        startTimer(s);
-      }
-
-    };
-
-    stop_html5_timer = function() {
-
-      if (s.isHTML5) {
-        stopTimer(s);
-      }
-
-    };
-
-    resetProperties = function(retainPosition) {
-
-      if (!retainPosition) {
-        onPositionItems = [];
-        onPositionFired = 0;
-      }
-
-      onplay_called = false;
-
-      s._hasTimer = null;
-      s._a = null;
-      s._html5_canplay = false;
-      s.bytesLoaded = null;
-      s.bytesTotal = null;
-      s.duration = (s._iO && s._iO.duration ? s._iO.duration : null);
-      s.durationEstimate = null;
-      s.buffered = [];
-
-      // legacy: 1D array
-      s.eqData = [];
-
-      s.eqData.left = [];
-      s.eqData.right = [];
-
-      s.failures = 0;
-      s.isBuffering = false;
-      s.instanceOptions = {};
-      s.instanceCount = 0;
-      s.loaded = false;
-      s.metadata = {};
-
-      // 0 = uninitialised, 1 = loading, 2 = failed/error, 3 = loaded/success
-      s.readyState = 0;
-
-      s.muted = false;
-      s.paused = false;
-
-      s.peakData = {
-        left: 0,
-        right: 0
-      };
-
-      s.waveformData = {
-        left: [],
-        right: []
-      };
-
-      s.playState = 0;
-      s.position = null;
-
-      s.id3 = {};
-
-    };
-
-    resetProperties();
-
-    /**
-     * Pseudo-private SMSound internals
-     * --------------------------------
-     */
-
-    this._onTimer = function(bForce) {
-
-      /**
-       * HTML5-only _whileplaying() etc.
-       * called from both HTML5 native events, and polling/interval-based timers
-       * mimics flash and fires only when time/duration change, so as to be polling-friendly
-       */
-
-      var duration, isNew = false, time, x = {};
-
-      if (s._hasTimer || bForce) {
-
-        // TODO: May not need to track readyState (1 = loading)
-
-        if (s._a && (bForce || ((s.playState > 0 || s.readyState === 1) && !s.paused))) {
-
-          duration = s._get_html5_duration();
-
-          if (duration !== lastHTML5State.duration) {
-
-            lastHTML5State.duration = duration;
-            s.duration = duration;
-            isNew = true;
-
-          }
-
-          // TODO: investigate why this goes wack if not set/re-set each time.
-          s.durationEstimate = s.duration;
-
-          time = (s._a.currentTime * msecScale || 0);
-
-          if (time !== lastHTML5State.time) {
-
-            lastHTML5State.time = time;
-            isNew = true;
-
-          }
-
-          if (isNew || bForce) {
-
-            s._whileplaying(time, x, x, x, x);
-
-          }
-
-        }/* else {
-
-          // sm2._wD('_onTimer: Warn for "'+s.id+'": '+(!s._a?'Could not find element. ':'')+(s.playState === 0?'playState bad, 0?':'playState = '+s.playState+', OK'));
-
-          return false;
-
-        }*/
-
-      }
-
-      return isNew;
-
-    };
-
-    this._get_html5_duration = function() {
-
-      var instanceOptions = s._iO,
-          // if audio object exists, use its duration - else, instance option duration (if provided - it's a hack, really, and should be retired) OR null
-          d = (s._a && s._a.duration ? s._a.duration * msecScale : (instanceOptions && instanceOptions.duration ? instanceOptions.duration : null)),
-          result = (d && !isNaN(d) && d !== Infinity ? d : null);
-
-      return result;
-
-    };
-
-    this._apply_loop = function(a, nLoops) {
-
-      /**
-       * boolean instead of "loop", for webkit? - spec says string. http://www.w3.org/TR/html-markup/audio.html#audio.attrs.loop
-       * note that loop is either off or infinite under HTML5, unlike Flash which allows arbitrary loop counts to be specified.
-       */
-
-      // <d>
-      if (!a.loop && nLoops > 1) {
-        sm2._wD('Note: Native HTML5 looping is infinite.', 1);
-      }
-      // </d>
-
-      a.loop = (nLoops > 1 ? 'loop' : '');
-
-    };
-
-    this._setup_html5 = function(options) {
-
-      var instanceOptions = mixin(s._iO, options),
-          a = useGlobalHTML5Audio ? globalHTML5Audio : s._a,
-          dURL = decodeURI(instanceOptions.url),
-          sameURL;
-
-      /**
-       * "First things first, I, Poppa..." (reset the previous state of the old sound, if playing)
-       * Fixes case with devices that can only play one sound at a time
-       * Otherwise, other sounds in mid-play will be terminated without warning and in a stuck state
-       */
-
-      if (useGlobalHTML5Audio) {
-
-        if (dURL === decodeURI(lastGlobalHTML5URL)) {
-          // global HTML5 audio: re-use of URL
-          sameURL = true;
-        }
-
-      } else if (dURL === decodeURI(lastURL)) {
-
-        // options URL is the same as the "last" URL, and we used (loaded) it
-        sameURL = true;
-
-      }
-
-      if (a) {
-
-        if (a._s) {
-
-          if (useGlobalHTML5Audio) {
-
-            if (a._s && a._s.playState && !sameURL) {
-
-              // global HTML5 audio case, and loading a new URL. stop the currently-playing one.
-              a._s.stop();
-
-            }
-
-          } else if (!useGlobalHTML5Audio && dURL === decodeURI(lastURL)) {
-
-            // non-global HTML5 reuse case: same url, ignore request
-            s._apply_loop(a, instanceOptions.loops);
-
-            return a;
-
-          }
-
-        }
-
-        if (!sameURL) {
-
-          // don't retain onPosition() stuff with new URLs.
-
-          if (lastURL) {
-            resetProperties(false);
-          }
-
-          // assign new HTML5 URL
-
-          a.src = instanceOptions.url;
-
-          s.url = instanceOptions.url;
-
-          lastURL = instanceOptions.url;
-
-          lastGlobalHTML5URL = instanceOptions.url;
-
-          a._called_load = false;
-
-        }
-
-      } else {
-
-        if (instanceOptions.autoLoad || instanceOptions.autoPlay) {
-
-          s._a = new Audio(instanceOptions.url);
-          s._a.load();
-
-        } else {
-
-          // null for stupid Opera 9.64 case
-          s._a = (isOpera && opera.version() < 10 ? new Audio(null) : new Audio());
-
-        }
-
-        // assign local reference
-        a = s._a;
-
-        a._called_load = false;
-
-        if (useGlobalHTML5Audio) {
-
-          globalHTML5Audio = a;
-
-        }
-
-      }
-
-      s.isHTML5 = true;
-
-      // store a ref on the track
-      s._a = a;
-
-      // store a ref on the audio
-      a._s = s;
-
-      add_html5_events();
-
-      s._apply_loop(a, instanceOptions.loops);
-
-      if (instanceOptions.autoLoad || instanceOptions.autoPlay) {
-
-        s.load();
-
-      } else {
-
-        // early HTML5 implementation (non-standard)
-        a.autobuffer = false;
-
-        // standard ('none' is also an option.)
-        a.preload = 'auto';
-
-      }
-
-      return a;
-
-    };
-
-    add_html5_events = function() {
-
-      if (s._a._added_events) return false;
-
-      var f;
-
-      function add(oEvt, oFn, bCapture) {
-        return s._a ? s._a.addEventListener(oEvt, oFn, bCapture || false) : null;
-      }
-
-      s._a._added_events = true;
-
-      for (f in html5_events) {
-        if (html5_events.hasOwnProperty(f)) {
-          add(f, html5_events[f]);
-        }
-      }
-
-      return true;
-
-    };
-
-    remove_html5_events = function() {
-
-      // Remove event listeners
-
-      var f;
-
-      function remove(oEvt, oFn, bCapture) {
-        return (s._a ? s._a.removeEventListener(oEvt, oFn, bCapture || false) : null);
-      }
-
-      sm2._wD(s.id + ': Removing event listeners');
-      s._a._added_events = false;
-
-      for (f in html5_events) {
-        if (html5_events.hasOwnProperty(f)) {
-          remove(f, html5_events[f]);
-        }
-      }
-
-    };
-
-    /**
-     * Pseudo-private event internals
-     * ------------------------------
-     */
-
-    this._onload = function(nSuccess) {
-
-      var fN,
-          // check for duration to prevent false positives from flash 8 when loading from cache.
-          loadOK = !!nSuccess || (!s.isHTML5 && fV === 8 && s.duration);
-
-      // <d>
-      fN = s.id + ': ';
-      sm2._wD(fN + (loadOK ? 'onload()' : 'Failed to load / invalid sound?' + (!s.duration ? ' Zero-length duration reported.' : ' -') + ' (' + s.url + ')'), (loadOK ? 1 : 2));
-
-      if (!loadOK && !s.isHTML5) {
-        if (sm2.sandbox.noRemote === true) {
-          sm2._wD(fN + str('noNet'), 1);
-        }
-        if (sm2.sandbox.noLocal === true) {
-          sm2._wD(fN + str('noLocal'), 1);
-        }
-      }
-      // </d>
-
-      s.loaded = loadOK;
-      s.readyState = (loadOK ? 3 : 2);
-      s._onbufferchange(0);
-
-      if (!loadOK && !s.isHTML5) {
-        // note: no error code from Flash.
-        s._onerror();
-      }
-
-      if (s._iO.onload) {
-        wrapCallback(s, function() {
-          s._iO.onload.apply(s, [loadOK]);
-        });
-      }
-
-      return true;
-
-    };
-
-    this._onerror = function(errorCode, description) {
-
-      // https://html.spec.whatwg.org/multipage/embedded-content.html#error-codes
-      if (s._iO.onerror) {
-        wrapCallback(s, function() {
-          s._iO.onerror.apply(s, [errorCode, description]);
-        });
-      }
-
-    };
-
-    this._onbufferchange = function(nIsBuffering) {
-
-      // ignore if not playing
-      if (s.playState === 0) return false;
-
-      if ((nIsBuffering && s.isBuffering) || (!nIsBuffering && !s.isBuffering)) return false;
-
-      s.isBuffering = (nIsBuffering === 1);
-
-      if (s._iO.onbufferchange) {
-        sm2._wD(s.id + ': Buffer state change: ' + nIsBuffering);
-        s._iO.onbufferchange.apply(s, [nIsBuffering]);
-      }
-
-      return true;
-
-    };
-
-    /**
-     * Playback may have stopped due to buffering, or related reason.
-     * This state can be encountered on iOS < 6 when auto-play is blocked.
-     */
-
-    this._onsuspend = function() {
-
-      if (s._iO.onsuspend) {
-        sm2._wD(s.id + ': Playback suspended');
-        s._iO.onsuspend.apply(s);
-      }
-
-      return true;
-
-    };
-
-    /**
-     * flash 9/movieStar + RTMP-only method, should fire only once at most
-     * at this point we just recreate failed sounds rather than trying to reconnect
-     */
-
-    this._onfailure = function(msg, level, code) {
-
-      s.failures++;
-      sm2._wD(s.id + ': Failure (' + s.failures + '): ' + msg);
-
-      if (s._iO.onfailure && s.failures === 1) {
-        s._iO.onfailure(msg, level, code);
-      } else {
-        sm2._wD(s.id + ': Ignoring failure');
-      }
-
-    };
-
-    /**
-     * flash 9/movieStar + RTMP-only method for unhandled warnings/exceptions from Flash
-     * e.g., RTMP "method missing" warning (non-fatal) for getStreamLength on server
-     */
-
-    this._onwarning = function(msg, level, code) {
-
-      if (s._iO.onwarning) {
-        s._iO.onwarning(msg, level, code);
-      }
-
-    };
-
-    this._onfinish = function() {
-
-      // store local copy before it gets trashed...
-      var io_onfinish = s._iO.onfinish;
-
-      s._onbufferchange(0);
-      s._resetOnPosition(0);
-
-      // reset some state items
-      if (s.instanceCount) {
-
-        s.instanceCount--;
-
-        if (!s.instanceCount) {
-
-          // remove onPosition listeners, if any
-          detachOnPosition();
-
-          // reset instance options
-          s.playState = 0;
-          s.paused = false;
-          s.instanceCount = 0;
-          s.instanceOptions = {};
-          s._iO = {};
-          stop_html5_timer();
-
-          // reset position, too
-          if (s.isHTML5) {
-            s.position = 0;
-          }
-
-        }
-
-        if (!s.instanceCount || s._iO.multiShotEvents) {
-          // fire onfinish for last, or every instance
-          if (io_onfinish) {
-            sm2._wD(s.id + ': onfinish()');
-            wrapCallback(s, function() {
-              io_onfinish.apply(s);
-            });
-          }
-        }
-
-      }
-
-    };
-
-    this._whileloading = function(nBytesLoaded, nBytesTotal, nDuration, nBufferLength) {
-
-      var instanceOptions = s._iO;
-
-      s.bytesLoaded = nBytesLoaded;
-      s.bytesTotal = nBytesTotal;
-      s.duration = Math.floor(nDuration);
-      s.bufferLength = nBufferLength;
-
-      if (!s.isHTML5 && !instanceOptions.isMovieStar) {
-
-        if (instanceOptions.duration) {
-          // use duration from options, if specified and larger. nobody should be specifying duration in options, actually, and it should be retired.
-          s.durationEstimate = (s.duration > instanceOptions.duration) ? s.duration : instanceOptions.duration;
-        } else {
-          s.durationEstimate = parseInt((s.bytesTotal / s.bytesLoaded) * s.duration, 10);
-        }
-
-      } else {
-
-        s.durationEstimate = s.duration;
-
-      }
-
-      // for flash, reflect sequential-load-style buffering
-      if (!s.isHTML5) {
-        s.buffered = [{
-          start: 0,
-          end: s.duration
-        }];
-      }
-
-      // allow whileloading to fire even if "load" fired under HTML5, due to HTTP range/partials
-      if ((s.readyState !== 3 || s.isHTML5) && instanceOptions.whileloading) {
-        instanceOptions.whileloading.apply(s);
-      }
-
-    };
-
-    this._whileplaying = function(nPosition, oPeakData, oWaveformDataLeft, oWaveformDataRight, oEQData) {
-
-      var instanceOptions = s._iO,
-          eqLeft;
-
-      // flash safety net
-      if (isNaN(nPosition) || nPosition === null) return false;
-
-      // Safari HTML5 play() may return small -ve values when starting from position: 0, eg. -50.120396875. Unexpected/invalid per W3, I think. Normalize to 0.
-      s.position = Math.max(0, nPosition);
-
-      s._processOnPosition();
-
-      if (!s.isHTML5 && fV > 8) {
-
-        if (instanceOptions.usePeakData && oPeakData !== _undefined && oPeakData) {
-          s.peakData = {
-            left: oPeakData.leftPeak,
-            right: oPeakData.rightPeak
-          };
-        }
-
-        if (instanceOptions.useWaveformData && oWaveformDataLeft !== _undefined && oWaveformDataLeft) {
-          s.waveformData = {
-            left: oWaveformDataLeft.split(','),
-            right: oWaveformDataRight.split(',')
-          };
-        }
-
-        if (instanceOptions.useEQData) {
-          if (oEQData !== _undefined && oEQData && oEQData.leftEQ) {
-            eqLeft = oEQData.leftEQ.split(',');
-            s.eqData = eqLeft;
-            s.eqData.left = eqLeft;
-            if (oEQData.rightEQ !== _undefined && oEQData.rightEQ) {
-              s.eqData.right = oEQData.rightEQ.split(',');
-            }
-          }
-        }
-
-      }
-
-      if (s.playState === 1) {
-
-        // special case/hack: ensure buffering is false if loading from cache (and not yet started)
-        if (!s.isHTML5 && fV === 8 && !s.position && s.isBuffering) {
-          s._onbufferchange(0);
-        }
-
-        if (instanceOptions.whileplaying) {
-          // flash may call after actual finish
-          instanceOptions.whileplaying.apply(s);
-        }
-
-      }
-
-      return true;
-
-    };
-
-    this._oncaptiondata = function(oData) {
-
-      /**
-       * internal: flash 9 + NetStream (MovieStar/RTMP-only) feature
-       *
-       * @param {object} oData
-       */
-
-      sm2._wD(s.id + ': Caption data received.');
-
-      s.captiondata = oData;
-
-      if (s._iO.oncaptiondata) {
-        s._iO.oncaptiondata.apply(s, [oData]);
-      }
-
-    };
-
-    this._onmetadata = function(oMDProps, oMDData) {
-
-      /**
-       * internal: flash 9 + NetStream (MovieStar/RTMP-only) feature
-       * RTMP may include song title, MovieStar content may include encoding info
-       *
-       * @param {array} oMDProps (names)
-       * @param {array} oMDData (values)
-       */
-
-      sm2._wD(s.id + ': Metadata received.');
-
-      var oData = {}, i, j;
-
-      for (i = 0, j = oMDProps.length; i < j; i++) {
-        oData[oMDProps[i]] = oMDData[i];
-      }
-
-      s.metadata = oData;
-
-      if (s._iO.onmetadata) {
-        s._iO.onmetadata.call(s, s.metadata);
-      }
-
-    };
-
-    this._onid3 = function(oID3Props, oID3Data) {
-
-      /**
-       * internal: flash 8 + flash 9 ID3 feature
-       * may include artist, song title etc.
-       *
-       * @param {array} oID3Props (names)
-       * @param {array} oID3Data (values)
-       */
-
-      sm2._wD(s.id + ': ID3 data received.');
-
-      var oData = [], i, j;
-
-      for (i = 0, j = oID3Props.length; i < j; i++) {
-        oData[oID3Props[i]] = oID3Data[i];
-      }
-
-      s.id3 = mixin(s.id3, oData);
-
-      if (s._iO.onid3) {
-        s._iO.onid3.apply(s);
-      }
-
-    };
-
-    // flash/RTMP-only
-
-    this._onconnect = function(bSuccess) {
-
-      bSuccess = (bSuccess === 1);
-      sm2._wD(s.id + ': ' + (bSuccess ? 'Connected.' : 'Failed to connect? - ' + s.url), (bSuccess ? 1 : 2));
-      s.connected = bSuccess;
-
-      if (bSuccess) {
-
-        s.failures = 0;
-
-        if (idCheck(s.id)) {
-          if (s.getAutoPlay()) {
-            // only update the play state if auto playing
-            s.play(_undefined, s.getAutoPlay());
-          } else if (s._iO.autoLoad) {
-            s.load();
-          }
-        }
-
-        if (s._iO.onconnect) {
-          s._iO.onconnect.apply(s, [bSuccess]);
-        }
-
-      }
-
-    };
-
-    this._ondataerror = function(sError) {
-
-      // flash 9 wave/eq data handler
-      // hack: called at start, and end from flash at/after onfinish()
-      if (s.playState > 0) {
-        sm2._wD(s.id + ': Data error: ' + sError);
-        if (s._iO.ondataerror) {
-          s._iO.ondataerror.apply(s);
-        }
-      }
-
-    };
-
-    // <d>
-    this._debug();
-    // </d>
-
-  }; // SMSound()
-
-  /**
-   * Private SoundManager internals
-   * ------------------------------
-   */
-
-  getDocument = function() {
-
-    return (doc.body || doc.getElementsByTagName('div')[0]);
-
-  };
-
-  id = function(sID) {
-
-    return doc.getElementById(sID);
-
-  };
-
-  mixin = function(oMain, oAdd) {
-
-    // non-destructive merge
-    var o1 = (oMain || {}), o2, o;
-
-    // if unspecified, o2 is the default options object
-    o2 = (oAdd === _undefined ? sm2.defaultOptions : oAdd);
-
-    for (o in o2) {
-
-      if (o2.hasOwnProperty(o) && o1[o] === _undefined) {
-
-        if (typeof o2[o] !== 'object' || o2[o] === null) {
-
-          // assign directly
-          o1[o] = o2[o];
-
-        } else {
-
-          // recurse through o2
-          o1[o] = mixin(o1[o], o2[o]);
-
-        }
-
-      }
-
-    }
-
-    return o1;
-
-  };
-
-  wrapCallback = function(oSound, callback) {
-
-    /**
-     * 03/03/2013: Fix for Flash Player 11.6.602.171 + Flash 8 (flashVersion = 8) SWF issue
-     * setTimeout() fix for certain SMSound callbacks like onload() and onfinish(), where subsequent calls like play() and load() fail when Flash Player 11.6.602.171 is installed, and using soundManager with flashVersion = 8 (which is the default).
-     * Not sure of exact cause. Suspect race condition and/or invalid (NaN-style) position argument trickling down to the next JS -> Flash _start() call, in the play() case.
-     * Fix: setTimeout() to yield, plus safer null / NaN checking on position argument provided to Flash.
-     * https://getsatisfaction.com/schillmania/topics/recent_chrome_update_seems_to_have_broken_my_sm2_audio_player
-     */
-    if (!oSound.isHTML5 && fV === 8) {
-      window.setTimeout(callback, 0);
-    } else {
-      callback();
-    }
-
-  };
-
-  // additional soundManager properties that soundManager.setup() will accept
-
-  extraOptions = {
-    onready: 1,
-    ontimeout: 1,
-    defaultOptions: 1,
-    flash9Options: 1,
-    movieStarOptions: 1
-  };
-
-  assign = function(o, oParent) {
-
-    /**
-     * recursive assignment of properties, soundManager.setup() helper
-     * allows property assignment based on whitelist
-     */
-
-    var i,
-        result = true,
-        hasParent = (oParent !== _undefined),
-        setupOptions = sm2.setupOptions,
-        bonusOptions = extraOptions;
-
-    // <d>
-
-    // if soundManager.setup() called, show accepted parameters.
-
-    if (o === _undefined) {
-
-      result = [];
-
-      for (i in setupOptions) {
-
-        if (setupOptions.hasOwnProperty(i)) {
-          result.push(i);
-        }
-
-      }
-
-      for (i in bonusOptions) {
-
-        if (bonusOptions.hasOwnProperty(i)) {
-
-          if (typeof sm2[i] === 'object') {
-            result.push(i + ': {...}');
-          } else if (sm2[i] instanceof Function) {
-            result.push(i + ': function() {...}');
-          } else {
-            result.push(i);
-          }
-
-        }
-
-      }
-
-      sm2._wD(str('setup', result.join(', ')));
-
-      return false;
-
-    }
-
-    // </d>
-
-    for (i in o) {
-
-      if (o.hasOwnProperty(i)) {
-
-        // if not an {object} we want to recurse through...
-
-        if (typeof o[i] !== 'object' || o[i] === null || o[i] instanceof Array || o[i] instanceof RegExp) {
-
-          // check "allowed" options
-
-          if (hasParent && bonusOptions[oParent] !== _undefined) {
-
-            // valid recursive / nested object option, eg., { defaultOptions: { volume: 50 } }
-            sm2[oParent][i] = o[i];
-
-          } else if (setupOptions[i] !== _undefined) {
-
-            // special case: assign to setupOptions object, which soundManager property references
-            sm2.setupOptions[i] = o[i];
-
-            // assign directly to soundManager, too
-            sm2[i] = o[i];
-
-          } else if (bonusOptions[i] === _undefined) {
-
-            // invalid or disallowed parameter. complain.
-            complain(str((sm2[i] === _undefined ? 'setupUndef' : 'setupError'), i), 2);
-
-            result = false;
-
-          } else if (sm2[i] instanceof Function) {
-
-            /**
-             * valid extraOptions (bonusOptions) parameter.
-             * is it a method, like onready/ontimeout? call it.
-             * multiple parameters should be in an array, eg. soundManager.setup({onready: [myHandler, myScope]});
-             */
-            sm2[i].apply(sm2, (o[i] instanceof Array ? o[i] : [o[i]]));
-
-          } else {
-
-            // good old-fashioned direct assignment
-            sm2[i] = o[i];
-
-          }
-
-        } else if (bonusOptions[i] === _undefined) {
-
-          // recursion case, eg., { defaultOptions: { ... } }
-
-          // invalid or disallowed parameter. complain.
-          complain(str((sm2[i] === _undefined ? 'setupUndef' : 'setupError'), i), 2);
-
-          result = false;
-
-        } else {
-
-          // recurse through object
-          return assign(o[i], i);
-
-        }
-
-      }
-
-    }
-
-    return result;
-
-  };
-
-  function preferFlashCheck(kind) {
-
-    // whether flash should play a given type
-    return (sm2.preferFlash && hasFlash && !sm2.ignoreFlash && (sm2.flash[kind] !== _undefined && sm2.flash[kind]));
-
-  }
-
-  /**
-   * Internal DOM2-level event helpers
-   * ---------------------------------
-   */
-
-  event = (function() {
-
-    // normalize event methods
-    var old = (window.attachEvent),
-    evt = {
-      add: (old ? 'attachEvent' : 'addEventListener'),
-      remove: (old ? 'detachEvent' : 'removeEventListener')
-    };
-
-    // normalize "on" event prefix, optional capture argument
-    function getArgs(oArgs) {
-
-      var args = slice.call(oArgs),
-          len = args.length;
-
-      if (old) {
-        // prefix
-        args[1] = 'on' + args[1];
-        if (len > 3) {
-          // no capture
-          args.pop();
-        }
-      } else if (len === 3) {
-        args.push(false);
-      }
-
-      return args;
-
-    }
-
-    function apply(args, sType) {
-
-      // normalize and call the event method, with the proper arguments
-      var element = args.shift(),
-          method = [evt[sType]];
-
-      if (old) {
-        // old IE can't do apply().
-        element[method](args[0], args[1]);
-      } else {
-        element[method].apply(element, args);
-      }
-
-    }
-
-    function add() {
-      apply(getArgs(arguments), 'add');
-    }
-
-    function remove() {
-      apply(getArgs(arguments), 'remove');
-    }
-
-    return {
-      add: add,
-      remove: remove
-    };
-
-  }());
-
-  /**
-   * Internal HTML5 event handling
-   * -----------------------------
-   */
-
-  function html5_event(oFn) {
-
-    // wrap html5 event handlers so we don't call them on destroyed and/or unloaded sounds
-
-    return function(e) {
-
-      var s = this._s,
-          result;
-
-      if (!s || !s._a) {
-        // <d>
-        if (s && s.id) {
-          sm2._wD(s.id + ': Ignoring ' + e.type);
-        } else {
-          sm2._wD(h5 + 'Ignoring ' + e.type);
-        }
-        // </d>
-        result = null;
-      } else {
-        result = oFn.call(this, e);
-      }
-
-      return result;
-
-    };
-
-  }
-
-  html5_events = {
-
-    // HTML5 event-name-to-handler map
-
-    abort: html5_event(function() {
-
-      sm2._wD(this._s.id + ': abort');
-
-    }),
-
-    // enough has loaded to play
-
-    canplay: html5_event(function() {
-
-      var s = this._s,
-          position1K;
-
-      if (s._html5_canplay) {
-        // this event has already fired. ignore.
-        return;
-      }
-
-      s._html5_canplay = true;
-      sm2._wD(s.id + ': canplay');
-      s._onbufferchange(0);
-
-      // position according to instance options
-      position1K = (s._iO.position !== _undefined && !isNaN(s._iO.position) ? s._iO.position / msecScale : null);
-
-      // set the position if position was provided before the sound loaded
-      if (this.currentTime !== position1K) {
-        sm2._wD(s.id + ': canplay: Setting position to ' + position1K);
-        try {
-          this.currentTime = position1K;
-        } catch(ee) {
-          sm2._wD(s.id + ': canplay: Setting position of ' + position1K + ' failed: ' + ee.message, 2);
-        }
-      }
-
-      // hack for HTML5 from/to case
-      if (s._iO._oncanplay) {
-        s._iO._oncanplay();
-      }
-
-    }),
-
-    canplaythrough: html5_event(function() {
-
-      var s = this._s;
-
-      if (!s.loaded) {
-        s._onbufferchange(0);
-        s._whileloading(s.bytesLoaded, s.bytesTotal, s._get_html5_duration());
-        s._onload(true);
-      }
-
-    }),
-
-    durationchange: html5_event(function() {
-
-      // durationchange may fire at various times, probably the safest way to capture accurate/final duration.
-
-      var s = this._s,
-          duration;
-
-      duration = s._get_html5_duration();
-
-      if (!isNaN(duration) && duration !== s.duration) {
-
-        sm2._wD(this._s.id + ': durationchange (' + duration + ')' + (s.duration ? ', previously ' + s.duration : ''));
-
-        s.durationEstimate = s.duration = duration;
-
-      }
-
-    }),
-
-    // TODO: Reserved for potential use
-    /*
-    emptied: html5_event(function() {
-
-      sm2._wD(this._s.id + ': emptied');
-
-    }),
-    */
-
-    ended: html5_event(function() {
-
-      var s = this._s;
-
-      sm2._wD(s.id + ': ended');
-
-      s._onfinish();
-
-    }),
-
-    error: html5_event(function() {
-
-      var description = (html5ErrorCodes[this.error.code] || null);
-      sm2._wD(this._s.id + ': HTML5 error, code ' + this.error.code + (description ? ' (' + description + ')' : ''));
-      this._s._onload(false);
-      this._s._onerror(this.error.code, description);
-
-    }),
-
-    loadeddata: html5_event(function() {
-
-      var s = this._s;
-
-      sm2._wD(s.id + ': loadeddata');
-
-      // safari seems to nicely report progress events, eventually totalling 100%
-      if (!s._loaded && !isSafari) {
-        s.duration = s._get_html5_duration();
-      }
-
-    }),
-
-    loadedmetadata: html5_event(function() {
-
-      sm2._wD(this._s.id + ': loadedmetadata');
-
-    }),
-
-    loadstart: html5_event(function() {
-
-      sm2._wD(this._s.id + ': loadstart');
-      // assume buffering at first
-      this._s._onbufferchange(1);
-
-    }),
-
-    play: html5_event(function() {
-
-      // sm2._wD(this._s.id + ': play()');
-      // once play starts, no buffering
-      this._s._onbufferchange(0);
-
-    }),
-
-    playing: html5_event(function() {
-
-      sm2._wD(this._s.id + ': playing ' + String.fromCharCode(9835));
-      // once play starts, no buffering
-      this._s._onbufferchange(0);
-
-    }),
-
-    progress: html5_event(function(e) {
-
-      // note: can fire repeatedly after "loaded" event, due to use of HTTP range/partials
-
-      var s = this._s,
-          i, j, progStr, buffered = 0,
-          isProgress = (e.type === 'progress'),
-          ranges = e.target.buffered,
-          // firefox 3.6 implements e.loaded/total (bytes)
-          loaded = (e.loaded || 0),
-          total = (e.total || 1);
-
-      // reset the "buffered" (loaded byte ranges) array
-      s.buffered = [];
-
-      if (ranges && ranges.length) {
-
-        // if loaded is 0, try TimeRanges implementation as % of load
-        // https://developer.mozilla.org/en/DOM/TimeRanges
-
-        // re-build "buffered" array
-        // HTML5 returns seconds. SM2 API uses msec for setPosition() etc., whether Flash or HTML5.
-        for (i = 0, j = ranges.length; i < j; i++) {
-          s.buffered.push({
-            start: ranges.start(i) * msecScale,
-            end: ranges.end(i) * msecScale
-          });
-        }
-
-        // use the last value locally
-        buffered = (ranges.end(0) - ranges.start(0)) * msecScale;
-
-        // linear case, buffer sum; does not account for seeking and HTTP partials / byte ranges
-        loaded = Math.min(1, buffered / (e.target.duration * msecScale));
-
-        // <d>
-        if (isProgress && ranges.length > 1) {
-          progStr = [];
-          j = ranges.length;
-          for (i = 0; i < j; i++) {
-            progStr.push((e.target.buffered.start(i) * msecScale) + '-' + (e.target.buffered.end(i) * msecScale));
-          }
-          sm2._wD(this._s.id + ': progress, timeRanges: ' + progStr.join(', '));
-        }
-
-        if (isProgress && !isNaN(loaded)) {
-          sm2._wD(this._s.id + ': progress, ' + Math.floor(loaded * 100) + '% loaded');
-        }
-        // </d>
-
-      }
-
-      if (!isNaN(loaded)) {
-
-        // TODO: prevent calls with duplicate values.
-        s._whileloading(loaded, total, s._get_html5_duration());
-        if (loaded && total && loaded === total) {
-          // in case "onload" doesn't fire (eg. gecko 1.9.2)
-          html5_events.canplaythrough.call(this, e);
-        }
-
-      }
-
-    }),
-
-    ratechange: html5_event(function() {
-
-      sm2._wD(this._s.id + ': ratechange');
-
-    }),
-
-    suspend: html5_event(function(e) {
-
-      // download paused/stopped, may have finished (eg. onload)
-      var s = this._s;
-
-      sm2._wD(this._s.id + ': suspend');
-      html5_events.progress.call(this, e);
-      s._onsuspend();
-
-    }),
-
-    stalled: html5_event(function() {
-
-      sm2._wD(this._s.id + ': stalled');
-
-    }),
-
-    timeupdate: html5_event(function() {
-
-      this._s._onTimer();
-
-    }),
-
-    waiting: html5_event(function() {
-
-      var s = this._s;
-
-      // see also: seeking
-      sm2._wD(this._s.id + ': waiting');
-
-      // playback faster than download rate, etc.
-      s._onbufferchange(1);
-
-    })
-
-  };
-
-  html5OK = function(iO) {
-
-    // playability test based on URL or MIME type
-
-    var result;
-
-    if (!iO || (!iO.type && !iO.url && !iO.serverURL)) {
-
-      // nothing to check
-      result = false;
-
-    } else if (iO.serverURL || (iO.type && preferFlashCheck(iO.type))) {
-
-      // RTMP, or preferring flash
-      result = false;
-
-    } else {
-
-      // Use type, if specified. Pass data: URIs to HTML5. If HTML5-only mode, no other options, so just give 'er
-      result = ((iO.type ? html5CanPlay({ type: iO.type }) : html5CanPlay({ url: iO.url }) || sm2.html5Only || iO.url.match(/data:/i)));
-
-    }
-
-    return result;
-
-  };
-
-  html5Unload = function(oAudio) {
-
-    /**
-     * Internal method: Unload media, and cancel any current/pending network requests.
-     * Firefox can load an empty URL, which allegedly destroys the decoder and stops the download.
-     * https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox#Stopping_the_download_of_media
-     * However, Firefox has been seen loading a relative URL from '' and thus requesting the hosting page on unload.
-     * Other UA behaviour is unclear, so everyone else gets an about:blank-style URL.
-     */
-
-    var url;
-
-    if (oAudio) {
-
-      // Firefox and Chrome accept short WAVe data: URIs. Chome dislikes audio/wav, but accepts audio/wav for data: MIME.
-      // Desktop Safari complains / fails on data: URI, so it gets about:blank.
-      url = (isSafari ? emptyURL : (sm2.html5.canPlayType('audio/wav') ? emptyWAV : emptyURL));
-
-      oAudio.src = url;
-
-      // reset some state, too
-      if (oAudio._called_unload !== _undefined) {
-        oAudio._called_load = false;
-      }
-
-    }
-
-    if (useGlobalHTML5Audio) {
-
-      // ensure URL state is trashed, also
-      lastGlobalHTML5URL = null;
-
-    }
-
-    return url;
-
-  };
-
-  html5CanPlay = function(o) {
-
-    /**
-     * Try to find MIME, test and return truthiness
-     * o = {
-     *  url: '/path/to/an.mp3',
-     *  type: 'audio/mp3'
-     * }
-     */
-
-    if (!sm2.useHTML5Audio || !sm2.hasHTML5) return false;
-
-    var url = (o.url || null),
-        mime = (o.type || null),
-        aF = sm2.audioFormats,
-        result,
-        offset,
-        fileExt,
-        item;
-
-    // account for known cases like audio/mp3
-
-    if (mime && sm2.html5[mime] !== _undefined) return (sm2.html5[mime] && !preferFlashCheck(mime));
-
-    if (!html5Ext) {
-
-      html5Ext = [];
-
-      for (item in aF) {
-
-        if (aF.hasOwnProperty(item)) {
-
-          html5Ext.push(item);
-
-          if (aF[item].related) {
-            html5Ext = html5Ext.concat(aF[item].related);
-          }
-
-        }
-
-      }
-
-      html5Ext = new RegExp('\\.(' + html5Ext.join('|') + ')(\\?.*)?$', 'i');
-
-    }
-
-    // TODO: Strip URL queries, etc.
-    fileExt = (url ? url.toLowerCase().match(html5Ext) : null);
-
-    if (!fileExt || !fileExt.length) {
-
-      if (!mime) {
-
-        result = false;
-
-      } else {
-
-        // audio/mp3 -> mp3, result should be known
-        offset = mime.indexOf(';');
-
-        // strip "audio/X; codecs..."
-        fileExt = (offset !== -1 ? mime.substr(0, offset) : mime).substr(6);
-
-      }
-
-    } else {
-
-      // match the raw extension name - "mp3", for example
-      fileExt = fileExt[1];
-
-    }
-
-    if (fileExt && sm2.html5[fileExt] !== _undefined) {
-
-      // result known
-      result = (sm2.html5[fileExt] && !preferFlashCheck(fileExt));
-
-    } else {
-
-      mime = 'audio/' + fileExt;
-      result = sm2.html5.canPlayType({ type: mime });
-
-      sm2.html5[fileExt] = result;
-
-      // sm2._wD('canPlayType, found result: ' + result);
-      result = (result && sm2.html5[mime] && !preferFlashCheck(mime));
-    }
-
-    return result;
-
-  };
-
-  testHTML5 = function() {
-
-    /**
-     * Internal: Iterates over audioFormats, determining support eg. audio/mp3, audio/mpeg and so on
-     * assigns results to html5[] and flash[].
-     */
-
-    if (!sm2.useHTML5Audio || !sm2.hasHTML5) {
-
-      // without HTML5, we need Flash.
-      sm2.html5.usingFlash = true;
-      needsFlash = true;
-
-      return false;
-
-    }
-
-    // double-whammy: Opera 9.64 throws WRONG_ARGUMENTS_ERR if no parameter passed to Audio(), and Webkit + iOS happily tries to load "null" as a URL. :/
-    var a = (Audio !== _undefined ? (isOpera && opera.version() < 10 ? new Audio(null) : new Audio()) : null),
-        item, lookup, support = {}, aF, i;
-
-    function cp(m) {
-
-      var canPlay, j,
-          result = false,
-          isOK = false;
-
-      if (!a || typeof a.canPlayType !== 'function') return result;
-
-      if (m instanceof Array) {
-
-        // iterate through all mime types, return any successes
-
-        for (i = 0, j = m.length; i < j; i++) {
-
-          if (sm2.html5[m[i]] || a.canPlayType(m[i]).match(sm2.html5Test)) {
-
-            isOK = true;
-            sm2.html5[m[i]] = true;
-
-            // note flash support, too
-            sm2.flash[m[i]] = !!(m[i].match(flashMIME));
-
-          }
-
-        }
-
-        result = isOK;
-
-      } else {
-
-        canPlay = (a && typeof a.canPlayType === 'function' ? a.canPlayType(m) : false);
-        result = !!(canPlay && (canPlay.match(sm2.html5Test)));
-
-      }
-
-      return result;
-
-    }
-
-    // test all registered formats + codecs
-
-    aF = sm2.audioFormats;
-
-    for (item in aF) {
-
-      if (aF.hasOwnProperty(item)) {
-
-        lookup = 'audio/' + item;
-
-        support[item] = cp(aF[item].type);
-
-        // write back generic type too, eg. audio/mp3
-        support[lookup] = support[item];
-
-        // assign flash
-        if (item.match(flashMIME)) {
-
-          sm2.flash[item] = true;
-          sm2.flash[lookup] = true;
-
-        } else {
-
-          sm2.flash[item] = false;
-          sm2.flash[lookup] = false;
-
-        }
-
-        // assign result to related formats, too
-
-        if (aF[item] && aF[item].related) {
-
-          for (i = aF[item].related.length - 1; i >= 0; i--) {
-
-            // eg. audio/m4a
-            support['audio/' + aF[item].related[i]] = support[item];
-            sm2.html5[aF[item].related[i]] = support[item];
-            sm2.flash[aF[item].related[i]] = support[item];
-
-          }
-
-        }
-
-      }
-
-    }
-
-    support.canPlayType = (a ? cp : null);
-    sm2.html5 = mixin(sm2.html5, support);
-
-    sm2.html5.usingFlash = featureCheck();
-    needsFlash = sm2.html5.usingFlash;
-
-    return true;
-
-  };
-
-  strings = {
-
-    // <d>
-    notReady: 'Unavailable - wait until onready() has fired.',
-    notOK: 'Audio support is not available.',
-    domError: sm + 'exception caught while appending SWF to DOM.',
-    spcWmode: 'Removing wmode, preventing known SWF loading issue(s)',
-    swf404: smc + 'Verify that %s is a valid path.',
-    tryDebug: 'Try ' + sm + '.debugFlash = true for more security details (output goes to SWF.)',
-    checkSWF: 'See SWF output for more debug info.',
-    localFail: smc + 'Non-HTTP page (' + doc.location.protocol + ' URL?) Review Flash player security settings for this special case:\nhttp://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html\nMay need to add/allow path, eg. c:/sm2/ or /users/me/sm2/',
-    waitFocus: smc + 'Special case: Waiting for SWF to load with window focus...',
-    waitForever: smc + 'Waiting indefinitely for Flash (will recover if unblocked)...',
-    waitSWF: smc + 'Waiting for 100% SWF load...',
-    needFunction: smc + 'Function object expected for %s',
-    badID: 'Sound ID "%s" should be a string, starting with a non-numeric character',
-    currentObj: smc + '_debug(): Current sound objects',
-    waitOnload: smc + 'Waiting for window.onload()',
-    docLoaded: smc + 'Document already loaded',
-    onload: smc + 'initComplete(): calling soundManager.onload()',
-    onloadOK: sm + '.onload() complete',
-    didInit: smc + 'init(): Already called?',
-    secNote: 'Flash security note: Network/internet URLs will not load due to security restrictions. Access can be configured via Flash Player Global Security Settings Page: http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html',
-    badRemove: smc + 'Failed to remove Flash node.',
-    shutdown: sm + '.disable(): Shutting down',
-    queue: smc + 'Queueing %s handler',
-    smError: 'SMSound.load(): Exception: JS-Flash communication failed, or JS error.',
-    fbTimeout: 'No flash response, applying .' + swfCSS.swfTimedout + ' CSS...',
-    fbLoaded: 'Flash loaded',
-    fbHandler: smc + 'flashBlockHandler()',
-    manURL: 'SMSound.load(): Using manually-assigned URL',
-    onURL: sm + '.load(): current URL already assigned.',
-    badFV: sm + '.flashVersion must be 8 or 9. "%s" is invalid. Reverting to %s.',
-    as2loop: 'Note: Setting stream:false so looping can work (flash 8 limitation)',
-    noNSLoop: 'Note: Looping not implemented for MovieStar formats',
-    needfl9: 'Note: Switching to flash 9, required for MP4 formats.',
-    mfTimeout: 'Setting flashLoadTimeout = 0 (infinite) for off-screen, mobile flash case',
-    needFlash: smc + 'Fatal error: Flash is needed to play some required formats, but is not available.',
-    gotFocus: smc + 'Got window focus.',
-    policy: 'Enabling usePolicyFile for data access',
-    setup: sm + '.setup(): allowed parameters: %s',
-    setupError: sm + '.setup(): "%s" cannot be assigned with this method.',
-    setupUndef: sm + '.setup(): Could not find option "%s"',
-    setupLate: sm + '.setup(): url, flashVersion and html5Test property changes will not take effect until reboot().',
-    noURL: smc + 'Flash URL required. Call soundManager.setup({url:...}) to get started.',
-    sm2Loaded: 'SoundManager 2: Ready. ' + String.fromCharCode(10003),
-    reset: sm + '.reset(): Removing event callbacks',
-    mobileUA: 'Mobile UA detected, preferring HTML5 by default.',
-    globalHTML5: 'Using singleton HTML5 Audio() pattern for this device.',
-    ignoreMobile: 'Ignoring mobile restrictions for this device.'
-    // </d>
-
-  };
-
-  str = function() {
-
-    // internal string replace helper.
-    // arguments: o [,items to replace]
-    // <d>
-
-    var args,
-        i, j, o,
-        sstr;
-
-    // real array, please
-    args = slice.call(arguments);
-
-    // first argument
-    o = args.shift();
-
-    sstr = (strings && strings[o] ? strings[o] : '');
-
-    if (sstr && args && args.length) {
-      for (i = 0, j = args.length; i < j; i++) {
-        sstr = sstr.replace('%s', args[i]);
-      }
-    }
-
-    return sstr;
-    // </d>
-
-  };
-
-  loopFix = function(sOpt) {
-
-    // flash 8 requires stream = false for looping to work
-    if (fV === 8 && sOpt.loops > 1 && sOpt.stream) {
-      _wDS('as2loop');
-      sOpt.stream = false;
-    }
-
-    return sOpt;
-
-  };
-
-  policyFix = function(sOpt, sPre) {
-
-    if (sOpt && !sOpt.usePolicyFile && (sOpt.onid3 || sOpt.usePeakData || sOpt.useWaveformData || sOpt.useEQData)) {
-      sm2._wD((sPre || '') + str('policy'));
-      sOpt.usePolicyFile = true;
-    }
-
-    return sOpt;
-
-  };
-
-  complain = function(sMsg) {
-
-    // <d>
-    if (hasConsole && console.warn !== _undefined) {
-      console.warn(sMsg);
-    } else {
-      sm2._wD(sMsg);
-    }
-    // </d>
-
-  };
-
-  doNothing = function() {
-
-    return false;
-
-  };
-
-  disableObject = function(o) {
-
-    var oProp;
-
-    for (oProp in o) {
-      if (o.hasOwnProperty(oProp) && typeof o[oProp] === 'function') {
-        o[oProp] = doNothing;
-      }
-    }
-
-    oProp = null;
-
-  };
-
-  failSafely = function(bNoDisable) {
-
-    // general failure exception handler
-
-    if (bNoDisable === _undefined) {
-      bNoDisable = false;
-    }
-
-    if (disabled || bNoDisable) {
-      sm2.disable(bNoDisable);
-    }
-
-  };
-
-  normalizeMovieURL = function(movieURL) {
-
-    var urlParams = null, url;
-
-    if (movieURL) {
-
-      if (movieURL.match(/\.swf(\?.*)?$/i)) {
-
-        urlParams = movieURL.substr(movieURL.toLowerCase().lastIndexOf('.swf?') + 4);
-
-        // assume user knows what they're doing
-        if (urlParams) return movieURL;
-
-      } else if (movieURL.lastIndexOf('/') !== movieURL.length - 1) {
-
-        // append trailing slash, if needed
-        movieURL += '/';
-
-      }
-
-    }
-
-    url = (movieURL && movieURL.lastIndexOf('/') !== -1 ? movieURL.substr(0, movieURL.lastIndexOf('/') + 1) : './') + sm2.movieURL;
-
-    if (sm2.noSWFCache) {
-      url += ('?ts=' + new Date().getTime());
-    }
-
-    return url;
-
-  };
-
-  setVersionInfo = function() {
-
-    // short-hand for internal use
-
-    fV = parseInt(sm2.flashVersion, 10);
-
-    if (fV !== 8 && fV !== 9) {
-      sm2._wD(str('badFV', fV, defaultFlashVersion));
-      sm2.flashVersion = fV = defaultFlashVersion;
-    }
-
-    // debug flash movie, if applicable
-
-    var isDebug = (sm2.debugMode || sm2.debugFlash ? '_debug.swf' : '.swf');
-
-    if (sm2.useHTML5Audio && !sm2.html5Only && sm2.audioFormats.mp4.required && fV < 9) {
-      sm2._wD(str('needfl9'));
-      sm2.flashVersion = fV = 9;
-    }
-
-    sm2.version = sm2.versionNumber + (sm2.html5Only ? ' (HTML5-only mode)' : (fV === 9 ? ' (AS3/Flash 9)' : ' (AS2/Flash 8)'));
-
-    // set up default options
-    if (fV > 8) {
-
-      // +flash 9 base options
-      sm2.defaultOptions = mixin(sm2.defaultOptions, sm2.flash9Options);
-      sm2.features.buffering = true;
-
-      // +moviestar support
-      sm2.defaultOptions = mixin(sm2.defaultOptions, sm2.movieStarOptions);
-      sm2.filePatterns.flash9 = new RegExp('\\.(mp3|' + netStreamTypes.join('|') + ')(\\?.*)?$', 'i');
-      sm2.features.movieStar = true;
-
-    } else {
-
-      sm2.features.movieStar = false;
-
-    }
-
-    // regExp for flash canPlay(), etc.
-    sm2.filePattern = sm2.filePatterns[(fV !== 8 ? 'flash9' : 'flash8')];
-
-    // if applicable, use _debug versions of SWFs
-    sm2.movieURL = (fV === 8 ? 'soundmanager2.swf' : 'soundmanager2_flash9.swf').replace('.swf', isDebug);
-
-    sm2.features.peakData = sm2.features.waveformData = sm2.features.eqData = (fV > 8);
-
-  };
-
-  setPolling = function(bPolling, bHighPerformance) {
-
-    if (!flash) {
-      return;
-    }
-
-    flash._setPolling(bPolling, bHighPerformance);
-
-  };
-
-  initDebug = function() {
-
-    // starts debug mode, creating output <div> for UAs without console object
-
-    // allow force of debug mode via URL
-    // <d>
-    if (sm2.debugURLParam.test(wl)) {
-      sm2.setupOptions.debugMode = sm2.debugMode = true;
-    }
-
-    if (id(sm2.debugID)) {
-      return;
-    }
-
-    var oD, oDebug, oTarget, oToggle, tmp;
-
-    if (sm2.debugMode && !id(sm2.debugID) && (!hasConsole || !sm2.useConsole || !sm2.consoleOnly)) {
-
-      oD = doc.createElement('div');
-      oD.id = sm2.debugID + '-toggle';
-
-      oToggle = {
-        position: 'fixed',
-        bottom: '0px',
-        right: '0px',
-        width: '1.2em',
-        height: '1.2em',
-        lineHeight: '1.2em',
-        margin: '2px',
-        textAlign: 'center',
-        border: '1px solid #999',
-        cursor: 'pointer',
-        background: '#fff',
-        color: '#333',
-        zIndex: 10001
-      };
-
-      oD.appendChild(doc.createTextNode('-'));
-      oD.onclick = toggleDebug;
-      oD.title = 'Toggle SM2 debug console';
-
-      if (ua.match(/msie 6/i)) {
-        oD.style.position = 'absolute';
-        oD.style.cursor = 'hand';
-      }
-
-      for (tmp in oToggle) {
-        if (oToggle.hasOwnProperty(tmp)) {
-          oD.style[tmp] = oToggle[tmp];
-        }
-      }
-
-      oDebug = doc.createElement('div');
-      oDebug.id = sm2.debugID;
-      oDebug.style.display = (sm2.debugMode ? 'block' : 'none');
-
-      if (sm2.debugMode && !id(oD.id)) {
-        try {
-          oTarget = getDocument();
-          oTarget.appendChild(oD);
-        } catch(e2) {
-          throw new Error(str('domError') + ' \n' + e2.toString());
-        }
-        oTarget.appendChild(oDebug);
-      }
-
-    }
-
-    oTarget = null;
-    // </d>
-
-  };
-
-  idCheck = this.getSoundById;
-
-  // <d>
-  _wDS = function(o, errorLevel) {
-
-    return (!o ? '' : sm2._wD(str(o), errorLevel));
-
-  };
-
-  toggleDebug = function() {
-
-    var o = id(sm2.debugID),
-    oT = id(sm2.debugID + '-toggle');
-
-    if (!o) {
-      return;
-    }
-
-    if (debugOpen) {
-      // minimize
-      oT.innerHTML = '+';
-      o.style.display = 'none';
-    } else {
-      oT.innerHTML = '-';
-      o.style.display = 'block';
-    }
-
-    debugOpen = !debugOpen;
-
-  };
-
-  debugTS = function(sEventType, bSuccess, sMessage) {
-
-    // troubleshooter debug hooks
-
-    if (window.sm2Debugger !== _undefined) {
-      try {
-        sm2Debugger.handleEvent(sEventType, bSuccess, sMessage);
-      } catch(e) {
-        // oh well
-        return false;
-      }
-    }
-
-    return true;
-
-  };
-  // </d>
-
-  getSWFCSS = function() {
-
-    var css = [];
-
-    if (sm2.debugMode) {
-      css.push(swfCSS.sm2Debug);
-    }
-
-    if (sm2.debugFlash) {
-      css.push(swfCSS.flashDebug);
-    }
-
-    if (sm2.useHighPerformance) {
-      css.push(swfCSS.highPerf);
-    }
-
-    return css.join(' ');
-
-  };
-
-  flashBlockHandler = function() {
-
-    // *possible* flash block situation.
-
-    var name = str('fbHandler'),
-        p = sm2.getMoviePercent(),
-        css = swfCSS,
-        error = {
-          type: 'FLASHBLOCK'
-        };
-
-    if (sm2.html5Only) {
-      // no flash, or unused
-      return;
-    }
-
-    if (!sm2.ok()) {
-
-      if (needsFlash) {
-        // make the movie more visible, so user can fix
-        sm2.oMC.className = getSWFCSS() + ' ' + css.swfDefault + ' ' + (p === null ? css.swfTimedout : css.swfError);
-        sm2._wD(name + ': ' + str('fbTimeout') + (p ? ' (' + str('fbLoaded') + ')' : ''));
-      }
-
-      sm2.didFlashBlock = true;
-
-      // fire onready(), complain lightly
-      processOnEvents({
-        type: 'ontimeout',
-        ignoreInit: true,
-        error: error
-      });
-
-      catchError(error);
-
-    } else {
-
-      // SM2 loaded OK (or recovered)
-
-      // <d>
-      if (sm2.didFlashBlock) {
-        sm2._wD(name + ': Unblocked');
-      }
-      // </d>
-
-      if (sm2.oMC) {
-        sm2.oMC.className = [getSWFCSS(), css.swfDefault, css.swfLoaded + (sm2.didFlashBlock ? ' ' + css.swfUnblocked : '')].join(' ');
-      }
-
-    }
-
-  };
-
-  addOnEvent = function(sType, oMethod, oScope) {
-
-    if (on_queue[sType] === _undefined) {
-      on_queue[sType] = [];
-    }
-
-    on_queue[sType].push({
-      method: oMethod,
-      scope: (oScope || null),
-      fired: false
-    });
-
-  };
-
-  processOnEvents = function(oOptions) {
-
-    // if unspecified, assume OK/error
-
-    if (!oOptions) {
-      oOptions = {
-        type: (sm2.ok() ? 'onready' : 'ontimeout')
-      };
-    }
-
-    // not ready yet.
-    if (!didInit && oOptions && !oOptions.ignoreInit) return false;
-
-    // invalid case
-    if (oOptions.type === 'ontimeout' && (sm2.ok() || (disabled && !oOptions.ignoreInit))) return false;
-
-    var status = {
-          success: (oOptions && oOptions.ignoreInit ? sm2.ok() : !disabled)
-        },
-
-        // queue specified by type, or none
-        srcQueue = (oOptions && oOptions.type ? on_queue[oOptions.type] || [] : []),
-
-        queue = [], i, j,
-        args = [status],
-        canRetry = (needsFlash && !sm2.ok());
-
-    if (oOptions.error) {
-      args[0].error = oOptions.error;
-    }
-
-    for (i = 0, j = srcQueue.length; i < j; i++) {
-      if (srcQueue[i].fired !== true) {
-        queue.push(srcQueue[i]);
-      }
-    }
-
-    if (queue.length) {
-
-      // sm2._wD(sm + ': Firing ' + queue.length + ' ' + oOptions.type + '() item' + (queue.length === 1 ? '' : 's'));
-      for (i = 0, j = queue.length; i < j; i++) {
-
-        if (queue[i].scope) {
-          queue[i].method.apply(queue[i].scope, args);
-        } else {
-          queue[i].method.apply(this, args);
-        }
-
-        if (!canRetry) {
-          // useFlashBlock and SWF timeout case doesn't count here.
-          queue[i].fired = true;
-
-        }
-
-      }
-
-    }
-
-    return true;
-
-  };
-
-  initUserOnload = function() {
-
-    window.setTimeout(function() {
-
-      if (sm2.useFlashBlock) {
-        flashBlockHandler();
-      }
-
-      processOnEvents();
-
-      // call user-defined "onload", scoped to window
-
-      if (typeof sm2.onload === 'function') {
-        _wDS('onload', 1);
-        sm2.onload.apply(window);
-        _wDS('onloadOK', 1);
-      }
-
-      if (sm2.waitForWindowLoad) {
-        event.add(window, 'load', initUserOnload);
-      }
-
-    }, 1);
-
-  };
-
-  detectFlash = function() {
-
-    /**
-     * Hat tip: Flash Detect library (BSD, (C) 2007) by Carl "DocYes" S. Yestrau
-     * http://featureblend.com/javascript-flash-detection-library.html / http://featureblend.com/license.txt
-     */
-
-    // this work has already been done.
-    if (hasFlash !== _undefined) return hasFlash;
-
-    var hasPlugin = false, n = navigator, obj, type, types, AX = window.ActiveXObject;
-
-    // MS Edge 14 throws an "Unspecified Error" because n.plugins is inaccessible due to permissions
-    var nP;
-
-    try {
-      nP = n.plugins;
-    } catch(e) {
-      nP = undefined;
-    }
-
-    if (nP && nP.length) {
-
-      type = 'application/x-shockwave-flash';
-      types = n.mimeTypes;
-
-      if (types && types[type] && types[type].enabledPlugin && types[type].enabledPlugin.description) {
-        hasPlugin = true;
-      }
-
-    } else if (AX !== _undefined && !ua.match(/MSAppHost/i)) {
-
-      // Windows 8 Store Apps (MSAppHost) are weird (compatibility?) and won't complain here, but will barf if Flash/ActiveX object is appended to the DOM.
-      try {
-        obj = new AX('ShockwaveFlash.ShockwaveFlash');
-      } catch(e) {
-        // oh well
-        obj = null;
-      }
-
-      hasPlugin = (!!obj);
-
-      // cleanup, because it is ActiveX after all
-      obj = null;
-
-    }
-
-    hasFlash = hasPlugin;
-
-    return hasPlugin;
-
-  };
-
-  featureCheck = function() {
-
-    var flashNeeded,
-        item,
-        formats = sm2.audioFormats,
-        // iPhone <= 3.1 has broken HTML5 audio(), but firmware 3.2 (original iPad) + iOS4 works.
-        isSpecial = (is_iDevice && !!(ua.match(/os (1|2|3_0|3_1)\s/i)));
-
-    if (isSpecial) {
-
-      // has Audio(), but is broken; let it load links directly.
-      sm2.hasHTML5 = false;
-
-      // ignore flash case, however
-      sm2.html5Only = true;
-
-      // hide the SWF, if present
-      if (sm2.oMC) {
-        sm2.oMC.style.display = 'none';
-      }
-
-    } else if (sm2.useHTML5Audio) {
-
-        if (!sm2.html5 || !sm2.html5.canPlayType) {
-          sm2._wD('SoundManager: No HTML5 Audio() support detected.');
-          sm2.hasHTML5 = false;
-        }
-
-        // <d>
-        if (isBadSafari) {
-          sm2._wD(smc + 'Note: Buggy HTML5 Audio in Safari on this OS X release, see https://bugs.webkit.org/show_bug.cgi?id=32159 - ' + (!hasFlash ? ' would use flash fallback for MP3/MP4, but none detected.' : 'will use flash fallback for MP3/MP4, if available'), 1);
-        }
-        // </d>
-
-      }
-
-    if (sm2.useHTML5Audio && sm2.hasHTML5) {
-
-      // sort out whether flash is optional, required or can be ignored.
-
-      // innocent until proven guilty.
-      canIgnoreFlash = true;
-
-      for (item in formats) {
-
-        if (formats.hasOwnProperty(item)) {
-
-          if (formats[item].required) {
-
-            if (!sm2.html5.canPlayType(formats[item].type)) {
-
-              // 100% HTML5 mode is not possible.
-              canIgnoreFlash = false;
-              flashNeeded = true;
-
-            } else if (sm2.preferFlash && (sm2.flash[item] || sm2.flash[formats[item].type])) {
-
-              // flash may be required, or preferred for this format.
-              flashNeeded = true;
-
-            }
-
-          }
-
-        }
-
-      }
-
-    }
-
-    // sanity check...
-    if (sm2.ignoreFlash) {
-      flashNeeded = false;
-      canIgnoreFlash = true;
-    }
-
-    sm2.html5Only = (sm2.hasHTML5 && sm2.useHTML5Audio && !flashNeeded);
-
-    return (!sm2.html5Only);
-
-  };
-
-  parseURL = function(url) {
-
-    /**
-     * Internal: Finds and returns the first playable URL (or failing that, the first URL.)
-     * @param {string or array} url A single URL string, OR, an array of URL strings or {url:'/path/to/resource', type:'audio/mp3'} objects.
-     */
-
-    var i, j, urlResult = 0, result;
-
-    if (url instanceof Array) {
-
-      // find the first good one
-      for (i = 0, j = url.length; i < j; i++) {
-
-        if (url[i] instanceof Object) {
-
-          // MIME check
-          if (sm2.canPlayMIME(url[i].type)) {
-            urlResult = i;
-            break;
-          }
-
-        } else if (sm2.canPlayURL(url[i])) {
-
-          // URL string check
-          urlResult = i;
-          break;
-
-        }
-
-      }
-
-      // normalize to string
-      if (url[urlResult].url) {
-        url[urlResult] = url[urlResult].url;
-      }
-
-      result = url[urlResult];
-
-    } else {
-
-      // single URL case
-      result = url;
-
-    }
-
-    return result;
-
-  };
-
-
-  startTimer = function(oSound) {
-
-    /**
-     * attach a timer to this sound, and start an interval if needed
-     */
-
-    if (!oSound._hasTimer) {
-
-      oSound._hasTimer = true;
-
-      if (!mobileHTML5 && sm2.html5PollingInterval) {
-
-        if (h5IntervalTimer === null && h5TimerCount === 0) {
-
-          h5IntervalTimer = setInterval(timerExecute, sm2.html5PollingInterval);
-
-        }
-
-        h5TimerCount++;
-
-      }
-
-    }
-
-  };
-
-  stopTimer = function(oSound) {
-
-    /**
-     * detach a timer
-     */
-
-    if (oSound._hasTimer) {
-
-      oSound._hasTimer = false;
-
-      if (!mobileHTML5 && sm2.html5PollingInterval) {
-
-        // interval will stop itself at next execution.
-
-        h5TimerCount--;
-
-      }
-
-    }
-
-  };
-
-  timerExecute = function() {
-
-    /**
-     * manual polling for HTML5 progress events, ie., whileplaying()
-     * (can achieve greater precision than conservative default HTML5 interval)
-     */
-
-    var i;
-
-    if (h5IntervalTimer !== null && !h5TimerCount) {
-
-      // no active timers, stop polling interval.
-
-      clearInterval(h5IntervalTimer);
-
-      h5IntervalTimer = null;
-
-      return;
-
-    }
-
-    // check all HTML5 sounds with timers
-
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-
-      if (sm2.sounds[sm2.soundIDs[i]].isHTML5 && sm2.sounds[sm2.soundIDs[i]]._hasTimer) {
-        sm2.sounds[sm2.soundIDs[i]]._onTimer();
-      }
-
-    }
-
-  };
-
-  catchError = function(options) {
-
-    options = (options !== _undefined ? options : {});
-
-    if (typeof sm2.onerror === 'function') {
-      sm2.onerror.apply(window, [{
-        type: (options.type !== _undefined ? options.type : null)
-      }]);
-    }
-
-    if (options.fatal !== _undefined && options.fatal) {
-      sm2.disable();
-    }
-
-  };
-
-  badSafariFix = function() {
-
-    // special case: "bad" Safari (OS X 10.3 - 10.7) must fall back to flash for MP3/MP4
-    if (!isBadSafari || !detectFlash()) {
-      // doesn't apply
-      return;
-    }
-
-    var aF = sm2.audioFormats, i, item;
-
-    for (item in aF) {
-
-      if (aF.hasOwnProperty(item)) {
-
-        if (item === 'mp3' || item === 'mp4') {
-
-          sm2._wD(sm + ': Using flash fallback for ' + item + ' format');
-          sm2.html5[item] = false;
-
-          // assign result to related formats, too
-          if (aF[item] && aF[item].related) {
-            for (i = aF[item].related.length - 1; i >= 0; i--) {
-              sm2.html5[aF[item].related[i]] = false;
-            }
-          }
-
-        }
-
-      }
-
-    }
-
-  };
-
-  /**
-   * Pseudo-private flash/ExternalInterface methods
-   * ----------------------------------------------
-   */
-
-  this._setSandboxType = function(sandboxType) {
-
-    // <d>
-    // Security sandbox according to Flash plugin
-    var sb = sm2.sandbox;
-
-    sb.type = sandboxType;
-    sb.description = sb.types[(sb.types[sandboxType] !== _undefined ? sandboxType : 'unknown')];
-
-    if (sb.type === 'localWithFile') {
-
-      sb.noRemote = true;
-      sb.noLocal = false;
-      _wDS('secNote', 2);
-
-    } else if (sb.type === 'localWithNetwork') {
-
-      sb.noRemote = false;
-      sb.noLocal = true;
-
-    } else if (sb.type === 'localTrusted') {
-
-      sb.noRemote = false;
-      sb.noLocal = false;
-
-    }
-    // </d>
-
-  };
-
-  this._externalInterfaceOK = function(swfVersion) {
-
-    // flash callback confirming flash loaded, EI working etc.
-    // swfVersion: SWF build string
-
-    if (sm2.swfLoaded) {
-      return;
-    }
-
-    var e;
-
-    debugTS('swf', true);
-    debugTS('flashtojs', true);
-    sm2.swfLoaded = true;
-    tryInitOnFocus = false;
-
-    if (isBadSafari) {
-      badSafariFix();
-    }
-
-    // complain if JS + SWF build/version strings don't match, excluding +DEV builds
-    // <d>
-    if (!swfVersion || swfVersion.replace(/\+dev/i, '') !== sm2.versionNumber.replace(/\+dev/i, '')) {
-
-      e = sm + ': Fatal: JavaScript file build "' + sm2.versionNumber + '" does not match Flash SWF build "' + swfVersion + '" at ' + sm2.url + '. Ensure both are up-to-date.';
-
-      // escape flash -> JS stack so this error fires in window.
-      setTimeout(function() {
-        throw new Error(e);
-      }, 0);
-
-      // exit, init will fail with timeout
-      return;
-
-    }
-    // </d>
-
-    // IE needs a larger timeout
-    setTimeout(init, isIE ? 100 : 1);
-
-  };
-
-  /**
-   * Private initialization helpers
-   * ------------------------------
-   */
-
-  createMovie = function(movieID, movieURL) {
-
-    // ignore if already connected
-    if (didAppend && appendSuccess) return false;
-
-    function initMsg() {
-
-      // <d>
-
-      var options = [],
-          title,
-          msg = [],
-          delimiter = ' + ';
-
-      title = 'SoundManager ' + sm2.version + (!sm2.html5Only && sm2.useHTML5Audio ? (sm2.hasHTML5 ? ' + HTML5 audio' : ', no HTML5 audio support') : '');
-
-      if (!sm2.html5Only) {
-
-        if (sm2.preferFlash) {
-          options.push('preferFlash');
-        }
-
-        if (sm2.useHighPerformance) {
-          options.push('useHighPerformance');
-        }
-
-        if (sm2.flashPollingInterval) {
-          options.push('flashPollingInterval (' + sm2.flashPollingInterval + 'ms)');
-        }
-
-        if (sm2.html5PollingInterval) {
-          options.push('html5PollingInterval (' + sm2.html5PollingInterval + 'ms)');
-        }
-
-        if (sm2.wmode) {
-          options.push('wmode (' + sm2.wmode + ')');
-        }
-
-        if (sm2.debugFlash) {
-          options.push('debugFlash');
-        }
-
-        if (sm2.useFlashBlock) {
-          options.push('flashBlock');
-        }
-
-      } else if (sm2.html5PollingInterval) {
-          options.push('html5PollingInterval (' + sm2.html5PollingInterval + 'ms)');
-        }
-
-      if (options.length) {
-        msg = msg.concat([options.join(delimiter)]);
-      }
-
-      sm2._wD(title + (msg.length ? delimiter + msg.join(', ') : ''), 1);
-
-      showSupport();
-
-      // </d>
-
-    }
-
-    if (sm2.html5Only) {
-
-      // 100% HTML5 mode
-      setVersionInfo();
-
-      initMsg();
-      sm2.oMC = id(sm2.movieID);
-      init();
-
-      // prevent multiple init attempts
-      didAppend = true;
-
-      appendSuccess = true;
-
-      return false;
-
-    }
-
-    // flash path
-    var remoteURL = (movieURL || sm2.url),
-    localURL = (sm2.altURL || remoteURL),
-    swfTitle = 'JS/Flash audio component (SoundManager 2)',
-    oTarget = getDocument(),
-    extraClass = getSWFCSS(),
-    isRTL = null,
-    html = doc.getElementsByTagName('html')[0],
-    oEmbed, oMovie, tmp, movieHTML, oEl, s, x, sClass;
-
-    isRTL = (html && html.dir && html.dir.match(/rtl/i));
-    movieID = (movieID === _undefined ? sm2.id : movieID);
-
-    function param(name, value) {
-      return '<param name="' + name + '" value="' + value + '" />';
-    }
-
-    // safety check for legacy (change to Flash 9 URL)
-    setVersionInfo();
-    sm2.url = normalizeMovieURL(overHTTP ? remoteURL : localURL);
-    movieURL = sm2.url;
-
-    sm2.wmode = (!sm2.wmode && sm2.useHighPerformance ? 'transparent' : sm2.wmode);
-
-    if (sm2.wmode !== null && (ua.match(/msie 8/i) || (!isIE && !sm2.useHighPerformance)) && navigator.platform.match(/win32|win64/i)) {
-      /**
-       * extra-special case: movie doesn't load until scrolled into view when using wmode = anything but 'window' here
-       * does not apply when using high performance (position:fixed means on-screen), OR infinite flash load timeout
-       * wmode breaks IE 8 on Vista + Win7 too in some cases, as of January 2011 (?)
-       */
-      messages.push(strings.spcWmode);
-      sm2.wmode = null;
-    }
-
-    oEmbed = {
-      name: movieID,
-      id: movieID,
-      src: movieURL,
-      quality: 'high',
-      allowScriptAccess: sm2.allowScriptAccess,
-      bgcolor: sm2.bgColor,
-      pluginspage: http + 'www.macromedia.com/go/getflashplayer',
-      title: swfTitle,
-      type: 'application/x-shockwave-flash',
-      wmode: sm2.wmode,
-      // http://help.adobe.com/en_US/as3/mobile/WS4bebcd66a74275c36cfb8137124318eebc6-7ffd.html
-      hasPriority: 'true'
-    };
-
-    if (sm2.debugFlash) {
-      oEmbed.FlashVars = 'debug=1';
-    }
-
-    if (!sm2.wmode) {
-      // don't write empty attribute
-      delete oEmbed.wmode;
-    }
-
-    if (isIE) {
-
-      // IE is "special".
-      oMovie = doc.createElement('div');
-      movieHTML = [
-        '<object id="' + movieID + '" data="' + movieURL + '" type="' + oEmbed.type + '" title="' + oEmbed.title + '" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">',
-        param('movie', movieURL),
-        param('AllowScriptAccess', sm2.allowScriptAccess),
-        param('quality', oEmbed.quality),
-        (sm2.wmode ? param('wmode', sm2.wmode) : ''),
-        param('bgcolor', sm2.bgColor),
-        param('hasPriority', 'true'),
-        (sm2.debugFlash ? param('FlashVars', oEmbed.FlashVars) : ''),
-        '</object>'
-      ].join('');
-
-    } else {
-
-      oMovie = doc.createElement('embed');
-      for (tmp in oEmbed) {
-        if (oEmbed.hasOwnProperty(tmp)) {
-          oMovie.setAttribute(tmp, oEmbed[tmp]);
-        }
-      }
-
-    }
-
-    initDebug();
-    extraClass = getSWFCSS();
-    oTarget = getDocument();
-
-    if (oTarget) {
-
-      sm2.oMC = (id(sm2.movieID) || doc.createElement('div'));
-
-      if (!sm2.oMC.id) {
-
-        sm2.oMC.id = sm2.movieID;
-        sm2.oMC.className = swfCSS.swfDefault + ' ' + extraClass;
-        s = null;
-        oEl = null;
-
-        if (!sm2.useFlashBlock) {
-          if (sm2.useHighPerformance) {
-            // on-screen at all times
-            s = {
-              position: 'fixed',
-              width: '8px',
-              height: '8px',
-              // >= 6px for flash to run fast, >= 8px to start up under Firefox/win32 in some cases. odd? yes.
-              bottom: '0px',
-              left: '0px',
-              overflow: 'hidden'
-            };
-          } else {
-            // hide off-screen, lower priority
-            s = {
-              position: 'absolute',
-              width: '6px',
-              height: '6px',
-              top: '-9999px',
-              left: '-9999px'
-            };
-            if (isRTL) {
-              s.left = Math.abs(parseInt(s.left, 10)) + 'px';
-            }
-          }
-        }
-
-        if (isWebkit) {
-          // soundcloud-reported render/crash fix, safari 5
-          sm2.oMC.style.zIndex = 10000;
-        }
-
-        if (!sm2.debugFlash) {
-          for (x in s) {
-            if (s.hasOwnProperty(x)) {
-              sm2.oMC.style[x] = s[x];
-            }
-          }
-        }
-
-        try {
-
-          if (!isIE) {
-            sm2.oMC.appendChild(oMovie);
-          }
-
-          oTarget.appendChild(sm2.oMC);
-
-          if (isIE) {
-            oEl = sm2.oMC.appendChild(doc.createElement('div'));
-            oEl.className = swfCSS.swfBox;
-            oEl.innerHTML = movieHTML;
-          }
-
-          appendSuccess = true;
-
-        } catch(e) {
-
-          throw new Error(str('domError') + ' \n' + e.toString());
-
-        }
-
-      } else {
-
-        // SM2 container is already in the document (eg. flashblock use case)
-        sClass = sm2.oMC.className;
-        sm2.oMC.className = (sClass ? sClass + ' ' : swfCSS.swfDefault) + (extraClass ? ' ' + extraClass : '');
-        sm2.oMC.appendChild(oMovie);
-
-        if (isIE) {
-          oEl = sm2.oMC.appendChild(doc.createElement('div'));
-          oEl.className = swfCSS.swfBox;
-          oEl.innerHTML = movieHTML;
-        }
-
-        appendSuccess = true;
-
-      }
-
-    }
-
-    didAppend = true;
-
-    initMsg();
-
-    // sm2._wD(sm + ': Trying to load ' + movieURL + (!overHTTP && sm2.altURL ? ' (alternate URL)' : ''), 1);
-
-    return true;
-
-  };
-
-  initMovie = function() {
-
-    if (sm2.html5Only) {
-      createMovie();
-      return false;
-    }
-
-    // attempt to get, or create, movie (may already exist)
-    if (flash) return false;
-
-    if (!sm2.url) {
-
-      /**
-       * Something isn't right - we've reached init, but the soundManager url property has not been set.
-       * User has not called setup({url: ...}), or has not set soundManager.url (legacy use case) directly before init time.
-       * Notify and exit. If user calls setup() with a url: property, init will be restarted as in the deferred loading case.
-       */
-
-       _wDS('noURL');
-       return false;
-
-    }
-
-    // inline markup case
-    flash = sm2.getMovie(sm2.id);
-
-    if (!flash) {
-
-      if (!oRemoved) {
-
-        // try to create
-        createMovie(sm2.id, sm2.url);
-
-      } else {
-
-        // try to re-append removed movie after reboot()
-        if (!isIE) {
-          sm2.oMC.appendChild(oRemoved);
-        } else {
-          sm2.oMC.innerHTML = oRemovedHTML;
-        }
-
-        oRemoved = null;
-        didAppend = true;
-
-      }
-
-      flash = sm2.getMovie(sm2.id);
-
-    }
-
-    if (typeof sm2.oninitmovie === 'function') {
-      setTimeout(sm2.oninitmovie, 1);
-    }
-
-    // <d>
-    flushMessages();
-    // </d>
-
-    return true;
-
-  };
-
-  delayWaitForEI = function() {
-
-    setTimeout(waitForEI, 1000);
-
-  };
-
-  rebootIntoHTML5 = function() {
-
-    // special case: try for a reboot with preferFlash: false, if 100% HTML5 mode is possible and useFlashBlock is not enabled.
-
-    window.setTimeout(function() {
-
-      complain(smc + 'useFlashBlock is false, 100% HTML5 mode is possible. Rebooting with preferFlash: false...');
-
-      sm2.setup({
-        preferFlash: false
-      }).reboot();
-
-      // if for some reason you want to detect this case, use an ontimeout() callback and look for html5Only and didFlashBlock == true.
-      sm2.didFlashBlock = true;
-
-      sm2.beginDelayedInit();
-
-    }, 1);
-
-  };
-
-  waitForEI = function() {
-
-    var p,
-        loadIncomplete = false;
-
-    if (!sm2.url) {
-      // No SWF url to load (noURL case) - exit for now. Will be retried when url is set.
-      return;
-    }
-
-    if (waitingForEI) {
-      return;
-    }
-
-    waitingForEI = true;
-    event.remove(window, 'load', delayWaitForEI);
-
-    if (hasFlash && tryInitOnFocus && !isFocused) {
-      // Safari won't load flash in background tabs, only when focused.
-      _wDS('waitFocus');
-      return;
-    }
-
-    if (!didInit) {
-      p = sm2.getMoviePercent();
-      if (p > 0 && p < 100) {
-        loadIncomplete = true;
-      }
-    }
-
-    setTimeout(function() {
-
-      p = sm2.getMoviePercent();
-
-      if (loadIncomplete) {
-        // special case: if movie *partially* loaded, retry until it's 100% before assuming failure.
-        waitingForEI = false;
-        sm2._wD(str('waitSWF'));
-        window.setTimeout(delayWaitForEI, 1);
-        return;
-      }
-
-      // <d>
-      if (!didInit) {
-
-        sm2._wD(sm + ': No Flash response within expected time. Likely causes: ' + (p === 0 ? 'SWF load failed, ' : '') + 'Flash blocked or JS-Flash security error.' + (sm2.debugFlash ? ' ' + str('checkSWF') : ''), 2);
-
-        if (!overHTTP && p) {
-
-          _wDS('localFail', 2);
-
-          if (!sm2.debugFlash) {
-            _wDS('tryDebug', 2);
-          }
-
-        }
-
-        if (p === 0) {
-
-          // if 0 (not null), probably a 404.
-          sm2._wD(str('swf404', sm2.url), 1);
-
-        }
-
-        debugTS('flashtojs', false, ': Timed out' + (overHTTP ? ' (Check flash security or flash blockers)' : ' (No plugin/missing SWF?)'));
-
-      }
-      // </d>
-
-      // give up / time-out, depending
-
-      if (!didInit && okToDisable) {
-
-        if (p === null) {
-
-          // SWF failed to report load progress. Possibly blocked.
-
-          if (sm2.useFlashBlock || sm2.flashLoadTimeout === 0) {
-
-            if (sm2.useFlashBlock) {
-
-              flashBlockHandler();
-
-            }
-
-            _wDS('waitForever');
-
-          } else if (!sm2.useFlashBlock && canIgnoreFlash) {
-
-            // no custom flash block handling, but SWF has timed out. Will recover if user unblocks / allows SWF load.
-            rebootIntoHTML5();
-
-          } else {
-
-            _wDS('waitForever');
-
-            // fire any regular registered ontimeout() listeners.
-            processOnEvents({
-              type: 'ontimeout',
-              ignoreInit: true,
-              error: {
-                type: 'INIT_FLASHBLOCK'
-              }
-            });
-
-          }
-
-        } else if (sm2.flashLoadTimeout === 0) {
-
-          // SWF loaded? Shouldn't be a blocking issue, then.
-
-          _wDS('waitForever');
-
-        } else if (!sm2.useFlashBlock && canIgnoreFlash) {
-
-          rebootIntoHTML5();
-
-        } else {
-
-          failSafely(true);
-
-        }
-
-      }
-
-    }, sm2.flashLoadTimeout);
-
-  };
-
-  handleFocus = function() {
-
-    function cleanup() {
-      event.remove(window, 'focus', handleFocus);
-    }
-
-    if (isFocused || !tryInitOnFocus) {
-      // already focused, or not special Safari background tab case
-      cleanup();
-      return true;
-    }
-
-    okToDisable = true;
-    isFocused = true;
-    _wDS('gotFocus');
-
-    // allow init to restart
-    waitingForEI = false;
-
-    // kick off ExternalInterface timeout, now that the SWF has started
-    delayWaitForEI();
-
-    cleanup();
-    return true;
-
-  };
-
-  flushMessages = function() {
-
-    // <d>
-
-    // SM2 pre-init debug messages
-    if (messages.length) {
-      sm2._wD('SoundManager 2: ' + messages.join(' '), 1);
-      messages = [];
-    }
-
-    // </d>
-
-  };
-
-  showSupport = function() {
-
-    // <d>
-
-    flushMessages();
-
-    var item, tests = [];
-
-    if (sm2.useHTML5Audio && sm2.hasHTML5) {
-      for (item in sm2.audioFormats) {
-        if (sm2.audioFormats.hasOwnProperty(item)) {
-          tests.push(item + ' = ' + sm2.html5[item] + (!sm2.html5[item] && needsFlash && sm2.flash[item] ? ' (using flash)' : (sm2.preferFlash && sm2.flash[item] && needsFlash ? ' (preferring flash)' : (!sm2.html5[item] ? ' (' + (sm2.audioFormats[item].required ? 'required, ' : '') + 'and no flash support)' : ''))));
-        }
-      }
-      sm2._wD('SoundManager 2 HTML5 support: ' + tests.join(', '), 1);
-    }
-
-    // </d>
-
-  };
-
-  initComplete = function(bNoDisable) {
-
-    if (didInit) return false;
-
-    if (sm2.html5Only) {
-      // all good.
-      _wDS('sm2Loaded', 1);
-      didInit = true;
-      initUserOnload();
-      debugTS('onload', true);
-      return true;
-    }
-
-    var wasTimeout = (sm2.useFlashBlock && sm2.flashLoadTimeout && !sm2.getMoviePercent()),
-        result = true,
-        error;
-
-    if (!wasTimeout) {
-      didInit = true;
-    }
-
-    error = {
-      type: (!hasFlash && needsFlash ? 'NO_FLASH' : 'INIT_TIMEOUT')
-    };
-
-    sm2._wD('SoundManager 2 ' + (disabled ? 'failed to load' : 'loaded') + ' (' + (disabled ? 'Flash security/load error' : 'OK') + ') ' + String.fromCharCode(disabled ? 10006 : 10003), disabled ? 2 : 1);
-
-    if (disabled || bNoDisable) {
-
-      if (sm2.useFlashBlock && sm2.oMC) {
-        sm2.oMC.className = getSWFCSS() + ' ' + (sm2.getMoviePercent() === null ? swfCSS.swfTimedout : swfCSS.swfError);
-      }
-
-      processOnEvents({
-        type: 'ontimeout',
-        error: error,
-        ignoreInit: true
-      });
-
-      debugTS('onload', false);
-      catchError(error);
-
-      result = false;
-
-    } else {
-
-      debugTS('onload', true);
-
-    }
-
-    if (!disabled) {
-
-      if (sm2.waitForWindowLoad && !windowLoaded) {
-
-        _wDS('waitOnload');
-        event.add(window, 'load', initUserOnload);
-
-      } else {
-
-        // <d>
-        if (sm2.waitForWindowLoad && windowLoaded) {
-          _wDS('docLoaded');
-        }
-        // </d>
-
-        initUserOnload();
-
-      }
-
-    }
-
-    return result;
-
-  };
-
-  /**
-   * apply top-level setupOptions object as local properties, eg., this.setupOptions.flashVersion -> this.flashVersion (soundManager.flashVersion)
-   * this maintains backward compatibility, and allows properties to be defined separately for use by soundManager.setup().
-   */
-
-  setProperties = function() {
-
-    var i,
-        o = sm2.setupOptions;
-
-    for (i in o) {
-
-      if (o.hasOwnProperty(i)) {
-
-        // assign local property if not already defined
-
-        if (sm2[i] === _undefined) {
-
-          sm2[i] = o[i];
-
-        } else if (sm2[i] !== o[i]) {
-
-          // legacy support: write manually-assigned property (eg., soundManager.url) back to setupOptions to keep things in sync
-          sm2.setupOptions[i] = sm2[i];
-
-        }
-
-      }
-
-    }
-
-  };
-
-
-  init = function() {
-
-    // called after onload()
-
-    if (didInit) {
-      _wDS('didInit');
-      return false;
-    }
-
-    function cleanup() {
-      event.remove(window, 'load', sm2.beginDelayedInit);
-    }
-
-    if (sm2.html5Only) {
-
-      if (!didInit) {
-        // we don't need no steenking flash!
-        cleanup();
-        sm2.enabled = true;
-        initComplete();
-      }
-
-      return true;
-
-    }
-
-    // flash path
-    initMovie();
-
-    try {
-
-      // attempt to talk to Flash
-      flash._externalInterfaceTest(false);
-
-      /**
-       * Apply user-specified polling interval, OR, if "high performance" set, faster vs. default polling
-       * (determines frequency of whileloading/whileplaying callbacks, effectively driving UI framerates)
-       */
-      setPolling(true, (sm2.flashPollingInterval || (sm2.useHighPerformance ? 10 : 50)));
-
-      if (!sm2.debugMode) {
-        // stop the SWF from making debug output calls to JS
-        flash._disableDebug();
-      }
-
-      sm2.enabled = true;
-      debugTS('jstoflash', true);
-
-      if (!sm2.html5Only) {
-        // prevent browser from showing cached page state (or rather, restoring "suspended" page state) via back button, because flash may be dead
-        // http://www.webkit.org/blog/516/webkit-page-cache-ii-the-unload-event/
-        event.add(window, 'unload', doNothing);
-      }
-
-    } catch(e) {
-
-      sm2._wD('js/flash exception: ' + e.toString());
-
-      debugTS('jstoflash', false);
-
-      catchError({
-        type: 'JS_TO_FLASH_EXCEPTION',
-        fatal: true
-      });
-
-      // don't disable, for reboot()
-      failSafely(true);
-
-      initComplete();
-
-      return false;
-
-    }
-
-    initComplete();
-
-    // disconnect events
-    cleanup();
-
-    return true;
-
-  };
-
-  domContentLoaded = function() {
-
-    if (didDCLoaded) return false;
-
-    didDCLoaded = true;
-
-    // assign top-level soundManager properties eg. soundManager.url
-    setProperties();
-
-    initDebug();
-
-    if (!hasFlash && sm2.hasHTML5) {
-
-      sm2._wD('SoundManager 2: No Flash detected' + (!sm2.useHTML5Audio ? ', enabling HTML5.' : '. Trying HTML5-only mode.'), 1);
-
-      sm2.setup({
-        useHTML5Audio: true,
-        // make sure we aren't preferring flash, either
-        // TODO: preferFlash should not matter if flash is not installed. Currently, stuff breaks without the below tweak.
-        preferFlash: false
-      });
-
-    }
-
-    testHTML5();
-
-    if (!hasFlash && needsFlash) {
-
-      messages.push(strings.needFlash);
-
-      // TODO: Fatal here vs. timeout approach, etc.
-      // hack: fail sooner.
-      sm2.setup({
-        flashLoadTimeout: 1
-      });
-
-    }
-
-    if (doc.removeEventListener) {
-      doc.removeEventListener('DOMContentLoaded', domContentLoaded, false);
-    }
-
-    initMovie();
-
-    return true;
-
-  };
-
-  domContentLoadedIE = function() {
-
-    if (doc.readyState === 'complete') {
-      domContentLoaded();
-      doc.detachEvent('onreadystatechange', domContentLoadedIE);
-    }
-
-    return true;
-
-  };
-
-  winOnLoad = function() {
-
-    // catch edge case of initComplete() firing after window.load()
-    windowLoaded = true;
-
-    // catch case where DOMContentLoaded has been sent, but we're still in doc.readyState = 'interactive'
-    domContentLoaded();
-
-    event.remove(window, 'load', winOnLoad);
-
-  };
-
-  // sniff up-front
-  detectFlash();
-
-  // focus and window load, init (primarily flash-driven)
-  event.add(window, 'focus', handleFocus);
-  event.add(window, 'load', delayWaitForEI);
-  event.add(window, 'load', winOnLoad);
-
-  if (doc.addEventListener) {
-
-    doc.addEventListener('DOMContentLoaded', domContentLoaded, false);
-
-  } else if (doc.attachEvent) {
-
-    doc.attachEvent('onreadystatechange', domContentLoadedIE);
-
-  } else {
-
-    // no add/attachevent support - safe to assume no JS -> Flash either
-    debugTS('onload', false);
-    catchError({
-      type: 'NO_DOM2_EVENTS',
-      fatal: true
-    });
-
-  }
-
-} // SoundManager()
-
-// SM2_DEFER details: http://www.schillmania.com/projects/soundmanager2/doc/getstarted/#lazy-loading
-
-if (window.SM2_DEFER === _undefined || !SM2_DEFER) {
-  soundManager = new SoundManager();
-}
-
-/**
- * SoundManager public interfaces
- * ------------------------------
- */
-
-if (typeof module === 'object' && module && typeof module.exports === 'object') {
-
-  /**
-   * commonJS module
-   */
-
-  module.exports.SoundManager = SoundManager;
-  module.exports.soundManager = soundManager;
-
-} else if (true) {
-
-  /**
-   * AMD - requireJS
-   * basic usage:
-   * require(["/path/to/soundmanager2.js"], function(SoundManager) {
-   *   SoundManager.getInstance().setup({
-   *     url: '/swf/',
-   *     onready: function() { ... }
-   *   })
-   * });
-   *
-   * SM2_DEFER usage:
-   * window.SM2_DEFER = true;
-   * require(["/path/to/soundmanager2.js"], function(SoundManager) {
-   *   SoundManager.getInstance(function() {
-   *     var soundManager = new SoundManager.constructor();
-   *     soundManager.setup({
-   *       url: '/swf/',
-   *       ...
-   *     });
-   *     ...
-   *     soundManager.beginDelayedInit();
-   *     return soundManager;
-   *   })
-   * });
-   */
-
-  !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
-    /**
-     * Retrieve the global instance of SoundManager.
-     * If a global instance does not exist it can be created using a callback.
-     *
-     * @param {Function} smBuilder Optional: Callback used to create a new SoundManager instance
-     * @return {SoundManager} The global SoundManager instance
-     */
-    function getInstance(smBuilder) {
-      if (!window.soundManager && smBuilder instanceof Function) {
-        var instance = smBuilder(SoundManager);
-        if (instance instanceof SoundManager) {
-          window.soundManager = instance;
-        }
-      }
-      return window.soundManager;
-    }
-    return {
-      constructor: SoundManager,
-      getInstance: getInstance
-    };
-  }.call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-}
-
-// standard browser case
-
-// constructor
-window.SoundManager = SoundManager;
-
-/**
- * note: SM2 requires a window global due to Flash, which makes calls to window.soundManager.
- * Flash may not always be needed, but this is not known until async init and SM2 may even "reboot" into Flash mode.
- */
-
-// public API, flash callbacks etc.
-window.soundManager = soundManager;
-
-}(window));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(223)(module)))
-
-/***/ }),
-/* 220 */
+/* 221 */,
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -32198,7 +25860,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(221);
+var	fixUrls = __webpack_require__(223);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -32511,7 +26173,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 221 */
+/* 223 */
 /***/ (function(module, exports) {
 
 
@@ -32606,7 +26268,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 222 */
+/* 224 */
 /***/ (function(module, exports) {
 
 var g;
@@ -32631,193 +26293,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-/* 223 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 224 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _axios = __webpack_require__(89);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Concerts = function (_React$Component) {
-  _inherits(Concerts, _React$Component);
-
-  function Concerts() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Concerts);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Concerts.__proto__ || Object.getPrototypeOf(Concerts)).call.apply(_ref, [this].concat(args))), _this), _this.showMore = function (event) {
-      console.log(event.target);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Concerts, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var li = this.props.concerts.map(function (elem, i) {
-        return _react2.default.createElement(
-          'li',
-          { onClick: _this2.showMore, key: i },
-          elem.venue.name
-        );
-      });
-      return _react2.default.createElement(
-        'div',
-        { style: { display: 'none' }, className: 'concerts' },
-        _react2.default.createElement(
-          'ul',
-          null,
-          li
-        )
-      );
-    }
-  }]);
-
-  return Concerts;
-}(_react2.default.Component);
-
-exports.default = Concerts;
-
-/***/ }),
-/* 225 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _axios = __webpack_require__(89);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ArtistInfo = function (_React$Component) {
-  _inherits(ArtistInfo, _React$Component);
-
-  function ArtistInfo() {
-    _classCallCheck(this, ArtistInfo);
-
-    return _possibleConstructorReturn(this, (ArtistInfo.__proto__ || Object.getPrototypeOf(ArtistInfo)).apply(this, arguments));
-  }
-
-  _createClass(ArtistInfo, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'artistInfo' },
-        _react2.default.createElement('img', { src: this.props.artistInfo.thumb_url }),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'p',
-            null,
-            this.props.artistInfo.name
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: this.props.artistInfo.facebook_page_url, target: '_blank' },
-            this.props.artistInfo.facebook_page_url ? _react2.default.createElement('i', { className: 'fa fa-facebook-square', 'aria-hidden': 'true' }) : null,
-            _react2.default.createElement(
-              'span',
-              null,
-              this.props.artistInfo.facebook_page_url
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'a',
-          null,
-          _react2.default.createElement(
-            'p',
-            null,
-            'Show Concerts'
-          )
-        )
-      );
-    }
-  }]);
-
-  return ArtistInfo;
-}(_react2.default.Component);
-
-exports.default = ArtistInfo;
 
 /***/ })
 /******/ ]);

@@ -1,5 +1,4 @@
 import React from 'react';
-import Axios from 'axios';
 
 class Concerts extends React.Component {
   showMore = (event) => {
@@ -8,8 +7,8 @@ class Concerts extends React.Component {
 
   render(){
     let li = this.props.concerts.map((elem, i) => <li onClick={this.showMore} key={i}>{elem.venue.name}</li>)
-    return <div style={{display: 'none'}} className="concerts">
-      <ul>{li}</ul>
+    return <div style={{display: this.props.display}} className="concerts">
+      <ul style={{listStyle: 'none'}}>{li}</ul>
     </div>
   }
 }
