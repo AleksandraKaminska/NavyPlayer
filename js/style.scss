@@ -60,6 +60,49 @@ body {
   margin: 3vh 0 0 0;
 }
 
+.artistInfo {
+  position: absolute;
+  top: 27vh;
+  right: 5vw;
+  width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid red;
+  div {
+    float: left;
+    max-width: calc(100% - 74px);
+    & > p {
+      vertical-align: top;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      i {
+        margin-right: 10px;
+        float: left;
+      }
+      span {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        word-break: break-all;
+        word-break: break-word;
+      }
+      p {
+        clear: both;
+        display: block;
+        margin-top: 10px;
+      }
+    }
+  }
+  img {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
+  }
+}
+
 .playerAndProgress {
   width: 100%;
   position: relative;
@@ -117,6 +160,10 @@ body {
   padding: 0 1em;
   position: absolute;
   bottom: 0;
+  img {
+    height: 16px;
+    width: auto;
+  }
 }
 
 //

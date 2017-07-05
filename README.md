@@ -1,14 +1,10 @@
-# NavyPlayer
-NavyPlayer is music app powered by Deezer.
+# NavyPlayer - Coders Lab final project
+Music app powered by Deezer and Bandsintown REST apis- my final project after programming course at Coders Lab.
+## My project: https://aleksandrakaminska.github.io/NavyPlayer.github.io/
 
-Projekt końcowy w CodersLab.
-
-Aplikacja muzyczna pobierająca dane z SoundCloud.
-
-Użyte technologie:
+### Built With:
+ - HTML
+ - Sass
  - React
- - react-sound
- - soundmanager2
- - sass
- - axios
+ - axios (Fetch)
  - react-autocomplete

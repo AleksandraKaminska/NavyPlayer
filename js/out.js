@@ -10733,6 +10733,14 @@ var _cover = __webpack_require__(104);
 
 var _cover2 = _interopRequireDefault(_cover);
 
+var _artistInfo = __webpack_require__(225);
+
+var _artistInfo2 = _interopRequireDefault(_artistInfo);
+
+var _concerts = __webpack_require__(224);
+
+var _concerts2 = _interopRequireDefault(_concerts);
+
 var _playerAndProgress = __webpack_require__(107);
 
 var _playerAndProgress2 = _interopRequireDefault(_playerAndProgress);
@@ -10768,6 +10776,30 @@ var AppContainer = function (_React$Component) {
         _this.setState({
           track: playlistTracks[randomNumber]
         });
+        _this.searchArtist();
+        _this.searchConcerts();
+      }).catch(function (err) {
+        console.log(err);
+      });
+    };
+
+    _this.searchArtist = function () {
+      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
+      _axios2.default.get(url).then(function (response) {
+        _this.setState({
+          artistInfo: response.data
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    };
+
+    _this.searchConcerts = function () {
+      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
+      _axios2.default.get(url).then(function (response) {
+        _this.setState({
+          concerts: response.data
+        });
       }).catch(function (err) {
         console.log(err);
       });
@@ -10775,9 +10807,6 @@ var AppContainer = function (_React$Component) {
 
     _this.playTrack = function () {
       DZ.player.playTracks([_this.state.track.id]);
-      _this.setState({
-        playStatus: _reactSound2.default.status.PLAYING
-      });
     };
 
     _this.playOrPause = function () {
@@ -10815,6 +10844,8 @@ var AppContainer = function (_React$Component) {
 
     _this.state = {
       track: { title: '', artist: { name: '' }, album: { cover_big: '' } },
+      artistInfo: {},
+      concerts: [],
       searchTracks: [],
       playStatus: _reactSound2.default.status.STOPPED,
       elapsed: '00:00',
@@ -10861,6 +10892,8 @@ var AppContainer = function (_React$Component) {
           handleChange: this.handleChange.bind(this) }),
         _react2.default.createElement(_title2.default, { title_short: this.state.track.title_short, artist: this.state.track.artist.name }),
         _react2.default.createElement(_cover2.default, { CoverStyle: CoverStyle }),
+        _react2.default.createElement(_artistInfo2.default, { artistInfo: this.state.artistInfo }),
+        _react2.default.createElement(_concerts2.default, { concerts: this.state.concerts }),
         _react2.default.createElement(_playerAndProgress2.default, {
           playStatus: this.state.playStatus,
           playOrPause: this.playOrPause,
@@ -11747,10 +11780,7 @@ var Footer = function (_React$Component) {
           "p",
           null,
           "Powered by Deezer ",
-          _react2.default.createElement("iframe", {
-            allowTransparency: "true", scrolling: "no", frameBorder: "no",
-            src: "https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2F&color=orange_transparent&size=32",
-            style: { width: '32px', height: '32px', verticalAlign: 'middle' } })
+          _react2.default.createElement("img", { src: "images/DZ_Logo.png" })
         )
       );
     }
@@ -11796,42 +11826,42 @@ var Player = function (_React$Component) {
   }
 
   _createClass(Player, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "player" },
+        'div',
+        { className: 'player' },
         _react2.default.createElement(
-          "button",
+          'button',
           { onClick: this.props.playTrack },
-          "Play a song"
+          'Play a song'
         ),
         _react2.default.createElement(
-          "button",
+          'button',
           { onClick: function onClick() {
-              DZ.player.play();
+              DZ.player.play();console.log('play');
             } },
-          "play"
+          _react2.default.createElement('i', { className: 'fa fa-pause' })
         ),
         _react2.default.createElement(
-          "button",
+          'button',
           { onClick: function onClick() {
-              DZ.player.pause();
+              DZ.player.pause();console.log('pause');
             } },
-          "pause"
+          _react2.default.createElement('i', { className: 'fa fa-play' })
         ),
         _react2.default.createElement(
-          "div",
-          { className: "playerMain" },
+          'div',
+          { className: 'playerMain' },
           _react2.default.createElement(
-            "button",
+            'button',
             { onClick: this.props.playOrPause },
-            _react2.default.createElement("i", { className: this.props.playStatus === 'PLAYING' ? 'fa fa-pause' : 'fa fa-play' })
+            _react2.default.createElement('i', { className: this.props.playStatus === 'PLAYING' ? 'fa fa-pause' : 'fa fa-play' })
           ),
           _react2.default.createElement(
-            "button",
+            'button',
             { onClick: this.props.randomTrack },
-            _react2.default.createElement("i", { className: "fa fa-random" })
+            _react2.default.createElement('i', { className: 'fa fa-random' })
           )
         )
       );
@@ -13041,7 +13071,7 @@ exports = module.exports = __webpack_require__(113)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: center; }\n  .search:first-child {\n    width: 25%; }\n    .search:first-child input {\n      width: 100%;\n      height: 100%;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 3px 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center; }\n  .title h3 {\n    margin: 10vh 0 2vh 0;\n    font-size: 1.5em; }\n  .title h4 {\n    margin: 11.5vh 0 2vh 1em;\n    font-size: 1em; }\n\n.cover {\n  margin: 3vh 0 0 0; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  display: flex;\n  justify-content: space-between;\n  padding: 0 1em;\n  position: absolute;\n  bottom: 0; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: center; }\n  .search:first-child {\n    width: 25%; }\n    .search:first-child input {\n      width: 100%;\n      height: 100%;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 3px 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center; }\n  .title h3 {\n    margin: 10vh 0 2vh 0;\n    font-size: 1.5em; }\n  .title h4 {\n    margin: 11.5vh 0 2vh 1em;\n    font-size: 1em; }\n\n.cover {\n  margin: 3vh 0 0 0; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 5vw;\n  width: 25%;\n  display: flex;\n  flex-wrap: wrap;\n  border: 1px solid red; }\n  .artistInfo div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo div > p {\n      vertical-align: top; }\n    .artistInfo div a {\n      color: white;\n      text-decoration: none; }\n      .artistInfo div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n      .artistInfo div a p {\n        clear: both;\n        display: block;\n        margin-top: 10px; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 10px; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  display: flex;\n  justify-content: space-between;\n  padding: 0 1em;\n  position: absolute;\n  bottom: 0; }\n  .footer img {\n    height: 16px;\n    width: auto; }\n", ""]);
 
 // exports
 
@@ -32629,6 +32659,165 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(89);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Concerts = function (_React$Component) {
+  _inherits(Concerts, _React$Component);
+
+  function Concerts() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Concerts);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Concerts.__proto__ || Object.getPrototypeOf(Concerts)).call.apply(_ref, [this].concat(args))), _this), _this.showMore = function (event) {
+      console.log(event.target);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Concerts, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var li = this.props.concerts.map(function (elem, i) {
+        return _react2.default.createElement(
+          'li',
+          { onClick: _this2.showMore, key: i },
+          elem.venue.name
+        );
+      });
+      return _react2.default.createElement(
+        'div',
+        { style: { display: 'none' }, className: 'concerts' },
+        _react2.default.createElement(
+          'ul',
+          null,
+          li
+        )
+      );
+    }
+  }]);
+
+  return Concerts;
+}(_react2.default.Component);
+
+exports.default = Concerts;
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(89);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ArtistInfo = function (_React$Component) {
+  _inherits(ArtistInfo, _React$Component);
+
+  function ArtistInfo() {
+    _classCallCheck(this, ArtistInfo);
+
+    return _possibleConstructorReturn(this, (ArtistInfo.__proto__ || Object.getPrototypeOf(ArtistInfo)).apply(this, arguments));
+  }
+
+  _createClass(ArtistInfo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'artistInfo' },
+        _react2.default.createElement('img', { src: this.props.artistInfo.thumb_url }),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            this.props.artistInfo.name
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: this.props.artistInfo.facebook_page_url, target: '_blank' },
+            this.props.artistInfo.facebook_page_url ? _react2.default.createElement('i', { className: 'fa fa-facebook-square', 'aria-hidden': 'true' }) : null,
+            _react2.default.createElement(
+              'span',
+              null,
+              this.props.artistInfo.facebook_page_url
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'a',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'Show Concerts'
+          )
+        )
+      );
+    }
+  }]);
+
+  return ArtistInfo;
+}(_react2.default.Component);
+
+exports.default = ArtistInfo;
 
 /***/ })
 /******/ ]);

@@ -6,8 +6,12 @@ class Player extends React.Component {
   render() {
     return <div className="player">
         <button onClick={this.props.playTrack}>Play a song</button>
-        <button onClick={() => {DZ.player.play();}}>play</button>
-        <button onClick={() => {DZ.player.pause();}}>pause</button>
+        <button onClick={() => {DZ.player.play(); console.log('play');}}>
+          <i className='fa fa-pause'></i>
+        </button>
+        <button onClick={() => {DZ.player.pause(); console.log('pause');}}>
+          <i className='fa fa-play'></i>
+        </button>
 
       <div className="playerMain">
         <button onClick={this.props.playOrPause}>

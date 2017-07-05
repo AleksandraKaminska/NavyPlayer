@@ -4,6 +4,8 @@ import Axios from 'axios';
 
 import Title from './components/title.jsx';
 import Cover from './components/cover.jsx';
+import ArtistInfo from './components/artistInfo.jsx';
+import Concerts from './components/concerts.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
@@ -13,6 +15,8 @@ class AppContainer extends React.Component {
      super(props);
      this.state = {
        track: {title: '', artist: {name: ''}, album: {cover_big: ''}},
+       artistInfo: {},
+       concerts: [],
        searchTracks: [],
        playStatus: Sound.status.STOPPED,
        elapsed: '00:00',
@@ -35,6 +39,34 @@ class AppContainer extends React.Component {
         this.setState({
           track: playlistTracks[randomNumber]
         });
+        this.searchArtist();
+        this.searchConcerts();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  searchArtist = () => {
+    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
+    Axios.get(url)
+      .then(response => {
+        this.setState({
+          artistInfo: response.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  searchConcerts = () => {
+    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
+    Axios.get(url)
+      .then(response => {
+        this.setState({
+          concerts: response.data
+        });
       })
       .catch(err => {
         console.log(err);
@@ -43,9 +75,6 @@ class AppContainer extends React.Component {
 
   playTrack = () => {
     DZ.player.playTracks([this.state.track.id]);
-    this.setState({
-      playStatus: Sound.status.PLAYING
-    });
   }
 
   playOrPause = () => {
@@ -109,7 +138,8 @@ class AppContainer extends React.Component {
           handleChange={this.handleChange.bind(this)}/>
         <Title title_short={this.state.track.title_short} artist={this.state.track.artist.name} />
         <Cover CoverStyle={CoverStyle} />
-
+        <ArtistInfo artistInfo={this.state.artistInfo} />
+        <Concerts concerts={this.state.concerts} />
         <PlayerAndProgress
           playStatus={this.state.playStatus}
           playOrPause={this.playOrPause}
