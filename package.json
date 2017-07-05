@@ -2,22 +2,21 @@
   "name": "navy-player",
   "productName": "NavyPlayer",
   "version": "1.0.0",
-  "description": "NavyPlayer is music app powered by Deezer",
+  "description": "Music app powered by Deezer. Built with React.",
   "main": "app.jsx",
   "scripts": {
     "webpack": "node_modules/.bin/webpack",
     "server": "node_modules/.bin/webpack-dev-server --inline --hot"
   },
   "author": "Aleksandra Kamińska",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.9.1",
     "babel-preset-stage-2": "^6.24.1",
     "react": "^15.4.0",
+    "react-autosuggest": "^9.3.1",
     "react-dom": "^15.4.0",
-    "react-autocomplete": "^1.0.0-rc2",
-    "react-sound": "^0.4.0",
-    "soundmanager2": "^2.97.20170602"
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

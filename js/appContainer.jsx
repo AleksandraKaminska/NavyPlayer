@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import Autosuggest from 'react-autosuggest';
 
 import Title from './components/title.jsx';
 import Cover from './components/cover.jsx';
@@ -15,12 +16,12 @@ class AppContainer extends React.Component {
        track: {title: '', artist: {name: ''}, album: {cover_big: ''}},
        artistInfo: {},
        concerts: [],
-       searchTracks: [],
        elapsed: '00:00',
        duration: '00:00',
        position: 0,
        playFromPosition: 0,
-       autoCompleteValue: ''
+       suggestions: [],
+       value: ''
      };
   }
 
@@ -76,25 +77,26 @@ class AppContainer extends React.Component {
 
   handleSelect = (value, item) => {
     this.setState({
-      autoCompleteValue: value,
+      value: value,
       track: item
     });
   }
 
-  handleChange = (event, value) => {
-    this.setState({
-      autoCompleteValue: event.target.value
-    });
-    Axios.get(`http://api.deezer.com/search?q=${value}`)
-      .then(response => {
-        this.setState({
-          searchTracks: response.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  // handleChange = (event, value) => {
+  //   this.setState({
+  //     value: event.target.value
+  //   });
+  //   Axios.get(`http://api.deezer.com/search?q=${value}`)
+  //     .then(response => {
+  //       console.log('!!!!!!!!',response.data);
+  //       this.setState({
+  //         suggestions: response.data
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
 
   showTime = (ms) => {
      let min = Math.floor(ms / 60000);
@@ -111,6 +113,47 @@ class AppContainer extends React.Component {
      });
   }
 
+  onChange = (event, { newValue, method }) => {
+    this.setState({
+      value: newValue
+    });
+    Axios.get(`http://api.deezer.com/search?q=${newValue}`)
+      .then(response => {
+        console.log('!!!!!!!!',response.data.data);
+        this.setState({
+          suggestions: response.data.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  onSuggestionsFetchRequested = ({ value }) => {
+    this.setState({
+      suggestions: this.getSuggestions(value)
+    });
+  };
+
+  escapeRegexCharacters = (str) => {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  getSuggestions = (value) => {
+    const escapedValue = this.escapeRegexCharacters(value.trim());
+    if (escapedValue === '') {
+      return [];
+    }
+    const regex = new RegExp('^' + escapedValue, 'i');
+    return this.state.suggestions.filter(elem => regex.test(elem.title_short));
+  }
+
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    });
+  };
+
   render () {
     const CoverStyle = {
       height: '400px',
@@ -122,10 +165,12 @@ class AppContainer extends React.Component {
 
     return <div className="NavyPlayer">
         <Search
-          autoCompleteValue={this.state.autoCompleteValue}
-          searchTracks={this.state.searchTracks}
-          handleSelect={this.handleSelect}
-          handleChange={this.handleChange}/>
+          value={this.state.value}
+          suggestions={this.state.suggestions}
+          state={this.state}
+          onChange={this.onChange}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}/>
         <Title title_short={this.state.track.title_short} artist={this.state.track.artist.name} />
         <Cover CoverStyle={CoverStyle} />
         <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />

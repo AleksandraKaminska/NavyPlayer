@@ -1,53 +1,33 @@
 import React from 'react';
-import Autocomplete from 'react-autocomplete';
+import Autosuggest from 'react-autosuggest';
 
 class Search extends React.Component{
-  handleRenderItem = (item, isHighlighted) => {
-    const style = {
-      item: {
-        padding: '2px 6px',
-        cursor: 'default',
-        background: '#bdd4de',
-        color: 'black',
-        fontFamily: 'Raleway',
-        width: '100%',
-        cursor: 'pointer'
-      },
-      highlightedItem: {
-        color: 'black',
-        background: '#efefef',
-        padding: '2px 6px',
-        cursor: 'default',
-        fontFamily: 'Raleway',
-        width: '100%',
-        cursor: 'pointer'
-      }
-    };
-    return <div style={{background: '#bdd4de', cursor: 'pointer'}} >
-      <img style={{display: 'inline-block'}} src={item.cover} />
-      <div
-        style={isHighlighted ? style.highlightedItem : style.item}
-        key={item.id}
-        id={item.id}>
-          {item.title_short}
-      </div>
-
-      </div>
+  getSuggestionValue = (suggestion) => {
+    return suggestion.title_short;
   }
-  render() {
+
+  renderSuggestion = (suggestion) => {
     return (
-      <div className="search">
-        <Autocomplete
-          ref="autocomplete"
-          inputProps={{title: "Title"}}
-          value={this.props.autoCompleteValue}
-          items={this.props.searchTracks}
-          getItemValue={(item) => item.title_short}
-          onSelect={this.props.handleSelect}
-          onChange={this.props.handleChange}
-          renderItem={this.handleRenderItem.bind(this)} />
-      </div>
+      <span>{suggestion.title_short}</span>
     );
+  }
+
+  render() {
+    const { value, suggestions } = this.props.state;
+    const inputProps = {
+      placeholder: "Search",
+      value: this.props.value,
+      onChange: this.props.onChange
+    };
+    return <div className="search">
+        <Autosuggest
+          suggestions={this.props.suggestions}
+          onSuggestionsFetchRequested={this.props.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.props.onSuggestionsClearRequested}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
+          inputProps={inputProps} />
+    </div>
   }
 }
 
