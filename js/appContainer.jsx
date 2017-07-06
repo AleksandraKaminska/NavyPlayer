@@ -26,8 +26,15 @@ class AppContainer extends React.Component {
   }
 
   searchArtist = () => {
-    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
-    Axios.get(url)
+    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
+    Axios.get(url, {
+	method: 'POST',
+	mode: 'cors',
+	redirect: 'follow',
+	headers: new Headers({
+		'Content-Type': 'text/plain'
+	})
+})
       .then(response => {
         this.setState({
           artistInfo: response.data
@@ -39,8 +46,15 @@ class AppContainer extends React.Component {
   }
 
   searchConcerts = () => {
-    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
-    Axios.get(url)
+    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
+    Axios.get(url, {
+	method: 'POST',
+	mode: 'cors',
+	redirect: 'follow',
+	headers: new Headers({
+		'Content-Type': 'text/plain'
+	})
+})
       .then(response => {
         this.setState({
           concerts: response.data
@@ -52,7 +66,14 @@ class AppContainer extends React.Component {
   }
 
   randomTrack = () => {
-    Axios.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095')
+    Axios.get('https://api.deezer.com/playlist/950408095', {
+	method: 'POST',
+	mode: 'cors',
+	redirect: 'follow',
+	headers: new Headers({
+		'Content-Type': 'text/plain'
+	})
+})
       .then(response => {
         const playlistTracks = response.data.tracks.data;
         const randomNumber = Math.floor(Math.random() * playlistTracks.length);
@@ -86,7 +107,14 @@ class AppContainer extends React.Component {
     this.setState({
       value: event.target.value
     });
-    Axios.get(`https://crossorigin.me/http://api.deezer.com/search/track?q=${this.state.value}`)
+    Axios.get(`http://api.deezer.com/search/track?q=${this.state.value}`, {
+	method: 'POST',
+	mode: 'cors',
+	redirect: 'follow',
+	headers: new Headers({
+		'Content-Type': 'text/plain'
+	})
+})
       .then(response => {
         this.setState({
           suggestions: response.data.data
