@@ -47,7 +47,7 @@ class Player extends React.Component {
           <i className={this.state.isPlaying ? 'fa fa-pause-circle' : 'fa fa-play-circle'} aria-hidden="true"></i>
         </button>
         <button onClick={this.changeTrack}>
-          <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+          <i className="fa fa-step-forward" aria-hidden="true"></i>
         </button>
       </div>
     </div>

@@ -1,32 +1,50 @@
 import React from 'react';
-import Autosuggest from 'react-autosuggest';
+import Autocomplete from 'react-autocomplete';
 
 class Search extends React.Component{
-  getSuggestionValue = (suggestion) => {
-    return suggestion.title_short;
-  }
-
-  renderSuggestion = (suggestion) => {
-    return (
-      <div>{suggestion.title_short}</div>
-    );
+  handleRenderItem = (item, isHighlighted) => {
+    const style = {
+      item: {
+        padding: '2px 6px',
+        cursor: 'default',
+        background: '#333',
+        color: 'white',
+        fontFamily: 'Raleway',
+        width: '100%',
+        zIndex: '2'
+      },
+      highlightedItem: {
+        color: 'white',
+        background: '#14375A',
+        padding: '2px 6px',
+        cursor: 'default',
+        fontFamily: 'Raleway',
+        width: '100%',
+        zIndex: '2'
+      }
+    };
+    return <div
+        style={isHighlighted ? style.highlightedItem : style.item}
+        key={item.id}
+        id={item.id}
+      >{item.title_short}</div>
   }
 
   render() {
-    const { value, suggestions } = this.props.state;
     const inputProps = {
-      placeholder: "Search",
-      value: this.props.value,
-      onChange: this.props.onChange
+      placeholder: "Search tracks",
+      title: "Search tracks"
     };
     return <div className="search">
-        <Autosuggest
-          suggestions={this.props.suggestions}
-          onSuggestionsFetchRequested={this.props.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.props.onSuggestionsClearRequested}
-          getSuggestionValue={this.getSuggestionValue}
-          renderSuggestion={this.renderSuggestion}
-          inputProps={inputProps} />
+      <Autocomplete
+        ref="autocomplete"
+        inputProps={inputProps}
+        value={this.props.autoCompleteValue}
+        items={this.props.searchTracks}
+        getItemValue={item => item.title_short}
+        onSelect={this.props.handleSelect}
+        onChange={this.props.handleChange}
+        renderItem={this.handleRenderItem} />
     </div>
   }
 }

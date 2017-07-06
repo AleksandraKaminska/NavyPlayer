@@ -20,8 +20,8 @@ class AppContainer extends React.Component {
        duration: '00:00',
        position: 0,
        playFromPosition: 0,
-       suggestions: [],
-       value: ''
+       searchTracks: [],
+       autoCompleteValue: ''
      };
      this.obj = {
  	     mode: 'cors',
@@ -78,6 +78,14 @@ class AppContainer extends React.Component {
 
   componentDidMount() {
     this.randomTrack();
+    let id = setInterval(DZ.Event.subscribe('player_position', function(evt_name){
+       this.setState({
+         elapsed: this.showTime(evt_name[0]),
+         duration: this.showTime(evt_name[1]),
+         position: evt_name[0] / evt_name[1]
+       });
+       console.log('ELAPSED', this.state.elapsed);
+    }), 1000);
   }
 
   playTrack = () => {
@@ -86,19 +94,21 @@ class AppContainer extends React.Component {
 
   handleSelect = (value, item) => {
     this.setState({
-      value: value,
+      autoCompleteValue: value,
       track: item
     });
+    this.searchArtist();
+    this.searchConcerts();
   }
 
-  onChange = (event) => {
+  handleChange = (event, value) => {
     this.setState({
-      value: event.target.value
+      autoCompleteValue: event.target.value
     });
-    Axios.get(`https://crossorigin.me/http://api.deezer.com/search/track?q=${this.state.value}`, this.obj)
+    Axios.get(`https://crossorigin.me/http://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`, this.obj)
       .then(response => {
         this.setState({
-          suggestions: response.data.data
+          searchTracks: response.data.data
         });
       })
       .catch(err => {
@@ -106,45 +116,11 @@ class AppContainer extends React.Component {
       });
   }
 
-  showTime = (ms) => {
-     let min = Math.floor(ms / 60000);
-     ms %= 60000;
-     let s = Math.floor(ms / 1000);
+  showTime = (time) => {
+     let min = Math.floor(time / 60);
+     let s = time % 60;
      return (min < 10 ? '0' : '') + min + ':' + (s < 10 ? '0' : '') + s;
   }
-
-  handleSongPlaying(audio) {
-     this.setState({
-       elapsed: this.showTime(audio.position),
-       duration: this.showTime(audio.duration),
-       position: audio.position / audio.duration
-     });
-  }
-
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: this.getSuggestions(value)
-    });
-  };
-
-  escapeRegexCharacters = (str) => {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-
-  getSuggestions = (value) => {
-    const escapedValue = this.escapeRegexCharacters(value.trim());
-    if (escapedValue === '') {
-      return [];
-    }
-    const regex = new RegExp('^' + escapedValue, 'i');
-    return this.state.suggestions.filter(elem => regex.test(elem.title_short));
-  }
-
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
 
   render () {
     const CoverStyle = {
@@ -157,18 +133,14 @@ class AppContainer extends React.Component {
 
     return <div className="NavyPlayer">
         <Search
-          value={this.state.value}
-          suggestions={this.state.suggestions}
-          state={this.state}
-          onChange={this.onChange}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}/>
+          autoCompleteValue={this.state.autoCompleteValue}
+          searchTracks={this.state.searchTracks}
+          handleSelect={this.handleSelect}
+          handleChange={this.handleChange}/>
         <Title title_short={this.state.track.title_short} artist={this.state.track.artist.name} />
         <Cover CoverStyle={CoverStyle} />
         <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
         <PlayerAndProgress
-          playStatus={this.state.playStatus}
-          playOrPause={this.playOrPause}
           randomTrack={this.randomTrack}
           track={this.state.track}
           playTrack={this.playTrack}

@@ -5,7 +5,7 @@ class Footer extends React.Component {
     return <div className="footer">
         <p>
           Powered by Deezer <a href="http://www.deezer.com/pl/" target='_blank'>
-            <img src="images/DZ_Logo.png" />
+            <img src="images/DZ_Logo.png" alt='Deezer Logo'/>
           </a>
         </p>
       </div>
