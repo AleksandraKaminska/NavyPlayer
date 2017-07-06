@@ -26,7 +26,7 @@ class AppContainer extends React.Component {
   }
 
   searchArtist = () => {
-    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
+    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
     Axios.get(url)
       .then(response => {
         this.setState({
@@ -39,7 +39,7 @@ class AppContainer extends React.Component {
   }
 
   searchConcerts = () => {
-    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
+    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
     Axios.get(url)
       .then(response => {
         this.setState({
@@ -52,7 +52,7 @@ class AppContainer extends React.Component {
   }
 
   randomTrack = () => {
-    Axios.get('https://api.deezer.com/playlist/950408095')
+    Axios.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095')
       .then(response => {
         const playlistTracks = response.data.tracks.data;
         const randomNumber = Math.floor(Math.random() * playlistTracks.length);
@@ -82,21 +82,20 @@ class AppContainer extends React.Component {
     });
   }
 
-  // handleChange = (event, value) => {
-  //   this.setState({
-  //     value: event.target.value
-  //   });
-  //   Axios.get(`http://api.deezer.com/search?q=${value}`)
-  //     .then(response => {
-  //       console.log('!!!!!!!!',response.data);
-  //       this.setState({
-  //         suggestions: response.data
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
+  onChange = (event) => {
+    this.setState({
+      value: event.target.value
+    });
+    Axios.get(`https://crossorigin.me/http://api.deezer.com/search/track?q=${this.state.value}`)
+      .then(response => {
+        this.setState({
+          suggestions: response.data.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   showTime = (ms) => {
      let min = Math.floor(ms / 60000);
@@ -112,22 +111,6 @@ class AppContainer extends React.Component {
        position: audio.position / audio.duration
      });
   }
-
-  onChange = (event, { newValue, method }) => {
-    this.setState({
-      value: newValue
-    });
-    Axios.get(`http://api.deezer.com/search?q=${newValue}`)
-      .then(response => {
-        console.log('!!!!!!!!',response.data.data);
-        this.setState({
-          suggestions: response.data.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({

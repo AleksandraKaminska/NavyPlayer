@@ -8,7 +8,7 @@ class Search extends React.Component{
 
   renderSuggestion = (suggestion) => {
     return (
-      <span>{suggestion.title_short}</span>
+      <div>{suggestion.title_short}</div>
     );
   }
 
