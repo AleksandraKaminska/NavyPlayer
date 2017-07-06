@@ -31,8 +31,10 @@ class AppContainer extends React.Component {
 	     mode: 'cors',
 	     redirect: 'follow',
 	     headers: new Headers({
-		       'Access-Control-Allow-Origin':'*',
-           'Content-Type': 'multipart/form-data','Content-Type': 'multipart/form-data'
+         'Access-Control-Allow-Origin':'*',
+         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+         'Access-Control-Allow-Credentials': true,
+         'Access-Control-Request-Method': 'GET'
 	     })
     })
       .then(response => {
@@ -51,8 +53,10 @@ class AppContainer extends React.Component {
 	     mode: 'cors',
 	     redirect: 'follow',
 	     headers: new Headers({
-		       'Access-Control-Allow-Origin':'*',
-           'Content-Type': 'multipart/form-data','Content-Type': 'multipart/form-data'
+         'Access-Control-Allow-Origin':'*',
+         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+         'Access-Control-Allow-Credentials': true,
+         'Access-Control-Request-Method': 'GET'
 	     })
     })
       .then(response => {
@@ -70,8 +74,11 @@ class AppContainer extends React.Component {
 	     mode: 'cors',
 	     redirect: 'follow',
 	     headers: new Headers({
-		       'Access-Control-Allow-Origin':'*',
-           'Content-Type': 'multipart/form-data'
+         'Access-Control-Allow-Origin':'*',
+         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+         'Access-Control-Allow-Credentials': true,
+         'Access-Control-Request-Method': 'GET'
+
 	     })
      })
       .then(response => {
@@ -112,7 +119,9 @@ class AppContainer extends React.Component {
 	    redirect: 'follow',
 	    headers: new Headers({
 		      'Access-Control-Allow-Origin':'*',
-          'Content-Type': 'multipart/form-data'
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+          'Access-Control-Allow-Credentials': true,
+          'Access-Control-Request-Method': 'GET'
 	    })
     })
       .then(response => {

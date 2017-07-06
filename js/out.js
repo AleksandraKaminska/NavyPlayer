@@ -10855,8 +10855,6 @@ var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10876,9 +10874,12 @@ var AppContainer = function (_React$Component) {
       _axios2.default.get(url, {
         mode: 'cors',
         redirect: 'follow',
-        headers: new Headers(_defineProperty({
+        headers: new Headers({
           'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'multipart/form-data' }, 'Content-Type', 'multipart/form-data'))
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+          'Access-Control-Allow-Credentials': true,
+          'Access-Control-Request-Method': 'GET'
+        })
       }).then(function (response) {
         _this.setState({
           artistInfo: response.data
@@ -10893,9 +10894,12 @@ var AppContainer = function (_React$Component) {
       _axios2.default.get(url, {
         mode: 'cors',
         redirect: 'follow',
-        headers: new Headers(_defineProperty({
+        headers: new Headers({
           'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'multipart/form-data' }, 'Content-Type', 'multipart/form-data'))
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+          'Access-Control-Allow-Credentials': true,
+          'Access-Control-Request-Method': 'GET'
+        })
       }).then(function (response) {
         _this.setState({
           concerts: response.data
@@ -10911,7 +10915,10 @@ var AppContainer = function (_React$Component) {
         redirect: 'follow',
         headers: new Headers({
           'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'multipart/form-data'
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+          'Access-Control-Allow-Credentials': true,
+          'Access-Control-Request-Method': 'GET'
+
         })
       }).then(function (response) {
         var playlistTracks = response.data.tracks.data;
@@ -10946,7 +10953,9 @@ var AppContainer = function (_React$Component) {
         redirect: 'follow',
         headers: new Headers({
           'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'multipart/form-data'
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+          'Access-Control-Allow-Credentials': true,
+          'Access-Control-Request-Method': 'GET'
         })
       }).then(function (response) {
         _this.setState({
@@ -10964,8 +10973,8 @@ var AppContainer = function (_React$Component) {
       return (min < 10 ? '0' : '') + min + ':' + (s < 10 ? '0' : '') + s;
     };
 
-    _this.onSuggestionsFetchRequested = function (_ref3) {
-      var value = _ref3.value;
+    _this.onSuggestionsFetchRequested = function (_ref) {
+      var value = _ref.value;
 
       _this.setState({
         suggestions: _this.getSuggestions(value)
