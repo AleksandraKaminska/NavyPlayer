@@ -10862,6 +10862,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var obj = {
+  mode: 'cors',
+  headers: new Headers({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
+    'Access-Control-Allow-Credentials': 'true'
+  })
+};
+
 var AppContainer = function (_React$Component) {
   _inherits(AppContainer, _React$Component);
 
@@ -10872,7 +10882,7 @@ var AppContainer = function (_React$Component) {
 
     _this.searchArtist = function () {
       var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
-      _axios2.default.get(url, _this.obj).then(function (response) {
+      _axios2.default.get(url, obj).then(function (response) {
         _this.setState({
           artistInfo: response.data
         });
@@ -10883,7 +10893,7 @@ var AppContainer = function (_React$Component) {
 
     _this.searchConcerts = function () {
       var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
-      _axios2.default.get(url, _this.obj).then(function (response) {
+      _axios2.default.get(url, obj).then(function (response) {
         _this.setState({
           concerts: response.data
         });
@@ -10893,7 +10903,7 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.randomTrack = function () {
-      _axios2.default.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095', _this.obj).then(function (response) {
+      _axios2.default.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095', obj).then(function (response) {
         var playlistTracks = response.data.tracks.data;
         var randomNumber = Math.floor(Math.random() * playlistTracks.length);
         _this.setState({
@@ -10906,24 +10916,18 @@ var AppContainer = function (_React$Component) {
       });
     };
 
-    _this.playTrack = function () {
-      DZ.player.playTracks([_this.state.track.id]);
-    };
-
     _this.handleSelect = function (value, item) {
       _this.setState({
         autoCompleteValue: value,
         track: item
       });
-      _this.searchArtist();
-      _this.searchConcerts();
     };
 
     _this.handleChange = function (event, value) {
       _this.setState({
         autoCompleteValue: event.target.value
       });
-      _axios2.default.get('https://crossorigin.me/http://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue, _this.obj).then(function (response) {
+      _axios2.default.get('https://crossorigin.me/http://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue, obj).then(function (response) {
         _this.setState({
           searchTracks: response.data.data
         });
@@ -10942,21 +10946,8 @@ var AppContainer = function (_React$Component) {
       track: { title: '', artist: { name: '' }, album: { cover_big: '' } },
       artistInfo: {},
       concerts: [],
-      elapsed: '00:00',
-      duration: '00:00',
-      position: 0,
-      playFromPosition: 0,
       searchTracks: [],
       autoCompleteValue: ''
-    };
-    _this.obj = {
-      mode: 'cors',
-      headers: new Headers({
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
-        'Access-Control-Allow-Credentials': 'true'
-      })
     };
     return _this;
   }
@@ -10965,25 +10956,10 @@ var AppContainer = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.randomTrack();
-      var id = setInterval(DZ.Event.subscribe('player_position', function (evt_name) {
-        this.setState({
-          elapsed: this.showTime(evt_name[0]),
-          duration: this.showTime(evt_name[1]),
-          position: evt_name[0] / evt_name[1]
-        });
-        console.log('ELAPSED', this.state.elapsed);
-      }), 1000);
     }
   }, {
     key: 'render',
     value: function render() {
-      var CoverStyle = {
-        height: '400px',
-        width: '400px',
-        backgroundSize: 'cover',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),\n      url(' + this.state.track.album.cover_big + ')'
-      };
-
       return _react2.default.createElement(
         'div',
         { className: 'NavyPlayer' },
@@ -10992,16 +10968,12 @@ var AppContainer = function (_React$Component) {
           searchTracks: this.state.searchTracks,
           handleSelect: this.handleSelect,
           handleChange: this.handleChange }),
-        _react2.default.createElement(_title2.default, { title_short: this.state.track.title_short, artist: this.state.track.artist.name }),
-        _react2.default.createElement(_cover2.default, { CoverStyle: CoverStyle }),
+        _react2.default.createElement(_title2.default, { title: this.state.track.title_short, artist: this.state.track.artist.name }),
+        _react2.default.createElement(_cover2.default, { track: this.state.track }),
         _react2.default.createElement(_artistInfo2.default, { artistInfo: this.state.artistInfo, concerts: this.state.concerts }),
         _react2.default.createElement(_playerAndProgress2.default, {
           randomTrack: this.randomTrack,
-          track: this.state.track,
-          playTrack: this.playTrack,
-          elapsed: this.state.elapsed,
-          duration: this.state.duration,
-          position: this.state.position }),
+          track: this.state.track }),
         _react2.default.createElement(_footer2.default, null)
       );
     }
@@ -12013,7 +11985,10 @@ var Cover = function (_React$Component) {
   _createClass(Cover, [{
     key: "render",
     value: function render() {
-      return _react2.default.createElement("div", { className: "cover", style: this.props.CoverStyle });
+      var CoverStyle = {
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),\n      url(" + this.props.track.album.cover_big + ")"
+      };
+      return _react2.default.createElement("div", { className: "cover", style: CoverStyle });
     }
   }]);
 
@@ -12114,13 +12089,17 @@ var Player = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
 
+    _this.playTrack = function () {
+      DZ.player.playTracks([_this.props.track.id]);
+    };
+
     _this.changeIsPlaying = function () {
       if (_this.state.counter === 0) {
         _this.setState({
           isPlaying: true,
           counter: 1
         });
-        _this.props.playTrack();
+        _this.playTrack();
       } else {
         if (_this.state.isPlaying === false) {
           _this.setState({
@@ -12231,12 +12210,8 @@ var PlayerAndProgress = function (_React$Component) {
         { className: 'playerAndProgress' },
         _react2.default.createElement(_player2.default, {
           randomTrack: this.props.randomTrack,
-          track: this.props.track,
-          playTrack: this.props.playTrack }),
-        _react2.default.createElement(_progress2.default, {
-          elapsed: this.props.elapsed,
-          duration: this.props.duration,
-          position: this.props.position })
+          track: this.props.track }),
+        _react2.default.createElement(_progress2.default, null)
       );
     }
   }]);
@@ -12274,36 +12249,43 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Progress = function (_React$Component) {
   _inherits(Progress, _React$Component);
 
-  function Progress() {
+  function Progress(props) {
     _classCallCheck(this, Progress);
 
-    return _possibleConstructorReturn(this, (Progress.__proto__ || Object.getPrototypeOf(Progress)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Progress.__proto__ || Object.getPrototypeOf(Progress)).call(this, props));
+
+    _this.state = {
+      elapsed: '00:00',
+      duration: '00:00',
+      position: 0
+    };
+    return _this;
   }
 
   _createClass(Progress, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "progress" },
-        _react2.default.createElement("progress", { value: this.props.position, max: "1" }),
+        'div',
+        { className: 'progress' },
+        _react2.default.createElement('progress', { value: this.state.position, max: '1' }),
         _react2.default.createElement(
-          "div",
-          { className: "time" },
+          'div',
+          { className: 'time' },
           _react2.default.createElement(
-            "span",
-            { className: "elapsed" },
-            this.props.elapsed
+            'span',
+            { className: 'elapsed' },
+            this.state.elapsed
           ),
           _react2.default.createElement(
-            "span",
-            { className: "pipe" },
-            " | "
+            'span',
+            { className: 'pipe' },
+            ' | '
           ),
           _react2.default.createElement(
-            "span",
-            { className: "duration" },
-            this.props.duration
+            'span',
+            { className: 'duration' },
+            this.state.duration
           )
         )
       );
@@ -12467,7 +12449,7 @@ var Title = function (_React$Component) {
           _react2.default.createElement(
             "h3",
             null,
-            this.props.title_short,
+            this.props.title,
             " - ",
             this.props.artist
           )
@@ -13370,7 +13352,7 @@ exports = module.exports = __webpack_require__(117)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n#dz-root {\n  display: none; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: center; }\n  .search:first-child {\n    width: 25%; }\n    .search:first-child input {\n      width: 100%;\n      height: 100%;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 3px 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 11.5vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.cover {\n  margin: 3vh 0 0 0; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 3vw;\n  width: 30%;\n  display: flex;\n  flex-wrap: wrap; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 1em; }\n  .artistInfo .info div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo .info div > p {\n      vertical-align: top;\n      font-size: 1.3em;\n      margin-bottom: 0.3em; }\n    .artistInfo .info div a {\n      color: white;\n      text-decoration: none;\n      font-size: 1em; }\n      .artistInfo .info div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo .info div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n  .artistInfo div.show {\n    margin-top: 1em;\n    clear: both;\n    width: 100%;\n    font-size: 1.2em; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  padding: 0 0.5em;\n  position: absolute;\n  bottom: 0;\n  z-index: 2; }\n  .footer img {\n    height: 1em;\n    width: auto; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: center; }\n  .search:first-child {\n    width: 25%; }\n    .search:first-child input {\n      width: 100%;\n      height: 100%;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 3px 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 11.5vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.cover {\n  margin: 3vh 0 0 0;\n  height: 400px;\n  width: 400px;\n  background-size: cover; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 3vw;\n  width: 30%;\n  display: flex;\n  flex-wrap: wrap; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 1em; }\n  .artistInfo .info div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo .info div > p {\n      vertical-align: top;\n      font-size: 1.3em;\n      margin-bottom: 0.3em; }\n    .artistInfo .info div a {\n      color: white;\n      text-decoration: none;\n      font-size: 1em; }\n      .artistInfo .info div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo .info div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n  .artistInfo div.show {\n    margin-top: 1em;\n    clear: both;\n    width: 100%;\n    font-size: 1.2em; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  padding: 0 0.5em;\n  position: absolute;\n  bottom: 0;\n  z-index: 2; }\n  .footer img {\n    height: 1em;\n    width: auto; }\n", ""]);
 
 // exports
 

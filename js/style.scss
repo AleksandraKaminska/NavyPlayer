@@ -14,10 +14,6 @@ body {
   position: relative;
 }
 
-#dz-root{
-  display: none;
-}
-
 .NavyPlayer {
   height: 100%;
   width: 100%;
@@ -59,6 +55,9 @@ body {
 
 .cover {
   margin: 3vh 0 0 0;
+  height: 400px;
+  width: 400px;
+  background-size: cover;
 }
 
 .artistInfo {

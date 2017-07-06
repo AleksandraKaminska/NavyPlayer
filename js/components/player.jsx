@@ -9,13 +9,17 @@ class Player extends React.Component {
     }
   }
 
+  playTrack = () => {
+    DZ.player.playTracks([this.props.track.id]);
+  }
+
   changeIsPlaying = () => {
     if (this.state.counter === 0) {
       this.setState({
         isPlaying: true,
         counter: 1
       });
-      this.props.playTrack();
+      this.playTrack();
     } else {
       if (this.state.isPlaying === false) {
         this.setState({

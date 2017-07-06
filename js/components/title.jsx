@@ -4,7 +4,7 @@ class Title extends React.Component {
   render() {
     return <div className="title">
       <div>
-        <h3>{this.props.title_short} - {this.props.artist}</h3>
+        <h3>{this.props.title} - {this.props.artist}</h3>
       </div>
     </div>
   }
