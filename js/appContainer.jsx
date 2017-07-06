@@ -23,20 +23,20 @@ class AppContainer extends React.Component {
        suggestions: [],
        value: ''
      };
+     this.obj = {
+ 	     mode: 'cors',
+ 	     headers: new Headers({
+         'Access-Control-Allow-Origin': '*',
+         'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+         'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
+         'Access-Control-Allow-Credentials': 'true'
+ 	     })
+     };
   }
 
   searchArtist = () => {
-    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
-    Axios.get(url, {
-	     mode: 'cors',
-	     redirect: 'follow',
-	     headers: new Headers({
-         'Access-Control-Allow-Origin':'*',
-         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-         'Access-Control-Allow-Credentials': true,
-         'Access-Control-Request-Method': 'GET'
-	     })
-    })
+    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
+    Axios.get(url, this.obj)
       .then(response => {
         this.setState({
           artistInfo: response.data
@@ -48,17 +48,8 @@ class AppContainer extends React.Component {
   }
 
   searchConcerts = () => {
-    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
-    Axios.get(url, {
-	     mode: 'cors',
-	     redirect: 'follow',
-	     headers: new Headers({
-         'Access-Control-Allow-Origin':'*',
-         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-         'Access-Control-Allow-Credentials': true,
-         'Access-Control-Request-Method': 'GET'
-	     })
-    })
+    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
+    Axios.get(url, this.obj)
       .then(response => {
         this.setState({
           concerts: response.data
@@ -70,17 +61,7 @@ class AppContainer extends React.Component {
   }
 
   randomTrack = () => {
-    Axios.get('https://api.deezer.com/playlist/950408095', {
-	     mode: 'cors',
-	     redirect: 'follow',
-	     headers: new Headers({
-         'Access-Control-Allow-Origin':'*',
-         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-         'Access-Control-Allow-Credentials': true,
-         'Access-Control-Request-Method': 'GET'
-
-	     })
-     })
+    Axios.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095', this.obj)
       .then(response => {
         const playlistTracks = response.data.tracks.data;
         const randomNumber = Math.floor(Math.random() * playlistTracks.length);
@@ -114,16 +95,7 @@ class AppContainer extends React.Component {
     this.setState({
       value: event.target.value
     });
-    Axios.get(`http://api.deezer.com/search/track?q=${this.state.value}`, {
-	    mode: 'cors',
-	    redirect: 'follow',
-	    headers: new Headers({
-		      'Access-Control-Allow-Origin':'*',
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Request-Method': 'GET'
-	    })
-    })
+    Axios.get(`https://crossorigin.me/http://api.deezer.com/search/track?q=${this.state.value}`, this.obj)
       .then(response => {
         this.setState({
           suggestions: response.data.data

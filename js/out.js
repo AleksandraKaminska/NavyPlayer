@@ -10870,17 +10870,8 @@ var AppContainer = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this, props));
 
     _this.searchArtist = function () {
-      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
-      _axios2.default.get(url, {
-        mode: 'cors',
-        redirect: 'follow',
-        headers: new Headers({
-          'Access-Control-Allow-Origin': '*',
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Request-Method': 'GET'
-        })
-      }).then(function (response) {
+      var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
+      _axios2.default.get(url, _this.obj).then(function (response) {
         _this.setState({
           artistInfo: response.data
         });
@@ -10890,17 +10881,8 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.searchConcerts = function () {
-      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
-      _axios2.default.get(url, {
-        mode: 'cors',
-        redirect: 'follow',
-        headers: new Headers({
-          'Access-Control-Allow-Origin': '*',
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Request-Method': 'GET'
-        })
-      }).then(function (response) {
+      var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
+      _axios2.default.get(url, _this.obj).then(function (response) {
         _this.setState({
           concerts: response.data
         });
@@ -10910,17 +10892,7 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.randomTrack = function () {
-      _axios2.default.get('https://api.deezer.com/playlist/950408095', {
-        mode: 'cors',
-        redirect: 'follow',
-        headers: new Headers({
-          'Access-Control-Allow-Origin': '*',
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Request-Method': 'GET'
-
-        })
-      }).then(function (response) {
+      _axios2.default.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095', _this.obj).then(function (response) {
         var playlistTracks = response.data.tracks.data;
         var randomNumber = Math.floor(Math.random() * playlistTracks.length);
         _this.setState({
@@ -10948,16 +10920,7 @@ var AppContainer = function (_React$Component) {
       _this.setState({
         value: event.target.value
       });
-      _axios2.default.get('http://api.deezer.com/search/track?q=' + _this.state.value, {
-        mode: 'cors',
-        redirect: 'follow',
-        headers: new Headers({
-          'Access-Control-Allow-Origin': '*',
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-          'Access-Control-Allow-Credentials': true,
-          'Access-Control-Request-Method': 'GET'
-        })
-      }).then(function (response) {
+      _axios2.default.get('https://crossorigin.me/http://api.deezer.com/search/track?q=' + _this.state.value, _this.obj).then(function (response) {
         _this.setState({
           suggestions: response.data.data
         });
@@ -11012,6 +10975,15 @@ var AppContainer = function (_React$Component) {
       playFromPosition: 0,
       suggestions: [],
       value: ''
+    };
+    _this.obj = {
+      mode: 'cors',
+      headers: new Headers({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+        'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
+        'Access-Control-Allow-Credentials': 'true'
+      })
     };
     return _this;
   }
