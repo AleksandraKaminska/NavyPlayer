@@ -10855,6 +10855,8 @@ var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10870,8 +10872,14 @@ var AppContainer = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this, props));
 
     _this.searchArtist = function () {
-      var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
-      _axios2.default.get(url).then(function (response) {
+      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
+      _axios2.default.get(url, {
+        mode: 'cors',
+        redirect: 'follow',
+        headers: new Headers(_defineProperty({
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'multipart/form-data' }, 'Content-Type', 'multipart/form-data'))
+      }).then(function (response) {
         _this.setState({
           artistInfo: response.data
         });
@@ -10881,8 +10889,14 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.searchConcerts = function () {
-      var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
-      _axios2.default.get(url).then(function (response) {
+      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
+      _axios2.default.get(url, {
+        mode: 'cors',
+        redirect: 'follow',
+        headers: new Headers(_defineProperty({
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'multipart/form-data' }, 'Content-Type', 'multipart/form-data'))
+      }).then(function (response) {
         _this.setState({
           concerts: response.data
         });
@@ -10892,7 +10906,14 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.randomTrack = function () {
-      _axios2.default.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095').then(function (response) {
+      _axios2.default.get('https://api.deezer.com/playlist/950408095', {
+        mode: 'cors',
+        redirect: 'follow',
+        headers: new Headers({
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'multipart/form-data'
+        })
+      }).then(function (response) {
         var playlistTracks = response.data.tracks.data;
         var randomNumber = Math.floor(Math.random() * playlistTracks.length);
         _this.setState({
@@ -10920,7 +10941,14 @@ var AppContainer = function (_React$Component) {
       _this.setState({
         value: event.target.value
       });
-      _axios2.default.get('https://crossorigin.me/http://api.deezer.com/search/track?q=' + _this.state.value).then(function (response) {
+      _axios2.default.get('http://api.deezer.com/search/track?q=' + _this.state.value, {
+        mode: 'cors',
+        redirect: 'follow',
+        headers: new Headers({
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'multipart/form-data'
+        })
+      }).then(function (response) {
         _this.setState({
           suggestions: response.data.data
         });
@@ -10936,8 +10964,8 @@ var AppContainer = function (_React$Component) {
       return (min < 10 ? '0' : '') + min + ':' + (s < 10 ? '0' : '') + s;
     };
 
-    _this.onSuggestionsFetchRequested = function (_ref) {
-      var value = _ref.value;
+    _this.onSuggestionsFetchRequested = function (_ref3) {
+      var value = _ref3.value;
 
       _this.setState({
         suggestions: _this.getSuggestions(value)
