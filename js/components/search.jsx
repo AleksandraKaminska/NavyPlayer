@@ -11,7 +11,7 @@ class Search extends React.Component{
         color: 'white',
         fontFamily: 'Raleway',
         width: '100%',
-        zIndex: '2'
+        zIndex: '3'
       },
       highlightedItem: {
         color: 'white',
@@ -20,7 +20,7 @@ class Search extends React.Component{
         cursor: 'default',
         fontFamily: 'Raleway',
         width: '100%',
-        zIndex: '2'
+        zIndex: '3'
       }
     };
     return <div

@@ -99,19 +99,13 @@ class AppContainer extends React.Component {
       });
   }
 
-  showTime = (time) => {
-     let min = Math.floor(time / 60);
-     let s = time % 60;
-     return (min < 10 ? '0' : '') + min + ':' + (s < 10 ? '0' : '') + s;
-  }
-
   render () {
     return <div className="NavyPlayer">
         <Search
           autoCompleteValue={this.state.autoCompleteValue}
           searchTracks={this.state.searchTracks}
           handleSelect={this.handleSelect}
-          handleChange={this.handleChange}/>
+          handleChange={this.handleChange} />
         <Title title={this.state.track.title_short} artist={this.state.track.artist.name} />
         <Cover track={this.state.track} />
         <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
