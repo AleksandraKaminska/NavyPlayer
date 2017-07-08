@@ -20,11 +20,15 @@ class Progress extends React.Component {
     });
   }
 
+  changeSeek = (event) => {
+    DZ.player.seek(event.clientX/window.innerWidth* 100);
+  }
+
   render() {
     this.showPosition();
     return(
       <div className="progress">
-        <progress value={0} max="1"></progress>
+        <progress onClick={this.changeSeek} value={0} max="1"></progress>
         <div className='time'>
           <span className="elapsed">{this.state.elapsed}</span>
           <span className="pipe"> &#124; </span>

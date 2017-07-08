@@ -72,16 +72,15 @@ body {
 }
 
 .cover {
-  margin: 3vh 0 0 0;
+  margin: 3vh 0 0 auto;
   height: 400px;
   width: 400px;
   background-size: cover;
 }
 
 .artistInfo {
-  position: absolute;
-  top: 27vh;
-  right: 3vw;
+  margin-top: 5vh;
+  margin-left: 5vw;
   width: 30%;
   display: flex;
   flex-wrap: wrap;
@@ -90,19 +89,21 @@ body {
     width: 64px;
     height: 64px;
     margin-right: 1em;
+    margin-top: 0.5em;
   }
   .info div {
     float: left;
-    max-width: calc(100% - 74px);
+    max-width: calc(100% - 100px);
     & > p {
-      vertical-align: top;
-      font-size: 1.3em;
-      margin-bottom: 0.3em;
+      font-size: 1.5em;
+      margin-bottom: 0.1em;
+      font-family: 'Playfair Display', serif;
     }
     a {
       color: white;
       text-decoration: none;
       font-size: 1em;
+      font-family: 'Playfair Display', serif;
       i {
         margin-right: 10px;
         float: left;
@@ -121,6 +122,7 @@ body {
     clear: both;
     width: 100%;
     font-size: 1.2em;
+    font-family: 'Reem Kufi', sans-serif;
   }
 }
 
@@ -148,7 +150,7 @@ body {
   .progress {
     font-size: 1.1em;
     color: #fff;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Reem Kufi', sans-serif;
     progress[value] {
       height: 5px;
       width: 100%;
