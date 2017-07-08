@@ -27,7 +27,7 @@ class Search extends React.Component{
         style={isHighlighted ? style.highlightedItem : style.item}
         key={item.id}
         id={item.id}
-      >{item.title_short}</div>
+      >{item.title_short} - {item.artist.name}</div>
   }
 
   render() {

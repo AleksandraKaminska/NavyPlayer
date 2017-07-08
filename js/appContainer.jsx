@@ -9,16 +9,6 @@ import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
 
-let obj = {
-  mode: 'cors',
-  headers: new Headers({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
-    'Access-Control-Allow-Credentials': 'true'
-  })
-};
-
 class AppContainer extends React.Component {
   constructor(props) {
      super(props);
@@ -32,8 +22,8 @@ class AppContainer extends React.Component {
   }
 
   searchArtist = () => {
-    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
-    Axios.get(url, obj)
+    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
+    Axios.get(url)
       .then(response => {
         this.setState({
           artistInfo: response.data
@@ -45,8 +35,8 @@ class AppContainer extends React.Component {
   }
 
   searchConcerts = () => {
-    let url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
-    Axios.get(url, obj)
+    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
+    Axios.get(url)
       .then(response => {
         this.setState({
           concerts: response.data
@@ -58,15 +48,16 @@ class AppContainer extends React.Component {
   }
 
   randomTrack = () => {
-    Axios.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095', obj)
+    Axios.get('https://api.deezer.com/playlist/950408095')
       .then(response => {
         const playlistTracks = response.data.tracks.data;
         const randomNumber = Math.floor(Math.random() * playlistTracks.length);
         this.setState({
           track: playlistTracks[randomNumber]
+        }, () => {
+          this.searchArtist();
+          this.searchConcerts();
         });
-        this.searchArtist();
-        this.searchConcerts();
       })
       .catch(err => {
         console.log(err);
@@ -81,6 +72,11 @@ class AppContainer extends React.Component {
     this.setState({
       autoCompleteValue: value,
       track: item
+    }, () => {
+      this.searchArtist();
+      this.searchConcerts();
+      DZ.player.pause();
+      DZ.player.playTracks([this.state.track.id]);
     });
   }
 
@@ -88,7 +84,7 @@ class AppContainer extends React.Component {
     this.setState({
       autoCompleteValue: event.target.value
     });
-    Axios.get(`https://crossorigin.me/http://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`, obj)
+    Axios.get(`http://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`)
       .then(response => {
         this.setState({
           searchTracks: response.data.data

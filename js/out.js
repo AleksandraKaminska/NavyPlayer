@@ -12075,16 +12075,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var obj = {
-  mode: 'cors',
-  headers: new Headers({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
-    'Access-Control-Allow-Credentials': 'true'
-  })
-};
-
 var AppContainer = function (_React$Component) {
   _inherits(AppContainer, _React$Component);
 
@@ -12094,8 +12084,8 @@ var AppContainer = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this, props));
 
     _this.searchArtist = function () {
-      var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
-      _axios2.default.get(url, obj).then(function (response) {
+      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
+      _axios2.default.get(url).then(function (response) {
         _this.setState({
           artistInfo: response.data
         });
@@ -12105,8 +12095,8 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.searchConcerts = function () {
-      var url = 'https://crossorigin.me/https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
-      _axios2.default.get(url, obj).then(function (response) {
+      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
+      _axios2.default.get(url).then(function (response) {
         _this.setState({
           concerts: response.data
         });
@@ -12116,14 +12106,15 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.randomTrack = function () {
-      _axios2.default.get('https://crossorigin.me/https://api.deezer.com/playlist/950408095', obj).then(function (response) {
+      _axios2.default.get('https://api.deezer.com/playlist/950408095').then(function (response) {
         var playlistTracks = response.data.tracks.data;
         var randomNumber = Math.floor(Math.random() * playlistTracks.length);
         _this.setState({
           track: playlistTracks[randomNumber]
+        }, function () {
+          _this.searchArtist();
+          _this.searchConcerts();
         });
-        _this.searchArtist();
-        _this.searchConcerts();
       }).catch(function (err) {
         console.log(err);
       });
@@ -12133,6 +12124,11 @@ var AppContainer = function (_React$Component) {
       _this.setState({
         autoCompleteValue: value,
         track: item
+      }, function () {
+        _this.searchArtist();
+        _this.searchConcerts();
+        DZ.player.pause();
+        DZ.player.playTracks([_this.state.track.id]);
       });
     };
 
@@ -12140,7 +12136,7 @@ var AppContainer = function (_React$Component) {
       _this.setState({
         autoCompleteValue: event.target.value
       });
-      _axios2.default.get('https://crossorigin.me/http://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue, obj).then(function (response) {
+      _axios2.default.get('http://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue).then(function (response) {
         _this.setState({
           searchTracks: response.data.data
         });
@@ -12353,7 +12349,7 @@ var Concerts = function (_React$Component) {
           _react2.default.createElement(
             'a',
             {
-              href: elem.offers[0].url, style: { color: 'white', textDecoration: 'none' } },
+              href: elem.offers[0].url, style: { color: 'white', textDecoration: 'none' }, target: '_blank' },
             elem.offers[0].status
           )
         );
@@ -12681,16 +12677,10 @@ var Progress = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Progress.__proto__ || Object.getPrototypeOf(Progress)).call(this, props));
 
-    _this.showTime = function (time) {
-      var min = Math.floor(time / 60);
-      var s = time % 60;
-      return (min < 10 ? '0' : '') + min + ':' + (s < 10 ? '0' : '') + s;
-    };
-
     _this.showPosition = function () {
       DZ.Event.subscribe('player_position', function (e) {
-        document.querySelector('.duration').innerText = Math.floor(e[1] / 60) + ':' + e[1] % 60;
-        document.querySelector('.elapsed').innerText = Math.floor(e[0] / 60) + ':' + Math.floor(e[0] % 60);
+        document.querySelector('.elapsed').innerText = Math.floor(e[0] / 60) + ':' + (e[0] % 60 < 10 ? '0' : '') + Math.floor(e[0] % 60);
+        document.querySelector('.duration').innerText = Math.floor(e[1] / 60) + ':' + Math.floor(e[1] % 60) + (e[1] % 60 < 10 ? '0' : '');
         document.querySelector('progress').setAttribute("value", e[0] / e[1]);
       });
     };
@@ -12810,7 +12800,9 @@ var Search = function (_React$Component) {
           key: item.id,
           id: item.id
         },
-        item.title_short
+        item.title_short,
+        ' - ',
+        item.artist.name
       );
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }

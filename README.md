@@ -7,3 +7,7 @@ Music app powered by Deezer and Bandsintown REST APIs- my final project after pr
  - React
  - axios (Fetch)
  - react-autocomplete
+
+## To install:
+
+Download a package with project. Write npm install and npm server in terminal.
