@@ -28,17 +28,19 @@ body {
 }
 
 .search {
-  text-align: center;
+  text-align: left;
+  max-width: 30vw;
   div:first-child {
-    width: 30%;
+    margin-top: 1em;
+    width: 30vw;
     input {
-      width: 100%;
       height: 100%;
+      width: 30vw;
       color: white;
       border: 0;
       outline: none;
       background: #7e827a;
-      padding: 3px 2em;
+      padding: 0.5em 2em;
       border-radius: 1em;
     }
   }
@@ -47,7 +49,7 @@ body {
 .title {
   display: flex;
   justify-content: center;
-  margin: 11.5vh 0 2vh 1em;
+  margin: 10vh 0 2vh 1em;
   h3 {
     font-size: 1.5em;
   }
@@ -152,7 +154,7 @@ body {
     .time {
       position: absolute;
       right: 30vw;
-      top:7vh;
+      top: 7vh;
     }
   }
 }

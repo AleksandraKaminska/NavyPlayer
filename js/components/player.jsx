@@ -39,9 +39,10 @@ class Player extends React.Component {
     this.setState({
       isPlaying: false,
       counter: 0
+    }, () => {
+      DZ.player.pause();
+      this.props.randomTrack();
     });
-    DZ.player.pause();
-    this.props.randomTrack();
   }
 
   render() {
