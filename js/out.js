@@ -12112,8 +12112,8 @@ var AppContainer = function (_React$Component) {
         _this.setState({
           track: playlistTracks[randomNumber]
         }, function () {
-          _this.searchArtist();
-          _this.searchConcerts();
+          this.searchArtist();
+          this.searchConcerts();
         });
       }).catch(function (err) {
         console.log(err);
@@ -12219,46 +12219,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ArtistInfo = function (_React$Component) {
   _inherits(ArtistInfo, _React$Component);
 
-  function ArtistInfo(props) {
+  function ArtistInfo() {
     _classCallCheck(this, ArtistInfo);
 
-    var _this = _possibleConstructorReturn(this, (ArtistInfo.__proto__ || Object.getPrototypeOf(ArtistInfo)).call(this, props));
-
-    _this.show = function () {
-      _this.setState({
-        display: _this.state.display === 'none' ? 'block' : 'none'
-      });
-    };
-
-    _this.hasConcerts = function () {
-      if (_this.props.concerts.length) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'show' },
-          _react2.default.createElement(
-            'h2',
-            { onClick: _this.show, style: { cursor: 'pointer' } },
-            'Show Concerts'
-          ),
-          _react2.default.createElement(_concerts2.default, { display: _this.state.display, concerts: _this.props.concerts })
-        );
-      } else {
-        return _react2.default.createElement(
-          'div',
-          { className: 'show' },
-          _react2.default.createElement(
-            'h2',
-            null,
-            'We don\'t have any concerts'
-          )
-        );
-      }
-    };
-
-    _this.state = {
-      display: 'none'
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (ArtistInfo.__proto__ || Object.getPrototypeOf(ArtistInfo)).apply(this, arguments));
   }
 
   _createClass(ArtistInfo, [{
@@ -12291,7 +12255,7 @@ var ArtistInfo = function (_React$Component) {
             )
           )
         ),
-        this.hasConcerts()
+        _react2.default.createElement(_concerts2.default, { concerts: this.props.concerts })
       );
     }
   }]);
@@ -12354,15 +12318,28 @@ var Concerts = function (_React$Component) {
           )
         );
       });
-      return _react2.default.createElement(
-        'div',
-        { style: { display: this.props.display }, className: 'concerts' },
-        _react2.default.createElement(
-          'ul',
-          { style: { listStyle: 'none' } },
-          li
-        )
-      );
+      if (this.props.concerts.length) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'show' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Concerts'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'concerts' },
+            _react2.default.createElement(
+              'ul',
+              { style: { listStyle: 'none', maxHeight: '40vh', overflowY: 'auto' } },
+              li
+            )
+          )
+        );
+      } else {
+        return null;
+      }
     }
   }]);
 
@@ -13790,7 +13767,7 @@ exports = module.exports = __webpack_require__(117)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: left;\n  max-width: 30vw; }\n  .search div:first-child {\n    margin-top: 1em;\n    width: 30vw; }\n    .search div:first-child input {\n      height: 100%;\n      width: 30vw;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 0.5em 2em;\n      border-radius: 1em; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 10vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.cover {\n  margin: 3vh 0 0 0;\n  height: 400px;\n  width: 400px;\n  background-size: cover; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 3vw;\n  width: 30%;\n  display: flex;\n  flex-wrap: wrap; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 1em; }\n  .artistInfo .info div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo .info div > p {\n      vertical-align: top;\n      font-size: 1.3em;\n      margin-bottom: 0.3em; }\n    .artistInfo .info div a {\n      color: white;\n      text-decoration: none;\n      font-size: 1em; }\n      .artistInfo .info div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo .info div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n  .artistInfo div.show {\n    margin-top: 1em;\n    clear: both;\n    width: 100%;\n    font-size: 1.2em; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 30vw;\n      top: 7vh; }\n\n.footer {\n  padding: 0 0.5em;\n  position: absolute;\n  bottom: 0;\n  z-index: 2; }\n  .footer img {\n    height: 1em;\n    width: auto; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: white;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: left;\n  max-width: 30vw; }\n  .search div:first-child {\n    margin-top: 1em;\n    width: 30vw; }\n    .search div:first-child input {\n      height: 100%;\n      width: 30vw;\n      color: white;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 0.5em 2em;\n      border-radius: 1em; }\n      .search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 10vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.cover {\n  margin: 3vh 0 0 0;\n  height: 400px;\n  width: 400px;\n  background-size: cover; }\n\n.artistInfo {\n  position: absolute;\n  top: 27vh;\n  right: 3vw;\n  width: 30%;\n  display: flex;\n  flex-wrap: wrap; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 1em; }\n  .artistInfo .info div {\n    float: left;\n    max-width: calc(100% - 74px); }\n    .artistInfo .info div > p {\n      vertical-align: top;\n      font-size: 1.3em;\n      margin-bottom: 0.3em; }\n    .artistInfo .info div a {\n      color: white;\n      text-decoration: none;\n      font-size: 1em; }\n      .artistInfo .info div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo .info div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n  .artistInfo div.show {\n    margin-top: 1em;\n    clear: both;\n    width: 100%;\n    font-size: 1.2em; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #fff;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #7E5589; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #fff;\n    font-family: 'Nunito', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: linear-gradient(269deg, #ffcf06, #ace33b, #557c89);\n        background-size: 500% 500%;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #7E5589;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 5vw;\n      bottom: 2.5vh; }\n\n.footer {\n  padding: 0 0.5em;\n  position: absolute;\n  bottom: 0;\n  z-index: 2; }\n  .footer img {\n    height: 1em;\n    width: auto; }\n", ""]);
 
 // exports
 

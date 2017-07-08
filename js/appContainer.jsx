@@ -54,7 +54,7 @@ class AppContainer extends React.Component {
         const randomNumber = Math.floor(Math.random() * playlistTracks.length);
         this.setState({
           track: playlistTracks[randomNumber]
-        }, () => {
+        }, function () {
           this.searchArtist();
           this.searchConcerts();
         });

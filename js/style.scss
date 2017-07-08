@@ -42,6 +42,22 @@ body {
       background: #7e827a;
       padding: 0.5em 2em;
       border-radius: 1em;
+      &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        font-size: 1.2em;
+        color: lightgray;
+      }
+      &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        font-size: 1.2em;
+        color: lightgray;
+      }
+      &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        font-size: 1.2em;
+        color: lightgray;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        font-size: 1.2em;
+        color: lightgray;
+      }
     }
   }
 }
@@ -153,8 +169,8 @@ body {
     }
     .time {
       position: absolute;
-      right: 30vw;
-      top: 7vh;
+      right: 5vw;
+      bottom: 2.5vh;
     }
   }
 }

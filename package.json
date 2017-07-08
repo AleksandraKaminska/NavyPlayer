@@ -1,7 +1,7 @@
 {
   "name": "navy-player",
   "productName": "NavyPlayer",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Music app powered by Deezer. Built with React.",
   "main": "app.jsx",
   "scripts": {
