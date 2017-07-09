@@ -9,28 +9,27 @@ class Player extends React.Component {
     }
   }
 
-  playTrack = () => {
-    DZ.player.playTracks([this.props.track.id]);
-  }
-
   changeIsPlaying = () => {
     if (this.state.counter === 0) {
       this.setState({
         isPlaying: true,
         counter: 1
+      }, () => {
+        DZ.player.playTracks([this.props.track.id]);
       });
-      this.playTrack();
     } else {
       if (this.state.isPlaying === false) {
         this.setState({
           isPlaying: true
+        }, () => {
+          DZ.player.play();
         });
-        DZ.player.play();
       } else {
         this.setState({
           isPlaying: false
+        }, () => {
+          DZ.player.pause();
         });
-        DZ.player.pause();
       }
     }
   }

@@ -123,6 +123,15 @@ body {
     width: 100%;
     font-size: 1.2em;
     font-family: 'Reem Kufi', sans-serif;
+    ul {
+      list-style: none;
+      max-height: 35vh;
+      overflow-y: auto;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
   }
 }
 
@@ -142,7 +151,7 @@ body {
       border: none;
       outline: none;
       &:hover {
-        color: #7E5589;
+        color: #666063;
       }
     }
   }
@@ -159,13 +168,12 @@ body {
       top: 0;
       left: 0;
       &::-webkit-progress-bar {
-        background: linear-gradient(269deg, #ffcf06 , #ace33b, #557c89 );
-        background-size: 500% 500%;
+        background: #666063;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
       }
       &::-webkit-progress-value {
-        background-color: #7E5589;
+        background-color: #11000A;
         border-radius: 5px;
       }
     }

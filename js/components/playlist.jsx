@@ -1,0 +1,53 @@
+import React from 'react';
+
+let obj = {
+  mode: 'cors',
+  redirect:	'follow',
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
+    'Access-Control-Allow-Credentials': 'true'
+  }
+};
+
+class Playlist extends React.Component {
+  constructor(props) {
+     super(props);
+     this.state = {
+       picture: '',
+       playlistId: ''
+     };
+  }
+  thisplaylist = () => {
+    fetch(`https://api.deezer.com/playlist/${this.props.playlists[0]}`, obj)
+      .then(response => response.json())
+      .then(response => {
+        this.setState({
+          picture: response.picture_small.replace(/56x56/, '80x80'),
+          playlistId: response.id
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+  componentDidMount() {
+    this.thisplaylist();
+  }
+  findPlaylist = (event) => {
+    this.setState({
+      chosenPlaylist: event.target.id
+    }, () => {
+      this.props.randomTrack();
+    })
+  }
+
+  render() {
+    return <div onClick={this.findPlaylist} >
+        <img src={this.state.picture} id={this.state.playlistId} />
+      </div>
+  }
+}
+
+export default Playlist

@@ -1,13 +1,24 @@
 import React from 'react';
-import Axios from 'axios';
 import Autosuggest from 'react-autosuggest';
 
 import Title from './components/title.jsx';
+import ChoosePlaylists from './components/choosePlaylists.jsx';
 import Cover from './components/cover.jsx';
 import ArtistInfo from './components/artistInfo.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
+
+let obj = {
+  mode: 'cors',
+  redirect:	'follow',
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
+    'Access-Control-Allow-Credentials': 'true'
+  }
+};
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -17,16 +28,19 @@ class AppContainer extends React.Component {
        artistInfo: {},
        concerts: [],
        searchTracks: [],
-       autoCompleteValue: ''
+       autoCompleteValue: '',
+       playlists: [950408095],
+       chosenPlaylist: 950408095
      };
   }
 
   searchArtist = () => {
     let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
-    Axios.get(url)
+    fetch(url, obj)
+      .then(response => response.json())
       .then(response => {
         this.setState({
-          artistInfo: response.data
+          artistInfo: response
         });
       })
       .catch(err => {
@@ -36,10 +50,11 @@ class AppContainer extends React.Component {
 
   searchConcerts = () => {
     let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
-    Axios.get(url)
+    fetch(url, obj)
+      .then(response => response.json())
       .then(response => {
         this.setState({
-          concerts: response.data
+          concerts: response
         });
       })
       .catch(err => {
@@ -48,15 +63,17 @@ class AppContainer extends React.Component {
   }
 
   randomTrack = () => {
-    Axios.get('https://api.deezer.com/playlist/950408095')
+    fetch(`https://api.deezer.com/playlist/${this.state.chosenPlaylist}`, obj)
+      .then(response => response.json())
       .then(response => {
-        const playlistTracks = response.data.tracks.data;
+        const playlistTracks = response.tracks.data;
         const randomNumber = Math.floor(Math.random() * playlistTracks.length);
         this.setState({
           track: playlistTracks[randomNumber]
-        }, function () {
+        }, () => {
           this.searchArtist();
           this.searchConcerts();
+          DZ.player.playTracks([this.state.track.id]);
         });
       })
       .catch(err => {
@@ -84,10 +101,11 @@ class AppContainer extends React.Component {
     this.setState({
       autoCompleteValue: event.target.value
     });
-    Axios.get(`http://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`)
+    fetch(`http://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`, obj)
+      .then(response => response.json())
       .then(response => {
         this.setState({
-          searchTracks: response.data.data
+          searchTracks: response.data
         });
       })
       .catch(err => {
@@ -103,6 +121,13 @@ class AppContainer extends React.Component {
           handleSelect={this.handleSelect}
           handleChange={this.handleChange} />
         <Title title={this.state.track.title_short} artist={this.state.track.artist.name} />
+        <ChoosePlaylists
+          playlists={this.state.playlists}
+          chosenPlaylist={this.state.chosenPlaylist}
+          randomTrack={this.randomTrack}
+          searchArtist={this.searchArtist}
+          searchConcerts={this.searchConcerts}
+          track={this.state.track} />
         <Cover track={this.state.track} />
         <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
         <PlayerAndProgress
