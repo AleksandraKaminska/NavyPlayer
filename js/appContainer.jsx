@@ -14,7 +14,7 @@ let obj = {
   redirect:	'follow',
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+    'Access-Control-Allow-Methods': 'GET, POST',
     'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
     'Access-Control-Allow-Credentials': 'true'
   }
@@ -29,7 +29,7 @@ class AppContainer extends React.Component {
        concerts: [],
        searchTracks: [],
        autoCompleteValue: '',
-       playlists: [950408095],
+       playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641],
        chosenPlaylist: 950408095
      };
   }
@@ -126,8 +126,7 @@ class AppContainer extends React.Component {
           chosenPlaylist={this.state.chosenPlaylist}
           randomTrack={this.randomTrack}
           searchArtist={this.searchArtist}
-          searchConcerts={this.searchConcerts}
-          track={this.state.track} />
+          searchConcerts={this.searchConcerts} />
         <Cover track={this.state.track} />
         <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
         <PlayerAndProgress

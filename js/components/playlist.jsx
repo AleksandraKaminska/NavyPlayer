@@ -5,7 +5,7 @@ let obj = {
   redirect:	'follow',
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
+    'Access-Control-Allow-Methods': 'GET, POST',
     'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
     'Access-Control-Allow-Credentials': 'true'
   }
@@ -20,7 +20,7 @@ class Playlist extends React.Component {
      };
   }
   thisplaylist = () => {
-    fetch(`https://api.deezer.com/playlist/${this.props.playlists[0]}`, obj)
+    fetch(`https://api.deezer.com/playlist/${this.props.playlists[this.props.number]}`, obj)
       .then(response => response.json())
       .then(response => {
         this.setState({

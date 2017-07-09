@@ -71,6 +71,15 @@ body {
   }
 }
 
+.playlists {
+  max-height: 65vh;
+  overflow-y: scroll;
+  div {
+    cursor: pointer;
+    margin: 0 1vw 2vh 2vw;
+  }
+}
+
 .cover {
   margin: 3vh 0 0 auto;
   height: 400px;
