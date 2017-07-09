@@ -24,7 +24,7 @@ class Playlist extends React.Component {
       .then(response => response.json())
       .then(response => {
         this.setState({
-          picture: response.picture_small.replace(/56x56/, '80x80'),
+          picture: response.picture_small.replace(/56x56/, '95x95'),
           playlistId: response.id
         })
       })
