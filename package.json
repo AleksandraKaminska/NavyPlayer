@@ -11,10 +11,9 @@
   "author": "Aleksandra Kamińska",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.9.1",
     "babel-preset-stage-2": "^6.24.1",
     "react": "^15.4.0",
-    "react-autosuggest": "^9.3.1",
+    "react-autocomplete": "^1.5.9",
     "react-dom": "^15.4.0",
     "whatwg-fetch": "^2.0.3"
   },
