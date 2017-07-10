@@ -19,7 +19,7 @@ class Playlist extends React.Component {
        playlistId: ''
      };
   }
-  
+
   thisplaylist = () => {
     fetch(`https://api.deezer.com/playlist/${this.props.playlists[this.props.number]}`, obj)
       .then(response => response.json())
