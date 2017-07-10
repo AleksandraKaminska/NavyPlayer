@@ -29,7 +29,7 @@ class AppContainer extends React.Component {
        concerts: [],
        searchTracks: [],
        autoCompleteValue: '',
-       playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641, 3323407262],
+       playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641],
        chosenPlaylist: 1677006641
      };
   }
