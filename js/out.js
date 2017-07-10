@@ -11031,6 +11031,14 @@ var AppContainer = function (_React$Component) {
       });
     };
 
+    _this.findPlaylist = function (event) {
+      _this.setState({
+        chosenPlaylist: event.target.id
+      }, function () {
+        _this.randomTrack();
+      });
+    };
+
     _this.handleSelect = function (value, item) {
       _this.setState({
         autoCompleteValue: value,
@@ -11064,8 +11072,8 @@ var AppContainer = function (_React$Component) {
       concerts: [],
       searchTracks: [],
       autoCompleteValue: '',
-      playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641],
-      chosenPlaylist: 950408095
+      playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641, 3323407262],
+      chosenPlaylist: 1677006641
     };
     return _this;
   }
@@ -11089,10 +11097,8 @@ var AppContainer = function (_React$Component) {
         _react2.default.createElement(_title2.default, { title: this.state.track.title_short, artist: this.state.track.artist.name }),
         _react2.default.createElement(_choosePlaylists2.default, {
           playlists: this.state.playlists,
-          chosenPlaylist: this.state.chosenPlaylist,
-          randomTrack: this.randomTrack,
-          searchArtist: this.searchArtist,
-          searchConcerts: this.searchConcerts }),
+          findPlaylist: this.findPlaylist,
+          randomTrack: this.randomTrack }),
         _react2.default.createElement(_cover2.default, { track: this.state.track }),
         _react2.default.createElement(_artistInfo2.default, { artistInfo: this.state.artistInfo, concerts: this.state.concerts }),
         _react2.default.createElement(_playerAndProgress2.default, {
@@ -11235,10 +11241,8 @@ var ChoosePlaylists = function (_React$Component) {
         this.props.playlists.map(function (elem, i) {
           return _react2.default.createElement(_playlist2.default, {
             playlists: _this2.props.playlists,
-            chosenPlaylist: _this2.props.chosenPlaylist,
+            findPlaylist: _this2.props.findPlaylist,
             randomTrack: _this2.props.randomTrack,
-            searchArtist: _this2.props.searchArtist,
-            searchConcerts: _this2.props.searchConcerts,
             number: i, key: i });
         })
       );
@@ -11652,14 +11656,6 @@ var Playlist = function (_React$Component) {
       });
     };
 
-    _this.findPlaylist = function (event) {
-      _this.setState({
-        chosenPlaylist: event.target.id
-      }, function () {
-        _this.props.randomTrack();
-      });
-    };
-
     _this.state = {
       picture: '',
       playlistId: ''
@@ -11677,7 +11673,7 @@ var Playlist = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { onClick: this.findPlaylist },
+        { onClick: this.props.findPlaylist },
         _react2.default.createElement('img', { src: this.state.picture, id: this.state.playlistId })
       );
     }

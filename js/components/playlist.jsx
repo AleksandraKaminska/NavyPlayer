@@ -19,6 +19,7 @@ class Playlist extends React.Component {
        playlistId: ''
      };
   }
+  
   thisplaylist = () => {
     fetch(`https://api.deezer.com/playlist/${this.props.playlists[this.props.number]}`, obj)
       .then(response => response.json())
@@ -32,19 +33,13 @@ class Playlist extends React.Component {
         console.log(err);
       });
   }
+
   componentDidMount() {
     this.thisplaylist();
   }
-  findPlaylist = (event) => {
-    this.setState({
-      chosenPlaylist: event.target.id
-    }, () => {
-      this.props.randomTrack();
-    })
-  }
 
   render() {
-    return <div onClick={this.findPlaylist} >
+    return <div onClick={this.props.findPlaylist} >
         <img src={this.state.picture} id={this.state.playlistId} />
       </div>
   }

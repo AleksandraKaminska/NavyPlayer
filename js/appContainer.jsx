@@ -29,8 +29,8 @@ class AppContainer extends React.Component {
        concerts: [],
        searchTracks: [],
        autoCompleteValue: '',
-       playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641],
-       chosenPlaylist: 950408095
+       playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641, 3323407262],
+       chosenPlaylist: 1677006641
      };
   }
 
@@ -85,6 +85,14 @@ class AppContainer extends React.Component {
     this.randomTrack();
   }
 
+  findPlaylist = (event) => {
+    this.setState({
+      chosenPlaylist: event.target.id
+    }, () => {
+      this.randomTrack();
+    })
+  }
+
   handleSelect = (value, item) => {
     this.setState({
       autoCompleteValue: value,
@@ -123,10 +131,8 @@ class AppContainer extends React.Component {
         <Title title={this.state.track.title_short} artist={this.state.track.artist.name} />
         <ChoosePlaylists
           playlists={this.state.playlists}
-          chosenPlaylist={this.state.chosenPlaylist}
-          randomTrack={this.randomTrack}
-          searchArtist={this.searchArtist}
-          searchConcerts={this.searchConcerts} />
+          findPlaylist={this.findPlaylist}
+          randomTrack={this.randomTrack} />
         <Cover track={this.state.track} />
         <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
         <PlayerAndProgress
