@@ -10973,9 +10973,8 @@ var obj = {
   redirect: 'follow',
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
-    'Access-Control-Allow-Credentials': 'true'
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
   }
 };
 
@@ -11055,7 +11054,7 @@ var AppContainer = function (_React$Component) {
       _this.setState({
         autoCompleteValue: event.target.value
       });
-      fetch('http://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue, obj).then(function (response) {
+      fetch('https://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue, obj).then(function (response) {
         return response.json();
       }).then(function (response) {
         _this.setState({
@@ -11629,9 +11628,8 @@ var obj = {
   redirect: 'follow',
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
-    'Access-Control-Allow-Credentials': 'true'
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
   }
 };
 

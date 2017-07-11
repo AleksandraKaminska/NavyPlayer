@@ -5,9 +5,8 @@ let obj = {
   redirect:	'follow',
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
-    'Access-Control-Allow-Credentials': 'true'
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
   }
 };
 
