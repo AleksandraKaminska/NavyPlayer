@@ -10986,47 +10986,57 @@ var AppContainer = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).call(this, props));
 
+    _this.callback = function (data) {
+      console.log(data);
+    };
+
     _this.searchArtist = function () {
       var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
-      fetch(url, obj).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        _this.setState({
-          artistInfo: response
-        });
-      }).catch(function (err) {
-        console.log(err);
+      $.ajax({
+        dataType: "jsonp",
+        url: url + '?output=jsonp',
+        data: {},
+        jsonp: 'callback',
+        success: function success(response) {
+          _this.setState({
+            artistInfo: response
+          });
+        }
       });
     };
 
     _this.searchConcerts = function () {
       var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
-      fetch(url, obj).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        _this.setState({
-          concerts: response
-        });
-      }).catch(function (err) {
-        console.log(err);
+      $.ajax({
+        dataType: "jsonp",
+        url: url + '?output=jsonp',
+        data: {},
+        jsonp: 'callback',
+        success: function success(response) {
+          _this.setState({
+            concerts: response
+          });
+        }
       });
     };
 
     _this.randomTrack = function () {
-      fetch('https://api.deezer.com/playlist/' + _this.state.chosenPlaylist, obj).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        var playlistTracks = response.tracks.data;
-        var randomNumber = Math.floor(Math.random() * playlistTracks.length);
-        _this.setState({
-          track: playlistTracks[randomNumber]
-        }, function () {
-          _this.searchArtist();
-          _this.searchConcerts();
-          DZ.player.playTracks([_this.state.track.id]);
-        });
-      }).catch(function (err) {
-        console.log(err);
+      $.ajax({
+        dataType: "jsonp",
+        url: 'https://api.deezer.com/playlist/' + _this.state.chosenPlaylist + '?output=jsonp',
+        data: {},
+        jsonp: 'callback',
+        success: function success(response) {
+          var playlistTracks = response.tracks.data;
+          var randomNumber = Math.floor(Math.random() * playlistTracks.length);
+          _this.setState({
+            track: playlistTracks[randomNumber]
+          }, function () {
+            _this.searchArtist();
+            _this.searchConcerts();
+            DZ.player.playTracks([_this.state.track.id]);
+          });
+        }
       });
     };
 
@@ -11054,14 +11064,17 @@ var AppContainer = function (_React$Component) {
       _this.setState({
         autoCompleteValue: event.target.value
       });
-      fetch('https://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue, obj).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        _this.setState({
-          searchTracks: response.data
-        });
-      }).catch(function (err) {
-        console.log(err);
+      $.ajax({
+        dataType: "jsonp",
+        url: 'https://api.deezer.com/search/track?q=' + _this.state.autoCompleteValue + '?output=jsonp',
+        data: {},
+        jsonp: 'callback',
+        success: function success(response) {
+          console.log(response.data);
+          _this.setState({
+            searchTracks: response.data
+          });
+        }
       });
     };
 
@@ -11642,16 +11655,22 @@ var Playlist = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Playlist.__proto__ || Object.getPrototypeOf(Playlist)).call(this, props));
 
     _this.thisplaylist = function () {
-      fetch('https://api.deezer.com/playlist/' + _this.props.playlists[_this.props.number], obj).then(function (response) {
-        return response.json();
-      }).then(function (response) {
-        _this.setState({
-          picture: response.picture_small.replace(/56x56/, '95x95'),
-          playlistId: response.id
-        });
-      }).catch(function (err) {
-        console.log(err);
+      $.ajax({
+        dataType: "jsonp",
+        url: 'https://api.deezer.com/playlist/' + _this.props.playlists[_this.props.number] + '?output=jsonp',
+        data: {},
+        jsonp: 'callback',
+        success: function success(data) {
+          _this.setState({
+            picture: data.picture_small.replace(/56x56/, '95x95'),
+            playlistId: data.id
+          });
+        }
       });
+    };
+
+    _this.callback = function (data) {
+      console.log(data);
     };
 
     _this.state = {

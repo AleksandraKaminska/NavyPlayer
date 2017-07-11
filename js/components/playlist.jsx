@@ -20,18 +20,23 @@ class Playlist extends React.Component {
   }
 
   thisplaylist = () => {
-    fetch(`https://api.deezer.com/playlist/${this.props.playlists[this.props.number]}`, obj)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          picture: response.picture_small.replace(/56x56/, '95x95'),
-          playlistId: response.id
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/playlist/${this.props.playlists[this.props.number]}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
+        success : data => {
+          this.setState({
+            picture: data.picture_small.replace(/56x56/, '95x95'),
+            playlistId: data.id
+          })
+        }
+    });
   }
+
+  callback = data => {
+      console.log(data);
+  };
 
   componentDidMount() {
     this.thisplaylist();

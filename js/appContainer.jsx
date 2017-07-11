@@ -33,51 +33,58 @@ class AppContainer extends React.Component {
      };
   }
 
+  callback = data => {
+      console.log(data);
+  };
+  
   searchArtist = () => {
     let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
-    fetch(url, obj)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          artistInfo: response
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    $.ajax({
+        dataType: "jsonp",
+        url :`${url}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
+        success : response => {
+          this.setState({
+            artistInfo: response
+          });
+        }
+    });
   }
 
   searchConcerts = () => {
     let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
-    fetch(url, obj)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          concerts: response
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    $.ajax({
+        dataType: "jsonp",
+        url :`${url}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
+        success : response => {
+          this.setState({
+            concerts: response
+          });
+        }
+    });
   }
 
   randomTrack = () => {
-    fetch(`https://api.deezer.com/playlist/${this.state.chosenPlaylist}`, obj)
-      .then(response => response.json())
-      .then(response => {
-        const playlistTracks = response.tracks.data;
-        const randomNumber = Math.floor(Math.random() * playlistTracks.length);
-        this.setState({
-          track: playlistTracks[randomNumber]
-        }, () => {
-          this.searchArtist();
-          this.searchConcerts();
-          DZ.player.playTracks([this.state.track.id]);
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/playlist/${this.state.chosenPlaylist}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
+        success : response => {
+          const playlistTracks = response.tracks.data;
+          const randomNumber = Math.floor(Math.random() * playlistTracks.length);
+          this.setState({
+            track: playlistTracks[randomNumber]
+          }, () => {
+            this.searchArtist();
+            this.searchConcerts();
+            DZ.player.playTracks([this.state.track.id]);
+          });
+        }
+    });
   }
 
   componentDidMount() {
@@ -108,16 +115,18 @@ class AppContainer extends React.Component {
     this.setState({
       autoCompleteValue: event.target.value
     });
-    fetch(`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`, obj)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          searchTracks: response.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
+        success : response => {
+          console.log(response.data);
+          this.setState({
+            searchTracks: response.data
+          });
+        }
+    });
   }
 
   render () {
