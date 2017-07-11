@@ -10968,16 +10968,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var obj = {
-  mode: 'cors',
-  redirect: 'follow',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
-  }
-};
-
 var AppContainer = function (_React$Component) {
   _inherits(AppContainer, _React$Component);
 
@@ -10991,12 +10981,9 @@ var AppContainer = function (_React$Component) {
     };
 
     _this.searchArtist = function () {
-      var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer';
       $.ajax({
-        dataType: "jsonp",
-        url: url + '?output=jsonp',
-        data: {},
-        jsonp: 'callback',
+        dataType: "json",
+        url: 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '?app_id=NavyPlayer',
         success: function success(response) {
           _this.setState({
             artistInfo: response
@@ -11008,10 +10995,8 @@ var AppContainer = function (_React$Component) {
     _this.searchConcerts = function () {
       var url = 'https://rest.bandsintown.com/artists/' + _this.state.track.artist.name + '/events?app_id=NavyPlayer';
       $.ajax({
-        dataType: "jsonp",
-        url: url + '?output=jsonp',
-        data: {},
-        jsonp: 'callback',
+        dataType: "json",
+        url: url,
         success: function success(response) {
           _this.setState({
             concerts: response
@@ -11635,16 +11620,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var obj = {
-  mode: 'cors',
-  redirect: 'follow',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
-  }
-};
 
 var Playlist = function (_React$Component) {
   _inherits(Playlist, _React$Component);

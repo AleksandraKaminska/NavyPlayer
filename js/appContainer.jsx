@@ -9,16 +9,6 @@ import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
 
-let obj = {
-  mode: 'cors',
-  redirect:	'follow',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
-  }
-};
-
 class AppContainer extends React.Component {
   constructor(props) {
      super(props);
@@ -36,14 +26,11 @@ class AppContainer extends React.Component {
   callback = data => {
       console.log(data);
   };
-  
+
   searchArtist = () => {
-    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '?app_id=NavyPlayer';
     $.ajax({
-        dataType: "jsonp",
-        url :`${url}?output=jsonp`,
-        data : {},
-        jsonp : 'callback',
+        dataType: "json",
+        url :`https://rest.bandsintown.com/artists/${this.state.track.artist.name}?app_id=NavyPlayer`,
         success : response => {
           this.setState({
             artistInfo: response
@@ -55,10 +42,8 @@ class AppContainer extends React.Component {
   searchConcerts = () => {
     let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
     $.ajax({
-        dataType: "jsonp",
-        url :`${url}?output=jsonp`,
-        data : {},
-        jsonp : 'callback',
+        dataType: "json",
+        url : url,
         success : response => {
           this.setState({
             concerts: response

@@ -1,15 +1,5 @@
 import React from 'react';
 
-let obj = {
-  mode: 'cors',
-  redirect:	'follow',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With'
-  }
-};
-
 class Playlist extends React.Component {
   constructor(props) {
      super(props);
