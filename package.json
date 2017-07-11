@@ -12,10 +12,10 @@
   "license": "MIT",
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",
+    "jsonp": "^0.2.1",
     "react": "^15.4.0",
     "react-autocomplete": "^1.5.9",
-    "react-dom": "^15.4.0",
-    "whatwg-fetch": "^2.0.3"
+    "react-dom": "^15.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

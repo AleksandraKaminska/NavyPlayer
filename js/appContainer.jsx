@@ -23,10 +23,6 @@ class AppContainer extends React.Component {
      };
   }
 
-  callback = data => {
-      console.log(data);
-  };
-
   searchArtist = () => {
     $.ajax({
         dataType: "json",
@@ -56,8 +52,6 @@ class AppContainer extends React.Component {
     $.ajax({
         dataType: "jsonp",
         url :`https://api.deezer.com/playlist/${this.state.chosenPlaylist}?output=jsonp`,
-        data : {},
-        jsonp : 'callback',
         success : response => {
           const playlistTracks = response.tracks.data;
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
@@ -96,17 +90,15 @@ class AppContainer extends React.Component {
     });
   }
 
-  handleChange = (event, value) => {
+  handleChange = (event) => {
     this.setState({
       autoCompleteValue: event.target.value
     });
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}?output=jsonp`,
-        data : {},
-        jsonp : 'callback',
+        url : 'https://api.deezer.com/search/track?q=' + this.state.autoCompleteValue,
         success : response => {
-          console.log(response.data);
+          console.log(response);
           this.setState({
             searchTracks: response.data
           });
