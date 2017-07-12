@@ -8,6 +8,8 @@ import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
 
+import fetchJsonp from 'fetch-jsonp';
+
 class AppContainer extends React.Component {
   constructor(props) {
      super(props);
@@ -21,10 +23,6 @@ class AppContainer extends React.Component {
        chosenPlaylist: 1677006641
      };
   }
-
-  callback = data => {
-      console.log(data);
-  };
 
   searchArtist = () => {
     $.ajax({
@@ -51,6 +49,29 @@ class AppContainer extends React.Component {
     });
   }
 
+  check = () => {
+    fetchJsonp(`https://api.deezer.com/search/track?q=damn`, {
+    jsonpCallback: 'callback',
+    data: {}
+  })
+    .then(function(response) {
+    return response.json()
+  }).then(function(json) {
+    console.log('parsed json', json + '?output=jsonp')
+  }).catch(function(ex) {
+    console.log('parsing failed', ex)
+  })
+  $.ajax({
+      dataType: "jsonp",
+      data: {},
+      jsonp: (data)=>data+'?output=jsonp',
+      url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`,
+      success : data => {
+        console.log(data);
+      }
+  });
+  }
+
   randomTrack = () => {
     $.ajax({
         dataType: "jsonp",
@@ -65,6 +86,7 @@ class AppContainer extends React.Component {
           }, () => {
             this.searchArtist();
             this.searchConcerts();
+            this.check();
             DZ.player.playTracks([this.state.track.id]);
           });
         }
@@ -94,19 +116,22 @@ class AppContainer extends React.Component {
       DZ.player.playTracks([this.state.track.id]);
     });
   }
+  callback(data) {
+    return console.log(data);
+};
 
-  handleChange = (event, value) => {
+  handleChange = (event) => {
     this.setState({
       autoCompleteValue: event.target.value
     });
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}?output=jsonp`,
-        data : {},
-        jsonp : 'callback',
-        success : response => {
+        data: {},
+        jsonp: 'callback',
+        url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`,
+        success : data => {
           this.setState({
-            searchTracks: response.data
+            searchTracks: data.data
           });
         }
     });
