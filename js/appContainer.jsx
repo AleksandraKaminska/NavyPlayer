@@ -8,8 +8,6 @@ import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
 
-import fetchJsonp from 'fetch-jsonp';
-
 class AppContainer extends React.Component {
   constructor(props) {
      super(props);
@@ -22,6 +20,7 @@ class AppContainer extends React.Component {
        playlists: [950408095, 1242572531, 975986691, 1266972311, 65490032, 1677006641],
        chosenPlaylist: 1677006641
      };
+     this.pom = [];
   }
 
   searchArtist = () => {
@@ -49,28 +48,9 @@ class AppContainer extends React.Component {
     });
   }
 
-  check = () => {
-    fetchJsonp(`https://api.deezer.com/search/track?q=damn`, {
-    jsonpCallback: 'callback',
-    data: {}
-  })
-    .then(function(response) {
-    return response.json()
-  }).then(function(json) {
-    console.log('parsed json', json + '?output=jsonp')
-  }).catch(function(ex) {
-    console.log('parsing failed', ex)
-  })
-  $.ajax({
-      dataType: "jsonp",
-      data: {},
-      jsonp: (data)=>data+'?output=jsonp',
-      url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`,
-      success : data => {
-        console.log(data);
-      }
-  });
-  }
+  callback(data) {
+    return console.log(data);
+  };
 
   randomTrack = () => {
     $.ajax({
@@ -86,7 +66,6 @@ class AppContainer extends React.Component {
           }, () => {
             this.searchArtist();
             this.searchConcerts();
-            this.check();
             DZ.player.playTracks([this.state.track.id]);
           });
         }
@@ -116,24 +95,17 @@ class AppContainer extends React.Component {
       DZ.player.playTracks([this.state.track.id]);
     });
   }
-  callback(data) {
-    return console.log(data);
-};
 
   handleChange = (event) => {
     this.setState({
       autoCompleteValue: event.target.value
-    });
-    $.ajax({
-        dataType: "jsonp",
-        data: {},
-        jsonp: 'callback',
-        url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}`,
-        success : data => {
-          this.setState({
-            searchTracks: data.data
-          });
-        }
+    }, () => {
+      DZ.api(`/search/track?q=${this.state.autoCompleteValue}`, response => {
+          this.pom = response.data;
+      });
+      this.setState({
+        searchTracks: this.pom
+      });
     });
   }
 
