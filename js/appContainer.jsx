@@ -1,5 +1,4 @@
 import React from 'react';
-import Autosuggest from 'react-autosuggest';
 
 import Title from './components/title.jsx';
 import ChoosePlaylists from './components/choosePlaylists.jsx';
@@ -22,6 +21,10 @@ class AppContainer extends React.Component {
        chosenPlaylist: 1677006641
      };
   }
+
+  callback = data => {
+      console.log(data);
+  };
 
   searchArtist = () => {
     $.ajax({
@@ -52,6 +55,8 @@ class AppContainer extends React.Component {
     $.ajax({
         dataType: "jsonp",
         url :`https://api.deezer.com/playlist/${this.state.chosenPlaylist}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
         success : response => {
           const playlistTracks = response.tracks.data;
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
@@ -90,15 +95,16 @@ class AppContainer extends React.Component {
     });
   }
 
-  handleChange = (event) => {
+  handleChange = (event, value) => {
     this.setState({
       autoCompleteValue: event.target.value
     });
     $.ajax({
         dataType: "jsonp",
-        url : 'https://api.deezer.com/search/track?q=' + this.state.autoCompleteValue,
+        url :`https://api.deezer.com/search/track?q=${this.state.autoCompleteValue}?output=jsonp`,
+        data : {},
+        jsonp : 'callback',
         success : response => {
-          console.log(response);
           this.setState({
             searchTracks: response.data
           });

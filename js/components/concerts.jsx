@@ -5,7 +5,7 @@ class Concerts extends React.Component {
     if(this.props.concerts.length) {
       let li = this.props.concerts.map((elem, i) =>
         <a href={elem.offers[0].url} target="_blank" key={i}>
-          <li>{elem.venue.country} {elem.datetime.slice(0, 10)} {elem.offers[0].status}</li>
+          <li>{elem.venue.country} {elem.datetime.slice(0, 10)}</li>
         </a>)
       return <div className='show'>
         <h2>Concerts</h2>

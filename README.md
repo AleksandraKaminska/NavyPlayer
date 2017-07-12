@@ -7,7 +7,6 @@ Music app powered by Deezer and Bandsintown REST APIs- my final project after pr
  - Sass
  - React
  - AJAX (JSONP)
- - React-autocomplete
 
 ## To install:
 
