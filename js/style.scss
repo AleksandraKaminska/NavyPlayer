@@ -94,75 +94,80 @@ body {
   }
 }
 
-.playlists {
-  max-height: 60vh;
-  overflow-y: auto;
-  width: 11vw;
-  div {
-    cursor: pointer;
-    margin: 0 1vw 2vh 2vw;
-  }
-}
-
-.cover {
-  margin: 3vh 0 0 auto;
-  height: 400px;
-  width: 400px;
-  background-size: cover;
-}
-
-.artistInfo {
-  margin-top: 5vh;
-  margin-left: 5vw;
-  width: 30%;
+.mainMiddle {
+  width: 100vw;
   display: flex;
-  flex-wrap: wrap;
-  img {
-    float: left;
-    width: 64px;
-    height: 64px;
-    margin-right: 1em;
-    margin-top: 0.5em;
-  }
-  .info div {
-    float: left;
-    max-width: calc(100% - 100px);
-    & > p {
-      font-size: 1.5em;
-      margin-bottom: 0.1em;
-      font-family: 'Playfair Display', serif;
-    }
-    a {
-      color: #FFF5EE;
-      text-decoration: none;
-      font-size: 1em;
-      font-family: 'Playfair Display', serif;
-      i {
-        margin-right: 10px;
-        float: left;
-      }
-      span {
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        -ms-word-break: break-all;
-        word-break: break-all;
-        word-break: break-word;
-      }
-    }
-  }
-  div.show {
-    margin-top: 1em;
-    clear: both;
-    width: 100%;
-    font-size: 1.2em;
-    font-family: 'Reem Kufi', sans-serif;
-    ul {
-      list-style: none;
-      max-height: 35vh;
+  justify-content: flex-start;
+  margin: 3vh 0 0 0;
+  .playlists {
+    width: calc((100% - 400px) / 2);
+    padding: 0 0 0 2%;
+    div {
+      max-height: 60vh;
       overflow-y: auto;
+      div {
+        cursor: pointer;
+        margin-bottom: 2vh;
+      }
+    }
+  }
+  .cover {
+    height: 400px;
+    width: 400px;
+    background-size: cover;
+  }
+  .artistInfo {
+    padding: 0 3vw;
+    width: calc((100% - 400px) / 2);
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      float: left;
+      width: 64px;
+      height: 64px;
+      margin-right: 1em;
+      margin-top: 0.5em;
+    }
+    .info div {
+      float: left;
+      max-width: calc(100% - 100px);
+      & > p {
+        font-size: 1.5em;
+        margin-bottom: 0.1em;
+        font-family: 'Playfair Display', serif;
+      }
       a {
         color: #FFF5EE;
         text-decoration: none;
+        font-size: 1em;
+        font-family: 'Playfair Display', serif;
+        i {
+          margin-right: 10px;
+          float: left;
+        }
+        span {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-all;
+          word-break: break-all;
+          word-break: break-word;
+        }
+      }
+    }
+    div.show {
+      margin-top: 1em;
+      clear: both;
+      width: 100%;
+      font-size: 1.2em;
+      font-family: 'Reem Kufi', sans-serif;
+      ul {
+        list-style: none;
+        max-height: 35vh;
+        overflow-y: auto;
+        a {
+          color: #FFF5EE;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -177,6 +182,7 @@ body {
     margin-top: 2vh;
     button {
       color: #FFF5EE;
+      cursor: pointer;
       background: transparent;
       width: 2em;
       height: 2em;
@@ -193,6 +199,7 @@ body {
     font-size: 1.1em;
     color: #FFF5EE;
     font-family: 'Reem Kufi', sans-serif;
+    cursor: pointer;
     progress[value] {
       height: 5px;
       width: 100%;
@@ -214,6 +221,7 @@ body {
       position: absolute;
       right: 5vw;
       bottom: 2.5vh;
+      cursor: default;
     }
   }
 }
@@ -221,6 +229,7 @@ body {
 .footer {
   padding: 0 0.5em;
   position: absolute;
+  cursor: default;
   bottom: 0;
   z-index: 2;
   img {

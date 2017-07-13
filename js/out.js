@@ -10306,18 +10306,6 @@ var _title = __webpack_require__(97);
 
 var _title2 = _interopRequireDefault(_title);
 
-var _choosePlaylists = __webpack_require__(88);
-
-var _choosePlaylists2 = _interopRequireDefault(_choosePlaylists);
-
-var _cover = __webpack_require__(90);
-
-var _cover2 = _interopRequireDefault(_cover);
-
-var _artistInfo = __webpack_require__(87);
-
-var _artistInfo2 = _interopRequireDefault(_artistInfo);
-
 var _playerAndProgress = __webpack_require__(93);
 
 var _playerAndProgress2 = _interopRequireDefault(_playerAndProgress);
@@ -10329,6 +10317,10 @@ var _search2 = _interopRequireDefault(_search);
 var _footer = __webpack_require__(91);
 
 var _footer2 = _interopRequireDefault(_footer);
+
+var _mainMiddle = __webpack_require__(208);
+
+var _mainMiddle2 = _interopRequireDefault(_mainMiddle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10408,12 +10400,15 @@ var AppContainer = function (_React$Component) {
         _this.searchConcerts();
         DZ.player.pause();
         DZ.player.playTracks([_this.state.track.id]);
+        _this.setState({
+          autoCompleteValue: ''
+        });
       });
     };
 
     _this.handleChange = function (event) {
       _this.setState({
-        autoCompleteValue: event.target.value
+        autoCompleteValue: event.target.value === '' ? 'a' : event.target.value
       }, function () {
         DZ.api('/search/track?q=' + _this.state.autoCompleteValue, function (response) {
           _this.pom = response.data;
@@ -10459,12 +10454,13 @@ var AppContainer = function (_React$Component) {
           handleSelect: this.handleSelect,
           handleChange: this.handleChange }),
         _react2.default.createElement(_title2.default, { title: this.state.track.title_short, artist: this.state.track.artist.name }),
-        _react2.default.createElement(_choosePlaylists2.default, {
+        _react2.default.createElement(_mainMiddle2.default, {
           playlists: this.state.playlists,
           findPlaylist: this.findPlaylist,
-          randomTrack: this.randomTrack }),
-        _react2.default.createElement(_cover2.default, { track: this.state.track }),
-        _react2.default.createElement(_artistInfo2.default, { artistInfo: this.state.artistInfo, concerts: this.state.concerts }),
+          randomTrack: this.randomTrack,
+          track: this.state.track,
+          artistInfo: this.state.artistInfo,
+          concerts: this.state.concerts }),
         _react2.default.createElement(_playerAndProgress2.default, {
           randomTrack: this.randomTrack,
           track: this.state.track }),
@@ -10687,13 +10683,17 @@ var ChoosePlaylists = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'playlists' },
-        this.props.playlists.map(function (elem, i) {
-          return _react2.default.createElement(_playlist2.default, {
-            playlists: _this2.props.playlists,
-            findPlaylist: _this2.props.findPlaylist,
-            randomTrack: _this2.props.randomTrack,
-            number: i, key: i });
-        })
+        _react2.default.createElement(
+          'div',
+          null,
+          this.props.playlists.map(function (elem, i) {
+            return _react2.default.createElement(_playlist2.default, {
+              playlists: _this2.props.playlists,
+              findPlaylist: _this2.props.findPlaylist,
+              randomTrack: _this2.props.randomTrack,
+              number: i, key: i });
+          })
+        )
       );
     }
   }]);
@@ -10740,8 +10740,14 @@ var Concerts = function (_React$Component) {
   _createClass(Concerts, [{
     key: 'render',
     value: function render() {
+      var concerts = '';
       var li = this.props.concerts.map(function (elem, i) {
         if (typeof elem.offers[0] != 'undefined') {
+          concerts = _react2.default.createElement(
+            'h2',
+            null,
+            'Concerts'
+          );
           return _react2.default.createElement(
             'a',
             { href: elem.offers[0].url, target: '_blank', key: i },
@@ -10758,11 +10764,7 @@ var Concerts = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'show' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Concerts'
-        ),
+        concerts,
         _react2.default.createElement(
           'div',
           { className: 'concerts' },
@@ -12264,7 +12266,7 @@ exports = module.exports = __webpack_require__(100)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: #FFF5EE;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative;\n  /* Track */\n  /* Corner */\n  /* Handle */ }\n  body ::-webkit-scrollbar {\n    width: 7px;\n    height: 7px; }\n  body ::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n    background: rgba(129, 106, 242, 0.5);\n    -webkit-border-radius: 10px;\n    border-radius: 10px; }\n  body ::-webkit-scrollbar-corner {\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n    background: rgba(129, 106, 242, 0.5); }\n  body ::-webkit-scrollbar-thumb {\n    -webkit-border-radius: 10px;\n    border-radius: 10px;\n    background: rgba(187, 219, 4, 0.7);\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: left;\n  max-width: 30vw; }\n  .search div:first-child {\n    margin-top: 1em;\n    width: 30vw; }\n    .search div:first-child input {\n      height: 100%;\n      width: 30vw;\n      color: #FFF5EE;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 0.5em 2em;\n      border-radius: 1em; }\n      .search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 10vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.playlists {\n  max-height: 60vh;\n  overflow-y: auto;\n  width: 11vw; }\n  .playlists div {\n    cursor: pointer;\n    margin: 0 1vw 2vh 2vw; }\n\n.cover {\n  margin: 3vh 0 0 auto;\n  height: 400px;\n  width: 400px;\n  background-size: cover; }\n\n.artistInfo {\n  margin-top: 5vh;\n  margin-left: 5vw;\n  width: 30%;\n  display: flex;\n  flex-wrap: wrap; }\n  .artistInfo img {\n    float: left;\n    width: 64px;\n    height: 64px;\n    margin-right: 1em;\n    margin-top: 0.5em; }\n  .artistInfo .info div {\n    float: left;\n    max-width: calc(100% - 100px); }\n    .artistInfo .info div > p {\n      font-size: 1.5em;\n      margin-bottom: 0.1em;\n      font-family: 'Playfair Display', serif; }\n    .artistInfo .info div a {\n      color: #FFF5EE;\n      text-decoration: none;\n      font-size: 1em;\n      font-family: 'Playfair Display', serif; }\n      .artistInfo .info div a i {\n        margin-right: 10px;\n        float: left; }\n      .artistInfo .info div a span {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        -ms-word-break: break-all;\n        word-break: break-all;\n        word-break: break-word; }\n  .artistInfo div.show {\n    margin-top: 1em;\n    clear: both;\n    width: 100%;\n    font-size: 1.2em;\n    font-family: 'Reem Kufi', sans-serif; }\n    .artistInfo div.show ul {\n      list-style: none;\n      max-height: 35vh;\n      overflow-y: auto; }\n      .artistInfo div.show ul a {\n        color: #FFF5EE;\n        text-decoration: none; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #FFF5EE;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #816af2; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #FFF5EE;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #816af2;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #bbdb04;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 5vw;\n      bottom: 2.5vh; }\n\n.footer {\n  padding: 0 0.5em;\n  position: absolute;\n  bottom: 0;\n  z-index: 2; }\n  .footer img {\n    height: 1em;\n    width: auto; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  font-family: 'Lato', sans-serif;\n  font-weight: 100;\n  color: #FFF5EE;\n  max-width: 100%;\n  min-height: 100vh;\n  background: #000a11;\n  position: relative;\n  /* Track */\n  /* Corner */\n  /* Handle */ }\n  body ::-webkit-scrollbar {\n    width: 7px;\n    height: 7px; }\n  body ::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n    background: rgba(129, 106, 242, 0.5);\n    -webkit-border-radius: 10px;\n    border-radius: 10px; }\n  body ::-webkit-scrollbar-corner {\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n    background: rgba(129, 106, 242, 0.5); }\n  body ::-webkit-scrollbar-thumb {\n    -webkit-border-radius: 10px;\n    border-radius: 10px;\n    background: rgba(187, 219, 4, 0.7);\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.search, .title, .footer {\n  width: 100%; }\n\n.search {\n  text-align: left;\n  max-width: 30vw; }\n  .search div:first-child {\n    margin-top: 1em;\n    width: 30vw; }\n    .search div:first-child input {\n      height: 100%;\n      width: 30vw;\n      color: #FFF5EE;\n      border: 0;\n      outline: none;\n      background: #7e827a;\n      padding: 0.5em 2em;\n      border-radius: 1em; }\n      .search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n\n.title {\n  display: flex;\n  justify-content: center;\n  margin: 10vh 0 2vh 1em; }\n  .title h3 {\n    font-size: 1.5em; }\n\n.mainMiddle {\n  width: 100vw;\n  display: flex;\n  justify-content: flex-start;\n  margin: 3vh 0 0 0; }\n  .mainMiddle .playlists {\n    width: calc((100% - 400px) / 2);\n    padding: 0 0 0 2%; }\n    .mainMiddle .playlists div {\n      max-height: 60vh;\n      overflow-y: auto; }\n      .mainMiddle .playlists div div {\n        cursor: pointer;\n        margin-bottom: 2vh; }\n  .mainMiddle .cover {\n    height: 400px;\n    width: 400px;\n    background-size: cover; }\n  .mainMiddle .artistInfo {\n    padding: 0 3vw;\n    width: calc((100% - 400px) / 2);\n    display: flex;\n    flex-wrap: wrap; }\n    .mainMiddle .artistInfo img {\n      float: left;\n      width: 64px;\n      height: 64px;\n      margin-right: 1em;\n      margin-top: 0.5em; }\n    .mainMiddle .artistInfo .info div {\n      float: left;\n      max-width: calc(100% - 100px); }\n      .mainMiddle .artistInfo .info div > p {\n        font-size: 1.5em;\n        margin-bottom: 0.1em;\n        font-family: 'Playfair Display', serif; }\n      .mainMiddle .artistInfo .info div a {\n        color: #FFF5EE;\n        text-decoration: none;\n        font-size: 1em;\n        font-family: 'Playfair Display', serif; }\n        .mainMiddle .artistInfo .info div a i {\n          margin-right: 10px;\n          float: left; }\n        .mainMiddle .artistInfo .info div a span {\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word; }\n    .mainMiddle .artistInfo div.show {\n      margin-top: 1em;\n      clear: both;\n      width: 100%;\n      font-size: 1.2em;\n      font-family: 'Reem Kufi', sans-serif; }\n      .mainMiddle .artistInfo div.show ul {\n        list-style: none;\n        max-height: 35vh;\n        overflow-y: auto; }\n        .mainMiddle .artistInfo div.show ul a {\n          color: #FFF5EE;\n          text-decoration: none; }\n\n.playerAndProgress {\n  width: 100%;\n  position: relative;\n  justify-content: center;\n  display: flex; }\n  .playerAndProgress .playerMain {\n    margin-top: 2vh; }\n    .playerAndProgress .playerMain button {\n      color: #FFF5EE;\n      cursor: pointer;\n      background: transparent;\n      width: 2em;\n      height: 2em;\n      font-size: 2em;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:hover {\n        color: #816af2; }\n  .playerAndProgress .progress {\n    font-size: 1.1em;\n    color: #FFF5EE;\n    font-family: 'Reem Kufi', sans-serif;\n    cursor: pointer; }\n    .playerAndProgress .progress progress[value] {\n      height: 5px;\n      width: 100%;\n      background: black;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #816af2;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #bbdb04;\n        border-radius: 5px; }\n    .playerAndProgress .progress .time {\n      position: absolute;\n      right: 5vw;\n      bottom: 2.5vh;\n      cursor: default; }\n\n.footer {\n  padding: 0 0.5em;\n  position: absolute;\n  cursor: default;\n  bottom: 0;\n  z-index: 2; }\n  .footer img {\n    height: 1em;\n    width: auto; }\n", ""]);
 
 // exports
 
@@ -25301,6 +25303,73 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _choosePlaylists = __webpack_require__(88);
+
+var _choosePlaylists2 = _interopRequireDefault(_choosePlaylists);
+
+var _cover = __webpack_require__(90);
+
+var _cover2 = _interopRequireDefault(_cover);
+
+var _artistInfo = __webpack_require__(87);
+
+var _artistInfo2 = _interopRequireDefault(_artistInfo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MainMiddle = function (_React$Component) {
+  _inherits(MainMiddle, _React$Component);
+
+  function MainMiddle() {
+    _classCallCheck(this, MainMiddle);
+
+    return _possibleConstructorReturn(this, (MainMiddle.__proto__ || Object.getPrototypeOf(MainMiddle)).apply(this, arguments));
+  }
+
+  _createClass(MainMiddle, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'mainMiddle' },
+        _react2.default.createElement(_choosePlaylists2.default, {
+          playlists: this.props.playlists,
+          findPlaylist: this.props.findPlaylist,
+          randomTrack: this.props.randomTrack }),
+        _react2.default.createElement(_cover2.default, { track: this.props.track }),
+        _react2.default.createElement(_artistInfo2.default, { artistInfo: this.props.artistInfo, concerts: this.props.concerts })
+      );
+    }
+  }]);
+
+  return MainMiddle;
+}(_react2.default.Component);
+
+exports.default = MainMiddle;
 
 /***/ })
 /******/ ]);

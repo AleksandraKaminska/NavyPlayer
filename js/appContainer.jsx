@@ -1,12 +1,10 @@
 import React from 'react';
 
 import Title from './components/title.jsx';
-import ChoosePlaylists from './components/choosePlaylists.jsx';
-import Cover from './components/cover.jsx';
-import ArtistInfo from './components/artistInfo.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
 import Footer from './components/footer.jsx';
+import MainMiddle from './components/mainMiddle.jsx';
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -93,12 +91,15 @@ class AppContainer extends React.Component {
       this.searchConcerts();
       DZ.player.pause();
       DZ.player.playTracks([this.state.track.id]);
+      this.setState({
+        autoCompleteValue: ''
+      });
     });
   }
 
   handleChange = (event) => {
     this.setState({
-      autoCompleteValue: event.target.value
+      autoCompleteValue: event.target.value === '' ? 'a' : event.target.value
     }, () => {
       DZ.api(`/search/track?q=${this.state.autoCompleteValue}`, response => {
           this.pom = response.data;
@@ -117,12 +118,13 @@ class AppContainer extends React.Component {
           handleSelect={this.handleSelect}
           handleChange={this.handleChange} />
         <Title title={this.state.track.title_short} artist={this.state.track.artist.name} />
-        <ChoosePlaylists
+        <MainMiddle
           playlists={this.state.playlists}
           findPlaylist={this.findPlaylist}
-          randomTrack={this.randomTrack} />
-        <Cover track={this.state.track} />
-        <ArtistInfo artistInfo={this.state.artistInfo} concerts={this.state.concerts} />
+          randomTrack={this.randomTrack}
+          track={this.state.track}
+          artistInfo={this.state.artistInfo}
+          concerts={this.state.concerts} />
         <PlayerAndProgress
           randomTrack={this.randomTrack}
           track={this.state.track} />
