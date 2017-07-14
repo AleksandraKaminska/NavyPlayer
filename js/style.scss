@@ -106,6 +106,8 @@ body {
     padding: 0 3vw;
     .info {
       display: none;
+      height: 10vh;
+      margin-top: 1vh;
       img {
         float: left;
         width: 64px;
@@ -141,11 +143,13 @@ body {
       }
     }
     .concerts {
+      margin-top: 5vh;
+      height: 54vh;
+      overflow-y: scroll;
       width: 100%;
       display: none;
-      margin-top: 1em;
       clear: both;
-      font-size: 1.2em;
+      font-size: 1em;
       font-family: 'Reem Kufi', sans-serif;
       ul {
         max-height: 60vh;
@@ -176,8 +180,8 @@ body {
     }
     .smallTitle {
       font-size: 0.8em;
-      margin-top: 5vh;
-      width: 50vw;
+      margin-top: 4vh;
+      width: 52vw;
       font-weight: bold;
       display: inline-block;
     }
@@ -224,7 +228,7 @@ body {
     .time {
       position: absolute;
       right: 5vw;
-      top: 3.5vh;
+      top: 6.5vh;
     }
   }
 }
@@ -295,6 +299,7 @@ body {
   }
 
   .search {
+    height: auto;
     display: block;
     max-width: 30vw;
     div:first-child {
@@ -311,7 +316,8 @@ body {
   }
 
   .title {
-    margin: 10vh 0 2vh 1em;
+    height: auto;
+    margin: 8vh 0 2vh 1em;
     h3 {
       font-size: 1.5em;
     }
@@ -343,6 +349,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       .info {
+        height: auto;
         display: block;
         img {
           float: left;
@@ -379,6 +386,8 @@ body {
         }
       }
       .concerts {
+        height: auto;
+        overflow: hidden;
         margin-top: 1em;
         display: block;
         clear: both;
@@ -394,6 +403,7 @@ body {
   }
 
   .playerAndProgress {
+    height: auto;
     width: 100%;
     position: relative;
     justify-content: center;
@@ -401,11 +411,15 @@ body {
     .small {
       display: none;
     }
-    .playerMain button {
-      cursor: pointer;
-      width: 2em;
-      height: 2em;
-      font-size: 2em;
+    .playerMain {
+      margin-top: 1vh;
+      min-width: 1vw;
+      button {
+        cursor: pointer;
+        width: 2em;
+        height: 2em;
+        font-size: 2em;
+      }
     }
 
     .progress {
@@ -431,8 +445,8 @@ body {
         }
       }
       .time {
-        bottom: 2.5vh;
         cursor: default;
+        top: 4vh;
       }
     }
   }
@@ -442,6 +456,7 @@ body {
   }
 
   .footer {
+    height: auto;
     padding: 0 0.5em;
     cursor: default;
     font-size: 1em;
