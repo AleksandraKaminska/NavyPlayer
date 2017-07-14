@@ -1,4 +1,11 @@
 import React from 'react';
+import	{	Router,
+		Route,
+		Link,
+		IndexLink,
+		IndexRoute,
+		hashHistory
+}	from	'react-router';
 
 import ChoosePlaylists from './choosePlaylists.jsx';
 import Cover from './cover.jsx';

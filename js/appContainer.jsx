@@ -1,8 +1,16 @@
 import React from 'react';
+import	{	Router,
+		Route,
+		Link,
+		IndexLink,
+		IndexRoute,
+		hashHistory
+}	from	'react-router';
 
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
+import Choose from './components/choose.jsx';
 import Footer from './components/footer.jsx';
 import MainMiddle from './components/mainMiddle.jsx';
 
@@ -128,6 +136,7 @@ class AppContainer extends React.Component {
         <PlayerAndProgress
           randomTrack={this.randomTrack}
           track={this.state.track} />
+        <Choose />
         <Footer />
       </div>
   }

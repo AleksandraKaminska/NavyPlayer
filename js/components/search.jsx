@@ -1,4 +1,11 @@
 import React from 'react';
+import	{	Router,
+		Route,
+		Link,
+		IndexLink,
+		IndexRoute,
+		hashHistory
+}	from	'react-router';
 import Autocomplete from 'react-autocomplete';
 
 class Search extends React.Component {
@@ -10,7 +17,7 @@ class Search extends React.Component {
         color: 'white',
         fontFamily: 'Raleway',
         fontSize: '1.2em',
-        width: '30vw'
+        width: '100%'
       },
       highlightedItem: {
         color: 'white',
@@ -19,7 +26,7 @@ class Search extends React.Component {
         cursor: 'pointer',
         fontFamily: 'Raleway',
         fontSize: '1.2em',
-        width: '30vw'
+        width: '100%'
       }
     };
     return <div

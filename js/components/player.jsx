@@ -1,4 +1,11 @@
 import React from 'react';
+import	{	Router,
+		Route,
+		Link,
+		IndexLink,
+		IndexRoute,
+		hashHistory
+}	from	'react-router';
 
 class Player extends React.Component {
   constructor(props) {

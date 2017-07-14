@@ -21,13 +21,14 @@ body {
 .NavyPlayer {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end;
   justify-content: center;
   height: 100%;
   width: 100%;
   background: $navy-color;
 }
 
-.search, .title, .footer {
+.search, .title, .footer, .choose {
   width: 100%;
 }
 
@@ -209,8 +210,33 @@ body {
   }
 }
 
+.choose {
+  background: black;
+  margin-top: 5vh;
+  padding: 2vh 2vw;
+  display: flex;
+  justify-content: space-around;
+  div {
+    display: inline-block;
+    button {
+      cursor: pointer;
+      width: 2em;
+      height: 2em;
+      font-size: 2em;
+      background: black;
+      color: white;
+      border: 0;
+      outline: none;
+      p {
+        font-size: 0.4em;
+      }
+    }
+  }
+}
+
 .footer {
   display: flex;
+  background: black;
   justify-content: flex-start;
   position: absolute;
   bottom: 0;
@@ -385,10 +411,15 @@ body {
     }
   }
 
+  .choose {
+    display: none;
+  }
+
   .footer {
     padding: 0 0.5em;
     cursor: default;
     font-size: 1em;
+    background: $navy-color;
     img {
       height: 1em;
     }
