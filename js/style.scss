@@ -1,3 +1,6 @@
+$navy-color: #000a11;
+$white-color: #FFF5EE;
+
 * {
   margin: 0;
   padding: 0;
@@ -5,45 +8,23 @@
 }
 
 body {
+  position: relative;
+  max-width: 100%;
+  max-height: 100vh;
+  height: 100vh;
   font-family: 'Lato', sans-serif;
   font-weight: 100;
-  color: #FFF5EE;
-  max-width: 100%;
-  min-height: 100vh;
-  background: #000a11;
-  position: relative;
-  ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-  }
-  /* Track */
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background: rgba(129, 106, 242, 0.5);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-  }
-  /* Corner */
-  ::-webkit-scrollbar-corner {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background: rgba(129, 106, 242, 0.5);
-  }
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      background: rgba(187, 219, 4, 0.7);
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  }
+  color: $white-color;
+  background: $navy-color;
 }
 
 .NavyPlayer {
-  height: 100%;
-  width: 100%;
-  background: #000a11;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $navy-color;
 }
 
 .search, .title, .footer {
@@ -51,20 +32,18 @@ body {
 }
 
 .search {
-  text-align: left;
-  max-width: 30vw;
+  display: none;
   div:first-child {
-    margin-top: 1em;
-    width: 30vw;
+    width: 100vw;
+    margin-top: 0;
     input {
       height: 100%;
-      width: 30vw;
-      color: #FFF5EE;
+      width: 100vw;
+      padding: 0.5em 2em;
       border: 0;
       outline: none;
+      color: $white-color;
       background: #7e827a;
-      padding: 0.5em 2em;
-      border-radius: 1em;
       &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         font-size: 1.2em;
         color: lightgray;
@@ -88,84 +67,90 @@ body {
 .title {
   display: flex;
   justify-content: center;
-  margin: 10vh 0 2vh 1em;
+  margin: 2vh 0;
   h3 {
-    font-size: 1.5em;
+    font-size: 1.05em;
   }
 }
 
 .mainMiddle {
-  width: 100vw;
   display: flex;
   justify-content: flex-start;
-  margin: 3vh 0 0 0;
+  flex-wrap: wrap;
+  width: 100vw;
   .playlists {
-    width: calc((100% - 400px) / 2);
+    width: 100%;
+    display: none;
     padding: 0 0 0 2%;
     div {
       max-height: 60vh;
       overflow-y: auto;
       div {
-        cursor: pointer;
         margin-bottom: 2vh;
+        cursor: pointer;
       }
     }
   }
   .cover {
-    height: 400px;
-    width: 400px;
+    height: 70vh;
+    width: 100%;
+    margin: 0 auto;
     background-size: cover;
   }
   .artistInfo {
-    padding: 0 3vw;
-    width: calc((100% - 400px) / 2);
     display: flex;
     flex-wrap: wrap;
-    img {
-      float: left;
-      width: 64px;
-      height: 64px;
-      margin-right: 1em;
-      margin-top: 0.5em;
-    }
-    .info div {
-      float: left;
-      max-width: calc(100% - 100px);
-      & > p {
-        font-size: 1.5em;
-        margin-bottom: 0.1em;
-        font-family: 'Playfair Display', serif;
+    width: 100%;
+    padding: 0 3vw;
+    .info {
+      display: none;
+      img {
+        float: left;
+        width: 64px;
+        height: 64px;
+        margin-right: 1em;
+        margin-top: 0.5em;
       }
-      a {
-        color: #FFF5EE;
-        text-decoration: none;
-        font-size: 1em;
-        font-family: 'Playfair Display', serif;
-        i {
-          margin-right: 10px;
-          float: left;
+      div {
+        float: left;
+        max-width: calc(100% - 100px);
+        & > p {
+          margin-bottom: 0.1em;
+          font-size: 1.5em;
+          font-family: 'Playfair Display', serif;
         }
-        span {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          -ms-word-break: break-all;
-          word-break: break-all;
-          word-break: break-word;
+        a {
+          color: $white-color;
+          text-decoration: none;
+          font-size: 1em;
+          font-family: 'Playfair Display', serif;
+          i {
+            float: left;
+            margin-right: 10px;
+          }
+          span {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+          }
         }
       }
     }
-    div.show {
+    .concerts {
+      width: 100%;
+      display: none;
       margin-top: 1em;
       clear: both;
-      width: 100%;
       font-size: 1.2em;
       font-family: 'Reem Kufi', sans-serif;
       ul {
+        max-height: 60vh;
         list-style: none;
-        max-height: 35vh;
         overflow-y: auto;
         a {
-          color: #FFF5EE;
+          color: $white-color;
           text-decoration: none;
         }
       }
@@ -174,19 +159,18 @@ body {
 }
 
 .playerAndProgress {
-  width: 100%;
   position: relative;
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  width: 100%;
   .playerMain {
     margin-top: 2vh;
     button {
-      color: #FFF5EE;
-      cursor: pointer;
+      width: 1.6em;
+      height: 1.6em;
+      color: $white-color;
       background: transparent;
-      width: 2em;
-      height: 2em;
-      font-size: 2em;
+      font-size: 1.6em;
       border: none;
       outline: none;
       &:hover {
@@ -196,17 +180,17 @@ body {
   }
 
   .progress {
-    font-size: 1.1em;
-    color: #FFF5EE;
+    font-size: 0.9em;
+    color: $white-color;
     font-family: 'Reem Kufi', sans-serif;
     cursor: pointer;
     progress[value] {
-      height: 5px;
-      width: 100%;
-      background: black;
       position: absolute;
       top: 0;
       left: 0;
+      height: 5px;
+      width: 100%;
+      background: black;
       &::-webkit-progress-bar {
         background: #816af2;
         border-radius: 5px;
@@ -220,20 +204,384 @@ body {
     .time {
       position: absolute;
       right: 5vw;
-      bottom: 2.5vh;
-      cursor: default;
+      top: 4vh;
     }
   }
 }
 
 .footer {
-  padding: 0 0.5em;
   position: absolute;
-  cursor: default;
   bottom: 0;
+  display: flex;
+  justify-content: flex-start;
   z-index: 2;
+  font-size: 0.7em;
   img {
-    height: 1em;
+    height: 0.7em;
     width: auto;
+  }
+}
+
+@media (min-width: 700px) {
+  .search {
+    text-align: left;
+    max-width: 30vw;
+    div:first-child {
+      margin-top: 1em;
+      width: 30vw;
+      input {
+        height: 100%;
+        width: 30vw;
+        color: $white-color;
+        border: 0;
+        outline: none;
+        background: #7e827a;
+        padding: 0.5em 2em;
+        border-radius: 1em;
+        &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+          font-size: 1.2em;
+          color: lightgray;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          font-size: 1.2em;
+          color: lightgray;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          font-size: 1.2em;
+          color: lightgray;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+          font-size: 1.2em;
+          color: lightgray;
+        }
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    margin: 10vh 0 2vh 1em;
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+
+  .mainMiddle {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    margin: 3vh 0 0 0;
+    .playlists {
+      width: calc((100% - 400px) / 2);
+      padding: 0 0 0 2%;
+      div {
+        max-height: 60vh;
+        overflow-y: auto;
+        div {
+          cursor: pointer;
+          margin-bottom: 2vh;
+        }
+      }
+    }
+    .cover {
+      height: 400px;
+      width: 400px;
+      background-size: cover;
+    }
+    .artistInfo {
+      padding: 0 3vw;
+      width: calc((100% - 400px) / 2);
+      display: flex;
+      flex-wrap: wrap;
+      img {
+        float: left;
+        width: 64px;
+        height: 64px;
+        margin-right: 1em;
+        margin-top: 0.5em;
+      }
+      .info div {
+        float: left;
+        max-width: 100%;
+        & > p {
+          font-size: 1.5em;
+          margin-bottom: 0.1em;
+          font-family: 'Playfair Display', serif;
+        }
+        a {
+          color: $white-color;
+          text-decoration: none;
+          font-size: 1em;
+          font-family: 'Playfair Display', serif;
+          i {
+            margin-right: 10px;
+            float: left;
+          }
+          span {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+          }
+        }
+      }
+      div.show {
+        margin-top: 1em;
+        clear: both;
+        width: 100%;
+        font-size: 1.2em;
+        font-family: 'Reem Kufi', sans-serif;
+        ul {
+          list-style: none;
+          max-height: 35vh;
+          overflow-y: auto;
+          a {
+            color: $white-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .playerAndProgress {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    .playerMain {
+      margin-top: 2vh;
+      button {
+        color: $white-color;
+        cursor: pointer;
+        background: transparent;
+        width: 2em;
+        height: 2em;
+        font-size: 2em;
+        border: none;
+        outline: none;
+        &:hover {
+          color: #816af2;
+        }
+      }
+    }
+
+    .progress {
+      font-size: 1.1em;
+      color: $white-color;
+      font-family: 'Reem Kufi', sans-serif;
+      cursor: pointer;
+      progress[value] {
+        height: 5px;
+        width: 100%;
+        background: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &::-webkit-progress-bar {
+          background: #816af2;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        }
+        &::-webkit-progress-value {
+          background-color: #bbdb04;
+          border-radius: 5px;
+        }
+      }
+      .time {
+        position: absolute;
+        right: 5vw;
+        bottom: 2.5vh;
+        cursor: default;
+      }
+    }
+  }
+
+  .footer {
+    padding: 0 0.5em;
+    position: absolute;
+    cursor: default;
+    bottom: 0;
+    z-index: 2;
+    img {
+      height: 1em;
+      width: auto;
+    }
+  }
+}
+
+@media (min-width: 960px), (min-device-width: 700px) and (orientation: landscape) {
+  body {
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background: rgba(129, 106, 242, 0.5);
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+    }
+    /* Corner */
+    ::-webkit-scrollbar-corner {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background: rgba(129, 106, 242, 0.5);
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: rgba(187, 219, 4, 0.7);
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+  }
+
+  .search {
+    display: block;
+    max-width: 30vw;
+    div:first-child {
+      width: 30vw;
+      margin-top: 1em;
+      input {
+        width: 30vw;
+        border-radius: 1em;
+      }
+    }
+  }
+
+  .title {
+    margin: 10vh 0 2vh 1em;
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+
+  .mainMiddle {
+    margin: 3vh 0 0 0;
+    .playlists {
+      width: calc((100% - 400px) / 2);
+      display: block;
+      padding: 0 0 0 2%;
+      div {
+        max-height: 380px;
+        overflow-y: auto;
+        div {
+          cursor: pointer;
+          margin-bottom: 2vh;
+        }
+      }
+    }
+    .cover {
+      height: 400px;
+      width: 400px;
+      margin: 0;
+    }
+    .artistInfo {
+      padding: 0 3vw;
+      width: calc((100% - 400px) / 2);
+      display: flex;
+      flex-wrap: wrap;
+      .info {
+        display: block;
+        img {
+          float: left;
+          width: 64px;
+          height: 64px;
+          margin-right: 1em;
+          margin-top: 0.5em;
+        }
+        div {
+          float: left;
+          max-width: calc(100% - 100px);
+          & > p {
+            font-size: 1.5em;
+            margin-bottom: 0.1em;
+            font-family: 'Playfair Display', serif;
+          }
+          a {
+            color: $white-color;
+            text-decoration: none;
+            font-size: 1em;
+            font-family: 'Playfair Display', serif;
+            i {
+              margin-right: 10px;
+              float: left;
+            }
+            span {
+              overflow-wrap: break-word;
+              word-wrap: break-word;
+              -ms-word-break: break-all;
+              word-break: break-all;
+              word-break: break-word;
+            }
+          }
+        }
+      }
+      .concerts {
+        margin-top: 1em;
+        display: block;
+        clear: both;
+        width: 100%;
+        font-size: 1.2em;
+        font-family: 'Reem Kufi', sans-serif;
+        ul {
+          max-height: 35vh;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
+
+  .playerAndProgress {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    .playerMain button {
+      cursor: pointer;
+      width: 2em;
+      height: 2em;
+      font-size: 2em;
+    }
+
+    .progress {
+      font-size: 1.1em;
+      color: $white-color;
+      font-family: 'Reem Kufi', sans-serif;
+      cursor: pointer;
+      progress[value] {
+        height: 5px;
+        width: 100%;
+        background: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &::-webkit-progress-bar {
+          background: #816af2;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        }
+        &::-webkit-progress-value {
+          background-color: #bbdb04;
+          border-radius: 5px;
+        }
+      }
+      .time {
+        bottom: 2.5vh;
+        cursor: default;
+      }
+    }
+  }
+
+  .footer {
+    padding: 0 0.5em;
+    cursor: default;
+    font-size: 1em;
+    img {
+      height: 1em;
+    }
   }
 }

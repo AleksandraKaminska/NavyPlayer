@@ -11,9 +11,9 @@ class Concerts extends React.Component {
           </a>
         }
       });
-      return <div className='show'>
+      return <div className='concerts'>
         {concerts}
-        <div className="concerts">
+        <div className="list">
           <ul>{li}</ul>
         </div>
       </div>
