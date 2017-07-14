@@ -92,7 +92,7 @@ body {
     }
   }
   .cover {
-    height: 70vh;
+    height: 100vw; // cover must be a square.
     width: 100%;
     margin: 0 auto;
     background-size: cover;
@@ -210,205 +210,14 @@ body {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: flex-start;
-  z-index: 2;
+  position: absolute;
+  bottom: 0;
   font-size: 0.7em;
   img {
     height: 0.7em;
     width: auto;
-  }
-}
-
-@media (min-width: 700px) {
-  .search {
-    text-align: left;
-    max-width: 30vw;
-    div:first-child {
-      margin-top: 1em;
-      width: 30vw;
-      input {
-        height: 100%;
-        width: 30vw;
-        color: $white-color;
-        border: 0;
-        outline: none;
-        background: #7e827a;
-        padding: 0.5em 2em;
-        border-radius: 1em;
-        &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-          font-size: 1.2em;
-          color: lightgray;
-        }
-        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-          font-size: 1.2em;
-          color: lightgray;
-        }
-        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-          font-size: 1.2em;
-          color: lightgray;
-        }
-        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-          font-size: 1.2em;
-          color: lightgray;
-        }
-      }
-    }
-  }
-
-  .title {
-    display: flex;
-    justify-content: center;
-    margin: 10vh 0 2vh 1em;
-    h3 {
-      font-size: 1.5em;
-    }
-  }
-
-  .mainMiddle {
-    width: 100vw;
-    display: flex;
-    justify-content: flex-start;
-    margin: 3vh 0 0 0;
-    .playlists {
-      width: calc((100% - 400px) / 2);
-      padding: 0 0 0 2%;
-      div {
-        max-height: 60vh;
-        overflow-y: auto;
-        div {
-          cursor: pointer;
-          margin-bottom: 2vh;
-        }
-      }
-    }
-    .cover {
-      height: 400px;
-      width: 400px;
-      background-size: cover;
-    }
-    .artistInfo {
-      padding: 0 3vw;
-      width: calc((100% - 400px) / 2);
-      display: flex;
-      flex-wrap: wrap;
-      img {
-        float: left;
-        width: 64px;
-        height: 64px;
-        margin-right: 1em;
-        margin-top: 0.5em;
-      }
-      .info div {
-        float: left;
-        max-width: 100%;
-        & > p {
-          font-size: 1.5em;
-          margin-bottom: 0.1em;
-          font-family: 'Playfair Display', serif;
-        }
-        a {
-          color: $white-color;
-          text-decoration: none;
-          font-size: 1em;
-          font-family: 'Playfair Display', serif;
-          i {
-            margin-right: 10px;
-            float: left;
-          }
-          span {
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            -ms-word-break: break-all;
-            word-break: break-all;
-            word-break: break-word;
-          }
-        }
-      }
-      div.show {
-        margin-top: 1em;
-        clear: both;
-        width: 100%;
-        font-size: 1.2em;
-        font-family: 'Reem Kufi', sans-serif;
-        ul {
-          list-style: none;
-          max-height: 35vh;
-          overflow-y: auto;
-          a {
-            color: $white-color;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-  }
-
-  .playerAndProgress {
-    width: 100%;
-    position: relative;
-    justify-content: center;
-    display: flex;
-    .playerMain {
-      margin-top: 2vh;
-      button {
-        color: $white-color;
-        cursor: pointer;
-        background: transparent;
-        width: 2em;
-        height: 2em;
-        font-size: 2em;
-        border: none;
-        outline: none;
-        &:hover {
-          color: #816af2;
-        }
-      }
-    }
-
-    .progress {
-      font-size: 1.1em;
-      color: $white-color;
-      font-family: 'Reem Kufi', sans-serif;
-      cursor: pointer;
-      progress[value] {
-        height: 5px;
-        width: 100%;
-        background: black;
-        position: absolute;
-        top: 0;
-        left: 0;
-        &::-webkit-progress-bar {
-          background: #816af2;
-          border-radius: 5px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-        }
-        &::-webkit-progress-value {
-          background-color: #bbdb04;
-          border-radius: 5px;
-        }
-      }
-      .time {
-        position: absolute;
-        right: 5vw;
-        bottom: 2.5vh;
-        cursor: default;
-      }
-    }
-  }
-
-  .footer {
-    padding: 0 0.5em;
-    position: absolute;
-    cursor: default;
-    bottom: 0;
-    z-index: 2;
-    img {
-      height: 1em;
-      width: auto;
-    }
   }
 }
 
@@ -528,7 +337,7 @@ body {
         font-size: 1.2em;
         font-family: 'Reem Kufi', sans-serif;
         ul {
-          max-height: 35vh;
+          max-height: 200px;
           overflow-y: auto;
         }
       }
