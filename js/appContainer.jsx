@@ -135,7 +135,9 @@ class AppContainer extends React.Component {
           concerts={this.state.concerts} />
         <PlayerAndProgress
           randomTrack={this.randomTrack}
-          track={this.state.track} />
+          track={this.state.track}
+          title={this.state.track.title_short}
+          artist={this.state.track.artist.name} />
         <Choose />
         <Footer />
       </div>

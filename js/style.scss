@@ -164,6 +164,19 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  .small {
+    display: none;
+    .smallCover {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+    }
+    .smallTitle {
+      font-size: 1em;
+      word-break: break-all;
+      display: inline-block;
+    }
+  }
   .playerMain {
     margin-top: 2vh;
     button {
@@ -285,6 +298,9 @@ body {
         border-radius: 1em;
       }
     }
+    .placeholder {
+      display: none;
+    }
   }
 
   .title {
@@ -375,6 +391,9 @@ body {
     position: relative;
     justify-content: center;
     display: flex;
+    .small {
+      display: none;
+    }
     .playerMain button {
       cursor: pointer;
       width: 2em;

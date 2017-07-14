@@ -33,7 +33,7 @@ class Search extends React.Component {
         style={isHighlighted ? style.highlightedItem : style.item}
         key={item.id}
         id={item.id}>
-        <div style={{maxWidth: '24vw', float: 'left', overflowWrap: 'break-word'}}>{item.title_short} - {item.artist.name}</div>
+        <div style={{maxWidth: 'calc(100% - 75px)', float: 'left', overflowWrap: 'break-word'}}>{item.title_short} - {item.artist.name}</div>
         <img src={item.album.cover} width='64px' height='64px' alt='cover'/>
       </div>
   }
@@ -53,6 +53,7 @@ class Search extends React.Component {
         onSelect={this.props.handleSelect}
         onChange={this.props.handleChange}
         renderItem={this.handlerRenderItem} />
+			<div className='placeholder' style={{height: '70vh', width: '100%'}}></div>
     </div>
   }
 }
