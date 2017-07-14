@@ -1,11 +1,4 @@
 import React from 'react';
-import	{	Router,
-		Route,
-		Link,
-		IndexLink,
-		IndexRoute,
-		hashHistory
-}	from	'react-router';
 
 class Choose extends React.Component {
 	showArtist = () => {
@@ -13,9 +6,9 @@ class Choose extends React.Component {
 		document.querySelector('.playlists').style.display = 'none';
 		document.querySelector('.info').style.display = 'block';
 		document.querySelector('.concerts').style.display = 'block';
+
 		document.querySelector('.cover').style.display = 'none';
-		document.querySelector('.small').style.display = 'block';
-		document.querySelector('.small').style.marginRight = '2vw';
+		document.querySelector('.small').style.display = 'flex';
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
 	}
@@ -24,9 +17,9 @@ class Choose extends React.Component {
 		document.querySelector('.playlists').style.display = 'block';
 		document.querySelector('.info').style.display = 'none';
 		document.querySelector('.concerts').style.display = 'none';
+
 		document.querySelector('.cover').style.display = 'none';
-		document.querySelector('.small').style.display = 'block';
-		document.querySelector('.small').style.marginRight = '2vw';
+		document.querySelector('.small').style.display = 'flex';
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
 	}
@@ -35,9 +28,9 @@ class Choose extends React.Component {
 		document.querySelector('.playlists').style.display = 'none';
 		document.querySelector('.info').style.display = 'none';
 		document.querySelector('.concerts').style.display = 'none';
+
 		document.querySelector('.cover').style.display = 'none';
-		document.querySelector('.small').style.display = 'block';
-		document.querySelector('.small').style.marginRight = '2vw';
+		document.querySelector('.small').style.display = 'flex';
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
 	}

@@ -1,11 +1,4 @@
 import React from 'react';
-import	{	Router,
-		Route,
-		Link,
-		IndexLink,
-		IndexRoute,
-		hashHistory
-}	from	'react-router';
 import Autocomplete from 'react-autocomplete';
 
 class Search extends React.Component {
@@ -13,7 +6,7 @@ class Search extends React.Component {
     const style = {
       item: {
         padding: '2px 6px',
-        background: '#333',
+        background: '#111',
         color: 'white',
         fontFamily: 'Raleway',
         fontSize: '1.2em',
@@ -52,8 +45,13 @@ class Search extends React.Component {
         getItemValue={item => item.title_short}
         onSelect={this.props.handleSelect}
         onChange={this.props.handleChange}
-        renderItem={this.handlerRenderItem} />
-			<div className='placeholder' style={{height: '70vh', width: '100%'}}></div>
+        renderItem={this.handlerRenderItem}/>
+      <div className='placeholder'
+        style={{
+          height: '67vh',
+          width: '100%',
+          background: '#111'
+        }}></div>
     </div>
   }
 }

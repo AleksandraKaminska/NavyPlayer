@@ -1,11 +1,4 @@
 import React from 'react';
-import	{	Router,
-		Route,
-		Link,
-		IndexLink,
-		IndexRoute,
-		hashHistory
-}	from	'react-router';
 
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
