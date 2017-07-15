@@ -269,6 +269,7 @@ body {
       outline: none;
       p {
         font-size: 0.4em;
+        font-family: 'Playfair Display', serif;
       }
     }
   }
@@ -397,6 +398,7 @@ body {
   }
 
   .playerAndProgress {
+    position: relative;
     height: auto;
     width: 100%;
     .playerMain {
@@ -426,6 +428,7 @@ body {
   }
 
   .footer {
+    position: static;
     height: auto;
     padding: 0 0.5em;
     cursor: default;

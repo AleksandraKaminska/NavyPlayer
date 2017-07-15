@@ -11,6 +11,10 @@ class Choose extends React.Component {
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
 		document.querySelector('.playerAndProgress').style.position = 'relative';
+		document.querySelector('.choose').style.position = 'static';
+		document.querySelector('.footer').style.position = 'static';
+		document.querySelector('.choose').style.background = 'rgba(0,0,0,0.5)';
+		document.querySelector('.footer').style.background = 'rgba(0,0,0,0.5)';
 	}
 	showPlaylists = () => {
 		document.querySelector('.search').style.display = 'none';
@@ -22,6 +26,10 @@ class Choose extends React.Component {
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
 		document.querySelector('.playerAndProgress').style.position = 'relative';
+		document.querySelector('.choose').style.position = 'static';
+		document.querySelector('.footer').style.position = 'static';
+		document.querySelector('.choose').style.background = 'rgba(0,0,0,0.5)';
+		document.querySelector('.footer').style.background = 'rgba(0,0,0,0.5)';
 	}
 	showSearch = () => {
 		document.querySelector('.search').style.display = 'block';
@@ -33,6 +41,10 @@ class Choose extends React.Component {
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
 		document.querySelector('.playerAndProgress').style.position = 'relative';
+		document.querySelector('.choose').style.position = 'static';
+		document.querySelector('.footer').style.position = 'static';
+		document.querySelector('.choose').style.background = 'rgba(0,0,0,0.5)';
+		document.querySelector('.footer').style.background = 'rgba(0,0,0,0.5)';
 	}
   render(){
     return <div className="choose">

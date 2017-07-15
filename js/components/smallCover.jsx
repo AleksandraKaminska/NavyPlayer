@@ -10,6 +10,11 @@ class SmallCover extends React.Component {
 		document.querySelector('.cover').style.display = 'block';
 		document.querySelector('.title').style.display = 'block';
 		document.querySelector('.time').style.display = 'block';
+		document.querySelector('.playerAndProgress').style.position = 'absolute';
+		document.querySelector('.choose').style.position = 'absolute';
+		document.querySelector('.footer').style.position = 'absolute';
+		document.querySelector('.choose').style.background = 'transparent';
+		document.querySelector('.footer').style.background = 'transparent';
 	}
   render(){
     const CoverStyle = {
