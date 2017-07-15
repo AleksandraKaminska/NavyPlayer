@@ -4,8 +4,7 @@ class SmallCover extends React.Component {
 	showBigCover = () => {
 		document.querySelector('.search').style.display = 'none';
 		document.querySelector('.playlists').style.display = 'none';
-		document.querySelector('.info').style.display = 'none';
-		document.querySelector('.concerts').style.display = 'none';
+		document.querySelector('.artistInfo').style.display = 'none';
 		document.querySelector('.small').style.display = 'none';
 
 		document.querySelector('.cover').style.display = 'block';

@@ -4,8 +4,7 @@ class Choose extends React.Component {
 	showArtist = () => {
 		document.querySelector('.search').style.display = 'none';
 		document.querySelector('.playlists').style.display = 'none';
-		document.querySelector('.info').style.display = 'block';
-		document.querySelector('.concerts').style.display = 'block';
+		document.querySelector('.artistInfo').style.display = 'block';
 
 		document.querySelector('.cover').style.display = 'none';
 		document.querySelector('.small').style.display = 'flex';
@@ -15,8 +14,7 @@ class Choose extends React.Component {
 	showPlaylists = () => {
 		document.querySelector('.search').style.display = 'none';
 		document.querySelector('.playlists').style.display = 'block';
-		document.querySelector('.info').style.display = 'none';
-		document.querySelector('.concerts').style.display = 'none';
+		document.querySelector('.artistInfo').style.display = 'none';
 
 		document.querySelector('.cover').style.display = 'none';
 		document.querySelector('.small').style.display = 'flex';
@@ -26,8 +24,7 @@ class Choose extends React.Component {
 	showSearch = () => {
 		document.querySelector('.search').style.display = 'block';
 		document.querySelector('.playlists').style.display = 'none';
-		document.querySelector('.info').style.display = 'none';
-		document.querySelector('.concerts').style.display = 'none';
+		document.querySelector('.artistInfo').style.display = 'none';
 
 		document.querySelector('.cover').style.display = 'none';
 		document.querySelector('.small').style.display = 'flex';

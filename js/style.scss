@@ -37,12 +37,14 @@ body {
   height: 70vh;
   div:first-child {
     width: 100vw;
+    height: 7vh;
     margin-top: 0;
     input {
       height: 100%;
       width: 100vw;
-      padding: 0.5em 2em;
+      padding: 0.5em 1em;
       border: 0;
+      font-size: 1.1em;
       outline: none;
       color: $white-color;
       background: #7e827a;
@@ -81,15 +83,32 @@ body {
   flex-wrap: wrap;
   width: 100vw;
   .playlists {
+    height: 70vh;
     width: 100%;
     display: none;
-    padding: 0 0 0 2%;
     div {
-      max-height: 60vh;
+      max-height: 70vh;
       overflow-y: auto;
       div {
-        margin-bottom: 2vh;
+        margin: 1em 0 1em 1em;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        img {
+          width: 3em;
+          height: auto;
+        }
+        p {
+          max-width: 90%;
+          display: inline-block;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-all;
+          word-break: break-all;
+          word-break: break-word;
+          font-size: 0.8em;
+          margin: 0 1em;
+        }
       }
     }
   }
@@ -104,8 +123,9 @@ body {
     flex-wrap: wrap;
     width: 100%;
     padding: 0 3vw;
+    height: 70vh;
+    display: none;
     .info {
-      display: none;
       height: 10vh;
       margin-top: 1vh;
       img {
@@ -120,17 +140,18 @@ body {
         max-width: calc(100% - 100px);
         & > p {
           margin-bottom: 0.1em;
-          font-size: 1.5em;
+          font-size: 1.2em;
           font-family: 'Playfair Display', serif;
         }
         a {
           color: $white-color;
           text-decoration: none;
-          font-size: 1em;
+          font-size: 0.85em;
           font-family: 'Playfair Display', serif;
           i {
             float: left;
-            margin-right: 10px;
+            margin-right: 0.5em;
+            margin-top: 1vh;
           }
           span {
             overflow-wrap: break-word;
@@ -143,16 +164,13 @@ body {
       }
     }
     .concerts {
-      margin-top: 5vh;
-      height: 54vh;
-      overflow-y: scroll;
+      margin: 7vh 2vw 0 2vw;
       width: 100%;
-      display: none;
       clear: both;
-      font-size: 1em;
+      font-size: 1.2em;
       font-family: 'Reem Kufi', sans-serif;
       ul {
-        max-height: 60vh;
+        max-height: 43vh;
         list-style: none;
         overflow-y: auto;
         a {
@@ -176,7 +194,7 @@ body {
       width: 50px;
       height: 50px;
       display: inline-block;
-      margin: 4vh 3vw 0 1vw;
+      margin: 4vh 1vw 0 1vw;
     }
     .smallTitle {
       font-size: 0.8em;
@@ -187,19 +205,12 @@ body {
     }
   }
   .playerMain {
-    margin-top: 5vh;
-    min-width: 20vw;
+    margin-top: calc((12vh - 3em * 0.6) / 2);
     button {
-      width: 1.6em;
-      height: 1.6em;
-      color: $white-color;
       background: transparent;
-      font-size: 1.6em;
       border: none;
       outline: none;
-      &:hover {
-        color: #816af2;
-      }
+      transform: scale(0.6, 0.6);
     }
   }
 
@@ -304,9 +315,11 @@ body {
     max-width: 30vw;
     div:first-child {
       width: 30vw;
+      height: auto;
       margin-top: 1em;
       input {
         width: 30vw;
+        font-size: 0.8em;
         border-radius: 1em;
       }
     }
@@ -413,12 +426,10 @@ body {
     }
     .playerMain {
       margin-top: 1vh;
-      min-width: 1vw;
       button {
         cursor: pointer;
-        width: 2em;
-        height: 2em;
-        font-size: 2em;
+        margin: 2vh 1vw 0 0;
+        transform: scale(1, 1);
       }
     }
 

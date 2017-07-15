@@ -12,7 +12,8 @@ class Playlist extends React.Component {
      super(props);
      this.state = {
        picture: '',
-       playlistId: ''
+       playlistId: '',
+			 playlistTitle: ''
      };
   }
 
@@ -23,7 +24,8 @@ class Playlist extends React.Component {
         success : data => {
           this.setState({
             picture: data.picture_small.replace(/56x56/, '95x95'),
-            playlistId: data.id
+            playlistId: data.id,
+						playlistTitle: data.title
           })
         }
     });
@@ -36,6 +38,7 @@ class Playlist extends React.Component {
   render() {
     return <div onClick={this.props.findPlaylist} >
         <img src={this.state.picture} id={this.state.playlistId} />
+				<p>{this.state.playlistTitle}</p>
       </div>
   }
 }

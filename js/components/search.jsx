@@ -48,7 +48,7 @@ class Search extends React.Component {
         renderItem={this.handlerRenderItem}/>
       <div className='placeholder'
         style={{
-          height: '66vh',
+          height: '63vh',
           width: '100%',
           background: '#111'
         }}></div>

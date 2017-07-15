@@ -45,10 +45,10 @@ class Player extends React.Component {
     return <div className="player">
       <div className="playerMain">
         <button onClick={this.changeIsPlaying}>
-          <i className={this.state.isPlaying ? 'fa fa-pause-circle' : 'fa fa-play-circle'} aria-hidden="true"></i>
+          <img src={this.state.isPlaying ? './images/pause.svg' : './images/play.svg'} />
         </button>
         <button onClick={this.changeTrack}>
-          <i className="fa fa-step-forward" aria-hidden="true"></i>
+          <img src="./images/forward.svg" alt='forward'/>
         </button>
       </div>
     </div>
