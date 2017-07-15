@@ -1,5 +1,7 @@
 $navy-color: #000a11;
-$white-color: #FFF5EE;
+$white-color: #fbf7e4;
+$progress-bar-color: rgb(211, 206, 170);
+$progress-value-color: rgb(66, 66, 66);
 
 * {
   margin: 0;
@@ -91,7 +93,6 @@ body {
       overflow-y: auto;
       div {
         margin: 1em 0 1em 1em;
-        cursor: pointer;
         display: flex;
         align-items: center;
         img {
@@ -119,8 +120,6 @@ body {
     background-size: cover;
   }
   .artistInfo {
-    display: flex;
-    flex-wrap: wrap;
     width: 100%;
     padding: 0 3vw;
     height: 70vh;
@@ -218,21 +217,20 @@ body {
     font-size: 0.9em;
     color: $white-color;
     font-family: 'Reem Kufi', sans-serif;
-    cursor: pointer;
     progress[value] {
       position: absolute;
       top: 0;
       left: 0;
-      height: 5px;
+      height: 3px;
       width: 100%;
       background: black;
       &::-webkit-progress-bar {
-        background: #816af2;
+        background: $progress-bar-color;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
       }
       &::-webkit-progress-value {
-        background-color: #bbdb04;
+        background-color: $progress-value-color;
         border-radius: 5px;
       }
     }
@@ -291,20 +289,20 @@ body {
     /* Track */
     ::-webkit-scrollbar-track {
       -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-      background: rgba(129, 106, 242, 0.5);
+      background: rgba(211, 206, 170, 0.5);
       -webkit-border-radius: 10px;
       border-radius: 10px;
     }
     /* Corner */
     ::-webkit-scrollbar-corner {
       -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-      background: rgba(129, 106, 242, 0.5);
+      background: rgba(211, 206, 170, 0.5);
     }
     /* Handle */
     ::-webkit-scrollbar-thumb {
         -webkit-border-radius: 10px;
         border-radius: 10px;
-        background: rgba(187, 219, 4, 0.7);
+        background: rgba(66, 66, 66, 0.7);
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
   }
@@ -329,7 +327,6 @@ body {
   }
 
   .title {
-    height: auto;
     margin: 8vh 0 2vh 1em;
     h3 {
       font-size: 1.5em;
@@ -341,13 +338,19 @@ body {
     .playlists {
       width: calc((100% - 400px) / 2);
       display: block;
+      height: auto;
       padding: 0 0 0 2%;
       div {
         max-height: 380px;
-        overflow-y: auto;
         div {
           cursor: pointer;
-          margin-bottom: 2vh;
+          margin: 0 0 2vh 0;
+          img {
+            width: 5em;
+          }
+          p {
+            font-size: 1.1em;
+          }
         }
       }
     }
@@ -357,59 +360,27 @@ body {
       margin: 0;
     }
     .artistInfo {
-      padding: 0 3vw;
       width: calc((100% - 400px) / 2);
+      height: auto;
       display: flex;
       flex-wrap: wrap;
       .info {
         height: auto;
-        display: block;
-        img {
-          float: left;
-          width: 64px;
-          height: 64px;
-          margin-right: 1em;
-          margin-top: 0.5em;
+        div > p {
+          font-size: 1.5em;
         }
-        div {
-          float: left;
-          max-width: calc(100% - 100px);
-          & > p {
-            font-size: 1.5em;
-            margin-bottom: 0.1em;
-            font-family: 'Playfair Display', serif;
-          }
-          a {
-            color: $white-color;
-            text-decoration: none;
-            font-size: 1em;
-            font-family: 'Playfair Display', serif;
-            i {
-              margin-right: 10px;
-              float: left;
-            }
-            span {
-              overflow-wrap: break-word;
-              word-wrap: break-word;
-              -ms-word-break: break-all;
-              word-break: break-all;
-              word-break: break-word;
-            }
+        a {
+          font-size: 1em;
+          i {
+            margin-right: 10px;
           }
         }
       }
       .concerts {
-        height: auto;
-        overflow: hidden;
-        margin-top: 1em;
-        display: block;
-        clear: both;
-        width: 100%;
+        margin: 0;
         font-size: 1.2em;
-        font-family: 'Reem Kufi', sans-serif;
         ul {
           max-height: 200px;
-          overflow-y: auto;
         }
       }
     }
@@ -418,12 +389,6 @@ body {
   .playerAndProgress {
     height: auto;
     width: 100%;
-    position: relative;
-    justify-content: center;
-    display: flex;
-    .small {
-      display: none;
-    }
     .playerMain {
       margin-top: 1vh;
       button {
@@ -435,25 +400,9 @@ body {
 
     .progress {
       font-size: 1.1em;
-      color: $white-color;
-      font-family: 'Reem Kufi', sans-serif;
       cursor: pointer;
       progress[value] {
         height: 5px;
-        width: 100%;
-        background: black;
-        position: absolute;
-        top: 0;
-        left: 0;
-        &::-webkit-progress-bar {
-          background: #816af2;
-          border-radius: 5px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-        }
-        &::-webkit-progress-value {
-          background-color: #bbdb04;
-          border-radius: 5px;
-        }
       }
       .time {
         cursor: default;

@@ -14,7 +14,7 @@ class SmallCover extends React.Component {
   render(){
     const CoverStyle = {
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
-      url(${this.props.track.album.cover_big})`
+      url(${this.props.track.album.cover_small})`
     }
     return <div className="small" onClick={this.showBigCover}>
 			<div className="smallCover" style={CoverStyle}></div>
