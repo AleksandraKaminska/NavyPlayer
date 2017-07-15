@@ -10,6 +10,7 @@ class Choose extends React.Component {
 		document.querySelector('.small').style.display = 'flex';
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
+		document.querySelector('.playerAndProgress').style.position = 'relative';
 	}
 	showPlaylists = () => {
 		document.querySelector('.search').style.display = 'none';
@@ -20,6 +21,7 @@ class Choose extends React.Component {
 		document.querySelector('.small').style.display = 'flex';
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
+		document.querySelector('.playerAndProgress').style.position = 'relative';
 	}
 	showSearch = () => {
 		document.querySelector('.search').style.display = 'block';
@@ -30,6 +32,7 @@ class Choose extends React.Component {
 		document.querySelector('.small').style.display = 'flex';
 		document.querySelector('.title').style.display = 'none';
 		document.querySelector('.time').style.display = 'none';
+		document.querySelector('.playerAndProgress').style.position = 'relative';
 	}
   render(){
     return <div className="choose">
