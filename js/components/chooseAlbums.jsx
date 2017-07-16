@@ -6,9 +6,9 @@ class ChoosePlaylists extends React.Component {
   render() {
     return <div className="playlists">
       <div>
-        {this.props.playlists.map((elem, i) =>
-          <Playlist
-          playlists={this.props.playlists}
+        {this.props.albums.map((elem, i) =>
+          <Album
+          albums={this.props.albums}
           findPlaylist={this.props.findPlaylist}
           randomTrack={this.props.randomTrack}
           number={i} key={i} />

@@ -14,6 +14,7 @@ class AppContainer extends React.Component {
        track: {title: '', artist: {name: ''}, album: {cover_big: ''}},
        artistInfo: {},
        concerts: [],
+       albums: [],
        searchTracks: [],
        autoCompleteValue: '',
        playlists: [950408095, 2734448044, 1242572531, 2178064502, 1927928822, 975986691, 1266972311, 65490032, 1677006641],
@@ -34,8 +35,16 @@ class AppContainer extends React.Component {
     });
   }
 
+  searchAlbums = () => {
+    DZ.api(`/search/album?q=${this.state.track.artist.name}`, response => {
+      this.setState({
+        albums: response.data
+      });
+    });
+  }
+
   searchConcerts = () => {
-    let url = 'https://rest.bandsintown.com/artists/' + this.state.track.artist.name + '/events?app_id=NavyPlayer';
+    let url = `https://rest.bandsintown.com/artists/${this.state.track.artist.name}/events?app_id=NavyPlayer`;
     $.ajax({
         dataType: "json",
         url : url,
@@ -47,16 +56,11 @@ class AppContainer extends React.Component {
     });
   }
 
-  callback(data) {
-    return console.log(data);
-  };
-
   randomTrack = () => {
     $.ajax({
         dataType: "jsonp",
         url :`https://api.deezer.com/playlist/${this.state.chosenPlaylist}?output=jsonp`,
         data : {},
-        jsonp : 'callback',
         success : response => {
           const playlistTracks = response.tracks.data;
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
@@ -64,6 +68,7 @@ class AppContainer extends React.Component {
             track: playlistTracks[randomNumber]
           }, () => {
             this.searchArtist();
+            this.searchAlbums();
             this.searchConcerts();
             DZ.player.playTracks([this.state.track.id]);
           });
@@ -78,6 +83,14 @@ class AppContainer extends React.Component {
   findPlaylist = (event) => {
     this.setState({
       chosenPlaylist: event.target.id
+    }, () => {
+      this.randomTrack();
+    })
+  }
+
+  findAlbum = (event) => {
+    this.setState({
+      chosenAlbum: event.target.id
     }, () => {
       this.randomTrack();
     })
@@ -102,7 +115,7 @@ class AppContainer extends React.Component {
     this.setState({
       autoCompleteValue: event.target.value === '' ? 'a' : event.target.value
     }, () => {
-      DZ.api(`/search/track?q=${this.state.autoCompleteValue}`, response => {
+      DZ.api(`/search?q=${this.state.autoCompleteValue}`, response => {
           this.pom = response.data;
       });
       this.setState({
@@ -125,6 +138,7 @@ class AppContainer extends React.Component {
           randomTrack={this.randomTrack}
           track={this.state.track}
           artistInfo={this.state.artistInfo}
+          albums={this.state.albums}
           concerts={this.state.concerts} />
         <PlayerAndProgress
           randomTrack={this.randomTrack}

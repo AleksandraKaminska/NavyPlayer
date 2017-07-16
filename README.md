@@ -12,4 +12,4 @@ Music app powered by Deezer and Bandsintown REST APIs- my final project after pr
 ## To install:
 
 - Download a package with project.
-- Write **npm install** and **npm server** in terminal.
+- Write **npm install** in terminal.

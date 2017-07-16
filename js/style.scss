@@ -206,15 +206,18 @@ body {
       width: 52vw;
       font-weight: bold;
       display: inline-block;
+      overflow: hidden;
     }
   }
   .playerMain {
     margin-top: calc((12vh - 3em * 0.6) / 2);
+    display: flex;
+    justify-content: space-between;
     button {
       background: transparent;
       border: none;
       outline: none;
-      transform: scale(0.6, 0.6);
+      transform: scale(0.8, 0.8);
     }
   }
 
@@ -256,6 +259,7 @@ body {
   padding: 2vh 1vw;
   display: flex;
   justify-content: space-around;
+  z-index: 2;
   div {
     display: inline-block;
     button {
@@ -268,8 +272,8 @@ body {
       border: 0;
       outline: none;
       p {
-        font-size: 0.4em;
-        font-family: 'Playfair Display', serif;
+        font-size: 0.5em;
+        font-family: 'Open Sans', sans-serif;
       }
     }
   }

@@ -1,11 +1,4 @@
 import React from 'react';
-import	{	Router,
-		Route,
-		Link,
-		IndexLink,
-		IndexRoute,
-		hashHistory
-}	from	'react-router';
 
 class Player extends React.Component {
   constructor(props) {
@@ -45,7 +38,7 @@ class Player extends React.Component {
     return <div className="player">
       <div className="playerMain">
         <button onClick={this.changeIsPlaying}>
-          <img src={this.state.isPlaying ? './images/pause.svg' : './images/play.svg'} />
+          <img src={this.state.isPlaying ? './images/pause.svg' : './images/play.svg'} alt='play or pause'/>
         </button>
         <button onClick={this.changeTrack}>
           <img src="./images/forward.svg" alt='forward'/>
