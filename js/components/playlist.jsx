@@ -31,7 +31,7 @@ class Playlist extends React.Component {
   render() {
     return <div onClick={this.props.findPlaylist} >
         <img src={this.state.picture} id={this.state.playlistId} />
-				<p>{this.state.playlistTitle}</p>
+				<p id={this.state.playlistId}>{this.state.playlistTitle}</p>
       </div>
   }
 }
