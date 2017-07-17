@@ -16,12 +16,12 @@ class MobileArtist extends React.Component {
   render() {
     return <div className="mobileArtist">
         <MainMiddle
-					artistInfo={this.props.artistInfo}
-					albums={this.props.albums}
-					concerts={this.props.concerts} />
+					artistInfo={this.props.route.artistInfo}
+					albums={this.props.route.albums}
+					concerts={this.props.route.concerts} />
         <PlayerAndProgress
-          randomTrack={this.randomTrack}
-          track={this.state.track} />
+          randomTrack={this.props.route.randomTrack}
+          track={this.props.route.track} />
         <Choose />
         <Footer />
       </div>

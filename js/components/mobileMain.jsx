@@ -16,11 +16,11 @@ import Footer from './footer.jsx';
 class MobileMain extends React.Component {
   render() {
     return <div className="mobileMain">
-        <Title title={this.props.track.title_short} artist={this.props.track.artist.name} />
-        <MainMiddle track={this.props.track} />
+        <Title title={this.props.route.track.title_short} artist={this.props.route.track.artist.name} />
+        <MainMiddle track={this.props.route.track} />
         <PlayerAndProgress
-          randomTrack={this.props.randomTrack}
-          track={this.props.track} />
+          randomTrack={this.props.route.randomTrack}
+          track={this.props.route.track} />
         <Choose />
         <Footer />
       </div>

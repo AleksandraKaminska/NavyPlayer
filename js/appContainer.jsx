@@ -1,4 +1,11 @@
 import React from 'react';
+import	{	Router,
+		Route,
+		Link,
+		IndexLink,
+		IndexRoute,
+		hashHistory
+}	from	'react-router';
 
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
@@ -6,6 +13,8 @@ import Search from './components/search.jsx';
 import Choose from './components/choose.jsx';
 import Footer from './components/footer.jsx';
 import MainMiddle from './components/mainMiddle.jsx';
+import MobileMain from './components/mobileMain.jsx';
+import MobileArtist from './components/mobileArtist.jsx';
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -96,14 +105,16 @@ class AppContainer extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      autoCompleteValue: event.target.value === '' ? 'a' : event.target.value
+      autoCompleteValue: event.target.value
     }, () => {
-      DZ.api(`/search?q=${this.state.autoCompleteValue}`, response => {
-          this.pom = response.data;
-      });
-      this.setState({
-        searchTracks: this.pom
-      });
+      if(this.state.autoCompleteValue !== '') {
+        DZ.api(`/search?q=${this.state.autoCompleteValue}`, response => {
+            this.pom = response.data;
+        });
+        this.setState({
+          searchTracks: this.pom
+        });
+      }
     });
   }
 
@@ -130,6 +141,7 @@ class AppContainer extends React.Component {
         <Choose />
         <Footer />
       </div>
+
   }
 }
 
