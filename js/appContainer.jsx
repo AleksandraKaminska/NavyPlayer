@@ -35,14 +35,6 @@ class AppContainer extends React.Component {
     });
   }
 
-  searchAlbums = () => {
-    DZ.api(`/search/album?q=${this.state.track.artist.name}`, response => {
-      this.setState({
-        albums: response.data
-      });
-    });
-  }
-
   searchConcerts = () => {
     let url = `https://rest.bandsintown.com/artists/${this.state.track.artist.name}/events?app_id=NavyPlayer`;
     $.ajax({
@@ -68,7 +60,6 @@ class AppContainer extends React.Component {
             track: playlistTracks[randomNumber]
           }, () => {
             this.searchArtist();
-            this.searchAlbums();
             this.searchConcerts();
             DZ.player.playTracks([this.state.track.id]);
           });
@@ -83,14 +74,6 @@ class AppContainer extends React.Component {
   findPlaylist = (event) => {
     this.setState({
       chosenPlaylist: event.target.id
-    }, () => {
-      this.randomTrack();
-    })
-  }
-
-  findAlbum = (event) => {
-    this.setState({
-      chosenAlbum: event.target.id
     }, () => {
       this.randomTrack();
     })
@@ -138,7 +121,6 @@ class AppContainer extends React.Component {
           randomTrack={this.randomTrack}
           track={this.state.track}
           artistInfo={this.state.artistInfo}
-          albums={this.state.albums}
           concerts={this.state.concerts} />
         <PlayerAndProgress
           randomTrack={this.randomTrack}

@@ -9,12 +9,10 @@ class MainMiddle extends React.Component {
     return <div className='mainMiddle'>
       <ChoosePlaylists
         playlists={this.props.playlists}
-        findPlaylist={this.props.findPlaylist}
-        randomTrack={this.props.randomTrack} />
+        findPlaylist={this.props.findPlaylist} />
       <Cover track={this.props.track} />
       <ArtistInfo
 				artistInfo={this.props.artistInfo}
-				albums={this.props.albums}
 				concerts={this.props.concerts} />
     </div>
   }

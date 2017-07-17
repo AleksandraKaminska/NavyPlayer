@@ -13,7 +13,7 @@ class Playlist extends React.Component {
   thisplaylist = () => {
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/playlist/${this.props.playlists[this.props.number]}?output=jsonp`,
+        url :`https://api.deezer.com/playlist/${this.props.elem}?output=jsonp`,
         success : data => {
           this.setState({
             picture: data.picture_small.replace(/56x56/, '95x95'),
