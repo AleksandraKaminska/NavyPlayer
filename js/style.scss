@@ -3,6 +3,13 @@ $white-color: #fbf7e4;
 $progress-bar-color: rgb(211, 206, 170);
 $progress-value-color: rgb(66, 66, 66);
 
+@mixin flex($justify) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,16 +22,13 @@ body {
   max-height: 100vh;
   height: 100vh;
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
   color: $white-color;
   background: $navy-color;
 }
 
 .NavyPlayer {
-  display: flex;
-  flex-wrap: wrap;
+  @include flex(center);
   align-items: flex-end;
-  justify-content: center;
   height: 100%;
   width: 100%;
   background: $navy-color;
@@ -77,15 +81,13 @@ body {
   text-shadow: 0px 4px 4px rgba(0,0,0,.5);
   h3 {
     font-size: 1.3em;
-    color: white;
+    color: $white-color;
     font-family: 'Open Sans', sans-serif;
   }
 }
 
 .mainMiddle {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  @include flex(flex-start);
   width: 100vw;
   .playlists {
     height: 70vh;
@@ -188,8 +190,7 @@ body {
 .playerAndProgress {
   position: absolute;
   top: 50%;
-  display: flex;
-  justify-content: center;
+  @include flex(center);
   width: 100%;
   height: 10vh;
   .small {
@@ -211,8 +212,7 @@ body {
   }
   .playerMain {
     margin-top: calc((12vh - 3em * 0.6) / 2);
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between);
     button {
       background: transparent;
       border: none;
@@ -257,8 +257,7 @@ body {
   background: transparent;
   margin-top: 5vh;
   padding: 2vh 1vw;
-  display: flex;
-  justify-content: space-around;
+  @include flex(space-around);
   z-index: 2;
   div {
     display: inline-block;
@@ -283,9 +282,8 @@ body {
   position: absolute;
   bottom: 0;
   height: 5vh;
-  display: flex;
+  @include flex(flex-start);
   background: transparent;
-  justify-content: flex-start;
   font-size: 0.7em;
   padding: 2vh 1vw;
   img {
