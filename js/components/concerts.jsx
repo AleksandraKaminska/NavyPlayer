@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import store from './../store';
 
 class Concerts extends React.Component {
   render(){
@@ -20,4 +22,10 @@ class Concerts extends React.Component {
   }
 }
 
-export default Concerts
+const mapStateToProps = function(store) {
+  return {
+    concerts: store.concerts
+  };
+};
+
+export default connect(mapStateToProps)(Concerts);

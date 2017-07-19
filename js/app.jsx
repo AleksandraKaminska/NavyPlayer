@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import store from './store';
 
 import AppContainer from './appContainer.jsx'
 import "./style.scss";
 
 $(() => {
-  class App extends React.Component {
-    render () {
-      return <AppContainer />
-    }
-  }
-
   ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>,
     document.getElementById('app')
   );
 });

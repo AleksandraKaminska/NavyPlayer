@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import store from './../store';
 
 import Concerts from './concerts.jsx';
 
@@ -16,9 +18,15 @@ class ArtistInfo extends React.Component {
             </a>
           </div>
         </div>
-        <Concerts concerts={this.props.concerts}/>
+        <Concerts/>
       </div>
   }
 }
 
-export default ArtistInfo
+const mapStateToProps = function(store) {
+  return {
+    artistInfo: store.artistInfo
+  };
+};
+
+export default connect(mapStateToProps)(ArtistInfo);

@@ -1,11 +1,7 @@
 import React from 'react';
-import	{	Router,
-		Route,
-		Link,
-		IndexLink,
-		IndexRoute,
-		hashHistory
-}	from	'react-router';
+
+import store from './store';
+import {searchConcertsAction, searchArtistAction} from './actions/index.js';
 
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
@@ -21,8 +17,6 @@ class AppContainer extends React.Component {
      super(props);
      this.state = {
        track: {title: '', artist: {name: ''}, album: {cover_big: ''}},
-       artistInfo: {},
-       concerts: [],
        albums: [],
        searchTracks: [],
        autoCompleteValue: '',
@@ -37,9 +31,7 @@ class AppContainer extends React.Component {
         dataType: "json",
         url :`https://rest.bandsintown.com/artists/${this.state.track.artist.name}?app_id=NavyPlayer`,
         success : response => {
-          this.setState({
-            artistInfo: response
-          });
+          store.dispatch(searchArtistAction(response));
         }
     });
   }
@@ -50,9 +42,7 @@ class AppContainer extends React.Component {
         dataType: "json",
         url : url,
         success : response => {
-          this.setState({
-            concerts: response
-          });
+          store.dispatch(searchConcertsAction(response));
         }
     });
   }
@@ -130,9 +120,7 @@ class AppContainer extends React.Component {
           playlists={this.state.playlists}
           findPlaylist={this.findPlaylist}
           randomTrack={this.randomTrack}
-          track={this.state.track}
-          artistInfo={this.state.artistInfo}
-          concerts={this.state.concerts} />
+          track={this.state.track} />
         <PlayerAndProgress
           randomTrack={this.randomTrack}
           track={this.state.track}
@@ -145,4 +133,10 @@ class AppContainer extends React.Component {
   }
 }
 
-export default AppContainer
+const mapStateToProps = function(store) {
+  return {
+    concerts: store.concerts
+  };
+};
+
+export default AppContainer;
