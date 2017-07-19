@@ -1,7 +1,12 @@
 import React from 'react';
 
 import store from './store';
-import {searchConcertsAction, searchArtistAction} from './actions/index.js';
+import { connect } from 'react-redux';
+
+import {
+  changePlaylistAction,
+  searchTracksAction
+} from './actions/index.js';
 
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
@@ -18,10 +23,8 @@ class AppContainer extends React.Component {
      this.state = {
        track: {title: '', artist: {name: ''}, album: {cover_big: ''}},
        albums: [],
-       searchTracks: [],
        autoCompleteValue: '',
-       playlists: [950408095, 2734448044, 1242572531, 2178064502, 1927928822, 975986691, 1266972311, 65490032, 1677006641],
-       chosenPlaylist: 1677006641
+       playlists: [950408095, 2734448044, 1242572531, 2178064502, 1927928822, 975986691, 1266972311, 65490032, 1677006641]
      };
      this.pom = [];
   }
@@ -31,7 +34,10 @@ class AppContainer extends React.Component {
         dataType: "json",
         url :`https://rest.bandsintown.com/artists/${this.state.track.artist.name}?app_id=NavyPlayer`,
         success : response => {
-          store.dispatch(searchArtistAction(response));
+          store.dispatch({
+              type: 'FIND_ARTIST',
+              artistInfo: response
+          });
         }
     });
   }
@@ -42,7 +48,10 @@ class AppContainer extends React.Component {
         dataType: "json",
         url : url,
         success : response => {
-          store.dispatch(searchConcertsAction(response));
+          store.dispatch({
+              type: 'FIND_CONCERTS',
+              concerts: response
+          });
         }
     });
   }
@@ -50,7 +59,7 @@ class AppContainer extends React.Component {
   randomTrack = () => {
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/playlist/${this.state.chosenPlaylist}?output=jsonp`,
+        url :`https://api.deezer.com/playlist/${this.props.chosenPlaylist}?output=jsonp`,
         data : {},
         success : response => {
           const playlistTracks = response.tracks.data;
@@ -71,11 +80,8 @@ class AppContainer extends React.Component {
   }
 
   findPlaylist = (event) => {
-    this.setState({
-      chosenPlaylist: event.target.id
-    }, () => {
-      this.randomTrack();
-    })
+    store.dispatch(changePlaylist(event.target.id));
+    this.randomTrack();
   }
 
   handleSelect = (value, item) => {
@@ -101,9 +107,7 @@ class AppContainer extends React.Component {
         DZ.api(`/search?q=${this.state.autoCompleteValue}`, response => {
             this.pom = response.data;
         });
-        this.setState({
-          searchTracks: this.pom
-        });
+        store.dispatch(searchTracksAction(this.pom));
       }
     });
   }
@@ -112,7 +116,6 @@ class AppContainer extends React.Component {
     return <div className="NavyPlayer">
         <Search
           autoCompleteValue={this.state.autoCompleteValue}
-          searchTracks={this.state.searchTracks}
           handleSelect={this.handleSelect}
           handleChange={this.handleChange} />
         <Title title={this.state.track.title_short} artist={this.state.track.artist.name} />
@@ -129,14 +132,13 @@ class AppContainer extends React.Component {
         <Choose />
         <Footer />
       </div>
-
   }
 }
 
 const mapStateToProps = function(store) {
   return {
-    concerts: store.concerts
+    chosenPlaylist: store.chosenPlaylist
   };
 };
 
-export default AppContainer;
+export default connect(mapStateToProps)(AppContainer);

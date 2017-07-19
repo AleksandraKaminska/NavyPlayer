@@ -1,5 +1,7 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
+import store from '../store';
+import { connect } from 'react-redux';
 
 class Search extends React.Component {
   handlerRenderItem = (item, isHighlighted) => {
@@ -61,4 +63,10 @@ class Search extends React.Component {
   }
 }
 
-export default Search
+const mapStateToProps = function(store) {
+  return {
+    searchTracks: store.searchTracks
+  };
+};
+
+export default connect(mapStateToProps)(Search);

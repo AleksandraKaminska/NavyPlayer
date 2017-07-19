@@ -1,13 +1,13 @@
-export const searchConcertsAction = (concerts) => {
+export const changePlaylistAction = (chosenPlaylist) => {
     return {
-        type: 'FIND_CONCERTS',
-        concerts
+        type: 'CHANGE_PLAYLIST',
+        chosenPlaylist
     }
 };
 
-export const searchArtistAction = (artistInfo) => {
+export const searchTracksAction = (searchTracks) => {
     return {
-        type: 'FIND_ARTIST',
-        artistInfo
+        type: 'SEARCH_TRACKS',
+        searchTracks
     }
 };
