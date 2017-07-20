@@ -19,6 +19,13 @@ export const autocompleteAction = (autocompleteValue) => {
     }
 };
 
+export const completeAction = (autocompleteValue) => {
+    return {
+        type: 'COMPLETE',
+        autocompleteValue
+    }
+};
+
 export const changeTrackAction = (track) => {
     return {
         type: 'CHANGE_TRACK',

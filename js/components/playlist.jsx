@@ -1,5 +1,8 @@
 import React from 'react';
 
+import store from './../store';
+import {changePlaylistAction} from './../actions/index.js';
+
 class Playlist extends React.Component {
   constructor(props) {
      super(props);
@@ -8,6 +11,11 @@ class Playlist extends React.Component {
        playlistId: '',
 			 playlistTitle: ''
      };
+  }
+
+  findPlaylist = (event) => {
+    store.dispatch(changePlaylistAction(event.target.id));
+    this.props.randomTrack();
   }
 
   thisplaylist = () => {
@@ -29,7 +37,7 @@ class Playlist extends React.Component {
   }
 
   render() {
-    return <div onClick={this.props.findPlaylist} >
+    return <div onClick={this.findPlaylist} >
         <img src={this.state.picture} id={this.state.playlistId} />
 				<p id={this.state.playlistId}>{this.state.playlistTitle}</p>
       </div>

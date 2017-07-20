@@ -7,9 +7,7 @@ import ArtistInfo from './artistInfo.jsx';
 class MainMiddle extends React.Component {
   render() {
     return <div className='mainMiddle'>
-      <ChoosePlaylists
-        playlists={this.props.playlists}
-        findPlaylist={this.props.findPlaylist} />
+      <ChoosePlaylists randomTrack={this.props.randomTrack} />
       <Cover />
       <ArtistInfo />
     </div>

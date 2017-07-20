@@ -1,9 +1,20 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
-import store from '../store';
+import store from './../store';
 import { connect } from 'react-redux';
+import {
+  searchTracksAction,
+  autocompleteAction,
+  completeAction,
+  changeTrackAction
+} from './../actions/index.js';
 
 class Search extends React.Component {
+  constructor(props) {
+     super(props);
+     this.pom = [];
+  }
+
   handlerRenderItem = (item, isHighlighted) => {
     const style = {
       item: {
@@ -20,10 +31,8 @@ class Search extends React.Component {
         height: '14vh'
       }
     };
-    return <div
-        style={isHighlighted ? style.highlightedItem : style.item}
-        key={item.id}
-        id={item.id}>
+    return <div key={item.id}
+        style={isHighlighted ? style.highlightedItem : style.item}>
         <div style={{
             maxWidth: 'calc(100% - 75px)',
             float: 'left',
@@ -38,6 +47,26 @@ class Search extends React.Component {
       </div>
   }
 
+  handleSelect = (value, item) => {
+    store.dispatch(changeTrackAction(item));
+    store.dispatch(completeAction(value));
+    this.props.searchArtist();
+    this.props.searchConcerts();
+    DZ.player.pause();
+    DZ.player.playTracks([this.props.track.id]);
+    store.dispatch(completeAction(""));
+  }
+
+  handleChange = (event) => {
+    store.dispatch(autocompleteAction(event.target.value));
+      if(this.props.autocompleteValue !== '') {
+        DZ.api(`/search?q=${this.props.autocompleteValue}`, response => {
+            this.pom = response.data;
+        });
+        store.dispatch(searchTracksAction(this.pom));
+      }
+  }
+
   render() {
     const inputProps = {
       placeholder: "Search tracks",
@@ -50,22 +79,25 @@ class Search extends React.Component {
         value={this.props.autoCompleteValue}
         items={this.props.searchTracks}
         getItemValue={item => item.title_short}
-        onSelect={this.props.handleSelect}
-        onChange={this.props.handleChange}
+        onSelect={this.handleSelect}
+        onChange={this.handleChange}
         renderItem={this.handlerRenderItem}/>
       <div className='placeholder'
         style={{
           height: '63vh',
           width: '100%',
           background: '#111'
-        }}></div>
+        }}>
+      </div>
     </div>
   }
 }
 
 const mapStateToProps = function(store) {
   return {
-    searchTracks: store.searchTracks
+    searchTracks: store.searchTracks,
+    autocompleteValue: store.autocompleteValue,
+    track: store.track
   };
 };
 
