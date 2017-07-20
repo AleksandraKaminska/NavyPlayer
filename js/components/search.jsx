@@ -9,9 +9,16 @@ import {
   changeTrackAction
 } from './../actions/index.js';
 
+const promise = new Promise(function(resolve, reject) {
+  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+});
+
 class Search extends React.Component {
   constructor(props) {
      super(props);
+     this.state = ({
+       val: this.props.autocompleteValue
+     });
      this.pom = [];
   }
 
@@ -49,12 +56,16 @@ class Search extends React.Component {
 
   handleSelect = (value, item) => {
     store.dispatch(changeTrackAction(item));
-    store.dispatch(completeAction(value));
-    this.props.searchArtist();
-    this.props.searchConcerts();
-    DZ.player.pause();
-    DZ.player.playTracks([this.props.track.id]);
-    store.dispatch(completeAction(""));
+    promise.then(result => {
+      store.dispatch(completeAction(value));
+      this.props.searchArtist();
+      this.props.searchConcerts();
+      DZ.player.pause();
+      DZ.player.playTracks([this.props.track.id]);
+      store.dispatch(completeAction(""));
+    }, function(err) {
+      console.log(err);
+    });
   }
 
   handleChange = (event) => {
@@ -76,7 +87,7 @@ class Search extends React.Component {
       <Autocomplete
         ref="autocomplete"
         inputProps={inputProps}
-        value={this.props.autoCompleteValue}
+        value={this.state.val}
         items={this.props.searchTracks}
         getItemValue={item => item.title_short}
         onSelect={this.handleSelect}
