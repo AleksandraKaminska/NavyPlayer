@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import {
   searchTracksAction,
   autocompleteAction,
-  completeAction,
   changeTrackAction
 } from './../actions/index.js';
 
@@ -14,14 +13,6 @@ const promise = new Promise(function(resolve, reject) {
 });
 
 class Search extends React.Component {
-  constructor(props) {
-     super(props);
-     this.state = ({
-       val: this.props.autocompleteValue
-     });
-     this.pom = [];
-  }
-
   handlerRenderItem = (item, isHighlighted) => {
     const style = {
       item: {
@@ -57,12 +48,12 @@ class Search extends React.Component {
   handleSelect = (value, item) => {
     store.dispatch(changeTrackAction(item));
     promise.then(result => {
-      store.dispatch(completeAction(value));
+      store.dispatch(autocompleteAction(value));
       this.props.searchArtist();
       this.props.searchConcerts();
       DZ.player.pause();
       DZ.player.playTracks([this.props.track.id]);
-      store.dispatch(completeAction(""));
+      store.dispatch(autocompleteAction(""));
     }, function(err) {
       console.log(err);
     });
@@ -70,12 +61,11 @@ class Search extends React.Component {
 
   handleChange = (event) => {
     store.dispatch(autocompleteAction(event.target.value));
-      if(this.props.autocompleteValue !== '') {
-        DZ.api(`/search?q=${this.props.autocompleteValue}`, response => {
-            this.pom = response.data;
-        });
-        store.dispatch(searchTracksAction(this.pom));
-      }
+    if(this.props.autocompleteValue !== '') {
+      DZ.api(`/search?q=${this.props.autocompleteValue}`, response => {
+        store.dispatch(searchTracksAction(response.data));
+      });
+    }
   }
 
   render() {
@@ -87,7 +77,7 @@ class Search extends React.Component {
       <Autocomplete
         ref="autocomplete"
         inputProps={inputProps}
-        value={this.state.val}
+        value={this.props.autocompleteValue}
         items={this.props.searchTracks}
         getItemValue={item => item.title_short}
         onSelect={this.handleSelect}

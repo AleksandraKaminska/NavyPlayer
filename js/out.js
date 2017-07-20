@@ -7305,15 +7305,6 @@ const autocompleteAction = (autocompleteValue) => {
 /* harmony export (immutable) */ __webpack_exports__["autocompleteAction"] = autocompleteAction;
 
 
-const completeAction = (autocompleteValue) => {
-    return {
-        type: 'COMPLETE',
-        autocompleteValue
-    }
-};
-/* harmony export (immutable) */ __webpack_exports__["completeAction"] = completeAction;
-
-
 const changeTrackAction = (track) => {
     return {
         type: 'CHANGE_TRACK',
@@ -18736,12 +18727,8 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function (state = '', action) {
-  console.log(state, action);
     switch (action.type) {
         case 'AUTOCOMPLETE':
-            return state + action.autocompleteValue;
-            break;
-        case 'COMPLETE':
             return action.autocompleteValue;
             break;
     }
@@ -19630,12 +19617,18 @@ var promise = new Promise(function (resolve, reject) {
 var Search = function (_React$Component) {
   _inherits(Search, _React$Component);
 
-  function Search(props) {
+  function Search() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Search);
 
-    var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.handlerRenderItem = function (item, isHighlighted) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Search.__proto__ || Object.getPrototypeOf(Search)).call.apply(_ref, [this].concat(args))), _this), _this.handlerRenderItem = function (item, isHighlighted) {
       var style = {
         item: {
           padding: '2px 6px',
@@ -19675,37 +19668,26 @@ var Search = function (_React$Component) {
         ),
         _react2.default.createElement('img', { src: item.album.cover, width: '64px', height: '64px', alt: 'cover' })
       );
-    };
-
-    _this.handleSelect = function (value, item) {
+    }, _this.handleSelect = function (value, item) {
       _store2.default.dispatch((0, _index.changeTrackAction)(item));
       promise.then(function (result) {
-        _store2.default.dispatch((0, _index.completeAction)(value));
+        _store2.default.dispatch((0, _index.autocompleteAction)(value));
         _this.props.searchArtist();
         _this.props.searchConcerts();
         DZ.player.pause();
         DZ.player.playTracks([_this.props.track.id]);
-        _store2.default.dispatch((0, _index.completeAction)(""));
+        _store2.default.dispatch((0, _index.autocompleteAction)(""));
       }, function (err) {
         console.log(err);
       });
-    };
-
-    _this.handleChange = function (event) {
+    }, _this.handleChange = function (event) {
       _store2.default.dispatch((0, _index.autocompleteAction)(event.target.value));
       if (_this.props.autocompleteValue !== '') {
         DZ.api('/search?q=' + _this.props.autocompleteValue, function (response) {
-          _this.pom = response.data;
+          _store2.default.dispatch((0, _index.searchTracksAction)(response.data));
         });
-        _store2.default.dispatch((0, _index.searchTracksAction)(_this.pom));
       }
-    };
-
-    _this.state = {
-      val: _this.props.autocompleteValue
-    };
-    _this.pom = [];
-    return _this;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Search, [{
@@ -19721,7 +19703,7 @@ var Search = function (_React$Component) {
         _react2.default.createElement(_reactAutocomplete2.default, {
           ref: 'autocomplete',
           inputProps: inputProps,
-          value: this.state.val,
+          value: this.props.autocompleteValue,
           items: this.props.searchTracks,
           getItemValue: function getItemValue(item) {
             return item.title_short;
