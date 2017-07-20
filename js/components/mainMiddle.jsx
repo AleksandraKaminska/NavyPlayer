@@ -10,7 +10,7 @@ class MainMiddle extends React.Component {
       <ChoosePlaylists
         playlists={this.props.playlists}
         findPlaylist={this.props.findPlaylist} />
-      <Cover track={this.props.track} />
+      <Cover />
       <ArtistInfo />
     </div>
   }

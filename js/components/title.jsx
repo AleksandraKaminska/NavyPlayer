@@ -1,4 +1,6 @@
 import React from 'react';
+import store from './../store';
+import { connect } from 'react-redux';
 
 class Title extends React.Component {
   render() {
@@ -10,4 +12,11 @@ class Title extends React.Component {
   }
 }
 
-export default Title
+const mapStateToProps = function(store) {
+  return {
+    title: store.track.title_short,
+    artist: store.track.artist.name
+  };
+};
+
+export default connect(mapStateToProps)(Title);

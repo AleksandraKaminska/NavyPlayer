@@ -7,13 +7,9 @@ import SmallCover from './smallCover.jsx';
 class PlayerAndProgress extends React.Component {
   render(){
     return <div className="playerAndProgress">
-				<SmallCover
-					track={this.props.track}
-					title={this.props.title}
-					artist={this.props.artist} />
+				<SmallCover />
         <Player
-          randomTrack={this.props.randomTrack}
-          track={this.props.track} />
+          randomTrack={this.props.randomTrack} />
         <Progress />
     </div>
   }

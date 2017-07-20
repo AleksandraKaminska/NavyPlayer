@@ -11,3 +11,17 @@ export const searchTracksAction = (searchTracks) => {
         searchTracks
     }
 };
+
+export const autocompleteAction = (autocompleteValue) => {
+    return {
+        type: 'AUTOCOMPLETE',
+        autocompleteValue
+    }
+};
+
+export const changeTrackAction = (track) => {
+    return {
+        type: 'CHANGE_TRACK',
+        track
+    }
+};

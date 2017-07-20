@@ -1,5 +1,8 @@
 import React from 'react';
 
+import store from './../store';
+import { connect } from 'react-redux';
+
 class SmallCover extends React.Component {
 	showBigCover = () => {
 		let choose = document.querySelector('.choose');
@@ -20,7 +23,7 @@ class SmallCover extends React.Component {
 	}
   render(){
     const CoverStyle = {
-      backgroundImage: `url(${this.props.track.album.cover_small})`
+      backgroundImage: `url(${this.props.cover})`
     }
     return <div className="small" onClick={this.showBigCover}>
 			<div className="smallCover" style={CoverStyle}></div>
@@ -33,4 +36,12 @@ class SmallCover extends React.Component {
   }
 }
 
-export default SmallCover
+const mapStateToProps = function(store) {
+  return {
+    title: store.track.title_short,
+    artist: store.track.artist.name,
+		cover: store.track.album.cover_small
+  };
+};
+
+export default connect(mapStateToProps)(SmallCover);

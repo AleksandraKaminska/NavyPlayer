@@ -1,13 +1,21 @@
 import React from 'react';
+import store from './../store';
+import { connect } from 'react-redux';
 
 class Cover extends React.Component {
   render(){
     const CoverStyle = {
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(${this.props.track.album.cover_big})`
+      url(${this.props.cover})`
     }
     return <div className="cover" style={CoverStyle}></div>
   }
 }
 
-export default Cover
+const mapStateToProps = function(store) {
+  return {
+		cover: store.track.album.cover_big
+  };
+};
+
+export default connect(mapStateToProps)(Cover);
