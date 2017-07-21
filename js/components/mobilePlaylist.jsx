@@ -5,12 +5,12 @@ import store from './../store';
 import { connect } from 'react-redux';
 import {changeTrackAction} from './../actions/index.js';
 
-import ArtistInfo from './artistInfo.jsx';
+import ChoosePlaylists from './choosePlaylists.jsx';
 import PlayerAndProgress from './playerAndProgress.jsx';
 import Choose from './choose.jsx';
 import Footer from './footer.jsx';
 
-class MobileArtist extends React.Component {
+class MobilePlaylist extends React.Component {
 	randomTrack = () => {
     $.ajax({
         dataType: "jsonp",
@@ -54,11 +54,11 @@ class MobileArtist extends React.Component {
   }
 
   render() {
-    return <div className="mobile mobileArtist">
+    return <div className="mobile mobilePlaylist">
 				<div className='mainMiddle'>
-					<ArtistInfo />
+					<ChoosePlaylists randomTrack={this.randomTrack} />
 				</div>
-				<PlayerAndProgress randomTrack={this.randomTrack}/>
+				<PlayerAndProgress randomTrack={this.randomTrack} />
 				<Choose />
 				<Footer />
       </div>
@@ -72,4 +72,4 @@ const mapStateToProps = function(store) {
   };
 };
 
-export default connect(mapStateToProps)(MobileArtist);
+export default connect(mapStateToProps)(MobilePlaylist);

@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Router
+import {	Router, Route, Link, IndexLink, IndexRoute, hashHistory} from	'react-router';
+
 // Redux
 import store from './store';
 import { connect } from 'react-redux';
@@ -14,6 +17,8 @@ import Footer from './components/footer.jsx';
 import MainMiddle from './components/mainMiddle.jsx';
 import MobileMain from './components/mobileMain.jsx';
 import MobileArtist from './components/mobileArtist.jsx';
+import MobilePlaylist from './components/mobilePlaylist.jsx';
+import MobileSearch from './components/mobileSearch.jsx';
 
 class AppContainer extends React.Component {
   randomTrack = () => {
@@ -63,7 +68,7 @@ class AppContainer extends React.Component {
     let finished = false;
     let counter = 0;
     DZ.Event.subscribe('player_position', function(e){
-      if(Math.floor(e[0]) === Math.floor(e[1]) && counter) {
+      if(Math.floor(e[0]) === Math.floor(e[1]) && counter % 2) {
         finished = true;
         counter = 0;
       }
@@ -83,12 +88,12 @@ class AppContainer extends React.Component {
 
   render () {
     return <div className="NavyPlayer">
-        <Search searchArtist={this.searchArtist} searchConcerts={this.searchConcerts} />
-        <Title />
-        <MainMiddle randomTrack={this.randomTrack} />
-        <PlayerAndProgress randomTrack={this.randomTrack} />
-        <Choose />
-        <Footer />
+        <Router history={hashHistory}>
+            <Route path="/" component={MobileMain} />
+            <Route path="/artist" component={MobileArtist} />
+            <Route path="/playlist" component={MobilePlaylist} />
+            <Route path="/search" component={MobileSearch} />
+        </Router>
       </div>
   }
 }

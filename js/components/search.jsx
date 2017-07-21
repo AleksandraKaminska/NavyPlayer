@@ -45,12 +45,38 @@ class Search extends React.Component {
       </div>
   }
 
+  searchConcerts = () => {
+    $.ajax({
+      dataType: "json",
+      url : `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
+      success : response => {
+        store.dispatch({
+          type: 'FIND_CONCERTS',
+          concerts: response
+        });
+      }
+    });
+  }
+
+  searchArtist = () => {
+    $.ajax({
+      dataType: "json",
+      url :`https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
+      success : response => {
+        store.dispatch({
+          type: 'FIND_ARTIST',
+          artistInfo: response
+        });
+      }
+    });
+  }
+
   handleSelect = (value, item) => {
     store.dispatch(changeTrackAction(item));
     promise.then(result => {
       store.dispatch(autocompleteAction(value));
-      this.props.searchArtist();
-      this.props.searchConcerts();
+      this.searchArtist();
+      this.searchConcerts();
       DZ.player.pause();
       DZ.player.playTracks([this.props.track.id]);
       store.dispatch(autocompleteAction(""));

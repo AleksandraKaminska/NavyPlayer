@@ -10,6 +10,18 @@ $progress-value-color: rgb(66, 66, 66);
   align-items: center;
 }
 
+@mixin mobileComponent($artist, $playlists, $search) {
+  .artistInfo {
+    display: $artist;
+  }
+  .playlists {
+    display: $playlists;
+  }
+  .search {
+    display: $search;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -293,6 +305,44 @@ body {
     height: 0.7em;
     width: auto;
   }
+}
+
+.mobile {
+  .choose {
+    position: static;
+    background: rgba(0,0,0,0.5);
+  }
+  .footer {
+    position: static;
+    background: rgba(0,0,0,0.5);
+  }
+  .cover {
+    display: none;
+  }
+  .small {
+    display: flex;
+  }
+  .title {
+    display: none;
+  }
+  .time {
+    display: none;
+  }
+  .playerAndProgress {
+    position: relative;
+  }
+}
+
+.mobileArtist {
+  @include mobileComponent(block, none, none);
+}
+
+.mobilePlaylist {
+  @include mobileComponent(none, block, none);
+}
+
+.mobileSearch {
+  @include mobileComponent(none, none, block);
 }
 
 @media (min-width: 960px), (min-device-width: 700px) and (orientation: landscape) {
