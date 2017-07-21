@@ -5,14 +5,13 @@ import store from './../store';
 import { connect } from 'react-redux';
 import {changeTrackAction} from './../actions/index.js';
 
-import Search from './search.jsx';
 import Title from './title.jsx';
-import MainMiddle from './mainMiddle.jsx';
+import Cover from './cover.jsx';
 import PlayerAndProgress from './playerAndProgress.jsx';
 import Choose from './choose.jsx';
 import Footer from './footer.jsx';
 
-class MobileMain extends React.Component {
+class Main extends React.Component {
 	randomTrack = () => {
     $.ajax({
         dataType: "jsonp",
@@ -56,10 +55,9 @@ class MobileMain extends React.Component {
   }
 
   render() {
-    return <div className="mobileMain">
-				<Search />
+    return <div className="main">
 				<Title />
-				<MainMiddle randomTrack={this.randomTrack} />
+				<Cover />
 				<PlayerAndProgress randomTrack={this.randomTrack} />
 				<Choose />
 				<Footer />
@@ -74,4 +72,4 @@ const mapStateToProps = function(store) {
   };
 };
 
-export default connect(mapStateToProps)(MobileMain);
+export default connect(mapStateToProps)(Main);

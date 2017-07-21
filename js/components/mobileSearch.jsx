@@ -14,7 +14,7 @@ import Footer from './footer.jsx';
 
 class MobileSearch extends React.Component {
   render() {
-    return <div className="mobile mobileSearch">
+    return <div className="mobileSearch">
         <Search />
         <PlayerAndProgress randomTrack={this.randomTrack} />
         <Choose />

@@ -44,6 +44,62 @@ body {
   height: 100%;
   width: 100%;
   background: $navy-color;
+  .desktop {
+    display: none;
+  }
+  a {
+    color: $white-color;
+    text-decoration: none;
+  }
+}
+
+.mobile {
+  .choose {
+    position: static;
+    background: rgba(0,0,0,0.5);
+  }
+  .footer {
+    position: static;
+    background: rgba(0,0,0,0.5);
+  }
+  .small {
+    display: flex;
+  }
+  .title {
+    display: none;
+  }
+  .time {
+    display: none;
+  }
+  .playerAndProgress {
+    position: relative;
+  }
+}
+
+.main {
+  .choose {
+    position: absolute;
+    bottom: 5vh;
+    background: transparent;
+  }
+  .footer {
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+  }
+  .small {
+    display: none;
+  }
+  .title {
+    display: block;
+  }
+  .time {
+    display: block;
+  }
+  .playerAndProgress {
+    position: absolute;
+    top: 50%;
+  }
 }
 
 .search, .title, .footer, .choose {
@@ -51,7 +107,6 @@ body {
 }
 
 .search {
-  display: none;
   height: 70vh;
   div:first-child {
     width: 100vw;
@@ -104,7 +159,6 @@ body {
   .playlists {
     height: 70vh;
     width: 100%;
-    display: none;
     div {
       max-height: 70vh;
       overflow-y: auto;
@@ -141,7 +195,6 @@ body {
     width: 100%;
     padding: 0 3vw;
     height: 70vh;
-    display: none;
     .info {
       height: 10vh;
       margin-top: 1vh;
@@ -161,8 +214,6 @@ body {
           font-family: 'Playfair Display', serif;
         }
         a {
-          color: $white-color;
-          text-decoration: none;
           font-size: 0.85em;
           font-family: 'Playfair Display', serif;
           i {
@@ -190,37 +241,28 @@ body {
         max-height: 43vh;
         list-style: none;
         overflow-y: auto;
-        a {
-          color: $white-color;
-          text-decoration: none;
-        }
       }
     }
   }
 }
 
 .playerAndProgress {
-  position: absolute;
-  top: 50%;
   @include flex(center);
   width: 100%;
   height: 10vh;
-  .small {
-    display: none;
-    .smallCover {
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      margin: 4vh 1vw 0 1vw;
-    }
-    .smallTitle {
-      font-size: 0.8em;
-      margin-top: 4vh;
-      width: 52vw;
-      font-weight: bold;
-      display: inline-block;
-      overflow: hidden;
-    }
+  .smallCover {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 4vh 1vw 0 1vw;
+  }
+  .smallTitle {
+    font-size: 0.8em;
+    margin-top: 4vh;
+    width: 52vw;
+    font-weight: bold;
+    display: inline-block;
+    overflow: hidden;
   }
   .playerMain {
     margin-top: calc((12vh - 3em * 0.6) / 2);
@@ -266,10 +308,7 @@ body {
 }
 
 .choose {
-  position: absolute;
-  bottom: 5vh;
   height: 10vh;
-  background: transparent;
   margin-top: 5vh;
   padding: 2vh 1vw;
   @include flex(space-around);
@@ -282,7 +321,7 @@ body {
       height: 1.6em;
       font-size: 1.6em;
       background: transparent;
-      color: white;
+      color: $white-color;
       border: 0;
       outline: none;
       p {
@@ -294,42 +333,13 @@ body {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
   height: 5vh;
   @include flex(flex-start);
-  background: transparent;
   font-size: 0.7em;
   padding: 2vh 1vw;
   img {
     height: 0.7em;
     width: auto;
-  }
-}
-
-.mobile {
-  .choose {
-    position: static;
-    background: rgba(0,0,0,0.5);
-  }
-  .footer {
-    position: static;
-    background: rgba(0,0,0,0.5);
-  }
-  .cover {
-    display: none;
-  }
-  .small {
-    display: flex;
-  }
-  .title {
-    display: none;
-  }
-  .time {
-    display: none;
-  }
-  .playerAndProgress {
-    position: relative;
   }
 }
 
@@ -343,6 +353,12 @@ body {
 
 .mobileSearch {
   @include mobileComponent(none, none, block);
+}
+
+.active {
+  button {
+    color: #046380 !important;
+  }
 }
 
 @media (min-width: 960px), (min-device-width: 700px) and (orientation: landscape) {
@@ -370,6 +386,10 @@ body {
         background: rgba(66, 66, 66, 0.7);
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
+  }
+
+  .desktop {
+    display: block;
   }
 
   .search {
@@ -495,5 +515,9 @@ body {
     img {
       height: 1em;
     }
+  }
+
+  .mobile {
+    display: none;
   }
 }

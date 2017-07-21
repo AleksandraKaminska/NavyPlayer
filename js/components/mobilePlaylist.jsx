@@ -54,7 +54,7 @@ class MobilePlaylist extends React.Component {
   }
 
   render() {
-    return <div className="mobile mobilePlaylist">
+    return <div className="mobilePlaylist">
 				<div className='mainMiddle'>
 					<ChoosePlaylists randomTrack={this.randomTrack} />
 				</div>

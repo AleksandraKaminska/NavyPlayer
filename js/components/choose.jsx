@@ -7,7 +7,7 @@ class Choose extends React.Component {
   render(){
     return <div className="choose">
         <div>
-					<IndexLink to="/artist">
+					<IndexLink to="/artist" activeClassName="active">
 						<button>
 		          <i className="fa fa-user" aria-hidden="true"></i>
 							<p>Artist</p>
@@ -15,7 +15,7 @@ class Choose extends React.Component {
 					</IndexLink>
         </div>
         <div>
-					<IndexLink to="/playlist">
+					<IndexLink to="/playlist" activeClassName="active">
 						<button>
 		          <i className="fa fa-music" aria-hidden="true"></i>
 							<p>Playlists</p>
@@ -23,7 +23,7 @@ class Choose extends React.Component {
 					</IndexLink>
         </div>
         <div>
-					<IndexLink to="/search">
+					<IndexLink to="/search" activeClassName="active">
 						<button>
 		          <i className="fa fa-search" aria-hidden="true"></i>
 							<p>Search</p>

@@ -54,7 +54,7 @@ class MobileArtist extends React.Component {
   }
 
   render() {
-    return <div className="mobile mobileArtist">
+    return <div className="mobileArtist">
 				<div className='mainMiddle'>
 					<ArtistInfo />
 				</div>
