@@ -7483,9 +7483,8 @@ var Footer = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Footer.__proto__ || Object.getPrototypeOf(Footer)).call.apply(_ref, [this].concat(args))), _this), _this.login = function () {
       DZ.login(function (response) {
         if (response.authResponse) {
-          console.log('Welcome!  Fetching your information.... ');
           DZ.api('/user/me', function (response) {
-            console.log('Good to see you, ' + response.name + '.');
+            console.log('Success.');
           });
         } else {
           console.log('User cancelled login or did not fully authorize.');
@@ -18600,7 +18599,29 @@ var AppContainer = function (_React$Component) {
   _createClass(AppContainer, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       this.randomTrack();
+      var finished = false;
+      var counter = 0;
+      DZ.Event.subscribe('player_position', function (e) {
+        if (Math.floor(e[0]) === Math.floor(e[1]) && counter) {
+          finished = true;
+          counter = 0;
+        }
+        counter++;
+      });
+      this.intervalId = setInterval(function () {
+        if (finished) {
+          _this2.randomTrack();
+          finished = false;
+        }
+      }, 1000);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      clearInterval(this.intervalId);
     }
   }, {
     key: 'render',
@@ -19548,8 +19569,17 @@ var Progress = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Progress.__proto__ || Object.getPrototypeOf(Progress)).call.apply(_ref, [this].concat(args))), _this), _this.showPosition = function () {
       DZ.Event.subscribe('player_position', function (e) {
-        document.querySelector('.elapsed').innerText = Math.floor(e[0] / 60) + ':' + (e[0] % 60 < 10 ? '0' : '') + Math.floor(e[0] % 60);
-        document.querySelector('.duration').innerText = Math.floor(e[1] / 60) + ':' + Math.floor(e[1] % 60) + (e[1] % 60 < 10 ? '0' : '');
+        var min = Math.floor(e[0] / 60);
+        var s = Math.floor(e[0] % 60);
+        var time = min + ':' + (s < 10 ? '0' : '') + s;
+
+        document.querySelector('.elapsed').innerText = time;
+
+        min = Math.floor(e[1] / 60);
+        s = Math.floor(e[1] % 60);
+        time = min + ':' + (s < 10 ? '0' : '') + s;
+
+        document.querySelector('.duration').innerText = time;
         document.querySelector('progress').setAttribute("value", e[0] / e[1]);
       });
     }, _this.changeSeek = function (event) {

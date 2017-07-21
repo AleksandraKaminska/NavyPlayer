@@ -4,9 +4,8 @@ class Footer extends React.Component {
   login = () => {
     DZ.login(response => {
 	    if (response.authResponse) {
-		    console.log('Welcome!  Fetching your information.... ');
 		    DZ.api('/user/me', response => {
-			    console.log('Good to see you, ' + response.name + '.');
+			    console.log('Success.');
 		    });
 	    } else {
 		      console.log('User cancelled login or did not fully authorize.');

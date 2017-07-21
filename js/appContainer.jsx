@@ -60,7 +60,26 @@ class AppContainer extends React.Component {
 
   componentDidMount() {
     this.randomTrack();
+    let finished = false;
+    let counter = 0;
+    DZ.Event.subscribe('player_position', function(e){
+      if(Math.floor(e[0]) === Math.floor(e[1]) && counter) {
+        finished = true;
+        counter = 0;
+      }
+      counter++;
+    });
+    this.intervalId	=	setInterval(() =>	{
+      if(finished) {
+        this.randomTrack();
+        finished = false;
+      }
+    }, 1000);
   }
+
+	componentWillUnmount(){
+		clearInterval(this.intervalId);
+	}
 
   render () {
     return <div className="NavyPlayer">

@@ -2,12 +2,19 @@ import React from 'react';
 
 class Progress extends React.Component {
   showPosition = () => {
-    DZ.Event.subscribe('player_position', function(e){
-       document.querySelector('.elapsed').innerText =
-         (Math.floor(e[0] / 60) + ':' + (e[0] % 60 < 10 ? '0' : '') + Math.floor(e[0] % 60));
-       document.querySelector('.duration').innerText =
-         (Math.floor(e[1] / 60) + ':' + Math.floor(e[1] % 60) + (e[1] % 60 < 10 ? '0' : ''));
-       document.querySelector('progress').setAttribute("value", e[0] / e[1]);
+    DZ.Event.subscribe('player_position', e => {
+      let min = Math.floor(e[0] / 60);
+      let s = Math.floor(e[0] % 60);
+      let time = min + ':' + (s < 10 ? '0' : '') + s;
+
+      document.querySelector('.elapsed').innerText = time;
+
+      min = Math.floor(e[1] / 60);
+      s = Math.floor(e[1] % 60);
+      time = min + ':' + (s < 10 ? '0' : '') + s;
+      
+      document.querySelector('.duration').innerText = time;
+      document.querySelector('progress').setAttribute("value", e[0] / e[1]);
     });
   }
 
