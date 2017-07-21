@@ -16,11 +16,9 @@ import Footer from './footer.jsx';
 class MobileMain extends React.Component {
   render() {
     return <div className="mobileMain">
-        <Title title={this.props.route.track.title_short} artist={this.props.route.track.artist.name} />
-        <MainMiddle track={this.props.route.track} />
-        <PlayerAndProgress
-          randomTrack={this.props.route.randomTrack}
-          track={this.props.route.track} />
+        <Title/>
+        <MainMiddle />
+        <PlayerAndProgress />
         <Choose />
         <Footer />
       </div>

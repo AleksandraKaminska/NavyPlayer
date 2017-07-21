@@ -6,10 +6,24 @@ Music app powered by Deezer and Bandsintown REST APIs- my final project after pr
 ### Built With:
  - Sass
  - React
+ - Redux
  - AJAX (JSONP)
  - [React-autocomplete](https://github.com/reactjs/react-autocomplete)
 
-## To install:
+### Clone the repository
 
-- Download a package with project.
-- Write **npm install** in terminal.
+ `git clone https://github.com/AleksandraKaminska/NavyPlayer-deezer-.git`
+
+### Move into repository
+
+ `cd NavyPlayer-deezer-`
+
+### Install dependencies
+
+ `npm install`
+
+ #### To do your own experiments:
+
+ `npm run webpack` and `npm run server`
+
+ Enjoy!

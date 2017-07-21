@@ -214,6 +214,9 @@ body {
     margin-top: calc((12vh - 3em * 0.6) / 2);
     @include flex(space-between);
     button {
+      &:first-child {
+        transform: scale(0.5, 0.5);
+      }
       background: transparent;
       border: none;
       outline: none;
@@ -404,11 +407,14 @@ body {
     height: auto;
     width: 100%;
     .playerMain {
-      margin-top: 1vh;
+      margin-top: 0.5vh;
       button {
+        &:first-child {
+          transform: scale(0.5, 0.5);
+        }
         cursor: pointer;
-        margin: 2vh 1vw 0 0;
-        transform: scale(1, 1);
+        margin: 0 1vw 0 0;
+        transform: scale(0.8, 0.8);
       }
     }
 

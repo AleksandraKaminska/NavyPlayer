@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Redux
 import store from './../store';
 import { connect } from 'react-redux';
 

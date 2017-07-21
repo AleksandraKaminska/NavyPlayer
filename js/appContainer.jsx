@@ -1,12 +1,11 @@
 import React from 'react';
 
+// Redux
 import store from './store';
 import { connect } from 'react-redux';
+import {changeTrackAction} from './actions/index.js';
 
-import {
-  changeTrackAction
-} from './actions/index.js';
-
+// Components
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
@@ -47,17 +46,16 @@ class AppContainer extends React.Component {
   }
 
   searchConcerts = () => {
-      let url = `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`;
-      $.ajax({
-          dataType: "json",
-          url : url,
-          success : response => {
-            store.dispatch({
-                type: 'FIND_CONCERTS',
-                concerts: response
-            });
-          }
-      });
+    $.ajax({
+      dataType: "json",
+      url : `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
+      success : response => {
+        store.dispatch({
+          type: 'FIND_CONCERTS',
+          concerts: response
+        });
+      }
+    });
   }
 
   componentDidMount() {
