@@ -14,13 +14,13 @@ class Footer extends React.Component {
   }
 
   render(){
-    return <div className="footer">
+    return <footer>
         <p onClick={this.login}>
           Powered by Deezer <a href="http://www.deezer.com/pl/" target='_blank'>
             <img src="images/DZ_Logo.png" alt='Deezer Logo'/>
           </a>
         </p>
-      </div>
+      </footer>
   }
 }
 

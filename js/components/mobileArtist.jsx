@@ -3,11 +3,9 @@ import ArtistInfo from './artistInfo.jsx';
 
 class MobileArtist extends React.Component {
   render() {
-    return <div>
-				<div className='mainMiddle'>
+    return <div className='mainMiddle'>
 					<ArtistInfo />
 				</div>
-      </div>
   }
 }
 

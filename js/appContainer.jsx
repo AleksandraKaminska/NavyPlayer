@@ -22,7 +22,6 @@ import Template from './components/template.jsx';
 import Main from './components/main.jsx';
 import MobileArtist from './components/mobileArtist.jsx';
 import MobilePlaylist from './components/mobilePlaylist.jsx';
-import MobileSearch from './components/mobileSearch.jsx';
 
 class AppContainer extends React.Component {
   randomTrack = () => {
@@ -98,7 +97,7 @@ class AppContainer extends React.Component {
               <IndexRoute component={Main} />
               <Route path="/artist" component={MobileArtist} />
               <Route path="/playlist" component={MobilePlaylist} />
-              <Route path="/search" component={MobileSearch} />
+              <Route path="/search" component={Search} />
               <Route path="*" component={Main} />
             </Route>
           </Router>

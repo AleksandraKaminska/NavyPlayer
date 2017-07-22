@@ -5,7 +5,8 @@ import { IndexLink } from	'react-router';
 
 class Choose extends React.Component {
   render(){
-    return <div className="choose">
+    return <nav>
+      <div className="choose">
         <div>
 					<IndexLink to="/artist" activeClassName="active">
 						<button>
@@ -31,6 +32,7 @@ class Choose extends React.Component {
 					</IndexLink>
         </div>
       </div>
+    </nav>
   }
 }
 

@@ -16,6 +16,9 @@ $progress-value-color: rgb(66, 66, 66);
     }
     .playerAndProgress {
       position: relative;
+      progress[value] {
+        width: 100%;
+      }
     }
     .choose {
       position: static;
@@ -24,7 +27,7 @@ $progress-value-color: rgb(66, 66, 66);
     .cover {
       display: none;
     }
-    .footer {
+    footer {
       position: static;
       background: rgba(0,0,0,0.5);
     }
@@ -62,7 +65,7 @@ body {
   }
 }
 
-.search, .title, .footer, .choose {
+.search, .title, footer, .choose {
   width: 100%;
 }
 
@@ -282,7 +285,7 @@ body {
     }
   }
 
-.footer {
+footer {
   height: 5vh;
   @include flex(flex-start);
   font-size: 0.7em;
@@ -302,13 +305,28 @@ body {
 .\/ {
   .time {
     position: absolute;
-    right: 5vw;
-    top: 5vh;
+    top: -1.5vh;
+    right: 0;
     display: block;
+    .elapsed {
+      right: 88vw;
+      position: absolute;
+    }
+    .pipe {
+      display: none;
+    }
+    .duration {
+      right: 2vw;
+      position: absolute;
+    }
   }
   .playerAndProgress {
     position: absolute;
     top: 50%;
+    progress[value] {
+      width: 70%;
+      left: 15%;
+    }
   }
   .choose {
     position: absolute;
@@ -323,7 +341,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
   }
-  .footer {
+  footer {
     background: transparent;
     position: absolute;
     bottom: 0;
@@ -490,7 +508,7 @@ body {
     display: none;
   }
 
-  .footer {
+  footer {
     position: static;
     height: auto;
     padding: 0 0.5em;

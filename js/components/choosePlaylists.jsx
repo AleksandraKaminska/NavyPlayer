@@ -10,14 +10,14 @@ class ChoosePlaylists extends React.Component {
 
   render() {
     return <div className="playlists">
-      <div>
-        {this.playlists.map((elem, i) => <Playlist
-          elem={elem}
-          randomTrack={this.props.randomTrack}
-          key={i} />
-        )}
+        <div>
+          {this.playlists.map((elem, i) => <Playlist
+            elem={elem}
+            randomTrack={this.props.randomTrack}
+            key={i} />
+          )}
+        </div>
       </div>
-    </div>
   }
 }
 
