@@ -7,14 +7,18 @@ class Progress extends React.Component {
       let s = Math.floor(e[0] % 60);
       let time = min + ':' + (s < 10 ? '0' : '') + s;
 
-      document.querySelector('.elapsed').innerText = time;
+      let elapsed = document.querySelectorAll('.elapsed');
+      let duration = document.querySelectorAll('.duration');
+      let progress = document.querySelectorAll('progress');
+
+      elapsed.forEach((elem, i) => elapsed[i].innerText = time);
 
       min = Math.floor(e[1] / 60);
       s = Math.floor(e[1] % 60);
       time = min + ':' + (s < 10 ? '0' : '') + s;
-      
-      document.querySelector('.duration').innerText = time;
-      document.querySelector('progress').setAttribute("value", e[0] / e[1]);
+
+      duration.forEach((elem, i) => duration[i].innerText = time);
+      progress.forEach((elem, i) => progress[i].setAttribute("value", e[0] / e[1]));
     });
   }
 

@@ -8,8 +8,7 @@ class PlayerAndProgress extends React.Component {
   render(){
     return <div className="playerAndProgress">
 				<SmallCover />
-        <Player
-          randomTrack={this.props.randomTrack} />
+        <Player randomTrack={this.props.randomTrack} />
         <Progress />
     </div>
   }
