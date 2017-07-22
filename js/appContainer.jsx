@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Router
-import {Router, Route, hashHistory} from	'react-router';
+import {Router, Route, hashHistory, IndexRoute} from	'react-router';
 
 // Redux
 import store from './store';
@@ -17,6 +17,7 @@ import Footer from './components/footer.jsx';
 import MainMiddle from './components/mainMiddle.jsx';
 
 //Routes
+import Template from './components/template.jsx';
 import Main from './components/main.jsx';
 import MobileArtist from './components/mobileArtist.jsx';
 import MobilePlaylist from './components/mobilePlaylist.jsx';
@@ -91,10 +92,12 @@ class AppContainer extends React.Component {
         </div>
         <div className='mobile'>
           <Router history={hashHistory}>
-              <Route path="/" component={Main} />
+            <Route	path='/'	component={Template}>
+              <IndexRoute component={Main} />
               <Route path="/artist" component={MobileArtist} />
               <Route path="/playlist" component={MobilePlaylist} />
               <Route path="/search" component={MobileSearch} />
+            </Route>
           </Router>
         </div>
       </div>
