@@ -203,6 +203,9 @@ body {
   @include flex(center);
   width: 100%;
   height: 10vh;
+  a {
+    max-width: 65%;
+  }
   .small {
     display: flex;
   }

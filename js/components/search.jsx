@@ -1,5 +1,7 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
+
+// Redux
 import store from './../store';
 import { connect } from 'react-redux';
 import {
@@ -8,7 +10,7 @@ import {
   changeTrackAction
 } from './../actions/index.js';
 
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise((resolve, reject) => {
   true ? resolve("Stuff worked!") : reject(Error("It broke"));
 });
 
@@ -16,23 +18,22 @@ class Search extends React.Component {
   handlerRenderItem = (item, isHighlighted) => {
     const style = {
       item: {
-        padding: '2px 6px',
+        padding: '1.5vh 6px',
         background: '#111',
         width: '100%',
         height: '14vh'
       },
       highlightedItem: {
-        background: '#14375A',
-        padding: '2px 6px',
+        background: '#046380',
+        padding: '1.5vh 6px',
         cursor: 'pointer',
         width: '100%',
         height: '14vh'
       }
     };
-    return <div key={item.id}
-        style={isHighlighted ? style.highlightedItem : style.item}>
+    return <div key={item.id} style={isHighlighted ? style.highlightedItem : style.item}>
         <div style={{
-            maxWidth: 'calc(100% - 75px)',
+            maxWidth: 'calc(100% - 3.5em)',
             float: 'left',
             overflowWrap: 'break-word',
             color: 'white',
@@ -41,33 +42,23 @@ class Search extends React.Component {
           }}>
           <p>{item.title_short} - {item.artist.name}</p>
         </div>
-        <img src={item.album.cover} width='64px' height='64px' alt='cover'/>
+        <img src={item.album.cover} width='50em' height='50em' alt='cover'/>
       </div>
   }
 
   searchConcerts = () => {
     $.ajax({
       dataType: "json",
-      url : `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
-      success : response => {
-        store.dispatch({
-          type: 'FIND_CONCERTS',
-          concerts: response
-        });
-      }
+      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
+      success: response => store.dispatch({ type: 'FIND_CONCERTS', concerts: response })
     });
   }
 
   searchArtist = () => {
     $.ajax({
       dataType: "json",
-      url :`https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
-      success : response => {
-        store.dispatch({
-          type: 'FIND_ARTIST',
-          artistInfo: response
-        });
-      }
+      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
+      success: response => store.dispatch({ type: 'FIND_ARTIST', artistInfo: response })
     });
   }
 
@@ -80,9 +71,7 @@ class Search extends React.Component {
       DZ.player.pause();
       DZ.player.playTracks([this.props.track.id]);
       store.dispatch(autocompleteAction(""));
-    }, function(err) {
-      console.log(err);
-    });
+    }, err => console.log(err));
   }
 
   handleChange = (event) => {
@@ -120,7 +109,7 @@ class Search extends React.Component {
   }
 }
 
-const mapStateToProps = function(store) {
+const mapStateToProps = store => {
   return {
     searchTracks: store.searchTracks,
     autocompleteValue: store.autocompleteValue,

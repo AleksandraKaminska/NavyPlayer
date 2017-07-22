@@ -3,6 +3,7 @@ import React from 'react';
 // Router
 import { IndexLink } from	'react-router';
 
+// Redux
 import store from './../store';
 import { connect } from 'react-redux';
 
@@ -23,7 +24,7 @@ class SmallCover extends React.Component {
   }
 }
 
-const mapStateToProps = function(store) {
+const mapStateToProps = store => {
   return {
     title: store.track.title_short,
     artist: store.track.artist.name,

@@ -24,6 +24,6 @@ Music app powered by Deezer and Bandsintown REST APIs- my final project after pr
 
  #### To do your own experiments:
 
- `npm run webpack` and `npm run server`
+ `npm run webpack` then `npm run server`
 
  Enjoy!

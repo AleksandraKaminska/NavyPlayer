@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Redux
 import store from './../store';
 import { connect } from 'react-redux';
 
@@ -12,7 +14,7 @@ class Title extends React.Component {
   }
 }
 
-const mapStateToProps = function(store) {
+const mapStateToProps = store => {
   return {
     title: store.track.title_short,
     artist: store.track.artist.name

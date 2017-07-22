@@ -4,29 +4,25 @@ class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: true,
+      isPlaying: !DZ.player.isPlaying()
     }
   }
 
   changeIsPlaying = () => {
-    if (this.state.isPlaying === false) {
-      this.setState({
-        isPlaying: true
-      }, () => {
-        DZ.player.play();
-      });
-    } else {
+    if (this.state.isPlaying) {
       this.setState({
         isPlaying: false
-      }, () => {
-        DZ.player.pause();
-      });
+      }, () => DZ.player.pause());
+    } else {
+      this.setState({
+        isPlaying: true
+      }, () => DZ.player.play());
     }
   }
 
   changeTrack = () => {
     this.setState({
-      isPlaying: false,
+      isPlaying: true,
       counter: 0
     }, () => {
       DZ.player.pause();
