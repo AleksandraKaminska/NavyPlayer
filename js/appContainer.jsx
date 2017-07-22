@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import {changeTrackAction} from './actions/index.js';
 
 // Components
+import Login from './components/login.jsx';
 import Title from './components/title.jsx';
 import PlayerAndProgress from './components/playerAndProgress.jsx';
 import Search from './components/search.jsx';
@@ -83,6 +84,7 @@ class AppContainer extends React.Component {
   render () {
     return <div className="NavyPlayer">
         <div className='desktop'>
+          <Login />
           <Search />
           <Title />
           <MainMiddle randomTrack={this.randomTrack} />
@@ -92,11 +94,12 @@ class AppContainer extends React.Component {
         </div>
         <div className='mobile'>
           <Router history={hashHistory}>
-            <Route	path='/'	component={Template}>
+            <Route path='/' component={Template}>
               <IndexRoute component={Main} />
               <Route path="/artist" component={MobileArtist} />
               <Route path="/playlist" component={MobilePlaylist} />
               <Route path="/search" component={MobileSearch} />
+              <Route path="*" component={Main} />
             </Route>
           </Router>
         </div>

@@ -87,7 +87,7 @@ class Search extends React.Component {
     const inputProps = {
       placeholder: "Search tracks",
       title: "Search tracks"
-    };
+    };    
     return <div className="search">
       <Autocomplete
         ref="autocomplete"

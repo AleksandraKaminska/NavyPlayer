@@ -295,7 +295,7 @@ body {
 
 .active {
   button {
-    color: #046380 !important;
+    color: rgb(4, 99, 128) !important;
   }
 }
 
@@ -337,7 +337,7 @@ body {
   @include mobileComponent();
 }
 
-@media (min-width: 960px), (min-device-width: 700px) and (orientation: landscape) {
+@media (min-width: 960px), (min-width: 700px) and (orientation: landscape) {
   body {
     ::-webkit-scrollbar {
       width: 7px;
@@ -367,7 +367,6 @@ body {
     display: block;
     @include flex(center);
   }
-
 
   .search {
     height: auto;
@@ -500,6 +499,22 @@ body {
     background: $navy-color;
     img {
       height: 1em;
+    }
+  }
+
+  .login {
+    text-align: center;
+    position: absolute;
+    right: 1.5vw;
+    top: 3vh;
+    background: rgba(4, 99, 128, 0.5);
+    width: 10vw;
+    padding: 0.5em;
+    border-radius: 10px;
+    font-family: 'Reem Kufi', sans-serif;
+    cursor: pointer;
+    &:hover {
+      background: #035270;
     }
   }
 
