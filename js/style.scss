@@ -39,8 +39,6 @@ body {
 }
 
 .NavyPlayer {
-  @include flex(center);
-  align-items: flex-end;
   height: 100%;
   width: 100%;
   background: $navy-color;
@@ -50,55 +48,6 @@ body {
   a {
     color: $white-color;
     text-decoration: none;
-  }
-}
-
-.mobile {
-  .choose {
-    position: static;
-    background: rgba(0,0,0,0.5);
-  }
-  .footer {
-    position: static;
-    background: rgba(0,0,0,0.5);
-  }
-  .small {
-    display: flex;
-  }
-  .title {
-    display: none;
-  }
-  .time {
-    display: none;
-  }
-  .playerAndProgress {
-    position: relative;
-  }
-}
-
-.main {
-  .choose {
-    position: absolute;
-    bottom: 5vh;
-    background: transparent;
-  }
-  .footer {
-    background: transparent;
-    position: absolute;
-    bottom: 0;
-  }
-  .small {
-    display: none;
-  }
-  .title {
-    display: block;
-  }
-  .time {
-    display: block;
-  }
-  .playerAndProgress {
-    position: absolute;
-    top: 50%;
   }
 }
 
@@ -185,11 +134,7 @@ body {
     }
   }
   .cover {
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    display: none;
   }
   .artistInfo {
     width: 100%;
@@ -247,9 +192,13 @@ body {
 }
 
 .playerAndProgress {
+  position: relative;
   @include flex(center);
   width: 100%;
   height: 10vh;
+  .small {
+    display: flex;
+  }
   .smallCover {
     width: 50px;
     height: 50px;
@@ -303,11 +252,14 @@ body {
       position: absolute;
       right: 5vw;
       top: 6.5vh;
+      display: none;
     }
   }
 }
 
 .choose {
+  position: static;
+  background: rgba(0,0,0,0.5);
   height: 10vh;
   margin-top: 5vh;
   padding: 2vh 1vw;
@@ -333,6 +285,8 @@ body {
 }
 
 .footer {
+  position: static;
+  background: rgba(0,0,0,0.5);
   height: 5vh;
   @include flex(flex-start);
   font-size: 0.7em;
@@ -358,6 +312,37 @@ body {
 .active {
   button {
     color: #046380 !important;
+  }
+}
+
+.main {
+  .choose {
+    position: absolute;
+    bottom: 5vh;
+    background: transparent;
+  }
+  .cover {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .footer {
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+  }
+  .small {
+    display: none;
+  }
+  .time {
+    display: block;
+  }
+  .playerAndProgress {
+    position: absolute;
+    top: 50%;
   }
 }
 
@@ -387,10 +372,11 @@ body {
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
   }
-
-  .desktop {
+  .NavyPlayer .desktop {
     display: block;
+    @include flex(center);
   }
+
 
   .search {
     height: auto;
@@ -497,7 +483,11 @@ body {
       .time {
         cursor: default;
         top: 4vh;
+        display: block;
       }
+    }
+    .small {
+      display: none;
     }
   }
 
