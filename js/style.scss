@@ -530,26 +530,17 @@ footer {
       margin-top: 12vh;
       padding: 5vh auto;
       max-width: 60vw;
-      .similar {
-        font-size: 1.2em;
-        cursor: pointer;
-        ul {
-          list-style: none;
-          -moz-column-count: 2;
-          -webkit-column-count: 2;
-          column-count: 2;
-          -moz-column-gap: 15vw;
-          -webkit-column-gap: 15vw;
-          column-gap: 15vw;
-          li {
-            @include flex(space-between);
-            border-bottom: 0.5px rgba(255,255,255,0.2) solid;
-          }
-          img {
-            margin: 2vh auto 2vh auto;
-            width: 80px;
-            height: 80px;
-          }
+      ul {
+        list-style: none;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+        -moz-column-gap: 15vw;
+        -webkit-column-gap: 15vw;
+        column-gap: 15vw;
+        img {
+          width: 5em;
+          height: 5em;
         }
       }
     }
