@@ -71,7 +71,7 @@ class AppContainer extends React.Component {
   searchSimilarArtists = () => {
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/related?output=jsonp`,
+        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/related?limit=10&output=jsonp`,
         success : response => store.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data })
     });
   }
