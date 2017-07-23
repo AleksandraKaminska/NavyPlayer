@@ -1,11 +1,11 @@
 import React from 'react';
-import ArtistInfo from './artistInfo.jsx';
+import Artist from './artist.jsx';
 import Concerts from './concerts.jsx';
 
 class MobileArtist extends React.Component {
   render() {
     return <div className='mainMiddle'>
-					<ArtistInfo />
+					<Artist />
           <Concerts />
 				</div>
   }

@@ -2,8 +2,9 @@ import React from 'react';
 
 import ChoosePlaylists from './choosePlaylists.jsx';
 import Cover from './cover.jsx';
-import ArtistInfo from './artistInfo.jsx';
+import Artist from './artist.jsx';
 import Concerts from './concerts.jsx';
+import Albums from './albums.jsx';
 
 class MainMiddle extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class MainMiddle extends React.Component {
       <div className='mainMiddle'>
         <ChoosePlaylists randomTrack={this.props.randomTrack} />
         <Cover />
-        <ArtistInfo />
+        <Artist />
         <Concerts/>
       </div>
     </main>

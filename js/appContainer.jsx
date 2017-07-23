@@ -26,6 +26,7 @@ class AppContainer extends React.Component {
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
           this.searchArtist();
           this.searchTopTracks();
+          this.searchAlbums();
           this.searchConcerts();
           DZ.player.playTracks([this.props.track.id]);
         }
@@ -34,9 +35,19 @@ class AppContainer extends React.Component {
 
   searchArtist = () => {
     $.ajax({
-      dataType: "json",
-      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
-      success: response => store.dispatch({ type: 'FIND_ARTIST', artistInfo: response })
+      dataType: "jsonp",
+      url: `https://api.deezer.com/artist/${this.props.track.artist.id}?output=jsonp`,
+      success: response => store.dispatch({ type: 'FIND_ARTIST', artist: response })
+    });
+  }
+
+  searchAlbums = () => {
+    $.ajax({
+      dataType: "jsonp",
+      url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
+      success: response => {
+        store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
+      }
     });
   }
 
@@ -44,9 +55,7 @@ class AppContainer extends React.Component {
     $.ajax({
         dataType: "jsonp",
         url :`https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
-        success : response => {
-          store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
-        }
+        success : response => store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
     });
   }
 

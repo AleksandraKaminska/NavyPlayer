@@ -149,7 +149,7 @@ body {
         }
       }
     }
-    .artistInfo {
+    .artist {
       width: 100%;
       padding: 0 3vw;
       .info {
@@ -164,33 +164,17 @@ body {
         }
         div {
           float: left;
-          max-width: calc(100% - 100px);
-          & > p {
+          max-width: calc(100% - 64px);
+          p {
             margin-bottom: 0.1em;
             font-size: 1.2em;
             font-family: 'Playfair Display', serif;
-          }
-          a {
-            font-size: 0.85em;
-            font-family: 'Playfair Display', serif;
-            i {
-              float: left;
-              margin-right: 0.5em;
-              margin-top: 1vh;
-            }
-            span {
-              overflow-wrap: break-word;
-              word-wrap: break-word;
-              -ms-word-break: break-all;
-              word-break: break-all;
-              word-break: break-word;
-            }
           }
         }
       }
       .topTracks {
         margin: 5vh 4vw 0 8vw;
-        max-width: 100%;
+        width: 100%;
         clear: both;
         font-size: 1.2em;
         font-family: 'Playfair Display', serif;
@@ -204,6 +188,20 @@ body {
       }
     }
     .concerts {
+      margin: 1vh 4vw 0 4vw;
+      width: 100%;
+      clear: both;
+      font-size: 1.2em;
+      font-family: 'Reem Kufi', sans-serif;
+      ul {
+        list-style: none;
+        line-height: 6vh;
+        li:hover {
+          color: rgb(4, 99, 128);
+        }
+      }
+    }
+    .albums {
       margin: 1vh 4vw 0 4vw;
       width: 100%;
       clear: both;
@@ -463,21 +461,15 @@ footer {
       background-size: cover;
       background-position: center;
     }
-    .artistInfo {
+    .artist {
       width: calc((100% - 400px) / 2);
       height: auto;
       display: flex;
       flex-wrap: wrap;
       .info {
         height: auto;
-        div > p {
+        p {
           font-size: 1.5em;
-        }
-        a {
-          font-size: 1em;
-          i {
-            margin-right: 10px;
-          }
         }
       }
       .topTracks {
@@ -492,7 +484,15 @@ footer {
     section#concerts{
       margin: 5vh auto;
       .concerts {
-        max-width: 100vw;
+        max-width: 50vw;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+    }
+    section#albums{
+      margin: 5vh auto;
+      .albums {
+        max-width: 50vw;
         font-size: 1.2em;
         cursor: pointer;
       }

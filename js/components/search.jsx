@@ -46,11 +46,21 @@ class Search extends React.Component {
       </div>
   }
 
-  searchConcerts = () => {
+  searchArtist = () => {
     $.ajax({
-      dataType: "json",
-      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
-      success: response => store.dispatch({ type: 'FIND_CONCERTS', concerts: response })
+      dataType: "jsonp",
+      url: `https://api.deezer.com/artist/${this.props.track.artist.id}?output=jsonp`,
+      success: response => store.dispatch({ type: 'FIND_ARTIST', artist: response })
+    });
+  }
+
+  searchAlbums = () => {
+    $.ajax({
+      dataType: "jsonp",
+      url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
+      success: response => {
+        store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
+      }
     });
   }
 
@@ -58,17 +68,15 @@ class Search extends React.Component {
     $.ajax({
         dataType: "jsonp",
         url :`https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
-        success : response => {
-          store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
-        }
+        success : response => store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
     });
   }
 
-  searchArtist = () => {
+  searchConcerts = () => {
     $.ajax({
       dataType: "json",
-      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
-      success: response => store.dispatch({ type: 'FIND_ARTIST', artistInfo: response })
+      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
+      success: response => store.dispatch({ type: 'FIND_CONCERTS', concerts: response })
     });
   }
 
@@ -79,6 +87,7 @@ class Search extends React.Component {
       this.searchArtist();
       this.searchConcerts();
       this.searchTopTracks();
+      this.searchAlbums();
       DZ.player.pause();
       DZ.player.playTracks([this.props.track.id]);
       store.dispatch(autocompleteAction(""));

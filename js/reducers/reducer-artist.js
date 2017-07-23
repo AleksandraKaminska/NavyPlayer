@@ -1,7 +1,7 @@
 export default function (state = {}, action) {
     switch (action.type) {
         case 'FIND_ARTIST':
-            return action.artistInfo;
+            return action.artist;
             break;
     }
     return state;
