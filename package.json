@@ -12,7 +12,6 @@
   "author": "Aleksandra Kamińska",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
     "react": "^15.4.0",
     "react-autocomplete": "^1.5.9",

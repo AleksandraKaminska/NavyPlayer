@@ -3,6 +3,7 @@ import {combineReducers} from 'redux';
 // Reducers
 import ConcertsReducer from './reducer-concerts';
 import ArtistReducer from './reducer-artist';
+import TopTracksReducer from './reducer-top-tracks';
 import ChosenPlaylistReducer from './reducer-chosen-playlist';
 import SearchTracksReducer from './reducer-search-tracks';
 import AutocompleteReducer from './reducer-autocomplete';
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     chosenPlaylist: ChosenPlaylistReducer,
     searchTracks: SearchTracksReducer,
     autocompleteValue: AutocompleteReducer,
-    track: TrackReducer
+    track: TrackReducer,
+    topTracks: TopTracksReducer
 });
 
 export default reducers;

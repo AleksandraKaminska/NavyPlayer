@@ -12,12 +12,12 @@ class MobilePlaylist extends React.Component {
     $.ajax({
         dataType: "jsonp",
         url :`https://api.deezer.com/playlist/${this.props.chosenPlaylist}?output=jsonp`,
-        data : {},
         success : response => {
           const playlistTracks = response.tracks.data;
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
           this.searchArtist();
+          this.searchTopTracks();
           this.searchConcerts();
           DZ.player.playTracks([this.props.track.id]);
         }
@@ -27,26 +27,26 @@ class MobilePlaylist extends React.Component {
   searchArtist = () => {
     $.ajax({
       dataType: "json",
-      url :`https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
-      success : response => {
-        store.dispatch({
-          type: 'FIND_ARTIST',
-          artistInfo: response
-        });
-      }
+      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
+      success: response => store.dispatch({ type: 'FIND_ARTIST', artistInfo: response })
+    });
+  }
+
+	searchTopTracks = () => {
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
+        success : response => {
+          store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
+        }
     });
   }
 
   searchConcerts = () => {
     $.ajax({
       dataType: "json",
-      url : `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
-      success : response => {
-        store.dispatch({
-          type: 'FIND_CONCERTS',
-          concerts: response
-        });
-      }
+      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
+      success: response => store.dispatch({ type: 'FIND_CONCERTS', concerts: response })
     });
   }
 
@@ -60,7 +60,7 @@ class MobilePlaylist extends React.Component {
 const mapStateToProps = function(store) {
   return {
     chosenPlaylist: store.chosenPlaylist,
-    track: store.track
+    track: store.track,
   };
 };
 

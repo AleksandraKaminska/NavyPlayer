@@ -54,6 +54,16 @@ class Search extends React.Component {
     });
   }
 
+  searchTopTracks = () => {
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
+        success : response => {
+          store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
+        }
+    });
+  }
+
   searchArtist = () => {
     $.ajax({
       dataType: "json",
@@ -68,6 +78,7 @@ class Search extends React.Component {
       store.dispatch(autocompleteAction(value));
       this.searchArtist();
       this.searchConcerts();
+      this.searchTopTracks();
       DZ.player.pause();
       DZ.player.playTracks([this.props.track.id]);
       store.dispatch(autocompleteAction(""));
@@ -87,7 +98,7 @@ class Search extends React.Component {
     const inputProps = {
       placeholder: "Search tracks",
       title: "Search tracks"
-    };    
+    };
     return <div className="search">
       <Autocomplete
         ref="autocomplete"

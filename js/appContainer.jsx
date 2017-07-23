@@ -8,20 +8,12 @@ import store from './store';
 import {connect} from 'react-redux';
 import {changeTrackAction} from './actions/index.js';
 
-// Components
-import Login from './components/login.jsx';
-import Title from './components/title.jsx';
-import PlayerAndProgress from './components/playerAndProgress.jsx';
-import Search from './components/search.jsx';
-import Choose from './components/choose.jsx';
-import Footer from './components/footer.jsx';
-import MainMiddle from './components/mainMiddle.jsx';
-
 //Routes
 import Template from './components/template.jsx';
 import Main from './components/main.jsx';
 import MobileArtist from './components/mobileArtist.jsx';
 import MobilePlaylist from './components/mobilePlaylist.jsx';
+import Search from './components/search.jsx';
 
 class AppContainer extends React.Component {
   randomTrack = () => {
@@ -33,6 +25,7 @@ class AppContainer extends React.Component {
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
           this.searchArtist();
+          this.searchTopTracks();
           this.searchConcerts();
           DZ.player.playTracks([this.props.track.id]);
         }
@@ -44,6 +37,16 @@ class AppContainer extends React.Component {
       dataType: "json",
       url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}?app_id=NavyPlayer`,
       success: response => store.dispatch({ type: 'FIND_ARTIST', artistInfo: response })
+    });
+  }
+
+  searchTopTracks = () => {
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
+        success : response => {
+          store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
+        }
     });
   }
 
@@ -80,29 +83,16 @@ class AppContainer extends React.Component {
 		clearInterval(this.intervalId);
 	}
 
-  render () {
-    return <div className="NavyPlayer">
-        <div className='desktop'>
-          <Login />
-          <Search />
-          <Title />
-          <MainMiddle randomTrack={this.randomTrack} />
-          <PlayerAndProgress randomTrack={this.randomTrack} />
-          <Choose />
-          <Footer />
-        </div>
-        <div className='mobile'>
-          <Router history={hashHistory}>
-            <Route path='/' component={Template}>
-              <IndexRoute component={Main} />
-              <Route path="/artist" component={MobileArtist} />
-              <Route path="/playlist" component={MobilePlaylist} />
-              <Route path="/search" component={Search} />
-              <Route path="*" component={Main} />
-            </Route>
-          </Router>
-        </div>
-      </div>
+  render() {
+    return <Router history={hashHistory}>
+      <Route path='/' component={Template}>
+        <IndexRoute component={Main} />
+        <Route path="/artist" component={MobileArtist} />
+        <Route path="/playlist" component={MobilePlaylist} />
+        <Route path="/search" component={Search} />
+        <Route path="*" component={Main} />
+      </Route>
+    </Router>
   }
 }
 

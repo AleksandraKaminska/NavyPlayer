@@ -288,6 +288,7 @@ body {
 footer {
   height: 5vh;
   @include flex(flex-start);
+  align-items: flex-end;
   font-size: 0.7em;
   padding: 2vh 1vw;
   img {

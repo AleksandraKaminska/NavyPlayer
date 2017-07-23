@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import store from './../store';
 
+import TopTracks from './topTracks.jsx';
 import Concerts from './concerts.jsx';
 
 class ArtistInfo extends React.Component {
@@ -18,6 +19,7 @@ class ArtistInfo extends React.Component {
             </a>
           </div>
         </div>
+        <TopTracks />
         <Concerts/>
       </div>
   }
