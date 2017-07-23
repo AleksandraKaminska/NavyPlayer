@@ -151,6 +151,7 @@ body {
       width: 100%;
       padding: 0 3vw;
       height: 70vh;
+      overflow-y: auto;
       .info {
         height: 10vh;
         margin-top: 1vh;
@@ -187,17 +188,22 @@ body {
           }
         }
       }
+      .topTracks {
+        margin: 5vh 4vw 0 4vw;
+        width: 100%;
+        clear: both;
+        font-size: 1.2em;
+        font-family: 'Playfair Display', serif;
+        ul {
+          list-style: circle;
+        }
+      }
       .concerts {
-        margin: 7vh 2vw 0 2vw;
+        margin: 5vh 4vw 0 4vw;
         width: 100%;
         clear: both;
         font-size: 1.2em;
         font-family: 'Reem Kufi', sans-serif;
-        ul {
-          max-height: 43vh;
-          list-style: none;
-          overflow-y: auto;
-        }
       }
     }
   }
@@ -388,7 +394,7 @@ footer {
   }
 
   .search {
-    height: auto;
+    height: 15vh;
     display: block;
     max-width: 30vw;
     div:first-child {
@@ -407,15 +413,18 @@ footer {
   }
 
   .title {
+    height: 6vh;
     position: static;
-    margin: 8vh 0 2vh 1em;
+    padding: 0;
     h3 {
       font-size: 1.5em;
     }
   }
 
   .mainMiddle {
-    margin: 3vh 0 0 0;
+    padding: 3vh 0 0 0;
+    height: 64vh;
+    overflow-y: auto;
     .playlists {
       width: calc((100% - 400px) / 2);
       display: block;
@@ -460,11 +469,27 @@ footer {
           }
         }
       }
-      .concerts {
-        margin: 0;
+      .topTracks {
+        margin: 5vh 0;
         font-size: 1.2em;
+        cursor: pointer;
+        h4 {
+          font-size: 1.2em;
+        }
+      }
+    }
+    section#concerts{
+      margin: 5vh auto;
+      .concerts {
+        max-width: 100vw;
+        font-size: 1.2em;
+        cursor: pointer;
         ul {
-          max-height: 200px;
+          list-style: none;
+          line-height: 5vh;
+          li:hover {
+            color: rgb(4, 99, 128);
+          }
         }
       }
     }
@@ -472,7 +497,7 @@ footer {
 
   .playerAndProgress {
     position: relative;
-    height: auto;
+    height: 10vh;
     width: 100%;
     .playerMain {
       margin-top: 0.5vh;
@@ -511,7 +536,7 @@ footer {
 
   footer {
     position: static;
-    height: auto;
+    height: 5vh;
     padding: 0 0.5em;
     cursor: default;
     font-size: 1em;

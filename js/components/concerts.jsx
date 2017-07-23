@@ -13,12 +13,14 @@ class Concerts extends React.Component {
           </a>
         }
       });
-      return <div className='concerts'>
-        {concerts}
-        <div className="list">
-          <ul>{li}</ul>
+      return <section id='concerts'>
+        <div className='concerts'>
+          {concerts}
+          <div className="list">
+            <ul>{li}</ul>
+          </div>
         </div>
-      </div>
+      </section>
   }
 }
 
