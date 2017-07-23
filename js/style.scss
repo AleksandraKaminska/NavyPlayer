@@ -202,45 +202,30 @@ body {
         }
       }
     }
-    .albums {
-      margin: 1vh 4vw 0 4vw;
-      width: 100%;
-      clear: both;
-      font-size: 1.2em;
-      font-family: 'Reem Kufi', sans-serif;
-      ul {
-        list-style: none;
-        line-height: 6vh;
-        li:hover {
-          color: rgb(4, 99, 128);
+    section#similar {
+      margin: 5vh auto;
+      .similar {
+          margin: 1vh 4vw 0 4vw;
+          width: 100%;
+          clear: both;
+          font-size: 0.5em;
+          font-family: 'Reem Kufi', sans-serif;
+          h4 {
+            font-size: 1.7em;
+          }
+          ul {
+            list-style: none;
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            column-count: 2;
+          }
+          img {
+            border-radius: 50%;
+          }
+          p {
+            float: right;
+          }
         }
-      }
-    }
-    .similar {
-      margin: 1vh 4vw 0 4vw;
-      width: 100%;
-      clear: both;
-      font-size: 1.2em;
-      font-family: 'Reem Kufi', sans-serif;
-      h4 {
-        font-size: 1.7em;
-      }
-      ul {
-        list-style: none;
-        line-height: 6vh;
-        -moz-column-count: 2;
-        -moz-column-gap: 10vw;
-        -webkit-column-count: 2;
-        -webkit-column-gap: 10vw;
-        column-count: 2;
-        column-gap: 10vw;
-      }
-      img {
-        border-radius: 50%;
-      }
-      p {
-        float: right;
-      }
     }
   }
 
@@ -451,7 +436,7 @@ footer {
   .title {
     height: 6vh;
     position: static;
-    padding: 0;
+    padding: 3vh 0;
     h3 {
       font-size: 1.5em;
     }
@@ -511,15 +496,7 @@ footer {
     section#concerts {
       margin: 5vh auto;
       .concerts {
-        max-width: 50vw;
-        font-size: 1.2em;
-        cursor: pointer;
-      }
-    }
-    section#albums {
-      margin: 5vh auto;
-      .albums {
-        max-width: 50vw;
+        max-width: 10vw;
         font-size: 1.2em;
         cursor: pointer;
       }
@@ -527,7 +504,8 @@ footer {
     section#similar {
       margin: 5vh auto;
       .similar {
-        max-width: 50vw;
+        margin: auto;
+        max-width: 90vw;
         font-size: 1.2em;
         cursor: pointer;
       }

@@ -3,7 +3,6 @@ import {combineReducers} from 'redux';
 // Reducers
 import ConcertsReducer from './reducer-concerts';
 import ArtistReducer from './reducer-artist';
-import AlbumsReducer from './reducer-albums';
 import SimilarArtistsReducer from './reducer-similar-artists';
 import TopTracksReducer from './reducer-top-tracks';
 import ChosenPlaylistReducer from './reducer-chosen-playlist';
@@ -19,7 +18,6 @@ const reducers = combineReducers({
     autocompleteValue: AutocompleteReducer,
     track: TrackReducer,
     topTracks: TopTracksReducer,
-    albums: AlbumsReducer,
     similar: SimilarArtistsReducer
 });
 

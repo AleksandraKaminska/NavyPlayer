@@ -54,16 +54,6 @@ class Search extends React.Component {
     });
   }
 
-  searchAlbums = () => {
-    $.ajax({
-      dataType: "jsonp",
-      url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
-      success: response => {
-        store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
-      }
-    });
-  }
-
   searchTopTracks = () => {
     $.ajax({
         dataType: "jsonp",
@@ -80,6 +70,14 @@ class Search extends React.Component {
     });
   }
 
+  searchSimilarArtists = () => {
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/related?limit=10&output=jsonp`,
+        success : response => store.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data })
+    });
+  }
+
   handleSelect = (value, item) => {
     store.dispatch(changeTrackAction(item));
     promise.then(result => {
@@ -87,7 +85,7 @@ class Search extends React.Component {
       this.searchArtist();
       this.searchConcerts();
       this.searchTopTracks();
-      this.searchAlbums();
+      this.searchSimilarArtists();
       DZ.player.pause();
       DZ.player.playTracks([this.props.track.id]);
       store.dispatch(autocompleteAction(""));

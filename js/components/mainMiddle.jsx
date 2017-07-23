@@ -4,7 +4,6 @@ import ChoosePlaylists from './choosePlaylists.jsx';
 import Cover from './cover.jsx';
 import Artist from './artist.jsx';
 import Concerts from './concerts.jsx';
-import Albums from './albums.jsx';
 import SimilarArtists from './similarArtists.jsx';
 
 class MainMiddle extends React.Component {
