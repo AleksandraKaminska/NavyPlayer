@@ -13,8 +13,8 @@ class MainMiddle extends React.Component {
         <ChoosePlaylists randomTrack={this.props.randomTrack} />
         <Cover />
         <Artist />
-        <Concerts/>
         <SimilarArtists />
+        <Concerts/>
       </div>
     </main>
   }
