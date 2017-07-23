@@ -16379,8 +16379,8 @@ var MobileArtist = function (_React$Component) {
         'div',
         { className: 'mainMiddle' },
         _react2.default.createElement(_artist2.default, null),
-        _react2.default.createElement(_concerts2.default, null),
-        _react2.default.createElement(_similarArtists2.default, null)
+        _react2.default.createElement(_similarArtists2.default, null),
+        _react2.default.createElement(_concerts2.default, null)
       );
     }
   }]);
@@ -16921,7 +16921,7 @@ var Similar = function (_React$Component) {
             return _react2.default.createElement(
                 'li',
                 null,
-                _react2.default.createElement('img', { src: this.props.elem.picture_small }),
+                _react2.default.createElement('img', { src: this.props.elem.picture_medium, alt: this.props.elem.name }),
                 _react2.default.createElement(
                     'p',
                     null,
@@ -17225,11 +17225,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(12);
 
-var _index = __webpack_require__(25);
-
 var _store = __webpack_require__(9);
 
 var _store2 = _interopRequireDefault(_store);
+
+var _topTrack = __webpack_require__(322);
+
+var _topTrack2 = _interopRequireDefault(_topTrack);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17246,56 +17248,33 @@ var TopTracks = function (_React$Component) {
   _inherits(TopTracks, _React$Component);
 
   function TopTracks() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, TopTracks);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TopTracks.__proto__ || Object.getPrototypeOf(TopTracks)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (event) {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/track/' + event.target.id + '?output=jsonp',
-        success: function success(response) {
-          _store2.default.dispatch((0, _index.changeTrackAction)(response));
-          DZ.player.pause();
-          DZ.player.playTracks([_this.props.track.id]);
-        }
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, (TopTracks.__proto__ || Object.getPrototypeOf(TopTracks)).apply(this, arguments));
   }
 
   _createClass(TopTracks, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var li = this.props.topTracks.map(function (elem, i) {
-        return _react2.default.createElement(
-          'li',
-          {
-            id: elem.id,
-            onClick: _this2.handleClick,
-            key: i },
-          elem.title_short
-        );
+        return _react2.default.createElement(_topTrack2.default, { key: i, elem: elem });
       });
       return _react2.default.createElement(
-        'div',
-        { className: 'topTracks' },
+        'section',
+        { id: 'topTracks' },
         _react2.default.createElement(
-          'h4',
-          null,
-          'Top tracks'
-        ),
-        _react2.default.createElement(
-          'ul',
-          null,
-          li
+          'div',
+          { className: 'topTracks' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Top tracks'
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            li
+          )
         )
       );
     }
@@ -17306,8 +17285,7 @@ var TopTracks = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(store) {
   return {
-    topTracks: store.topTracks,
-    track: store.track
+    topTracks: store.topTracks
   };
 };
 
@@ -17322,7 +17300,7 @@ exports = module.exports = __webpack_require__(168)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  position: relative;\n  max-width: 100%;\n  max-height: 100vh;\n  height: 100vh;\n  font-family: 'Lato', sans-serif;\n  color: #fbf7e4;\n  background: #000a11; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11; }\n  .NavyPlayer .desktop {\n    display: none; }\n  .NavyPlayer a {\n    color: #fbf7e4;\n    text-decoration: none; }\n\n.search, .title, footer, .choose {\n  width: 100%; }\n\n.search {\n  height: 70vh; }\n  .search div:first-child {\n    width: 100vw;\n    height: 7vh;\n    margin-top: 0; }\n    .search div:first-child input {\n      height: 100%;\n      width: 100vw;\n      padding: 0.5em 1em;\n      border: 0;\n      font-size: 1.1em;\n      outline: none;\n      color: #fbf7e4;\n      background: #7e827a; }\n      .search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n\n.title {\n  position: absolute;\n  top: 20vh;\n  text-align: center;\n  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n  .title h3 {\n    font-size: 1.3em;\n    color: #fbf7e4;\n    font-family: 'Open Sans', sans-serif; }\n\n.mainMiddle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  width: 100vw;\n  height: 70vh;\n  overflow-y: auto; }\n  .mainMiddle .playlists {\n    height: 70vh;\n    width: 100%; }\n    .mainMiddle .playlists div {\n      max-height: 70vh;\n      overflow-y: auto; }\n      .mainMiddle .playlists div div {\n        margin: 1em 0 1em 1em;\n        display: flex;\n        align-items: center; }\n        .mainMiddle .playlists div div img {\n          width: 3em;\n          height: auto; }\n        .mainMiddle .playlists div div p {\n          max-width: 90%;\n          display: inline-block;\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word;\n          font-size: 0.8em;\n          margin: 0 1em; }\n  .mainMiddle .artist {\n    width: 100%;\n    padding: 0 3vw; }\n    .mainMiddle .artist .info {\n      height: 10vh;\n      margin-top: 1vh; }\n      .mainMiddle .artist .info img {\n        float: left;\n        width: 64px;\n        height: 64px;\n        margin-right: 1em;\n        margin-top: 0.5em; }\n      .mainMiddle .artist .info div {\n        float: left;\n        max-width: calc(100% - 64px); }\n        .mainMiddle .artist .info div p {\n          margin-bottom: 0.1em;\n          font-size: 1.2em;\n          font-family: 'Playfair Display', serif; }\n    .mainMiddle .artist .topTracks {\n      margin: 5vh 4vw 0 8vw;\n      width: 100%;\n      clear: both;\n      font-size: 1.2em;\n      font-family: 'Playfair Display', serif; }\n      .mainMiddle .artist .topTracks ul {\n        list-style: circle;\n        line-height: 6vh; }\n        .mainMiddle .artist .topTracks ul li:hover {\n          color: #046380; }\n  .mainMiddle .concerts {\n    margin: 1vh 4vw 0 4vw;\n    width: 100%;\n    clear: both;\n    font-size: 1.2em;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle .concerts ul {\n      list-style: none;\n      line-height: 6vh; }\n      .mainMiddle .concerts ul li:hover {\n        color: #046380; }\n  .mainMiddle .albums {\n    margin: 1vh 4vw 0 4vw;\n    width: 100%;\n    clear: both;\n    font-size: 1.2em;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle .albums ul {\n      list-style: none;\n      line-height: 6vh; }\n      .mainMiddle .albums ul li:hover {\n        color: #046380; }\n  .mainMiddle .similar {\n    margin: 1vh 4vw 0 4vw;\n    width: 100%;\n    clear: both;\n    font-size: 1.2em;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle .similar h4 {\n      font-size: 1.7em; }\n    .mainMiddle .similar ul {\n      list-style: none;\n      line-height: 6vh;\n      -moz-column-count: 2;\n      -moz-column-gap: 10vw;\n      -webkit-column-count: 2;\n      -webkit-column-gap: 10vw;\n      column-count: 2;\n      column-gap: 10vw; }\n    .mainMiddle .similar img {\n      border-radius: 50%; }\n    .mainMiddle .similar p {\n      float: right; }\n\n.playerAndProgress {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 10vh; }\n  .playerAndProgress a {\n    max-width: 65%; }\n  .playerAndProgress .smallCover {\n    width: 50px;\n    height: 50px;\n    display: inline-block;\n    margin: 4vh 1vw 0 1vw; }\n  .playerAndProgress .smallTitle {\n    font-size: 0.8em;\n    margin-top: 4vh;\n    width: 52vw;\n    font-weight: bold;\n    display: inline-block;\n    overflow: hidden; }\n  .playerAndProgress .playerMain {\n    margin-top: calc((12vh - 3em * 0.6) / 2);\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center; }\n    .playerAndProgress .playerMain button {\n      background: transparent;\n      border: none;\n      outline: none;\n      transform: scale(0.8, 0.8); }\n      .playerAndProgress .playerMain button:first-child {\n        transform: scale(0.5, 0.5); }\n  .playerAndProgress .progress {\n    font-size: 0.9em;\n    color: #fbf7e4;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 3px;\n      width: 100%;\n      background: black; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #d3ceaa;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #424242;\n        border-radius: 5px; }\n\n.choose {\n  height: 10vh;\n  margin-top: 5vh;\n  padding: 2vh 1vw;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  z-index: 2; }\n  .choose div {\n    display: inline-block; }\n    .choose div button {\n      cursor: pointer;\n      width: 1.6em;\n      height: 1.6em;\n      font-size: 1.6em;\n      background: transparent;\n      color: #fbf7e4;\n      border: 0;\n      outline: none; }\n      .choose div button p {\n        font-size: 0.5em;\n        font-family: 'Open Sans', sans-serif; }\n\nfooter {\n  height: 5vh;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-end;\n  font-size: 0.7em;\n  padding: 2vh 1vw; }\n  footer img {\n    height: 0.7em;\n    width: auto; }\n\n.active button {\n  color: #046380 !important; }\n\n.\\/ .time {\n  position: absolute;\n  top: -1.5vh;\n  right: 0;\n  display: block; }\n  .\\/ .time .elapsed {\n    right: 88vw;\n    position: absolute; }\n  .\\/ .time .pipe {\n    display: none; }\n  .\\/ .time .duration {\n    right: 2vw;\n    position: absolute; }\n\n.\\/ .playerAndProgress {\n  position: absolute;\n  top: 50%; }\n  .\\/ .playerAndProgress progress[value] {\n    width: 70%;\n    left: 15%; }\n\n.\\/ .choose {\n  position: absolute;\n  bottom: 5vh;\n  background: transparent; }\n\n.\\/ .cover {\n  display: block;\n  height: 100vh;\n  width: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.\\/ footer {\n  background: transparent;\n  position: absolute;\n  bottom: 0; }\n\n.\\/ .small {\n  display: none; }\n\n.\\/artist .time, .\\/playlist .time, .\\/search .time {\n  display: none; }\n\n.\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress {\n  position: relative; }\n  .\\/artist .playerAndProgress progress[value], .\\/playlist .playerAndProgress progress[value], .\\/search .playerAndProgress progress[value] {\n    width: 100%; }\n\n.\\/artist .choose, .\\/playlist .choose, .\\/search .choose {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .cover, .\\/playlist .cover, .\\/search .cover {\n  display: none; }\n\n.\\/artist footer, .\\/playlist footer, .\\/search footer {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .small, .\\/playlist .small, .\\/search .small {\n  display: flex; }\n\n@media (min-width: 960px), (min-width: 700px) and (orientation: landscape) {\n  body {\n    /* Track */\n    /* Corner */\n    /* Handle */ }\n    body ::-webkit-scrollbar {\n      width: 7px;\n      height: 7px; }\n    body ::-webkit-scrollbar-track {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5);\n      -webkit-border-radius: 10px;\n      border-radius: 10px; }\n    body ::-webkit-scrollbar-corner {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5); }\n    body ::-webkit-scrollbar-thumb {\n      -webkit-border-radius: 10px;\n      border-radius: 10px;\n      background: rgba(66, 66, 66, 0.7);\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n  .NavyPlayer .desktop {\n    display: block;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center; }\n  .search {\n    height: 15vh;\n    display: block;\n    max-width: 30vw; }\n    .search div:first-child {\n      width: 25vw;\n      height: auto;\n      margin-top: 1em; }\n      .search div:first-child input {\n        width: 30vw;\n        font-size: 0.8em;\n        border-radius: 1em; }\n    .search .placeholder {\n      display: none; }\n  .title {\n    height: 6vh;\n    position: static;\n    padding: 0; }\n    .title h3 {\n      font-size: 1.5em; }\n  .mainMiddle {\n    padding: 3vh 0 0 0;\n    height: 64vh;\n    overflow-y: auto; }\n    .mainMiddle .playlists {\n      width: calc((100% - 400px) / 2);\n      display: block;\n      height: auto;\n      padding: 0 0 0 2%; }\n      .mainMiddle .playlists div {\n        max-height: 380px; }\n        .mainMiddle .playlists div div {\n          cursor: pointer;\n          margin: 0 0 2vh 0; }\n          .mainMiddle .playlists div div img {\n            width: 5em; }\n          .mainMiddle .playlists div div p {\n            font-size: 1.1em; }\n    .mainMiddle .cover {\n      height: 400px;\n      width: 400px;\n      margin: 0;\n      display: block;\n      background-size: cover;\n      background-position: center; }\n    .mainMiddle .artist {\n      width: calc((100% - 400px) / 2);\n      height: auto;\n      display: flex;\n      flex-wrap: wrap; }\n      .mainMiddle .artist .info {\n        height: auto; }\n        .mainMiddle .artist .info p {\n          font-size: 1.5em; }\n      .mainMiddle .artist .topTracks {\n        margin: 5vh 0;\n        font-size: 1.2em;\n        cursor: pointer; }\n        .mainMiddle .artist .topTracks h4 {\n          font-size: 1.2em; }\n    .mainMiddle section#concerts {\n      margin: 5vh auto; }\n      .mainMiddle section#concerts .concerts {\n        max-width: 50vw;\n        font-size: 1.2em;\n        cursor: pointer; }\n    .mainMiddle section#albums {\n      margin: 5vh auto; }\n      .mainMiddle section#albums .albums {\n        max-width: 50vw;\n        font-size: 1.2em;\n        cursor: pointer; }\n    .mainMiddle section#similar {\n      margin: 5vh auto; }\n      .mainMiddle section#similar .similar {\n        max-width: 50vw;\n        font-size: 1.2em;\n        cursor: pointer; }\n  .playerAndProgress {\n    position: relative;\n    height: 10vh;\n    width: 100%; }\n    .playerAndProgress .playerMain {\n      margin-top: 0.5vh; }\n      .playerAndProgress .playerMain button {\n        cursor: pointer;\n        margin: 0 1vw 0 0;\n        transform: scale(0.8, 0.8); }\n        .playerAndProgress .playerMain button:first-child {\n          transform: scale(0.5, 0.5); }\n    .playerAndProgress .progress {\n      font-size: 1.1em;\n      cursor: pointer; }\n      .playerAndProgress .progress progress[value] {\n        height: 5px; }\n      .playerAndProgress .progress .time {\n        position: absolute;\n        cursor: default;\n        top: 4vh;\n        right: 5vw;\n        display: block; }\n    .playerAndProgress .small {\n      display: none; }\n  .choose {\n    display: none; }\n  footer {\n    position: static;\n    height: 5vh;\n    padding: 0 0.5em;\n    cursor: default;\n    font-size: 1em;\n    background: #000a11; }\n    footer img {\n      height: 1em; }\n  .login {\n    text-align: center;\n    position: absolute;\n    right: 1.5vw;\n    top: 3vh;\n    background: rgba(4, 99, 128, 0.5);\n    width: 10vw;\n    padding: 0.5em;\n    border-radius: 10px;\n    font-family: 'Reem Kufi', sans-serif;\n    cursor: pointer; }\n    .login:hover {\n      background: #035270; }\n  .mobile {\n    display: none; } }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  position: relative;\n  max-width: 100%;\n  max-height: 100vh;\n  height: 100vh;\n  font-family: 'Lato', sans-serif;\n  color: white;\n  background: #000a11; }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11; }\n  .NavyPlayer .desktop {\n    display: none; }\n  .NavyPlayer a {\n    color: white;\n    text-decoration: none; }\n\n.search, .title, footer, .choose {\n  width: 100%; }\n\n.search {\n  height: 70vh;\n  min-height: 70vh; }\n  .search div:first-child {\n    width: 100vw;\n    height: 7vh;\n    margin-top: 0; }\n    .search div:first-child input {\n      height: 100%;\n      width: 100vw;\n      padding: 0.5em 1em;\n      border: 0;\n      font-size: 1.1em;\n      outline: none;\n      color: white;\n      background: #7e827a; }\n      .search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      .search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n\n.title {\n  position: absolute;\n  top: 20vh;\n  text-align: center;\n  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n  .title h3 {\n    font-size: 1.3em;\n    color: white;\n    font-family: 'Open Sans', sans-serif; }\n\n.mainMiddle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  width: 100vw;\n  height: 70vh;\n  overflow-y: auto; }\n  .mainMiddle .playlists {\n    height: 70vh;\n    width: 100%; }\n    .mainMiddle .playlists div {\n      max-height: 70vh;\n      overflow-y: auto; }\n      .mainMiddle .playlists div div {\n        margin: 1em 0 1em 1em;\n        display: flex;\n        align-items: center; }\n        .mainMiddle .playlists div div img {\n          width: 3em;\n          height: auto; }\n        .mainMiddle .playlists div div p {\n          max-width: 90%;\n          display: inline-block;\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word;\n          font-size: 0.8em;\n          margin: 0 1em; }\n  .mainMiddle .artist {\n    width: 100%;\n    padding: 0 3vw; }\n    .mainMiddle .artist .info {\n      height: 10vh;\n      margin-top: 1vh; }\n      .mainMiddle .artist .info img {\n        float: left;\n        width: 64px;\n        height: 64px;\n        margin-right: 1em;\n        margin-top: 0.5em; }\n      .mainMiddle .artist .info div {\n        float: left;\n        max-width: calc(100% - 64px); }\n        .mainMiddle .artist .info div p {\n          margin-top: calc(32px - 0.6em);\n          font-size: 1.2em;\n          font-family: 'Playfair Display', serif; }\n    .mainMiddle .artist section#topTracks {\n      margin: 5vh auto 2vh auto;\n      max-width: 90vw; }\n      .mainMiddle .artist section#topTracks .topTracks {\n        margin: 8vh 0;\n        width: 100%;\n        font-size: 1.2em;\n        font-family: 'Playfair Display', serif; }\n        .mainMiddle .artist section#topTracks .topTracks ul {\n          list-style: none;\n          line-height: 6vh; }\n          .mainMiddle .artist section#topTracks .topTracks ul li {\n            border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;\n            margin: 1vh auto 1vh auto; }\n          .mainMiddle .artist section#topTracks .topTracks ul li:hover {\n            color: #046380; }\n  .mainMiddle section#concerts {\n    margin: 2vh auto; }\n    .mainMiddle section#concerts .concerts {\n      width: 100%;\n      font-size: 1.2em;\n      font-family: 'Reem Kufi', sans-serif; }\n      .mainMiddle section#concerts .concerts ul {\n        list-style: none;\n        line-height: 6vh; }\n        .mainMiddle section#concerts .concerts ul li:hover {\n          color: #046380; }\n  .mainMiddle section#similar {\n    margin: 2vh auto; }\n    .mainMiddle section#similar .similar {\n      margin: 0;\n      width: 100%;\n      font-size: 1em;\n      font-family: 'Reem Kufi', sans-serif; }\n      .mainMiddle section#similar .similar h4 {\n        font-size: 1.5em; }\n      .mainMiddle section#similar .similar ul {\n        list-style: none; }\n        .mainMiddle section#similar .similar ul li {\n          display: flex;\n          flex-wrap: wrap;\n          justify-content: space-between;\n          align-items: center;\n          border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid; }\n      .mainMiddle section#similar .similar img {\n        border-radius: 50%;\n        width: 3em;\n        height: 3em;\n        margin: 2vh 0; }\n      .mainMiddle section#similar .similar p {\n        float: right;\n        font-size: 1.2em; }\n\n.playerAndProgress {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 10vh; }\n  .playerAndProgress a {\n    max-width: 65%; }\n  .playerAndProgress .smallCover {\n    width: 50px;\n    height: 50px;\n    display: inline-block;\n    margin: 4vh 1vw 0 1vw; }\n  .playerAndProgress .smallTitle {\n    font-size: 0.8em;\n    margin-top: 4vh;\n    width: 52vw;\n    font-weight: bold;\n    display: inline-block;\n    overflow: hidden; }\n  .playerAndProgress .playerMain {\n    margin-top: calc((12vh - 3em * 0.6) / 2);\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center; }\n    .playerAndProgress .playerMain button {\n      background: transparent;\n      border: none;\n      outline: none;\n      transform: scale(0.8, 0.8); }\n      .playerAndProgress .playerMain button:first-child {\n        transform: scale(0.5, 0.5); }\n  .playerAndProgress .progress {\n    font-size: 0.9em;\n    color: white;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 3px;\n      width: 100%;\n      background: black; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #d3ceaa;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #424242;\n        border-radius: 5px; }\n\n.choose {\n  height: 10vh;\n  margin-top: 5vh;\n  padding: 2vh 1vw;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  z-index: 2; }\n  .choose div {\n    display: inline-block; }\n    .choose div button {\n      cursor: pointer;\n      width: 1.6em;\n      height: 1.6em;\n      font-size: 1.6em;\n      background: transparent;\n      color: white;\n      border: 0;\n      outline: none; }\n      .choose div button p {\n        font-size: 0.5em;\n        font-family: 'Open Sans', sans-serif; }\n\nfooter {\n  height: 5vh;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-end;\n  font-size: 0.7em;\n  padding: 2vh 1vw; }\n  footer img {\n    height: 0.7em;\n    width: auto; }\n\n.active button {\n  color: #046380 !important; }\n\n.\\/ .time {\n  position: absolute;\n  top: -1.5vh;\n  right: 0;\n  display: block; }\n  .\\/ .time .elapsed {\n    right: 88vw;\n    position: absolute; }\n  .\\/ .time .pipe {\n    display: none; }\n  .\\/ .time .duration {\n    right: 2vw;\n    position: absolute; }\n\n.\\/ .playerAndProgress {\n  position: absolute;\n  top: 50%; }\n  .\\/ .playerAndProgress progress[value] {\n    width: 70%;\n    left: 15%; }\n\n.\\/ .choose {\n  position: absolute;\n  bottom: 5vh;\n  background: transparent; }\n\n.\\/ .cover {\n  display: block;\n  height: 100vh;\n  width: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.\\/ footer {\n  background: transparent;\n  position: absolute;\n  bottom: 0; }\n\n.\\/ .small {\n  display: none; }\n\n.\\/artist .time, .\\/playlist .time, .\\/search .time {\n  display: none; }\n\n.\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress {\n  position: relative; }\n  .\\/artist .playerAndProgress progress[value], .\\/playlist .playerAndProgress progress[value], .\\/search .playerAndProgress progress[value] {\n    width: 100%; }\n\n.\\/artist .choose, .\\/playlist .choose, .\\/search .choose {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .cover, .\\/playlist .cover, .\\/search .cover {\n  display: none; }\n\n.\\/artist footer, .\\/playlist footer, .\\/search footer {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .small, .\\/playlist .small, .\\/search .small {\n  display: flex; }\n\n@media (min-width: 960px), (min-width: 700px) and (orientation: landscape) {\n  body {\n    /* Track */\n    /* Corner */\n    /* Handle */ }\n    body ::-webkit-scrollbar {\n      width: 7px;\n      height: 7px; }\n    body ::-webkit-scrollbar-track {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5);\n      -webkit-border-radius: 10px;\n      border-radius: 10px; }\n    body ::-webkit-scrollbar-corner {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5); }\n    body ::-webkit-scrollbar-thumb {\n      -webkit-border-radius: 10px;\n      border-radius: 10px;\n      background: rgba(66, 66, 66, 0.7);\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n  .NavyPlayer .desktop {\n    display: block;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center; }\n  .search {\n    height: 15vh;\n    min-height: 15vh;\n    display: block;\n    max-width: 30vw; }\n    .search div:first-child {\n      width: 25vw;\n      height: auto;\n      margin-top: 1em; }\n      .search div:first-child input {\n        width: 30vw;\n        font-size: 0.8em;\n        border-radius: 1em; }\n    .search .placeholder {\n      display: none; }\n  .title {\n    height: 6vh;\n    position: static;\n    padding: 0 0 3vh 0; }\n    .title h3 {\n      font-size: 1.5em; }\n  .mainMiddle {\n    padding: 3vh 0 0 0;\n    height: 64vh;\n    overflow-y: auto; }\n    .mainMiddle .playlists {\n      width: calc((100% - 400px) / 2);\n      display: block;\n      height: auto;\n      padding: 0 0 0 2%; }\n      .mainMiddle .playlists div {\n        max-height: 380px; }\n        .mainMiddle .playlists div div {\n          cursor: pointer;\n          margin: 0 0 2vh 0; }\n          .mainMiddle .playlists div div img {\n            width: 4em; }\n          .mainMiddle .playlists div div p {\n            font-size: 1em; }\n    .mainMiddle .cover {\n      height: 400px;\n      width: 400px;\n      margin: 0;\n      display: block;\n      background-size: cover;\n      background-position: center; }\n    .mainMiddle .artist {\n      width: calc((100% - 400px) / 2);\n      height: auto;\n      display: flex;\n      flex-wrap: wrap; }\n      .mainMiddle .artist .info {\n        height: auto; }\n        .mainMiddle .artist .info p {\n          font-size: 1.5em; }\n      .mainMiddle .artist section#topTracks {\n        margin: auto;\n        max-width: 100%;\n        width: 100%; }\n        .mainMiddle .artist section#topTracks .topTracks {\n          margin: 5vh 0;\n          font-size: 1.2em;\n          cursor: pointer; }\n          .mainMiddle .artist section#topTracks .topTracks h4 {\n            font-size: 1.2em; }\n    .mainMiddle section#concerts {\n      margin-top: 12vh;\n      max-width: 40vw; }\n      .mainMiddle section#concerts .concerts {\n        font-size: 1.2em;\n        cursor: pointer; }\n        .mainMiddle section#concerts .concerts ul {\n          max-height: 85vh;\n          overflow-y: auto;\n          padding-right: 1.5vw; }\n          .mainMiddle section#concerts .concerts ul li {\n            border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;\n            margin: 1vh auto 1vh auto; }\n    .mainMiddle section#similar {\n      margin-top: 12vh;\n      padding: 5vh auto;\n      max-width: 60vw; }\n      .mainMiddle section#similar .similar {\n        font-size: 1.2em;\n        cursor: pointer; }\n        .mainMiddle section#similar .similar ul {\n          list-style: none;\n          -moz-column-count: 2;\n          -webkit-column-count: 2;\n          column-count: 2;\n          -moz-column-gap: 15vw;\n          -webkit-column-gap: 15vw;\n          column-gap: 15vw; }\n          .mainMiddle section#similar .similar ul li {\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-between;\n            align-items: center;\n            border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid; }\n          .mainMiddle section#similar .similar ul img {\n            margin: 2vh auto 2vh auto;\n            width: 80px;\n            height: 80px; }\n  .playerAndProgress {\n    position: relative;\n    height: 10vh;\n    width: 100%; }\n    .playerAndProgress .playerMain {\n      margin-top: 0.5vh; }\n      .playerAndProgress .playerMain button {\n        cursor: pointer;\n        margin: 0 1vw 0 0;\n        transform: scale(0.8, 0.8); }\n        .playerAndProgress .playerMain button:first-child {\n          transform: scale(0.5, 0.5); }\n    .playerAndProgress .progress {\n      font-size: 1.1em;\n      cursor: pointer; }\n      .playerAndProgress .progress progress[value] {\n        height: 5px; }\n      .playerAndProgress .progress .time {\n        position: absolute;\n        cursor: default;\n        top: 4vh;\n        right: 5vw;\n        display: block; }\n    .playerAndProgress .small {\n      display: none; }\n  .choose {\n    display: none; }\n  footer {\n    position: static;\n    height: 5vh;\n    padding: 0 0.5em;\n    cursor: default;\n    font-size: 1em;\n    background: #000a11; }\n    footer img {\n      height: 1em; }\n  .login {\n    text-align: center;\n    position: absolute;\n    right: 1.5vw;\n    top: 3vh;\n    background: rgba(4, 99, 128, 0.5);\n    width: 10vw;\n    padding: 0.5em;\n    border-radius: 10px;\n    font-family: 'Reem Kufi', sans-serif;\n    cursor: pointer; }\n    .login:hover {\n      background: #035270; }\n  .mobile {\n    display: none; } }\n", ""]);
 
 // exports
 
@@ -33632,6 +33610,92 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(12);
+
+var _index = __webpack_require__(25);
+
+var _store = __webpack_require__(9);
+
+var _store2 = _interopRequireDefault(_store);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Redux
+
+
+var TopTrack = function (_React$Component) {
+  _inherits(TopTrack, _React$Component);
+
+  function TopTrack() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, TopTrack);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TopTrack.__proto__ || Object.getPrototypeOf(TopTrack)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (event) {
+      $.ajax({
+        dataType: "jsonp",
+        url: 'https://api.deezer.com/track/' + event.target.id + '?output=jsonp',
+        success: function success(response) {
+          _store2.default.dispatch((0, _index.changeTrackAction)(response));
+          DZ.player.pause();
+          DZ.player.playTracks([_this.props.track.id]);
+        }
+      });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(TopTrack, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'li',
+        { id: this.props.elem.id,
+          onClick: this.handleClick },
+        this.props.elem.title_short
+      );
+    }
+  }]);
+
+  return TopTrack;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    track: store.track
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(TopTrack);
 
 /***/ })
 /******/ ]);

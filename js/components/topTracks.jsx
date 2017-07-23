@@ -2,42 +2,25 @@ import React from 'react';
 
 // Redux
 import { connect } from 'react-redux';
-import { changeTrackAction } from './../actions/index.js';
 import store from './../store';
 
-class TopTracks extends React.Component {
-  handleClick = (event) => {
-    $.ajax({
-        dataType: "jsonp",
-        url :`https://api.deezer.com/track/${event.target.id}?output=jsonp`,
-        success : response => {
-          store.dispatch(changeTrackAction(response))
-          DZ.player.pause();
-          DZ.player.playTracks([this.props.track.id]);
-        }
-    });
-  }
+import TopTrack from './topTrack.jsx';
 
+class TopTracks extends React.Component {
   render(){
-      let li = this.props.topTracks.map((elem, i) => {
-        return <li
-          id={elem.id}
-          onClick={this.handleClick}
-          key={i}>
-          {elem.title_short}
-        </li>
-      });
-      return <div className='topTracks'>
-        <h4>Top tracks</h4>
-        <ul>{li}</ul>
-      </div>
+      let li = this.props.topTracks.map((elem, i) => <TopTrack key={i} elem={elem} />);
+      return <section id='topTracks'>
+        <div className='topTracks'>
+          <h4>Top tracks</h4>
+          <ul>{li}</ul>
+        </div>
+      </section>
   }
 }
 
 const mapStateToProps = store => {
   return {
-    topTracks: store.topTracks,
-    track: store.track,
+    topTracks: store.topTracks
   };
 };
 

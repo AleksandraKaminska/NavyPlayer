@@ -1,5 +1,4 @@
 $navy-color: #000a11;
-$white-color: #fbf7e4;
 $progress-bar-color: rgb(211, 206, 170);
 $progress-value-color: rgb(66, 66, 66);
 
@@ -48,7 +47,7 @@ body {
   max-height: 100vh;
   height: 100vh;
   font-family: 'Lato', sans-serif;
-  color: $white-color;
+  color: white;
   background: $navy-color;
 }
 
@@ -60,7 +59,7 @@ body {
     display: none;
   }
   a {
-    color: $white-color;
+    color: white;
     text-decoration: none;
   }
 }
@@ -71,6 +70,7 @@ body {
 
   .search {
     height: 70vh;
+    min-height: 70vh;
     div:first-child {
       width: 100vw;
       height: 7vh;
@@ -82,7 +82,7 @@ body {
         border: 0;
         font-size: 1.1em;
         outline: none;
-        color: $white-color;
+        color: white;
         background: #7e827a;
         &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
           font-size: 1.2em;
@@ -111,7 +111,7 @@ body {
     text-shadow: 0px 4px 4px rgba(0,0,0,.5);
     h3 {
       font-size: 1.3em;
-      color: $white-color;
+      color: white;
       font-family: 'Open Sans', sans-serif;
     }
   }
@@ -167,20 +167,42 @@ body {
           float: left;
           max-width: calc(100% - 64px);
           p {
-            margin-bottom: 0.1em;
+            margin-top: calc(32px - 0.6em);
             font-size: 1.2em;
             font-family: 'Playfair Display', serif;
           }
         }
       }
-      .topTracks {
-        margin: 5vh 4vw 0 8vw;
+      section#topTracks {
+        margin: 5vh auto 2vh auto;
+        max-width: 90vw;
+        .topTracks {
+          margin: 8vh 0;
+          width: 100%;
+          font-size: 1.2em;
+          font-family: 'Playfair Display', serif;
+          ul {
+            list-style: none;
+            line-height: 6vh;
+            li {
+              border-bottom: 0.5px rgba(255,255,255,0.1) solid;
+              margin: 1vh auto 1vh auto;
+            }
+            li:hover {
+              color: rgb(4, 99, 128);
+            }
+          }
+        }
+      }
+    }
+    section#concerts {
+      margin: 2vh auto;
+      .concerts {
         width: 100%;
-        clear: both;
         font-size: 1.2em;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Reem Kufi', sans-serif;
         ul {
-          list-style: circle;
+          list-style: none;
           line-height: 6vh;
           li:hover {
             color: rgb(4, 99, 128);
@@ -188,44 +210,34 @@ body {
         }
       }
     }
-    .concerts {
-      margin: 1vh 4vw 0 4vw;
-      width: 100%;
-      clear: both;
-      font-size: 1.2em;
-      font-family: 'Reem Kufi', sans-serif;
-      ul {
-        list-style: none;
-        line-height: 6vh;
-        li:hover {
-          color: rgb(4, 99, 128);
+    section#similar {
+      margin: 2vh auto;
+      .similar {
+        margin: 0;
+        width: 100%;
+        font-size: 1em;
+        font-family: 'Reem Kufi', sans-serif;
+        h4 {
+          font-size: 1.5em;
+        }
+        ul {
+          list-style: none;
+          li {
+            @include flex(space-between);
+            border-bottom: 0.5px rgba(255,255,255,0.2) solid;
+          }
+        }
+        img {
+          border-radius: 50%;
+          width: 3em;
+          height: 3em;
+          margin: 2vh 0;
+        }
+        p {
+          float: right;
+          font-size: 1.2em;
         }
       }
-    }
-    section#similar {
-      margin: 5vh auto;
-      .similar {
-          margin: 1vh 4vw 0 4vw;
-          width: 100%;
-          clear: both;
-          font-size: 0.5em;
-          font-family: 'Reem Kufi', sans-serif;
-          h4 {
-            font-size: 1.7em;
-          }
-          ul {
-            list-style: none;
-            -moz-column-count: 2;
-            -webkit-column-count: 2;
-            column-count: 2;
-          }
-          img {
-            border-radius: 50%;
-          }
-          p {
-            float: right;
-          }
-        }
     }
   }
 
@@ -266,7 +278,7 @@ body {
 
     .progress {
       font-size: 0.9em;
-      color: $white-color;
+      color: white;
       font-family: 'Reem Kufi', sans-serif;
       progress[value] {
         position: absolute;
@@ -301,7 +313,7 @@ body {
         height: 1.6em;
         font-size: 1.6em;
         background: transparent;
-        color: $white-color;
+        color: white;
         border: 0;
         outline: none;
         p {
@@ -324,10 +336,8 @@ footer {
   }
 }
 
-.active {
-  button {
-    color: rgb(4, 99, 128) !important;
-  }
+.active button {
+  color: rgb(4, 99, 128) !important;
 }
 
 .\/ {
@@ -416,6 +426,7 @@ footer {
 
   .search {
     height: 15vh;
+    min-height: 15vh;
     display: block;
     max-width: 30vw;
     div:first-child {
@@ -436,7 +447,7 @@ footer {
   .title {
     height: 6vh;
     position: static;
-    padding: 3vh 0;
+    padding: 0 0 3vh 0;
     h3 {
       font-size: 1.5em;
     }
@@ -457,10 +468,10 @@ footer {
           cursor: pointer;
           margin: 0 0 2vh 0;
           img {
-            width: 5em;
+            width: 4em;
           }
           p {
-            font-size: 1.1em;
+            font-size: 1em;
           }
         }
       }
@@ -484,30 +495,62 @@ footer {
           font-size: 1.5em;
         }
       }
-      .topTracks {
-        margin: 5vh 0;
-        font-size: 1.2em;
-        cursor: pointer;
-        h4 {
+      section#topTracks {
+        margin: auto;
+        max-width: 100%;
+        width: 100%;
+        .topTracks {
+          margin: 5vh 0;
           font-size: 1.2em;
+          cursor: pointer;
+          h4 {
+            font-size: 1.2em;
+          }
         }
       }
     }
     section#concerts {
-      margin: 5vh auto;
+      margin-top: 12vh;
+      max-width: 40vw;
       .concerts {
-        max-width: 10vw;
         font-size: 1.2em;
         cursor: pointer;
+        ul {
+          max-height: 85vh;
+          overflow-y: auto;
+          padding-right: 1.5vw;
+          li {
+            border-bottom: 0.5px rgba(255,255,255,0.1) solid;
+            margin: 1vh auto 1vh auto;
+          }
+        }
       }
     }
     section#similar {
-      margin: 5vh auto;
+      margin-top: 12vh;
+      padding: 5vh auto;
+      max-width: 60vw;
       .similar {
-        margin: auto;
-        max-width: 90vw;
         font-size: 1.2em;
         cursor: pointer;
+        ul {
+          list-style: none;
+          -moz-column-count: 2;
+          -webkit-column-count: 2;
+          column-count: 2;
+          -moz-column-gap: 15vw;
+          -webkit-column-gap: 15vw;
+          column-gap: 15vw;
+          li {
+            @include flex(space-between);
+            border-bottom: 0.5px rgba(255,255,255,0.2) solid;
+          }
+          img {
+            margin: 2vh auto 2vh auto;
+            width: 80px;
+            height: 80px;
+          }
+        }
       }
     }
   }

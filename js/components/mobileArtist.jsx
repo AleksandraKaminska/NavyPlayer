@@ -7,8 +7,8 @@ class MobileArtist extends React.Component {
   render() {
     return <div className='mainMiddle'>
 					<Artist />
-          <Concerts />
           <SimilarArtists />
+          <Concerts />
 				</div>
   }
 }
