@@ -5,6 +5,7 @@ import Cover from './cover.jsx';
 import Artist from './artist.jsx';
 import Concerts from './concerts.jsx';
 import Albums from './albums.jsx';
+import SimilarArtists from './similarArtists.jsx';
 
 class MainMiddle extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class MainMiddle extends React.Component {
         <Cover />
         <Artist />
         <Concerts/>
+        <SimilarArtists />
       </div>
     </main>
   }

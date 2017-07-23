@@ -28,6 +28,7 @@ class AppContainer extends React.Component {
           this.searchTopTracks();
           this.searchAlbums();
           this.searchConcerts();
+          this.searchSimilarArtists();
           DZ.player.playTracks([this.props.track.id]);
         }
     });
@@ -64,6 +65,14 @@ class AppContainer extends React.Component {
       dataType: "json",
       url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
       success: response => store.dispatch({ type: 'FIND_CONCERTS', concerts: response })
+    });
+  }
+
+  searchSimilarArtists = () => {
+    $.ajax({
+        dataType: "jsonp",
+        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/related?output=jsonp`,
+        success : response => store.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data })
     });
   }
 
