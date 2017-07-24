@@ -16,7 +16,7 @@ class Cover extends React.Component {
 
 const mapStateToProps = function(store) {
   return {
-		cover: store.track.album.cover_big.replace(/500x500/, '350x350')
+		cover: store.track.album.cover_big.replace(/500x500/, '400x400')
   };
 };
 
