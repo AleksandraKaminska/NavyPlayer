@@ -42,7 +42,7 @@ class Search extends React.Component {
           }}>
           <p>{item.title_short} - {item.artist.name}</p>
         </div>
-        <img src={item.album.cover} width='50em' height='50em' alt='cover'/>
+        <img src={item.album.cover_small} width='50em' height='50em' alt='cover'/>
       </div>
   }
 

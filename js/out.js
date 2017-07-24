@@ -8823,7 +8823,7 @@ var Cover = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(store) {
   return {
-    cover: store.track.album.cover_big.replace(/500x500/, '400x400')
+    cover: store.track.album.cover_big.replace(/500x500/, '350x350')
   };
 };
 
@@ -8924,7 +8924,7 @@ var Search = function (_React$Component) {
             item.artist.name
           )
         ),
-        _react2.default.createElement('img', { src: item.album.cover, width: '50em', height: '50em', alt: 'cover' })
+        _react2.default.createElement('img', { src: item.album.cover_small, width: '50em', height: '50em', alt: 'cover' })
       );
     }, _this.searchArtist = function () {
       $.ajax({
