@@ -264,7 +264,7 @@ body {
       width: 42vw;
       font-weight: bold;
       display: inline-block;
-      overflow: scroll;
+      overflow: hidden;
     }
     .playerMain {
       margin-top: calc((12vh - 3em * 0.6) / 2);
@@ -423,6 +423,10 @@ footer {
     }
   }
   .NavyPlayer .desktop {
+    background: -webkit-radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
+    background: -o-radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
+    background: -moz-radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
+    background: radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
     display: block;
     @include flex(center);
   }
@@ -591,7 +595,7 @@ footer {
     padding: 0 0.5em;
     cursor: default;
     font-size: 1em;
-    background: $navy-color;
+    background: transparent;
     img {
       height: 1em;
     }
