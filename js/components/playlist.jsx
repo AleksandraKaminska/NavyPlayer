@@ -7,14 +7,13 @@ class Playlist extends React.Component {
   constructor(props) {
      super(props);
      this.state = {
-       picture: '',
-       playlistId: '',
-			 playlistTitle: ''
+       data: {},
+       picture: ''
      };
   }
 
-  findPlaylist = (event) => {
-    store.dispatch(changePlaylistAction(event.target.id));
+  findPlaylist = () => {
+    store.dispatch(changePlaylistAction(this.props.elem));
     this.props.randomTrack();
   }
 
@@ -24,9 +23,8 @@ class Playlist extends React.Component {
         url :`https://api.deezer.com/playlist/${this.props.elem}?output=jsonp`,
         success : data => {
           this.setState({
-            picture: data.picture_small.replace(/56x56/, '95x95'),
-            playlistId: data.id,
-						playlistTitle: data.title
+            data: data,
+            picture: data.picture_small.replace(/56x56/, '95x95')
           })
         }
     });
@@ -37,9 +35,9 @@ class Playlist extends React.Component {
   }
 
   render() {
-    return <div onClick={this.findPlaylist} >
-        <img src={this.state.picture} id={this.state.playlistId} />
-				<p id={this.state.playlistId}>{this.state.playlistTitle}</p>
+    return <div onClick={this.findPlaylist} id={this.state.data.id}>
+        <img src={this.state.picture}/>
+				<p>{this.state.data.title}</p>
       </div>
   }
 }

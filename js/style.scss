@@ -514,7 +514,7 @@ footer {
       }
     }
     section#concerts {
-      margin-top: 12vh;
+      margin-top: 8vh;
       .concerts {
         font-size: 1.2em;
         cursor: pointer;
@@ -522,9 +522,9 @@ footer {
           -moz-column-count: 4;
           -webkit-column-count: 4;
           column-count: 4;
-          -moz-column-gap: 10vw;
-          -webkit-column-gap: 10vw;
-          column-gap: 10vw;
+          -moz-column-gap: 8vw;
+          -webkit-column-gap: 8vw;
+          column-gap: 8vw;
           li {
             margin: 1vh auto 1vh auto;
           }
