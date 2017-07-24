@@ -2,7 +2,7 @@ import React from 'react';
 
 // Redux
 import { connect } from 'react-redux';
-import { changeTrackAction } from './../actions/index.js';
+import { changeTrackAction, prevTrackAction } from './../actions/index.js';
 import store from './../store';
 
 class TopTrack extends React.Component {
@@ -11,6 +11,7 @@ class TopTrack extends React.Component {
         dataType: "jsonp",
         url :`https://api.deezer.com/track/${event.target.id}?output=jsonp`,
         success : response => {
+          store.dispatch(prevTrackAction(this.props.track));
           store.dispatch(changeTrackAction(response))
           DZ.player.pause();
           DZ.player.playTracks([this.props.track.id]);

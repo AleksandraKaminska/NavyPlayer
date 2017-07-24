@@ -2,7 +2,7 @@ import React from 'react';
 
 // Redux
 import { connect } from 'react-redux';
-import { changeTrackAction } from './../actions/index.js';
+import { changeTrackAction, prevTrackAction } from './../actions/index.js';
 import store from './../store';
 
 class Similar extends React.Component {
@@ -43,6 +43,7 @@ class Similar extends React.Component {
         dataType: "jsonp",
         url :`https://api.deezer.com/artist/${this.props.elem.id}/top?output=jsonp`,
         success : response => {
+          store.dispatch(prevTrackAction(this.props.track));
           store.dispatch(changeTrackAction(response.data[0]))
           DZ.player.pause();
           DZ.player.playTracks([this.props.track.id]);

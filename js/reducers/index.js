@@ -9,6 +9,7 @@ import ChosenPlaylistReducer from './reducer-chosen-playlist';
 import SearchTracksReducer from './reducer-search-tracks';
 import AutocompleteReducer from './reducer-autocomplete';
 import TrackReducer from './reducer-track';
+import PrevTrackReducer from './reducer-previous-track';
 
 const reducers = combineReducers({
     concerts: ConcertsReducer,
@@ -18,7 +19,8 @@ const reducers = combineReducers({
     autocompleteValue: AutocompleteReducer,
     track: TrackReducer,
     topTracks: TopTracksReducer,
-    similar: SimilarArtistsReducer
+    similar: SimilarArtistsReducer,
+    prev: PrevTrackReducer
 });
 
 export default reducers;

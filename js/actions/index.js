@@ -25,3 +25,10 @@ export const changeTrackAction = (track) => {
         track
     }
 };
+
+export const prevTrackAction = (prev) => {
+    return {
+        type: 'PREV_TRACK',
+        prev
+    }
+};

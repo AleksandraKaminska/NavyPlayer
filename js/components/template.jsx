@@ -3,7 +3,7 @@ import React from 'react';
 // Redux
 import store from './../store';
 import { connect } from 'react-redux';
-import {changeTrackAction} from './../actions/index.js';
+import {changeTrackAction, prevTrackAction} from './../actions/index.js';
 
 // Components
 import Login from './../components/login.jsx';
@@ -22,6 +22,7 @@ class Template extends React.Component {
         success : response => {
           const playlistTracks = response.tracks.data;
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
+					store.dispatch(prevTrackAction(this.props.track));
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
           this.searchArtist();
           this.searchTopTracks();
@@ -91,7 +92,8 @@ class Template extends React.Component {
 const mapStateToProps = function(store) {
   return {
     chosenPlaylist: store.chosenPlaylist,
-    track: store.track
+    track: store.track,
+		prev: store.prev
   };
 };
 

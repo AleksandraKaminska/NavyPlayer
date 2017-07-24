@@ -6,7 +6,7 @@ import {Router, Route, hashHistory, IndexRoute} from	'react-router';
 // Redux
 import store from './store';
 import {connect} from 'react-redux';
-import {changeTrackAction} from './actions/index.js';
+import {changeTrackAction, prevTrackAction} from './actions/index.js';
 
 //Routes
 import Template from './components/template.jsx';
@@ -23,6 +23,7 @@ class AppContainer extends React.Component {
         success : response => {
           const playlistTracks = response.tracks.data;
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
+          store.dispatch(prevTrackAction(this.props.track));
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
           this.searchArtist();
           this.searchTopTracks();
@@ -106,7 +107,8 @@ class AppContainer extends React.Component {
 const mapStateToProps = store => {
   return {
     chosenPlaylist: store.chosenPlaylist,
-    track: store.track
+    track: store.track,
+    prev: store.prev
   };
 };
 

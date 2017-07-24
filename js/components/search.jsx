@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 import {
   searchTracksAction,
   autocompleteAction,
-  changeTrackAction
+  changeTrackAction,
+  prevTrackAction
 } from './../actions/index.js';
 
 const promise = new Promise((resolve, reject) => {
@@ -79,6 +80,7 @@ class Search extends React.Component {
   }
 
   handleSelect = (value, item) => {
+    store.dispatch(prevTrackAction(this.props.track));
     store.dispatch(changeTrackAction(item));
     promise.then(result => {
       store.dispatch(autocompleteAction(value));
