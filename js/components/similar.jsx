@@ -37,7 +37,7 @@ class Similar extends React.Component {
         success : response => store.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data })
     });
   }
-  
+
   handleClick = () => {
     $.ajax({
         dataType: "jsonp",
@@ -57,7 +57,7 @@ class Similar extends React.Component {
   render(){
       return <li id={this.props.elem.id}
           onClick={this.handleClick}>
-          <img src={this.props.elem.picture_medium} alt={this.props.elem.name}/>
+          <img src={this.props.elem.picture_small} alt={this.props.elem.name}/>
           <p>{this.props.elem.name}</p>
       </li>
   }

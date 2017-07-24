@@ -24,7 +24,7 @@ class Playlist extends React.Component {
         success : data => {
           this.setState({
             data: data,
-            picture: data.picture_small.replace(/56x56/, '95x95')
+            picture: data.picture_small
           })
         }
     });
@@ -36,7 +36,7 @@ class Playlist extends React.Component {
 
   render() {
     return <div onClick={this.findPlaylist} id={this.state.data.id}>
-        <img src={this.state.picture}/>
+        <img src={this.state.picture} alt={this.state.data.title}/>
 				<p>{this.state.data.title}</p>
       </div>
   }
