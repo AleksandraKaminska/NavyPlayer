@@ -35,6 +35,56 @@ $progress-value-color: rgb(66, 66, 66);
     }
 }
 
+@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before { transition-delay: 0s, 0s, $duration; }
+
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -144,7 +194,7 @@ body {
             -ms-word-break: break-all;
             word-break: break-all;
             word-break: break-word;
-            font-size: 0.8em;
+            font-size: 1em;
             margin: 0 1em;
           }
         }
@@ -594,39 +644,20 @@ footer {
   }
 
   .login {
+    @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right);
     text-align: center;
     position: absolute;
     right: 1.5vw;
     top: 3vh;
-    background-color: rgba(255, 245, 238, 0.7);
-    background-image: -webkit-repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
-    background-image: -o-repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
-    background-image: -moz-repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
-    background-image: repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
-    background-size: 23px 23px;
-    width: 10vw;
-    padding: 0.2em;
-    border-radius: 5px;
-    font-family: 'Reem Kufi', sans-serif;
+    background: none;
+    border: none;
     cursor: pointer;
-    color: black;
-    font-size: 1.1em;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0 ;
-      width: 100%;
-      height: 100%;
-      border-radius: 5px;
-      background: -webkit-linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
-      background: -o-linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
-      background: -moz-linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
-      background: linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
-    }
-    &:hover {
-      background-color: rgb(255, 245, 238);
-      color: $navy-color;
+    line-height: 1.5;
+    font: 700 0.8em 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+    &:focus {
+      outline: 2px dotted #55d7dc;
     }
   }
   .mobile {

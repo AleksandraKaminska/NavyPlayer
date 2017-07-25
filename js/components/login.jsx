@@ -15,9 +15,9 @@ class Login extends React.Component {
 
   render() {
     return <section id='login'>
-      <div className="login" onClick={this.login}>
+      <button className="login" onClick={this.login}>
         Log In to Deezer
-      </div>
+      </button>
     </section>
   }
 }
