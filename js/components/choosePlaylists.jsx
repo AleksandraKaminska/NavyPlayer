@@ -8,11 +8,11 @@ class ChoosePlaylists extends React.Component {
   }
 
   render() {
-    return <div className="playlists">
+    return <section id="playlists">
         <div>
           {this.playlists.map((elem, i) => <Playlist elem={elem} key={i} />)}
         </div>
-      </div>
+      </section>
   }
 }
 

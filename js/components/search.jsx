@@ -108,7 +108,7 @@ class Search extends React.Component {
       placeholder: "Search tracks",
       title: "Search tracks"
     };
-    return <div className="search">
+    return <section id='search'>
       <Autocomplete
         ref="autocomplete"
         inputProps={inputProps}
@@ -125,7 +125,7 @@ class Search extends React.Component {
           background: '#111'
         }}>
       </div>
-    </div>
+    </section>
   }
 }
 

@@ -64,11 +64,11 @@ body {
   }
 }
 
-.search, .title, footer, .choose {
+#search, #title, footer, .choose {
   width: 100%;
 }
 
-  .search {
+  #search {
     height: 70vh;
     min-height: 70vh;
     div:first-child {
@@ -104,7 +104,7 @@ body {
     }
   }
 
-  .title {
+  #title {
     position: absolute;
     top: 20vh;
     text-align: center;
@@ -122,7 +122,7 @@ body {
     width: 100vw;
     height: 70vh;
     overflow-y: auto;
-    .playlists {
+    #playlists {
       height: 70vh;
       width: 100%;
       div {
@@ -150,7 +150,7 @@ body {
         }
       }
     }
-    .artist {
+    #artist {
       width: 100%;
       padding: 0 3vw;
       .info {
@@ -174,7 +174,7 @@ body {
           }
         }
       }
-      section#topTracks {
+      #topTracks {
         margin: 5vh auto 2vh auto;
         max-width: 90vw;
         .topTracks {
@@ -197,50 +197,44 @@ body {
       }
     }
     section#concerts {
-      margin: 2vh auto;
-      .concerts {
-        width: 100%;
-        font-size: 1.2em;
-        font-family: 'Reem Kufi', sans-serif;
-        ul {
-          list-style: none;
-          line-height: 6vh;
-          li{
-            border-bottom: 0.5px rgba(255,255,255,0.1) solid;
-          }
-          li:hover {
-            color: rgb(4, 99, 128);
-          }
+      margin: 2vh 4vw;
+      width: 100%;
+      font-size: 1.2em;
+      font-family: 'Reem Kufi', sans-serif;
+      ul {
+        list-style: none;
+        line-height: 6vh;
+        li{
+          border-bottom: 0.5px rgba(255,255,255,0.1) solid;
+        }
+        li:hover {
+          color: rgb(4, 99, 128);
         }
       }
     }
     section#similar {
-      margin: 2vh auto;
-      .similar {
-        margin: 0;
-        width: 100%;
-        font-size: 1em;
-        font-family: 'Reem Kufi', sans-serif;
-        h4 {
-          font-size: 1.5em;
+      margin: 2vh 4vw;
+      width: 100%;
+      font-family: 'Reem Kufi', sans-serif;
+      h4 {
+        font-size: 1.5em;
+      }
+      ul {
+        list-style: none;
+        li {
+          @include flex(space-between);
+          border-bottom: 0.5px rgba(255,255,255,0.2) solid;
         }
-        ul {
-          list-style: none;
-          li {
-            @include flex(space-between);
-            border-bottom: 0.5px rgba(255,255,255,0.2) solid;
-          }
-        }
-        img {
-          border-radius: 50%;
-          width: 3em;
-          height: 3em;
-          margin: 2vh 0;
-        }
-        p {
-          float: right;
-          font-size: 1.2em;
-        }
+      }
+      img {
+        border-radius: 50%;
+        width: 3em;
+        height: 3em;
+        margin: 2vh 0;
+      }
+      p {
+        float: right;
+        font-size: 1.2em;
       }
     }
   }
@@ -431,7 +425,7 @@ footer {
     @include flex(center);
   }
 
-  .search {
+  #search {
     height: 15vh;
     min-height: 15vh;
     display: block;
@@ -451,7 +445,7 @@ footer {
     }
   }
 
-  .title {
+  #title {
     height: 6vh;
     position: static;
     padding: 0 0 3vh 0;
@@ -464,7 +458,7 @@ footer {
     padding: 3vh 0 0 0;
     height: 64vh;
     overflow-y: auto;
-    .playlists {
+    #playlists {
       width: calc((100% - 400px) / 2);
       display: block;
       height: auto;
@@ -491,7 +485,7 @@ footer {
       background-size: cover;
       background-position: center;
     }
-    .artist {
+    #artist {
       width: calc((100% - 400px) / 2);
       height: auto;
       display: flex;
@@ -502,7 +496,7 @@ footer {
           font-size: 1.5em;
         }
       }
-      section#topTracks {
+      #topTracks {
         margin: auto;
         max-width: 100%;
         width: 100%;
@@ -518,19 +512,17 @@ footer {
     }
     section#concerts {
       margin-top: 8vh;
-      .concerts {
-        font-size: 1.2em;
-        cursor: pointer;
-        ul {
-          -moz-column-count: 4;
-          -webkit-column-count: 4;
-          column-count: 4;
-          -moz-column-gap: 8vw;
-          -webkit-column-gap: 8vw;
-          column-gap: 8vw;
-          li {
-            margin: 1vh auto 1vh auto;
-          }
+      font-size: 1.2em;
+      cursor: pointer;
+      ul {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+        -moz-column-gap: 8vw;
+        -webkit-column-gap: 8vw;
+        column-gap: 8vw;
+        li {
+          margin: 1vh auto 1vh auto;
         }
       }
     }
@@ -547,8 +539,8 @@ footer {
         -webkit-column-gap: 15vw;
         column-gap: 15vw;
         img {
-          width: 5em;
-          height: 5em;
+          width: 3em;
+          height: 3em;
         }
       }
     }

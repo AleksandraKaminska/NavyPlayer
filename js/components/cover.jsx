@@ -10,7 +10,9 @@ class Cover extends React.Component {
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url(${this.props.cover})`
     }
-    return <div className="cover" style={CoverStyle}></div>
+    return <section id='cover'>
+      <div className="cover" style={CoverStyle}></div>
+    </section>
   }
 }
 

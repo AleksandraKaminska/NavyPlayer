@@ -6,11 +6,11 @@ import SmallCover from './smallCover.jsx';
 
 class PlayerAndProgress extends React.Component {
   render(){
-    return <div className="playerAndProgress">
+    return <section className="playerAndProgress">
 				<SmallCover />
         <Player />
         <Progress />
-    </div>
+    </section>
   }
 }
 

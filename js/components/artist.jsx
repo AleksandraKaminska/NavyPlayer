@@ -6,15 +6,15 @@ import TopTracks from './topTracks.jsx';
 
 class Artist extends React.Component {
   render() {
-    return <div className="artist">
-        <div className='info'>
+    return <section id="artist">
+        <article className='info'>
           <img src={this.props.artist.picture_small} />
           <div>
             <p>{this.props.artist.name}</p>
           </div>
-        </div>
+        </article>
         <TopTracks />
-      </div>
+      </section>
   }
 }
 

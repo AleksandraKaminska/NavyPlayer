@@ -10,10 +10,10 @@ class SimilarArtists extends React.Component {
   render(){
       let li = this.props.similar.map((elem, i) => <Similar key={i} elem={elem} />);
       return <section id='similar'>
-        <div className='similar'>
           <h4>Similar Artists</h4>
-          <ul>{li}</ul>
-        </div>
+          <article>
+            <ul>{li}</ul>
+          </article>
       </section>
   }
 }

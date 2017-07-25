@@ -14,9 +14,11 @@ class Login extends React.Component {
   }
 
   render() {
-    return <div className="login" onClick={this.login}>
-      Log In to Deezer
-    </div>
+    return <section id='login'>
+      <div className="login" onClick={this.login}>
+        Log In to Deezer
+      </div>
+    </section>
   }
 }
 

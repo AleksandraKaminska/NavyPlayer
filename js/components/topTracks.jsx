@@ -9,12 +9,12 @@ import TopTrack from './topTrack.jsx';
 class TopTracks extends React.Component {
   render(){
       let li = this.props.topTracks.map((elem, i) => <TopTrack key={i} elem={elem} />);
-      return <section id='topTracks'>
+      return <article id='topTracks'>
         <div className='topTracks'>
           <h4>Top tracks</h4>
           <ul>{li}</ul>
         </div>
-      </section>
+      </article>
   }
 }
 
