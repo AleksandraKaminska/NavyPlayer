@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Playlist from './playlist.jsx';
 
 class ChoosePlaylists extends React.Component {
@@ -11,11 +10,7 @@ class ChoosePlaylists extends React.Component {
   render() {
     return <div className="playlists">
         <div>
-          {this.playlists.map((elem, i) => <Playlist
-            elem={elem}
-            randomTrack={this.props.randomTrack}
-            key={i} />
-          )}
+          {this.playlists.map((elem, i) => <Playlist elem={elem} key={i} />)}
         </div>
       </div>
   }

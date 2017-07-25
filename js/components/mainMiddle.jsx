@@ -10,7 +10,7 @@ class MainMiddle extends React.Component {
   render() {
     return <main>
       <div className='mainMiddle'>
-        <ChoosePlaylists randomTrack={this.props.randomTrack} />
+        <ChoosePlaylists />
         <Cover />
         <Artist />
         <SimilarArtists />
