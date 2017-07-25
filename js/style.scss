@@ -606,17 +606,37 @@ footer {
     position: absolute;
     right: 1.5vw;
     top: 3vh;
-    background: rgba(4, 99, 128, 0.5);
+    background-color: rgba(255, 245, 238, 0.7);
+    background-image: -webkit-repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
+    background-image: -o-repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
+    background-image: -moz-repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
+    background-image: repeating-linear-gradient(135deg, $progress-bar-color, $progress-bar-color .5px, transparent .5px, transparent 16px);
+    background-size: 23px 23px;
     width: 10vw;
-    padding: 0.5em;
-    border-radius: 10px;
+    padding: 0.2em;
+    border-radius: 5px;
     font-family: 'Reem Kufi', sans-serif;
     cursor: pointer;
+    color: black;
+    font-size: 1.1em;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0 ;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      background: -webkit-linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
+      background: -o-linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
+      background: -moz-linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(5,5,5,.6) 100%);
+    }
     &:hover {
-      background: #035270;
+      background-color: rgb(255, 245, 238);
+      color: $navy-color;
     }
   }
-
   .mobile {
     display: none;
   }
