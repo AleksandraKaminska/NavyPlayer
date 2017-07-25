@@ -8647,7 +8647,7 @@ var ChoosePlaylists = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
 
-    _this.playlists = [950408095, 2734448044, 1242572531, 2178064502, 1927928822, 975986691, 1266972311, 65490032, 1677006641];
+    _this.playlists = [950408095, 1282483245, 2734448044, 1242572531, 1306931615, 2178064502, 1927928822, 975986691, 1266972311, 65490032, 1677006641, 1182263621];
     return _this;
   }
 
@@ -16784,6 +16784,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var promise = new Promise(function (resolve, reject) {
+  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+});
+
 var Playlist = function (_React$Component) {
   _inherits(Playlist, _React$Component);
 
@@ -16794,7 +16798,11 @@ var Playlist = function (_React$Component) {
 
     _this.findPlaylist = function () {
       _store2.default.dispatch((0, _index.changePlaylistAction)(_this.props.elem));
-      _this.props.randomTrack();
+      promise.then(function (result) {
+        return _this.props.randomTrack();
+      }, function (err) {
+        return console.log(err);
+      });
     };
 
     _this.thisplaylist = function () {

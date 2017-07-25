@@ -3,6 +3,10 @@ import React from 'react';
 import store from './../store';
 import {changePlaylistAction} from './../actions/index.js';
 
+const promise = new Promise((resolve, reject) => {
+  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+});
+
 class Playlist extends React.Component {
   constructor(props) {
      super(props);
@@ -14,7 +18,7 @@ class Playlist extends React.Component {
 
   findPlaylist = () => {
     store.dispatch(changePlaylistAction(this.props.elem));
-    this.props.randomTrack();
+    promise.then(result => this.props.randomTrack(), err => console.log(err));
   }
 
   thisplaylist = () => {
