@@ -244,7 +244,7 @@ body {
             margin: 1vh auto 1vh auto;
           }
           li:hover {
-            color: rgb(4, 99, 128);
+            color: #58afd1;
           }
         }
       }
@@ -262,7 +262,7 @@ body {
         border-bottom: 0.5px rgba(255,255,255,0.1) solid;
       }
       li:hover {
-        color: rgb(4, 99, 128);
+        color: #58afd1;
       }
     }
   }
@@ -278,6 +278,7 @@ body {
       li {
         @include flex(space-between);
         border-bottom: 0.5px rgba(255,255,255,0.2) solid;
+        cursor: pointer;
       }
     }
     img {
