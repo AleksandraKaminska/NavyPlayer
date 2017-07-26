@@ -118,13 +118,7 @@ class Search extends React.Component {
         onSelect={this.handleSelect}
         onChange={this.handleChange}
         renderItem={this.handlerRenderItem}/>
-      <div className='placeholder'
-        style={{
-          height: '63vh',
-          width: '100%',
-          background: '#111'
-        }}>
-      </div>
+      <div className='placeholder'></div>
     </section>
   }
 }
