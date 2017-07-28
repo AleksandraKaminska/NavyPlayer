@@ -6,10 +6,10 @@ import { changeTrackAction, prevTrackAction } from './../actions/index.js';
 import store from './../store';
 
 class TopTrack extends React.Component {
-  handleClick = (event) => {
+  handleClick = () => {
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/track/${event.target.id}?output=jsonp`,
+        url :`https://api.deezer.com/track/${this.props.elem.id}?output=jsonp`,
         success : response => {
           store.dispatch(prevTrackAction(this.props.track));
           store.dispatch(changeTrackAction(response))
@@ -20,8 +20,7 @@ class TopTrack extends React.Component {
   }
 
   render(){
-      return <li id={this.props.elem.id}
-        onClick={this.handleClick}>
+      return <li onClick={this.handleClick}>
         {this.props.elem.title_short}
       </li>
   }

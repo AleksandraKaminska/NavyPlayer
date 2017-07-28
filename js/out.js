@@ -16883,7 +16883,7 @@ var Playlist = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { onClick: this.findPlaylist, id: this.state.data.id },
+        { onClick: this.findPlaylist },
         _react2.default.createElement('img', { src: this.state.picture, alt: this.state.data.title }),
         _react2.default.createElement(
           'p',
@@ -17116,8 +17116,7 @@ var Similar = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'li',
-        { id: this.props.elem.id,
-          onClick: this.handleClick },
+        { onClick: this.handleClick },
         _react2.default.createElement('img', { src: this.props.elem.picture_small, alt: this.props.elem.name }),
         _react2.default.createElement(
           'p',
@@ -17386,10 +17385,10 @@ var TopTrack = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TopTrack.__proto__ || Object.getPrototypeOf(TopTrack)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (event) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TopTrack.__proto__ || Object.getPrototypeOf(TopTrack)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/track/' + event.target.id + '?output=jsonp',
+        url: 'https://api.deezer.com/track/' + _this.props.elem.id + '?output=jsonp',
         success: function success(response) {
           _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
           _store2.default.dispatch((0, _index.changeTrackAction)(response));
@@ -17405,8 +17404,7 @@ var TopTrack = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'li',
-        { id: this.props.elem.id,
-          onClick: this.handleClick },
+        { onClick: this.handleClick },
         this.props.elem.title_short
       );
     }

@@ -56,8 +56,7 @@ class Similar extends React.Component {
   }
 
   render(){
-      return <li id={this.props.elem.id}
-          onClick={this.handleClick}>
+      return <li onClick={this.handleClick}>
           <img src={this.props.elem.picture_small} alt={this.props.elem.name}/>
           <p>{this.props.elem.name}</p>
       </li>

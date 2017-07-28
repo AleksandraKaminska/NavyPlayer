@@ -106,7 +106,7 @@ class Playlist extends React.Component {
   }
 
   render() {
-    return <div onClick={this.findPlaylist} id={this.state.data.id}>
+    return <div onClick={this.findPlaylist}>
         <img src={this.state.picture} alt={this.state.data.title}/>
 				<p>{this.state.data.title}</p>
       </div>
