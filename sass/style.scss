@@ -10,29 +10,29 @@ $progress-value-color: rgb(66, 66, 66);
 }
 
 @mixin mobileComponent() {
-    .time {
-      display: none;
+  .time {
+    display: none;
+  }
+  .playerAndProgress {
+    position: relative;
+    progress[value] {
+      width: 100%;
     }
-    .playerAndProgress {
-      position: relative;
-      progress[value] {
-        width: 100%;
-      }
-    }
-    .choose {
-      position: static;
-      background: rgba(0,0,0,0.5);
-    }
-    .cover {
-      display: none;
-    }
-    footer {
-      position: static;
-      background: rgba(0,0,0,0.5);
-    }
-    .small {
-      display: flex;
-    }
+  }
+  .choose {
+    position: static;
+    background: rgba(0,0,0,0.5);
+  }
+  .cover {
+    display: none;
+  }
+  footer {
+    position: static;
+    background: rgba(0,0,0,0.5);
+  }
+  .small {
+    display: flex;
+  }
 }
 
 @mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
@@ -128,7 +128,7 @@ body {
       font-size: 1.1em;
       outline: none;
       color: white;
-      background: #7e827a;
+      background: rgba(126, 130, 122, 0.5);
       box-shadow: 0px 4px 4px rgba(0,0,0,.5);
       &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         font-size: 1.2em;
