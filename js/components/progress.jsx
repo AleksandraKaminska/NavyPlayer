@@ -32,9 +32,9 @@ class Progress extends React.Component {
       <div className="progress">
         <progress onClick={this.changeSeek} value={0} max="1"></progress>
         <div className='time'>
-          <span className="elapsed">00:00</span>
+          <span className="elapsed">0:00</span>
           <span className="pipe"> &#124; </span>
-          <span className="duration">00:00</span>
+          <span className="duration">0:00</span>
         </div>
       </div>
     )
