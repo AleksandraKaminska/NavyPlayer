@@ -16014,7 +16014,7 @@ var Albums = function (_React$Component) {
     value: function showAlbumsTracks() {
       $.ajax({
         dataType: "jsonp",
-        url: 'http://api.deezer.com/album/' + this.props.elem.id + '?output=jsonp',
+        url: 'https://api.deezer.com/album/' + this.props.elem.id + '?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMSTRACKS', albumsTracks: response.tracks.data });
         }
@@ -16113,7 +16113,7 @@ var AlbumsTracks = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
