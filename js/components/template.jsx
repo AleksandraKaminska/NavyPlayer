@@ -19,7 +19,6 @@ class Template extends React.Component {
           <Title />
           <MainMiddle />
           <PlayerAndProgress />
-          <Choose />
           <Footer />
         </div>
         <div className='mobile'>

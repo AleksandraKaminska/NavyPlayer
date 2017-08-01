@@ -1,11 +1,9 @@
 import React from 'react';
-
-// Redux
 import { connect } from 'react-redux';
-import { changeTrackAction, prevTrackAction } from './../actions/index.js';
 import store from './../store';
+import { changeTrackAction, prevTrackAction } from './../actions/index.js';
 
-class Similar extends React.Component {
+class AlbumsTracks extends React.Component {
   searchArtist = () => {
     $.ajax({
       dataType: "jsonp",
@@ -41,32 +39,25 @@ class Similar extends React.Component {
   handleClick = () => {
     $.ajax({
         dataType: "jsonp",
-        url :`https://api.deezer.com/artist/${this.props.elem.id}/top?output=jsonp`,
+        url :`https://api.deezer.com/track/${this.props.song.id}?output=jsonp`,
         success : response => {
           store.dispatch(prevTrackAction(this.props.track));
-          store.dispatch(changeTrackAction(response.data[0]))
+          store.dispatch(changeTrackAction(response))
           DZ.player.pause();
           DZ.player.playTracks([this.props.track.id]);
-          this.searchArtist();
-          this.searchAlbums();
-          this.searchTopTracks();
-          this.searchSimilarArtists();
         }
     });
   }
 
-  render(){
-      return <li onClick={this.handleClick}>
-          <img src={this.props.elem.picture_small} alt={this.props.elem.name}/>
-          <p>{this.props.elem.name}</p>
-      </li>
+  render() {
+    return <li onClick={this.handleClick}>{this.props.song.title}</li>;
   }
 }
 
-const mapStateToProps = store => {
+const mapStateToProps = (store) => {
   return {
     track: store.track
   };
 };
 
-export default connect(mapStateToProps)(Similar);
+export default connect(mapStateToProps)(AlbumsTracks);

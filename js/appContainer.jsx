@@ -27,7 +27,7 @@ class AppContainer extends React.Component {
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
           this.searchArtist();
           this.searchTopTracks();
-          this.searchConcerts();
+          this.searchAlbums();
           this.searchSimilarArtists();
           DZ.player.playTracks([this.props.track.id]);
         }
@@ -50,11 +50,11 @@ class AppContainer extends React.Component {
     });
   }
 
-  searchConcerts = () => {
+  searchAlbums = () => {
     $.ajax({
-      dataType: "json",
-      url: `https://rest.bandsintown.com/artists/${this.props.track.artist.name}/events?app_id=NavyPlayer`,
-      success: response => store.dispatch({ type: 'FIND_CONCERTS', concerts: response })
+      dataType: "jsonp",
+      url: `http://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
+      success: response => store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
     });
   }
 

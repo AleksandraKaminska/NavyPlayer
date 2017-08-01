@@ -3,7 +3,7 @@ import React from 'react';
 import ChoosePlaylists from './choosePlaylists.jsx';
 import Cover from './cover.jsx';
 import Artist from './artist.jsx';
-import Concerts from './concerts.jsx';
+import ChooseAlbums from './chooseAlbums.jsx';
 import SimilarArtists from './similarArtists.jsx';
 
 class MainMiddle extends React.Component {
@@ -13,7 +13,7 @@ class MainMiddle extends React.Component {
       <Cover />
       <Artist />
       <SimilarArtists />
-      <Concerts/>
+      <ChooseAlbums />
     </main>
   }
 }

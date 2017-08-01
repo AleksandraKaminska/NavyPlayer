@@ -1,6 +1,6 @@
 import React from 'react';
 import Artist from './artist.jsx';
-import Concerts from './concerts.jsx';
+import ChooseAlbums from './chooseAlbums.jsx';
 import SimilarArtists from './similarArtists.jsx';
 
 class MobileArtist extends React.Component {
@@ -8,7 +8,7 @@ class MobileArtist extends React.Component {
     return <div className='mainMiddle'>
 					<Artist />
           <SimilarArtists />
-          <Concerts />
+          <ChooseAlbums />
 				</div>
   }
 }

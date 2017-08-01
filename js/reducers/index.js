@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
 
 // Reducers
-import ConcertsReducer from './reducer-concerts';
+import AlbumsReducer from './reducer-albums';
+import AlbumsTracksReducer from './reducer-albumsTracks';
 import ArtistReducer from './reducer-artist';
 import SimilarArtistsReducer from './reducer-similar-artists';
 import TopTracksReducer from './reducer-top-tracks';
@@ -12,7 +13,8 @@ import TrackReducer from './reducer-track';
 import PrevTrackReducer from './reducer-previous-track';
 
 const reducers = combineReducers({
-    concerts: ConcertsReducer,
+    albums: AlbumsReducer,
+    albumsTracks: AlbumsTracksReducer,
     artist: ArtistReducer,
     chosenPlaylist: ChosenPlaylistReducer,
     searchTracks: SearchTracksReducer,
