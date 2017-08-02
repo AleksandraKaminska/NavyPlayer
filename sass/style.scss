@@ -260,7 +260,6 @@ body {
     }
     .list {
       float: left;
-      font-size: 1.2em;
       font-family: 'Reem Kufi', sans-serif;
       width: 100vw;
       overflow-x: auto;
@@ -472,7 +471,7 @@ footer {
   @include mobileComponent();
 }
 
-@media (min-width: 960px), (min-width: 700px) and (orientation: landscape) {
+@media (min-width: 870px) {
   body {
     ::-webkit-scrollbar {
       width: 7px;
@@ -509,12 +508,12 @@ footer {
 
   nav {
     text-transform: uppercase;
-    top: 1em;
-    left: 1em;
     position: absolute;
+    top: 2.5vh;
+    left: 0.5vw;
     a {
       border-bottom: 3px solid white;
-      margin: 1.5em;
+      margin: 1.5vw;
     }
   }
 
@@ -605,7 +604,6 @@ footer {
     }
     section#albums {
       margin-top: 8vh;
-      font-size: 1.2em;
       ul {
         display: block;
       }
@@ -617,7 +615,7 @@ footer {
         margin-right: 2vw;
         li {
           margin: 0 0 0.5em 0;
-          width: 30%;
+          width: 33%;
         }
         img {
           width: 5em;
