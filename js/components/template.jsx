@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import Login from './../components/login.jsx';
+import Nav from './../components/nav.jsx';
 import Title from './../components/title.jsx';
 import PlayerAndProgress from './../components/playerAndProgress.jsx';
 import Search from './../components/search.jsx';
@@ -14,6 +15,7 @@ class Template extends React.Component {
 		let path = this.props.children.props.location.pathname;
     return <div className="NavyPlayer">
         <div className='desktop'>
+          <Nav />
           <Login />
           <Search />
           <Title />

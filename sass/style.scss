@@ -507,6 +507,17 @@ footer {
     @include flex(center);
   }
 
+  nav {
+    text-transform: uppercase;
+    top: 1em;
+    left: 1em;
+    position: absolute;
+    a {
+      border-bottom: 3px solid white;
+      margin: 1.5em;
+    }
+  }
+
   #search {
     height: 15vh;
     min-height: 15vh;
