@@ -50,7 +50,9 @@ class AlbumsTracks extends React.Component {
   }
 
   render() {
-    return <li onClick={this.handleClick}>{this.props.song.title}</li>;
+    return <li onClick={this.handleClick}>
+      {this.props.i < 9 ? '0' : null}{this.props.i + 1}. {this.props.song.title}
+    </li>;
   }
 }
 

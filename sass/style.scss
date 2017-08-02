@@ -249,15 +249,18 @@ body {
     }
   }
   section#albums {
-    margin: 2vh 4vw;
-    overflow-x: auto;
+    padding: 2vh 4vw;
+    width: 100vw;
     .list {
-      max-width: 100%;
-      width: 100%;
+      float: left;
       font-size: 1.2em;
       font-family: 'Reem Kufi', sans-serif;
+      width: 50vw;
       ul {
         list-style: none;
+        li {
+          display: inline-block;
+        }
         img {
           width: 5em;
           height: auto;
@@ -266,9 +269,13 @@ body {
           display: inline-block;
           vertical-align: top;
           margin: 0.5em;
-          width: calc(100% - 6em);
+          width: 5em;
         }
       }
+    }
+    .songs {
+      float: left;
+      width: 40vw;
     }
     .songs ul {
       list-style: none;
@@ -583,11 +590,8 @@ footer {
       margin-top: 8vh;
       font-size: 1.2em;
       cursor: pointer;
-      ul {
-        display: flex;
-        flex-direction: row;
         li {
-          margin: 1vh 2vw;
+          margin: 1vh 0;
           p {
             display: block;
             margin: 0;
@@ -595,7 +599,6 @@ footer {
             font-size: 0.7em;
           }
         }
-      }
     }
     section#similar {
       margin: 12vh 10vh 0 10vh;

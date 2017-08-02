@@ -412,7 +412,7 @@ module.exports = __webpack_require__(31);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -925,7 +925,7 @@ if (process.env.NODE_ENV !== 'production') {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -1312,7 +1312,7 @@ module.exports = ReactComponentTreeHook;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -1354,7 +1354,7 @@ module.exports = emptyFunction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -1641,7 +1641,7 @@ module.exports = ReactUpdates;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -2514,7 +2514,7 @@ const prevTrackAction = (prev) => {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -3792,7 +3792,7 @@ module.exports = React;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -4513,7 +4513,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -5178,7 +5178,7 @@ module.exports = SyntheticMouseEvent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -5642,7 +5642,7 @@ module.exports = setInnerHTML;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -5675,7 +5675,7 @@ module.exports = canDefineProperty;
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -6656,7 +6656,7 @@ module.exports = EventPluginUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -6864,7 +6864,7 @@ module.exports = LinkedValueUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -6914,7 +6914,7 @@ module.exports = ReactComponentEnvironment;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -8954,7 +8954,7 @@ var Search = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -11356,7 +11356,7 @@ module.exports = CSSProperty;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -11986,7 +11986,7 @@ module.exports = ReactEmptyComponent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12759,7 +12759,7 @@ module.exports = ReactMount;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12805,7 +12805,7 @@ module.exports = ReactNodeTypes;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12857,7 +12857,7 @@ module.exports = ViewportMetrics;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12921,7 +12921,7 @@ module.exports = accumulateInto;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -13293,7 +13293,7 @@ module.exports = instantiateReactComponent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -13889,7 +13889,7 @@ function wrapMapToPropsConstant(getConstant) {
 // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 // to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 // whether mapToProps needs to be invoked when props have changed.
-//
+// 
 // A length of one signals that mapToProps does not depend on props from the parent component.
 // A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 // therefore not reporting its length accurately..
@@ -13899,16 +13899,16 @@ function getDependsOnOwnProps(mapToProps) {
 
 // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 // this function wraps mapToProps in a proxy function which does several things:
-//
+// 
 //  * Detects whether the mapToProps function being called depends on props, which
 //    is used by selectorFactory to decide if it should reinvoke on props changes.
-//
+//    
 //  * On first call, handles mapToProps if returns another function, and treats that
 //    new function as the true mapToProps for subsequent calls.
-//
+//    
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
-//
+//    
 function wrapMapToPropsFunc(mapToProps, methodName) {
   return function initProxySelector(dispatch, _ref) {
     var displayName = _ref.displayName;
@@ -14766,7 +14766,7 @@ module.exports = {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -15153,7 +15153,7 @@ module.exports = ReactNoopUpdateQueue;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -15625,7 +15625,7 @@ var AppContainer = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -16146,6 +16146,9 @@ var AlbumsTracks = function (_React$Component) {
       return _react2.default.createElement(
         'li',
         { onClick: this.handleClick },
+        this.props.i < 9 ? '0' : null,
+        this.props.i + 1,
+        '. ',
         this.props.song.title
       );
     }
@@ -16807,7 +16810,7 @@ var Player = function (_React$Component) {
     _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -17289,7 +17292,7 @@ var Similar = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -17723,7 +17726,7 @@ exports = module.exports = __webpack_require__(173)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  position: relative;\n  max-width: 100%;\n  max-height: 100vh;\n  height: 100vh;\n  font-family: 'Lato', sans-serif;\n  color: white;\n  background: #000a11;\n  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11; }\n  .NavyPlayer .desktop {\n    display: none; }\n  .NavyPlayer a {\n    color: white;\n    text-decoration: none; }\n\n#search, #title, footer, .choose {\n  width: 100%; }\n\n#search {\n  height: 71vh;\n  min-height: 71vh; }\n  #search div:first-child {\n    width: 100vw;\n    height: 6.5vh;\n    margin-top: 0; }\n    #search div:first-child input {\n      height: 100%;\n      width: 100vw;\n      padding: 0.5em 1em;\n      border: 0;\n      font-size: 1.1em;\n      outline: none;\n      color: white;\n      background: rgba(126, 130, 122, 0.5);\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      #search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n  #search .placeholder {\n    height: 64.5vh;\n    width: 100%;\n    background: #111; }\n\n#title {\n  position: absolute;\n  top: 20vh;\n  text-align: center; }\n  #title h3 {\n    font-size: 1.3em;\n    color: white;\n    font-family: 'Open Sans', sans-serif; }\n\n.mainMiddle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  width: 100vw;\n  max-width: 100vw;\n  height: 71vh;\n  overflow-y: auto;\n  overflow-x: hidden; }\n  .mainMiddle #playlists {\n    width: 100%; }\n    .mainMiddle #playlists div {\n      max-height: 70vh;\n      overflow-y: auto; }\n      .mainMiddle #playlists div div {\n        margin: 1em 0 1em 1em;\n        display: flex;\n        align-items: center; }\n        .mainMiddle #playlists div div img {\n          width: 3em;\n          height: auto; }\n        .mainMiddle #playlists div div p {\n          max-width: 90%;\n          display: inline-block;\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word;\n          font-size: 1em;\n          margin: 0 1em; }\n  .mainMiddle #artist {\n    width: 100%;\n    padding: 0 3vw; }\n    .mainMiddle #artist .info {\n      height: 10vh;\n      margin-top: 1vh; }\n      .mainMiddle #artist .info img {\n        float: left;\n        width: 64px;\n        height: 64px;\n        border-radius: 50%;\n        margin-right: 1em;\n        margin-top: 0.5em;\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      .mainMiddle #artist .info div {\n        float: left;\n        max-width: calc(100% - 64px); }\n        .mainMiddle #artist .info div p {\n          margin-top: calc(32px - 0.6em);\n          font-size: 1.2em;\n          font-family: 'Playfair Display', serif; }\n    .mainMiddle #artist #topTracks {\n      margin: 5vh auto 2vh auto;\n      max-width: 90vw; }\n      .mainMiddle #artist #topTracks .topTracks {\n        margin: 8vh 0;\n        width: 100%;\n        font-size: 1.2em;\n        font-family: 'Playfair Display', serif; }\n        .mainMiddle #artist #topTracks .topTracks ul {\n          list-style: none;\n          line-height: 6vh; }\n          .mainMiddle #artist #topTracks .topTracks ul li {\n            border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;\n            margin: 1vh auto 1vh auto; }\n          .mainMiddle #artist #topTracks .topTracks ul li:hover {\n            color: #58afd1; }\n  .mainMiddle section#albums {\n    margin: 2vh 4vw;\n    overflow-x: auto; }\n    .mainMiddle section#albums .list {\n      max-width: 100%;\n      width: 100%;\n      font-size: 1.2em;\n      font-family: 'Reem Kufi', sans-serif; }\n      .mainMiddle section#albums .list ul {\n        list-style: none; }\n        .mainMiddle section#albums .list ul img {\n          width: 5em;\n          height: auto; }\n        .mainMiddle section#albums .list ul p {\n          display: inline-block;\n          vertical-align: top;\n          margin: 0.5em;\n          width: calc(100% - 6em); }\n    .mainMiddle section#albums .songs ul {\n      list-style: none;\n      display: flex;\n      flex-direction: column; }\n      .mainMiddle section#albums .songs ul li {\n        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n        cursor: pointer; }\n  .mainMiddle section#similar {\n    margin: 2vh 4vw;\n    width: 100%;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle section#similar h4 {\n      font-size: 1.5em; }\n    .mainMiddle section#similar ul {\n      list-style: none; }\n      .mainMiddle section#similar ul li {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        align-items: center;\n        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n        cursor: pointer; }\n    .mainMiddle section#similar img {\n      border-radius: 50%;\n      width: 3em;\n      height: 3em;\n      margin: 2vh 0;\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n    .mainMiddle section#similar p {\n      float: right;\n      font-size: 1.2em; }\n\n.playerAndProgress {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n  height: 11vh;\n  padding-top: 5.5vh; }\n  .playerAndProgress a {\n    max-width: 65%; }\n  .playerAndProgress .smallCover {\n    width: 50px;\n    height: 50px;\n    display: inline-block;\n    margin: 0 1vw; }\n  .playerAndProgress .smallTitle {\n    font-size: 0.8em;\n    width: 42vw;\n    font-weight: bold;\n    display: inline-block;\n    overflow: hidden; }\n  .playerAndProgress .playerMain {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center; }\n    .playerAndProgress .playerMain button {\n      background: transparent;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:nth-child(2) {\n        transform: scale(0.5, 0.5); }\n  .playerAndProgress .progress {\n    font-size: 0.9em;\n    color: white;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 3px;\n      width: 100%;\n      background: black; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #d3ceaa;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #424242;\n        border-radius: 5px; }\n\n.choose {\n  height: 10vh;\n  margin-top: 5vh;\n  padding: 2vh 1vw;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  z-index: 2; }\n  .choose div {\n    display: inline-block; }\n    .choose div button {\n      cursor: pointer;\n      width: 1.3em;\n      height: 1.3em;\n      font-size: 1.3em;\n      background: transparent;\n      color: white;\n      border: 0;\n      outline: none; }\n      .choose div button p {\n        font-size: 0.5em;\n        font-family: 'Open Sans', sans-serif; }\n\nfooter {\n  height: 3vh;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-end;\n  font-size: 0.7em;\n  padding: 0 1vw; }\n  footer img {\n    height: 0.7em;\n    width: auto; }\n\n.active button {\n  color: #58afd1 !important; }\n\n.\\/ .time {\n  position: absolute;\n  top: -1.5vh;\n  right: 0;\n  display: block; }\n  .\\/ .time .elapsed {\n    right: 88vw;\n    position: absolute; }\n  .\\/ .time .pipe {\n    display: none; }\n  .\\/ .time .duration {\n    right: 2vw;\n    position: absolute; }\n\n.\\/ .playerAndProgress {\n  position: absolute;\n  top: 50%; }\n  .\\/ .playerAndProgress progress[value] {\n    width: 70%;\n    left: 15%; }\n\n.\\/ .choose {\n  position: absolute;\n  bottom: 5vh;\n  background: transparent; }\n\n.\\/ .cover {\n  display: block;\n  height: 100vh;\n  width: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.\\/ footer {\n  background: transparent;\n  position: absolute;\n  bottom: 0; }\n\n.\\/ .small {\n  display: none; }\n\n.\\/artist .time, .\\/playlist .time, .\\/search .time {\n  display: none; }\n\n.\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress {\n  position: relative; }\n  .\\/artist .playerAndProgress progress[value], .\\/playlist .playerAndProgress progress[value], .\\/search .playerAndProgress progress[value] {\n    width: 100%; }\n\n.\\/artist .choose, .\\/playlist .choose, .\\/search .choose {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .cover, .\\/playlist .cover, .\\/search .cover {\n  display: none; }\n\n.\\/artist footer, .\\/playlist footer, .\\/search footer {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .small, .\\/playlist .small, .\\/search .small {\n  display: flex; }\n\n@media (min-width: 960px), (min-width: 700px) and (orientation: landscape) {\n  body {\n    /* Track */\n    /* Corner */\n    /* Handle */ }\n    body ::-webkit-scrollbar {\n      width: 7px;\n      height: 7px; }\n    body ::-webkit-scrollbar-track {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5);\n      -webkit-border-radius: 10px;\n      border-radius: 10px; }\n    body ::-webkit-scrollbar-corner {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5); }\n    body ::-webkit-scrollbar-thumb {\n      -webkit-border-radius: 10px;\n      border-radius: 10px;\n      background: rgba(66, 66, 66, 0.7);\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n  .NavyPlayer .desktop {\n    background: -webkit-radial-gradient(#14375a, #000a11);\n    background: -o-radial-gradient(#14375a, #000a11);\n    background: -moz-radial-gradient(#14375a, #000a11);\n    background: radial-gradient(#14375a, #000a11);\n    display: block;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center; }\n  #search {\n    height: 15vh;\n    min-height: 15vh;\n    display: block;\n    max-width: 30vw; }\n    #search div:first-child {\n      width: 25vw;\n      height: auto;\n      margin-top: 1em; }\n      #search div:first-child input {\n        width: 30vw;\n        font-size: 0.8em;\n        border-radius: 1em; }\n    #search .placeholder {\n      display: none; }\n  #title {\n    height: 7vh;\n    position: static;\n    padding: 0 0 3vh 0; }\n    #title h3 {\n      font-size: 1.5em; }\n  .mainMiddle {\n    padding: 3vh 0 0 0;\n    height: 63vh;\n    overflow-y: auto; }\n    .mainMiddle #playlists {\n      width: calc((100% - 400px) / 2);\n      display: block;\n      height: auto;\n      padding: 0 0 0 2%; }\n      .mainMiddle #playlists div {\n        max-height: 380px; }\n        .mainMiddle #playlists div div {\n          cursor: pointer;\n          margin: 0 0 2vh 0; }\n          .mainMiddle #playlists div div img {\n            width: 4em; }\n          .mainMiddle #playlists div div p {\n            font-size: 1em; }\n    .mainMiddle .cover {\n      height: 400px;\n      width: 400px;\n      margin: 0;\n      display: block;\n      background-size: cover;\n      background-position: center; }\n    .mainMiddle #artist {\n      width: calc((100% - 400px) / 2);\n      height: auto;\n      display: flex;\n      flex-wrap: wrap; }\n      .mainMiddle #artist .info {\n        height: auto; }\n        .mainMiddle #artist .info p {\n          font-size: 1.5em; }\n      .mainMiddle #artist #topTracks {\n        margin: auto;\n        max-width: 100%;\n        width: 100%; }\n        .mainMiddle #artist #topTracks .topTracks {\n          margin: 3vh 0;\n          font-size: 1.2em;\n          cursor: pointer; }\n          .mainMiddle #artist #topTracks .topTracks h4 {\n            font-size: 1.2em; }\n    .mainMiddle section#albums {\n      margin-top: 8vh;\n      font-size: 1.2em;\n      cursor: pointer; }\n      .mainMiddle section#albums ul {\n        display: flex;\n        flex-direction: row; }\n        .mainMiddle section#albums ul li {\n          margin: 1vh 2vw; }\n          .mainMiddle section#albums ul li p {\n            display: block;\n            margin: 0;\n            min-width: 100%;\n            font-size: 0.7em; }\n    .mainMiddle section#similar {\n      margin: 12vh 10vh 0 10vh;\n      padding: 5vh auto;\n      width: 100vw; }\n      .mainMiddle section#similar ul {\n        list-style: none;\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n        -moz-column-gap: 15vw;\n        -webkit-column-gap: 15vw;\n        column-gap: 15vw; }\n        .mainMiddle section#similar ul img {\n          width: 3em;\n          height: 3em; }\n  .playerAndProgress {\n    position: relative;\n    height: 10vh;\n    width: 100%; }\n    .playerAndProgress .playerMain {\n      margin-top: 0.5vh; }\n      .playerAndProgress .playerMain button {\n        cursor: pointer;\n        margin: 0 1vw 0 0; }\n    .playerAndProgress .progress {\n      font-size: 1.1em;\n      cursor: pointer; }\n      .playerAndProgress .progress progress[value] {\n        height: 5px; }\n      .playerAndProgress .progress .time {\n        position: absolute;\n        cursor: default;\n        top: 4vh;\n        right: 5vw;\n        display: block; }\n    .playerAndProgress .small {\n      display: none; }\n  footer {\n    position: static;\n    height: 5vh;\n    padding: 0 0.5em;\n    cursor: default;\n    font-size: 1em;\n    background: transparent; }\n    footer img {\n      height: 1em; }\n  .login {\n    box-shadow: inset 0 0 0 4px #58afd1;\n    color: #58afd1;\n    transition: color 0.25s 0.08333s;\n    position: relative;\n    text-align: center;\n    position: absolute;\n    right: 1.5vw;\n    top: 3vh;\n    background: none;\n    border: none;\n    cursor: pointer;\n    line-height: 1.5;\n    font: 700 0.8em 'Roboto Slab', sans-serif;\n    padding: 1em 2em;\n    letter-spacing: 0.05rem; }\n    .login::before, .login::after {\n      border: 0 solid transparent;\n      box-sizing: border-box;\n      content: '';\n      pointer-events: none;\n      position: absolute;\n      width: 0;\n      height: 0;\n      bottom: 0;\n      right: 0; }\n    .login::before {\n      border-bottom-width: 4px;\n      border-left-width: 4px; }\n    .login::after {\n      border-top-width: 4px;\n      border-right-width: 4px; }\n    .login:hover {\n      color: #ffe593; }\n      .login:hover::before, .login:hover::after {\n        border-color: #ffe593;\n        transition: border-color 0s, width 0.25s, height 0.25s;\n        width: 100%;\n        height: 100%; }\n      .login:hover::before {\n        transition-delay: 0s, 0s, 0.25s; }\n      .login:hover::after {\n        transition-delay: 0s, 0.25s, 0s; }\n    .login:focus {\n      outline: 2px dotted #55d7dc; }\n  .mobile {\n    display: none; } }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  position: relative;\n  max-width: 100%;\n  max-height: 100vh;\n  height: 100vh;\n  font-family: 'Lato', sans-serif;\n  color: white;\n  background: #000a11;\n  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11; }\n  .NavyPlayer .desktop {\n    display: none; }\n  .NavyPlayer a {\n    color: white;\n    text-decoration: none; }\n\n#search, #title, footer, .choose {\n  width: 100%; }\n\n#search {\n  height: 71vh;\n  min-height: 71vh; }\n  #search div:first-child {\n    width: 100vw;\n    height: 6.5vh;\n    margin-top: 0; }\n    #search div:first-child input {\n      height: 100%;\n      width: 100vw;\n      padding: 0.5em 1em;\n      border: 0;\n      font-size: 1.1em;\n      outline: none;\n      color: white;\n      background: rgba(126, 130, 122, 0.5);\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      #search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n  #search .placeholder {\n    height: 64.5vh;\n    width: 100%;\n    background: #111; }\n\n#title {\n  position: absolute;\n  top: 20vh;\n  text-align: center; }\n  #title h3 {\n    font-size: 1.3em;\n    color: white;\n    font-family: 'Open Sans', sans-serif; }\n\n.mainMiddle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  width: 100vw;\n  max-width: 100vw;\n  height: 71vh;\n  overflow-y: auto;\n  overflow-x: hidden; }\n  .mainMiddle #playlists {\n    width: 100%; }\n    .mainMiddle #playlists div {\n      max-height: 70vh;\n      overflow-y: auto; }\n      .mainMiddle #playlists div div {\n        margin: 1em 0 1em 1em;\n        display: flex;\n        align-items: center; }\n        .mainMiddle #playlists div div img {\n          width: 3em;\n          height: auto; }\n        .mainMiddle #playlists div div p {\n          max-width: 90%;\n          display: inline-block;\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word;\n          font-size: 1em;\n          margin: 0 1em; }\n  .mainMiddle #artist {\n    width: 100%;\n    padding: 0 3vw; }\n    .mainMiddle #artist .info {\n      height: 10vh;\n      margin-top: 1vh; }\n      .mainMiddle #artist .info img {\n        float: left;\n        width: 64px;\n        height: 64px;\n        border-radius: 50%;\n        margin-right: 1em;\n        margin-top: 0.5em;\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      .mainMiddle #artist .info div {\n        float: left;\n        max-width: calc(100% - 64px); }\n        .mainMiddle #artist .info div p {\n          margin-top: calc(32px - 0.6em);\n          font-size: 1.2em;\n          font-family: 'Playfair Display', serif; }\n    .mainMiddle #artist #topTracks {\n      margin: 5vh auto 2vh auto;\n      max-width: 90vw; }\n      .mainMiddle #artist #topTracks .topTracks {\n        margin: 8vh 0;\n        width: 100%;\n        font-size: 1.2em;\n        font-family: 'Playfair Display', serif; }\n        .mainMiddle #artist #topTracks .topTracks ul {\n          list-style: none;\n          line-height: 6vh; }\n          .mainMiddle #artist #topTracks .topTracks ul li {\n            border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;\n            margin: 1vh auto 1vh auto; }\n          .mainMiddle #artist #topTracks .topTracks ul li:hover {\n            color: #58afd1; }\n  .mainMiddle section#albums {\n    padding: 2vh 4vw;\n    width: 100vw; }\n    .mainMiddle section#albums .list {\n      float: left;\n      font-size: 1.2em;\n      font-family: 'Reem Kufi', sans-serif;\n      width: 50vw; }\n      .mainMiddle section#albums .list ul {\n        list-style: none; }\n        .mainMiddle section#albums .list ul li {\n          display: inline-block; }\n        .mainMiddle section#albums .list ul img {\n          width: 5em;\n          height: auto; }\n        .mainMiddle section#albums .list ul p {\n          display: inline-block;\n          vertical-align: top;\n          margin: 0.5em;\n          width: 5em; }\n    .mainMiddle section#albums .songs {\n      float: left;\n      width: 40vw; }\n    .mainMiddle section#albums .songs ul {\n      list-style: none;\n      display: flex;\n      flex-direction: column; }\n      .mainMiddle section#albums .songs ul li {\n        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n        cursor: pointer; }\n  .mainMiddle section#similar {\n    margin: 2vh 4vw;\n    width: 100%;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle section#similar h4 {\n      font-size: 1.5em; }\n    .mainMiddle section#similar ul {\n      list-style: none; }\n      .mainMiddle section#similar ul li {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        align-items: center;\n        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n        cursor: pointer; }\n    .mainMiddle section#similar img {\n      border-radius: 50%;\n      width: 3em;\n      height: 3em;\n      margin: 2vh 0;\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n    .mainMiddle section#similar p {\n      float: right;\n      font-size: 1.2em; }\n\n.playerAndProgress {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n  height: 11vh;\n  padding-top: 5.5vh; }\n  .playerAndProgress a {\n    max-width: 65%; }\n  .playerAndProgress .smallCover {\n    width: 50px;\n    height: 50px;\n    display: inline-block;\n    margin: 0 1vw; }\n  .playerAndProgress .smallTitle {\n    font-size: 0.8em;\n    width: 42vw;\n    font-weight: bold;\n    display: inline-block;\n    overflow: hidden; }\n  .playerAndProgress .playerMain {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center; }\n    .playerAndProgress .playerMain button {\n      background: transparent;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:nth-child(2) {\n        transform: scale(0.5, 0.5); }\n  .playerAndProgress .progress {\n    font-size: 0.9em;\n    color: white;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 3px;\n      width: 100%;\n      background: black; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #d3ceaa;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #424242;\n        border-radius: 5px; }\n\n.choose {\n  height: 10vh;\n  margin-top: 5vh;\n  padding: 2vh 1vw;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  z-index: 2; }\n  .choose div {\n    display: inline-block; }\n    .choose div button {\n      cursor: pointer;\n      width: 1.3em;\n      height: 1.3em;\n      font-size: 1.3em;\n      background: transparent;\n      color: white;\n      border: 0;\n      outline: none; }\n      .choose div button p {\n        font-size: 0.5em;\n        font-family: 'Open Sans', sans-serif; }\n\nfooter {\n  height: 3vh;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-end;\n  font-size: 0.7em;\n  padding: 0 1vw; }\n  footer img {\n    height: 0.7em;\n    width: auto; }\n\n.active button {\n  color: #58afd1 !important; }\n\n.\\/ .time {\n  position: absolute;\n  top: -1.5vh;\n  right: 0;\n  display: block; }\n  .\\/ .time .elapsed {\n    right: 88vw;\n    position: absolute; }\n  .\\/ .time .pipe {\n    display: none; }\n  .\\/ .time .duration {\n    right: 2vw;\n    position: absolute; }\n\n.\\/ .playerAndProgress {\n  position: absolute;\n  top: 50%; }\n  .\\/ .playerAndProgress progress[value] {\n    width: 70%;\n    left: 15%; }\n\n.\\/ .choose {\n  position: absolute;\n  bottom: 5vh;\n  background: transparent; }\n\n.\\/ .cover {\n  display: block;\n  height: 100vh;\n  width: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.\\/ footer {\n  background: transparent;\n  position: absolute;\n  bottom: 0; }\n\n.\\/ .small {\n  display: none; }\n\n.\\/artist .time, .\\/playlist .time, .\\/search .time {\n  display: none; }\n\n.\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress {\n  position: relative; }\n  .\\/artist .playerAndProgress progress[value], .\\/playlist .playerAndProgress progress[value], .\\/search .playerAndProgress progress[value] {\n    width: 100%; }\n\n.\\/artist .choose, .\\/playlist .choose, .\\/search .choose {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .cover, .\\/playlist .cover, .\\/search .cover {\n  display: none; }\n\n.\\/artist footer, .\\/playlist footer, .\\/search footer {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .small, .\\/playlist .small, .\\/search .small {\n  display: flex; }\n\n@media (min-width: 960px), (min-width: 700px) and (orientation: landscape) {\n  body {\n    /* Track */\n    /* Corner */\n    /* Handle */ }\n    body ::-webkit-scrollbar {\n      width: 7px;\n      height: 7px; }\n    body ::-webkit-scrollbar-track {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5);\n      -webkit-border-radius: 10px;\n      border-radius: 10px; }\n    body ::-webkit-scrollbar-corner {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5); }\n    body ::-webkit-scrollbar-thumb {\n      -webkit-border-radius: 10px;\n      border-radius: 10px;\n      background: rgba(66, 66, 66, 0.7);\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n  .NavyPlayer .desktop {\n    background: -webkit-radial-gradient(#14375a, #000a11);\n    background: -o-radial-gradient(#14375a, #000a11);\n    background: -moz-radial-gradient(#14375a, #000a11);\n    background: radial-gradient(#14375a, #000a11);\n    display: block;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center; }\n  #search {\n    height: 15vh;\n    min-height: 15vh;\n    display: block;\n    max-width: 30vw; }\n    #search div:first-child {\n      width: 25vw;\n      height: auto;\n      margin-top: 1em; }\n      #search div:first-child input {\n        width: 30vw;\n        font-size: 0.8em;\n        border-radius: 1em; }\n    #search .placeholder {\n      display: none; }\n  #title {\n    height: 7vh;\n    position: static;\n    padding: 0 0 3vh 0; }\n    #title h3 {\n      font-size: 1.5em; }\n  .mainMiddle {\n    padding: 3vh 0 0 0;\n    height: 63vh;\n    overflow-y: auto; }\n    .mainMiddle #playlists {\n      width: calc((100% - 400px) / 2);\n      display: block;\n      height: auto;\n      padding: 0 0 0 2%; }\n      .mainMiddle #playlists div {\n        max-height: 380px; }\n        .mainMiddle #playlists div div {\n          cursor: pointer;\n          margin: 0 0 2vh 0; }\n          .mainMiddle #playlists div div img {\n            width: 4em; }\n          .mainMiddle #playlists div div p {\n            font-size: 1em; }\n    .mainMiddle .cover {\n      height: 400px;\n      width: 400px;\n      margin: 0;\n      display: block;\n      background-size: cover;\n      background-position: center; }\n    .mainMiddle #artist {\n      width: calc((100% - 400px) / 2);\n      height: auto;\n      display: flex;\n      flex-wrap: wrap; }\n      .mainMiddle #artist .info {\n        height: auto; }\n        .mainMiddle #artist .info p {\n          font-size: 1.5em; }\n      .mainMiddle #artist #topTracks {\n        margin: auto;\n        max-width: 100%;\n        width: 100%; }\n        .mainMiddle #artist #topTracks .topTracks {\n          margin: 3vh 0;\n          font-size: 1.2em;\n          cursor: pointer; }\n          .mainMiddle #artist #topTracks .topTracks h4 {\n            font-size: 1.2em; }\n    .mainMiddle section#albums {\n      margin-top: 8vh;\n      font-size: 1.2em;\n      cursor: pointer; }\n      .mainMiddle section#albums li {\n        margin: 1vh 0; }\n        .mainMiddle section#albums li p {\n          display: block;\n          margin: 0;\n          min-width: 100%;\n          font-size: 0.7em; }\n    .mainMiddle section#similar {\n      margin: 12vh 10vh 0 10vh;\n      padding: 5vh auto;\n      width: 100vw; }\n      .mainMiddle section#similar ul {\n        list-style: none;\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n        -moz-column-gap: 15vw;\n        -webkit-column-gap: 15vw;\n        column-gap: 15vw; }\n        .mainMiddle section#similar ul img {\n          width: 3em;\n          height: 3em; }\n  .playerAndProgress {\n    position: relative;\n    height: 10vh;\n    width: 100%; }\n    .playerAndProgress .playerMain {\n      margin-top: 0.5vh; }\n      .playerAndProgress .playerMain button {\n        cursor: pointer;\n        margin: 0 1vw 0 0; }\n    .playerAndProgress .progress {\n      font-size: 1.1em;\n      cursor: pointer; }\n      .playerAndProgress .progress progress[value] {\n        height: 5px; }\n      .playerAndProgress .progress .time {\n        position: absolute;\n        cursor: default;\n        top: 4vh;\n        right: 5vw;\n        display: block; }\n    .playerAndProgress .small {\n      display: none; }\n  footer {\n    position: static;\n    height: 5vh;\n    padding: 0 0.5em;\n    cursor: default;\n    font-size: 1em;\n    background: transparent; }\n    footer img {\n      height: 1em; }\n  .login {\n    box-shadow: inset 0 0 0 4px #58afd1;\n    color: #58afd1;\n    transition: color 0.25s 0.08333s;\n    position: relative;\n    text-align: center;\n    position: absolute;\n    right: 1.5vw;\n    top: 3vh;\n    background: none;\n    border: none;\n    cursor: pointer;\n    line-height: 1.5;\n    font: 700 0.8em 'Roboto Slab', sans-serif;\n    padding: 1em 2em;\n    letter-spacing: 0.05rem; }\n    .login::before, .login::after {\n      border: 0 solid transparent;\n      box-sizing: border-box;\n      content: '';\n      pointer-events: none;\n      position: absolute;\n      width: 0;\n      height: 0;\n      bottom: 0;\n      right: 0; }\n    .login::before {\n      border-bottom-width: 4px;\n      border-left-width: 4px; }\n    .login::after {\n      border-top-width: 4px;\n      border-right-width: 4px; }\n    .login:hover {\n      color: #ffe593; }\n      .login:hover::before, .login:hover::after {\n        border-color: #ffe593;\n        transition: border-color 0s, width 0.25s, height 0.25s;\n        width: 100%;\n        height: 100%; }\n      .login:hover::before {\n        transition-delay: 0s, 0s, 0.25s; }\n      .login:hover::after {\n        transition-delay: 0s, 0.25s, 0s; }\n    .login:focus {\n      outline: 2px dotted #55d7dc; }\n  .mobile {\n    display: none; } }\n", ""]);
 
 // exports
 
@@ -18479,7 +18482,7 @@ module.exports = camelizeStyleName;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 var isTextNode = __webpack_require__(187);
@@ -19032,7 +19035,7 @@ module.exports = isTextNode;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  * @typechecks static-only
  */
 
@@ -26273,7 +26276,7 @@ module.exports = ReactDOMUnknownPropertyHook;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -26804,7 +26807,7 @@ module.exports = {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27026,7 +27029,7 @@ module.exports = ReactEventListener;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27104,7 +27107,7 @@ module.exports = ReactInjection;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27654,7 +27657,7 @@ module.exports = ReactMultiChild;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27753,7 +27756,7 @@ module.exports = ReactOwner;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27968,7 +27971,7 @@ module.exports = ReactReconcileTransaction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -28158,7 +28161,7 @@ module.exports = ReactServerRenderingTransaction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -28822,7 +28825,7 @@ module.exports = SelectEventPlugin;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -29545,7 +29548,7 @@ module.exports = SyntheticWheelEvent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -29838,7 +29841,7 @@ module.exports = findDOMNode;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -30037,7 +30040,7 @@ module.exports = getEventKey;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -30422,7 +30425,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
   selectorFactory, which has the signature:
 
     (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-
+  
   connect passes its args to connectAdvanced as options, which will in turn pass them to
   selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -32210,7 +32213,7 @@ function withRouter(WrappedComponent, options) {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32274,7 +32277,7 @@ module.exports = KeyEscapeUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32763,7 +32766,7 @@ module.exports = ReactDOMFactories;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32818,7 +32821,7 @@ module.exports = factory(isValidElement);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32980,7 +32983,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
