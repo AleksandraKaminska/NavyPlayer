@@ -251,6 +251,9 @@ body {
   section#albums {
     padding: 2vh 4vw;
     width: 100vw;
+    h2 {
+      margin-bottom: 5vh;
+    }
     ul {
       list-style: none;
       display: flex;
@@ -284,7 +287,7 @@ body {
       ul {
         flex-direction: column;
         li {
-          border-bottom: 0.5px rgba(255,255,255,0.2) solid;
+          border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;
           padding: 2vh 0;
         }
       }
