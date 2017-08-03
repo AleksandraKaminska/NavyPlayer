@@ -11,7 +11,7 @@ class TopTracks extends React.Component {
       let li = this.props.topTracks.map((elem, i) => <TopTrack key={i} elem={elem} />);
       return <article id='topTracks'>
         <div className='topTracks'>
-          <h2>Top tracks</h2>
+          <h1>Top tracks</h1>
           <ul>{li}</ul>
         </div>
       </article>
