@@ -38,7 +38,7 @@ class Playlist extends React.Component {
         success : data => {
           this.setState({
             data: data,
-            picture: data.picture_small
+            picture: data.picture_small.replace(/56x56/, '64x64')
           })
         }
     });
