@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 
 class Title extends React.Component {
   render() {
-    return <section id="title">
+    return <header id="title">
       <div>
         <h1>{this.props.title} - {this.props.artist}</h1>
       </div>
-    </section>
+    </header>
   }
 }
 

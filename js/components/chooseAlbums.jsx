@@ -11,7 +11,7 @@ class ChooseAlbums extends React.Component {
     let li = this.props.albums.map((elem, i) => <Albums key={i} elem={elem} />);
     let songs = this.props.albumsTracks.map((song, i) => <AlbumsTracks song={song} i={i} key={i} />);
     return <section id="albums">
-        <h1>Albums</h1>
+        <h2>Albums</h2>
         <article className="list">
           <ul>
             {li}

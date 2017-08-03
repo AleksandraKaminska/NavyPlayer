@@ -109,7 +109,7 @@ body {
   }
 }
 
-#search, #title, footer, .choose {
+#search, #title, #title_mobile, footer, .choose {
   width: 100%;
 }
 
@@ -155,11 +155,11 @@ body {
   }
 }
 
-#title {
+#title_mobile {
   position: absolute;
   top: 20vh;
   text-align: center;
-  h1 {
+  h2 {
     font-size: 1.3em;
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -251,7 +251,7 @@ body {
   section#albums {
     padding: 2vh 4vw;
     width: 100vw;
-    h1 {
+    h2 {
       margin-bottom: 5vh;
       font-size: 1.5em;
     }
@@ -297,7 +297,7 @@ body {
     margin: 2vh 4vw;
     width: 100%;
     font-family: 'Reem Kufi', sans-serif;
-    h1 {
+    h2 {
       font-size: 1.5em;
     }
     ul {
@@ -539,11 +539,13 @@ footer {
   }
 
   #title {
+    text-align: center;
     height: 7vh;
-    position: static;
     padding: 0 0 3vh 0;
     h1 {
       font-size: 1.5em;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
     }
   }
 
@@ -597,7 +599,7 @@ footer {
           margin: 3vh 0;
           font-size: 1.2em;
           cursor: pointer;
-          h1 {
+          h2 {
             font-size: 1.2em;
           }
         }
