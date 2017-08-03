@@ -251,8 +251,9 @@ body {
   section#albums {
     padding: 2vh 4vw;
     width: 100vw;
-    h2 {
+    h3 {
       margin-bottom: 5vh;
+      font-size: 1.5em;
     }
     ul {
       list-style: none;
@@ -296,7 +297,7 @@ body {
     margin: 2vh 4vw;
     width: 100%;
     font-family: 'Reem Kufi', sans-serif;
-    h4 {
+    h3 {
       font-size: 1.5em;
     }
     ul {
@@ -541,7 +542,7 @@ footer {
     height: 7vh;
     position: static;
     padding: 0 0 3vh 0;
-    h3 {
+    h1 {
       font-size: 1.5em;
     }
   }
@@ -596,7 +597,7 @@ footer {
           margin: 3vh 0;
           font-size: 1.2em;
           cursor: pointer;
-          h4 {
+          h2 {
             font-size: 1.2em;
           }
         }
