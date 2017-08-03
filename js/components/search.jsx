@@ -25,11 +25,11 @@ class Search extends React.Component {
         height: '14vh'
       },
       highlightedItem: {
-        background: '#046380',
         padding: '1.5vh 6px',
         cursor: 'pointer',
         width: '100%',
-        height: '14vh'
+        height: '14vh',
+        background: '#444'
       }
     };
     return <div key={item.id} style={isHighlighted ? style.highlightedItem : style.item}>
