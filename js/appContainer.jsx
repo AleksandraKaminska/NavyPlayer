@@ -95,9 +95,6 @@ class AppContainer extends React.Component {
     return <Router history={hashHistory}>
       <Route path='/' component={Template}>
         <IndexRoute component={Main} />
-        <Route path="/artist" component={MobileArtist} />
-        <Route path="/playlist" component={MobilePlaylist} />
-        <Route path="/search" component={Search} />
         <Route path="*" component={Main} />
       </Route>
     </Router>

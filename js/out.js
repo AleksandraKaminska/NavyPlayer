@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 153);
+/******/ 	return __webpack_require__(__webpack_require__.s = 147);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -412,7 +412,7 @@ module.exports = warning;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -560,7 +560,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var _prodInvariant = __webpack_require__(4);
 
 var DOMProperty = __webpack_require__(20);
-var ReactDOMComponentFlags = __webpack_require__(101);
+var ReactDOMComponentFlags = __webpack_require__(95);
 
 var invariant = __webpack_require__(1);
 
@@ -789,7 +789,7 @@ module.exports = ExecutionEnvironment;
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reducers__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reducers__ = __webpack_require__(136);
 
 
 
@@ -804,7 +804,7 @@ const store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* c
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(281);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
@@ -903,7 +903,7 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(97)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(91)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -925,7 +925,7 @@ if (process.env.NODE_ENV !== 'production') {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -1312,7 +1312,7 @@ module.exports = ReactComponentTreeHook;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -1354,7 +1354,7 @@ module.exports = emptyFunction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -1391,9 +1391,9 @@ module.exports = { debugTool: debugTool };
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(99);
+var CallbackQueue = __webpack_require__(93);
 var PooledClass = __webpack_require__(24);
-var ReactFeatureFlags = __webpack_require__(104);
+var ReactFeatureFlags = __webpack_require__(98);
 var ReactReconciler = __webpack_require__(28);
 var Transaction = __webpack_require__(44);
 
@@ -1641,7 +1641,7 @@ module.exports = ReactUpdates;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -1680,7 +1680,7 @@ module.exports = ReactCurrentOwner;
 
 
 var React = __webpack_require__(2);
-var factory = __webpack_require__(87);
+var factory = __webpack_require__(81);
 
 if (typeof React === 'undefined') {
   throw Error(
@@ -2514,7 +2514,7 @@ const prevTrackAction = (prev) => {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -2644,7 +2644,7 @@ var warning = __webpack_require__(3);
 var canDefineProperty = __webpack_require__(47);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(133);
+var REACT_ELEMENT_TYPE = __webpack_require__(127);
 
 var RESERVED_PROPS = {
   key: true,
@@ -3086,7 +3086,7 @@ var DOMNamespaces = __webpack_require__(56);
 var setInnerHTML = __webpack_require__(46);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(63);
-var setTextContent = __webpack_require__(118);
+var setTextContent = __webpack_require__(112);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3660,7 +3660,7 @@ function _resetWarned() {
 
 var _assign = __webpack_require__(5);
 
-var ReactBaseClasses = __webpack_require__(132);
+var ReactBaseClasses = __webpack_require__(126);
 var ReactChildren = __webpack_require__(307);
 var ReactDOMFactories = __webpack_require__(308);
 var ReactElement = __webpack_require__(25);
@@ -3677,7 +3677,7 @@ var cloneElement = ReactElement.cloneElement;
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(76);
   var canDefineProperty = __webpack_require__(47);
-  var ReactElementValidator = __webpack_require__(134);
+  var ReactElementValidator = __webpack_require__(128);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3792,7 +3792,7 @@ module.exports = React;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -3846,8 +3846,8 @@ var EventPluginRegistry = __webpack_require__(41);
 var EventPluginUtils = __webpack_require__(57);
 var ReactErrorUtils = __webpack_require__(61);
 
-var accumulateInto = __webpack_require__(111);
-var forEachAccumulated = __webpack_require__(112);
+var accumulateInto = __webpack_require__(105);
+var forEachAccumulated = __webpack_require__(106);
 var invariant = __webpack_require__(1);
 
 /**
@@ -4123,8 +4123,8 @@ module.exports = EventPluginHub;
 var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(57);
 
-var accumulateInto = __webpack_require__(111);
-var forEachAccumulated = __webpack_require__(112);
+var accumulateInto = __webpack_require__(105);
+var forEachAccumulated = __webpack_require__(106);
 var warning = __webpack_require__(3);
 
 var getListener = EventPluginHub.getListener;
@@ -4513,7 +4513,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -4780,7 +4780,7 @@ var _assign = __webpack_require__(5);
 
 var EventPluginRegistry = __webpack_require__(41);
 var ReactEventEmitterMixin = __webpack_require__(242);
-var ViewportMetrics = __webpack_require__(110);
+var ViewportMetrics = __webpack_require__(104);
 
 var getVendorPrefixedEventName = __webpack_require__(277);
 var isEventSupported = __webpack_require__(67);
@@ -5106,7 +5106,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 var SyntheticUIEvent = __webpack_require__(36);
-var ViewportMetrics = __webpack_require__(110);
+var ViewportMetrics = __webpack_require__(104);
 
 var getEventModifierState = __webpack_require__(65);
 
@@ -5178,7 +5178,7 @@ module.exports = SyntheticMouseEvent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -5642,7 +5642,7 @@ module.exports = setInnerHTML;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -5675,7 +5675,7 @@ module.exports = canDefineProperty;
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -5748,7 +5748,7 @@ var _LocationUtils = __webpack_require__(26);
 
 var _DOMUtils = __webpack_require__(40);
 
-var _DOMStateStorage = __webpack_require__(91);
+var _DOMStateStorage = __webpack_require__(85);
 
 var _PathUtils = __webpack_require__(19);
 
@@ -6178,7 +6178,7 @@ var ReactInstrumentation = __webpack_require__(14);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(63);
 var setInnerHTML = __webpack_require__(46);
-var setTextContent = __webpack_require__(118);
+var setTextContent = __webpack_require__(112);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -6656,7 +6656,7 @@ module.exports = EventPluginUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -6726,8 +6726,8 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(109);
-var propTypesFactory = __webpack_require__(96);
+var ReactPropTypesSecret = __webpack_require__(103);
+var propTypesFactory = __webpack_require__(90);
 
 var React = __webpack_require__(31);
 var PropTypes = propTypesFactory(React.isValidElement);
@@ -6864,7 +6864,7 @@ module.exports = LinkedValueUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -6914,7 +6914,7 @@ module.exports = ReactComponentEnvironment;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -8303,7 +8303,7 @@ var RouterContext = __WEBPACK_IMPORTED_MODULE_2_create_react_class___default()({
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(293);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(118);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_1__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(289);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexLink", function() { return __WEBPACK_IMPORTED_MODULE_2__IndexLink__["a"]; });
@@ -8313,7 +8313,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRedirect", function() { return __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__IndexRoute__ = __webpack_require__(291);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRoute", function() { return __WEBPACK_IMPORTED_MODULE_5__IndexRoute__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(120);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(292);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
@@ -8326,7 +8326,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "routerShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__match__ = __webpack_require__(302);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "match", function() { return __WEBPACK_IMPORTED_MODULE_11__match__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__ = __webpack_require__(125);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "useRouterHistory", function() { return __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__PatternUtils__ = __webpack_require__(29);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "formatPattern", function() { return __WEBPACK_IMPORTED_MODULE_13__PatternUtils__["a"]; });
@@ -8336,7 +8336,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "browserHistory", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(300);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "hashHistory", function() { return __WEBPACK_IMPORTED_MODULE_16__hashHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(122);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__["a"]; });
 /* components */
 
@@ -8460,12 +8460,12 @@ module.exports = lowPriorityWarning;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(138);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(319);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(133);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
@@ -8530,316 +8530,6 @@ module.exports = __webpack_require__(223);
 
 /***/ }),
 /* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(9);
-
-var _store = __webpack_require__(8);
-
-var _store2 = _interopRequireDefault(_store);
-
-var _topTracks = __webpack_require__(172);
-
-var _topTracks2 = _interopRequireDefault(_topTracks);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Artist = function (_React$Component) {
-  _inherits(Artist, _React$Component);
-
-  function Artist() {
-    _classCallCheck(this, Artist);
-
-    return _possibleConstructorReturn(this, (Artist.__proto__ || Object.getPrototypeOf(Artist)).apply(this, arguments));
-  }
-
-  _createClass(Artist, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        { id: 'artist' },
-        _react2.default.createElement(
-          'article',
-          { className: 'info' },
-          _react2.default.createElement('img', { src: this.props.artist.picture_small }),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'p',
-              null,
-              this.props.artist.name
-            )
-          )
-        ),
-        _react2.default.createElement(_topTracks2.default, null)
-      );
-    }
-  }]);
-
-  return Artist;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(store) {
-  return {
-    artist: store.artist
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Artist);
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(9);
-
-var _store = __webpack_require__(8);
-
-var _store2 = _interopRequireDefault(_store);
-
-var _albums = __webpack_require__(154);
-
-var _albums2 = _interopRequireDefault(_albums);
-
-var _albumsTracks = __webpack_require__(155);
-
-var _albumsTracks2 = _interopRequireDefault(_albumsTracks);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ChooseAlbums = function (_React$Component) {
-  _inherits(ChooseAlbums, _React$Component);
-
-  function ChooseAlbums() {
-    _classCallCheck(this, ChooseAlbums);
-
-    return _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).apply(this, arguments));
-  }
-
-  _createClass(ChooseAlbums, [{
-    key: 'render',
-    value: function render() {
-      var li = this.props.albums.map(function (elem, i) {
-        return _react2.default.createElement(_albums2.default, { key: i, elem: elem });
-      });
-      var songs = this.props.albumsTracks.map(function (song, i) {
-        return _react2.default.createElement(_albumsTracks2.default, { song: song, i: i, key: i });
-      });
-      return _react2.default.createElement(
-        'section',
-        { id: 'albums' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Albums'
-        ),
-        _react2.default.createElement(
-          'article',
-          { className: 'list' },
-          _react2.default.createElement(
-            'ul',
-            null,
-            li
-          )
-        ),
-        _react2.default.createElement(
-          'article',
-          { className: 'songs' },
-          _react2.default.createElement(
-            'ul',
-            null,
-            songs
-          )
-        )
-      );
-    }
-  }]);
-
-  return ChooseAlbums;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(store) {
-  return {
-    albums: store.albums,
-    albumsTracks: store.albumsTracks
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(ChooseAlbums);
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _playlist = __webpack_require__(166);
-
-var _playlist2 = _interopRequireDefault(_playlist);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ChoosePlaylists = function (_React$Component) {
-  _inherits(ChoosePlaylists, _React$Component);
-
-  function ChoosePlaylists(props) {
-    _classCallCheck(this, ChoosePlaylists);
-
-    var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
-
-    _this.playlists = [1362270355, 1282483245, 2734448044, 1661692771, 1306931615, 2178064502, 1927928822, 975986691, 1266972311, 1677006641, 1182263621, 2265794682];
-    return _this;
-  }
-
-  _createClass(ChoosePlaylists, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        { id: 'playlists' },
-        _react2.default.createElement(
-          'div',
-          null,
-          this.playlists.map(function (elem, i) {
-            return _react2.default.createElement(_playlist2.default, { elem: elem, key: i });
-          })
-        )
-      );
-    }
-  }]);
-
-  return ChoosePlaylists;
-}(_react2.default.Component);
-
-exports.default = ChoosePlaylists;
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _store = __webpack_require__(8);
-
-var _store2 = _interopRequireDefault(_store);
-
-var _reactRedux = __webpack_require__(9);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// Redux
-
-
-var Cover = function (_React$Component) {
-  _inherits(Cover, _React$Component);
-
-  function Cover() {
-    _classCallCheck(this, Cover);
-
-    return _possibleConstructorReturn(this, (Cover.__proto__ || Object.getPrototypeOf(Cover)).apply(this, arguments));
-  }
-
-  _createClass(Cover, [{
-    key: 'render',
-    value: function render() {
-      var CoverStyle = {
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),\n      url(' + this.props.cover + ')'
-      };
-      return _react2.default.createElement(
-        'section',
-        { id: 'cover' },
-        _react2.default.createElement('div', { className: 'cover', style: CoverStyle })
-      );
-    }
-  }]);
-
-  return Cover;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(store) {
-  return {
-    cover: store.track.album.cover_big.replace(/500x500/, '400x400')
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Cover);
-
-/***/ }),
-/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8954,7 +8644,7 @@ var Search = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -9032,168 +8722,7 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Search);
 
 /***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(9);
-
-var _store = __webpack_require__(8);
-
-var _store2 = _interopRequireDefault(_store);
-
-var _similar = __webpack_require__(168);
-
-var _similar2 = _interopRequireDefault(_similar);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// Redux
-
-
-var SimilarArtists = function (_React$Component) {
-  _inherits(SimilarArtists, _React$Component);
-
-  function SimilarArtists() {
-    _classCallCheck(this, SimilarArtists);
-
-    return _possibleConstructorReturn(this, (SimilarArtists.__proto__ || Object.getPrototypeOf(SimilarArtists)).apply(this, arguments));
-  }
-
-  _createClass(SimilarArtists, [{
-    key: 'render',
-    value: function render() {
-      var li = this.props.similar.map(function (elem, i) {
-        return _react2.default.createElement(_similar2.default, { key: i, elem: elem });
-      });
-      return _react2.default.createElement(
-        'section',
-        { id: 'similar' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Similar Artists'
-        ),
-        _react2.default.createElement(
-          'article',
-          null,
-          _react2.default.createElement(
-            'ul',
-            null,
-            li
-          )
-        )
-      );
-    }
-  }]);
-
-  return SimilarArtists;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(store) {
-  return {
-    similar: store.similar
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(SimilarArtists);
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _store = __webpack_require__(8);
-
-var _store2 = _interopRequireDefault(_store);
-
-var _reactRedux = __webpack_require__(9);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// Redux
-
-
-var Title = function (_React$Component) {
-  _inherits(Title, _React$Component);
-
-  function Title() {
-    _classCallCheck(this, Title);
-
-    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
-  }
-
-  _createClass(Title, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'header',
-        { id: 'title' },
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            this.props.title,
-            ' - ',
-            this.props.artist
-          )
-        )
-      );
-    }
-  }]);
-
-  return Title;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(store) {
-  return {
-    title: store.track.title_short,
-    artist: store.track.artist.name
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Title);
-
-/***/ }),
-/* 87 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10073,7 +9602,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 88 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10156,7 +9685,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 89 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10188,7 +9717,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 90 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10232,7 +9761,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 91 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10324,7 +9853,7 @@ var readState = exports.readState = function readState(key) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 92 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10439,7 +9968,7 @@ var useBasename = function useBasename(createHistory) {
 exports.default = useBasename;
 
 /***/ }),
-/* 93 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10566,7 +10095,7 @@ var useQueries = function useQueries(createHistory) {
 exports.default = useQueries;
 
 /***/ }),
-/* 94 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10623,7 +10152,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
-/* 95 */
+/* 89 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10637,7 +10166,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 
 /***/ }),
-/* 96 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10656,7 +10185,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(97);
+var factory = __webpack_require__(91);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -10665,7 +10194,7 @@ module.exports = function(isValidElement) {
 
 
 /***/ }),
-/* 97 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11185,7 +10714,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 98 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11344,7 +10873,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 99 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11356,7 +10885,7 @@ module.exports = CSSProperty;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -11469,7 +10998,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 100 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11710,7 +11239,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 101 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11733,7 +11262,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 102 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11939,7 +11468,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 103 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11974,7 +11503,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 104 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11986,7 +11515,7 @@ module.exports = ReactEmptyComponent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12001,7 +11530,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 105 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12075,7 +11604,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 106 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12094,8 +11623,8 @@ module.exports = ReactHostComponent;
 var ReactDOMSelection = __webpack_require__(233);
 
 var containsNode = __webpack_require__(180);
-var focusNode = __webpack_require__(89);
-var getActiveElement = __webpack_require__(90);
+var focusNode = __webpack_require__(83);
+var getActiveElement = __webpack_require__(84);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -12203,7 +11732,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 107 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12229,7 +11758,7 @@ var ReactCurrentOwner = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(225);
 var ReactDOMFeatureFlags = __webpack_require__(227);
-var ReactFeatureFlags = __webpack_require__(104);
+var ReactFeatureFlags = __webpack_require__(98);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(14);
 var ReactMarkupChecksum = __webpack_require__(247);
@@ -12238,7 +11767,7 @@ var ReactUpdateQueue = __webpack_require__(62);
 var ReactUpdates = __webpack_require__(15);
 
 var emptyObject = __webpack_require__(38);
-var instantiateReactComponent = __webpack_require__(116);
+var instantiateReactComponent = __webpack_require__(110);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(46);
 var shouldUpdateReactComponent = __webpack_require__(68);
@@ -12747,7 +12276,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 108 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12759,7 +12288,7 @@ module.exports = ReactMount;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12793,7 +12322,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 109 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12805,7 +12334,7 @@ module.exports = ReactNodeTypes;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12815,7 +12344,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 110 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12845,7 +12374,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 111 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12857,7 +12386,7 @@ module.exports = ViewportMetrics;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12909,7 +12438,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 112 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12921,7 +12450,7 @@ module.exports = accumulateInto;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -12945,7 +12474,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 113 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12961,7 +12490,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ReactNodeTypes = __webpack_require__(108);
+var ReactNodeTypes = __webpack_require__(102);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -12980,7 +12509,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 114 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13018,7 +12547,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 115 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13146,7 +12675,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 116 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13166,8 +12695,8 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var ReactCompositeComponent = __webpack_require__(222);
-var ReactEmptyComponent = __webpack_require__(103);
-var ReactHostComponent = __webpack_require__(105);
+var ReactEmptyComponent = __webpack_require__(97);
+var ReactHostComponent = __webpack_require__(99);
 
 var getNextDebugID = __webpack_require__(315);
 var invariant = __webpack_require__(1);
@@ -13281,7 +12810,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 117 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13293,7 +12822,7 @@ module.exports = instantiateReactComponent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -13337,7 +12866,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 118 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13394,7 +12923,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 119 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13576,19 +13105,19 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 120 */
+/* 114 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(116);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13864,14 +13393,14 @@ selectorFactory) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 115 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["b"] = wrapMapToPropsConstant;
 /* unused harmony export getDependsOnOwnProps */
 /* harmony export (immutable) */ __webpack_exports__["a"] = wrapMapToPropsFunc;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(117);
 
 
 function wrapMapToPropsConstant(getConstant) {
@@ -13889,7 +13418,7 @@ function wrapMapToPropsConstant(getConstant) {
 // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 // to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 // whether mapToProps needs to be invoked when props have changed.
-//
+// 
 // A length of one signals that mapToProps does not depend on props from the parent component.
 // A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 // therefore not reporting its length accurately..
@@ -13899,16 +13428,16 @@ function getDependsOnOwnProps(mapToProps) {
 
 // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 // this function wraps mapToProps in a proxy function which does several things:
-//
+// 
 //  * Detects whether the mapToProps function being called depends on props, which
 //    is used by selectorFactory to decide if it should reinvoke on props changes.
-//
+//    
 //  * On first call, handles mapToProps if returns another function, and treats that
 //    new function as the true mapToProps for subsequent calls.
-//
+//    
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
-//
+//    
 function wrapMapToPropsFunc(mapToProps, methodName) {
   return function initProxySelector(dispatch, _ref) {
     var displayName = _ref.displayName;
@@ -13942,7 +13471,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 116 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13966,7 +13495,7 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 });
 
 /***/ }),
-/* 123 */
+/* 117 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13983,7 +13512,7 @@ function verifyPlainObject(value, displayName, methodName) {
 }
 
 /***/ }),
-/* 124 */
+/* 118 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14129,7 +13658,7 @@ var Link = __WEBPACK_IMPORTED_MODULE_1_create_react_class___default()({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 125 */
+/* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14139,7 +13668,7 @@ function isPromise(obj) {
 }
 
 /***/ }),
-/* 126 */
+/* 120 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14238,7 +13767,7 @@ var Redirect = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default()({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 127 */
+/* 121 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14268,14 +13797,14 @@ function assignRouterState(router, _ref) {
 }
 
 /***/ }),
-/* 128 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createMemoryHistory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory__);
@@ -14296,12 +13825,12 @@ function createMemoryHistory(options) {
 }
 
 /***/ }),
-/* 129 */
+/* 123 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createRouterHistory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__useRouterHistory__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__useRouterHistory__ = __webpack_require__(125);
 
 
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
@@ -14313,7 +13842,7 @@ function createRouterHistory(createHistory) {
 }
 
 /***/ }),
-/* 130 */
+/* 124 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14585,14 +14114,14 @@ function createTransitionManager(history, routes) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 131 */
+/* 125 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = useRouterHistory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__);
 
 
@@ -14605,7 +14134,7 @@ function useRouterHistory(createHistory) {
 }
 
 /***/ }),
-/* 132 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14624,7 +14153,7 @@ function useRouterHistory(createHistory) {
 var _prodInvariant = __webpack_require__(32),
     _assign = __webpack_require__(5);
 
-var ReactNoopUpdateQueue = __webpack_require__(135);
+var ReactNoopUpdateQueue = __webpack_require__(129);
 
 var canDefineProperty = __webpack_require__(47);
 var emptyObject = __webpack_require__(38);
@@ -14754,7 +14283,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 133 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14766,7 +14295,7 @@ module.exports = {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -14779,7 +14308,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 134 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14809,7 +14338,7 @@ var ReactElement = __webpack_require__(25);
 var checkReactTypeSpec = __webpack_require__(313);
 
 var canDefineProperty = __webpack_require__(47);
-var getIteratorFn = __webpack_require__(136);
+var getIteratorFn = __webpack_require__(130);
 var warning = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(76);
 
@@ -15040,7 +14569,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 135 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15141,7 +14670,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 136 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15153,7 +14682,7 @@ module.exports = ReactNoopUpdateQueue;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -15187,7 +14716,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 137 */
+/* 131 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15226,7 +14755,7 @@ function compose() {
 }
 
 /***/ }),
-/* 138 */
+/* 132 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15485,7 +15014,7 @@ var ActionTypes = {
 }
 
 /***/ }),
-/* 139 */
+/* 133 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15513,7 +15042,7 @@ function warning(message) {
 }
 
 /***/ }),
-/* 140 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15539,23 +15068,23 @@ var _reactRedux = __webpack_require__(9);
 
 var _index = __webpack_require__(23);
 
-var _template = __webpack_require__(170);
+var _template = __webpack_require__(169);
 
 var _template2 = _interopRequireDefault(_template);
 
-var _main = __webpack_require__(159);
+var _main = __webpack_require__(157);
 
 var _main2 = _interopRequireDefault(_main);
 
-var _mobileArtist = __webpack_require__(161);
+var _mobileArtist = __webpack_require__(159);
 
 var _mobileArtist2 = _interopRequireDefault(_mobileArtist);
 
-var _mobilePlaylist = __webpack_require__(162);
+var _mobilePlaylist = __webpack_require__(160);
 
 var _mobilePlaylist2 = _interopRequireDefault(_mobilePlaylist);
 
-var _search = __webpack_require__(84);
+var _search = __webpack_require__(80);
 
 var _search2 = _interopRequireDefault(_search);
 
@@ -15625,7 +15154,7 @@ var AppContainer = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -15680,9 +15209,6 @@ var AppContainer = function (_React$Component) {
           _reactRouter.Route,
           { path: '/', component: _template2.default },
           _react2.default.createElement(_reactRouter.IndexRoute, { component: _main2.default }),
-          _react2.default.createElement(_reactRouter.Route, { path: '/artist', component: _mobileArtist2.default }),
-          _react2.default.createElement(_reactRouter.Route, { path: '/playlist', component: _mobilePlaylist2.default }),
-          _react2.default.createElement(_reactRouter.Route, { path: '/search', component: _search2.default }),
           _react2.default.createElement(_reactRouter.Route, { path: '*', component: _main2.default })
         )
       );
@@ -15703,7 +15229,7 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(AppContainer);
 
 /***/ }),
-/* 141 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -15734,21 +15260,21 @@ if(false) {
 }
 
 /***/ }),
-/* 142 */
+/* 136 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reducer_albums__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducer_albumsTracks__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducer_artist__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducer_similar_artists__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reducer_top_tracks__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reducer_chosen_playlist__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reducer_search_tracks__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__reducer_autocomplete__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__reducer_track__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__reducer_previous_track__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reducer_albums__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducer_albumsTracks__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducer_artist__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducer_similar_artists__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reducer_top_tracks__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reducer_chosen_playlist__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reducer_search_tracks__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__reducer_autocomplete__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__reducer_track__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__reducer_previous_track__ = __webpack_require__(142);
 
 
 // Reducers
@@ -15780,7 +15306,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 
 
 /***/ }),
-/* 143 */
+/* 137 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15795,7 +15321,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 
 
 /***/ }),
-/* 144 */
+/* 138 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15810,7 +15336,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 
 
 /***/ }),
-/* 145 */
+/* 139 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15825,7 +15351,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 
 
 /***/ }),
-/* 146 */
+/* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15840,7 +15366,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 
 
 /***/ }),
-/* 147 */
+/* 141 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15855,7 +15381,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 
 
 /***/ }),
-/* 148 */
+/* 142 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15871,7 +15397,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 
 
 /***/ }),
-/* 149 */
+/* 143 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15886,7 +15412,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 
 
 /***/ }),
-/* 150 */
+/* 144 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15901,7 +15427,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 
 
 /***/ }),
-/* 151 */
+/* 145 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15916,7 +15442,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 
 
 /***/ }),
-/* 152 */
+/* 146 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15932,7 +15458,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 
 
 /***/ }),
-/* 153 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15952,11 +15478,11 @@ var _store = __webpack_require__(8);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _appContainer = __webpack_require__(140);
+var _appContainer = __webpack_require__(134);
 
 var _appContainer2 = _interopRequireDefault(_appContainer);
 
-__webpack_require__(141);
+__webpack_require__(135);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15970,7 +15496,7 @@ $(function () {
 });
 
 /***/ }),
-/* 154 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16048,7 +15574,7 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Albums);
 
 /***/ }),
-/* 155 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16166,7 +15692,87 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(AlbumsTracks);
 
 /***/ }),
-/* 156 */
+/* 150 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(9);
+
+var _store = __webpack_require__(8);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _topTracks = __webpack_require__(172);
+
+var _topTracks2 = _interopRequireDefault(_topTracks);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Artist = function (_React$Component) {
+  _inherits(Artist, _React$Component);
+
+  function Artist() {
+    _classCallCheck(this, Artist);
+
+    return _possibleConstructorReturn(this, (Artist.__proto__ || Object.getPrototypeOf(Artist)).apply(this, arguments));
+  }
+
+  _createClass(Artist, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        { id: 'artist' },
+        _react2.default.createElement(
+          'article',
+          { className: 'info' },
+          _react2.default.createElement('img', { src: this.props.artist.picture_small }),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'p',
+              null,
+              this.props.artist.name
+            )
+          )
+        ),
+        _react2.default.createElement(_topTracks2.default, null)
+      );
+    }
+  }]);
+
+  return Artist;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    artist: store.artist
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Artist);
+
+/***/ }),
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16274,7 +15880,237 @@ var Choose = function (_React$Component) {
 exports.default = Choose;
 
 /***/ }),
-/* 157 */
+/* 152 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(9);
+
+var _store = __webpack_require__(8);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _albums = __webpack_require__(148);
+
+var _albums2 = _interopRequireDefault(_albums);
+
+var _albumsTracks = __webpack_require__(149);
+
+var _albumsTracks2 = _interopRequireDefault(_albumsTracks);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ChooseAlbums = function (_React$Component) {
+  _inherits(ChooseAlbums, _React$Component);
+
+  function ChooseAlbums() {
+    _classCallCheck(this, ChooseAlbums);
+
+    return _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).apply(this, arguments));
+  }
+
+  _createClass(ChooseAlbums, [{
+    key: 'render',
+    value: function render() {
+      var li = this.props.albums.map(function (elem, i) {
+        return _react2.default.createElement(_albums2.default, { key: i, elem: elem });
+      });
+      var songs = this.props.albumsTracks.map(function (song, i) {
+        return _react2.default.createElement(_albumsTracks2.default, { song: song, i: i, key: i });
+      });
+      return _react2.default.createElement(
+        'section',
+        { id: 'albums' },
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Albums'
+        ),
+        _react2.default.createElement(
+          'article',
+          { className: 'list' },
+          _react2.default.createElement(
+            'ul',
+            null,
+            li
+          )
+        ),
+        _react2.default.createElement(
+          'article',
+          { className: 'songs' },
+          _react2.default.createElement(
+            'ul',
+            null,
+            songs
+          )
+        )
+      );
+    }
+  }]);
+
+  return ChooseAlbums;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    albums: store.albums,
+    albumsTracks: store.albumsTracks
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(ChooseAlbums);
+
+/***/ }),
+/* 153 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _playlist = __webpack_require__(164);
+
+var _playlist2 = _interopRequireDefault(_playlist);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ChoosePlaylists = function (_React$Component) {
+  _inherits(ChoosePlaylists, _React$Component);
+
+  function ChoosePlaylists(props) {
+    _classCallCheck(this, ChoosePlaylists);
+
+    var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
+
+    _this.playlists = [1362270355, 1282483245, 2734448044, 1661692771, 1306931615, 2178064502, 1927928822, 975986691, 1266972311, 1677006641, 1182263621, 2265794682];
+    return _this;
+  }
+
+  _createClass(ChoosePlaylists, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        { id: 'playlists' },
+        _react2.default.createElement(
+          'div',
+          null,
+          this.playlists.map(function (elem, i) {
+            return _react2.default.createElement(_playlist2.default, { elem: elem, key: i });
+          })
+        )
+      );
+    }
+  }]);
+
+  return ChoosePlaylists;
+}(_react2.default.Component);
+
+exports.default = ChoosePlaylists;
+
+/***/ }),
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _store = __webpack_require__(8);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _reactRedux = __webpack_require__(9);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Redux
+
+
+var Cover = function (_React$Component) {
+  _inherits(Cover, _React$Component);
+
+  function Cover() {
+    _classCallCheck(this, Cover);
+
+    return _possibleConstructorReturn(this, (Cover.__proto__ || Object.getPrototypeOf(Cover)).apply(this, arguments));
+  }
+
+  _createClass(Cover, [{
+    key: 'render',
+    value: function render() {
+      var CoverStyle = {
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),\n      url(' + this.props.cover + ')'
+      };
+      return _react2.default.createElement(
+        'section',
+        { id: 'cover' },
+        _react2.default.createElement('div', { className: 'cover', style: CoverStyle })
+      );
+    }
+  }]);
+
+  return Cover;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    cover: store.track.album.cover_big.replace(/500x500/, '400x400')
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Cover);
+
+/***/ }),
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16351,7 +16187,7 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 158 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16423,7 +16259,7 @@ var Login = function (_React$Component) {
 exports.default = Login;
 
 /***/ }),
-/* 159 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16439,16 +16275,6 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _store = __webpack_require__(8);
-
-var _store2 = _interopRequireDefault(_store);
-
-var _reactRedux = __webpack_require__(9);
-
-var _cover = __webpack_require__(83);
-
-var _cover2 = _interopRequireDefault(_cover);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16456,9 +16282,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// Redux
-
 
 var Main = function (_React$Component) {
   _inherits(Main, _React$Component);
@@ -16472,39 +16295,17 @@ var Main = function (_React$Component) {
   _createClass(Main, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'section',
-          { id: 'title_mobile' },
-          _react2.default.createElement(
-            'h2',
-            null,
-            this.props.title,
-            ' - ',
-            this.props.artist
-          )
-        ),
-        _react2.default.createElement(_cover2.default, null)
-      );
+      return _react2.default.createElement('span', null);
     }
   }]);
 
   return Main;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(store) {
-  return {
-    title: store.track.title_short,
-    artist: store.track.artist.name
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Main);
+exports.default = Main;
 
 /***/ }),
-/* 160 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16520,23 +16321,23 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _choosePlaylists = __webpack_require__(82);
+var _choosePlaylists = __webpack_require__(153);
 
 var _choosePlaylists2 = _interopRequireDefault(_choosePlaylists);
 
-var _cover = __webpack_require__(83);
+var _cover = __webpack_require__(154);
 
 var _cover2 = _interopRequireDefault(_cover);
 
-var _artist = __webpack_require__(80);
+var _artist = __webpack_require__(150);
 
 var _artist2 = _interopRequireDefault(_artist);
 
-var _chooseAlbums = __webpack_require__(81);
+var _chooseAlbums = __webpack_require__(152);
 
 var _chooseAlbums2 = _interopRequireDefault(_chooseAlbums);
 
-var _similarArtists = __webpack_require__(85);
+var _similarArtists = __webpack_require__(167);
 
 var _similarArtists2 = _interopRequireDefault(_similarArtists);
 
@@ -16578,7 +16379,7 @@ var MainMiddle = function (_React$Component) {
 exports.default = MainMiddle;
 
 /***/ }),
-/* 161 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16593,18 +16394,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _artist = __webpack_require__(80);
-
-var _artist2 = _interopRequireDefault(_artist);
-
-var _chooseAlbums = __webpack_require__(81);
-
-var _chooseAlbums2 = _interopRequireDefault(_chooseAlbums);
-
-var _similarArtists = __webpack_require__(85);
-
-var _similarArtists2 = _interopRequireDefault(_similarArtists);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16626,13 +16415,7 @@ var MobileArtist = function (_React$Component) {
   _createClass(MobileArtist, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'mainMiddle' },
-        _react2.default.createElement(_artist2.default, null),
-        _react2.default.createElement(_similarArtists2.default, null),
-        _react2.default.createElement(_chooseAlbums2.default, null)
-      );
+      return _react2.default.createElement('span', null);
     }
   }]);
 
@@ -16642,7 +16425,7 @@ var MobileArtist = function (_React$Component) {
 exports.default = MobileArtist;
 
 /***/ }),
-/* 162 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16657,10 +16440,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _choosePlaylists = __webpack_require__(82);
-
-var _choosePlaylists2 = _interopRequireDefault(_choosePlaylists);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16682,11 +16461,7 @@ var MobilePlaylist = function (_React$Component) {
   _createClass(MobilePlaylist, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'mainMiddle' },
-        _react2.default.createElement(_choosePlaylists2.default, null)
-      );
+      return _react2.default.createElement('span', null);
     }
   }]);
 
@@ -16696,7 +16471,7 @@ var MobilePlaylist = function (_React$Component) {
 exports.default = MobilePlaylist;
 
 /***/ }),
-/* 163 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16734,7 +16509,7 @@ var Nav = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'nav',
-        null,
+        { className: 'nav' },
         _react2.default.createElement(
           'a',
           { href: '#playlists' },
@@ -16760,7 +16535,7 @@ var Nav = function (_React$Component) {
 exports.default = Nav;
 
 /***/ }),
-/* 164 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16896,7 +16671,7 @@ var Player = function (_React$Component) {
     _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -16962,7 +16737,7 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Player);
 
 /***/ }),
-/* 165 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16978,15 +16753,15 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _player = __webpack_require__(164);
+var _player = __webpack_require__(162);
 
 var _player2 = _interopRequireDefault(_player);
 
-var _progress = __webpack_require__(167);
+var _progress = __webpack_require__(165);
 
 var _progress2 = _interopRequireDefault(_progress);
 
-var _smallCover = __webpack_require__(169);
+var _smallCover = __webpack_require__(168);
 
 var _smallCover2 = _interopRequireDefault(_smallCover);
 
@@ -17026,7 +16801,7 @@ var PlayerAndProgress = function (_React$Component) {
 exports.default = PlayerAndProgress;
 
 /***/ }),
-/* 166 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17211,7 +16986,7 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Playlist);
 
 /***/ }),
-/* 167 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17316,7 +17091,7 @@ var Progress = function (_React$Component) {
 exports.default = Progress;
 
 /***/ }),
-/* 168 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17384,7 +17159,7 @@ var Similar = function (_React$Component) {
     }, _this.searchAlbums = function () {
       $.ajax({
         dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+        url: 'http://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
         }
@@ -17443,7 +17218,92 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Similar);
 
 /***/ }),
-/* 169 */
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(9);
+
+var _store = __webpack_require__(8);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _similar = __webpack_require__(166);
+
+var _similar2 = _interopRequireDefault(_similar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Redux
+
+
+var SimilarArtists = function (_React$Component) {
+  _inherits(SimilarArtists, _React$Component);
+
+  function SimilarArtists() {
+    _classCallCheck(this, SimilarArtists);
+
+    return _possibleConstructorReturn(this, (SimilarArtists.__proto__ || Object.getPrototypeOf(SimilarArtists)).apply(this, arguments));
+  }
+
+  _createClass(SimilarArtists, [{
+    key: 'render',
+    value: function render() {
+      var li = this.props.similar.map(function (elem, i) {
+        return _react2.default.createElement(_similar2.default, { key: i, elem: elem });
+      });
+      return _react2.default.createElement(
+        'section',
+        { id: 'similar' },
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Similar Artists'
+        ),
+        _react2.default.createElement(
+          'article',
+          null,
+          _react2.default.createElement(
+            'ul',
+            null,
+            li
+          )
+        )
+      );
+    }
+  }]);
+
+  return SimilarArtists;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    similar: store.similar
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(SimilarArtists);
+
+/***/ }),
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17536,7 +17396,7 @@ var mapStateToProps = function mapStateToProps(store) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SmallCover);
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17552,35 +17412,35 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _login = __webpack_require__(158);
+var _login = __webpack_require__(156);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _nav = __webpack_require__(163);
+var _nav = __webpack_require__(161);
 
 var _nav2 = _interopRequireDefault(_nav);
 
-var _title = __webpack_require__(86);
+var _title = __webpack_require__(170);
 
 var _title2 = _interopRequireDefault(_title);
 
-var _playerAndProgress = __webpack_require__(165);
+var _playerAndProgress = __webpack_require__(163);
 
 var _playerAndProgress2 = _interopRequireDefault(_playerAndProgress);
 
-var _search = __webpack_require__(84);
+var _search = __webpack_require__(80);
 
 var _search2 = _interopRequireDefault(_search);
 
-var _choose = __webpack_require__(156);
+var _choose = __webpack_require__(151);
 
 var _choose2 = _interopRequireDefault(_choose);
 
-var _footer = __webpack_require__(157);
+var _footer = __webpack_require__(155);
 
 var _footer2 = _interopRequireDefault(_footer);
 
-var _mainMiddle = __webpack_require__(160);
+var _mainMiddle = __webpack_require__(158);
 
 var _mainMiddle2 = _interopRequireDefault(_mainMiddle);
 
@@ -17613,26 +17473,16 @@ var Template = function (_React$Component) {
         { className: 'NavyPlayer' },
         _react2.default.createElement(
           'div',
-          { className: 'desktop' },
+          { className: path },
+          this.props.children,
           _react2.default.createElement(_nav2.default, null),
           _react2.default.createElement(_login2.default, null),
           _react2.default.createElement(_search2.default, null),
           _react2.default.createElement(_title2.default, null),
           _react2.default.createElement(_mainMiddle2.default, null),
           _react2.default.createElement(_playerAndProgress2.default, null),
+          _react2.default.createElement(_choose2.default, null),
           _react2.default.createElement(_footer2.default, null)
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'mobile' },
-          _react2.default.createElement(
-            'div',
-            { className: path },
-            this.props.children,
-            _react2.default.createElement(_playerAndProgress2.default, null),
-            _react2.default.createElement(_choose2.default, null),
-            _react2.default.createElement(_footer2.default, null)
-          )
         )
       );
     }
@@ -17642,6 +17492,82 @@ var Template = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Template;
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _store = __webpack_require__(8);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _reactRedux = __webpack_require__(9);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Redux
+
+
+var Title = function (_React$Component) {
+  _inherits(Title, _React$Component);
+
+  function Title() {
+    _classCallCheck(this, Title);
+
+    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
+  }
+
+  _createClass(Title, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'header',
+        { id: 'title' },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h1',
+            null,
+            this.props.title,
+            ' - ',
+            this.props.artist
+          )
+        )
+      );
+    }
+  }]);
+
+  return Title;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(store) {
+  return {
+    title: store.track.title_short,
+    artist: store.track.artist.name
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Title);
 
 /***/ }),
 /* 171 */
@@ -17823,7 +17749,7 @@ exports = module.exports = __webpack_require__(174)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  position: relative;\n  max-width: 100%;\n  max-height: 100vh;\n  height: 100vh;\n  font-family: 'Lato', sans-serif;\n  color: white;\n  background: #000a11;\n  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11; }\n  .NavyPlayer .desktop {\n    display: none; }\n  .NavyPlayer a {\n    color: white;\n    text-decoration: none; }\n\n#search, #title, #title_mobile, footer, .choose {\n  width: 100%; }\n\n#search {\n  height: 71vh;\n  min-height: 71vh; }\n  #search div:first-child {\n    width: 100vw;\n    height: 6.5vh;\n    margin-top: 0; }\n    #search div:first-child input {\n      height: 100%;\n      width: 100vw;\n      padding: 0.5em 1em;\n      border: 0;\n      font-size: 1.1em;\n      outline: none;\n      color: white;\n      background: rgba(126, 130, 122, 0.5);\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      #search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n  #search .placeholder {\n    height: 64.5vh;\n    width: 100%;\n    background: #111; }\n\n#title_mobile {\n  position: absolute;\n  top: 20vh;\n  text-align: center; }\n  #title_mobile h2 {\n    font-size: 1.3em;\n    color: white;\n    font-family: 'Open Sans', sans-serif; }\n\n.mainMiddle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  width: 100vw;\n  max-width: 100vw;\n  height: 71vh;\n  overflow-y: auto;\n  overflow-x: hidden; }\n  .mainMiddle #playlists {\n    width: 100%; }\n    .mainMiddle #playlists div {\n      max-height: 70vh;\n      overflow-y: auto; }\n      .mainMiddle #playlists div div {\n        margin: 1em 0 1em 1em;\n        display: flex;\n        align-items: center; }\n        .mainMiddle #playlists div div img {\n          width: 3em;\n          height: auto; }\n        .mainMiddle #playlists div div p {\n          max-width: 90%;\n          display: inline-block;\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word;\n          font-size: 1em;\n          margin: 0 1em; }\n  .mainMiddle #artist {\n    width: 100%;\n    padding: 0 3vw; }\n    .mainMiddle #artist .info {\n      height: 10vh;\n      margin-top: 1vh; }\n      .mainMiddle #artist .info img {\n        float: left;\n        width: 64px;\n        height: 64px;\n        border-radius: 50%;\n        margin-right: 1em;\n        margin-top: 0.5em;\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      .mainMiddle #artist .info div {\n        float: left;\n        max-width: calc(100% - 64px); }\n        .mainMiddle #artist .info div p {\n          margin-top: calc(32px - 0.6em);\n          font-size: 1.2em;\n          font-family: 'Playfair Display', serif; }\n    .mainMiddle #artist #topTracks {\n      margin: 5vh auto 2vh auto;\n      max-width: 90vw; }\n      .mainMiddle #artist #topTracks .topTracks {\n        margin: 8vh 0;\n        width: 100%;\n        font-size: 1.2em;\n        font-family: 'Playfair Display', serif; }\n        .mainMiddle #artist #topTracks .topTracks ul {\n          list-style: none;\n          line-height: 6vh; }\n          .mainMiddle #artist #topTracks .topTracks ul li {\n            border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;\n            margin: 1vh auto 1vh auto; }\n          .mainMiddle #artist #topTracks .topTracks ul li:hover {\n            margin-left: 0.5em; }\n  .mainMiddle section#albums {\n    padding: 2vh 4vw;\n    width: 100vw; }\n    .mainMiddle section#albums h2 {\n      margin-bottom: 5vh;\n      font-size: 1.5em; }\n    .mainMiddle section#albums ul {\n      list-style: none;\n      display: flex; }\n    .mainMiddle section#albums .list {\n      float: left;\n      font-family: 'Reem Kufi', sans-serif;\n      width: 100vw;\n      overflow-x: auto;\n      overflow-y: hidden;\n      height: 7em; }\n      .mainMiddle section#albums .list li {\n        display: inline-block;\n        margin: 0 2vw; }\n      .mainMiddle section#albums .list img {\n        width: 3em;\n        height: auto; }\n      .mainMiddle section#albums .list p {\n        display: inline-block;\n        vertical-align: top;\n        width: 100%;\n        font-size: 0.5em; }\n    .mainMiddle section#albums .songs {\n      float: left;\n      width: 100vw; }\n      .mainMiddle section#albums .songs ul {\n        flex-direction: column; }\n        .mainMiddle section#albums .songs ul li {\n          border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n          padding: 2vh 0; }\n  .mainMiddle section#similar {\n    margin: 2vh 4vw;\n    width: 100%;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle section#similar h2 {\n      font-size: 1.5em; }\n    .mainMiddle section#similar ul {\n      list-style: none; }\n      .mainMiddle section#similar ul li {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        align-items: center;\n        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n        cursor: pointer; }\n    .mainMiddle section#similar img {\n      border-radius: 50%;\n      width: 3em;\n      height: 3em;\n      margin: 2vh 0;\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n    .mainMiddle section#similar p {\n      float: right;\n      font-size: 1.2em; }\n\n.playerAndProgress {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n  height: 11vh;\n  padding-top: 5.5vh; }\n  .playerAndProgress a {\n    max-width: 65%; }\n  .playerAndProgress .smallCover {\n    width: 50px;\n    height: 50px;\n    display: inline-block;\n    margin: 0 1vw; }\n  .playerAndProgress .smallTitle {\n    font-size: 0.8em;\n    width: 42vw;\n    font-weight: bold;\n    display: inline-block;\n    overflow: hidden; }\n  .playerAndProgress .playerMain {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center; }\n    .playerAndProgress .playerMain button {\n      background: transparent;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:nth-child(2) {\n        transform: scale(0.5, 0.5); }\n  .playerAndProgress .progress {\n    font-size: 0.9em;\n    color: white;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 3px;\n      width: 100%;\n      background: black; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #d3ceaa;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #424242;\n        border-radius: 5px; }\n\n.choose {\n  height: 10vh;\n  margin-top: 5vh;\n  padding: 2vh 1vw;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  z-index: 2; }\n  .choose div {\n    display: inline-block; }\n    .choose div button {\n      cursor: pointer;\n      width: 1.3em;\n      height: 1.3em;\n      font-size: 1.3em;\n      background: transparent;\n      color: white;\n      border: 0;\n      outline: none; }\n      .choose div button p {\n        font-size: 0.5em;\n        font-family: 'Open Sans', sans-serif; }\n\nfooter {\n  height: 3vh;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-end;\n  font-size: 0.7em;\n  padding: 0 1vw; }\n  footer img {\n    height: 0.7em;\n    width: auto; }\n\n.active button {\n  color: #58afd1 !important; }\n\n.\\/ .time {\n  position: absolute;\n  top: -1.5vh;\n  right: 0;\n  display: block; }\n  .\\/ .time .elapsed {\n    right: 88vw;\n    position: absolute; }\n  .\\/ .time .pipe {\n    display: none; }\n  .\\/ .time .duration {\n    right: 2vw;\n    position: absolute; }\n\n.\\/ .playerAndProgress {\n  position: absolute;\n  top: 50%; }\n  .\\/ .playerAndProgress progress[value] {\n    width: 70%;\n    left: 15%; }\n\n.\\/ .choose {\n  position: absolute;\n  bottom: 5vh;\n  background: transparent; }\n\n.\\/ .cover {\n  display: block;\n  height: 100vh;\n  width: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.\\/ footer {\n  background: transparent;\n  position: absolute;\n  bottom: 0; }\n\n.\\/ .small {\n  display: none; }\n\n.\\/artist .time, .\\/playlist .time, .\\/search .time {\n  display: none; }\n\n.\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress {\n  position: relative; }\n  .\\/artist .playerAndProgress progress[value], .\\/playlist .playerAndProgress progress[value], .\\/search .playerAndProgress progress[value] {\n    width: 100%; }\n\n.\\/artist .choose, .\\/playlist .choose, .\\/search .choose {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .cover, .\\/playlist .cover, .\\/search .cover {\n  display: none; }\n\n.\\/artist footer, .\\/playlist footer, .\\/search footer {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .small, .\\/playlist .small, .\\/search .small {\n  display: flex; }\n\n@media (min-width: 870px) {\n  body {\n    /* Track */\n    /* Corner */\n    /* Handle */ }\n    body ::-webkit-scrollbar {\n      width: 7px;\n      height: 7px; }\n    body ::-webkit-scrollbar-track {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5);\n      -webkit-border-radius: 10px;\n      border-radius: 10px; }\n    body ::-webkit-scrollbar-corner {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5); }\n    body ::-webkit-scrollbar-thumb {\n      -webkit-border-radius: 10px;\n      border-radius: 10px;\n      background: rgba(66, 66, 66, 0.7);\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n  .NavyPlayer .desktop {\n    background: -webkit-radial-gradient(#14375a, #000a11);\n    background: -o-radial-gradient(#14375a, #000a11);\n    background: -moz-radial-gradient(#14375a, #000a11);\n    background: radial-gradient(#14375a, #000a11);\n    display: block;\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center; }\n  nav {\n    text-transform: uppercase;\n    position: absolute;\n    top: 2.5vh;\n    left: 0.5vw; }\n    nav a {\n      border-bottom: 3px solid white;\n      margin: 1.5vw; }\n  #search {\n    height: 15vh;\n    min-height: 15vh;\n    display: block;\n    max-width: 30vw; }\n    #search div:first-child {\n      width: 25vw;\n      height: auto;\n      margin-top: 1em; }\n      #search div:first-child input {\n        width: 30vw;\n        font-size: 0.8em;\n        border-radius: 1em; }\n    #search .placeholder {\n      display: none; }\n  #title {\n    text-align: center;\n    height: 7vh;\n    padding: 0 0 3vh 0; }\n    #title h1 {\n      font-size: 1.5em;\n      color: white;\n      font-family: 'Open Sans', sans-serif; }\n  .mainMiddle {\n    padding: 3vh 0 0 0;\n    height: 63vh;\n    overflow-y: auto; }\n    .mainMiddle #playlists {\n      width: calc((100% - 400px) / 2);\n      display: block;\n      height: auto;\n      padding: 0 0 0 2%; }\n      .mainMiddle #playlists div {\n        max-height: 380px; }\n        .mainMiddle #playlists div div {\n          cursor: pointer;\n          margin: 0 0 2vh 0; }\n          .mainMiddle #playlists div div img {\n            width: 4em; }\n          .mainMiddle #playlists div div p {\n            font-size: 1em; }\n    .mainMiddle .cover {\n      height: 400px;\n      width: 400px;\n      margin: 0;\n      display: block;\n      background-size: cover;\n      background-position: center; }\n    .mainMiddle #artist {\n      width: calc((100% - 400px) / 2);\n      height: auto;\n      display: flex;\n      flex-wrap: wrap; }\n      .mainMiddle #artist .info {\n        height: auto; }\n        .mainMiddle #artist .info p {\n          font-size: 1.5em; }\n      .mainMiddle #artist #topTracks {\n        margin: auto;\n        max-width: 100%;\n        width: 100%; }\n        .mainMiddle #artist #topTracks .topTracks {\n          margin: 3vh 0;\n          font-size: 1.2em;\n          cursor: pointer; }\n          .mainMiddle #artist #topTracks .topTracks h2 {\n            font-size: 1.2em; }\n    .mainMiddle section#albums {\n      margin-top: 8vh; }\n      .mainMiddle section#albums ul {\n        display: block; }\n      .mainMiddle section#albums .list {\n        height: 50vh;\n        width: 50vw;\n        overflow-y: auto;\n        overflow-x: hidden;\n        margin-right: 2vw; }\n        .mainMiddle section#albums .list li {\n          margin: 0 0 0.5em 0;\n          width: 33%; }\n        .mainMiddle section#albums .list img {\n          width: 5em;\n          height: auto; }\n        .mainMiddle section#albums .list p {\n          font-size: 1em; }\n      .mainMiddle section#albums .songs {\n        width: 38vw; }\n        .mainMiddle section#albums .songs p {\n          min-width: 100%; }\n    .mainMiddle section#similar {\n      margin: 12vh 10vh 0 10vh;\n      padding: 5vh auto;\n      width: 100vw; }\n      .mainMiddle section#similar ul {\n        list-style: none;\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n        -moz-column-gap: 15vw;\n        -webkit-column-gap: 15vw;\n        column-gap: 15vw; }\n        .mainMiddle section#similar ul img {\n          width: 3em;\n          height: 3em; }\n  .playerAndProgress {\n    position: relative;\n    height: 10vh;\n    width: 100%; }\n    .playerAndProgress .playerMain {\n      margin-top: 0.5vh; }\n      .playerAndProgress .playerMain button {\n        cursor: pointer;\n        margin: 0 1vw 0 0; }\n    .playerAndProgress .progress {\n      font-size: 1.1em;\n      cursor: pointer; }\n      .playerAndProgress .progress progress[value] {\n        height: 5px; }\n      .playerAndProgress .progress .time {\n        position: absolute;\n        cursor: default;\n        top: 4vh;\n        right: 5vw;\n        display: block; }\n    .playerAndProgress .small {\n      display: none; }\n  footer {\n    position: static;\n    height: 5vh;\n    padding: 0 0.5em;\n    cursor: default;\n    font-size: 1em;\n    background: transparent; }\n    footer img {\n      height: 1em; }\n  .login {\n    box-shadow: inset 0 0 0 4px #58afd1;\n    color: #58afd1;\n    transition: color 0.25s 0.08333s;\n    position: relative;\n    text-align: center;\n    position: absolute;\n    right: 1.5vw;\n    top: 3vh;\n    background: none;\n    border: none;\n    cursor: pointer;\n    line-height: 1.5;\n    font: 700 0.8em 'Roboto Slab', sans-serif;\n    padding: 1em 2em;\n    letter-spacing: 0.05rem; }\n    .login::before, .login::after {\n      border: 0 solid transparent;\n      box-sizing: border-box;\n      content: '';\n      pointer-events: none;\n      position: absolute;\n      width: 0;\n      height: 0;\n      bottom: 0;\n      right: 0; }\n    .login::before {\n      border-bottom-width: 4px;\n      border-left-width: 4px; }\n    .login::after {\n      border-top-width: 4px;\n      border-right-width: 4px; }\n    .login:hover {\n      color: #ffe593; }\n      .login:hover::before, .login:hover::after {\n        border-color: #ffe593;\n        transition: border-color 0s, width 0.25s, height 0.25s;\n        width: 100%;\n        height: 100%; }\n      .login:hover::before {\n        transition-delay: 0s, 0s, 0.25s; }\n      .login:hover::after {\n        transition-delay: 0s, 0.25s, 0s; }\n    .login:focus {\n      outline: 2px dotted #55d7dc; }\n  .mobile {\n    display: none; } }\n\n.active {\n  color: #ddd;\n  position: relative; }\n  .active::after {\n    content: '';\n    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n    background-image: -o-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n    width: 100%;\n    height: 100%;\n    position: absolute;\n    top: 0;\n    left: 0; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nbody {\n  position: relative;\n  max-width: 100%;\n  max-height: 100vh;\n  height: 100vh;\n  font-family: 'Lato', sans-serif;\n  color: white;\n  background: #000a11;\n  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n\n.NavyPlayer {\n  height: 100%;\n  width: 100%;\n  background: #000a11; }\n  .NavyPlayer section#login {\n    display: none; }\n  .NavyPlayer a {\n    color: white;\n    text-decoration: none; }\n\n#search, #title, footer, .choose {\n  width: 100%; }\n\n#search {\n  height: 71vh;\n  min-height: 71vh; }\n  #search div:first-child {\n    width: 100vw;\n    height: 6.5vh;\n    margin-top: 0; }\n    #search div:first-child input {\n      height: 100%;\n      width: 100vw;\n      padding: 0.5em 1em;\n      border: 0;\n      font-size: 1.1em;\n      outline: none;\n      color: white;\n      background: rgba(126, 130, 122, 0.5);\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      #search div:first-child input::-webkit-input-placeholder {\n        /* WebKit, Blink, Edge */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input::-moz-placeholder {\n        /* Mozilla Firefox 4 to 18 */\n        font-size: 1.2em;\n        color: lightgray; }\n      #search div:first-child input:-ms-input-placeholder {\n        /* Internet Explorer 10-11 */\n        font-size: 1.2em;\n        color: lightgray; }\n  #search .placeholder {\n    height: 64.5vh;\n    width: 100%;\n    background: #111; }\n\n#title {\n  position: absolute;\n  top: 20vh;\n  text-align: center;\n  height: 7vh;\n  padding: 0 0 3vh 0; }\n  #title h1 {\n    font-size: 1.3em;\n    color: white;\n    font-family: 'Open Sans', sans-serif; }\n\n.mainMiddle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  width: 100vw;\n  max-width: 100vw;\n  height: 71vh;\n  overflow-y: auto;\n  overflow-x: hidden; }\n  .mainMiddle #playlists {\n    width: 100%; }\n    .mainMiddle #playlists .active {\n      color: #ddd;\n      position: relative; }\n      .mainMiddle #playlists .active::after {\n        content: '';\n        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n        background-image: -o-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n        background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));\n        width: 100%;\n        height: 100%;\n        position: absolute;\n        top: 0;\n        left: 0; }\n    .mainMiddle #playlists div {\n      max-height: 70vh;\n      overflow-y: auto; }\n      .mainMiddle #playlists div div {\n        margin: 1em 0 1em 1em;\n        display: flex;\n        align-items: center; }\n        .mainMiddle #playlists div div img {\n          width: 3em;\n          height: auto; }\n        .mainMiddle #playlists div div p {\n          max-width: 90%;\n          display: inline-block;\n          overflow-wrap: break-word;\n          word-wrap: break-word;\n          -ms-word-break: break-all;\n          word-break: break-all;\n          word-break: break-word;\n          font-size: 1em;\n          margin: 0 1em; }\n  .mainMiddle #artist {\n    width: 100%;\n    padding: 0 3vw; }\n    .mainMiddle #artist .info {\n      height: 10vh;\n      margin-top: 1vh; }\n      .mainMiddle #artist .info img {\n        float: left;\n        width: 64px;\n        height: 64px;\n        border-radius: 50%;\n        margin-right: 1em;\n        margin-top: 0.5em;\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n      .mainMiddle #artist .info div {\n        float: left;\n        max-width: calc(100% - 64px); }\n        .mainMiddle #artist .info div p {\n          margin-top: calc(32px - 0.6em);\n          font-size: 1.2em;\n          font-family: 'Playfair Display', serif; }\n    .mainMiddle #artist #topTracks {\n      margin: 5vh auto 2vh auto;\n      max-width: 90vw; }\n      .mainMiddle #artist #topTracks .topTracks {\n        margin: 8vh 0;\n        width: 100%;\n        font-size: 1.2em;\n        font-family: 'Playfair Display', serif; }\n        .mainMiddle #artist #topTracks .topTracks ul {\n          list-style: none;\n          line-height: 6vh; }\n          .mainMiddle #artist #topTracks .topTracks ul li {\n            border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;\n            margin: 1vh auto 1vh auto; }\n          .mainMiddle #artist #topTracks .topTracks ul li:hover {\n            margin-left: 0.5em; }\n  .mainMiddle section#albums {\n    padding: 2vh 4vw;\n    width: 100vw; }\n    .mainMiddle section#albums h2 {\n      margin-bottom: 5vh;\n      font-size: 1.5em; }\n    .mainMiddle section#albums ul {\n      list-style: none;\n      display: flex; }\n    .mainMiddle section#albums .list {\n      float: left;\n      font-family: 'Reem Kufi', sans-serif;\n      width: 100vw;\n      overflow-x: auto;\n      overflow-y: hidden;\n      height: 7em; }\n      .mainMiddle section#albums .list li {\n        display: inline-block;\n        margin: 0 2vw; }\n      .mainMiddle section#albums .list img {\n        width: 3em;\n        height: auto; }\n      .mainMiddle section#albums .list p {\n        display: inline-block;\n        vertical-align: top;\n        width: 100%;\n        font-size: 0.5em; }\n    .mainMiddle section#albums .songs {\n      float: left;\n      width: 100vw; }\n      .mainMiddle section#albums .songs ul {\n        flex-direction: column; }\n        .mainMiddle section#albums .songs ul li {\n          border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n          padding: 2vh 0; }\n  .mainMiddle section#similar {\n    margin: 2vh 4vw;\n    width: 100%;\n    font-family: 'Reem Kufi', sans-serif; }\n    .mainMiddle section#similar h2 {\n      font-size: 1.5em; }\n    .mainMiddle section#similar ul {\n      list-style: none; }\n      .mainMiddle section#similar ul li {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        align-items: center;\n        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;\n        cursor: pointer; }\n    .mainMiddle section#similar img {\n      border-radius: 50%;\n      width: 3em;\n      height: 3em;\n      margin: 2vh 0;\n      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }\n    .mainMiddle section#similar p {\n      float: right;\n      font-size: 1.2em; }\n\n.playerAndProgress {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n  height: 11vh;\n  padding-top: 5.5vh; }\n  .playerAndProgress a {\n    max-width: 65%; }\n  .playerAndProgress .smallCover {\n    width: 50px;\n    height: 50px;\n    display: inline-block;\n    margin: 0 1vw; }\n  .playerAndProgress .smallTitle {\n    font-size: 0.8em;\n    width: 42vw;\n    font-weight: bold;\n    display: inline-block;\n    overflow: hidden; }\n  .playerAndProgress .playerMain {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center; }\n    .playerAndProgress .playerMain button {\n      background: transparent;\n      border: none;\n      outline: none; }\n      .playerAndProgress .playerMain button:nth-child(2) {\n        transform: scale(0.5, 0.5); }\n  .playerAndProgress .progress {\n    font-size: 0.9em;\n    color: white;\n    font-family: 'Reem Kufi', sans-serif; }\n    .playerAndProgress .progress progress[value] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 3px;\n      width: 100%;\n      background: black; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-bar {\n        background: #d3ceaa;\n        border-radius: 5px;\n        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }\n      .playerAndProgress .progress progress[value]::-webkit-progress-value {\n        background-color: #424242;\n        border-radius: 5px; }\n\n.choose {\n  height: 10vh;\n  margin-top: 5vh;\n  padding: 2vh 1vw;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  align-items: center;\n  z-index: 2; }\n  .choose div {\n    display: inline-block; }\n    .choose div button {\n      cursor: pointer;\n      width: 1.3em;\n      height: 1.3em;\n      font-size: 1.3em;\n      background: transparent;\n      color: white;\n      border: 0;\n      outline: none; }\n      .choose div button p {\n        font-size: 0.5em;\n        font-family: 'Open Sans', sans-serif; }\n\nfooter {\n  height: 3vh;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-end;\n  font-size: 0.7em;\n  padding: 0 1vw; }\n  footer img {\n    height: 0.7em;\n    width: auto; }\n\n.active button {\n  color: #58afd1 !important; }\n  .active button:focus {\n    color: #58afd1 !important; }\n\n.\\/ .nav, .\\/playlists .nav, .\\/albums .nav, .\\/similar .nav {\n  display: none; }\n\n.\\/ #search, .\\/ #playlists, .\\/ #artist, .\\/ #similar, .\\/ #albums, .\\/playlists #search, .\\/playlists #playlists, .\\/playlists #artist, .\\/playlists #similar, .\\/playlists #albums, .\\/albums #search, .\\/albums #playlists, .\\/albums #artist, .\\/albums #similar, .\\/albums #albums, .\\/similar #search, .\\/similar #playlists, .\\/similar #artist, .\\/similar #similar, .\\/similar #albums {\n  display: none; }\n\n.\\/ .time, .\\/playlists .time, .\\/albums .time, .\\/similar .time {\n  position: absolute;\n  top: -1.5vh;\n  right: 0;\n  display: block; }\n  .\\/ .time .elapsed, .\\/playlists .time .elapsed, .\\/albums .time .elapsed, .\\/similar .time .elapsed {\n    right: 88vw;\n    position: absolute; }\n  .\\/ .time .pipe, .\\/playlists .time .pipe, .\\/albums .time .pipe, .\\/similar .time .pipe {\n    display: none; }\n  .\\/ .time .duration, .\\/playlists .time .duration, .\\/albums .time .duration, .\\/similar .time .duration {\n    right: 2vw;\n    position: absolute; }\n\n.\\/ .playerAndProgress, .\\/playlists .playerAndProgress, .\\/albums .playerAndProgress, .\\/similar .playerAndProgress {\n  position: absolute;\n  top: 50%; }\n  .\\/ .playerAndProgress progress[value], .\\/playlists .playerAndProgress progress[value], .\\/albums .playerAndProgress progress[value], .\\/similar .playerAndProgress progress[value] {\n    width: 70%;\n    left: 15%; }\n\n.\\/ .choose, .\\/playlists .choose, .\\/albums .choose, .\\/similar .choose {\n  position: absolute;\n  bottom: 5vh;\n  background: transparent; }\n\n.\\/ .cover, .\\/playlists .cover, .\\/albums .cover, .\\/similar .cover {\n  display: block;\n  height: 100vh;\n  width: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  position: absolute; }\n\n.\\/ footer, .\\/playlists footer, .\\/albums footer, .\\/similar footer {\n  background: transparent;\n  position: absolute;\n  bottom: 0; }\n\n.\\/ .small, .\\/playlists .small, .\\/albums .small, .\\/similar .small {\n  display: none; }\n\n.\\/artist .time, .\\/playlist .time, .\\/search .time {\n  display: none; }\n\n.\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress {\n  position: relative; }\n  .\\/artist .playerAndProgress progress[value], .\\/playlist .playerAndProgress progress[value], .\\/search .playerAndProgress progress[value] {\n    width: 100%; }\n\n.\\/artist .choose, .\\/playlist .choose, .\\/search .choose {\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist #cover, .\\/playlist #cover, .\\/search #cover {\n  display: none; }\n\n.\\/artist footer, .\\/playlist footer, .\\/search footer {\n  position: static;\n  background: rgba(0, 0, 0, 0.5); }\n\n.\\/artist .small, .\\/playlist .small, .\\/search .small {\n  display: flex; }\n\n.\\/artist .nav {\n  display: none; }\n\n.\\/artist #search, .\\/artist #title, .\\/artist #cover, .\\/artist #playlists {\n  display: none; }\n\n.\\/playlist .nav {\n  display: none; }\n\n.\\/playlist #search, .\\/playlist #title, .\\/playlist #cover, .\\/playlist #artist, .\\/playlist #similar, .\\/playlist #albums {\n  display: none; }\n\n.\\/search .nav {\n  display: none; }\n\n.\\/search #title, .\\/search .mainMiddle {\n  display: none; }\n\n@media (min-width: 870px) {\n  body {\n    /* Track */\n    /* Corner */\n    /* Handle */ }\n    body ::-webkit-scrollbar {\n      width: 7px;\n      height: 7px; }\n    body ::-webkit-scrollbar-track {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5);\n      -webkit-border-radius: 10px;\n      border-radius: 10px; }\n    body ::-webkit-scrollbar-corner {\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n      background: rgba(211, 206, 170, 0.5); }\n    body ::-webkit-scrollbar-thumb {\n      -webkit-border-radius: 10px;\n      border-radius: 10px;\n      background: rgba(66, 66, 66, 0.7);\n      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }\n  .NavyPlayer {\n    background: -webkit-radial-gradient(#14375a, #000a11);\n    background: -o-radial-gradient(#14375a, #000a11);\n    background: -moz-radial-gradient(#14375a, #000a11);\n    background: radial-gradient(#14375a, #000a11); }\n    .NavyPlayer section#login {\n      display: block; }\n  .\\/, .\\/artist, .\\/playlist, .\\/search, .\\/playlists, .\\/albums, .\\/similar {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: center; }\n    .\\/ nav, .\\/artist nav, .\\/playlist nav, .\\/search nav, .\\/playlists nav, .\\/albums nav, .\\/similar nav {\n      text-transform: uppercase;\n      position: absolute;\n      top: 2.5vh;\n      left: 0.5vw; }\n      .\\/ nav a, .\\/artist nav a, .\\/playlist nav a, .\\/search nav a, .\\/playlists nav a, .\\/albums nav a, .\\/similar nav a {\n        border-bottom: 3px solid white;\n        margin: 1.5vw; }\n    .\\/ #search, .\\/artist #search, .\\/playlist #search, .\\/search #search, .\\/playlists #search, .\\/albums #search, .\\/similar #search {\n      display: block;\n      height: 15vh;\n      min-height: 15vh;\n      max-width: 30vw; }\n      .\\/ #search div:first-child, .\\/artist #search div:first-child, .\\/playlist #search div:first-child, .\\/search #search div:first-child, .\\/playlists #search div:first-child, .\\/albums #search div:first-child, .\\/similar #search div:first-child {\n        width: 25vw;\n        height: auto;\n        margin-top: 1em; }\n        .\\/ #search div:first-child input, .\\/artist #search div:first-child input, .\\/playlist #search div:first-child input, .\\/search #search div:first-child input, .\\/playlists #search div:first-child input, .\\/albums #search div:first-child input, .\\/similar #search div:first-child input {\n          width: 30vw;\n          font-size: 0.8em;\n          border-radius: 1em; }\n      .\\/ #search .placeholder, .\\/artist #search .placeholder, .\\/playlist #search .placeholder, .\\/search #search .placeholder, .\\/playlists #search .placeholder, .\\/albums #search .placeholder, .\\/similar #search .placeholder {\n        display: none; }\n    .\\/ #title, .\\/artist #title, .\\/playlist #title, .\\/search #title, .\\/playlists #title, .\\/albums #title, .\\/similar #title {\n      height: 7vh;\n      position: static;\n      padding: 0 0 3vh 0; }\n      .\\/ #title h1, .\\/artist #title h1, .\\/playlist #title h1, .\\/search #title h1, .\\/playlists #title h1, .\\/albums #title h1, .\\/similar #title h1 {\n        font-size: 1.5em; }\n    .\\/ .mainMiddle, .\\/artist .mainMiddle, .\\/playlist .mainMiddle, .\\/search .mainMiddle, .\\/playlists .mainMiddle, .\\/albums .mainMiddle, .\\/similar .mainMiddle {\n      padding: 3vh 0 0 0;\n      height: 63vh;\n      overflow-y: auto; }\n      .\\/ .mainMiddle #playlists, .\\/artist .mainMiddle #playlists, .\\/playlist .mainMiddle #playlists, .\\/search .mainMiddle #playlists, .\\/playlists .mainMiddle #playlists, .\\/albums .mainMiddle #playlists, .\\/similar .mainMiddle #playlists {\n        width: calc((100% - 400px) / 2);\n        display: block;\n        height: auto;\n        padding: 0 0 0 2%; }\n        .\\/ .mainMiddle #playlists div, .\\/artist .mainMiddle #playlists div, .\\/playlist .mainMiddle #playlists div, .\\/search .mainMiddle #playlists div, .\\/playlists .mainMiddle #playlists div, .\\/albums .mainMiddle #playlists div, .\\/similar .mainMiddle #playlists div {\n          max-height: 380px; }\n          .\\/ .mainMiddle #playlists div div, .\\/artist .mainMiddle #playlists div div, .\\/playlist .mainMiddle #playlists div div, .\\/search .mainMiddle #playlists div div, .\\/playlists .mainMiddle #playlists div div, .\\/albums .mainMiddle #playlists div div, .\\/similar .mainMiddle #playlists div div {\n            cursor: pointer;\n            margin: 0 0 2vh 0; }\n            .\\/ .mainMiddle #playlists div div img, .\\/artist .mainMiddle #playlists div div img, .\\/playlist .mainMiddle #playlists div div img, .\\/search .mainMiddle #playlists div div img, .\\/playlists .mainMiddle #playlists div div img, .\\/albums .mainMiddle #playlists div div img, .\\/similar .mainMiddle #playlists div div img {\n              width: 4em; }\n            .\\/ .mainMiddle #playlists div div p, .\\/artist .mainMiddle #playlists div div p, .\\/playlist .mainMiddle #playlists div div p, .\\/search .mainMiddle #playlists div div p, .\\/playlists .mainMiddle #playlists div div p, .\\/albums .mainMiddle #playlists div div p, .\\/similar .mainMiddle #playlists div div p {\n              font-size: 1em; }\n      .\\/ .mainMiddle section#cover, .\\/artist .mainMiddle section#cover, .\\/playlist .mainMiddle section#cover, .\\/search .mainMiddle section#cover, .\\/playlists .mainMiddle section#cover, .\\/albums .mainMiddle section#cover, .\\/similar .mainMiddle section#cover {\n        display: block; }\n        .\\/ .mainMiddle section#cover .cover, .\\/artist .mainMiddle section#cover .cover, .\\/playlist .mainMiddle section#cover .cover, .\\/search .mainMiddle section#cover .cover, .\\/playlists .mainMiddle section#cover .cover, .\\/albums .mainMiddle section#cover .cover, .\\/similar .mainMiddle section#cover .cover {\n          position: static;\n          height: 400px;\n          width: 400px;\n          margin: 0;\n          background-size: cover;\n          background-position: center; }\n      .\\/ .mainMiddle #artist, .\\/artist .mainMiddle #artist, .\\/playlist .mainMiddle #artist, .\\/search .mainMiddle #artist, .\\/playlists .mainMiddle #artist, .\\/albums .mainMiddle #artist, .\\/similar .mainMiddle #artist {\n        width: calc((100% - 400px) / 2);\n        height: auto;\n        display: flex;\n        flex-wrap: wrap; }\n        .\\/ .mainMiddle #artist .info, .\\/artist .mainMiddle #artist .info, .\\/playlist .mainMiddle #artist .info, .\\/search .mainMiddle #artist .info, .\\/playlists .mainMiddle #artist .info, .\\/albums .mainMiddle #artist .info, .\\/similar .mainMiddle #artist .info {\n          height: auto; }\n          .\\/ .mainMiddle #artist .info p, .\\/artist .mainMiddle #artist .info p, .\\/playlist .mainMiddle #artist .info p, .\\/search .mainMiddle #artist .info p, .\\/playlists .mainMiddle #artist .info p, .\\/albums .mainMiddle #artist .info p, .\\/similar .mainMiddle #artist .info p {\n            font-size: 1.5em; }\n        .\\/ .mainMiddle #artist #topTracks, .\\/artist .mainMiddle #artist #topTracks, .\\/playlist .mainMiddle #artist #topTracks, .\\/search .mainMiddle #artist #topTracks, .\\/playlists .mainMiddle #artist #topTracks, .\\/albums .mainMiddle #artist #topTracks, .\\/similar .mainMiddle #artist #topTracks {\n          margin: auto;\n          max-width: 100%;\n          width: 100%; }\n          .\\/ .mainMiddle #artist #topTracks .topTracks, .\\/artist .mainMiddle #artist #topTracks .topTracks, .\\/playlist .mainMiddle #artist #topTracks .topTracks, .\\/search .mainMiddle #artist #topTracks .topTracks, .\\/playlists .mainMiddle #artist #topTracks .topTracks, .\\/albums .mainMiddle #artist #topTracks .topTracks, .\\/similar .mainMiddle #artist #topTracks .topTracks {\n            margin: 3vh 0;\n            font-size: 1.2em;\n            cursor: pointer; }\n            .\\/ .mainMiddle #artist #topTracks .topTracks h2, .\\/artist .mainMiddle #artist #topTracks .topTracks h2, .\\/playlist .mainMiddle #artist #topTracks .topTracks h2, .\\/search .mainMiddle #artist #topTracks .topTracks h2, .\\/playlists .mainMiddle #artist #topTracks .topTracks h2, .\\/albums .mainMiddle #artist #topTracks .topTracks h2, .\\/similar .mainMiddle #artist #topTracks .topTracks h2 {\n              font-size: 1.2em; }\n      .\\/ .mainMiddle section#albums, .\\/artist .mainMiddle section#albums, .\\/playlist .mainMiddle section#albums, .\\/search .mainMiddle section#albums, .\\/playlists .mainMiddle section#albums, .\\/albums .mainMiddle section#albums, .\\/similar .mainMiddle section#albums {\n        display: block;\n        margin-top: 8vh; }\n        .\\/ .mainMiddle section#albums ul, .\\/artist .mainMiddle section#albums ul, .\\/playlist .mainMiddle section#albums ul, .\\/search .mainMiddle section#albums ul, .\\/playlists .mainMiddle section#albums ul, .\\/albums .mainMiddle section#albums ul, .\\/similar .mainMiddle section#albums ul {\n          display: block; }\n        .\\/ .mainMiddle section#albums .list, .\\/artist .mainMiddle section#albums .list, .\\/playlist .mainMiddle section#albums .list, .\\/search .mainMiddle section#albums .list, .\\/playlists .mainMiddle section#albums .list, .\\/albums .mainMiddle section#albums .list, .\\/similar .mainMiddle section#albums .list {\n          height: 50vh;\n          width: 50vw;\n          overflow-y: auto;\n          overflow-x: hidden;\n          margin-right: 2vw; }\n          .\\/ .mainMiddle section#albums .list li, .\\/artist .mainMiddle section#albums .list li, .\\/playlist .mainMiddle section#albums .list li, .\\/search .mainMiddle section#albums .list li, .\\/playlists .mainMiddle section#albums .list li, .\\/albums .mainMiddle section#albums .list li, .\\/similar .mainMiddle section#albums .list li {\n            margin: 0 0 0.5em 0;\n            width: 33%; }\n          .\\/ .mainMiddle section#albums .list img, .\\/artist .mainMiddle section#albums .list img, .\\/playlist .mainMiddle section#albums .list img, .\\/search .mainMiddle section#albums .list img, .\\/playlists .mainMiddle section#albums .list img, .\\/albums .mainMiddle section#albums .list img, .\\/similar .mainMiddle section#albums .list img {\n            width: 5em;\n            height: auto; }\n          .\\/ .mainMiddle section#albums .list p, .\\/artist .mainMiddle section#albums .list p, .\\/playlist .mainMiddle section#albums .list p, .\\/search .mainMiddle section#albums .list p, .\\/playlists .mainMiddle section#albums .list p, .\\/albums .mainMiddle section#albums .list p, .\\/similar .mainMiddle section#albums .list p {\n            font-size: 1em; }\n        .\\/ .mainMiddle section#albums .songs, .\\/artist .mainMiddle section#albums .songs, .\\/playlist .mainMiddle section#albums .songs, .\\/search .mainMiddle section#albums .songs, .\\/playlists .mainMiddle section#albums .songs, .\\/albums .mainMiddle section#albums .songs, .\\/similar .mainMiddle section#albums .songs {\n          width: 38vw; }\n          .\\/ .mainMiddle section#albums .songs p, .\\/artist .mainMiddle section#albums .songs p, .\\/playlist .mainMiddle section#albums .songs p, .\\/search .mainMiddle section#albums .songs p, .\\/playlists .mainMiddle section#albums .songs p, .\\/albums .mainMiddle section#albums .songs p, .\\/similar .mainMiddle section#albums .songs p {\n            min-width: 100%; }\n      .\\/ .mainMiddle section#similar, .\\/artist .mainMiddle section#similar, .\\/playlist .mainMiddle section#similar, .\\/search .mainMiddle section#similar, .\\/playlists .mainMiddle section#similar, .\\/albums .mainMiddle section#similar, .\\/similar .mainMiddle section#similar {\n        display: block;\n        margin: 12vh 10vh 0 10vh;\n        padding: 5vh auto;\n        width: 100vw; }\n        .\\/ .mainMiddle section#similar ul, .\\/artist .mainMiddle section#similar ul, .\\/playlist .mainMiddle section#similar ul, .\\/search .mainMiddle section#similar ul, .\\/playlists .mainMiddle section#similar ul, .\\/albums .mainMiddle section#similar ul, .\\/similar .mainMiddle section#similar ul {\n          list-style: none;\n          -moz-column-count: 2;\n          -webkit-column-count: 2;\n          column-count: 2;\n          -moz-column-gap: 15vw;\n          -webkit-column-gap: 15vw;\n          column-gap: 15vw; }\n          .\\/ .mainMiddle section#similar ul img, .\\/artist .mainMiddle section#similar ul img, .\\/playlist .mainMiddle section#similar ul img, .\\/search .mainMiddle section#similar ul img, .\\/playlists .mainMiddle section#similar ul img, .\\/albums .mainMiddle section#similar ul img, .\\/similar .mainMiddle section#similar ul img {\n            width: 3em;\n            height: 3em; }\n    .\\/ .playerAndProgress, .\\/artist .playerAndProgress, .\\/playlist .playerAndProgress, .\\/search .playerAndProgress, .\\/playlists .playerAndProgress, .\\/albums .playerAndProgress, .\\/similar .playerAndProgress {\n      position: relative;\n      height: 10vh;\n      width: 100%; }\n      .\\/ .playerAndProgress .playerMain, .\\/artist .playerAndProgress .playerMain, .\\/playlist .playerAndProgress .playerMain, .\\/search .playerAndProgress .playerMain, .\\/playlists .playerAndProgress .playerMain, .\\/albums .playerAndProgress .playerMain, .\\/similar .playerAndProgress .playerMain {\n        margin-top: 0.5vh; }\n        .\\/ .playerAndProgress .playerMain button, .\\/artist .playerAndProgress .playerMain button, .\\/playlist .playerAndProgress .playerMain button, .\\/search .playerAndProgress .playerMain button, .\\/playlists .playerAndProgress .playerMain button, .\\/albums .playerAndProgress .playerMain button, .\\/similar .playerAndProgress .playerMain button {\n          cursor: pointer;\n          margin: 0 1vw 0 0; }\n      .\\/ .playerAndProgress .progress, .\\/artist .playerAndProgress .progress, .\\/playlist .playerAndProgress .progress, .\\/search .playerAndProgress .progress, .\\/playlists .playerAndProgress .progress, .\\/albums .playerAndProgress .progress, .\\/similar .playerAndProgress .progress {\n        font-size: 1.1em;\n        cursor: pointer; }\n        .\\/ .playerAndProgress .progress progress[value], .\\/artist .playerAndProgress .progress progress[value], .\\/playlist .playerAndProgress .progress progress[value], .\\/search .playerAndProgress .progress progress[value], .\\/playlists .playerAndProgress .progress progress[value], .\\/albums .playerAndProgress .progress progress[value], .\\/similar .playerAndProgress .progress progress[value] {\n          height: 5px;\n          width: 100%;\n          left: 0; }\n        .\\/ .playerAndProgress .progress .time, .\\/artist .playerAndProgress .progress .time, .\\/playlist .playerAndProgress .progress .time, .\\/search .playerAndProgress .progress .time, .\\/playlists .playerAndProgress .progress .time, .\\/albums .playerAndProgress .progress .time, .\\/similar .playerAndProgress .progress .time {\n          position: absolute;\n          cursor: default;\n          top: 4vh;\n          right: 5vw;\n          display: block; }\n          .\\/ .playerAndProgress .progress .time .elapsed, .\\/artist .playerAndProgress .progress .time .elapsed, .\\/playlist .playerAndProgress .progress .time .elapsed, .\\/search .playerAndProgress .progress .time .elapsed, .\\/playlists .playerAndProgress .progress .time .elapsed, .\\/albums .playerAndProgress .progress .time .elapsed, .\\/similar .playerAndProgress .progress .time .elapsed {\n            right: 1vw;\n            position: relative; }\n          .\\/ .playerAndProgress .progress .time .pipe, .\\/artist .playerAndProgress .progress .time .pipe, .\\/playlist .playerAndProgress .progress .time .pipe, .\\/search .playerAndProgress .progress .time .pipe, .\\/playlists .playerAndProgress .progress .time .pipe, .\\/albums .playerAndProgress .progress .time .pipe, .\\/similar .playerAndProgress .progress .time .pipe {\n            display: inline-block;\n            right: 0.5vw;\n            position: relative; }\n          .\\/ .playerAndProgress .progress .time .duration, .\\/artist .playerAndProgress .progress .time .duration, .\\/playlist .playerAndProgress .progress .time .duration, .\\/search .playerAndProgress .progress .time .duration, .\\/playlists .playerAndProgress .progress .time .duration, .\\/albums .playerAndProgress .progress .time .duration, .\\/similar .playerAndProgress .progress .time .duration {\n            right: 0;\n            position: relative; }\n      .\\/ .playerAndProgress .small, .\\/artist .playerAndProgress .small, .\\/playlist .playerAndProgress .small, .\\/search .playerAndProgress .small, .\\/playlists .playerAndProgress .small, .\\/albums .playerAndProgress .small, .\\/similar .playerAndProgress .small {\n        display: none; }\n    .\\/ .nav, .\\/artist .nav, .\\/playlist .nav, .\\/search .nav, .\\/playlists .nav, .\\/albums .nav, .\\/similar .nav {\n      display: block; }\n    .\\/ .choose, .\\/artist .choose, .\\/playlist .choose, .\\/search .choose, .\\/playlists .choose, .\\/albums .choose, .\\/similar .choose {\n      display: none; }\n    .\\/ footer, .\\/artist footer, .\\/playlist footer, .\\/search footer, .\\/playlists footer, .\\/albums footer, .\\/similar footer {\n      position: static;\n      height: 5vh;\n      padding: 0 0.5em;\n      cursor: default;\n      font-size: 1em;\n      background: transparent; }\n      .\\/ footer img, .\\/artist footer img, .\\/playlist footer img, .\\/search footer img, .\\/playlists footer img, .\\/albums footer img, .\\/similar footer img {\n        height: 1em; }\n    .\\/ .login, .\\/artist .login, .\\/playlist .login, .\\/search .login, .\\/playlists .login, .\\/albums .login, .\\/similar .login {\n      box-shadow: inset 0 0 0 4px #58afd1;\n      color: #58afd1;\n      transition: color 0.25s 0.08333s;\n      position: relative;\n      text-align: center;\n      position: absolute;\n      right: 1.5vw;\n      top: 3vh;\n      background: none;\n      border: none;\n      cursor: pointer;\n      line-height: 1.5;\n      font: 700 0.8em 'Roboto Slab', sans-serif;\n      padding: 1em 2em;\n      letter-spacing: 0.05rem; }\n      .\\/ .login::before, .\\/ .login::after, .\\/artist .login::before, .\\/artist .login::after, .\\/playlist .login::before, .\\/playlist .login::after, .\\/search .login::before, .\\/search .login::after, .\\/playlists .login::before, .\\/playlists .login::after, .\\/albums .login::before, .\\/albums .login::after, .\\/similar .login::before, .\\/similar .login::after {\n        border: 0 solid transparent;\n        box-sizing: border-box;\n        content: '';\n        pointer-events: none;\n        position: absolute;\n        width: 0;\n        height: 0;\n        bottom: 0;\n        right: 0; }\n      .\\/ .login::before, .\\/artist .login::before, .\\/playlist .login::before, .\\/search .login::before, .\\/playlists .login::before, .\\/albums .login::before, .\\/similar .login::before {\n        border-bottom-width: 4px;\n        border-left-width: 4px; }\n      .\\/ .login::after, .\\/artist .login::after, .\\/playlist .login::after, .\\/search .login::after, .\\/playlists .login::after, .\\/albums .login::after, .\\/similar .login::after {\n        border-top-width: 4px;\n        border-right-width: 4px; }\n      .\\/ .login:hover, .\\/artist .login:hover, .\\/playlist .login:hover, .\\/search .login:hover, .\\/playlists .login:hover, .\\/albums .login:hover, .\\/similar .login:hover {\n        color: #ffe593; }\n        .\\/ .login:hover::before, .\\/ .login:hover::after, .\\/artist .login:hover::before, .\\/artist .login:hover::after, .\\/playlist .login:hover::before, .\\/playlist .login:hover::after, .\\/search .login:hover::before, .\\/search .login:hover::after, .\\/playlists .login:hover::before, .\\/playlists .login:hover::after, .\\/albums .login:hover::before, .\\/albums .login:hover::after, .\\/similar .login:hover::before, .\\/similar .login:hover::after {\n          border-color: #ffe593;\n          transition: border-color 0s, width 0.25s, height 0.25s;\n          width: 100%;\n          height: 100%; }\n        .\\/ .login:hover::before, .\\/artist .login:hover::before, .\\/playlist .login:hover::before, .\\/search .login:hover::before, .\\/playlists .login:hover::before, .\\/albums .login:hover::before, .\\/similar .login:hover::before {\n          transition-delay: 0s, 0s, 0.25s; }\n        .\\/ .login:hover::after, .\\/artist .login:hover::after, .\\/playlist .login:hover::after, .\\/search .login:hover::after, .\\/playlists .login:hover::after, .\\/albums .login:hover::after, .\\/similar .login:hover::after {\n          transition-delay: 0s, 0.25s, 0s; }\n      .\\/ .login:focus, .\\/artist .login:focus, .\\/playlist .login:focus, .\\/search .login:focus, .\\/playlists .login:focus, .\\/albums .login:focus, .\\/similar .login:focus {\n        outline: 2px dotted #55d7dc; } }\n", ""]);
 
 // exports
 
@@ -18579,7 +18505,7 @@ module.exports = camelizeStyleName;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 var isTextNode = __webpack_require__(188);
@@ -19132,7 +19058,7 @@ module.exports = isTextNode;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  * @typechecks static-only
  */
 
@@ -19316,7 +19242,7 @@ var _LocationUtils = __webpack_require__(26);
 
 var _DOMUtils = __webpack_require__(40);
 
-var _DOMStateStorage = __webpack_require__(91);
+var _DOMStateStorage = __webpack_require__(85);
 
 var _PathUtils = __webpack_require__(19);
 
@@ -19875,7 +19801,7 @@ exports.default = createMemoryHistory;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(202);
 
@@ -19939,7 +19865,7 @@ var getPrototype = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__overArg_js
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(89);
 
 
 /** Used for built-in method references. */
@@ -21119,7 +21045,7 @@ module.exports = ARIADOMPropertyConfig;
 
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var focusNode = __webpack_require__(89);
+var focusNode = __webpack_require__(83);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -21535,7 +21461,7 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var CSSProperty = __webpack_require__(98);
+var CSSProperty = __webpack_require__(92);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(14);
 
@@ -21763,10 +21689,10 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(15);
 var SyntheticEvent = __webpack_require__(18);
 
-var inputValueTracking = __webpack_require__(115);
+var inputValueTracking = __webpack_require__(109);
 var getEventTarget = __webpack_require__(66);
 var isEventSupported = __webpack_require__(67);
-var isTextInputElement = __webpack_require__(117);
+var isTextInputElement = __webpack_require__(111);
 
 var eventTypes = {
   change: {
@@ -22263,7 +22189,7 @@ var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(24);
 
-var getTextContentAccessor = __webpack_require__(114);
+var getTextContentAccessor = __webpack_require__(108);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -22602,10 +22528,10 @@ module.exports = HTMLDOMPropertyConfig;
 
 var ReactReconciler = __webpack_require__(28);
 
-var instantiateReactComponent = __webpack_require__(116);
+var instantiateReactComponent = __webpack_require__(110);
 var KeyEscapeUtils = __webpack_require__(58);
 var shouldUpdateReactComponent = __webpack_require__(68);
-var traverseAllChildren = __webpack_require__(119);
+var traverseAllChildren = __webpack_require__(113);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -22801,7 +22727,7 @@ var ReactCurrentOwner = __webpack_require__(16);
 var ReactErrorUtils = __webpack_require__(61);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(14);
-var ReactNodeTypes = __webpack_require__(108);
+var ReactNodeTypes = __webpack_require__(102);
 var ReactReconciler = __webpack_require__(28);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -23702,13 +23628,13 @@ module.exports = ReactCompositeComponent;
 
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(240);
-var ReactMount = __webpack_require__(107);
+var ReactMount = __webpack_require__(101);
 var ReactReconciler = __webpack_require__(28);
 var ReactUpdates = __webpack_require__(15);
 var ReactVersion = __webpack_require__(255);
 
 var findDOMNode = __webpack_require__(272);
-var getHostComponentFromComposite = __webpack_require__(113);
+var getHostComponentFromComposite = __webpack_require__(107);
 var renderSubtreeIntoContainer = __webpack_require__(279);
 var warning = __webpack_require__(3);
 
@@ -23825,15 +23751,15 @@ var CSSPropertyOperations = __webpack_require__(213);
 var DOMLazyTree = __webpack_require__(27);
 var DOMNamespaces = __webpack_require__(56);
 var DOMProperty = __webpack_require__(20);
-var DOMPropertyOperations = __webpack_require__(100);
+var DOMPropertyOperations = __webpack_require__(94);
 var EventPluginHub = __webpack_require__(33);
 var EventPluginRegistry = __webpack_require__(41);
 var ReactBrowserEventEmitter = __webpack_require__(42);
-var ReactDOMComponentFlags = __webpack_require__(101);
+var ReactDOMComponentFlags = __webpack_require__(95);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMInput = __webpack_require__(229);
 var ReactDOMOption = __webpack_require__(232);
-var ReactDOMSelect = __webpack_require__(102);
+var ReactDOMSelect = __webpack_require__(96);
 var ReactDOMTextarea = __webpack_require__(235);
 var ReactInstrumentation = __webpack_require__(14);
 var ReactMultiChild = __webpack_require__(248);
@@ -23844,7 +23770,7 @@ var escapeTextContentForBrowser = __webpack_require__(45);
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(67);
 var shallowEqual = __webpack_require__(48);
-var inputValueTracking = __webpack_require__(115);
+var inputValueTracking = __webpack_require__(109);
 var validateDOMNesting = __webpack_require__(69);
 var warning = __webpack_require__(3);
 
@@ -25000,7 +24926,7 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMPropertyOperations = __webpack_require__(100);
+var DOMPropertyOperations = __webpack_require__(94);
 var LinkedValueUtils = __webpack_require__(59);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(15);
@@ -25442,7 +25368,7 @@ var _assign = __webpack_require__(5);
 
 var React = __webpack_require__(31);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMSelect = __webpack_require__(102);
+var ReactDOMSelect = __webpack_require__(96);
 
 var warning = __webpack_require__(3);
 var didWarnInvalidOptionChildren = false;
@@ -25569,7 +25495,7 @@ module.exports = ReactDOMOption;
 var ExecutionEnvironment = __webpack_require__(7);
 
 var getNodeForCharacterOffset = __webpack_require__(276);
-var getTextContentAccessor = __webpack_require__(114);
+var getTextContentAccessor = __webpack_require__(108);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -26373,7 +26299,7 @@ module.exports = ReactDOMUnknownPropertyHook;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -26904,7 +26830,7 @@ module.exports = {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -26972,7 +26898,7 @@ module.exports = ReactEventEmitterMixin;
 
 var _assign = __webpack_require__(5);
 
-var EventListener = __webpack_require__(88);
+var EventListener = __webpack_require__(82);
 var ExecutionEnvironment = __webpack_require__(7);
 var PooledClass = __webpack_require__(24);
 var ReactDOMComponentTree = __webpack_require__(6);
@@ -27126,7 +27052,7 @@ module.exports = ReactEventListener;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27173,9 +27099,9 @@ var DOMProperty = __webpack_require__(20);
 var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(57);
 var ReactComponentEnvironment = __webpack_require__(60);
-var ReactEmptyComponent = __webpack_require__(103);
+var ReactEmptyComponent = __webpack_require__(97);
 var ReactBrowserEventEmitter = __webpack_require__(42);
-var ReactHostComponent = __webpack_require__(105);
+var ReactHostComponent = __webpack_require__(99);
 var ReactUpdates = __webpack_require__(15);
 
 var ReactInjection = {
@@ -27204,7 +27130,7 @@ module.exports = ReactInjection;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27754,7 +27680,7 @@ module.exports = ReactMultiChild;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27853,7 +27779,7 @@ module.exports = ReactOwner;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -27890,10 +27816,10 @@ module.exports = ReactPropTypeLocationNames;
 
 var _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(99);
+var CallbackQueue = __webpack_require__(93);
 var PooledClass = __webpack_require__(24);
 var ReactBrowserEventEmitter = __webpack_require__(42);
-var ReactInputSelection = __webpack_require__(106);
+var ReactInputSelection = __webpack_require__(100);
 var ReactInstrumentation = __webpack_require__(14);
 var Transaction = __webpack_require__(44);
 var ReactUpdateQueue = __webpack_require__(62);
@@ -28068,7 +27994,7 @@ module.exports = ReactReconcileTransaction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -28258,7 +28184,7 @@ module.exports = ReactServerRenderingTransaction;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -28736,11 +28662,11 @@ module.exports = SVGDOMPropertyConfig;
 var EventPropagators = __webpack_require__(34);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInputSelection = __webpack_require__(106);
+var ReactInputSelection = __webpack_require__(100);
 var SyntheticEvent = __webpack_require__(18);
 
-var getActiveElement = __webpack_require__(90);
-var isTextInputElement = __webpack_require__(117);
+var getActiveElement = __webpack_require__(84);
+var isTextInputElement = __webpack_require__(111);
 var shallowEqual = __webpack_require__(48);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
@@ -28922,14 +28848,14 @@ module.exports = SelectEventPlugin;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventListener = __webpack_require__(88);
+var EventListener = __webpack_require__(82);
 var EventPropagators = __webpack_require__(34);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticAnimationEvent = __webpack_require__(259);
@@ -29645,7 +29571,7 @@ module.exports = SyntheticWheelEvent;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -29701,7 +29627,7 @@ module.exports = adler32;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactPropTypeLocationNames = __webpack_require__(250);
-var ReactPropTypesSecret = __webpack_require__(109);
+var ReactPropTypesSecret = __webpack_require__(103);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(3);
@@ -29791,7 +29717,7 @@ module.exports = checkReactTypeSpec;
 
 
 
-var CSSProperty = __webpack_require__(98);
+var CSSProperty = __webpack_require__(92);
 var warning = __webpack_require__(3);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -29882,7 +29808,7 @@ var ReactCurrentOwner = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstanceMap = __webpack_require__(35);
 
-var getHostComponentFromComposite = __webpack_require__(113);
+var getHostComponentFromComposite = __webpack_require__(107);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(3);
 
@@ -29938,13 +29864,13 @@ module.exports = findDOMNode;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
 
 var KeyEscapeUtils = __webpack_require__(58);
-var traverseAllChildren = __webpack_require__(119);
+var traverseAllChildren = __webpack_require__(113);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -30137,7 +30063,7 @@ module.exports = getEventKey;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -30403,7 +30329,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var ReactMount = __webpack_require__(107);
+var ReactMount = __webpack_require__(101);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
@@ -30417,7 +30343,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(70);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -30500,7 +30426,7 @@ function createProvider() {
 
 "use strict";
 /* unused harmony export createConnect */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(283);
@@ -30522,7 +30448,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
   selectorFactory, which has the signature:
 
     (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-
+  
   connect passes its args to connectAdvanced as options, which will in turn pass them to
   selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -30619,7 +30545,7 @@ function createConnect() {
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(115);
 
 
 
@@ -30648,7 +30574,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 "use strict";
 /* unused harmony export whenMapStateToPropsIsFunction */
 /* unused harmony export whenMapStateToPropsIsMissing */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__wrapMapToProps__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__wrapMapToProps__ = __webpack_require__(115);
 
 
 function whenMapStateToPropsIsFunction(mapStateToProps) {
@@ -30672,7 +30598,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* unused harmony export wrapMergePropsFunc */
 /* unused harmony export whenMergePropsIsFunction */
 /* unused harmony export whenMergePropsIsOmitted */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(117);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -31000,7 +30926,7 @@ function shallowEqual(objA, objB) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(118);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -31032,7 +30958,7 @@ var IndexLink = __WEBPACK_IMPORTED_MODULE_1_create_react_class___default()({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routerWarning__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Redirect__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Redirect__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(37);
 
 
@@ -31200,11 +31126,11 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default()({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__RouterContext__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__RouteUtils__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouterUtils__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouterUtils__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routerWarning__ = __webpack_require__(30);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -31581,7 +31507,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(123);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__createRouterHistory__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory___default.a));
@@ -31669,7 +31595,7 @@ function computeChangedRoutes(prevState, nextState) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AsyncUtils__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(119);
 
 
 
@@ -31740,7 +31666,7 @@ function getRouteParams(route, params) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(123);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__createRouterHistory__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory___default.a));
@@ -31907,10 +31833,10 @@ function isActive(_ref, indexOnly, currentLocation, routes, params) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouteUtils__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__RouterUtils__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__RouterUtils__ = __webpack_require__(121);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -31975,7 +31901,7 @@ function match(_ref, callback) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = matchRoutes;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AsyncUtils__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PatternUtils__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routerWarning__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouteUtils__ = __webpack_require__(21);
@@ -32233,7 +32159,7 @@ function matchRoutes(routes, location, callback, remainingPathname) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_hoist_non_react_statics__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_hoist_non_react_statics__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ContextUtils__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__PropTypes__ = __webpack_require__(73);
@@ -32310,7 +32236,7 @@ function withRouter(WrappedComponent, options) {
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32374,7 +32300,7 @@ module.exports = KeyEscapeUtils;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32701,7 +32627,7 @@ var ReactElement = __webpack_require__(25);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(134);
+  var ReactElementValidator = __webpack_require__(128);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -32863,7 +32789,7 @@ module.exports = ReactDOMFactories;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -32901,7 +32827,7 @@ module.exports = ReactPropTypeLocationNames;
 var _require = __webpack_require__(25),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(96);
+var factory = __webpack_require__(90);
 
 module.exports = factory(isValidElement);
 
@@ -32918,7 +32844,7 @@ module.exports = factory(isValidElement);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -33056,14 +32982,14 @@ module.exports = checkReactTypeSpec;
 
 
 
-var _require = __webpack_require__(132),
+var _require = __webpack_require__(126),
     Component = _require.Component;
 
 var _require2 = __webpack_require__(25),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(135);
-var factory = __webpack_require__(87);
+var ReactNoopUpdateQueue = __webpack_require__(129);
+var factory = __webpack_require__(81);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
@@ -33080,7 +33006,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 
@@ -33157,9 +33083,9 @@ module.exports = onlyChild;
 var _prodInvariant = __webpack_require__(32);
 
 var ReactCurrentOwner = __webpack_require__(16);
-var REACT_ELEMENT_TYPE = __webpack_require__(133);
+var REACT_ELEMENT_TYPE = __webpack_require__(127);
 
-var getIteratorFn = __webpack_require__(136);
+var getIteratorFn = __webpack_require__(130);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(305);
 var warning = __webpack_require__(3);
@@ -33325,7 +33251,7 @@ module.exports = traverseAllChildren;
 
 "use strict";
 /* unused harmony export default */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(131);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -33435,9 +33361,9 @@ function bindActionCreators(actionCreators, dispatch) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(133);
 
 
 

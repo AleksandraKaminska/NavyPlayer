@@ -20,10 +20,9 @@ $progress-value-color: rgb(66, 66, 66);
     }
   }
   .choose {
-    position: static;
     background: rgba(0,0,0,0.5);
   }
-  .cover {
+  #cover {
     display: none;
   }
   footer {
@@ -100,7 +99,7 @@ body {
   height: 100%;
   width: 100%;
   background: $navy-color;
-  .desktop {
+  section#login {
     display: none;
   }
   a {
@@ -109,7 +108,7 @@ body {
   }
 }
 
-#search, #title, #title_mobile, footer, .choose {
+#search, #title, footer, .choose {
   width: 100%;
 }
 
@@ -155,11 +154,13 @@ body {
   }
 }
 
-#title_mobile {
+#title {
   position: absolute;
   top: 20vh;
   text-align: center;
-  h2 {
+  height: 7vh;
+  padding: 0 0 3vh 0;
+  h1 {
     font-size: 1.3em;
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -176,6 +177,22 @@ body {
   overflow-x: hidden;
   #playlists {
     width: 100%;
+    .active {
+      color: #ddd;
+      position: relative;
+      &::after {
+        content: '';
+        background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
+        background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
+        background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
+        background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
     div {
       max-height: 70vh;
       overflow-y: auto;
@@ -417,9 +434,18 @@ footer {
 
 .active button {
   color: #58afd1 !important;
+  &:focus {
+    color: #58afd1 !important;
+  }
 }
 
-.\/ {
+.\/, .\/playlists, .\/albums, .\/similar {
+  .nav {
+    display: none;
+  }
+  #search, #playlists, #artist, #similar, #albums {
+    display: none;
+  }
   .time {
     position: absolute;
     top: -1.5vh;
@@ -457,6 +483,7 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: absolute;
   }
   footer {
     background: transparent;
@@ -470,6 +497,33 @@ footer {
 
 .\/artist, .\/playlist, .\/search {
   @include mobileComponent();
+}
+
+.\/artist {
+  .nav {
+    display: none;
+  }
+  #search, #title, #cover, #playlists {
+    display: none;
+  }
+}
+
+.\/playlist {
+  .nav {
+    display: none;
+  }
+  #search, #title, #cover, #artist, #similar, #albums {
+    display: none;
+  }
+}
+
+.\/search {
+  .nav {
+    display: none;
+  }
+  #title, .mainMiddle {
+    display: none;
+  }
 }
 
 @media (min-width: 870px) {
@@ -498,241 +552,246 @@ footer {
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
   }
-  .NavyPlayer .desktop {
+  .NavyPlayer {
     background: -webkit-radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
     background: -o-radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
     background: -moz-radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
     background: radial-gradient(rgb(20, 55, 90), rgb(0, 10, 17));
-    display: block;
-    @include flex(center);
-  }
-
-  nav {
-    text-transform: uppercase;
-    position: absolute;
-    top: 2.5vh;
-    left: 0.5vw;
-    a {
-      border-bottom: 3px solid white;
-      margin: 1.5vw;
+    section#login {
+      display: block;
     }
   }
 
-  #search {
-    height: 15vh;
-    min-height: 15vh;
-    display: block;
-    max-width: 30vw;
-    div:first-child {
-      width: 25vw;
-      height: auto;
-      margin-top: 1em;
-      input {
-        width: 30vw;
-        font-size: 0.8em;
-        border-radius: 1em;
+  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar {
+    @include flex(center);
+    nav {
+      text-transform: uppercase;
+      position: absolute;
+      top: 2.5vh;
+      left: 0.5vw;
+      a {
+        border-bottom: 3px solid white;
+        margin: 1.5vw;
       }
     }
-    .placeholder {
-      display: none;
-    }
-  }
 
-  #title {
-    text-align: center;
-    height: 7vh;
-    padding: 0 0 3vh 0;
-    h1 {
-      font-size: 1.5em;
-      color: white;
-      font-family: 'Open Sans', sans-serif;
-    }
-  }
-
-  .mainMiddle {
-    padding: 3vh 0 0 0;
-    height: 63vh;
-    overflow-y: auto;
-    #playlists {
-      width: calc((100% - 400px) / 2);
+    #search {
       display: block;
-      height: auto;
-      padding: 0 0 0 2%;
-      div {
-        max-height: 380px;
+      height: 15vh;
+      min-height: 15vh;
+      max-width: 30vw;
+      div:first-child {
+        width: 25vw;
+        height: auto;
+        margin-top: 1em;
+        input {
+          width: 30vw;
+          font-size: 0.8em;
+          border-radius: 1em;
+        }
+      }
+      .placeholder {
+        display: none;
+      }
+    }
+
+    #title {
+      height: 7vh;
+      position: static;
+      padding: 0 0 3vh 0;
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+
+    .mainMiddle {
+      padding: 3vh 0 0 0;
+      height: 63vh;
+      overflow-y: auto;
+      #playlists {
+        width: calc((100% - 400px) / 2);
+        display: block;
+        height: auto;
+        padding: 0 0 0 2%;
         div {
-          cursor: pointer;
-          margin: 0 0 2vh 0;
+          max-height: 380px;
+          div {
+            cursor: pointer;
+            margin: 0 0 2vh 0;
+            img {
+              width: 4em;
+            }
+            p {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+      section#cover {
+        display: block;
+        .cover {
+          position: static;
+          height: 400px;
+          width: 400px;
+          margin: 0;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      #artist {
+        width: calc((100% - 400px) / 2);
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        .info {
+          height: auto;
+          p {
+            font-size: 1.5em;
+          }
+        }
+        #topTracks {
+          margin: auto;
+          max-width: 100%;
+          width: 100%;
+          .topTracks {
+            margin: 3vh 0;
+            font-size: 1.2em;
+            cursor: pointer;
+            h2 {
+              font-size: 1.2em;
+            }
+          }
+        }
+      }
+      section#albums {
+        display: block;
+        margin-top: 8vh;
+        ul {
+          display: block;
+        }
+        .list {
+          height: 50vh;
+          width: 50vw;
+          overflow-y: auto;
+          overflow-x: hidden;
+          margin-right: 2vw;
+          li {
+            margin: 0 0 0.5em 0;
+            width: 33%;
+          }
           img {
-            width: 4em;
+            width: 5em;
+            height: auto;
           }
           p {
             font-size: 1em;
           }
         }
-      }
-    }
-    .cover {
-      height: 400px;
-      width: 400px;
-      margin: 0;
-      display: block;
-      background-size: cover;
-      background-position: center;
-    }
-    #artist {
-      width: calc((100% - 400px) / 2);
-      height: auto;
-      display: flex;
-      flex-wrap: wrap;
-      .info {
-        height: auto;
-        p {
-          font-size: 1.5em;
+        .songs {
+          width: 38vw;
+          p {
+            min-width: 100%;
+          }
         }
       }
-      #topTracks {
-        margin: auto;
-        max-width: 100%;
-        width: 100%;
-        .topTracks {
-          margin: 3vh 0;
-          font-size: 1.2em;
-          cursor: pointer;
-          h2 {
-            font-size: 1.2em;
+      section#similar {
+        display: block;
+        margin: 12vh 10vh 0 10vh;
+        padding: 5vh auto;
+        width: 100vw;
+        ul {
+          list-style: none;
+          -moz-column-count: 2;
+          -webkit-column-count: 2;
+          column-count: 2;
+          -moz-column-gap: 15vw;
+          -webkit-column-gap: 15vw;
+          column-gap: 15vw;
+          img {
+            width: 3em;
+            height: 3em;
           }
         }
       }
     }
-    section#albums {
-      margin-top: 8vh;
-      ul {
-        display: block;
-      }
-      .list {
-        height: 50vh;
-        width: 50vw;
-        overflow-y: auto;
-        overflow-x: hidden;
-        margin-right: 2vw;
-        li {
-          margin: 0 0 0.5em 0;
-          width: 33%;
-        }
-        img {
-          width: 5em;
-          height: auto;
-        }
-        p {
-          font-size: 1em;
+    .playerAndProgress {
+      position: relative;
+      height: 10vh;
+      width: 100%;
+      .playerMain {
+        margin-top: 0.5vh;
+        button {
+          cursor: pointer;
+          margin: 0 1vw 0 0;
         }
       }
-      .songs {
-        width: 38vw;
-        p {
-          min-width: 100%;
-        }
-      }
-    }
-    section#similar {
-      margin: 12vh 10vh 0 10vh;
-      padding: 5vh auto;
-      width: 100vw;
-      ul {
-        list-style: none;
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-        -moz-column-gap: 15vw;
-        -webkit-column-gap: 15vw;
-        column-gap: 15vw;
-        img {
-          width: 3em;
-          height: 3em;
-        }
-      }
-    }
-  }
-
-  .playerAndProgress {
-    position: relative;
-    height: 10vh;
-    width: 100%;
-    .playerMain {
-      margin-top: 0.5vh;
-      button {
+      .progress {
+        font-size: 1.1em;
         cursor: pointer;
-        margin: 0 1vw 0 0;
+        progress[value] {
+          height: 5px;
+          width: 100%;
+          left: 0;
+        }
+        .time {
+          .elapsed {
+            right: 1vw;
+            position: relative;
+          }
+          .pipe {
+            display: inline-block;
+            right: 0.5vw;
+            position: relative;
+          }
+          .duration {
+            right: 0;
+            position: relative;
+          }
+          position: absolute;
+          cursor: default;
+          top: 4vh;
+          right: 5vw;
+          display: block;
+        }
+      }
+      .small {
+        display: none;
       }
     }
-
-    .progress {
-      font-size: 1.1em;
-      cursor: pointer;
-      progress[value] {
-        height: 5px;
-      }
-      .time {
-        position: absolute;
-        cursor: default;
-        top: 4vh;
-        right: 5vw;
-        display: block;
-      }
+    .nav {
+      display: block;
     }
-    .small {
+    .choose {
       display: none;
     }
-  }
-
-  footer {
-    position: static;
-    height: 5vh;
-    padding: 0 0.5em;
-    cursor: default;
-    font-size: 1em;
-    background: transparent;
-    img {
-      height: 1em;
+    footer {
+      position: static;
+      height: 5vh;
+      padding: 0 0.5em;
+      cursor: default;
+      font-size: 1em;
+      background: transparent;
+      img {
+        height: 1em;
+      }
     }
-  }
 
-  .login {
-    @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right);
-    text-align: center;
-    position: absolute;
-    right: 1.5vw;
-    top: 3vh;
-    background: none;
-    border: none;
-    cursor: pointer;
-    line-height: 1.5;
-    font: 700 0.8em 'Roboto Slab', sans-serif;
-    padding: 1em 2em;
-    letter-spacing: 0.05rem;
-    &:focus {
-      outline: 2px dotted #55d7dc;
+    .login {
+      @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right);
+      text-align: center;
+      position: absolute;
+      right: 1.5vw;
+      top: 3vh;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1.5;
+      font: 700 0.8em 'Roboto Slab', sans-serif;
+      padding: 1em 2em;
+      letter-spacing: 0.05rem;
+      &:focus {
+        outline: 2px dotted #55d7dc;
+      }
     }
-  }
-  .mobile {
-    display: none;
-  }
-}
-
-.active {
-  color: #ddd;
-  position: relative;
-  &::after {
-    content: '';
-    background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-    background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-    background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 }

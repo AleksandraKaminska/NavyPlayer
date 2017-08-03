@@ -14,23 +14,17 @@ class Template extends React.Component {
   render() {
 		let path = this.props.children.props.location.pathname;
     return <div className="NavyPlayer">
-        <div className='desktop'>
+				<div className={path}>
+					{this.props.children}
           <Nav />
           <Login />
           <Search />
           <Title />
           <MainMiddle />
           <PlayerAndProgress />
-          <Footer />
-        </div>
-        <div className='mobile'>
-					<div className={path}>
-							{this.props.children}
-							<PlayerAndProgress />
-							<Choose />
-							<Footer />
-			     </div>
-        </div>
+					<Choose />
+					<Footer />
+		    </div>
       </div>
   }
 }
