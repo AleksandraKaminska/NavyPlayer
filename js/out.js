@@ -17511,15 +17511,11 @@ var Title = function (_React$Component) {
         'header',
         { id: 'title' },
         _react2.default.createElement(
-          'div',
+          'h1',
           null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            this.props.title,
-            ' - ',
-            this.props.artist
-          )
+          this.props.title,
+          ' - ',
+          this.props.artist
         )
       );
     }
