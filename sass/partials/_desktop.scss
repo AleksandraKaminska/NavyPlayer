@@ -34,6 +34,46 @@
     }
   }
 
+  %anim	{
+    &::after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 0;
+      background: transparent;
+      transition: width 0.7s ease, background-color 1s ease;
+    }
+    &:hover::after {
+      width: 100%;
+      background: white;
+    }
+  }
+
+  .\/, .\/playlists {
+    a#main_nav {
+      border-bottom: 3px solid white;
+    }
+    a:not(#main_nav) {
+      @extend	%anim;
+    }
+  }
+  .\/albums {
+    a#albums_nav {
+      border-bottom: 3px solid white;
+    }
+    a:not(#albums_nav) {
+      @extend	%anim;
+    }
+  }
+  .\/similar {
+    a#similar_nav {
+      border-bottom: 3px solid white;
+    }
+    a:not(#similar_nav) {
+      @extend	%anim;
+    }
+  }
+
   .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/&'] {
     @include flex(center);
     nav {
@@ -42,8 +82,8 @@
       top: 2.5vh;
       left: 0.5vw;
       a {
-        border-bottom: 3px solid white;
         margin: 1.5vw;
+        display: inline-block;
       }
     }
 
@@ -65,7 +105,6 @@
         display: none;
       }
     }
-
     #title {
       position: static;
       display: block;
