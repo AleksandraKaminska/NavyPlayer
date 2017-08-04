@@ -6,7 +6,6 @@ import {Provider} from 'react-redux';
 import store from './store';
 
 import AppContainer from './appContainer.jsx'
-import "./../sass/style.scss";
 
 $(() => {
   ReactDOM.render(
