@@ -6,7 +6,7 @@
 }
 
 @mixin mobileComponent() {
-  .time {
+  .nav, .time, #cover {
     display: none;
   }
   .playerAndProgress {
@@ -17,9 +17,6 @@
   }
   .choose {
     background: rgba(0,0,0,0.5);
-  }
-  #cover {
-    display: none;
   }
   footer {
     position: static;

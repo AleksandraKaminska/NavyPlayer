@@ -325,7 +325,7 @@ footer {
   }
 }
 
-.\/, .\/playlists, .\/albums, .\/similar, div[class^='/'] {
+.\/, .\/playlists, .\/albums, .\/similar {
   .nav {
     display: none;
   }
@@ -386,27 +386,18 @@ footer {
 }
 
 .\/artist {
-  .nav {
-    display: none;
-  }
   #search, #title, #cover, #playlists {
     display: none;
   }
 }
 
 .\/playlist {
-  .nav {
-    display: none;
-  }
   #search, #title, #cover, #artist, #similar, #albums {
     display: none;
   }
 }
 
 .\/search {
-  .nav {
-    display: none;
-  }
   #title, .mainMiddle {
     display: none;
   }
