@@ -307,7 +307,7 @@ footer {
   color: #58afd1;
 }
 
-.\/, .\/playlists, .\/albums, .\/similar, div[class^='/&'] {
+.\/, .\/playlists, .\/albums, .\/similar, div[class^='/&'], div[class^='/_'] {
   .nav, #search, #playlists, #artist, #similar, #albums, .small {
     display: none;
   }

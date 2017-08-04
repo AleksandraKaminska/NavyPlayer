@@ -44,7 +44,7 @@
     @include border-bottom-animation(#similar_nav);
   }
 
-  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/&'] {
+  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/&'], div[class^='/_'] {
     @include flex(center);
     nav {
       text-transform: uppercase;
