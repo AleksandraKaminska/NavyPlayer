@@ -53,7 +53,7 @@
       max-width: 30vw;
       div:first-child {
         width: 25vw;
-        height: auto;
+        height: 4.5vh;
         margin-top: 1em;
         input {
           width: 30vw;
@@ -185,6 +185,8 @@
         cursor: pointer;
         progress[value] {
           height: 5px;
+          width: 100%;
+          left: 0;
         }
         .time {
           position: absolute;
