@@ -22,14 +22,14 @@ class Search extends React.Component {
         padding: '1.5vh 6px',
         background: '#111',
         width: '100%',
-        height: '14vh'
+        height: '14vh',
       },
       highlightedItem: {
         padding: '1.5vh 6px',
         cursor: 'pointer',
         width: '100%',
         height: '14vh',
-        background: '#444'
+        background: '#444',
       }
     };
     return <div key={item.id} style={isHighlighted ? style.highlightedItem : style.item}>

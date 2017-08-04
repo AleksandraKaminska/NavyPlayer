@@ -50,7 +50,6 @@
     #search {
       display: block;
       height: 15vh;
-      min-height: 15vh;
       max-width: 30vw;
       div:first-child {
         width: 25vw;
@@ -68,10 +67,9 @@
     }
 
     #title {
-      height: 7vh;
       position: static;
-      padding: 0 0 3vh 0;
       display: block;
+      z-index: 0;
       h1 {
         font-size: 1.5em;
       }
@@ -79,14 +77,12 @@
 
     .mainMiddle {
       display: flex;
-      padding: 3vh 0 0 0;
       height: 63vh;
-      overflow-y: auto;
+      padding: 3vh 0 0 0;
       #playlists {
-        width: calc((100% - 400px) / 2);
         display: block;
-        height: auto;
-        padding: 0 0 0 2%;
+        width: calc((100% - 400px) / 2);
+        padding-left: 2%;
         div {
           max-height: 380px;
           div {
@@ -94,9 +90,6 @@
             margin: 0 0 2vh 0;
             img {
               width: 4em;
-            }
-            p {
-              font-size: 1em;
             }
           }
         }
@@ -114,25 +107,26 @@
       }
       #artist {
         width: calc((100% - 400px) / 2);
-        height: auto;
         display: flex;
         flex-wrap: wrap;
         .info {
           height: auto;
           p {
-            font-size: 1.5em;
+            font-size: 1.3em;
           }
         }
         #topTracks {
           margin: auto;
-          max-width: 100%;
           width: 100%;
           .topTracks {
-            margin: 3vh 0;
-            font-size: 1.2em;
+            margin-top: 4vh;
+            font-size: 1.15em;
             cursor: pointer;
             h2 {
-              font-size: 1.2em;
+              font-size: 1.15em;
+            }
+            ul {
+              line-height: 6vh;
             }
           }
         }
@@ -140,74 +134,64 @@
       section#albums {
         display: block;
         margin-top: 8vh;
-        ul {
-          display: block;
+        h2 {
+          font-size: 1.4em;
         }
         .list {
-          height: 50vh;
-          width: 50vw;
-          overflow-y: auto;
-          overflow-x: hidden;
-          margin-right: 2vw;
-          li {
-            margin: 0 0 0.5em 0;
-            width: 33%;
-          }
+          width: 50%;
+          float: left;
           img {
             width: 5em;
-            height: auto;
+            cursor: pointer;
           }
           p {
-            font-size: 1em;
+            font-size: 0.9em;
+            cursor: pointer;
           }
         }
         .songs {
-          width: 38vw;
-          p {
-            min-width: 100%;
-          }
+          float: left;
+          width: 50%;
+          padding-left: 2vw;
+          cursor: pointer;
         }
       }
       section#similar {
         display: block;
         margin: 12vh 10vh 0 10vh;
         padding: 5vh auto;
-        width: 100vw;
+        h2 {
+          font-size: 1.4em;
+        }
         ul {
-          list-style: none;
           -moz-column-count: 2;
           -webkit-column-count: 2;
           column-count: 2;
           -moz-column-gap: 15vw;
           -webkit-column-gap: 15vw;
           column-gap: 15vw;
-          img {
-            width: 3em;
-            height: 3em;
-          }
         }
       }
     }
     .playerAndProgress {
       position: relative;
       height: 10vh;
-      width: 100%;
-      .playerMain {
-        margin-top: 0.5vh;
-        button {
-          cursor: pointer;
-          margin: 0 1vw 0 0;
-        }
+      .playerMain button {
+        cursor: pointer;
+        margin: 0 1vw 0 0;
       }
       .progress {
         font-size: 1.1em;
         cursor: pointer;
         progress[value] {
           height: 5px;
-          width: 100%;
-          left: 0;
         }
         .time {
+          position: absolute;
+          top: 4vh;
+          right: 5vw;
+          display: block;
+          cursor: default;
           .elapsed {
             right: 1vw;
             position: relative;
@@ -221,11 +205,6 @@
             right: 0;
             position: relative;
           }
-          position: absolute;
-          cursor: default;
-          top: 4vh;
-          right: 5vw;
-          display: block;
         }
       }
       .small {

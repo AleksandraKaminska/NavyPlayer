@@ -6,7 +6,7 @@
 }
 
 @mixin mobileComponent() {
-  .nav, .time, #cover {
+  .nav, .time, #cover, #title {
     display: none;
   }
   .playerAndProgress {

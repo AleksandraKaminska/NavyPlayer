@@ -1,19 +1,18 @@
 #search {
   height: 71vh;
-  min-height: 71vh;
   div:first-child {
     width: 100vw;
-    height: 6.5vh;
+    height: 6vh;
     margin-top: 0;
     input {
       height: 100%;
       width: 100vw;
-      padding: 0.5em 1em;
+      padding: 0.9em;
       border: 0;
-      font-size: 1.1em;
+      font-size: 0.9em;
       outline: none;
       color: white;
-      background: rgba(126, 130, 122, 0.5);
+      background: rgba(70, 70, 70, 0.5);
       box-shadow: 0px 4px 4px rgba(0,0,0,.5);
       &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         font-size: 1.2em;
@@ -43,8 +42,8 @@
 #title {
   position: absolute;
   top: 20vh;
-  text-align: center;
   height: 7vh;
+  text-align: center;
   padding: 0 0 3vh 0;
   z-index: 1;
   h1 {
@@ -58,7 +57,6 @@
   @include flex(flex-start);
   align-items: flex-start;
   width: 100vw;
-  max-width: 100vw;
   height: 71vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -69,15 +67,12 @@
       position: relative;
       &::after {
         content: '';
-        background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-        background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-        background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-        background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1));
-        width: 100%;
-        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,.1);
       }
     }
     div {
@@ -111,8 +106,8 @@
     .info {
       height: 10vh;
       margin-top: 1vh;
+      display: flex;
       img {
-        float: left;
         width: 64px;
         height: 64px;
         border-radius: 50%;
@@ -121,29 +116,29 @@
         box-shadow: 0px 4px 4px rgba(0,0,0,.5);
       }
       div {
-        float: left;
         max-width: calc(100% - 64px);
         p {
-          margin-top: calc(32px - 0.6em);
-          font-size: 1.2em;
+          margin-top: calc(32px - 0.55em);
+          font-size: 1.1em;
           font-family: 'Playfair Display', serif;
         }
       }
     }
     #topTracks {
-      margin: 5vh auto 2vh auto;
-      max-width: 90vw;
+      margin: 5vh 5vw 2vh 5vw;
       .topTracks {
-        margin: 8vh 0;
+        margin-top: 6vh;
         width: 100%;
-        font-size: 1.2em;
         font-family: 'Playfair Display', serif;
+        h2 {
+          font-size: 1.2em;
+        }
         ul {
-          list-style: none;
-          line-height: 6vh;
+          margin-top: 2vh;
+          line-height: 5vh;
           li {
             border-bottom: 0.5px rgba(255,255,255,0.1) solid;
-            margin: 1vh auto 1vh auto;
+            margin: 1vh auto;
           }
           li:hover {
             margin-left: 0.5em;
@@ -153,26 +148,20 @@
     }
   }
   section#albums {
-    padding: 2vh 4vw;
-    width: 100vw;
+    padding: 0 4vw;
     h2 {
-      margin-bottom: 5vh;
-      font-size: 1.5em;
+      margin-bottom: 3vh;
+      font-size: 1.2em;
     }
     ul {
-      list-style: none;
       display: flex;
     }
     .list {
-      float: left;
-      font-family: 'Reem Kufi', sans-serif;
-      width: 100vw;
+      width: 100%;
+      height: 100%;
       overflow-x: auto;
-      overflow-y: hidden;
-      height: 7em;
       li {
-        display: inline-block;
-        margin: 0 2vw;
+        padding: 0 1vw;
       }
       img {
         width: 3em;
@@ -181,13 +170,12 @@
       p {
         display: inline-block;
         vertical-align: top;
-        width: 100%;
-        font-size: 0.5em;
+        width: 110%;
+        font-size: 0.6em;
       }
     }
     .songs {
-      float: left;
-      width: 100vw;
+      width: 100%;
       ul {
         flex-direction: column;
         li {
@@ -202,26 +190,21 @@
     width: 100%;
     font-family: 'Reem Kufi', sans-serif;
     h2 {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
-    ul {
-      list-style: none;
-      li {
-        @include flex(space-between);
-        border-bottom: 0.5px rgba(255,255,255,0.2) solid;
-        cursor: pointer;
-      }
+    li {
+      @include flex(space-between);
+      border-bottom: 0.5px rgba(255,255,255,0.2) solid;
     }
     img {
-      border-radius: 50%;
       width: 3em;
-      height: 3em;
+      height: auto;
+      border-radius: 50%;
       margin: 2vh 0;
       box-shadow: 0px 4px 4px rgba(0,0,0,.5);
     }
     p {
-      float: right;
-      font-size: 1.2em;
+      font-size: 1.15em;
     }
   }
 }
@@ -230,22 +213,24 @@
   @include flex(space-around);
   width: 100%;
   height: 11vh;
-  padding-top: 5.5vh;
+  padding-top: 5vh;
   a {
     max-width: 65%;
   }
   .smallCover {
-    width: 50px;
-    height: 50px;
+    width: 3em;
+    height: 3em;
     display: inline-block;
     margin: 0 1vw;
   }
   .smallTitle {
-    font-size: 0.8em;
     width: 42vw;
-    font-weight: bold;
+    font-size: 0.8em;
     display: inline-block;
     overflow: hidden;
+    p:first-child {
+      font-weight: bold;
+    }
   }
   .playerMain {
     @include flex(space-between);
@@ -258,7 +243,6 @@
       outline: none;
     }
   }
-
   .progress {
     font-size: 0.9em;
     color: white;
@@ -267,8 +251,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 3px;
       width: 100%;
+      height: 3px;
       background: black;
       &::-webkit-progress-bar {
         background: $progress-bar-color;
@@ -319,18 +303,12 @@ footer {
   }
 }
 
-.active button {
-  color: #58afd1 !important;
-  &:focus {
-    color: #58afd1 !important;
-  }
+.active button:focus {
+  color: #58afd1;
 }
 
 .\/, .\/playlists, .\/albums, .\/similar, div[class^='/&'] {
-  .nav {
-    display: none;
-  }
-  #search, #playlists, #artist, #similar, #albums {
+  .nav, #search, #playlists, #artist, #similar, #albums, .small {
     display: none;
   }
   .time {
@@ -339,8 +317,8 @@ footer {
     right: 0;
     display: block;
     .elapsed {
-      right: 88vw;
       position: absolute;
+      right: 88vw;
     }
     .pipe {
       display: none;
@@ -373,12 +351,9 @@ footer {
     position: absolute;
   }
   footer {
-    background: transparent;
     position: absolute;
     bottom: 0;
-  }
-  .small {
-    display: none;
+    background: transparent;
   }
 }
 
@@ -387,19 +362,17 @@ footer {
 }
 
 .\/artist {
-  #search, #title, #cover, #playlists {
+  #search, #playlists {
     display: none;
   }
 }
 
 .\/playlist {
-  #search, #title, #cover, #artist, #similar, #albums {
+  #search, #artist, #similar, #albums {
     display: none;
   }
 }
 
-.\/search {
-  #title, .mainMiddle {
-    display: none;
-  }
+.\/search .mainMiddle {
+  display: none;
 }

@@ -20,8 +20,11 @@ body {
     color: white;
     text-decoration: none;
   }
+  ul {
+    list-style: none;
+  }
 }
 
-#search, #title, footer, .choose {
+#search, #title, footer, .choose, #albums {
   width: 100%;
 }
