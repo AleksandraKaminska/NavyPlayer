@@ -5,6 +5,26 @@
   align-items: center;
 }
 
+@mixin border-bottom-animation($id)	{
+  a#{$id} {
+    border-bottom: 3px solid white;
+  }
+  a:not(#{$id}) {
+    &::after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 0;
+      background: transparent;
+      transition: width 0.7s ease, background-color 1s ease;
+    }
+    &:hover::after {
+      width: 100%;
+      background: white;
+    }
+  }
+}
+
 @mixin mobileComponent() {
   .nav, .time, #cover, #title {
     display: none;
