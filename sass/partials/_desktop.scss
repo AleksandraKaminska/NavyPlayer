@@ -34,7 +34,7 @@
     }
   }
 
-  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/'] {
+  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/&'] {
     @include flex(center);
     nav {
       text-transform: uppercase;

@@ -325,7 +325,7 @@ footer {
   }
 }
 
-.\/, .\/playlists, .\/albums, .\/similar {
+.\/, .\/playlists, .\/albums, .\/similar, div[class^='/&'] {
   .nav {
     display: none;
   }
