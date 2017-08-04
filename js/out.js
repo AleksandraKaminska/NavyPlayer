@@ -15520,7 +15520,7 @@ var Albums = function (_React$Component) {
       return _react2.default.createElement(
         'li',
         { onClick: this.showAlbumsTracks.bind(this) },
-        _react2.default.createElement('img', { src: this.props.elem.cover_small.replace(/56x56/, '100x100') }),
+        _react2.default.createElement('img', { src: this.props.elem.cover_small.replace(/56x56/, '100x100'), alt: 'albums cover' }),
         _react2.default.createElement(
           'p',
           null,
@@ -15712,7 +15712,7 @@ var Artist = function (_React$Component) {
         _react2.default.createElement(
           'article',
           { className: 'info' },
-          _react2.default.createElement('img', { src: this.props.artist.picture_small }),
+          _react2.default.createElement('img', { src: this.props.artist.picture_small, alt: 'artists picture' }),
           _react2.default.createElement(
             'div',
             null,
@@ -16480,17 +16480,17 @@ var Nav = function (_React$Component) {
         { className: 'nav' },
         _react2.default.createElement(
           'a',
-          { href: '#playlists' },
+          { href: '#playlists', 'aria-expanded': 'false' },
           'main'
         ),
         _react2.default.createElement(
           'a',
-          { href: '#similar' },
+          { href: '#similar', 'aria-expanded': 'false' },
           'similar artists'
         ),
         _react2.default.createElement(
           'a',
-          { href: '#albums' },
+          { href: '#albums', 'aria-expanded': 'false' },
           'albums'
         )
       );

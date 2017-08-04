@@ -8,7 +8,7 @@ class Artist extends React.Component {
   render() {
     return <section id="artist">
         <article className='info'>
-          <img src={this.props.artist.picture_small} />
+          <img src={this.props.artist.picture_small} alt='artists picture'/>
           <div>
             <p>{this.props.artist.name}</p>
           </div>

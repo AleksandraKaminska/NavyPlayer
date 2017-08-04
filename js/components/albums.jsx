@@ -13,7 +13,7 @@ class Albums extends React.Component {
 
   render() {
     return <li onClick={this.showAlbumsTracks.bind(this)}>
-      <img src={this.props.elem.cover_small.replace(/56x56/, '100x100')} />
+      <img src={this.props.elem.cover_small.replace(/56x56/, '100x100')} alt='albums cover'/>
       <p>{this.props.elem.title}</p>
     </li>
   }
