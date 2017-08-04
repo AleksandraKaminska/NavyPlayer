@@ -439,7 +439,7 @@ footer {
   }
 }
 
-.\/, .\/playlists, .\/albums, .\/similar {
+.\/, .\/playlists, .\/albums, .\/similar, div[class^='/'] {
   .nav {
     display: none;
   }
@@ -562,7 +562,7 @@ footer {
     }
   }
 
-  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar {
+  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/'] {
     @include flex(center);
     nav {
       text-transform: uppercase;
