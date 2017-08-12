@@ -15983,7 +15983,7 @@ var ChoosePlaylists = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
 
-    _this.playlists = [1362270355, 1282483245, 2734448044, 1661692771, 1306931615, 2178064502, 1927928822, 975986691, 1266972311, 1677006641, 1182263621, 2265794682];
+    _this.playlists = [1362270355, 1282483245, 2734448044, 1661692771, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 2558770224, 975986691, 1266972311, 1907881662, 1677006641, 1182263621, 2265794682];
     return _this;
   }
 
@@ -16856,7 +16856,6 @@ var Playlist = function (_React$Component) {
           _this.searchArtist();
           _this.searchTopTracks();
           _this.searchAlbums();
-          _this.searchConcerts();
           _this.searchSimilarArtists();
           DZ.player.playTracks([_this.props.track.id]);
         }
@@ -16889,16 +16888,6 @@ var Playlist = function (_React$Component) {
         url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
         success: function success(response) {
           return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
-        }
-      });
-    };
-
-    _this.searchConcerts = function () {
-      $.ajax({
-        dataType: "json",
-        url: 'https://rest.bandsintown.com/artists/' + _this.props.track.artist.name + '/events?app_id=NavyPlayer',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_CONCERTS', concerts: response });
         }
       });
     };
