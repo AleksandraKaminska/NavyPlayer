@@ -97,7 +97,7 @@ class Player extends React.Component {
   searchAlbums = () => {
     $.ajax({
       dataType: "jsonp",
-      url: `http://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
+      url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
       success: response => store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
     });
   }

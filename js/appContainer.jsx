@@ -11,8 +11,6 @@ import {changeTrackAction, prevTrackAction} from './actions/index.js';
 //Routes
 import Template from './components/template.jsx';
 import Main from './components/main.jsx';
-import MobileArtist from './components/mobileArtist.jsx';
-import MobilePlaylist from './components/mobilePlaylist.jsx';
 import Search from './components/search.jsx';
 
 class AppContainer extends React.Component {
@@ -53,7 +51,7 @@ class AppContainer extends React.Component {
   searchAlbums = () => {
     $.ajax({
       dataType: "jsonp",
-      url: `http://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
+      url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
       success: response => store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
     });
   }
