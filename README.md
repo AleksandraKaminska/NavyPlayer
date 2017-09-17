@@ -1,5 +1,5 @@
 # NavyPlayer - Coders Lab final project
-Music app powered by Deezer and Bandsintown REST APIs- my final project after programming course at Coders Lab.
+Music app powered by Deezer api- my final project after programming course at Coders Lab.
 
 ## My project: https://aleksandrakaminska.github.io/NavyPlayer-deezer-/
 
