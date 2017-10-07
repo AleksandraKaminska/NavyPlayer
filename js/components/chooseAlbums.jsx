@@ -26,7 +26,7 @@ class ChooseAlbums extends React.Component {
                 current: current - 1
             })
         }
-        if (current === 0) {
+        if (current <= 0) {
             this.setState({
                 current: imageArray
             })
@@ -37,7 +37,7 @@ class ChooseAlbums extends React.Component {
         let current = this.state.current;
         let imageArray = this.props.albums.length - 1;
 
-        if ((current >= 0) && (current !== imageArray)) {
+        if ((current >= 0) && (current < imageArray)) {
             this.setState({
                 current: current + 1
             })
@@ -62,6 +62,11 @@ class ChooseAlbums extends React.Component {
                                        song={song}
                                        i={i}
                                        key={i} />);
+        if (this.state.current >= li.length) {
+            this.setState({
+                current: 0
+            })
+        }
 
         return (
             <section id="albums">

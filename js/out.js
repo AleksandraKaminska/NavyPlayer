@@ -8443,7 +8443,7 @@ module.exports = __webpack_require__(219);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -8476,154 +8476,166 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var promise = new Promise(function (resolve, reject) {
-  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+    true ? resolve("Stuff worked!") : reject(Error("It broke"));
 });
 
 var Search = function (_React$Component) {
-  _inherits(Search, _React$Component);
+    _inherits(Search, _React$Component);
 
-  function Search() {
-    var _ref;
+    function Search() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, Search);
+        _classCallCheck(this, Search);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Search.__proto__ || Object.getPrototypeOf(Search)).call.apply(_ref, [this].concat(args))), _this), _this.handlerRenderItem = function (item, isHighlighted) {
+            var style = {
+                item: {
+                    padding: '1.5vh 6px',
+                    background: '#111',
+                    width: '100%',
+                    height: '14vh'
+                },
+                highlightedItem: {
+                    padding: '1.5vh 6px',
+                    cursor: 'pointer',
+                    width: '100%',
+                    height: '14vh',
+                    background: '#444'
+                }
+            };
+            return _react2.default.createElement(
+                'div',
+                { key: item.id, style: isHighlighted ? style.highlightedItem : style.item },
+                _react2.default.createElement(
+                    'div',
+                    { style: {
+                            maxWidth: 'calc(100% - 3.5em)',
+                            float: 'left',
+                            overflowWrap: 'break-word',
+                            color: 'white',
+                            fontFamily: 'Raleway',
+                            fontSize: '1.2em'
+                        } },
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        item.title_short,
+                        ' - ',
+                        item.artist.name
+                    )
+                ),
+                _react2.default.createElement('img', { src: item.album.cover_small, width: '50em', height: '50em', alt: 'cover' })
+            );
+        }, _this.searchArtist = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ARTIST',
+                        artist: response
+                    });
+                }
+            });
+        }, _this.searchTopTracks = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_TOP_TRACKS',
+                        topTracks: response.data
+                    });
+                }
+            });
+        }, _this.searchAlbums = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ALBUMS',
+                        albums: response.data
+                    });
+                }
+            });
+        }, _this.searchSimilarArtists = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_SIMILAR_ARTISTS',
+                        similar: response.data
+                    });
+                }
+            });
+        }, _this.handleSelect = function (value, item) {
+            _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+            _store2.default.dispatch((0, _index.changeTrackAction)(item));
+            promise.then(function (result) {
+                _store2.default.dispatch((0, _index.autocompleteAction)(value));
+                _this.searchArtist();
+                _this.searchAlbums();
+                _this.searchTopTracks();
+                _this.searchSimilarArtists();
+                DZ.player.pause();
+                DZ.player.playTracks([_this.props.track.id]);
+                _store2.default.dispatch((0, _index.autocompleteAction)(""));
+            }, function (err) {
+                return console.log(err);
+            });
+        }, _this.handleChange = function (event) {
+            _store2.default.dispatch((0, _index.autocompleteAction)(event.target.value));
+            if (_this.props.autocompleteValue !== '') {
+                DZ.api('/search?q=' + _this.props.autocompleteValue, function (response) {
+                    _store2.default.dispatch((0, _index.searchTracksAction)(response.data));
+                });
+            }
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Search.__proto__ || Object.getPrototypeOf(Search)).call.apply(_ref, [this].concat(args))), _this), _this.handlerRenderItem = function (item, isHighlighted) {
-      var style = {
-        item: {
-          padding: '1.5vh 6px',
-          background: '#111',
-          width: '100%',
-          height: '14vh'
-        },
-        highlightedItem: {
-          padding: '1.5vh 6px',
-          cursor: 'pointer',
-          width: '100%',
-          height: '14vh',
-          background: '#444'
+    _createClass(Search, [{
+        key: 'render',
+        value: function render() {
+            var inputProps = {
+                placeholder: "Search tracks",
+                title: "Search tracks"
+            };
+            return _react2.default.createElement(
+                'section',
+                { id: 'search' },
+                _react2.default.createElement(_reactAutocomplete2.default, {
+                    ref: 'autocomplete',
+                    inputProps: inputProps,
+                    value: this.props.autocompleteValue,
+                    items: this.props.searchTracks,
+                    getItemValue: function getItemValue(item) {
+                        return item.title_short;
+                    },
+                    onSelect: this.handleSelect,
+                    onChange: this.handleChange,
+                    renderItem: this.handlerRenderItem }),
+                _react2.default.createElement('div', { className: 'placeholder' })
+            );
         }
-      };
-      return _react2.default.createElement(
-        'div',
-        { key: item.id, style: isHighlighted ? style.highlightedItem : style.item },
-        _react2.default.createElement(
-          'div',
-          { style: {
-              maxWidth: 'calc(100% - 3.5em)',
-              float: 'left',
-              overflowWrap: 'break-word',
-              color: 'white',
-              fontFamily: 'Raleway',
-              fontSize: '1.2em'
-            } },
-          _react2.default.createElement(
-            'p',
-            null,
-            item.title_short,
-            ' - ',
-            item.artist.name
-          )
-        ),
-        _react2.default.createElement('img', { src: item.album.cover_small, width: '50em', height: '50em', alt: 'cover' })
-      );
-    }, _this.searchArtist = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ARTIST', artist: response });
-        }
-      });
-    }, _this.searchTopTracks = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
-        }
-      });
-    }, _this.searchAlbums = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
-        }
-      });
-    }, _this.searchSimilarArtists = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data });
-        }
-      });
-    }, _this.handleSelect = function (value, item) {
-      _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-      _store2.default.dispatch((0, _index.changeTrackAction)(item));
-      promise.then(function (result) {
-        _store2.default.dispatch((0, _index.autocompleteAction)(value));
-        _this.searchArtist();
-        _this.searchAlbums();
-        _this.searchTopTracks();
-        _this.searchSimilarArtists();
-        DZ.player.pause();
-        DZ.player.playTracks([_this.props.track.id]);
-        _store2.default.dispatch((0, _index.autocompleteAction)(""));
-      }, function (err) {
-        return console.log(err);
-      });
-    }, _this.handleChange = function (event) {
-      _store2.default.dispatch((0, _index.autocompleteAction)(event.target.value));
-      if (_this.props.autocompleteValue !== '') {
-        DZ.api('/search?q=' + _this.props.autocompleteValue, function (response) {
-          _store2.default.dispatch((0, _index.searchTracksAction)(response.data));
-        });
-      }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+    }]);
 
-  _createClass(Search, [{
-    key: 'render',
-    value: function render() {
-      var inputProps = {
-        placeholder: "Search tracks",
-        title: "Search tracks"
-      };
-      return _react2.default.createElement(
-        'section',
-        { id: 'search' },
-        _react2.default.createElement(_reactAutocomplete2.default, {
-          ref: 'autocomplete',
-          inputProps: inputProps,
-          value: this.props.autocompleteValue,
-          items: this.props.searchTracks,
-          getItemValue: function getItemValue(item) {
-            return item.title_short;
-          },
-          onSelect: this.handleSelect,
-          onChange: this.handleChange,
-          renderItem: this.handlerRenderItem }),
-        _react2.default.createElement('div', { className: 'placeholder' })
-      );
-    }
-  }]);
-
-  return Search;
+    return Search;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    searchTracks: store.searchTracks,
-    autocompleteValue: store.autocompleteValue,
-    track: store.track
-  };
+    return {
+        searchTracks: store.searchTracks,
+        autocompleteValue: store.autocompleteValue,
+        track: store.track
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Search);
@@ -15383,7 +15395,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Albums);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15409,86 +15421,86 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var AlbumsTracks = function (_React$Component) {
-  _inherits(AlbumsTracks, _React$Component);
+    _inherits(AlbumsTracks, _React$Component);
 
-  function AlbumsTracks() {
-    var _ref;
+    function AlbumsTracks() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, AlbumsTracks);
+        _classCallCheck(this, AlbumsTracks);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AlbumsTracks.__proto__ || Object.getPrototypeOf(AlbumsTracks)).call.apply(_ref, [this].concat(args))), _this), _this.searchArtist = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({ type: 'FIND_ARTIST', artist: response });
+                }
+            });
+        }, _this.searchTopTracks = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
+                }
+            });
+        }, _this.searchAlbums = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
+                }
+            });
+        }, _this.searchSimilarArtists = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data });
+                }
+            });
+        }, _this.handleClick = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/track/' + _this.props.song.id + '?output=jsonp',
+                success: function success(response) {
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(response));
+                    DZ.player.pause();
+                    DZ.player.playTracks([_this.props.track.id]);
+                }
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AlbumsTracks.__proto__ || Object.getPrototypeOf(AlbumsTracks)).call.apply(_ref, [this].concat(args))), _this), _this.searchArtist = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ARTIST', artist: response });
+    _createClass(AlbumsTracks, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'li',
+                { onClick: this.handleClick },
+                this.props.i < 9 ? '0' : null,
+                this.props.i + 1,
+                '. ',
+                this.props.song.title
+            );
         }
-      });
-    }, _this.searchTopTracks = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
-        }
-      });
-    }, _this.searchAlbums = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
-        }
-      });
-    }, _this.searchSimilarArtists = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data });
-        }
-      });
-    }, _this.handleClick = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/track/' + _this.props.song.id + '?output=jsonp',
-        success: function success(response) {
-          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-          _store2.default.dispatch((0, _index.changeTrackAction)(response));
-          DZ.player.pause();
-          DZ.player.playTracks([_this.props.track.id]);
-        }
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+    }]);
 
-  _createClass(AlbumsTracks, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'li',
-        { onClick: this.handleClick },
-        this.props.i < 9 ? '0' : null,
-        this.props.i + 1,
-        '. ',
-        this.props.song.title
-      );
-    }
-  }]);
-
-  return AlbumsTracks;
+    return AlbumsTracks;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    track: store.track
-  };
+    return {
+        track: store.track
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(AlbumsTracks);
@@ -15501,7 +15513,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(AlbumsTracks);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.RightArrow = exports.LeftArrow = undefined;
 
@@ -15512,19 +15524,19 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LeftArrow = function LeftArrow(props) {
-  return _react2.default.createElement(
-    "span",
-    { className: "backArrow", onClick: props.previousSlide },
-    "<"
-  );
+    return _react2.default.createElement(
+        "span",
+        { className: "backArrow", onClick: props.previousSlide },
+        "<"
+    );
 };
 
 var RightArrow = function RightArrow(props) {
-  return _react2.default.createElement(
-    "span",
-    { className: "nextArrow", onClick: props.nextSlide },
-    ">"
-  );
+    return _react2.default.createElement(
+        "span",
+        { className: "nextArrow", onClick: props.nextSlide },
+        ">"
+    );
 };
 
 exports.LeftArrow = LeftArrow;
@@ -15538,7 +15550,7 @@ exports.RightArrow = RightArrow;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15566,46 +15578,46 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Artist = function (_React$Component) {
-  _inherits(Artist, _React$Component);
+    _inherits(Artist, _React$Component);
 
-  function Artist() {
-    _classCallCheck(this, Artist);
+    function Artist() {
+        _classCallCheck(this, Artist);
 
-    return _possibleConstructorReturn(this, (Artist.__proto__ || Object.getPrototypeOf(Artist)).apply(this, arguments));
-  }
-
-  _createClass(Artist, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        { id: 'artist' },
-        _react2.default.createElement(
-          'article',
-          { className: 'info' },
-          _react2.default.createElement('img', { src: this.props.artist.picture_small, alt: 'artists picture' }),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'p',
-              null,
-              this.props.artist.name
-            )
-          )
-        ),
-        _react2.default.createElement(_topTracks2.default, null)
-      );
+        return _possibleConstructorReturn(this, (Artist.__proto__ || Object.getPrototypeOf(Artist)).apply(this, arguments));
     }
-  }]);
 
-  return Artist;
+    _createClass(Artist, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'section',
+                { id: 'artist' },
+                _react2.default.createElement(
+                    'article',
+                    { className: 'info' },
+                    _react2.default.createElement('img', { src: this.props.artist.picture_small, alt: 'artists picture' }),
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            this.props.artist.name
+                        )
+                    )
+                ),
+                _react2.default.createElement(_topTracks2.default, null)
+            );
+        }
+    }]);
+
+    return Artist;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    artist: store.artist
-  };
+    return {
+        artist: store.artist
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Artist);
@@ -15618,7 +15630,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Artist);
 
 
 Object.defineProperty(exports, "__esModule", {
-			value: true
+				value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15641,79 +15653,79 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Choose = function (_React$Component) {
-			_inherits(Choose, _React$Component);
+				_inherits(Choose, _React$Component);
 
-			function Choose() {
-						_classCallCheck(this, Choose);
+				function Choose() {
+								_classCallCheck(this, Choose);
 
-						return _possibleConstructorReturn(this, (Choose.__proto__ || Object.getPrototypeOf(Choose)).apply(this, arguments));
-			}
+								return _possibleConstructorReturn(this, (Choose.__proto__ || Object.getPrototypeOf(Choose)).apply(this, arguments));
+				}
 
-			_createClass(Choose, [{
-						key: 'render',
-						value: function render() {
-									return _react2.default.createElement(
-												'nav',
-												{ className: 'choose' },
-												_react2.default.createElement(
-															'div',
-															null,
-															_react2.default.createElement(
-																		_reactRouter.IndexLink,
-																		{ to: '/artist', activeClassName: 'active' },
-																		_react2.default.createElement(
-																					'button',
-																					null,
-																					_react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' }),
-																					_react2.default.createElement(
-																								'p',
-																								null,
-																								'Artist'
-																					)
-																		)
-															)
-												),
-												_react2.default.createElement(
-															'div',
-															null,
-															_react2.default.createElement(
-																		_reactRouter.IndexLink,
-																		{ to: '/playlist', activeClassName: 'active' },
-																		_react2.default.createElement(
-																					'button',
-																					null,
-																					_react2.default.createElement('i', { className: 'fa fa-music', 'aria-hidden': 'true' }),
-																					_react2.default.createElement(
-																								'p',
-																								null,
-																								'Playlists'
-																					)
-																		)
-															)
-												),
-												_react2.default.createElement(
-															'div',
-															null,
-															_react2.default.createElement(
-																		_reactRouter.IndexLink,
-																		{ to: '/search', activeClassName: 'active' },
-																		_react2.default.createElement(
-																					'button',
-																					null,
-																					_react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
-																					_react2.default.createElement(
-																								'p',
-																								null,
-																								'Search'
-																					)
-																		)
-															)
-												)
-									);
-						}
-			}]);
+				_createClass(Choose, [{
+								key: 'render',
+								value: function render() {
+												return _react2.default.createElement(
+																'nav',
+																{ className: 'choose' },
+																_react2.default.createElement(
+																				'div',
+																				null,
+																				_react2.default.createElement(
+																								_reactRouter.IndexLink,
+																								{ to: '/artist', activeClassName: 'active' },
+																								_react2.default.createElement(
+																												'button',
+																												null,
+																												_react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' }),
+																												_react2.default.createElement(
+																																'p',
+																																null,
+																																'Artist'
+																												)
+																								)
+																				)
+																),
+																_react2.default.createElement(
+																				'div',
+																				null,
+																				_react2.default.createElement(
+																								_reactRouter.IndexLink,
+																								{ to: '/playlist', activeClassName: 'active' },
+																								_react2.default.createElement(
+																												'button',
+																												null,
+																												_react2.default.createElement('i', { className: 'fa fa-music', 'aria-hidden': 'true' }),
+																												_react2.default.createElement(
+																																'p',
+																																null,
+																																'Playlists'
+																												)
+																								)
+																				)
+																),
+																_react2.default.createElement(
+																				'div',
+																				null,
+																				_react2.default.createElement(
+																								_reactRouter.IndexLink,
+																								{ to: '/search', activeClassName: 'active' },
+																								_react2.default.createElement(
+																												'button',
+																												null,
+																												_react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
+																												_react2.default.createElement(
+																																'p',
+																																null,
+																																'Search'
+																												)
+																								)
+																				)
+																)
+												);
+								}
+				}]);
 
-			return Choose;
+				return Choose;
 }(_react2.default.Component);
 
 exports.default = Choose;
@@ -15784,7 +15796,7 @@ var ChooseAlbums = function (_React$Component) {
                     current: current - 1
                 });
             }
-            if (current === 0) {
+            if (current <= 0) {
                 this.setState({
                     current: imageArray
                 });
@@ -15796,7 +15808,7 @@ var ChooseAlbums = function (_React$Component) {
             var current = this.state.current;
             var imageArray = this.props.albums.length - 1;
 
-            if (current >= 0 && current !== imageArray) {
+            if (current >= 0 && current < imageArray) {
                 this.setState({
                     current: current + 1
                 });
@@ -15826,6 +15838,11 @@ var ChooseAlbums = function (_React$Component) {
                     i: i,
                     key: i });
             });
+            if (this.state.current >= li.length) {
+                this.setState({
+                    current: 0
+                });
+            }
 
             return _react2.default.createElement(
                 'section',
@@ -15879,7 +15896,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(ChooseAlbums);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15901,35 +15918,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ChoosePlaylists = function (_React$Component) {
-  _inherits(ChoosePlaylists, _React$Component);
+    _inherits(ChoosePlaylists, _React$Component);
 
-  function ChoosePlaylists(props) {
-    _classCallCheck(this, ChoosePlaylists);
+    function ChoosePlaylists(props) {
+        _classCallCheck(this, ChoosePlaylists);
 
-    var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
 
-    _this.playlists = [1266972311, 1362270355, 1282483245, 2734448044, 1282495565, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 1677006641, 1290756705, 1154685481, 515157085, 1386209585, 1182263621, 2265794682, 1661692771, 2558770224, 975986691];
-    return _this;
-  }
-
-  _createClass(ChoosePlaylists, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        { id: 'playlists' },
-        _react2.default.createElement(
-          'div',
-          null,
-          this.playlists.map(function (elem, i) {
-            return _react2.default.createElement(_playlist2.default, { elem: elem, key: i });
-          })
-        )
-      );
+        _this.playlists = [1266972311, 1362270355, 1282483245, 2734448044, 1282495565, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 1677006641, 1290756705, 1154685481, 515157085, 1386209585, 1182263621, 2265794682, 1661692771, 2558770224, 975986691];
+        return _this;
     }
-  }]);
 
-  return ChoosePlaylists;
+    _createClass(ChoosePlaylists, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'section',
+                { id: 'playlists' },
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    this.playlists.map(function (elem, i) {
+                        return _react2.default.createElement(_playlist2.default, { elem: elem, key: i });
+                    })
+                )
+            );
+        }
+    }]);
+
+    return ChoosePlaylists;
 }(_react2.default.Component);
 
 exports.default = ChoosePlaylists;
@@ -15942,7 +15959,7 @@ exports.default = ChoosePlaylists;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15969,35 +15986,35 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Cover = function (_React$Component) {
-  _inherits(Cover, _React$Component);
+    _inherits(Cover, _React$Component);
 
-  function Cover() {
-    _classCallCheck(this, Cover);
+    function Cover() {
+        _classCallCheck(this, Cover);
 
-    return _possibleConstructorReturn(this, (Cover.__proto__ || Object.getPrototypeOf(Cover)).apply(this, arguments));
-  }
-
-  _createClass(Cover, [{
-    key: 'render',
-    value: function render() {
-      var CoverStyle = {
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),\n      url(' + this.props.cover + ')'
-      };
-      return _react2.default.createElement(
-        'section',
-        { id: 'cover' },
-        _react2.default.createElement('div', { className: 'cover', style: CoverStyle })
-      );
+        return _possibleConstructorReturn(this, (Cover.__proto__ || Object.getPrototypeOf(Cover)).apply(this, arguments));
     }
-  }]);
 
-  return Cover;
+    _createClass(Cover, [{
+        key: 'render',
+        value: function render() {
+            var CoverStyle = {
+                backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),\n            url(' + this.props.cover + ')'
+            };
+            return _react2.default.createElement(
+                'section',
+                { id: 'cover' },
+                _react2.default.createElement('div', { className: 'cover', style: CoverStyle })
+            );
+        }
+    }]);
+
+    return Cover;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    cover: store.track.album.cover_big.replace(/500x500/, '400x400')
-  };
+    return {
+        cover: store.track.album.cover_big.replace(/500x500/, '400x400')
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Cover);
@@ -16010,7 +16027,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Cover);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16028,53 +16045,55 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Footer = function (_React$Component) {
-  _inherits(Footer, _React$Component);
+    _inherits(Footer, _React$Component);
 
-  function Footer() {
-    var _ref;
+    function Footer() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, Footer);
+        _classCallCheck(this, Footer);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Footer.__proto__ || Object.getPrototypeOf(Footer)).call.apply(_ref, [this].concat(args))), _this), _this.login = function () {
-      DZ.login(function (response) {
-        if (response.authResponse) {
-          DZ.api('/user/me', function (response) {
-            console.log('Success.');
-          });
-        } else {
-          console.log('User cancelled login or did not fully authorize.');
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
         }
-      }, { perms: 'basic_access,email' });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
 
-  _createClass(Footer, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'footer',
-        null,
-        _react2.default.createElement(
-          'p',
-          { onClick: this.login },
-          'Powered by Deezer ',
-          _react2.default.createElement(
-            'a',
-            { href: 'http://www.deezer.com/pl/', target: '_blank' },
-            _react2.default.createElement('img', { src: 'images/DZ_Logo.png', alt: 'Deezer Logo' })
-          )
-        )
-      );
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Footer.__proto__ || Object.getPrototypeOf(Footer)).call.apply(_ref, [this].concat(args))), _this), _this.login = function () {
+            DZ.login(function (response) {
+                if (response.authResponse) {
+                    DZ.api('/user/me', function (response) {
+                        console.log('Success.');
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, {
+                perms: 'basic_access,email'
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
-  }]);
 
-  return Footer;
+    _createClass(Footer, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'footer',
+                null,
+                _react2.default.createElement(
+                    'p',
+                    { onClick: this.login },
+                    'Powered by Deezer ',
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://www.deezer.com/pl/', target: '_blank' },
+                        _react2.default.createElement('img', { src: 'images/DZ_Logo.png', alt: 'Deezer Logo' })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Footer;
 }(_react2.default.Component);
 
 exports.default = Footer;
@@ -16087,7 +16106,7 @@ exports.default = Footer;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16105,48 +16124,50 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Login = function (_React$Component) {
-  _inherits(Login, _React$Component);
+    _inherits(Login, _React$Component);
 
-  function Login() {
-    var _ref;
+    function Login() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, Login);
+        _classCallCheck(this, Login);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Login.__proto__ || Object.getPrototypeOf(Login)).call.apply(_ref, [this].concat(args))), _this), _this.login = function () {
-      DZ.login(function (response) {
-        if (response.authResponse) {
-          DZ.api('/user/me', function (response) {
-            console.log('Success.');
-          });
-        } else {
-          console.log('User cancelled login or did not fully authorize.');
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
         }
-      }, { perms: 'basic_access,email' });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
 
-  _createClass(Login, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        { id: 'login' },
-        _react2.default.createElement(
-          'button',
-          { className: 'login', onClick: this.login },
-          'Log In to Deezer'
-        )
-      );
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Login.__proto__ || Object.getPrototypeOf(Login)).call.apply(_ref, [this].concat(args))), _this), _this.login = function () {
+            DZ.login(function (response) {
+                if (response.authResponse) {
+                    DZ.api('/user/me', function (response) {
+                        console.log('Success.');
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, {
+                perms: 'basic_access,email'
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
-  }]);
 
-  return Login;
+    _createClass(Login, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'section',
+                { id: 'login' },
+                _react2.default.createElement(
+                    'button',
+                    { className: 'login', onClick: this.login },
+                    'Log In to Deezer'
+                )
+            );
+        }
+    }]);
+
+    return Login;
 }(_react2.default.Component);
 
 exports.default = Login;
@@ -16159,7 +16180,7 @@ exports.default = Login;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16177,22 +16198,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Main = function (_React$Component) {
-  _inherits(Main, _React$Component);
+    _inherits(Main, _React$Component);
 
-  function Main() {
-    _classCallCheck(this, Main);
+    function Main() {
+        _classCallCheck(this, Main);
 
-    return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
-  }
-
-  _createClass(Main, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('span', null);
+        return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
     }
-  }]);
 
-  return Main;
+    _createClass(Main, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement('span', null);
+        }
+    }]);
+
+    return Main;
 }(_react2.default.Component);
 
 exports.default = Main;
@@ -16205,7 +16226,7 @@ exports.default = Main;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16243,30 +16264,30 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var MainMiddle = function (_React$Component) {
-  _inherits(MainMiddle, _React$Component);
+    _inherits(MainMiddle, _React$Component);
 
-  function MainMiddle() {
-    _classCallCheck(this, MainMiddle);
+    function MainMiddle() {
+        _classCallCheck(this, MainMiddle);
 
-    return _possibleConstructorReturn(this, (MainMiddle.__proto__ || Object.getPrototypeOf(MainMiddle)).apply(this, arguments));
-  }
-
-  _createClass(MainMiddle, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'main',
-        { className: 'mainMiddle' },
-        _react2.default.createElement(_choosePlaylists2.default, null),
-        _react2.default.createElement(_cover2.default, null),
-        _react2.default.createElement(_artist2.default, null),
-        _react2.default.createElement(_similarArtists2.default, null),
-        _react2.default.createElement(_chooseAlbums2.default, null)
-      );
+        return _possibleConstructorReturn(this, (MainMiddle.__proto__ || Object.getPrototypeOf(MainMiddle)).apply(this, arguments));
     }
-  }]);
 
-  return MainMiddle;
+    _createClass(MainMiddle, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'main',
+                { className: 'mainMiddle' },
+                _react2.default.createElement(_choosePlaylists2.default, null),
+                _react2.default.createElement(_cover2.default, null),
+                _react2.default.createElement(_artist2.default, null),
+                _react2.default.createElement(_similarArtists2.default, null),
+                _react2.default.createElement(_chooseAlbums2.default, null)
+            );
+        }
+    }]);
+
+    return MainMiddle;
 }(_react2.default.Component);
 
 exports.default = MainMiddle;
@@ -16279,7 +16300,7 @@ exports.default = MainMiddle;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16297,40 +16318,40 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Nav = function (_React$Component) {
-  _inherits(Nav, _React$Component);
+    _inherits(Nav, _React$Component);
 
-  function Nav() {
-    _classCallCheck(this, Nav);
+    function Nav() {
+        _classCallCheck(this, Nav);
 
-    return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
-  }
-
-  _createClass(Nav, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'nav',
-        { className: 'nav' },
-        _react2.default.createElement(
-          'a',
-          { id: 'main_nav', href: '#playlists', 'aria-expanded': 'false' },
-          'main'
-        ),
-        _react2.default.createElement(
-          'a',
-          { id: 'similar_nav', href: '#similar', 'aria-expanded': 'false' },
-          'similar artists'
-        ),
-        _react2.default.createElement(
-          'a',
-          { id: 'albums_nav', href: '#albums', 'aria-expanded': 'false' },
-          'albums'
-        )
-      );
+        return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
     }
-  }]);
 
-  return Nav;
+    _createClass(Nav, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'nav',
+                { className: 'nav' },
+                _react2.default.createElement(
+                    'a',
+                    { id: 'main_nav', href: '#playlists', 'aria-expanded': 'false' },
+                    'main'
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { id: 'similar_nav', href: '#similar', 'aria-expanded': 'false' },
+                    'similar artists'
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { id: 'albums_nav', href: '#albums', 'aria-expanded': 'false' },
+                    'albums'
+                )
+            );
+        }
+    }]);
+
+    return Nav;
 }(_react2.default.Component);
 
 exports.default = Nav;
@@ -16343,7 +16364,7 @@ exports.default = Nav;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16372,167 +16393,179 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var promise = new Promise(function (resolve, reject) {
-  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+    true ? resolve("Stuff worked!") : reject(Error("It broke"));
 });
 
 var Player = function (_React$Component) {
-  _inherits(Player, _React$Component);
+    _inherits(Player, _React$Component);
 
-  function Player(props) {
-    _classCallCheck(this, Player);
+    function Player(props) {
+        _classCallCheck(this, Player);
 
-    var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
 
-    _this.changeIsPlaying = function () {
-      if (_this.state.isPlaying) {
-        _this.setState({
-          isPlaying: false
-        }, function () {
-          return DZ.player.pause();
-        });
-      } else {
-        _this.setState({
-          isPlaying: true
-        }, function () {
-          return DZ.player.play();
-        });
-      }
-    };
+        _this.changeIsPlaying = function () {
+            if (_this.state.isPlaying) {
+                _this.setState({
+                    isPlaying: false
+                }, function () {
+                    return DZ.player.pause();
+                });
+            } else {
+                _this.setState({
+                    isPlaying: true
+                }, function () {
+                    return DZ.player.play();
+                });
+            }
+        };
 
-    _this.changeTrack = function () {
-      _this.setState({
-        isPlaying: true
-      }, function () {
-        DZ.player.pause();
-        _this.randomTrack();
-      });
-    };
+        _this.changeTrack = function () {
+            _this.setState({
+                isPlaying: true
+            }, function () {
+                DZ.player.pause();
+                _this.randomTrack();
+            });
+        };
 
-    _this.rewind = function () {
-      _this.setState({
-        isPlaying: true
-      }, function () {
-        DZ.player.pause();
-        if (_this.props.prev.title === '') {
-          _this.randomTrack();
-        } else {
-          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-          _store2.default.dispatch((0, _index.changeTrackAction)(_this.props.prev));
-          promise.then(function (result) {
-            DZ.player.playTracks([_this.props.track.id]);
-            _this.searchArtist();
-            _this.searchTopTracks();
-            _this.searchAlbums();
-            _this.searchSimilarArtists();
-          }, function (err) {
-            return console.log(err);
-          });
-        }
-      });
-    };
+        _this.rewind = function () {
+            _this.setState({
+                isPlaying: true
+            }, function () {
+                DZ.player.pause();
+                if (_this.props.prev.title === '') {
+                    _this.randomTrack();
+                } else {
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(_this.props.prev));
+                    promise.then(function (result) {
+                        DZ.player.playTracks([_this.props.track.id]);
+                        _this.searchArtist();
+                        _this.searchTopTracks();
+                        _this.searchAlbums();
+                        _this.searchSimilarArtists();
+                    }, function (err) {
+                        return console.log(err);
+                    });
+                }
+            });
+        };
 
-    _this.randomTrack = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/playlist/' + _this.props.chosenPlaylist + '?output=jsonp',
-        success: function success(response) {
-          var playlistTracks = response.tracks.data;
-          var randomNumber = Math.floor(Math.random() * playlistTracks.length);
-          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-          _store2.default.dispatch((0, _index.changeTrackAction)(playlistTracks[randomNumber]));
-          _this.searchArtist();
-          _this.searchTopTracks();
-          _this.searchAlbums();
-          _this.searchSimilarArtists();
-          DZ.player.playTracks([_this.props.track.id]);
-        }
-      });
-    };
+        _this.randomTrack = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/playlist/' + _this.props.chosenPlaylist + '?output=jsonp',
+                success: function success(response) {
+                    var playlistTracks = response.tracks.data;
+                    var randomNumber = Math.floor(Math.random() * playlistTracks.length);
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(playlistTracks[randomNumber]));
+                    _this.searchArtist();
+                    _this.searchTopTracks();
+                    _this.searchAlbums();
+                    _this.searchSimilarArtists();
+                    DZ.player.playTracks([_this.props.track.id]);
+                }
+            });
+        };
 
-    _this.searchArtist = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ARTIST', artist: response });
-        }
-      });
-    };
+        _this.searchArtist = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ARTIST',
+                        artist: response
+                    });
+                }
+            });
+        };
 
-    _this.searchTopTracks = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
-        }
-      });
-    };
+        _this.searchTopTracks = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_TOP_TRACKS',
+                        topTracks: response.data
+                    });
+                }
+            });
+        };
 
-    _this.searchAlbums = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
-        }
-      });
-    };
+        _this.searchAlbums = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ALBUMS',
+                        albums: response.data
+                    });
+                }
+            });
+        };
 
-    _this.searchSimilarArtists = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data });
-        }
-      });
-    };
+        _this.searchSimilarArtists = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_SIMILAR_ARTISTS',
+                        similar: response.data
+                    });
+                }
+            });
+        };
 
-    _this.state = {
-      isPlaying: !DZ.player.isPlaying()
-    };
-    return _this;
-  }
-
-  _createClass(Player, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'player' },
-        _react2.default.createElement(
-          'div',
-          { className: 'playerMain' },
-          _react2.default.createElement(
-            'button',
-            { onClick: this.rewind },
-            _react2.default.createElement('img', { src: './images/rewind.svg', alt: 'rewind' })
-          ),
-          _react2.default.createElement(
-            'button',
-            { onClick: this.changeIsPlaying, id: 'playOrPause' },
-            _react2.default.createElement('img', { src: this.state.isPlaying ? './images/pause.png' : './images/play.png', alt: 'play or pause' })
-          ),
-          _react2.default.createElement(
-            'button',
-            { onClick: this.changeTrack },
-            _react2.default.createElement('img', { src: './images/forward.svg', alt: 'forward' })
-          )
-        )
-      );
+        _this.state = {
+            isPlaying: !DZ.player.isPlaying()
+        };
+        return _this;
     }
-  }]);
 
-  return Player;
+    _createClass(Player, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'player' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'playerMain' },
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.rewind },
+                        _react2.default.createElement('img', { src: './images/rewind.svg', alt: 'rewind' })
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.changeIsPlaying, id: 'playOrPause' },
+                        _react2.default.createElement('img', { src: this.state.isPlaying ? './images/pause.png' : './images/play.png', alt: 'play or pause' })
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.changeTrack },
+                        _react2.default.createElement('img', { src: './images/forward.svg', alt: 'forward' })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Player;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    track: store.track,
-    prev: store.prev,
-    chosenPlaylist: store.chosenPlaylist
-  };
+    return {
+        track: store.track,
+        prev: store.prev,
+        chosenPlaylist: store.chosenPlaylist
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Player);
@@ -16545,7 +16578,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Player);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16575,28 +16608,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var PlayerAndProgress = function (_React$Component) {
-  _inherits(PlayerAndProgress, _React$Component);
+    _inherits(PlayerAndProgress, _React$Component);
 
-  function PlayerAndProgress() {
-    _classCallCheck(this, PlayerAndProgress);
+    function PlayerAndProgress() {
+        _classCallCheck(this, PlayerAndProgress);
 
-    return _possibleConstructorReturn(this, (PlayerAndProgress.__proto__ || Object.getPrototypeOf(PlayerAndProgress)).apply(this, arguments));
-  }
-
-  _createClass(PlayerAndProgress, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'section',
-        { className: 'playerAndProgress' },
-        _react2.default.createElement(_smallCover2.default, null),
-        _react2.default.createElement(_player2.default, null),
-        _react2.default.createElement(_progress2.default, null)
-      );
+        return _possibleConstructorReturn(this, (PlayerAndProgress.__proto__ || Object.getPrototypeOf(PlayerAndProgress)).apply(this, arguments));
     }
-  }]);
 
-  return PlayerAndProgress;
+    _createClass(PlayerAndProgress, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'section',
+                { className: 'playerAndProgress' },
+                _react2.default.createElement(_smallCover2.default, null),
+                _react2.default.createElement(_player2.default, null),
+                _react2.default.createElement(_progress2.default, null)
+            );
+        }
+    }]);
+
+    return PlayerAndProgress;
 }(_react2.default.Component);
 
 exports.default = PlayerAndProgress;
@@ -16609,7 +16642,7 @@ exports.default = PlayerAndProgress;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16638,139 +16671,151 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var promise = new Promise(function (resolve, reject) {
-  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+    true ? resolve("Stuff worked!") : reject(Error("It broke"));
 });
 
 var Playlist = function (_React$Component) {
-  _inherits(Playlist, _React$Component);
+    _inherits(Playlist, _React$Component);
 
-  function Playlist(props) {
-    _classCallCheck(this, Playlist);
+    function Playlist(props) {
+        _classCallCheck(this, Playlist);
 
-    var _this = _possibleConstructorReturn(this, (Playlist.__proto__ || Object.getPrototypeOf(Playlist)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Playlist.__proto__ || Object.getPrototypeOf(Playlist)).call(this, props));
 
-    _this.findPlaylist = function (event) {
-      _store2.default.dispatch((0, _index.changePlaylistAction)(_this.props.elem));
-      promise.then(function (result) {
-        return _this.randomTrack();
-      }, function (err) {
-        return console.log(err);
-      });
+        _this.findPlaylist = function (event) {
+            _store2.default.dispatch((0, _index.changePlaylistAction)(_this.props.elem));
+            promise.then(function (result) {
+                return _this.randomTrack();
+            }, function (err) {
+                return console.log(err);
+            });
 
-      var divs = Array.from(event.currentTarget.parentElement.getElementsByTagName('div'));
-      divs.forEach(function (e, i) {
-        return e.classList.remove('active');
-      });
-      event.currentTarget.classList.add('active');
-    };
+            var divs = Array.from(event.currentTarget.parentElement.getElementsByTagName('div'));
+            divs.forEach(function (e, i) {
+                return e.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        };
 
-    _this.thisplaylist = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/playlist/' + _this.props.elem + '?output=jsonp',
-        success: function success(data) {
-          _this.setState({
-            data: data,
-            picture: data.picture_small.replace(/56x56/, '64x64')
-          });
-        }
-      });
-    };
+        _this.thisplaylist = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/playlist/' + _this.props.elem + '?output=jsonp',
+                success: function success(data) {
+                    _this.setState({
+                        data: data,
+                        picture: data.picture_small.replace(/56x56/, '64x64')
+                    });
+                }
+            });
+        };
 
-    _this.randomTrack = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/playlist/' + _this.props.chosenPlaylist + '?output=jsonp',
-        success: function success(response) {
-          var playlistTracks = response.tracks.data;
-          var randomNumber = Math.floor(Math.random() * playlistTracks.length);
-          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-          _store2.default.dispatch((0, _index.changeTrackAction)(playlistTracks[randomNumber]));
-          _this.searchArtist();
-          _this.searchTopTracks();
-          _this.searchAlbums();
-          _this.searchSimilarArtists();
-          DZ.player.playTracks([_this.props.track.id]);
-        }
-      });
-    };
+        _this.randomTrack = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/playlist/' + _this.props.chosenPlaylist + '?output=jsonp',
+                success: function success(response) {
+                    var playlistTracks = response.tracks.data;
+                    var randomNumber = Math.floor(Math.random() * playlistTracks.length);
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(playlistTracks[randomNumber]));
+                    _this.searchArtist();
+                    _this.searchTopTracks();
+                    _this.searchAlbums();
+                    _this.searchSimilarArtists();
+                    DZ.player.playTracks([_this.props.track.id]);
+                }
+            });
+        };
 
-    _this.searchArtist = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ARTIST', artist: response });
-        }
-      });
-    };
+        _this.searchArtist = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ARTIST',
+                        artist: response
+                    });
+                }
+            });
+        };
 
-    _this.searchAlbums = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
-        success: function success(response) {
-          _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
-        }
-      });
-    };
+        _this.searchAlbums = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+                success: function success(response) {
+                    _store2.default.dispatch({
+                        type: 'FIND_ALBUMS',
+                        albums: response.data
+                    });
+                }
+            });
+        };
 
-    _this.searchTopTracks = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
-        }
-      });
-    };
+        _this.searchTopTracks = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_TOP_TRACKS',
+                        topTracks: response.data
+                    });
+                }
+            });
+        };
 
-    _this.searchSimilarArtists = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data });
-        }
-      });
-    };
+        _this.searchSimilarArtists = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_SIMILAR_ARTISTS',
+                        similar: response.data
+                    });
+                }
+            });
+        };
 
-    _this.state = {
-      data: {},
-      picture: ''
-    };
-    return _this;
-  }
-
-  _createClass(Playlist, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.thisplaylist();
+        _this.state = {
+            data: {},
+            picture: ''
+        };
+        return _this;
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { onClick: this.findPlaylist },
-        _react2.default.createElement('img', { src: this.state.picture, alt: this.state.data.title }),
-        _react2.default.createElement(
-          'p',
-          null,
-          this.state.data.title
-        )
-      );
-    }
-  }]);
 
-  return Playlist;
+    _createClass(Playlist, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.thisplaylist();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { onClick: this.findPlaylist },
+                _react2.default.createElement('img', { src: this.state.picture, alt: this.state.data.title }),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.state.data.title
+                )
+            );
+        }
+    }]);
+
+    return Playlist;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    chosenPlaylist: store.chosenPlaylist,
-    track: store.track
-  };
+    return {
+        chosenPlaylist: store.chosenPlaylist,
+        track: store.track
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Playlist);
@@ -16783,7 +16828,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Playlist);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16801,81 +16846,81 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Progress = function (_React$Component) {
-  _inherits(Progress, _React$Component);
+    _inherits(Progress, _React$Component);
 
-  function Progress() {
-    var _ref;
+    function Progress() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, Progress);
+        _classCallCheck(this, Progress);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Progress.__proto__ || Object.getPrototypeOf(Progress)).call.apply(_ref, [this].concat(args))), _this), _this.showPosition = function () {
+            DZ.Event.subscribe('player_position', function (e) {
+                var min = Math.floor(e[0] / 60);
+                var s = Math.floor(e[0] % 60);
+                var time = min + ':' + (s < 10 ? '0' : '') + s;
+
+                var elapsed = document.querySelectorAll('.elapsed');
+                var duration = document.querySelectorAll('.duration');
+                var progress = document.querySelectorAll('progress');
+
+                elapsed.forEach(function (elem, i) {
+                    return elapsed[i].innerText = time;
+                });
+
+                min = Math.floor(e[1] / 60);
+                s = Math.floor(e[1] % 60);
+                time = min + ':' + (s < 10 ? '0' : '') + s;
+
+                duration.forEach(function (elem, i) {
+                    return duration[i].innerText = time;
+                });
+                progress.forEach(function (elem, i) {
+                    return progress[i].setAttribute("value", e[0] / e[1]);
+                });
+            });
+        }, _this.changeSeek = function (event) {
+            DZ.player.seek(event.clientX / window.innerWidth * 100);
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Progress.__proto__ || Object.getPrototypeOf(Progress)).call.apply(_ref, [this].concat(args))), _this), _this.showPosition = function () {
-      DZ.Event.subscribe('player_position', function (e) {
-        var min = Math.floor(e[0] / 60);
-        var s = Math.floor(e[0] % 60);
-        var time = min + ':' + (s < 10 ? '0' : '') + s;
+    _createClass(Progress, [{
+        key: 'render',
+        value: function render() {
+            this.showPosition();
+            return _react2.default.createElement(
+                'div',
+                { className: 'progress' },
+                _react2.default.createElement('progress', { onClick: this.changeSeek, value: 0, max: '1' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'time' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'elapsed' },
+                        '0:00'
+                    ),
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'pipe' },
+                        ' | '
+                    ),
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'duration' },
+                        '0:00'
+                    )
+                )
+            );
+        }
+    }]);
 
-        var elapsed = document.querySelectorAll('.elapsed');
-        var duration = document.querySelectorAll('.duration');
-        var progress = document.querySelectorAll('progress');
-
-        elapsed.forEach(function (elem, i) {
-          return elapsed[i].innerText = time;
-        });
-
-        min = Math.floor(e[1] / 60);
-        s = Math.floor(e[1] % 60);
-        time = min + ':' + (s < 10 ? '0' : '') + s;
-
-        duration.forEach(function (elem, i) {
-          return duration[i].innerText = time;
-        });
-        progress.forEach(function (elem, i) {
-          return progress[i].setAttribute("value", e[0] / e[1]);
-        });
-      });
-    }, _this.changeSeek = function (event) {
-      DZ.player.seek(event.clientX / window.innerWidth * 100);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Progress, [{
-    key: 'render',
-    value: function render() {
-      this.showPosition();
-      return _react2.default.createElement(
-        'div',
-        { className: 'progress' },
-        _react2.default.createElement('progress', { onClick: this.changeSeek, value: 0, max: '1' }),
-        _react2.default.createElement(
-          'div',
-          { className: 'time' },
-          _react2.default.createElement(
-            'span',
-            { className: 'elapsed' },
-            '0:00'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'pipe' },
-            ' | '
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'duration' },
-            '0:00'
-          )
-        )
-      );
-    }
-  }]);
-
-  return Progress;
+    return Progress;
 }(_react2.default.Component);
 
 exports.default = Progress;
@@ -16888,7 +16933,7 @@ exports.default = Progress;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16917,92 +16962,104 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Similar = function (_React$Component) {
-  _inherits(Similar, _React$Component);
+    _inherits(Similar, _React$Component);
 
-  function Similar() {
-    var _ref;
+    function Similar() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, Similar);
+        _classCallCheck(this, Similar);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Similar.__proto__ || Object.getPrototypeOf(Similar)).call.apply(_ref, [this].concat(args))), _this), _this.searchArtist = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ARTIST',
+                        artist: response
+                    });
+                }
+            });
+        }, _this.searchTopTracks = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_TOP_TRACKS',
+                        topTracks: response.data
+                    });
+                }
+            });
+        }, _this.searchAlbums = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ALBUMS',
+                        albums: response.data
+                    });
+                }
+            });
+        }, _this.searchSimilarArtists = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_SIMILAR_ARTISTS',
+                        similar: response.data
+                    });
+                }
+            });
+        }, _this.handleClick = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/artist/' + _this.props.elem.id + '/top?output=jsonp',
+                success: function success(response) {
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(response.data[0]));
+                    DZ.player.pause();
+                    DZ.player.playTracks([_this.props.track.id]);
+                    _this.searchArtist();
+                    _this.searchAlbums();
+                    _this.searchTopTracks();
+                    _this.searchSimilarArtists();
+                }
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Similar.__proto__ || Object.getPrototypeOf(Similar)).call.apply(_ref, [this].concat(args))), _this), _this.searchArtist = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ARTIST', artist: response });
+    _createClass(Similar, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'li',
+                { onClick: this.handleClick },
+                _react2.default.createElement('img', { src: this.props.elem.picture_small, alt: this.props.elem.name }),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.elem.name
+                )
+            );
         }
-      });
-    }, _this.searchTopTracks = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data });
-        }
-      });
-    }, _this.searchAlbums = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ALBUMS', albums: response.data });
-        }
-      });
-    }, _this.searchSimilarArtists = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data });
-        }
-      });
-    }, _this.handleClick = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/artist/' + _this.props.elem.id + '/top?output=jsonp',
-        success: function success(response) {
-          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-          _store2.default.dispatch((0, _index.changeTrackAction)(response.data[0]));
-          DZ.player.pause();
-          DZ.player.playTracks([_this.props.track.id]);
-          _this.searchArtist();
-          _this.searchAlbums();
-          _this.searchTopTracks();
-          _this.searchSimilarArtists();
-        }
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+    }]);
 
-  _createClass(Similar, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'li',
-        { onClick: this.handleClick },
-        _react2.default.createElement('img', { src: this.props.elem.picture_small, alt: this.props.elem.name }),
-        _react2.default.createElement(
-          'p',
-          null,
-          this.props.elem.name
-        )
-      );
-    }
-  }]);
-
-  return Similar;
+    return Similar;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    track: store.track
-  };
+    return {
+        track: store.track
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Similar);
@@ -17015,7 +17072,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Similar);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17046,48 +17103,48 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var SimilarArtists = function (_React$Component) {
-  _inherits(SimilarArtists, _React$Component);
+    _inherits(SimilarArtists, _React$Component);
 
-  function SimilarArtists() {
-    _classCallCheck(this, SimilarArtists);
+    function SimilarArtists() {
+        _classCallCheck(this, SimilarArtists);
 
-    return _possibleConstructorReturn(this, (SimilarArtists.__proto__ || Object.getPrototypeOf(SimilarArtists)).apply(this, arguments));
-  }
-
-  _createClass(SimilarArtists, [{
-    key: 'render',
-    value: function render() {
-      var li = this.props.similar.map(function (elem, i) {
-        return _react2.default.createElement(_similar2.default, { key: i, elem: elem });
-      });
-      return _react2.default.createElement(
-        'section',
-        { id: 'similar' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Similar Artists'
-        ),
-        _react2.default.createElement(
-          'article',
-          null,
-          _react2.default.createElement(
-            'ul',
-            null,
-            li
-          )
-        )
-      );
+        return _possibleConstructorReturn(this, (SimilarArtists.__proto__ || Object.getPrototypeOf(SimilarArtists)).apply(this, arguments));
     }
-  }]);
 
-  return SimilarArtists;
+    _createClass(SimilarArtists, [{
+        key: 'render',
+        value: function render() {
+            var li = this.props.similar.map(function (elem, i) {
+                return _react2.default.createElement(_similar2.default, { key: i, elem: elem });
+            });
+            return _react2.default.createElement(
+                'section',
+                { id: 'similar' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Similar Artists'
+                ),
+                _react2.default.createElement(
+                    'article',
+                    null,
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        li
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SimilarArtists;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    similar: store.similar
-  };
+    return {
+        similar: store.similar
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SimilarArtists);
@@ -17100,7 +17157,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(SimilarArtists);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17132,55 +17189,55 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var SmallCover = function (_React$Component) {
-  _inherits(SmallCover, _React$Component);
+    _inherits(SmallCover, _React$Component);
 
-  function SmallCover() {
-    _classCallCheck(this, SmallCover);
+    function SmallCover() {
+        _classCallCheck(this, SmallCover);
 
-    return _possibleConstructorReturn(this, (SmallCover.__proto__ || Object.getPrototypeOf(SmallCover)).apply(this, arguments));
-  }
-
-  _createClass(SmallCover, [{
-    key: 'render',
-    value: function render() {
-      var CoverStyle = {
-        backgroundImage: 'url(' + this.props.cover + ')'
-      };
-      return _react2.default.createElement(
-        _reactRouter.IndexLink,
-        { to: '/' },
-        _react2.default.createElement(
-          'div',
-          { className: 'small' },
-          _react2.default.createElement('div', { className: 'smallCover', style: CoverStyle }),
-          _react2.default.createElement(
-            'div',
-            { className: 'smallTitle' },
-            _react2.default.createElement(
-              'p',
-              null,
-              this.props.title
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              this.props.artist
-            )
-          )
-        )
-      );
+        return _possibleConstructorReturn(this, (SmallCover.__proto__ || Object.getPrototypeOf(SmallCover)).apply(this, arguments));
     }
-  }]);
 
-  return SmallCover;
+    _createClass(SmallCover, [{
+        key: 'render',
+        value: function render() {
+            var CoverStyle = {
+                backgroundImage: 'url(' + this.props.cover + ')'
+            };
+            return _react2.default.createElement(
+                _reactRouter.IndexLink,
+                { to: '/' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'small' },
+                    _react2.default.createElement('div', { className: 'smallCover', style: CoverStyle }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'smallTitle' },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            this.props.title
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            this.props.artist
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SmallCover;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    title: store.track.title_short,
-    artist: store.track.artist.name,
-    cover: store.track.album.cover_small
-  };
+    return {
+        title: store.track.title_short,
+        artist: store.track.artist.name,
+        cover: store.track.album.cover_small
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(SmallCover);
@@ -17193,7 +17250,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(SmallCover);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17246,39 +17303,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Template = function (_React$Component) {
-  _inherits(Template, _React$Component);
+    _inherits(Template, _React$Component);
 
-  function Template() {
-    _classCallCheck(this, Template);
+    function Template() {
+        _classCallCheck(this, Template);
 
-    return _possibleConstructorReturn(this, (Template.__proto__ || Object.getPrototypeOf(Template)).apply(this, arguments));
-  }
-
-  _createClass(Template, [{
-    key: 'render',
-    value: function render() {
-      var path = this.props.children.props.location.pathname;
-      return _react2.default.createElement(
-        'div',
-        { className: 'NavyPlayer' },
-        _react2.default.createElement(
-          'div',
-          { className: path },
-          this.props.children,
-          _react2.default.createElement(_nav2.default, null),
-          _react2.default.createElement(_login2.default, null),
-          _react2.default.createElement(_search2.default, null),
-          _react2.default.createElement(_title2.default, null),
-          _react2.default.createElement(_mainMiddle2.default, null),
-          _react2.default.createElement(_playerAndProgress2.default, null),
-          _react2.default.createElement(_choose2.default, null),
-          _react2.default.createElement(_footer2.default, null)
-        )
-      );
+        return _possibleConstructorReturn(this, (Template.__proto__ || Object.getPrototypeOf(Template)).apply(this, arguments));
     }
-  }]);
 
-  return Template;
+    _createClass(Template, [{
+        key: 'render',
+        value: function render() {
+            var path = this.props.children.props.location.pathname;
+            return _react2.default.createElement(
+                'div',
+                { className: 'NavyPlayer' },
+                _react2.default.createElement(
+                    'div',
+                    { className: path },
+                    this.props.children,
+                    _react2.default.createElement(_nav2.default, null),
+                    _react2.default.createElement(_login2.default, null),
+                    _react2.default.createElement(_search2.default, null),
+                    _react2.default.createElement(_title2.default, null),
+                    _react2.default.createElement(_mainMiddle2.default, null),
+                    _react2.default.createElement(_playerAndProgress2.default, null),
+                    _react2.default.createElement(_choose2.default, null),
+                    _react2.default.createElement(_footer2.default, null)
+                )
+            );
+        }
+    }]);
+
+    return Template;
 }(_react2.default.Component);
 
 exports.default = Template;
@@ -17291,7 +17348,7 @@ exports.default = Template;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17318,39 +17375,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Title = function (_React$Component) {
-  _inherits(Title, _React$Component);
+    _inherits(Title, _React$Component);
 
-  function Title() {
-    _classCallCheck(this, Title);
+    function Title() {
+        _classCallCheck(this, Title);
 
-    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
-  }
-
-  _createClass(Title, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'header',
-        { id: 'title' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          this.props.title,
-          ' - ',
-          this.props.artist
-        )
-      );
+        return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
     }
-  }]);
 
-  return Title;
+    _createClass(Title, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'header',
+                { id: 'title' },
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    this.props.title,
+                    ' - ',
+                    this.props.artist
+                )
+            );
+        }
+    }]);
+
+    return Title;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    title: store.track.title_short,
-    artist: store.track.artist.name
-  };
+    return {
+        title: store.track.title_short,
+        artist: store.track.artist.name
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Title);
@@ -17363,7 +17420,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Title);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17392,51 +17449,51 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var TopTrack = function (_React$Component) {
-  _inherits(TopTrack, _React$Component);
+    _inherits(TopTrack, _React$Component);
 
-  function TopTrack() {
-    var _ref;
+    function TopTrack() {
+        var _ref;
 
-    var _temp, _this, _ret;
+        var _temp, _this, _ret;
 
-    _classCallCheck(this, TopTrack);
+        _classCallCheck(this, TopTrack);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TopTrack.__proto__ || Object.getPrototypeOf(TopTrack)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function () {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/track/' + _this.props.elem.id + '?output=jsonp',
-        success: function success(response) {
-          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
-          _store2.default.dispatch((0, _index.changeTrackAction)(response));
-          DZ.player.pause();
-          DZ.player.playTracks([_this.props.track.id]);
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
         }
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
 
-  _createClass(TopTrack, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'li',
-        { onClick: this.handleClick },
-        this.props.elem.title_short
-      );
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TopTrack.__proto__ || Object.getPrototypeOf(TopTrack)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/track/' + _this.props.elem.id + '?output=jsonp',
+                success: function success(response) {
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(response));
+                    DZ.player.pause();
+                    DZ.player.playTracks([_this.props.track.id]);
+                }
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
-  }]);
 
-  return TopTrack;
+    _createClass(TopTrack, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'li',
+                { onClick: this.handleClick },
+                this.props.elem.title_short
+            );
+        }
+    }]);
+
+    return TopTrack;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    track: store.track
-  };
+    return {
+        track: store.track
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(TopTrack);
@@ -17449,7 +17506,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(TopTrack);
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17480,48 +17537,48 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var TopTracks = function (_React$Component) {
-  _inherits(TopTracks, _React$Component);
+    _inherits(TopTracks, _React$Component);
 
-  function TopTracks() {
-    _classCallCheck(this, TopTracks);
+    function TopTracks() {
+        _classCallCheck(this, TopTracks);
 
-    return _possibleConstructorReturn(this, (TopTracks.__proto__ || Object.getPrototypeOf(TopTracks)).apply(this, arguments));
-  }
-
-  _createClass(TopTracks, [{
-    key: 'render',
-    value: function render() {
-      var li = this.props.topTracks.map(function (elem, i) {
-        return _react2.default.createElement(_topTrack2.default, { key: i, elem: elem });
-      });
-      return _react2.default.createElement(
-        'article',
-        { id: 'topTracks' },
-        _react2.default.createElement(
-          'div',
-          { className: 'topTracks' },
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Top tracks'
-          ),
-          _react2.default.createElement(
-            'ul',
-            null,
-            li
-          )
-        )
-      );
+        return _possibleConstructorReturn(this, (TopTracks.__proto__ || Object.getPrototypeOf(TopTracks)).apply(this, arguments));
     }
-  }]);
 
-  return TopTracks;
+    _createClass(TopTracks, [{
+        key: 'render',
+        value: function render() {
+            var li = this.props.topTracks.map(function (elem, i) {
+                return _react2.default.createElement(_topTrack2.default, { key: i, elem: elem });
+            });
+            return _react2.default.createElement(
+                'article',
+                { id: 'topTracks' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'topTracks' },
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Top tracks'
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        li
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TopTracks;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    topTracks: store.topTracks
-  };
+    return {
+        topTracks: store.topTracks
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(TopTracks);
