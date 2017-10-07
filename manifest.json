@@ -1,0 +1,25 @@
+{
+    "short_name": "NavyPlayer",
+    "name": "NavyPlayer",
+    "icons": [
+        {
+            "src": "./images/DZ_Logo.png",
+            "sizes": "565x126",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/pause.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/play.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/?utm_source=homescreen",
+    "background_color": "#000a11",
+    "theme_color": "#000a11",
+    "display": "fullscreen"
+}
