@@ -4,17 +4,17 @@
     "icons": [
         {
             "src": "./images/DZ_Logo.png",
-            "sizes": "565x126",
+            "sizes": "192x192",
             "type": "image/png"
         },
         {
             "src": "./images/pause.png",
-            "sizes": "64x64",
+            "sizes": "192x192",
             "type": "image/png"
         },
         {
             "src": "./images/play.png",
-            "sizes": "64x64",
+            "sizes": "192x192",
             "type": "image/png"
         }
     ],
