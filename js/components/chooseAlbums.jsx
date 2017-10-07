@@ -42,7 +42,7 @@ class ChooseAlbums extends React.Component {
                 current: current + 1
             })
         }
-        if (current === imageArray) {
+        if (current >= imageArray) {
             this.setState({
                 current: 0
             })

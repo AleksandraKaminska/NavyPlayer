@@ -15297,44 +15297,7 @@ $(function () {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.RightArrow = exports.LeftArrow = undefined;
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var LeftArrow = function LeftArrow(props) {
-  return _react2.default.createElement(
-    "span",
-    { className: "backArrow", onClick: props.previousSlide },
-    "<"
-  );
-};
-
-var RightArrow = function RightArrow(props) {
-  return _react2.default.createElement(
-    "span",
-    { className: "nextArrow", onClick: props.nextSlide },
-    ">"
-  );
-};
-
-exports.LeftArrow = LeftArrow;
-exports.RightArrow = RightArrow;
-
-/***/ }),
-/* 147 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15358,60 +15321,62 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Albums = function (_React$Component) {
-  _inherits(Albums, _React$Component);
+    _inherits(Albums, _React$Component);
 
-  function Albums() {
-    _classCallCheck(this, Albums);
+    function Albums() {
+        _classCallCheck(this, Albums);
 
-    return _possibleConstructorReturn(this, (Albums.__proto__ || Object.getPrototypeOf(Albums)).apply(this, arguments));
-  }
+        return _possibleConstructorReturn(this, (Albums.__proto__ || Object.getPrototypeOf(Albums)).apply(this, arguments));
+    }
 
-  _createClass(Albums, [{
-    key: 'showAlbumsTracks',
-    value: function showAlbumsTracks() {
-      $.ajax({
-        dataType: "jsonp",
-        url: 'https://api.deezer.com/album/' + this.props.elem.id + '?output=jsonp',
-        success: function success(response) {
-          return _store2.default.dispatch({ type: 'FIND_ALBUMSTRACKS', albumsTracks: response.tracks.data });
+    _createClass(Albums, [{
+        key: 'showAlbumsTracks',
+        value: function showAlbumsTracks() {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/album/' + this.props.elem.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ALBUMSTRACKS',
+                        albumsTracks: response.tracks.data
+                    });
+                }
+            });
         }
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var display = this.props.i <= this.props.current + 3 && this.props.i >= this.props.current;
-      var style = {
-        display: display ? 'inline-block' : 'none'
-      };
+    }, {
+        key: 'render',
+        value: function render() {
+            var display = this.props.i <= this.props.current + 3 && this.props.i >= this.props.current;
+            var style = {
+                display: display ? 'inline-block' : 'none'
+            };
 
-      return _react2.default.createElement(
-        'li',
-        { style: style, onClick: this.showAlbumsTracks.bind(this) },
-        _react2.default.createElement('img', { src: this.props.elem.cover_small.replace(/56x56/, '100x100'), alt: 'albums cover' }),
-        _react2.default.createElement(
-          'p',
-          null,
-          this.props.elem.title
-        ),
-        console.log(this.props.current, this.props.i)
-      );
-    }
-  }]);
+            return _react2.default.createElement(
+                'li',
+                { style: style, onClick: this.showAlbumsTracks.bind(this) },
+                _react2.default.createElement('img', { src: this.props.elem.cover_small.replace(/56x56/, '100x100'), alt: 'albums cover' }),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.elem.title
+                )
+            );
+        }
+    }]);
 
-  return Albums;
+    return Albums;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    albumsTracks: store.albumsTracks
-  };
+    return {
+        albumsTracks: store.albumsTracks
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Albums);
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15527,6 +15492,43 @@ var mapStateToProps = function mapStateToProps(store) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(AlbumsTracks);
+
+/***/ }),
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RightArrow = exports.LeftArrow = undefined;
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LeftArrow = function LeftArrow(props) {
+  return _react2.default.createElement(
+    "span",
+    { className: "backArrow", onClick: props.previousSlide },
+    "<"
+  );
+};
+
+var RightArrow = function RightArrow(props) {
+  return _react2.default.createElement(
+    "span",
+    { className: "nextArrow", onClick: props.nextSlide },
+    ">"
+  );
+};
+
+exports.LeftArrow = LeftArrow;
+exports.RightArrow = RightArrow;
 
 /***/ }),
 /* 149 */
@@ -15724,7 +15726,7 @@ exports.default = Choose;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15739,15 +15741,15 @@ var _store = __webpack_require__(8);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _albums = __webpack_require__(147);
+var _albums = __webpack_require__(146);
 
 var _albums2 = _interopRequireDefault(_albums);
 
-var _albumsTracks = __webpack_require__(148);
+var _albumsTracks = __webpack_require__(147);
 
 var _albumsTracks2 = _interopRequireDefault(_albumsTracks);
 
-var _Arrows = __webpack_require__(146);
+var _arrows = __webpack_require__(148);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15758,109 +15760,113 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ChooseAlbums = function (_React$Component) {
-  _inherits(ChooseAlbums, _React$Component);
+    _inherits(ChooseAlbums, _React$Component);
 
-  function ChooseAlbums(props) {
-    _classCallCheck(this, ChooseAlbums);
+    function ChooseAlbums(props) {
+        _classCallCheck(this, ChooseAlbums);
 
-    var _this = _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).call(this, props));
 
-    _this.state = {
-      current: 0
-    };
-    return _this;
-  }
-
-  _createClass(ChooseAlbums, [{
-    key: 'previousSlide',
-    value: function previousSlide() {
-      var current = this.state.current;
-      var imageArray = this.props.albums.length - 1;
-
-      if (current >= 1) {
-        this.setState({ current: current - 1 });
-      }
-      if (current === 0) {
-        this.setState({ current: imageArray });
-      }
-      console.log(current);
+        _this.state = {
+            current: 0
+        };
+        return _this;
     }
-  }, {
-    key: 'nextSlide',
-    value: function nextSlide() {
-      var current = this.state.current;
-      var imageArray = this.props.albums.length - 1;
 
-      if (current >= 0 && current !== imageArray) {
-        this.setState({ current: current + 1 });
-      }
-      if (current === imageArray) {
-        this.setState({ current: 0 });
-      }
-      console.log(current);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+    _createClass(ChooseAlbums, [{
+        key: 'previousSlide',
+        value: function previousSlide() {
+            var current = this.state.current;
+            var imageArray = this.props.albums.length - 1;
 
-      var li = this.props.albums.map(function (elem, i) {
-        return _react2.default.createElement(_albums2.default, {
-          key: i,
-          elem: elem,
-          current: _this2.state.current,
-          i: i
-        });
-      });
+            if (current >= 1) {
+                this.setState({
+                    current: current - 1
+                });
+            }
+            if (current === 0) {
+                this.setState({
+                    current: imageArray
+                });
+            }
+        }
+    }, {
+        key: 'nextSlide',
+        value: function nextSlide() {
+            var current = this.state.current;
+            var imageArray = this.props.albums.length - 1;
 
-      var songs = this.props.albumsTracks.map(function (song, i) {
-        return _react2.default.createElement(_albumsTracks2.default, {
-          song: song,
-          i: i,
-          key: i
-        });
-      });
+            if (current >= 0 && current !== imageArray) {
+                this.setState({
+                    current: current + 1
+                });
+            }
+            if (current >= imageArray) {
+                this.setState({
+                    current: 0
+                });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
 
-      return _react2.default.createElement(
-        'section',
-        { id: 'albums' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Albums'
-        ),
-        _react2.default.createElement(
-          'article',
-          { className: 'list' },
-          _react2.default.createElement(_Arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }),
-          _react2.default.createElement(
-            'ul',
-            null,
-            li
-          ),
-          _react2.default.createElement(_Arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) })
-        ),
-        _react2.default.createElement(
-          'article',
-          { className: 'songs' },
-          _react2.default.createElement(
-            'ul',
-            null,
-            songs
-          )
-        )
-      );
-    }
-  }]);
+            var li = this.props.albums.map(function (elem, i) {
+                return _react2.default.createElement(_albums2.default, {
+                    key: i,
+                    elem: elem,
+                    current: _this2.state.current,
+                    i: i });
+            });
 
-  return ChooseAlbums;
+            var songs = this.props.albumsTracks.map(function (song, i) {
+                return _react2.default.createElement(_albumsTracks2.default, {
+                    song: song,
+                    i: i,
+                    key: i });
+            });
+
+            return _react2.default.createElement(
+                'section',
+                { id: 'albums' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Albums'
+                ),
+                _react2.default.createElement(
+                    'article',
+                    { className: 'list' },
+                    _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }),
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        li
+                    ),
+                    _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'article',
+                    { className: 'songs' },
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        songs
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ChooseAlbums;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    albums: store.albums,
-    albumsTracks: store.albumsTracks
-  };
+    return {
+        albums: store.albums,
+        albumsTracks: store.albumsTracks
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(ChooseAlbums);
