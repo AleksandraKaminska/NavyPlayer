@@ -159,7 +159,7 @@
     .list {
       width: 100%;
       height: 100%;
-      overflow-x: auto;
+      display: flex;
       li {
         padding: 0 1vw;
       }
@@ -172,6 +172,9 @@
         vertical-align: top;
         width: 110%;
         font-size: 0.6em;
+      }
+      .backArrow, .nextArrow {
+        font-size: 3em;
       }
     }
     .songs {

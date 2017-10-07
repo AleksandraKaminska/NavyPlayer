@@ -5,95 +5,85 @@ import store from './../store';
 
 import Albums from './albums.jsx';
 import AlbumsTracks from './albumsTracks.jsx';
-
-const LeftArrow = (props) => {
-  return (
-    <span style={{fontSize: '3em', position: 'absolute', left: 0}} className="backArrow" onClick={props.previousSlide}>&lt;</span>
-  );
-}
-
-const RightArrow = (props) => {
-  return (
-    <span style={{fontSize: '3em', position: 'absolute', right: 0}} className="nextArrow" onClick={props.nextSlide}>&gt;</span>
-  );
-}
+import { LeftArrow, RightArrow } from './arrows.jsx';
 
 class ChooseAlbums extends React.Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-        current: 0
+        this.state = {
+            current: 0
+        }
     }
-  }
 
 
     previousSlide() {
-      let current = this.state.current;
-      let imageArray = this.props.albums.length - 1;
+        let current = this.state.current;
+        let imageArray = this.props.albums.length - 1;
 
-      if(current >= 1) {
-        this.setState({ current: current - 1 })
-      }
-      if(current === 0) {
-        this.setState({ current: imageArray })
-      }
-      console.log(current);
+        if (current >= 1) {
+            this.setState({
+                current: current - 1
+            })
+        }
+        if (current === 0) {
+            this.setState({
+                current: imageArray
+            })
+        }
     }
 
     nextSlide() {
-      let current = this.state.current;
-      let imageArray = this.props.albums.length - 1;
+        let current = this.state.current;
+        let imageArray = this.props.albums.length - 1;
 
-
-      if((current >= 0) && (current !== imageArray)) {
-        this.setState({ current: current + 1 })
-      }
-      if(current === imageArray) {
-        this.setState({ current: 0 })
-      }
-      console.log(current);
+        if ((current >= 0) && (current !== imageArray)) {
+            this.setState({
+                current: current + 1
+            })
+        }
+        if (current === imageArray) {
+            this.setState({
+                current: 0
+            })
+        }
     }
 
-  render() {
-    let li = this.props.albums
-             .map((elem, i) => <Albums
-                                key={i}
-                                elem={elem}
-                                current={this.state.current}
-                                i={i}
-    />);
+    render() {
+        let li = this.props.albums
+                 .map((elem, i) => <Albums
+                                    key={i}
+                                    elem={elem}
+                                    current={this.state.current}
+                                    i={i} />);
 
-    let songs = this.props.albumsTracks
-                .map((song, i) => <AlbumsTracks
-                                   song={song}
-                                   i={i}
-                                   key={i}
-    />);
+        let songs = this.props.albumsTracks
+                    .map((song, i) => <AlbumsTracks
+                                       song={song}
+                                       i={i}
+                                       key={i} />);
 
-    return <section id="albums">
-        <h2>Albums</h2>
-        <article className="list" style={{display: 'flex', position: 'relative'}}>
-          <LeftArrow previousSlide={this.previousSlide.bind(this)} />
-          <ul style={{margin: '0 2em'}}>
-            {li}
-          </ul>
-          <RightArrow nextSlide={this.nextSlide.bind(this)} />
-        </article>
-        <article className="songs">
-          <ul>
-            {songs}
-          </ul>
-        </article>
-      </section>
-  }
+        return (
+            <section id="albums">
+                <h2>Albums</h2>
+                <article className="list">
+                    <LeftArrow previousSlide={this.previousSlide.bind(this)} />
+                    <ul>{li}</ul>
+                    <RightArrow nextSlide={this.nextSlide.bind(this)} />
+                </article>
+                <article className="songs">
+                    <ul>{songs}</ul>
+                </article>
+            </section>
+        );
+    }
 }
 
 const mapStateToProps = store => {
-  return {
-    albums: store.albums,
-    albumsTracks: store.albumsTracks
-  };
+    return {
+        albums: store.albums,
+        albumsTracks: store.albumsTracks
+    };
 };
 
 export default connect(mapStateToProps)(ChooseAlbums);
