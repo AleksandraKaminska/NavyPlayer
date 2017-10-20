@@ -62,12 +62,6 @@ class ChooseAlbums extends React.Component {
                                        song={song}
                                        i={i}
                                        key={i} />);
-        if (this.state.current >= li.length) {
-            this.setState({
-                current: 0
-            })
-        }
-
         return (
             <section id="albums">
                 <h2>Albums</h2>

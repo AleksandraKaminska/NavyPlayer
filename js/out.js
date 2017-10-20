@@ -15838,12 +15838,6 @@ var ChooseAlbums = function (_React$Component) {
                     i: i,
                     key: i });
             });
-            if (this.state.current >= li.length) {
-                this.setState({
-                    current: 0
-                });
-            }
-
             return _react2.default.createElement(
                 'section',
                 { id: 'albums' },
