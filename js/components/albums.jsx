@@ -17,11 +17,12 @@ class Albums extends React.Component {
     render() {
         let i = this.props.i;
         let current = this.props.current;
-        
+
         let display = i <= current + 5 && i >= current;
         let style = {
             display: display ? 'inline-block' : 'none'
         };
+        console.log('!!!!!     ', i);
 
         return (
             <li style={style} onClick={this.showAlbumsTracks.bind(this)}>
