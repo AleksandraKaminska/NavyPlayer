@@ -15358,7 +15358,7 @@ var Albums = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var display = this.props.i <= this.props.current + 3 && this.props.i >= this.props.current;
+            var display = this.props.i <= this.props.current + 5 && this.props.i >= this.props.current;
             var style = {
                 display: display ? 'inline-block' : 'none'
             };
@@ -15849,13 +15849,13 @@ var ChooseAlbums = function (_React$Component) {
                 _react2.default.createElement(
                     'article',
                     { className: 'list' },
-                    _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }),
+                    this.props.albums.length > 5 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
                     _react2.default.createElement(
                         'ul',
                         null,
                         li
                     ),
-                    _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) })
+                    this.props.albums.length > 5 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
                 ),
                 _react2.default.createElement(
                     'article',

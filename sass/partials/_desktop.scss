@@ -149,20 +149,25 @@
           font-size: 1.4em;
         }
         .list {
-          width: 50%;
+          width: 70%;
           float: left;
           img {
-            width: 5em;
+            width: 7em;
             cursor: pointer;
           }
           p {
             font-size: 0.9em;
+            font-weight: bold;
             cursor: pointer;
+          }
+          .backArrow, .nextArrow {
+            cursor: pointer;
+            margin-top: 0.6em
           }
         }
         .songs {
           float: left;
-          width: 50%;
+          width: 30%;
           padding-left: 2vw;
           cursor: pointer;
         }

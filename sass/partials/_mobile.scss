@@ -161,16 +161,17 @@
       height: 100%;
       display: flex;
       li {
-        padding: 0 1vw;
+        padding: 0 5px;
       }
       img {
         width: 3em;
         height: auto;
       }
       p {
-        display: inline-block;
+        text-align: center;
+        display: block;
         vertical-align: top;
-        width: 110%;
+        width: 7em;
         font-size: 0.6em;
       }
       .backArrow, .nextArrow {

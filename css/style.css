@@ -168,14 +168,15 @@ body {
       height: 100%;
       display: flex; }
       .mainMiddle section#albums .list li {
-        padding: 0 1vw; }
+        padding: 0 5px; }
       .mainMiddle section#albums .list img {
         width: 3em;
         height: auto; }
       .mainMiddle section#albums .list p {
-        display: inline-block;
+        text-align: center;
+        display: block;
         vertical-align: top;
-        width: 110%;
+        width: 7em;
         font-size: 0.6em; }
       .mainMiddle section#albums .list .backArrow, .mainMiddle section#albums .list .nextArrow {
         font-size: 3em; }
@@ -512,17 +513,21 @@ footer {
         .\/ .mainMiddle section#albums h2, .\/artist .mainMiddle section#albums h2, .\/playlist .mainMiddle section#albums h2, .\/search .mainMiddle section#albums h2, .\/playlists .mainMiddle section#albums h2, .\/albums .mainMiddle section#albums h2, .\/similar .mainMiddle section#albums h2, div[class^='/&'] .mainMiddle section#albums h2, div[class^='/_'] .mainMiddle section#albums h2 {
           font-size: 1.4em; }
         .\/ .mainMiddle section#albums .list, .\/artist .mainMiddle section#albums .list, .\/playlist .mainMiddle section#albums .list, .\/search .mainMiddle section#albums .list, .\/playlists .mainMiddle section#albums .list, .\/albums .mainMiddle section#albums .list, .\/similar .mainMiddle section#albums .list, div[class^='/&'] .mainMiddle section#albums .list, div[class^='/_'] .mainMiddle section#albums .list {
-          width: 50%;
+          width: 70%;
           float: left; }
           .\/ .mainMiddle section#albums .list img, .\/artist .mainMiddle section#albums .list img, .\/playlist .mainMiddle section#albums .list img, .\/search .mainMiddle section#albums .list img, .\/playlists .mainMiddle section#albums .list img, .\/albums .mainMiddle section#albums .list img, .\/similar .mainMiddle section#albums .list img, div[class^='/&'] .mainMiddle section#albums .list img, div[class^='/_'] .mainMiddle section#albums .list img {
-            width: 5em;
+            width: 7em;
             cursor: pointer; }
           .\/ .mainMiddle section#albums .list p, .\/artist .mainMiddle section#albums .list p, .\/playlist .mainMiddle section#albums .list p, .\/search .mainMiddle section#albums .list p, .\/playlists .mainMiddle section#albums .list p, .\/albums .mainMiddle section#albums .list p, .\/similar .mainMiddle section#albums .list p, div[class^='/&'] .mainMiddle section#albums .list p, div[class^='/_'] .mainMiddle section#albums .list p {
             font-size: 0.9em;
+            font-weight: bold;
             cursor: pointer; }
+          .\/ .mainMiddle section#albums .list .backArrow, .\/ .mainMiddle section#albums .list .nextArrow, .\/artist .mainMiddle section#albums .list .backArrow, .\/artist .mainMiddle section#albums .list .nextArrow, .\/playlist .mainMiddle section#albums .list .backArrow, .\/playlist .mainMiddle section#albums .list .nextArrow, .\/search .mainMiddle section#albums .list .backArrow, .\/search .mainMiddle section#albums .list .nextArrow, .\/playlists .mainMiddle section#albums .list .backArrow, .\/playlists .mainMiddle section#albums .list .nextArrow, .\/albums .mainMiddle section#albums .list .backArrow, .\/albums .mainMiddle section#albums .list .nextArrow, .\/similar .mainMiddle section#albums .list .backArrow, .\/similar .mainMiddle section#albums .list .nextArrow, div[class^='/&'] .mainMiddle section#albums .list .backArrow, div[class^='/&'] .mainMiddle section#albums .list .nextArrow, div[class^='/_'] .mainMiddle section#albums .list .backArrow, div[class^='/_'] .mainMiddle section#albums .list .nextArrow {
+            cursor: pointer;
+            margin-top: 0.6em; }
         .\/ .mainMiddle section#albums .songs, .\/artist .mainMiddle section#albums .songs, .\/playlist .mainMiddle section#albums .songs, .\/search .mainMiddle section#albums .songs, .\/playlists .mainMiddle section#albums .songs, .\/albums .mainMiddle section#albums .songs, .\/similar .mainMiddle section#albums .songs, div[class^='/&'] .mainMiddle section#albums .songs, div[class^='/_'] .mainMiddle section#albums .songs {
           float: left;
-          width: 50%;
+          width: 30%;
           padding-left: 2vw;
           cursor: pointer; }
       .\/ .mainMiddle section#similar, .\/artist .mainMiddle section#similar, .\/playlist .mainMiddle section#similar, .\/search .mainMiddle section#similar, .\/playlists .mainMiddle section#similar, .\/albums .mainMiddle section#similar, .\/similar .mainMiddle section#similar, div[class^='/&'] .mainMiddle section#similar, div[class^='/_'] .mainMiddle section#similar {

@@ -66,9 +66,9 @@ class ChooseAlbums extends React.Component {
             <section id="albums">
                 <h2>Albums</h2>
                 <article className="list">
-                    <LeftArrow previousSlide={this.previousSlide.bind(this)} />
+                    {this.props.albums.length > 6 ? <LeftArrow previousSlide={this.previousSlide.bind(this)} /> : null}
                     <ul>{li}</ul>
-                    <RightArrow nextSlide={this.nextSlide.bind(this)} />
+                    {this.props.albums.length > 6 ? <RightArrow nextSlide={this.nextSlide.bind(this)} /> : null}
                 </article>
                 <article className="songs">
                     <ul>{songs}</ul>
