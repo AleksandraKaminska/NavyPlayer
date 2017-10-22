@@ -55,6 +55,7 @@ class ChooseAlbums extends React.Component {
                                     key={i}
                                     elem={elem}
                                     current={this.state.current}
+                                    length={this.props.albums.length}
                                     i={i} />);
 
         let songs = this.props.albumsTracks

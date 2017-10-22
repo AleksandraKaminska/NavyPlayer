@@ -15358,7 +15358,10 @@ var Albums = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var display = this.props.i <= this.props.current + 5 && this.props.i >= this.props.current;
+            var i = this.props.i;
+            var current = this.props.current;
+
+            var display = i <= current + 5 && i >= current;
             var style = {
                 display: display ? 'inline-block' : 'none'
             };
@@ -15829,6 +15832,7 @@ var ChooseAlbums = function (_React$Component) {
                     key: i,
                     elem: elem,
                     current: _this2.state.current,
+                    length: _this2.props.albums.length,
                     i: i });
             });
 
