@@ -15366,7 +15366,7 @@ var Albums = function (_React$Component) {
             return _react2.default.createElement(
                 'li',
                 { style: style, onClick: this.showAlbumsTracks.bind(this) },
-                _react2.default.createElement('img', { src: this.props.elem.cover_small.replace(/56x56/, '100x100'), alt: 'albums cover' }),
+                _react2.default.createElement('img', { src: this.props.elem.cover_medium.replace(/250x250/, '150x150'), alt: '' }),
                 _react2.default.createElement(
                     'p',
                     null,
@@ -15849,13 +15849,13 @@ var ChooseAlbums = function (_React$Component) {
                 _react2.default.createElement(
                     'article',
                     { className: 'list' },
-                    this.props.albums.length > 5 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
+                    this.props.albums.length > 6 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
                     _react2.default.createElement(
                         'ul',
                         null,
                         li
                     ),
-                    this.props.albums.length > 5 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
+                    this.props.albums.length > 6 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
                 ),
                 _react2.default.createElement(
                     'article',

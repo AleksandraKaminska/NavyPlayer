@@ -22,7 +22,7 @@ class Albums extends React.Component {
 
         return (
             <li style={style} onClick={this.showAlbumsTracks.bind(this)}>
-                <img src={this.props.elem.cover_small.replace(/56x56/, '100x100')} alt='albums cover'/>
+                <img src={this.props.elem.cover_medium.replace(/250x250/, '150x150')} alt=''/>
                 <p>{this.props.elem.title}</p>
             </li>
         );
