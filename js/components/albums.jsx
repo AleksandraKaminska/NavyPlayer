@@ -22,7 +22,6 @@ class Albums extends React.Component {
         let style = {
             display: display ? 'inline-block' : 'none'
         };
-        console.log('!!!!!     ', i);
 
         return (
             <li style={style} onClick={this.showAlbumsTracks.bind(this)}>

@@ -42,8 +42,12 @@ class AlbumsTracks extends React.Component {
             url :`https://api.deezer.com/track/${this.props.song.id}?output=jsonp`,
             success : response => {
                 store.dispatch(prevTrackAction(this.props.track));
-                store.dispatch(changeTrackAction(response))
+                store.dispatch(changeTrackAction(response));
                 DZ.player.pause();
+                this.searchArtist();
+                this.searchAlbums();
+                this.searchTopTracks();
+                this.searchSimilarArtists();
                 DZ.player.playTracks([this.props.track.id]);
             }
         });
