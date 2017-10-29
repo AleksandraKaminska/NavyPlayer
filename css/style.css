@@ -391,16 +391,19 @@ footer {
     .NavyPlayer section#login {
       display: block; }
 
-  .\/ a#main_nav, .\/playlists a#main_nav {
+  .\/ a#main_nav,
+  .\/playlists a#main_nav {
     border-bottom: 3px solid white; }
-  .\/ a:not(#main_nav)::after, .\/playlists a:not(#main_nav)::after {
+  .\/ a:not(#main_nav)::after,
+  .\/playlists a:not(#main_nav)::after {
     content: '';
     display: block;
     height: 3px;
     width: 0;
     background: transparent;
     transition: width 0.7s ease, background-color 1s ease; }
-  .\/ a:not(#main_nav):hover::after, .\/playlists a:not(#main_nav):hover::after {
+  .\/ a:not(#main_nav):hover::after,
+  .\/playlists a:not(#main_nav):hover::after {
     width: 100%;
     background: white; }
 
@@ -430,168 +433,601 @@ footer {
     width: 100%;
     background: white; }
 
-  .\/, .\/artist, .\/playlist, .\/search, .\/playlists, .\/albums, .\/similar, div[class^='/&'], div[class^='/_'] {
+  .\/,
+  .\/albums,
+  .\/artist,
+  .\/playlist,
+  .\/playlists,
+  .\/search,
+  .\/similar,
+  div[class^='/ &'],
+  div[class^='/_'] {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center; }
-    .\/ nav, .\/artist nav, .\/playlist nav, .\/search nav, .\/playlists nav, .\/albums nav, .\/similar nav, div[class^='/&'] nav, div[class^='/_'] nav {
+    .\/ nav,
+    .\/albums nav,
+    .\/artist nav,
+    .\/playlist nav,
+    .\/playlists nav,
+    .\/search nav,
+    .\/similar nav,
+    div[class^='/ &'] nav,
+    div[class^='/_'] nav {
       text-transform: uppercase;
       position: absolute;
       top: 2.5vh;
-      left: 0.5vw; }
-      .\/ nav a, .\/artist nav a, .\/playlist nav a, .\/search nav a, .\/playlists nav a, .\/albums nav a, .\/similar nav a, div[class^='/&'] nav a, div[class^='/_'] nav a {
-        margin: 0.6vh 1.5vw;
+      left: .5vw; }
+      .\/ nav a,
+      .\/albums nav a,
+      .\/artist nav a,
+      .\/playlist nav a,
+      .\/playlists nav a,
+      .\/search nav a,
+      .\/similar nav a,
+      div[class^='/ &'] nav a,
+      div[class^='/_'] nav a {
+        margin: .6vh 1.5vw;
         display: inline-block; }
-    .\/ #search, .\/artist #search, .\/playlist #search, .\/search #search, .\/playlists #search, .\/albums #search, .\/similar #search, div[class^='/&'] #search, div[class^='/_'] #search {
+    .\/ #search,
+    .\/albums #search,
+    .\/artist #search,
+    .\/playlist #search,
+    .\/playlists #search,
+    .\/search #search,
+    .\/similar #search,
+    div[class^='/ &'] #search,
+    div[class^='/_'] #search {
       display: block;
       height: 15vh;
       max-width: 30vw; }
-      .\/ #search div:first-child, .\/artist #search div:first-child, .\/playlist #search div:first-child, .\/search #search div:first-child, .\/playlists #search div:first-child, .\/albums #search div:first-child, .\/similar #search div:first-child, div[class^='/&'] #search div:first-child, div[class^='/_'] #search div:first-child {
+      .\/ #search div:first-child,
+      .\/albums #search div:first-child,
+      .\/artist #search div:first-child,
+      .\/playlist #search div:first-child,
+      .\/playlists #search div:first-child,
+      .\/search #search div:first-child,
+      .\/similar #search div:first-child,
+      div[class^='/ &'] #search div:first-child,
+      div[class^='/_'] #search div:first-child {
         width: 25vw;
         height: 4.5vh;
         margin-top: 1em; }
-        .\/ #search div:first-child input, .\/artist #search div:first-child input, .\/playlist #search div:first-child input, .\/search #search div:first-child input, .\/playlists #search div:first-child input, .\/albums #search div:first-child input, .\/similar #search div:first-child input, div[class^='/&'] #search div:first-child input, div[class^='/_'] #search div:first-child input {
+        .\/ #search div:first-child input,
+        .\/albums #search div:first-child input,
+        .\/artist #search div:first-child input,
+        .\/playlist #search div:first-child input,
+        .\/playlists #search div:first-child input,
+        .\/search #search div:first-child input,
+        .\/similar #search div:first-child input,
+        div[class^='/ &'] #search div:first-child input,
+        div[class^='/_'] #search div:first-child input {
           width: 30vw;
-          font-size: 0.8em;
+          font-size: .8em;
           border-radius: 1em; }
-        .\/ #search div:first-child div, .\/artist #search div:first-child div, .\/playlist #search div:first-child div, .\/search #search div:first-child div, .\/playlists #search div:first-child div, .\/albums #search div:first-child div, .\/similar #search div:first-child div, div[class^='/&'] #search div:first-child div, div[class^='/_'] #search div:first-child div {
+        .\/ #search div:first-child div,
+        .\/albums #search div:first-child div,
+        .\/artist #search div:first-child div,
+        .\/playlist #search div:first-child div,
+        .\/playlists #search div:first-child div,
+        .\/search #search div:first-child div,
+        .\/similar #search div:first-child div,
+        div[class^='/ &'] #search div:first-child div,
+        div[class^='/_'] #search div:first-child div {
           z-index: 3; }
-      .\/ #search .placeholder, .\/artist #search .placeholder, .\/playlist #search .placeholder, .\/search #search .placeholder, .\/playlists #search .placeholder, .\/albums #search .placeholder, .\/similar #search .placeholder, div[class^='/&'] #search .placeholder, div[class^='/_'] #search .placeholder {
+      .\/ #search .placeholder,
+      .\/albums #search .placeholder,
+      .\/artist #search .placeholder,
+      .\/playlist #search .placeholder,
+      .\/playlists #search .placeholder,
+      .\/search #search .placeholder,
+      .\/similar #search .placeholder,
+      div[class^='/ &'] #search .placeholder,
+      div[class^='/_'] #search .placeholder {
         display: none; }
-    .\/ #title, .\/artist #title, .\/playlist #title, .\/search #title, .\/playlists #title, .\/albums #title, .\/similar #title, div[class^='/&'] #title, div[class^='/_'] #title {
+    .\/ #title,
+    .\/albums #title,
+    .\/artist #title,
+    .\/playlist #title,
+    .\/playlists #title,
+    .\/search #title,
+    .\/similar #title,
+    div[class^='/ &'] #title,
+    div[class^='/_'] #title {
       position: static;
       display: block; }
-      .\/ #title h1, .\/artist #title h1, .\/playlist #title h1, .\/search #title h1, .\/playlists #title h1, .\/albums #title h1, .\/similar #title h1, div[class^='/&'] #title h1, div[class^='/_'] #title h1 {
+      .\/ #title h1,
+      .\/albums #title h1,
+      .\/artist #title h1,
+      .\/playlist #title h1,
+      .\/playlists #title h1,
+      .\/search #title h1,
+      .\/similar #title h1,
+      div[class^='/ &'] #title h1,
+      div[class^='/_'] #title h1 {
         font-size: 1.5em; }
-    .\/ .mainMiddle, .\/artist .mainMiddle, .\/playlist .mainMiddle, .\/search .mainMiddle, .\/playlists .mainMiddle, .\/albums .mainMiddle, .\/similar .mainMiddle, div[class^='/&'] .mainMiddle, div[class^='/_'] .mainMiddle {
+    .\/ .mainMiddle,
+    .\/albums .mainMiddle,
+    .\/artist .mainMiddle,
+    .\/playlist .mainMiddle,
+    .\/playlists .mainMiddle,
+    .\/search .mainMiddle,
+    .\/similar .mainMiddle,
+    div[class^='/ &'] .mainMiddle,
+    div[class^='/_'] .mainMiddle {
       display: flex;
       height: 63vh;
-      padding: 3vh 0 0 0; }
-      .\/ .mainMiddle #playlists, .\/artist .mainMiddle #playlists, .\/playlist .mainMiddle #playlists, .\/search .mainMiddle #playlists, .\/playlists .mainMiddle #playlists, .\/albums .mainMiddle #playlists, .\/similar .mainMiddle #playlists, div[class^='/&'] .mainMiddle #playlists, div[class^='/_'] .mainMiddle #playlists {
+      padding: 3vh 0 0; }
+      .\/ .mainMiddle #playlists,
+      .\/albums .mainMiddle #playlists,
+      .\/artist .mainMiddle #playlists,
+      .\/playlist .mainMiddle #playlists,
+      .\/playlists .mainMiddle #playlists,
+      .\/search .mainMiddle #playlists,
+      .\/similar .mainMiddle #playlists,
+      div[class^='/ &'] .mainMiddle #playlists,
+      div[class^='/_'] .mainMiddle #playlists {
         display: block;
         width: calc((100% - 400px) / 2);
         padding-left: 2%; }
-        .\/ .mainMiddle #playlists div, .\/artist .mainMiddle #playlists div, .\/playlist .mainMiddle #playlists div, .\/search .mainMiddle #playlists div, .\/playlists .mainMiddle #playlists div, .\/albums .mainMiddle #playlists div, .\/similar .mainMiddle #playlists div, div[class^='/&'] .mainMiddle #playlists div, div[class^='/_'] .mainMiddle #playlists div {
+        .\/ .mainMiddle #playlists div,
+        .\/albums .mainMiddle #playlists div,
+        .\/artist .mainMiddle #playlists div,
+        .\/playlist .mainMiddle #playlists div,
+        .\/playlists .mainMiddle #playlists div,
+        .\/search .mainMiddle #playlists div,
+        .\/similar .mainMiddle #playlists div,
+        div[class^='/ &'] .mainMiddle #playlists div,
+        div[class^='/_'] .mainMiddle #playlists div {
           max-height: 380px; }
-          .\/ .mainMiddle #playlists div div, .\/artist .mainMiddle #playlists div div, .\/playlist .mainMiddle #playlists div div, .\/search .mainMiddle #playlists div div, .\/playlists .mainMiddle #playlists div div, .\/albums .mainMiddle #playlists div div, .\/similar .mainMiddle #playlists div div, div[class^='/&'] .mainMiddle #playlists div div, div[class^='/_'] .mainMiddle #playlists div div {
+          .\/ .mainMiddle #playlists div div,
+          .\/albums .mainMiddle #playlists div div,
+          .\/artist .mainMiddle #playlists div div,
+          .\/playlist .mainMiddle #playlists div div,
+          .\/playlists .mainMiddle #playlists div div,
+          .\/search .mainMiddle #playlists div div,
+          .\/similar .mainMiddle #playlists div div,
+          div[class^='/ &'] .mainMiddle #playlists div div,
+          div[class^='/_'] .mainMiddle #playlists div div {
             cursor: pointer;
-            margin: 0 0 2vh 0; }
-            .\/ .mainMiddle #playlists div div img, .\/artist .mainMiddle #playlists div div img, .\/playlist .mainMiddle #playlists div div img, .\/search .mainMiddle #playlists div div img, .\/playlists .mainMiddle #playlists div div img, .\/albums .mainMiddle #playlists div div img, .\/similar .mainMiddle #playlists div div img, div[class^='/&'] .mainMiddle #playlists div div img, div[class^='/_'] .mainMiddle #playlists div div img {
+            margin: 0 0 2vh; }
+            .\/ .mainMiddle #playlists div div img,
+            .\/albums .mainMiddle #playlists div div img,
+            .\/artist .mainMiddle #playlists div div img,
+            .\/playlist .mainMiddle #playlists div div img,
+            .\/playlists .mainMiddle #playlists div div img,
+            .\/search .mainMiddle #playlists div div img,
+            .\/similar .mainMiddle #playlists div div img,
+            div[class^='/ &'] .mainMiddle #playlists div div img,
+            div[class^='/_'] .mainMiddle #playlists div div img {
               width: 4em; }
-      .\/ .mainMiddle section#cover, .\/artist .mainMiddle section#cover, .\/playlist .mainMiddle section#cover, .\/search .mainMiddle section#cover, .\/playlists .mainMiddle section#cover, .\/albums .mainMiddle section#cover, .\/similar .mainMiddle section#cover, div[class^='/&'] .mainMiddle section#cover, div[class^='/_'] .mainMiddle section#cover {
+      .\/ .mainMiddle section#cover,
+      .\/albums .mainMiddle section#cover,
+      .\/artist .mainMiddle section#cover,
+      .\/playlist .mainMiddle section#cover,
+      .\/playlists .mainMiddle section#cover,
+      .\/search .mainMiddle section#cover,
+      .\/similar .mainMiddle section#cover,
+      div[class^='/ &'] .mainMiddle section#cover,
+      div[class^='/_'] .mainMiddle section#cover {
         display: block; }
-        .\/ .mainMiddle section#cover .cover, .\/artist .mainMiddle section#cover .cover, .\/playlist .mainMiddle section#cover .cover, .\/search .mainMiddle section#cover .cover, .\/playlists .mainMiddle section#cover .cover, .\/albums .mainMiddle section#cover .cover, .\/similar .mainMiddle section#cover .cover, div[class^='/&'] .mainMiddle section#cover .cover, div[class^='/_'] .mainMiddle section#cover .cover {
+        .\/ .mainMiddle section#cover .cover,
+        .\/albums .mainMiddle section#cover .cover,
+        .\/artist .mainMiddle section#cover .cover,
+        .\/playlist .mainMiddle section#cover .cover,
+        .\/playlists .mainMiddle section#cover .cover,
+        .\/search .mainMiddle section#cover .cover,
+        .\/similar .mainMiddle section#cover .cover,
+        div[class^='/ &'] .mainMiddle section#cover .cover,
+        div[class^='/_'] .mainMiddle section#cover .cover {
           position: static;
           height: 400px;
           width: 400px;
           margin: 0;
           background-size: cover;
           background-position: center; }
-      .\/ .mainMiddle #artist, .\/artist .mainMiddle #artist, .\/playlist .mainMiddle #artist, .\/search .mainMiddle #artist, .\/playlists .mainMiddle #artist, .\/albums .mainMiddle #artist, .\/similar .mainMiddle #artist, div[class^='/&'] .mainMiddle #artist, div[class^='/_'] .mainMiddle #artist {
+      .\/ .mainMiddle #artist,
+      .\/albums .mainMiddle #artist,
+      .\/artist .mainMiddle #artist,
+      .\/playlist .mainMiddle #artist,
+      .\/playlists .mainMiddle #artist,
+      .\/search .mainMiddle #artist,
+      .\/similar .mainMiddle #artist,
+      div[class^='/ &'] .mainMiddle #artist,
+      div[class^='/_'] .mainMiddle #artist {
         width: calc((100% - 400px) / 2);
         display: flex;
         flex-wrap: wrap; }
-        .\/ .mainMiddle #artist .info, .\/artist .mainMiddle #artist .info, .\/playlist .mainMiddle #artist .info, .\/search .mainMiddle #artist .info, .\/playlists .mainMiddle #artist .info, .\/albums .mainMiddle #artist .info, .\/similar .mainMiddle #artist .info, div[class^='/&'] .mainMiddle #artist .info, div[class^='/_'] .mainMiddle #artist .info {
+        .\/ .mainMiddle #artist .info,
+        .\/albums .mainMiddle #artist .info,
+        .\/artist .mainMiddle #artist .info,
+        .\/playlist .mainMiddle #artist .info,
+        .\/playlists .mainMiddle #artist .info,
+        .\/search .mainMiddle #artist .info,
+        .\/similar .mainMiddle #artist .info,
+        div[class^='/ &'] .mainMiddle #artist .info,
+        div[class^='/_'] .mainMiddle #artist .info {
           height: auto; }
-          .\/ .mainMiddle #artist .info p, .\/artist .mainMiddle #artist .info p, .\/playlist .mainMiddle #artist .info p, .\/search .mainMiddle #artist .info p, .\/playlists .mainMiddle #artist .info p, .\/albums .mainMiddle #artist .info p, .\/similar .mainMiddle #artist .info p, div[class^='/&'] .mainMiddle #artist .info p, div[class^='/_'] .mainMiddle #artist .info p {
+          .\/ .mainMiddle #artist .info p,
+          .\/albums .mainMiddle #artist .info p,
+          .\/artist .mainMiddle #artist .info p,
+          .\/playlist .mainMiddle #artist .info p,
+          .\/playlists .mainMiddle #artist .info p,
+          .\/search .mainMiddle #artist .info p,
+          .\/similar .mainMiddle #artist .info p,
+          div[class^='/ &'] .mainMiddle #artist .info p,
+          div[class^='/_'] .mainMiddle #artist .info p {
             font-size: 1.3em; }
-        .\/ .mainMiddle #artist #topTracks, .\/artist .mainMiddle #artist #topTracks, .\/playlist .mainMiddle #artist #topTracks, .\/search .mainMiddle #artist #topTracks, .\/playlists .mainMiddle #artist #topTracks, .\/albums .mainMiddle #artist #topTracks, .\/similar .mainMiddle #artist #topTracks, div[class^='/&'] .mainMiddle #artist #topTracks, div[class^='/_'] .mainMiddle #artist #topTracks {
+        .\/ .mainMiddle #artist #topTracks,
+        .\/albums .mainMiddle #artist #topTracks,
+        .\/artist .mainMiddle #artist #topTracks,
+        .\/playlist .mainMiddle #artist #topTracks,
+        .\/playlists .mainMiddle #artist #topTracks,
+        .\/search .mainMiddle #artist #topTracks,
+        .\/similar .mainMiddle #artist #topTracks,
+        div[class^='/ &'] .mainMiddle #artist #topTracks,
+        div[class^='/_'] .mainMiddle #artist #topTracks {
           margin: auto;
           width: 100%; }
-          .\/ .mainMiddle #artist #topTracks .topTracks, .\/artist .mainMiddle #artist #topTracks .topTracks, .\/playlist .mainMiddle #artist #topTracks .topTracks, .\/search .mainMiddle #artist #topTracks .topTracks, .\/playlists .mainMiddle #artist #topTracks .topTracks, .\/albums .mainMiddle #artist #topTracks .topTracks, .\/similar .mainMiddle #artist #topTracks .topTracks, div[class^='/&'] .mainMiddle #artist #topTracks .topTracks, div[class^='/_'] .mainMiddle #artist #topTracks .topTracks {
+          .\/ .mainMiddle #artist #topTracks .topTracks,
+          .\/albums .mainMiddle #artist #topTracks .topTracks,
+          .\/artist .mainMiddle #artist #topTracks .topTracks,
+          .\/playlist .mainMiddle #artist #topTracks .topTracks,
+          .\/playlists .mainMiddle #artist #topTracks .topTracks,
+          .\/search .mainMiddle #artist #topTracks .topTracks,
+          .\/similar .mainMiddle #artist #topTracks .topTracks,
+          div[class^='/ &'] .mainMiddle #artist #topTracks .topTracks,
+          div[class^='/_'] .mainMiddle #artist #topTracks .topTracks {
             margin-top: 4vh;
             font-size: 1.15em;
             cursor: pointer; }
-            .\/ .mainMiddle #artist #topTracks .topTracks h2, .\/artist .mainMiddle #artist #topTracks .topTracks h2, .\/playlist .mainMiddle #artist #topTracks .topTracks h2, .\/search .mainMiddle #artist #topTracks .topTracks h2, .\/playlists .mainMiddle #artist #topTracks .topTracks h2, .\/albums .mainMiddle #artist #topTracks .topTracks h2, .\/similar .mainMiddle #artist #topTracks .topTracks h2, div[class^='/&'] .mainMiddle #artist #topTracks .topTracks h2, div[class^='/_'] .mainMiddle #artist #topTracks .topTracks h2 {
+            .\/ .mainMiddle #artist #topTracks .topTracks h2,
+            .\/albums .mainMiddle #artist #topTracks .topTracks h2,
+            .\/artist .mainMiddle #artist #topTracks .topTracks h2,
+            .\/playlist .mainMiddle #artist #topTracks .topTracks h2,
+            .\/playlists .mainMiddle #artist #topTracks .topTracks h2,
+            .\/search .mainMiddle #artist #topTracks .topTracks h2,
+            .\/similar .mainMiddle #artist #topTracks .topTracks h2,
+            div[class^='/ &'] .mainMiddle #artist #topTracks .topTracks h2,
+            div[class^='/_'] .mainMiddle #artist #topTracks .topTracks h2 {
               font-size: 1.15em; }
-            .\/ .mainMiddle #artist #topTracks .topTracks ul, .\/artist .mainMiddle #artist #topTracks .topTracks ul, .\/playlist .mainMiddle #artist #topTracks .topTracks ul, .\/search .mainMiddle #artist #topTracks .topTracks ul, .\/playlists .mainMiddle #artist #topTracks .topTracks ul, .\/albums .mainMiddle #artist #topTracks .topTracks ul, .\/similar .mainMiddle #artist #topTracks .topTracks ul, div[class^='/&'] .mainMiddle #artist #topTracks .topTracks ul, div[class^='/_'] .mainMiddle #artist #topTracks .topTracks ul {
+            .\/ .mainMiddle #artist #topTracks .topTracks ul,
+            .\/albums .mainMiddle #artist #topTracks .topTracks ul,
+            .\/artist .mainMiddle #artist #topTracks .topTracks ul,
+            .\/playlist .mainMiddle #artist #topTracks .topTracks ul,
+            .\/playlists .mainMiddle #artist #topTracks .topTracks ul,
+            .\/search .mainMiddle #artist #topTracks .topTracks ul,
+            .\/similar .mainMiddle #artist #topTracks .topTracks ul,
+            div[class^='/ &'] .mainMiddle #artist #topTracks .topTracks ul,
+            div[class^='/_'] .mainMiddle #artist #topTracks .topTracks ul {
               line-height: 6vh; }
-      .\/ .mainMiddle section#albums, .\/artist .mainMiddle section#albums, .\/playlist .mainMiddle section#albums, .\/search .mainMiddle section#albums, .\/playlists .mainMiddle section#albums, .\/albums .mainMiddle section#albums, .\/similar .mainMiddle section#albums, div[class^='/&'] .mainMiddle section#albums, div[class^='/_'] .mainMiddle section#albums {
+      .\/ .mainMiddle section#albums,
+      .\/albums .mainMiddle section#albums,
+      .\/artist .mainMiddle section#albums,
+      .\/playlist .mainMiddle section#albums,
+      .\/playlists .mainMiddle section#albums,
+      .\/search .mainMiddle section#albums,
+      .\/similar .mainMiddle section#albums,
+      div[class^='/ &'] .mainMiddle section#albums,
+      div[class^='/_'] .mainMiddle section#albums {
         display: block;
         margin-top: 8vh; }
-        .\/ .mainMiddle section#albums h2, .\/artist .mainMiddle section#albums h2, .\/playlist .mainMiddle section#albums h2, .\/search .mainMiddle section#albums h2, .\/playlists .mainMiddle section#albums h2, .\/albums .mainMiddle section#albums h2, .\/similar .mainMiddle section#albums h2, div[class^='/&'] .mainMiddle section#albums h2, div[class^='/_'] .mainMiddle section#albums h2 {
+        .\/ .mainMiddle section#albums h2,
+        .\/albums .mainMiddle section#albums h2,
+        .\/artist .mainMiddle section#albums h2,
+        .\/playlist .mainMiddle section#albums h2,
+        .\/playlists .mainMiddle section#albums h2,
+        .\/search .mainMiddle section#albums h2,
+        .\/similar .mainMiddle section#albums h2,
+        div[class^='/ &'] .mainMiddle section#albums h2,
+        div[class^='/_'] .mainMiddle section#albums h2 {
           font-size: 1.4em; }
-        .\/ .mainMiddle section#albums .list, .\/artist .mainMiddle section#albums .list, .\/playlist .mainMiddle section#albums .list, .\/search .mainMiddle section#albums .list, .\/playlists .mainMiddle section#albums .list, .\/albums .mainMiddle section#albums .list, .\/similar .mainMiddle section#albums .list, div[class^='/&'] .mainMiddle section#albums .list, div[class^='/_'] .mainMiddle section#albums .list {
-          width: 70%;
-          float: left; }
-          .\/ .mainMiddle section#albums .list img, .\/artist .mainMiddle section#albums .list img, .\/playlist .mainMiddle section#albums .list img, .\/search .mainMiddle section#albums .list img, .\/playlists .mainMiddle section#albums .list img, .\/albums .mainMiddle section#albums .list img, .\/similar .mainMiddle section#albums .list img, div[class^='/&'] .mainMiddle section#albums .list img, div[class^='/_'] .mainMiddle section#albums .list img {
+        .\/ .mainMiddle section#albums .list,
+        .\/albums .mainMiddle section#albums .list,
+        .\/artist .mainMiddle section#albums .list,
+        .\/playlist .mainMiddle section#albums .list,
+        .\/playlists .mainMiddle section#albums .list,
+        .\/search .mainMiddle section#albums .list,
+        .\/similar .mainMiddle section#albums .list,
+        div[class^='/ &'] .mainMiddle section#albums .list,
+        div[class^='/_'] .mainMiddle section#albums .list {
+          width: 100%;
+          float: left; } }
+        @media (min-width: 870px) and (min-width: 1200px) {
+          .\/ .mainMiddle section#albums .list,
+          .\/albums .mainMiddle section#albums .list,
+          .\/artist .mainMiddle section#albums .list,
+          .\/playlist .mainMiddle section#albums .list,
+          .\/playlists .mainMiddle section#albums .list,
+          .\/search .mainMiddle section#albums .list,
+          .\/similar .mainMiddle section#albums .list,
+          div[class^='/ &'] .mainMiddle section#albums .list,
+          div[class^='/_'] .mainMiddle section#albums .list {
+            width: 70%; } }
+@media (min-width: 870px) {
+          .\/ .mainMiddle section#albums .list img,
+          .\/albums .mainMiddle section#albums .list img,
+          .\/artist .mainMiddle section#albums .list img,
+          .\/playlist .mainMiddle section#albums .list img,
+          .\/playlists .mainMiddle section#albums .list img,
+          .\/search .mainMiddle section#albums .list img,
+          .\/similar .mainMiddle section#albums .list img,
+          div[class^='/ &'] .mainMiddle section#albums .list img,
+          div[class^='/_'] .mainMiddle section#albums .list img {
             width: 7em;
             cursor: pointer; }
-          .\/ .mainMiddle section#albums .list p, .\/artist .mainMiddle section#albums .list p, .\/playlist .mainMiddle section#albums .list p, .\/search .mainMiddle section#albums .list p, .\/playlists .mainMiddle section#albums .list p, .\/albums .mainMiddle section#albums .list p, .\/similar .mainMiddle section#albums .list p, div[class^='/&'] .mainMiddle section#albums .list p, div[class^='/_'] .mainMiddle section#albums .list p {
-            font-size: 0.9em;
+          .\/ .mainMiddle section#albums .list p,
+          .\/albums .mainMiddle section#albums .list p,
+          .\/artist .mainMiddle section#albums .list p,
+          .\/playlist .mainMiddle section#albums .list p,
+          .\/playlists .mainMiddle section#albums .list p,
+          .\/search .mainMiddle section#albums .list p,
+          .\/similar .mainMiddle section#albums .list p,
+          div[class^='/ &'] .mainMiddle section#albums .list p,
+          div[class^='/_'] .mainMiddle section#albums .list p {
+            font-size: .9em;
             font-weight: bold;
             cursor: pointer; }
-          .\/ .mainMiddle section#albums .list .backArrow, .\/ .mainMiddle section#albums .list .nextArrow, .\/artist .mainMiddle section#albums .list .backArrow, .\/artist .mainMiddle section#albums .list .nextArrow, .\/playlist .mainMiddle section#albums .list .backArrow, .\/playlist .mainMiddle section#albums .list .nextArrow, .\/search .mainMiddle section#albums .list .backArrow, .\/search .mainMiddle section#albums .list .nextArrow, .\/playlists .mainMiddle section#albums .list .backArrow, .\/playlists .mainMiddle section#albums .list .nextArrow, .\/albums .mainMiddle section#albums .list .backArrow, .\/albums .mainMiddle section#albums .list .nextArrow, .\/similar .mainMiddle section#albums .list .backArrow, .\/similar .mainMiddle section#albums .list .nextArrow, div[class^='/&'] .mainMiddle section#albums .list .backArrow, div[class^='/&'] .mainMiddle section#albums .list .nextArrow, div[class^='/_'] .mainMiddle section#albums .list .backArrow, div[class^='/_'] .mainMiddle section#albums .list .nextArrow {
+          .\/ .mainMiddle section#albums .list .backArrow,
+          .\/ .mainMiddle section#albums .list .nextArrow,
+          .\/albums .mainMiddle section#albums .list .backArrow,
+          .\/albums .mainMiddle section#albums .list .nextArrow,
+          .\/artist .mainMiddle section#albums .list .backArrow,
+          .\/artist .mainMiddle section#albums .list .nextArrow,
+          .\/playlist .mainMiddle section#albums .list .backArrow,
+          .\/playlist .mainMiddle section#albums .list .nextArrow,
+          .\/playlists .mainMiddle section#albums .list .backArrow,
+          .\/playlists .mainMiddle section#albums .list .nextArrow,
+          .\/search .mainMiddle section#albums .list .backArrow,
+          .\/search .mainMiddle section#albums .list .nextArrow,
+          .\/similar .mainMiddle section#albums .list .backArrow,
+          .\/similar .mainMiddle section#albums .list .nextArrow,
+          div[class^='/ &'] .mainMiddle section#albums .list .backArrow,
+          div[class^='/ &'] .mainMiddle section#albums .list .nextArrow,
+          div[class^='/_'] .mainMiddle section#albums .list .backArrow,
+          div[class^='/_'] .mainMiddle section#albums .list .nextArrow {
             cursor: pointer;
-            margin-top: 0.6em; }
-        .\/ .mainMiddle section#albums .songs, .\/artist .mainMiddle section#albums .songs, .\/playlist .mainMiddle section#albums .songs, .\/search .mainMiddle section#albums .songs, .\/playlists .mainMiddle section#albums .songs, .\/albums .mainMiddle section#albums .songs, .\/similar .mainMiddle section#albums .songs, div[class^='/&'] .mainMiddle section#albums .songs, div[class^='/_'] .mainMiddle section#albums .songs {
+            margin-top: .6em; }
+        .\/ .mainMiddle section#albums .songs,
+        .\/albums .mainMiddle section#albums .songs,
+        .\/artist .mainMiddle section#albums .songs,
+        .\/playlist .mainMiddle section#albums .songs,
+        .\/playlists .mainMiddle section#albums .songs,
+        .\/search .mainMiddle section#albums .songs,
+        .\/similar .mainMiddle section#albums .songs,
+        div[class^='/ &'] .mainMiddle section#albums .songs,
+        div[class^='/_'] .mainMiddle section#albums .songs {
           float: left;
-          width: 30%;
+          width: 100%;
           padding-left: 2vw;
-          cursor: pointer; }
-      .\/ .mainMiddle section#similar, .\/artist .mainMiddle section#similar, .\/playlist .mainMiddle section#similar, .\/search .mainMiddle section#similar, .\/playlists .mainMiddle section#similar, .\/albums .mainMiddle section#similar, .\/similar .mainMiddle section#similar, div[class^='/&'] .mainMiddle section#similar, div[class^='/_'] .mainMiddle section#similar {
+          cursor: pointer; } }
+        @media (min-width: 870px) and (min-width: 1200px) {
+          .\/ .mainMiddle section#albums .songs,
+          .\/albums .mainMiddle section#albums .songs,
+          .\/artist .mainMiddle section#albums .songs,
+          .\/playlist .mainMiddle section#albums .songs,
+          .\/playlists .mainMiddle section#albums .songs,
+          .\/search .mainMiddle section#albums .songs,
+          .\/similar .mainMiddle section#albums .songs,
+          div[class^='/ &'] .mainMiddle section#albums .songs,
+          div[class^='/_'] .mainMiddle section#albums .songs {
+            width: 30%; } }
+@media (min-width: 870px) {
+      .\/ .mainMiddle section#similar,
+      .\/albums .mainMiddle section#similar,
+      .\/artist .mainMiddle section#similar,
+      .\/playlist .mainMiddle section#similar,
+      .\/playlists .mainMiddle section#similar,
+      .\/search .mainMiddle section#similar,
+      .\/similar .mainMiddle section#similar,
+      div[class^='/ &'] .mainMiddle section#similar,
+      div[class^='/_'] .mainMiddle section#similar {
         display: block;
-        margin: 8vh 10vh 0 10vh;
+        margin: 8vh 10vh 0;
         padding: 5vh auto; }
-        .\/ .mainMiddle section#similar h2, .\/artist .mainMiddle section#similar h2, .\/playlist .mainMiddle section#similar h2, .\/search .mainMiddle section#similar h2, .\/playlists .mainMiddle section#similar h2, .\/albums .mainMiddle section#similar h2, .\/similar .mainMiddle section#similar h2, div[class^='/&'] .mainMiddle section#similar h2, div[class^='/_'] .mainMiddle section#similar h2 {
+        .\/ .mainMiddle section#similar h2,
+        .\/albums .mainMiddle section#similar h2,
+        .\/artist .mainMiddle section#similar h2,
+        .\/playlist .mainMiddle section#similar h2,
+        .\/playlists .mainMiddle section#similar h2,
+        .\/search .mainMiddle section#similar h2,
+        .\/similar .mainMiddle section#similar h2,
+        div[class^='/ &'] .mainMiddle section#similar h2,
+        div[class^='/_'] .mainMiddle section#similar h2 {
           font-size: 1.4em; }
-        .\/ .mainMiddle section#similar img, .\/artist .mainMiddle section#similar img, .\/playlist .mainMiddle section#similar img, .\/search .mainMiddle section#similar img, .\/playlists .mainMiddle section#similar img, .\/albums .mainMiddle section#similar img, .\/similar .mainMiddle section#similar img, div[class^='/&'] .mainMiddle section#similar img, div[class^='/_'] .mainMiddle section#similar img {
+        .\/ .mainMiddle section#similar img,
+        .\/albums .mainMiddle section#similar img,
+        .\/artist .mainMiddle section#similar img,
+        .\/playlist .mainMiddle section#similar img,
+        .\/playlists .mainMiddle section#similar img,
+        .\/search .mainMiddle section#similar img,
+        .\/similar .mainMiddle section#similar img,
+        div[class^='/ &'] .mainMiddle section#similar img,
+        div[class^='/_'] .mainMiddle section#similar img {
           width: 3em; }
-        .\/ .mainMiddle section#similar p, .\/artist .mainMiddle section#similar p, .\/playlist .mainMiddle section#similar p, .\/search .mainMiddle section#similar p, .\/playlists .mainMiddle section#similar p, .\/albums .mainMiddle section#similar p, .\/similar .mainMiddle section#similar p, div[class^='/&'] .mainMiddle section#similar p, div[class^='/_'] .mainMiddle section#similar p {
+        .\/ .mainMiddle section#similar p,
+        .\/albums .mainMiddle section#similar p,
+        .\/artist .mainMiddle section#similar p,
+        .\/playlist .mainMiddle section#similar p,
+        .\/playlists .mainMiddle section#similar p,
+        .\/search .mainMiddle section#similar p,
+        .\/similar .mainMiddle section#similar p,
+        div[class^='/ &'] .mainMiddle section#similar p,
+        div[class^='/_'] .mainMiddle section#similar p {
           font-size: 1.2em; }
-        .\/ .mainMiddle section#similar ul, .\/artist .mainMiddle section#similar ul, .\/playlist .mainMiddle section#similar ul, .\/search .mainMiddle section#similar ul, .\/playlists .mainMiddle section#similar ul, .\/albums .mainMiddle section#similar ul, .\/similar .mainMiddle section#similar ul, div[class^='/&'] .mainMiddle section#similar ul, div[class^='/_'] .mainMiddle section#similar ul {
+        .\/ .mainMiddle section#similar ul,
+        .\/albums .mainMiddle section#similar ul,
+        .\/artist .mainMiddle section#similar ul,
+        .\/playlist .mainMiddle section#similar ul,
+        .\/playlists .mainMiddle section#similar ul,
+        .\/search .mainMiddle section#similar ul,
+        .\/similar .mainMiddle section#similar ul,
+        div[class^='/ &'] .mainMiddle section#similar ul,
+        div[class^='/_'] .mainMiddle section#similar ul {
           -moz-column-count: 2;
           -webkit-column-count: 2;
           column-count: 2;
           -moz-column-gap: 15vw;
           -webkit-column-gap: 15vw;
           column-gap: 15vw; }
-    .\/ .playerAndProgress, .\/artist .playerAndProgress, .\/playlist .playerAndProgress, .\/search .playerAndProgress, .\/playlists .playerAndProgress, .\/albums .playerAndProgress, .\/similar .playerAndProgress, div[class^='/&'] .playerAndProgress, div[class^='/_'] .playerAndProgress {
+    .\/ .playerAndProgress,
+    .\/albums .playerAndProgress,
+    .\/artist .playerAndProgress,
+    .\/playlist .playerAndProgress,
+    .\/playlists .playerAndProgress,
+    .\/search .playerAndProgress,
+    .\/similar .playerAndProgress,
+    div[class^='/ &'] .playerAndProgress,
+    div[class^='/_'] .playerAndProgress {
       position: relative;
       height: 10vh; }
-      .\/ .playerAndProgress .playerMain button, .\/artist .playerAndProgress .playerMain button, .\/playlist .playerAndProgress .playerMain button, .\/search .playerAndProgress .playerMain button, .\/playlists .playerAndProgress .playerMain button, .\/albums .playerAndProgress .playerMain button, .\/similar .playerAndProgress .playerMain button, div[class^='/&'] .playerAndProgress .playerMain button, div[class^='/_'] .playerAndProgress .playerMain button {
+      .\/ .playerAndProgress .playerMain button,
+      .\/albums .playerAndProgress .playerMain button,
+      .\/artist .playerAndProgress .playerMain button,
+      .\/playlist .playerAndProgress .playerMain button,
+      .\/playlists .playerAndProgress .playerMain button,
+      .\/search .playerAndProgress .playerMain button,
+      .\/similar .playerAndProgress .playerMain button,
+      div[class^='/ &'] .playerAndProgress .playerMain button,
+      div[class^='/_'] .playerAndProgress .playerMain button {
         cursor: pointer;
         margin: 0 1vw 0 0; }
-      .\/ .playerAndProgress .progress, .\/artist .playerAndProgress .progress, .\/playlist .playerAndProgress .progress, .\/search .playerAndProgress .progress, .\/playlists .playerAndProgress .progress, .\/albums .playerAndProgress .progress, .\/similar .playerAndProgress .progress, div[class^='/&'] .playerAndProgress .progress, div[class^='/_'] .playerAndProgress .progress {
+      .\/ .playerAndProgress .progress,
+      .\/albums .playerAndProgress .progress,
+      .\/artist .playerAndProgress .progress,
+      .\/playlist .playerAndProgress .progress,
+      .\/playlists .playerAndProgress .progress,
+      .\/search .playerAndProgress .progress,
+      .\/similar .playerAndProgress .progress,
+      div[class^='/ &'] .playerAndProgress .progress,
+      div[class^='/_'] .playerAndProgress .progress {
         font-size: 1.1em;
         cursor: pointer; }
-        .\/ .playerAndProgress .progress progress[value], .\/artist .playerAndProgress .progress progress[value], .\/playlist .playerAndProgress .progress progress[value], .\/search .playerAndProgress .progress progress[value], .\/playlists .playerAndProgress .progress progress[value], .\/albums .playerAndProgress .progress progress[value], .\/similar .playerAndProgress .progress progress[value], div[class^='/&'] .playerAndProgress .progress progress[value], div[class^='/_'] .playerAndProgress .progress progress[value] {
+        .\/ .playerAndProgress .progress progress[value],
+        .\/albums .playerAndProgress .progress progress[value],
+        .\/artist .playerAndProgress .progress progress[value],
+        .\/playlist .playerAndProgress .progress progress[value],
+        .\/playlists .playerAndProgress .progress progress[value],
+        .\/search .playerAndProgress .progress progress[value],
+        .\/similar .playerAndProgress .progress progress[value],
+        div[class^='/ &'] .playerAndProgress .progress progress[value],
+        div[class^='/_'] .playerAndProgress .progress progress[value] {
           height: 5px;
           width: 100%;
           left: 0; }
-        .\/ .playerAndProgress .progress .time, .\/artist .playerAndProgress .progress .time, .\/playlist .playerAndProgress .progress .time, .\/search .playerAndProgress .progress .time, .\/playlists .playerAndProgress .progress .time, .\/albums .playerAndProgress .progress .time, .\/similar .playerAndProgress .progress .time, div[class^='/&'] .playerAndProgress .progress .time, div[class^='/_'] .playerAndProgress .progress .time {
+        .\/ .playerAndProgress .progress .time,
+        .\/albums .playerAndProgress .progress .time,
+        .\/artist .playerAndProgress .progress .time,
+        .\/playlist .playerAndProgress .progress .time,
+        .\/playlists .playerAndProgress .progress .time,
+        .\/search .playerAndProgress .progress .time,
+        .\/similar .playerAndProgress .progress .time,
+        div[class^='/ &'] .playerAndProgress .progress .time,
+        div[class^='/_'] .playerAndProgress .progress .time {
           position: absolute;
           top: 4vh;
           right: 5vw;
           display: block;
           cursor: default; }
-          .\/ .playerAndProgress .progress .time .elapsed, .\/artist .playerAndProgress .progress .time .elapsed, .\/playlist .playerAndProgress .progress .time .elapsed, .\/search .playerAndProgress .progress .time .elapsed, .\/playlists .playerAndProgress .progress .time .elapsed, .\/albums .playerAndProgress .progress .time .elapsed, .\/similar .playerAndProgress .progress .time .elapsed, div[class^='/&'] .playerAndProgress .progress .time .elapsed, div[class^='/_'] .playerAndProgress .progress .time .elapsed {
+          .\/ .playerAndProgress .progress .time .elapsed,
+          .\/albums .playerAndProgress .progress .time .elapsed,
+          .\/artist .playerAndProgress .progress .time .elapsed,
+          .\/playlist .playerAndProgress .progress .time .elapsed,
+          .\/playlists .playerAndProgress .progress .time .elapsed,
+          .\/search .playerAndProgress .progress .time .elapsed,
+          .\/similar .playerAndProgress .progress .time .elapsed,
+          div[class^='/ &'] .playerAndProgress .progress .time .elapsed,
+          div[class^='/_'] .playerAndProgress .progress .time .elapsed {
             right: 1vw;
             position: relative; }
-          .\/ .playerAndProgress .progress .time .pipe, .\/artist .playerAndProgress .progress .time .pipe, .\/playlist .playerAndProgress .progress .time .pipe, .\/search .playerAndProgress .progress .time .pipe, .\/playlists .playerAndProgress .progress .time .pipe, .\/albums .playerAndProgress .progress .time .pipe, .\/similar .playerAndProgress .progress .time .pipe, div[class^='/&'] .playerAndProgress .progress .time .pipe, div[class^='/_'] .playerAndProgress .progress .time .pipe {
+          .\/ .playerAndProgress .progress .time .pipe,
+          .\/albums .playerAndProgress .progress .time .pipe,
+          .\/artist .playerAndProgress .progress .time .pipe,
+          .\/playlist .playerAndProgress .progress .time .pipe,
+          .\/playlists .playerAndProgress .progress .time .pipe,
+          .\/search .playerAndProgress .progress .time .pipe,
+          .\/similar .playerAndProgress .progress .time .pipe,
+          div[class^='/ &'] .playerAndProgress .progress .time .pipe,
+          div[class^='/_'] .playerAndProgress .progress .time .pipe {
             display: inline-block;
-            right: 0.5vw;
+            right: .5vw;
             position: relative; }
-          .\/ .playerAndProgress .progress .time .duration, .\/artist .playerAndProgress .progress .time .duration, .\/playlist .playerAndProgress .progress .time .duration, .\/search .playerAndProgress .progress .time .duration, .\/playlists .playerAndProgress .progress .time .duration, .\/albums .playerAndProgress .progress .time .duration, .\/similar .playerAndProgress .progress .time .duration, div[class^='/&'] .playerAndProgress .progress .time .duration, div[class^='/_'] .playerAndProgress .progress .time .duration {
+          .\/ .playerAndProgress .progress .time .duration,
+          .\/albums .playerAndProgress .progress .time .duration,
+          .\/artist .playerAndProgress .progress .time .duration,
+          .\/playlist .playerAndProgress .progress .time .duration,
+          .\/playlists .playerAndProgress .progress .time .duration,
+          .\/search .playerAndProgress .progress .time .duration,
+          .\/similar .playerAndProgress .progress .time .duration,
+          div[class^='/ &'] .playerAndProgress .progress .time .duration,
+          div[class^='/_'] .playerAndProgress .progress .time .duration {
             right: 0;
             position: relative; }
-      .\/ .playerAndProgress .small, .\/artist .playerAndProgress .small, .\/playlist .playerAndProgress .small, .\/search .playerAndProgress .small, .\/playlists .playerAndProgress .small, .\/albums .playerAndProgress .small, .\/similar .playerAndProgress .small, div[class^='/&'] .playerAndProgress .small, div[class^='/_'] .playerAndProgress .small {
+      .\/ .playerAndProgress .small,
+      .\/albums .playerAndProgress .small,
+      .\/artist .playerAndProgress .small,
+      .\/playlist .playerAndProgress .small,
+      .\/playlists .playerAndProgress .small,
+      .\/search .playerAndProgress .small,
+      .\/similar .playerAndProgress .small,
+      div[class^='/ &'] .playerAndProgress .small,
+      div[class^='/_'] .playerAndProgress .small {
         display: none; }
-    .\/ .nav, .\/artist .nav, .\/playlist .nav, .\/search .nav, .\/playlists .nav, .\/albums .nav, .\/similar .nav, div[class^='/&'] .nav, div[class^='/_'] .nav {
+    .\/ .nav,
+    .\/albums .nav,
+    .\/artist .nav,
+    .\/playlist .nav,
+    .\/playlists .nav,
+    .\/search .nav,
+    .\/similar .nav,
+    div[class^='/ &'] .nav,
+    div[class^='/_'] .nav {
       display: block; }
-    .\/ .choose, .\/artist .choose, .\/playlist .choose, .\/search .choose, .\/playlists .choose, .\/albums .choose, .\/similar .choose, div[class^='/&'] .choose, div[class^='/_'] .choose {
+    .\/ .choose,
+    .\/albums .choose,
+    .\/artist .choose,
+    .\/playlist .choose,
+    .\/playlists .choose,
+    .\/search .choose,
+    .\/similar .choose,
+    div[class^='/ &'] .choose,
+    div[class^='/_'] .choose {
       display: none; }
-    .\/ footer, .\/artist footer, .\/playlist footer, .\/search footer, .\/playlists footer, .\/albums footer, .\/similar footer, div[class^='/&'] footer, div[class^='/_'] footer {
+    .\/ footer,
+    .\/albums footer,
+    .\/artist footer,
+    .\/playlist footer,
+    .\/playlists footer,
+    .\/search footer,
+    .\/similar footer,
+    div[class^='/ &'] footer,
+    div[class^='/_'] footer {
       position: static;
       height: 5vh;
-      padding: 0 0.5em;
+      padding: 0 .5em;
       cursor: default;
       font-size: 1em;
       background: transparent; }
-      .\/ footer img, .\/artist footer img, .\/playlist footer img, .\/search footer img, .\/playlists footer img, .\/albums footer img, .\/similar footer img, div[class^='/&'] footer img, div[class^='/_'] footer img {
+      .\/ footer img,
+      .\/albums footer img,
+      .\/artist footer img,
+      .\/playlist footer img,
+      .\/playlists footer img,
+      .\/search footer img,
+      .\/similar footer img,
+      div[class^='/ &'] footer img,
+      div[class^='/_'] footer img {
         height: 1em; }
-    .\/ .login, .\/artist .login, .\/playlist .login, .\/search .login, .\/playlists .login, .\/albums .login, .\/similar .login, div[class^='/&'] .login, div[class^='/_'] .login {
+    .\/ .login,
+    .\/albums .login,
+    .\/artist .login,
+    .\/playlist .login,
+    .\/playlists .login,
+    .\/search .login,
+    .\/similar .login,
+    div[class^='/ &'] .login,
+    div[class^='/_'] .login {
       box-shadow: inset 0 0 0 4px #58afd1;
       color: #58afd1;
       transition: color 0.25s 0.08333s;
@@ -604,10 +1040,26 @@ footer {
       border: none;
       cursor: pointer;
       line-height: 1.5;
-      font: 700 0.8em 'Roboto Slab', sans-serif;
+      font: 700 .8em 'Roboto Slab', sans-serif;
       padding: 1em 2em;
-      letter-spacing: 0.05rem; }
-      .\/ .login::before, .\/ .login::after, .\/artist .login::before, .\/artist .login::after, .\/playlist .login::before, .\/playlist .login::after, .\/search .login::before, .\/search .login::after, .\/playlists .login::before, .\/playlists .login::after, .\/albums .login::before, .\/albums .login::after, .\/similar .login::before, .\/similar .login::after, div[class^='/&'] .login::before, div[class^='/&'] .login::after, div[class^='/_'] .login::before, div[class^='/_'] .login::after {
+      letter-spacing: .05rem; }
+      .\/ .login::before, .\/ .login::after,
+      .\/albums .login::before,
+      .\/albums .login::after,
+      .\/artist .login::before,
+      .\/artist .login::after,
+      .\/playlist .login::before,
+      .\/playlist .login::after,
+      .\/playlists .login::before,
+      .\/playlists .login::after,
+      .\/search .login::before,
+      .\/search .login::after,
+      .\/similar .login::before,
+      .\/similar .login::after,
+      div[class^='/ &'] .login::before,
+      div[class^='/ &'] .login::after,
+      div[class^='/_'] .login::before,
+      div[class^='/_'] .login::after {
         border: 0 solid transparent;
         box-sizing: border-box;
         content: '';
@@ -617,24 +1069,88 @@ footer {
         height: 0;
         bottom: 0;
         right: 0; }
-      .\/ .login::before, .\/artist .login::before, .\/playlist .login::before, .\/search .login::before, .\/playlists .login::before, .\/albums .login::before, .\/similar .login::before, div[class^='/&'] .login::before, div[class^='/_'] .login::before {
+      .\/ .login::before,
+      .\/albums .login::before,
+      .\/artist .login::before,
+      .\/playlist .login::before,
+      .\/playlists .login::before,
+      .\/search .login::before,
+      .\/similar .login::before,
+      div[class^='/ &'] .login::before,
+      div[class^='/_'] .login::before {
         border-bottom-width: 4px;
         border-left-width: 4px; }
-      .\/ .login::after, .\/artist .login::after, .\/playlist .login::after, .\/search .login::after, .\/playlists .login::after, .\/albums .login::after, .\/similar .login::after, div[class^='/&'] .login::after, div[class^='/_'] .login::after {
+      .\/ .login::after,
+      .\/albums .login::after,
+      .\/artist .login::after,
+      .\/playlist .login::after,
+      .\/playlists .login::after,
+      .\/search .login::after,
+      .\/similar .login::after,
+      div[class^='/ &'] .login::after,
+      div[class^='/_'] .login::after {
         border-top-width: 4px;
         border-right-width: 4px; }
-      .\/ .login:hover, .\/artist .login:hover, .\/playlist .login:hover, .\/search .login:hover, .\/playlists .login:hover, .\/albums .login:hover, .\/similar .login:hover, div[class^='/&'] .login:hover, div[class^='/_'] .login:hover {
+      .\/ .login:hover,
+      .\/albums .login:hover,
+      .\/artist .login:hover,
+      .\/playlist .login:hover,
+      .\/playlists .login:hover,
+      .\/search .login:hover,
+      .\/similar .login:hover,
+      div[class^='/ &'] .login:hover,
+      div[class^='/_'] .login:hover {
         color: #ffe593; }
-        .\/ .login:hover::before, .\/ .login:hover::after, .\/artist .login:hover::before, .\/artist .login:hover::after, .\/playlist .login:hover::before, .\/playlist .login:hover::after, .\/search .login:hover::before, .\/search .login:hover::after, .\/playlists .login:hover::before, .\/playlists .login:hover::after, .\/albums .login:hover::before, .\/albums .login:hover::after, .\/similar .login:hover::before, .\/similar .login:hover::after, div[class^='/&'] .login:hover::before, div[class^='/&'] .login:hover::after, div[class^='/_'] .login:hover::before, div[class^='/_'] .login:hover::after {
+        .\/ .login:hover::before, .\/ .login:hover::after,
+        .\/albums .login:hover::before,
+        .\/albums .login:hover::after,
+        .\/artist .login:hover::before,
+        .\/artist .login:hover::after,
+        .\/playlist .login:hover::before,
+        .\/playlist .login:hover::after,
+        .\/playlists .login:hover::before,
+        .\/playlists .login:hover::after,
+        .\/search .login:hover::before,
+        .\/search .login:hover::after,
+        .\/similar .login:hover::before,
+        .\/similar .login:hover::after,
+        div[class^='/ &'] .login:hover::before,
+        div[class^='/ &'] .login:hover::after,
+        div[class^='/_'] .login:hover::before,
+        div[class^='/_'] .login:hover::after {
           border-color: #ffe593;
           transition: border-color 0s, width 0.25s, height 0.25s;
           width: 100%;
           height: 100%; }
-        .\/ .login:hover::before, .\/artist .login:hover::before, .\/playlist .login:hover::before, .\/search .login:hover::before, .\/playlists .login:hover::before, .\/albums .login:hover::before, .\/similar .login:hover::before, div[class^='/&'] .login:hover::before, div[class^='/_'] .login:hover::before {
+        .\/ .login:hover::before,
+        .\/albums .login:hover::before,
+        .\/artist .login:hover::before,
+        .\/playlist .login:hover::before,
+        .\/playlists .login:hover::before,
+        .\/search .login:hover::before,
+        .\/similar .login:hover::before,
+        div[class^='/ &'] .login:hover::before,
+        div[class^='/_'] .login:hover::before {
           transition-delay: 0s, 0s, 0.25s; }
-        .\/ .login:hover::after, .\/artist .login:hover::after, .\/playlist .login:hover::after, .\/search .login:hover::after, .\/playlists .login:hover::after, .\/albums .login:hover::after, .\/similar .login:hover::after, div[class^='/&'] .login:hover::after, div[class^='/_'] .login:hover::after {
+        .\/ .login:hover::after,
+        .\/albums .login:hover::after,
+        .\/artist .login:hover::after,
+        .\/playlist .login:hover::after,
+        .\/playlists .login:hover::after,
+        .\/search .login:hover::after,
+        .\/similar .login:hover::after,
+        div[class^='/ &'] .login:hover::after,
+        div[class^='/_'] .login:hover::after {
           transition-delay: 0s, 0.25s, 0s; }
-      .\/ .login:focus, .\/artist .login:focus, .\/playlist .login:focus, .\/search .login:focus, .\/playlists .login:focus, .\/albums .login:focus, .\/similar .login:focus, div[class^='/&'] .login:focus, div[class^='/_'] .login:focus {
+      .\/ .login:focus,
+      .\/albums .login:focus,
+      .\/artist .login:focus,
+      .\/playlist .login:focus,
+      .\/playlists .login:focus,
+      .\/search .login:focus,
+      .\/similar .login:focus,
+      div[class^='/ &'] .login:focus,
+      div[class^='/_'] .login:focus {
         outline: 2px dotted #55d7dc; } }
 
 /*# sourceMappingURL=style.css.map */
