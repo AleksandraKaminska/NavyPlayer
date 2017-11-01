@@ -1,0 +1,15 @@
+#playlists {
+    display: block;
+    width: calc((100% - 400px) / 2);
+    padding-left: 2%;
+    div {
+        max-height: 380px;
+        div {
+            cursor: pointer;
+            margin: 0 0 2vh;
+            img {
+                width: 4em;
+            }
+        }
+    }
+}

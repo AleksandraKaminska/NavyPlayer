@@ -166,7 +166,8 @@ body {
     .mainMiddle section#albums .list {
       width: 100%;
       height: 100%;
-      display: flex; }
+      display: flex;
+      overflow-x: auto; }
       .mainMiddle section#albums .list li {
         padding: 0 5px; }
       .mainMiddle section#albums .list img {
@@ -180,7 +181,8 @@ body {
         font-size: .6em; }
       .mainMiddle section#albums .list .backArrow,
       .mainMiddle section#albums .list .nextArrow {
-        font-size: 3em; }
+        font-size: 3em;
+        display: none; }
     .mainMiddle section#albums .songs {
       width: 100%; }
       .mainMiddle section#albums .songs ul {
@@ -862,6 +864,7 @@ div[class^='/_'] footer {
         div[class^='/ &'] .mainMiddle section#albums .list,
         div[class^='/_'] .mainMiddle section#albums .list {
           width: 100%;
+          overflow-x: hidden;
           float: left; } }
         @media (min-width: 870px) and (min-width: 1200px) {
           .\/ .mainMiddle section#albums .list,
@@ -917,7 +920,8 @@ div[class^='/_'] footer {
           div[class^='/_'] .mainMiddle section#albums .list .backArrow,
           div[class^='/_'] .mainMiddle section#albums .list .nextArrow {
             cursor: pointer;
-            margin-top: .6em; }
+            margin-top: .6em;
+            display: block; }
         .\/ .mainMiddle section#albums .songs,
         .\/albums .mainMiddle section#albums .songs,
         .\/artist .mainMiddle section#albums .songs,

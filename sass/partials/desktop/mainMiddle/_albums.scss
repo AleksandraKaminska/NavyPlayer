@@ -1,0 +1,39 @@
+section#albums {
+    display: block;
+    margin-top: 8vh;
+    h2 {
+        font-size: 1.4em;
+    }
+    .list {
+        width: 100%;
+        @media (min-width: 1200px) {
+            width: 70%;
+        }
+        overflow-x: hidden;
+        float: left;
+        img {
+            width: 7em;
+            cursor: pointer;
+        }
+        p {
+            font-size: .9em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .backArrow,
+        .nextArrow {
+            cursor: pointer;
+            margin-top: .6em;
+            display: block;
+        }
+    }
+    .songs {
+        float: left;
+        width: 100%;
+        @media (min-width: 1200px) {
+            width: 30%;
+        }
+        padding-left: 2vw;
+        cursor: pointer;
+    }
+}
