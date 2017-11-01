@@ -276,9 +276,9 @@ body {
     display: inline-block; }
     .choose div button {
       cursor: pointer;
-      width: 1.3em;
-      height: 1.3em;
-      font-size: 1.3em;
+      width: 1.1em;
+      height: 1.1em;
+      font-size: 1.1em;
       background: transparent;
       color: white;
       border: 0;
