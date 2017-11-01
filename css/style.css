@@ -170,15 +170,11 @@ body {
       overflow-x: auto; }
       .mainMiddle section#albums .list li {
         padding: 0 5px; }
-      .mainMiddle section#albums .list img {
-        width: 3em;
-        height: auto; }
       .mainMiddle section#albums .list p {
         text-align: center;
         display: block;
         vertical-align: top;
-        width: 7em;
-        font-size: .6em; }
+        font-size: 1em; }
       .mainMiddle section#albums .list .backArrow,
       .mainMiddle section#albums .list .nextArrow {
         font-size: 3em;
