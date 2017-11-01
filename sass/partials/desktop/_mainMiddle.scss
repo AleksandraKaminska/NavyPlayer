@@ -1,0 +1,116 @@
+.mainMiddle {
+    display: flex;
+    height: 63vh;
+    padding: 3vh 0 0;
+    #playlists {
+        display: block;
+        width: calc((100% - 400px) / 2);
+        padding-left: 2%;
+        div {
+            max-height: 380px;
+            div {
+                cursor: pointer;
+                margin: 0 0 2vh;
+                img {
+                    width: 4em;
+                }
+            }
+        }
+    }
+    section#cover {
+        display: block;
+        .cover {
+            position: static;
+            height: 400px;
+            width: 400px;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    #artist {
+        width: calc((100% - 400px) / 2);
+        display: flex;
+        flex-wrap: wrap;
+        .info {
+            height: auto;
+            p {
+                font-size: 1.3em;
+            }
+        }
+        #topTracks {
+            margin: auto;
+            width: 100%;
+            .topTracks {
+                margin-top: 4vh;
+                font-size: 1.15em;
+                cursor: pointer;
+                h2 {
+                    font-size: 1.15em;
+                }
+                ul {
+                    line-height: 6vh;
+                }
+            }
+        }
+    }
+    section#albums {
+        display: block;
+        margin-top: 8vh;
+        h2 {
+            font-size: 1.4em;
+        }
+        .list {
+            width: 100%;
+            @media (min-width: 1200px) {
+                width: 70%;
+            }
+            float: left;
+            img {
+                width: 7em;
+                cursor: pointer;
+            }
+            p {
+                font-size: .9em;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .backArrow,
+            .nextArrow {
+                cursor: pointer;
+                margin-top: .6em;
+            }
+        }
+        .songs {
+            float: left;
+            width: 100%;
+            @media (min-width: 1200px) {
+                width: 30%;
+            }
+            padding-left: 2vw;
+            cursor: pointer;
+        }
+    }
+    section#similar {
+        display: block;
+        margin: 8vh 10vh 0;
+        padding: 5vh auto;
+        h2 {
+            font-size: 1.4em;
+        }
+        img {
+            width: 3em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        ul {
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            column-count: 2;
+            -moz-column-gap: 15vw;
+            -webkit-column-gap: 15vw;
+            column-gap: 15vw;
+        }
+    }
+}

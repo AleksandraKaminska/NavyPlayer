@@ -37,13 +37,13 @@ body {
     #search div:first-child input {
       height: 100%;
       width: 100vw;
-      padding: 0.9em;
+      padding: .9em;
       border: 0;
-      font-size: 0.9em;
+      font-size: .9em;
       outline: none;
       color: white;
       background: rgba(70, 70, 70, 0.5);
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
       #search div:first-child input::-webkit-input-placeholder {
         /* WebKit, Blink, Edge */
         font-size: 1.2em;
@@ -70,7 +70,7 @@ body {
   top: 20vh;
   height: 7vh;
   text-align: center;
-  padding: 0 0 3vh 0;
+  padding: 0 0 3vh;
   z-index: 1; }
   #title h1 {
     font-size: 1.3em;
@@ -132,8 +132,8 @@ body {
         height: 64px;
         border-radius: 50%;
         margin-right: 1em;
-        margin-top: 0.5em;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }
+        margin-top: .5em;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
       .mainMiddle #artist .info div {
         max-width: calc(100% - 64px); }
         .mainMiddle #artist .info div p {
@@ -141,7 +141,7 @@ body {
           font-size: 1.1em;
           font-family: 'Playfair Display', serif; }
     .mainMiddle #artist #topTracks {
-      margin: 5vh 5vw 2vh 5vw; }
+      margin: 5vh 5vw 2vh; }
       .mainMiddle #artist #topTracks .topTracks {
         margin-top: 6vh;
         width: 100%;
@@ -155,7 +155,7 @@ body {
             border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;
             margin: 1vh auto; }
           .mainMiddle #artist #topTracks .topTracks ul li:hover {
-            margin-left: 0.5em; }
+            margin-left: .5em; }
   .mainMiddle section#albums {
     padding: 0 4vw; }
     .mainMiddle section#albums h2 {
@@ -177,8 +177,9 @@ body {
         display: block;
         vertical-align: top;
         width: 7em;
-        font-size: 0.6em; }
-      .mainMiddle section#albums .list .backArrow, .mainMiddle section#albums .list .nextArrow {
+        font-size: .6em; }
+      .mainMiddle section#albums .list .backArrow,
+      .mainMiddle section#albums .list .nextArrow {
         font-size: 3em; }
     .mainMiddle section#albums .songs {
       width: 100%; }
@@ -204,7 +205,7 @@ body {
       height: auto;
       border-radius: 50%;
       margin: 2vh 0;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
     .mainMiddle section#similar p {
       font-size: 1em; }
 
@@ -225,7 +226,7 @@ body {
     margin: 0 1vw; }
   .playerAndProgress .smallTitle {
     width: 42vw;
-    font-size: 0.8em;
+    font-size: .8em;
     display: inline-block;
     overflow: hidden; }
     .playerAndProgress .smallTitle p:first-child {
@@ -242,7 +243,7 @@ body {
       .playerAndProgress .playerMain button:nth-child(2) {
         transform: scale(0.5, 0.5); }
   .playerAndProgress .progress {
-    font-size: 0.9em;
+    font-size: .9em;
     color: white;
     font-family: 'Reem Kufi', sans-serif; }
     .playerAndProgress .progress progress[value] {
@@ -281,7 +282,7 @@ body {
       border: 0;
       outline: none; }
       .choose div button p {
-        font-size: 0.5em;
+        font-size: .5em;
         font-family: 'Open Sans', sans-serif; }
 
 footer {
@@ -291,41 +292,122 @@ footer {
   justify-content: flex-start;
   align-items: center;
   align-items: flex-end;
-  font-size: 0.7em;
+  font-size: .7em;
   padding: 0 1vw; }
   footer img {
-    height: 0.7em;
+    height: .7em;
     width: auto; }
 
 .active button:focus {
   color: #58afd1; }
 
-.\/ .nav, .\/ #search, .\/ #playlists, .\/ #artist, .\/ #similar, .\/ #albums, .\/ .small, .\/playlists .nav, .\/playlists #search, .\/playlists #playlists, .\/playlists #artist, .\/playlists #similar, .\/playlists #albums, .\/playlists .small, .\/albums .nav, .\/albums #search, .\/albums #playlists, .\/albums #artist, .\/albums #similar, .\/albums #albums, .\/albums .small, .\/similar .nav, .\/similar #search, .\/similar #playlists, .\/similar #artist, .\/similar #similar, .\/similar #albums, .\/similar .small, div[class^='/&'] .nav, div[class^='/&'] #search, div[class^='/&'] #playlists, div[class^='/&'] #artist, div[class^='/&'] #similar, div[class^='/&'] #albums, div[class^='/&'] .small, div[class^='/_'] .nav, div[class^='/_'] #search, div[class^='/_'] #playlists, div[class^='/_'] #artist, div[class^='/_'] #similar, div[class^='/_'] #albums, div[class^='/_'] .small {
+.\/ #albums,
+.\/ #artist,
+.\/ #playlists,
+.\/ #search,
+.\/ #similar,
+.\/ .nav,
+.\/ .small,
+.\/albums #albums,
+.\/albums #artist,
+.\/albums #playlists,
+.\/albums #search,
+.\/albums #similar,
+.\/albums .nav,
+.\/albums .small,
+.\/playlists #albums,
+.\/playlists #artist,
+.\/playlists #playlists,
+.\/playlists #search,
+.\/playlists #similar,
+.\/playlists .nav,
+.\/playlists .small,
+.\/similar #albums,
+.\/similar #artist,
+.\/similar #playlists,
+.\/similar #search,
+.\/similar #similar,
+.\/similar .nav,
+.\/similar .small,
+div[class^='/ &'] #albums,
+div[class^='/ &'] #artist,
+div[class^='/ &'] #playlists,
+div[class^='/ &'] #search,
+div[class^='/ &'] #similar,
+div[class^='/ &'] .nav,
+div[class^='/ &'] .small,
+div[class^='/_'] #albums,
+div[class^='/_'] #artist,
+div[class^='/_'] #playlists,
+div[class^='/_'] #search,
+div[class^='/_'] #similar,
+div[class^='/_'] .nav,
+div[class^='/_'] .small {
   display: none; }
-.\/ .time, .\/playlists .time, .\/albums .time, .\/similar .time, div[class^='/&'] .time, div[class^='/_'] .time {
+.\/ .time,
+.\/albums .time,
+.\/playlists .time,
+.\/similar .time,
+div[class^='/ &'] .time,
+div[class^='/_'] .time {
   position: absolute;
   top: -1.5vh;
   right: 0;
   display: block; }
-  .\/ .time .elapsed, .\/playlists .time .elapsed, .\/albums .time .elapsed, .\/similar .time .elapsed, div[class^='/&'] .time .elapsed, div[class^='/_'] .time .elapsed {
+  .\/ .time .elapsed,
+  .\/albums .time .elapsed,
+  .\/playlists .time .elapsed,
+  .\/similar .time .elapsed,
+  div[class^='/ &'] .time .elapsed,
+  div[class^='/_'] .time .elapsed {
     position: absolute;
     right: 88vw; }
-  .\/ .time .pipe, .\/playlists .time .pipe, .\/albums .time .pipe, .\/similar .time .pipe, div[class^='/&'] .time .pipe, div[class^='/_'] .time .pipe {
+  .\/ .time .pipe,
+  .\/albums .time .pipe,
+  .\/playlists .time .pipe,
+  .\/similar .time .pipe,
+  div[class^='/ &'] .time .pipe,
+  div[class^='/_'] .time .pipe {
     display: none; }
-  .\/ .time .duration, .\/playlists .time .duration, .\/albums .time .duration, .\/similar .time .duration, div[class^='/&'] .time .duration, div[class^='/_'] .time .duration {
+  .\/ .time .duration,
+  .\/albums .time .duration,
+  .\/playlists .time .duration,
+  .\/similar .time .duration,
+  div[class^='/ &'] .time .duration,
+  div[class^='/_'] .time .duration {
     right: 2vw;
     position: absolute; }
-.\/ .playerAndProgress, .\/playlists .playerAndProgress, .\/albums .playerAndProgress, .\/similar .playerAndProgress, div[class^='/&'] .playerAndProgress, div[class^='/_'] .playerAndProgress {
+.\/ .playerAndProgress,
+.\/albums .playerAndProgress,
+.\/playlists .playerAndProgress,
+.\/similar .playerAndProgress,
+div[class^='/ &'] .playerAndProgress,
+div[class^='/_'] .playerAndProgress {
   position: absolute;
   top: 50%; }
-  .\/ .playerAndProgress progress[value], .\/playlists .playerAndProgress progress[value], .\/albums .playerAndProgress progress[value], .\/similar .playerAndProgress progress[value], div[class^='/&'] .playerAndProgress progress[value], div[class^='/_'] .playerAndProgress progress[value] {
+  .\/ .playerAndProgress progress[value],
+  .\/albums .playerAndProgress progress[value],
+  .\/playlists .playerAndProgress progress[value],
+  .\/similar .playerAndProgress progress[value],
+  div[class^='/ &'] .playerAndProgress progress[value],
+  div[class^='/_'] .playerAndProgress progress[value] {
     width: 70%;
     left: 15%; }
-.\/ .choose, .\/playlists .choose, .\/albums .choose, .\/similar .choose, div[class^='/&'] .choose, div[class^='/_'] .choose {
+.\/ .choose,
+.\/albums .choose,
+.\/playlists .choose,
+.\/similar .choose,
+div[class^='/ &'] .choose,
+div[class^='/_'] .choose {
   position: absolute;
   bottom: 5vh;
   background: transparent; }
-.\/ .cover, .\/playlists .cover, .\/albums .cover, .\/similar .cover, div[class^='/&'] .cover, div[class^='/_'] .cover {
+.\/ .cover,
+.\/albums .cover,
+.\/playlists .cover,
+.\/similar .cover,
+div[class^='/ &'] .cover,
+div[class^='/_'] .cover {
   display: block;
   height: 100vh;
   width: 100%;
@@ -333,29 +415,56 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute; }
-.\/ footer, .\/playlists footer, .\/albums footer, .\/similar footer, div[class^='/&'] footer, div[class^='/_'] footer {
+.\/ footer,
+.\/albums footer,
+.\/playlists footer,
+.\/similar footer,
+div[class^='/ &'] footer,
+div[class^='/_'] footer {
   position: absolute;
   bottom: 0;
   background: transparent; }
 
-.\/artist .nav, .\/artist .time, .\/artist #cover, .\/artist #title, .\/playlist .nav, .\/playlist .time, .\/playlist #cover, .\/playlist #title, .\/search .nav, .\/search .time, .\/search #cover, .\/search #title {
+.\/artist .nav, .\/artist .time, .\/artist #cover, .\/artist #title,
+.\/playlist .nav,
+.\/playlist .time,
+.\/playlist #cover,
+.\/playlist #title,
+.\/search .nav,
+.\/search .time,
+.\/search #cover,
+.\/search #title {
   display: none; }
-.\/artist .playerAndProgress, .\/playlist .playerAndProgress, .\/search .playerAndProgress {
+.\/artist .playerAndProgress,
+.\/playlist .playerAndProgress,
+.\/search .playerAndProgress {
   position: relative; }
-  .\/artist .playerAndProgress progress[value], .\/playlist .playerAndProgress progress[value], .\/search .playerAndProgress progress[value] {
+  .\/artist .playerAndProgress progress[value],
+  .\/playlist .playerAndProgress progress[value],
+  .\/search .playerAndProgress progress[value] {
     width: 100%; }
-.\/artist .choose, .\/playlist .choose, .\/search .choose {
+.\/artist .choose,
+.\/playlist .choose,
+.\/search .choose {
   background: rgba(0, 0, 0, 0.5); }
-.\/artist footer, .\/playlist footer, .\/search footer {
+.\/artist footer,
+.\/playlist footer,
+.\/search footer {
   position: static;
   background: rgba(0, 0, 0, 0.5); }
-.\/artist .small, .\/playlist .small, .\/search .small {
+.\/artist .small,
+.\/playlist .small,
+.\/search .small {
   display: flex; }
 
-.\/artist #search, .\/artist #playlists {
+.\/artist #playlists,
+.\/artist #search {
   display: none; }
 
-.\/playlist #search, .\/playlist #artist, .\/playlist #similar, .\/playlist #albums {
+.\/playlist #albums,
+.\/playlist #artist,
+.\/playlist #search,
+.\/playlist #similar {
   display: none; }
 
 .\/search .mainMiddle {
@@ -470,6 +579,26 @@ footer {
       div[class^='/_'] nav a {
         margin: .6vh 1.5vw;
         display: inline-block; }
+    .\/ .nav,
+    .\/albums .nav,
+    .\/artist .nav,
+    .\/playlist .nav,
+    .\/playlists .nav,
+    .\/search .nav,
+    .\/similar .nav,
+    div[class^='/ &'] .nav,
+    div[class^='/_'] .nav {
+      display: block; }
+    .\/ .choose,
+    .\/albums .choose,
+    .\/artist .choose,
+    .\/playlist .choose,
+    .\/playlists .choose,
+    .\/search .choose,
+    .\/similar .choose,
+    div[class^='/ &'] .choose,
+    div[class^='/_'] .choose {
+      display: none; }
     .\/ #search,
     .\/albums #search,
     .\/artist #search,
@@ -974,26 +1103,6 @@ footer {
       div[class^='/ &'] .playerAndProgress .small,
       div[class^='/_'] .playerAndProgress .small {
         display: none; }
-    .\/ .nav,
-    .\/albums .nav,
-    .\/artist .nav,
-    .\/playlist .nav,
-    .\/playlists .nav,
-    .\/search .nav,
-    .\/similar .nav,
-    div[class^='/ &'] .nav,
-    div[class^='/_'] .nav {
-      display: block; }
-    .\/ .choose,
-    .\/albums .choose,
-    .\/artist .choose,
-    .\/playlist .choose,
-    .\/playlists .choose,
-    .\/search .choose,
-    .\/similar .choose,
-    div[class^='/ &'] .choose,
-    div[class^='/_'] .choose {
-      display: none; }
     .\/ footer,
     .\/albums footer,
     .\/artist footer,
