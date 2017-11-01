@@ -170,6 +170,9 @@ body {
       overflow-x: auto; }
       .mainMiddle section#albums .list li {
         padding: 0 5px; }
+        @media (max-width: 870px) {
+          .mainMiddle section#albums .list li {
+            display: inline-block !important; } }
       .mainMiddle section#albums .list p {
         text-align: center;
         display: block;
@@ -895,7 +898,8 @@ div[class^='/_'] footer {
           div[class^='/ &'] .mainMiddle section#albums .list p,
           div[class^='/_'] .mainMiddle section#albums .list p {
             font-size: .9em;
-            font-weight: bold;
+            width: 7em;
+            font-weight: lighter;
             cursor: pointer; }
           .\/ .mainMiddle section#albums .list .backArrow,
           .\/ .mainMiddle section#albums .list .nextArrow,

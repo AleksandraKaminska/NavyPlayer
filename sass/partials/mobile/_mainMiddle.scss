@@ -108,6 +108,9 @@
             overflow-x: auto;
             li {
                 padding: 0 5px;
+                @media (max-width: 870px) {
+                    display: inline-block !important;
+                }
             }
             p {
                 text-align: center;
