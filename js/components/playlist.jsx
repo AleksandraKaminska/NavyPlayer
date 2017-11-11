@@ -24,11 +24,13 @@ class Playlist extends React.Component {
 
     findPlaylist = (event) => {
         store.dispatch(changePlaylistAction(this.props.elem));
-        promise.then(result => this.randomTrack(), err => console.log(err));
-
-        let divs = Array.from(event.currentTarget.parentElement.getElementsByTagName('div'));
-        divs.forEach((e, i) => e.classList.remove('active'));
+        let _this = document.querySelector('.active');
         event.currentTarget.classList.add('active');
+        promise.then(result => {
+          this.randomTrack();
+          _this.classList.remove('active');
+          _this.classList.add('fade');
+        }, err => console.log(err));
     }
 
     thisplaylist = () => {

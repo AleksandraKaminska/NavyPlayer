@@ -16000,10 +16000,8 @@ var ChoosePlaylists = function (_React$Component) {
 
         _this.toggleOpacity = function (event) {
             if (window.innerWidth >= 870) {
-                event.currentTarget.querySelectorAll('div > div').forEach(function (e) {
-                    if (e.className !== 'active') {
-                        e.className = e.className ? '' : 'fade';
-                    }
+                event.currentTarget.querySelectorAll('div > div:not(.active)').forEach(function (e) {
+                    return e.className = e.className ? '' : 'fade';
                 });
             }
         };
@@ -16763,29 +16761,30 @@ var Playlist = function (_React$Component) {
     function Playlist(props) {
         _classCallCheck(this, Playlist);
 
-        var _this = _possibleConstructorReturn(this, (Playlist.__proto__ || Object.getPrototypeOf(Playlist)).call(this, props));
+        var _this2 = _possibleConstructorReturn(this, (Playlist.__proto__ || Object.getPrototypeOf(Playlist)).call(this, props));
 
-        _this.findPlaylist = function (event) {
-            _store2.default.dispatch((0, _index.changePlaylistAction)(_this.props.elem));
+        _this2.findPlaylist = function (event) {
+            _store2.default.dispatch((0, _index.changePlaylistAction)(_this2.props.elem));
+            var _this = document.querySelector('.active');
+            event.currentTarget.classList.add('active');
             promise.then(function (result) {
-                return _this.randomTrack();
+                _this2.randomTrack();
+                _this.classList.remove('active');
+                _this.classList.add('fade');
             }, function (err) {
                 return console.log(err);
             });
 
-            var divs = Array.from(event.currentTarget.parentElement.getElementsByTagName('div'));
-            divs.forEach(function (e, i) {
-                return e.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
+            /*let divs = Array.from(event.currentTarget.parentElement.getElementsByTagName('div'));
+            divs.forEach((e, i) => e.className = 'fade');*/
         };
 
-        _this.thisplaylist = function () {
+        _this2.thisplaylist = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/playlist/' + _this.props.elem + '?output=jsonp',
+                url: 'https://api.deezer.com/playlist/' + _this2.props.elem + '?output=jsonp',
                 success: function success(data) {
-                    _this.setState({
+                    _this2.setState({
                         data: data,
                         picture: data.picture_small.replace(/56x56/, '64x64')
                     });
@@ -16793,28 +16792,28 @@ var Playlist = function (_React$Component) {
             });
         };
 
-        _this.randomTrack = function () {
+        _this2.randomTrack = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/playlist/' + _this.props.chosenPlaylist + '?output=jsonp',
+                url: 'https://api.deezer.com/playlist/' + _this2.props.chosenPlaylist + '?output=jsonp',
                 success: function success(response) {
                     var playlistTracks = response.tracks.data;
                     var randomNumber = Math.floor(Math.random() * playlistTracks.length);
-                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this2.props.track));
                     _store2.default.dispatch((0, _index.changeTrackAction)(playlistTracks[randomNumber]));
-                    _this.searchArtist();
-                    _this.searchTopTracks();
-                    _this.searchAlbums();
-                    _this.searchSimilarArtists();
-                    DZ.player.playTracks([_this.props.track.id]);
+                    _this2.searchArtist();
+                    _this2.searchTopTracks();
+                    _this2.searchAlbums();
+                    _this2.searchSimilarArtists();
+                    DZ.player.playTracks([_this2.props.track.id]);
                 }
             });
         };
 
-        _this.searchArtist = function () {
+        _this2.searchArtist = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '?output=jsonp',
+                url: 'https://api.deezer.com/artist/' + _this2.props.track.artist.id + '?output=jsonp',
                 success: function success(response) {
                     return _store2.default.dispatch({
                         type: 'FIND_ARTIST',
@@ -16824,10 +16823,10 @@ var Playlist = function (_React$Component) {
             });
         };
 
-        _this.searchAlbums = function () {
+        _this2.searchAlbums = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/albums?output=jsonp',
+                url: 'https://api.deezer.com/artist/' + _this2.props.track.artist.id + '/albums?output=jsonp',
                 success: function success(response) {
                     _store2.default.dispatch({
                         type: 'FIND_ALBUMS',
@@ -16837,10 +16836,10 @@ var Playlist = function (_React$Component) {
             });
         };
 
-        _this.searchTopTracks = function () {
+        _this2.searchTopTracks = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/top?output=jsonp',
+                url: 'https://api.deezer.com/artist/' + _this2.props.track.artist.id + '/top?output=jsonp',
                 success: function success(response) {
                     return _store2.default.dispatch({
                         type: 'FIND_TOP_TRACKS',
@@ -16850,10 +16849,10 @@ var Playlist = function (_React$Component) {
             });
         };
 
-        _this.searchSimilarArtists = function () {
+        _this2.searchSimilarArtists = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/artist/' + _this.props.track.artist.id + '/related?limit=10&output=jsonp',
+                url: 'https://api.deezer.com/artist/' + _this2.props.track.artist.id + '/related?limit=10&output=jsonp',
                 success: function success(response) {
                     return _store2.default.dispatch({
                         type: 'FIND_SIMILAR_ARTISTS',
@@ -16863,11 +16862,11 @@ var Playlist = function (_React$Component) {
             });
         };
 
-        _this.state = {
+        _this2.state = {
             data: {},
             picture: ''
         };
-        return _this;
+        return _this2;
     }
 
     _createClass(Playlist, [{

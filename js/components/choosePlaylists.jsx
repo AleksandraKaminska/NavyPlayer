@@ -18,12 +18,8 @@ class ChoosePlaylists extends React.Component {
 
     toggleOpacity = (event) => {
         if (window.innerWidth >= 870) {
-            event.currentTarget.querySelectorAll('div > div')
-            .forEach(e => {
-                if (e.className !== 'active') {
-                    e.className = e.className ? '' : 'fade';
-                }
-            });
+            event.currentTarget.querySelectorAll('div > div:not(.active)')
+            .forEach(e => e.className = e.className ? '' : 'fade');
         }
     }
 
