@@ -15745,7 +15745,7 @@ exports.default = Choose;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15782,248 +15782,181 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/*class Car extends React.Component {
-  render() {
-    return (
-      <InfiniteCarousel
-    dots={false}
-    showSides={true}
-    slidesToScroll={4}
-    slidesToShow={4}
-  >
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=55b64e&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=904098&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ef4d9c&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=00f3d1&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=00ffff&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ee1f34&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=91b4c0&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ff6347&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ebbfbf&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=def1f9&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=cdf2c6&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=9fa616&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=2c4caa&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=44e3e1&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ff6666&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=94e1e3&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=29083c&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ffff99&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=616161&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=ed7ebe&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-  </InfiniteCarousel>
-    );
-  }
-}*/
+var Placehold = function (_React$Component) {
+    _inherits(Placehold, _React$Component);
 
-var ChooseAlbums = function (_React$Component) {
-  _inherits(ChooseAlbums, _React$Component);
+    function Placehold() {
+        _classCallCheck(this, Placehold);
 
-  function ChooseAlbums(props) {
-    _classCallCheck(this, ChooseAlbums);
-
-    var _this = _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).call(this, props));
-
-    _this.state = {
-      current: 0
-    };
-    return _this;
-  }
-
-  _createClass(ChooseAlbums, [{
-    key: 'previousSlide',
-    value: function previousSlide() {
-      var current = this.state.current;
-      var imageArray = this.props.albums.length - 1;
-
-      if (current >= 1) {
-        this.setState({
-          current: current - 1
-        });
-      }
-      if (current <= 0) {
-        this.setState({
-          current: imageArray
-        });
-      }
+        return _possibleConstructorReturn(this, (Placehold.__proto__ || Object.getPrototypeOf(Placehold)).apply(this, arguments));
     }
-  }, {
-    key: 'nextSlide',
-    value: function nextSlide() {
-      var current = this.state.current;
-      var imageArray = this.props.albums.length - 1;
 
-      if (current >= 0 && current < imageArray) {
-        this.setState({
-          current: current + 1
-        });
-      }
-      if (current >= imageArray) {
-        this.setState({
-          current: 0
-        });
-      }
+    _createClass(Placehold, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('img', {
+                    alt: '',
+                    src: 'https://placeholdit.imgix.net/~text?txtsize=20&bg=55b64e&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
+                })
+            );
+        }
+    }]);
+
+    return Placehold;
+}(_react2.default.Component);
+
+var Car = function (_React$Component2) {
+    _inherits(Car, _React$Component2);
+
+    function Car() {
+        _classCallCheck(this, Car);
+
+        return _possibleConstructorReturn(this, (Car.__proto__ || Object.getPrototypeOf(Car)).apply(this, arguments));
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
 
-      var li = this.props.albums.map(function (elem, i) {
-        return _react2.default.createElement(_albums2.default, {
-          key: i,
-          elem: elem,
-          current: _this2.state.current,
-          length: _this2.props.albums.length,
-          i: i });
-      });
+    _createClass(Car, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _reactLeafCarousel2.default,
+                {
+                    dots: false,
+                    showSides: true,
+                    slidesToScroll: 4,
+                    slidesToShow: 4
+                },
+                this.props.children
+            );
+        }
+    }]);
 
-      var songs = this.props.albumsTracks.map(function (song, i) {
-        return _react2.default.createElement(_albumsTracks2.default, {
-          song: song,
-          i: i,
-          key: i });
-      });
-      return _react2.default.createElement(
-        'section',
-        { id: 'albums' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Albums'
-        ),
-        _react2.default.createElement(
-          'article',
-          { className: 'list' },
-          this.props.albums.length > 6 || this.state.current !== 0 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
-          _react2.default.createElement(
-            'ul',
-            null,
-            li
-          ),
-          this.props.albums.length > 6 || this.state.current !== 0 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
-        ),
-        _react2.default.createElement(
-          'article',
-          { className: 'songs' },
-          _react2.default.createElement(
-            'ul',
-            null,
-            songs
-          )
-        )
-      );
+    return Car;
+}(_react2.default.Component);
+
+var ChooseAlbums = function (_React$Component3) {
+    _inherits(ChooseAlbums, _React$Component3);
+
+    function ChooseAlbums(props) {
+        _classCallCheck(this, ChooseAlbums);
+
+        var _this3 = _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).call(this, props));
+
+        _this3.state = {
+            current: 0
+        };
+        return _this3;
     }
-  }]);
 
-  return ChooseAlbums;
+    _createClass(ChooseAlbums, [{
+        key: 'previousSlide',
+        value: function previousSlide() {
+            var current = this.state.current;
+            var imageArray = this.props.albums.length - 1;
+
+            if (current >= 1) {
+                this.setState({
+                    current: current - 1
+                });
+            }
+            if (current <= 0) {
+                this.setState({
+                    current: imageArray
+                });
+            }
+        }
+    }, {
+        key: 'nextSlide',
+        value: function nextSlide() {
+            var current = this.state.current;
+            var imageArray = this.props.albums.length - 1;
+
+            if (current >= 0 && current < imageArray) {
+                this.setState({
+                    current: current + 1
+                });
+            }
+            if (current >= imageArray) {
+                this.setState({
+                    current: 0
+                });
+            }
+        }
+    }, {
+        key: 'isLoaded',
+        value: function isLoaded() {
+            var _this4 = this;
+
+            var id = setInterval(function () {
+                if (_this4.props.albums.length) {
+                    clearInterval(id);
+                    console.log(_this4.props.albums.length);
+                    return true;
+                }
+            }, 500);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this5 = this;
+
+            var li = this.props.albums.map(function (elem, i) {
+                return _react2.default.createElement(_albums2.default, {
+                    key: i,
+                    elem: elem,
+                    current: _this5.state.current,
+                    length: _this5.props.albums.length,
+                    i: i });
+            });
+
+            var songs = this.props.albumsTracks.map(function (song, i) {
+                return _react2.default.createElement(_albumsTracks2.default, {
+                    song: song,
+                    i: i,
+                    key: i });
+            });
+            return _react2.default.createElement(
+                'section',
+                { id: 'albums' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Albums'
+                ),
+                _react2.default.createElement(
+                    'article',
+                    { className: 'list' },
+                    this.props.albums.length > 6 || this.state.current !== 0 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        li
+                    ),
+                    this.props.albums.length > 6 || this.state.current !== 0 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
+                ),
+                _react2.default.createElement(
+                    'article',
+                    { className: 'songs' },
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        songs
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ChooseAlbums;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(store) {
-  return {
-    albums: store.albums,
-    albumsTracks: store.albumsTracks
-  };
+    return {
+        albums: store.albums,
+        albumsTracks: store.albumsTracks
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(ChooseAlbums);
@@ -16075,7 +16008,7 @@ var ChoosePlaylists = function (_React$Component) {
             }
         };
 
-        _this.playlists = [3700559902, 1266972311, 715214945, 3570967222, 2097558104, 1282483245, 2734448044, 1282495565, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 1677006641, 1290756705, 1154685481, 515157085, 1386209585, 1182263621, 2265794682, 1661692771, 2558770224, 975986691];
+        _this.playlists = [148610381, 1460134775, 3700559902, 1266972311, 715214945, 3570967222, 2097558104, 1282483245, 2734448044, 1282495565, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 1677006641, 1290756705, 1154685481, 515157085, 1386209585, 1182263621, 2265794682, 1661692771, 2558770224, 975986691];
         return _this;
     }
 
