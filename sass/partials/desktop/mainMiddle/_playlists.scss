@@ -8,6 +8,7 @@
         div {
             direction: ltr;
             opacity: .3;
+            transition: opacity .5s;
             cursor: pointer;
             margin: 0 0 2vh;
             img {
@@ -30,14 +31,15 @@
                 background: rgba(255,255,255,.1);
             }
         }
-        .active {
+        .active,
+        .fade {
             opacity: 1;
-            &::after {
-                background: transparent;
-            }
             p {
                 display: inline-block;
             }
+        }
+        .active::after {
+            background: transparent;
         }
     }
 }

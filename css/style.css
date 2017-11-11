@@ -723,6 +723,7 @@ div[class^='/_'] footer {
           div[class^='/_'] .mainMiddle #playlists div div {
             direction: ltr;
             opacity: .3;
+            transition: opacity .5s;
             cursor: pointer;
             margin: 0 0 2vh; }
             .\/ .mainMiddle #playlists div div img,
@@ -773,35 +774,53 @@ div[class^='/_'] footer {
               height: 100%;
               background: rgba(255, 255, 255, 0.1); }
           .\/ .mainMiddle #playlists div .active,
+          .\/ .mainMiddle #playlists div .fade,
           .\/albums .mainMiddle #playlists div .active,
+          .\/albums .mainMiddle #playlists div .fade,
           .\/artist .mainMiddle #playlists div .active,
+          .\/artist .mainMiddle #playlists div .fade,
           .\/playlist .mainMiddle #playlists div .active,
+          .\/playlist .mainMiddle #playlists div .fade,
           .\/playlists .mainMiddle #playlists div .active,
+          .\/playlists .mainMiddle #playlists div .fade,
           .\/search .mainMiddle #playlists div .active,
+          .\/search .mainMiddle #playlists div .fade,
           .\/similar .mainMiddle #playlists div .active,
+          .\/similar .mainMiddle #playlists div .fade,
           div[class^='/ &'] .mainMiddle #playlists div .active,
-          div[class^='/_'] .mainMiddle #playlists div .active {
+          div[class^='/ &'] .mainMiddle #playlists div .fade,
+          div[class^='/_'] .mainMiddle #playlists div .active,
+          div[class^='/_'] .mainMiddle #playlists div .fade {
             opacity: 1; }
-            .\/ .mainMiddle #playlists div .active::after,
-            .\/albums .mainMiddle #playlists div .active::after,
-            .\/artist .mainMiddle #playlists div .active::after,
-            .\/playlist .mainMiddle #playlists div .active::after,
-            .\/playlists .mainMiddle #playlists div .active::after,
-            .\/search .mainMiddle #playlists div .active::after,
-            .\/similar .mainMiddle #playlists div .active::after,
-            div[class^='/ &'] .mainMiddle #playlists div .active::after,
-            div[class^='/_'] .mainMiddle #playlists div .active::after {
-              background: transparent; }
             .\/ .mainMiddle #playlists div .active p,
+            .\/ .mainMiddle #playlists div .fade p,
             .\/albums .mainMiddle #playlists div .active p,
+            .\/albums .mainMiddle #playlists div .fade p,
             .\/artist .mainMiddle #playlists div .active p,
+            .\/artist .mainMiddle #playlists div .fade p,
             .\/playlist .mainMiddle #playlists div .active p,
+            .\/playlist .mainMiddle #playlists div .fade p,
             .\/playlists .mainMiddle #playlists div .active p,
+            .\/playlists .mainMiddle #playlists div .fade p,
             .\/search .mainMiddle #playlists div .active p,
+            .\/search .mainMiddle #playlists div .fade p,
             .\/similar .mainMiddle #playlists div .active p,
+            .\/similar .mainMiddle #playlists div .fade p,
             div[class^='/ &'] .mainMiddle #playlists div .active p,
-            div[class^='/_'] .mainMiddle #playlists div .active p {
+            div[class^='/ &'] .mainMiddle #playlists div .fade p,
+            div[class^='/_'] .mainMiddle #playlists div .active p,
+            div[class^='/_'] .mainMiddle #playlists div .fade p {
               display: inline-block; }
+          .\/ .mainMiddle #playlists div .active::after,
+          .\/albums .mainMiddle #playlists div .active::after,
+          .\/artist .mainMiddle #playlists div .active::after,
+          .\/playlist .mainMiddle #playlists div .active::after,
+          .\/playlists .mainMiddle #playlists div .active::after,
+          .\/search .mainMiddle #playlists div .active::after,
+          .\/similar .mainMiddle #playlists div .active::after,
+          div[class^='/ &'] .mainMiddle #playlists div .active::after,
+          div[class^='/_'] .mainMiddle #playlists div .active::after {
+            background: transparent; }
       .\/ .mainMiddle section#cover,
       .\/albums .mainMiddle section#cover,
       .\/artist .mainMiddle section#cover,

@@ -16,23 +16,12 @@ class ChoosePlaylists extends React.Component {
         ];
     }
 
-    removeOpacity = (event) => {
-        if (window.innerWidth >= 870) {
-            event.currentTarget.querySelectorAll('div > div')
-            .forEach(e => {
-                e.querySelector('p').style.display = 'inline-block';
-                e.style.opacity = 1;
-            });
-        }
-    }
-
-    addOpacity = (event) => {
+    toggleOpacity = (event) => {
         if (window.innerWidth >= 870) {
             event.currentTarget.querySelectorAll('div > div')
             .forEach(e => {
                 if (e.className !== 'active') {
-                    e.querySelector('p').style.display = 'none';
-                    e.style.opacity = 0.3;
+                    e.className = e.className ? '' : 'fade';
                 }
             });
         }
@@ -40,7 +29,7 @@ class ChoosePlaylists extends React.Component {
 
     render() {
         return (
-            <section id="playlists" onMouseEnter={this.removeOpacity} onMouseLeave={this.addOpacity}>
+            <section id="playlists" onMouseEnter={this.toggleOpacity} onMouseLeave={this.toggleOpacity}>
                 <div>
                     {this.playlists.map((elem, i) => <Playlist elem={elem} key={i} />)}
                 </div>

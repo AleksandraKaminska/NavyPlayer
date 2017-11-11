@@ -15177,7 +15177,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = (function (state = 1677006641, action) {
+/* harmony default export */ __webpack_exports__["a"] = (function (state = 1266972311, action) {
     switch (action.type) {
         case 'CHANGE_PLAYLIST':
             return action.chosenPlaylist;
@@ -16065,21 +16065,11 @@ var ChoosePlaylists = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (ChoosePlaylists.__proto__ || Object.getPrototypeOf(ChoosePlaylists)).call(this, props));
 
-        _this.removeOpacity = function (event) {
-            if (window.innerWidth >= 870) {
-                event.currentTarget.querySelectorAll('div > div').forEach(function (e) {
-                    e.querySelector('p').style.display = 'inline-block';
-                    e.style.opacity = 1;
-                });
-            }
-        };
-
-        _this.addOpacity = function (event) {
+        _this.toggleOpacity = function (event) {
             if (window.innerWidth >= 870) {
                 event.currentTarget.querySelectorAll('div > div').forEach(function (e) {
                     if (e.className !== 'active') {
-                        e.querySelector('p').style.display = 'none';
-                        e.style.opacity = 0.3;
+                        e.className = e.className ? '' : 'fade';
                     }
                 });
             }
@@ -16094,7 +16084,7 @@ var ChoosePlaylists = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'section',
-                { id: 'playlists', onMouseEnter: this.removeOpacity, onMouseLeave: this.addOpacity },
+                { id: 'playlists', onMouseEnter: this.toggleOpacity, onMouseLeave: this.toggleOpacity },
                 _react2.default.createElement(
                     'div',
                     null,
