@@ -7,37 +7,6 @@ import Albums from './albums.jsx';
 import AlbumsTracks from './albumsTracks.jsx';
 import { LeftArrow, RightArrow } from './arrows.jsx';
 
-import InfiniteCarousel from 'react-leaf-carousel';
-
-class Placehold extends React.Component {
-  render() {
-    return (
-    <div>
-      <img
-        alt=''
-        src='https://placeholdit.imgix.net/~text?txtsize=20&bg=55b64e&txtclr=ffffff&txt=215%C3%97215&w=215&h=215'
-      />
-    </div>
-    );
-  }
-}
-
-class Car extends React.Component {
-  render() {
-    return (
-      <InfiniteCarousel
-    dots={false}
-    showSides={true}
-    slidesToScroll={4}
-    slidesToShow={4}
-  >
-
-    {this.props.children}
-  </InfiniteCarousel>
-    );
-  }
-}
-
 class ChooseAlbums extends React.Component {
     constructor(props) {
         super(props);
@@ -80,16 +49,6 @@ class ChooseAlbums extends React.Component {
         }
     }
 
-    isLoaded() {
-      let id = setInterval(()=> {
-        if (this.props.albums.length) {
-          clearInterval(id);
-          console.log(this.props.albums.length);
-          return true;
-        }
-      }, 500);
-    }
-
     render() {
         let li = this.props.albums
                  .map((elem, i) => <Albums
@@ -104,15 +63,10 @@ class ChooseAlbums extends React.Component {
                                        song={song}
                                        i={i}
                                        key={i} />);
+
         return (
             <section id="albums">
                 <h2>Albums</h2>
-                {/*<Car albums={this.props.albums}>
-                    <Placehold/>
-                    <Placehold/>
-                    <Placehold/>
-                    {this.isLoaded() && li}
-                </Car>*/}
                 <article className="list">
                     {this.props.albums.length > 6 || this.state.current !== 0 ? <LeftArrow previousSlide={this.previousSlide.bind(this)} /> : null}
                     <ul>{li}</ul>
