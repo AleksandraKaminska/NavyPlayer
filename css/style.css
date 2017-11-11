@@ -722,6 +722,7 @@ div[class^='/_'] footer {
           div[class^='/ &'] .mainMiddle #playlists div div,
           div[class^='/_'] .mainMiddle #playlists div div {
             direction: ltr;
+            opacity: .3;
             cursor: pointer;
             margin: 0 0 2vh; }
             .\/ .mainMiddle #playlists div div img,
@@ -734,6 +735,73 @@ div[class^='/_'] footer {
             div[class^='/ &'] .mainMiddle #playlists div div img,
             div[class^='/_'] .mainMiddle #playlists div div img {
               width: 4em; }
+            .\/ .mainMiddle #playlists div div p,
+            .\/albums .mainMiddle #playlists div div p,
+            .\/artist .mainMiddle #playlists div div p,
+            .\/playlist .mainMiddle #playlists div div p,
+            .\/playlists .mainMiddle #playlists div div p,
+            .\/search .mainMiddle #playlists div div p,
+            .\/similar .mainMiddle #playlists div div p,
+            div[class^='/ &'] .mainMiddle #playlists div div p,
+            div[class^='/_'] .mainMiddle #playlists div div p {
+              display: none; }
+          .\/ .mainMiddle #playlists div div:hover,
+          .\/albums .mainMiddle #playlists div div:hover,
+          .\/artist .mainMiddle #playlists div div:hover,
+          .\/playlist .mainMiddle #playlists div div:hover,
+          .\/playlists .mainMiddle #playlists div div:hover,
+          .\/search .mainMiddle #playlists div div:hover,
+          .\/similar .mainMiddle #playlists div div:hover,
+          div[class^='/ &'] .mainMiddle #playlists div div:hover,
+          div[class^='/_'] .mainMiddle #playlists div div:hover {
+            color: #ddd;
+            position: relative; }
+            .\/ .mainMiddle #playlists div div:hover::after,
+            .\/albums .mainMiddle #playlists div div:hover::after,
+            .\/artist .mainMiddle #playlists div div:hover::after,
+            .\/playlist .mainMiddle #playlists div div:hover::after,
+            .\/playlists .mainMiddle #playlists div div:hover::after,
+            .\/search .mainMiddle #playlists div div:hover::after,
+            .\/similar .mainMiddle #playlists div div:hover::after,
+            div[class^='/ &'] .mainMiddle #playlists div div:hover::after,
+            div[class^='/_'] .mainMiddle #playlists div div:hover::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(255, 255, 255, 0.1); }
+          .\/ .mainMiddle #playlists div .active,
+          .\/albums .mainMiddle #playlists div .active,
+          .\/artist .mainMiddle #playlists div .active,
+          .\/playlist .mainMiddle #playlists div .active,
+          .\/playlists .mainMiddle #playlists div .active,
+          .\/search .mainMiddle #playlists div .active,
+          .\/similar .mainMiddle #playlists div .active,
+          div[class^='/ &'] .mainMiddle #playlists div .active,
+          div[class^='/_'] .mainMiddle #playlists div .active {
+            opacity: 1; }
+            .\/ .mainMiddle #playlists div .active::after,
+            .\/albums .mainMiddle #playlists div .active::after,
+            .\/artist .mainMiddle #playlists div .active::after,
+            .\/playlist .mainMiddle #playlists div .active::after,
+            .\/playlists .mainMiddle #playlists div .active::after,
+            .\/search .mainMiddle #playlists div .active::after,
+            .\/similar .mainMiddle #playlists div .active::after,
+            div[class^='/ &'] .mainMiddle #playlists div .active::after,
+            div[class^='/_'] .mainMiddle #playlists div .active::after {
+              background: transparent; }
+            .\/ .mainMiddle #playlists div .active p,
+            .\/albums .mainMiddle #playlists div .active p,
+            .\/artist .mainMiddle #playlists div .active p,
+            .\/playlist .mainMiddle #playlists div .active p,
+            .\/playlists .mainMiddle #playlists div .active p,
+            .\/search .mainMiddle #playlists div .active p,
+            .\/similar .mainMiddle #playlists div .active p,
+            div[class^='/ &'] .mainMiddle #playlists div .active p,
+            div[class^='/_'] .mainMiddle #playlists div .active p {
+              display: inline-block; }
       .\/ .mainMiddle section#cover,
       .\/albums .mainMiddle section#cover,
       .\/artist .mainMiddle section#cover,

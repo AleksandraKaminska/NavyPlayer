@@ -90,20 +90,22 @@ class AppContainer extends React.Component {
 	}
 
   render() {
-    return <Router history={hashHistory}>
-      <Route path='/' component={Template}>
-        <IndexRoute component={Main} />
-        <Route path="*" component={Main} />
-      </Route>
-    </Router>
+    return (
+        <Router history={hashHistory}>
+            <Route path='/' component={Template}>
+                <IndexRoute component={Main} />
+                <Route path="*" component={Main} />
+            </Route>
+        </Router>
+    );
   }
 }
 
 const mapStateToProps = store => {
   return {
-    chosenPlaylist: store.chosenPlaylist,
-    track: store.track,
-    prev: store.prev
+      chosenPlaylist: store.chosenPlaylist,
+      track: store.track,
+      prev: store.prev
   };
 };
 
