@@ -15177,7 +15177,7 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = (function (state = 1266972311, action) {
+/* harmony default export */ __webpack_exports__["a"] = (function (state = 148610381, action) {
     switch (action.type) {
         case 'CHANGE_PLAYLIST':
             return action.chosenPlaylist;
@@ -16008,7 +16008,7 @@ var ChoosePlaylists = function (_React$Component) {
             }
         };
 
-        _this.playlists = [148610381, 1460134775, 3700559902, 1266972311, 715214945, 3570967222, 2097558104, 1282483245, 2734448044, 1282495565, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 1677006641, 1290756705, 1154685481, 515157085, 1386209585, 1182263621, 2265794682, 1661692771, 2558770224, 975986691];
+        _this.playlists = [148610381, 1460134775, 1266972311, 715214945, 3570967222, 2097558104, 1282483245, 2734448044, 1282495565, 1306931615, 2178064502, 1927928822, 1977689462, 1964028802, 1677006641, 1290756705, 1154685481, 515157085, 1386209585, 1182263621, 2265794682, 1661692771, 2558770224, 975986691];
         return _this;
     }
 
