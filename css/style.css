@@ -699,8 +699,7 @@ div[class^='/_'] footer {
       div[class^='/ &'] .mainMiddle #playlists,
       div[class^='/_'] .mainMiddle #playlists {
         display: block;
-        width: calc((100% - 400px) / 2);
-        padding-left: 2%; }
+        width: calc((100% - 400px) / 2); }
         .\/ .mainMiddle #playlists div,
         .\/albums .mainMiddle #playlists div,
         .\/artist .mainMiddle #playlists div,
@@ -710,7 +709,9 @@ div[class^='/_'] footer {
         .\/similar .mainMiddle #playlists div,
         div[class^='/ &'] .mainMiddle #playlists div,
         div[class^='/_'] .mainMiddle #playlists div {
-          max-height: 380px; }
+          direction: rtl;
+          max-height: 400px;
+          padding-left: .5em; }
           .\/ .mainMiddle #playlists div div,
           .\/albums .mainMiddle #playlists div div,
           .\/artist .mainMiddle #playlists div div,
@@ -720,6 +721,7 @@ div[class^='/_'] footer {
           .\/similar .mainMiddle #playlists div div,
           div[class^='/ &'] .mainMiddle #playlists div div,
           div[class^='/_'] .mainMiddle #playlists div div {
+            direction: ltr;
             cursor: pointer;
             margin: 0 0 2vh; }
             .\/ .mainMiddle #playlists div div img,
