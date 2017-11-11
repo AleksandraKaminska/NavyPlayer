@@ -2,13 +2,25 @@ import React from 'react';
 
 const LeftArrow = (props) => {
     return (
-      <span className="backArrow" onClick={props.previousSlide}>&lt;</span>
+      <a
+        href="#"
+        className="carousel__arrow backArrow"
+        onClick={props.previousSlide}
+      >
+        <span className="fa fa-2x fa-angle-left" />
+      </a>
     );
 }
 
 const RightArrow = (props) => {
     return (
-        <span className="nextArrow" onClick={props.nextSlide}>&gt;</span>
+        <a
+          href="#"
+          className="carousel__arrow nextArrow"
+          onClick={props.nextSlide}
+        >
+          <span className="fa fa-2x fa-angle-right" />
+        </a>
     );
 }
 

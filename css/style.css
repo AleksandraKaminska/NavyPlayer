@@ -180,7 +180,7 @@ body {
         font-size: 1em; }
       .mainMiddle section#albums .list .backArrow,
       .mainMiddle section#albums .list .nextArrow {
-        font-size: 3em;
+        font-size: 2em;
         display: none; }
     .mainMiddle section#albums .songs {
       width: 100%; }
@@ -426,15 +426,18 @@ div[class^='/_'] footer {
   bottom: 0;
   background: transparent; }
 
-.\/artist .nav, .\/artist .time, .\/artist #cover, .\/artist #title,
-.\/playlist .nav,
-.\/playlist .time,
+.\/artist #cover,
+.\/artist #title,
+.\/artist .nav,
+.\/artist .time,
 .\/playlist #cover,
 .\/playlist #title,
-.\/search .nav,
-.\/search .time,
+.\/playlist .nav,
+.\/playlist .time,
 .\/search #cover,
-.\/search #title {
+.\/search #title,
+.\/search .nav,
+.\/search .time {
   display: none; }
 .\/artist .playerAndProgress,
 .\/playlist .playerAndProgress,
@@ -504,42 +507,42 @@ div[class^='/_'] footer {
   .\/ a#main_nav,
   .\/playlists a#main_nav {
     border-bottom: 3px solid white; }
-  .\/ a:not(#main_nav)::after,
-  .\/playlists a:not(#main_nav)::after {
+  .\/ a:not(#main_nav):not(.carousel__arrow)::after,
+  .\/playlists a:not(#main_nav):not(.carousel__arrow)::after {
     content: '';
     display: block;
     height: 3px;
     width: 0;
     background: transparent;
-    transition: width 0.7s ease, background-color 1s ease; }
-  .\/ a:not(#main_nav):hover::after,
-  .\/playlists a:not(#main_nav):hover::after {
+    transition: width .7s ease, background-color 1s ease; }
+  .\/ a:not(#main_nav):not(.carousel__arrow):hover::after,
+  .\/playlists a:not(#main_nav):not(.carousel__arrow):hover::after {
     width: 100%;
     background: white; }
 
   .\/albums a#albums_nav {
     border-bottom: 3px solid white; }
-  .\/albums a:not(#albums_nav)::after {
+  .\/albums a:not(#albums_nav):not(.carousel__arrow)::after {
     content: '';
     display: block;
     height: 3px;
     width: 0;
     background: transparent;
-    transition: width 0.7s ease, background-color 1s ease; }
-  .\/albums a:not(#albums_nav):hover::after {
+    transition: width .7s ease, background-color 1s ease; }
+  .\/albums a:not(#albums_nav):not(.carousel__arrow):hover::after {
     width: 100%;
     background: white; }
 
   .\/similar a#similar_nav {
     border-bottom: 3px solid white; }
-  .\/similar a:not(#similar_nav)::after {
+  .\/similar a:not(#similar_nav):not(.carousel__arrow)::after {
     content: '';
     display: block;
     height: 3px;
     width: 0;
     background: transparent;
-    transition: width 0.7s ease, background-color 1s ease; }
-  .\/similar a:not(#similar_nav):hover::after {
+    transition: width .7s ease, background-color 1s ease; }
+  .\/similar a:not(#similar_nav):not(.carousel__arrow):hover::after {
     width: 100%;
     background: white; }
 
@@ -1245,23 +1248,23 @@ div[class^='/_'] footer {
       font: 700 .8em 'Roboto Slab', sans-serif;
       padding: 1em 2em;
       letter-spacing: .05rem; }
-      .\/ .login::before, .\/ .login::after,
-      .\/albums .login::before,
+      .\/ .login::after, .\/ .login::before,
       .\/albums .login::after,
-      .\/artist .login::before,
+      .\/albums .login::before,
       .\/artist .login::after,
-      .\/playlist .login::before,
+      .\/artist .login::before,
       .\/playlist .login::after,
-      .\/playlists .login::before,
+      .\/playlist .login::before,
       .\/playlists .login::after,
-      .\/search .login::before,
+      .\/playlists .login::before,
       .\/search .login::after,
-      .\/similar .login::before,
+      .\/search .login::before,
       .\/similar .login::after,
-      div[class^='/ &'] .login::before,
+      .\/similar .login::before,
       div[class^='/ &'] .login::after,
-      div[class^='/_'] .login::before,
-      div[class^='/_'] .login::after {
+      div[class^='/ &'] .login::before,
+      div[class^='/_'] .login::after,
+      div[class^='/_'] .login::before {
         border: 0 solid transparent;
         box-sizing: border-box;
         content: '';
@@ -1303,23 +1306,23 @@ div[class^='/_'] footer {
       div[class^='/ &'] .login:hover,
       div[class^='/_'] .login:hover {
         color: #ffe593; }
-        .\/ .login:hover::before, .\/ .login:hover::after,
-        .\/albums .login:hover::before,
+        .\/ .login:hover::after, .\/ .login:hover::before,
         .\/albums .login:hover::after,
-        .\/artist .login:hover::before,
+        .\/albums .login:hover::before,
         .\/artist .login:hover::after,
-        .\/playlist .login:hover::before,
+        .\/artist .login:hover::before,
         .\/playlist .login:hover::after,
-        .\/playlists .login:hover::before,
+        .\/playlist .login:hover::before,
         .\/playlists .login:hover::after,
-        .\/search .login:hover::before,
+        .\/playlists .login:hover::before,
         .\/search .login:hover::after,
-        .\/similar .login:hover::before,
+        .\/search .login:hover::before,
         .\/similar .login:hover::after,
-        div[class^='/ &'] .login:hover::before,
+        .\/similar .login:hover::before,
         div[class^='/ &'] .login:hover::after,
-        div[class^='/_'] .login:hover::before,
-        div[class^='/_'] .login:hover::after {
+        div[class^='/ &'] .login:hover::before,
+        div[class^='/_'] .login:hover::after,
+        div[class^='/_'] .login:hover::before {
           border-color: #ffe593;
           transition: border-color 0s, width 0.25s, height 0.25s;
           width: 100%;
