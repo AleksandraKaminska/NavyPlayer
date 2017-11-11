@@ -23,13 +23,17 @@ class Playlist extends React.Component {
     }
 
     findPlaylist = (event) => {
+        event.preventDefault();
         store.dispatch(changePlaylistAction(this.props.elem));
-        let _this = document.querySelector('.active');
-        event.currentTarget.classList.add('active');
+        let past = document.querySelector('.active');
+        let _this = event.target;
         promise.then(result => {
-          this.randomTrack();
-          _this.classList.remove('active');
-          _this.classList.add('fade');
+            this.randomTrack();
+            if (_this !== past) {
+                past.classList.remove('active');
+                past.classList.add('fade');
+                _this.classList.add('active');
+            }
         }, err => console.log(err));
     }
 
@@ -40,7 +44,7 @@ class Playlist extends React.Component {
             success: data => {
                 this.setState({
                     data: data,
-                    picture: data.picture_small.replace(/56x56/, '64x64')
+                    picture: data.picture_small && data.picture_small.replace(/56x56/, '64x64')
                 })
             }
         });

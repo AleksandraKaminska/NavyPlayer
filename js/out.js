@@ -16094,7 +16094,7 @@ var Cover = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(store) {
     return {
-        cover: store.track.album.cover_big.replace(/500x500/, '400x400')
+        cover: store.track.album.cover_big && store.track.album.cover_big.replace(/500x500/, '400x400')
     };
 };
 
@@ -16764,19 +16764,20 @@ var Playlist = function (_React$Component) {
         var _this2 = _possibleConstructorReturn(this, (Playlist.__proto__ || Object.getPrototypeOf(Playlist)).call(this, props));
 
         _this2.findPlaylist = function (event) {
+            event.preventDefault();
             _store2.default.dispatch((0, _index.changePlaylistAction)(_this2.props.elem));
-            var _this = document.querySelector('.active');
-            event.currentTarget.classList.add('active');
+            var past = document.querySelector('.active');
+            var _this = event.target;
             promise.then(function (result) {
                 _this2.randomTrack();
-                _this.classList.remove('active');
-                _this.classList.add('fade');
+                if (_this !== past) {
+                    past.classList.remove('active');
+                    past.classList.add('fade');
+                    _this.classList.add('active');
+                }
             }, function (err) {
                 return console.log(err);
             });
-
-            /*let divs = Array.from(event.currentTarget.parentElement.getElementsByTagName('div'));
-            divs.forEach((e, i) => e.className = 'fade');*/
         };
 
         _this2.thisplaylist = function () {
@@ -16786,7 +16787,7 @@ var Playlist = function (_React$Component) {
                 success: function success(data) {
                     _this2.setState({
                         data: data,
-                        picture: data.picture_small.replace(/56x56/, '64x64')
+                        picture: data.picture_small && data.picture_small.replace(/56x56/, '64x64')
                     });
                 }
             });
