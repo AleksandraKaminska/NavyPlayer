@@ -73,9 +73,10 @@ class ChooseAlbums extends React.Component {
                         <ul>{li}</ul>
                         {this.props.albums.length > 6 || this.state.current !== 0 ? <RightArrow nextSlide={this.nextSlide.bind(this)} /> : null}
                 </article>
-                <article className="songs">
+                {innerWidth >= 870 ? <div className="close" style={{position: 'fixed', top: 0, right: '-25em', background: '#999', width: '2em', height: '2em', borderRadius: '2px', textAlign: 'center', paddingTop: '0.3em'}} onClick={()=>{document.querySelector('.close').style.right = '-25em';document.querySelector('.songs').style.right = '-27em';}}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
+                <div className="songs" style={innerWidth >= 870 ? {width: '25em', right: '-27em'} : {width: '100%'}}>
                     <ul>{songs}</ul>
-                </article>
+                </div>
             </section>
         );
     }

@@ -182,13 +182,11 @@ body {
       .mainMiddle section#albums .list .nextArrow {
         font-size: 2em;
         display: none; }
-    .mainMiddle section#albums .songs {
-      width: 100%; }
-      .mainMiddle section#albums .songs ul {
-        flex-direction: column; }
-        .mainMiddle section#albums .songs ul li {
-          border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;
-          padding: 2vh 0; }
+    .mainMiddle section#albums .songs ul {
+      flex-direction: column; }
+      .mainMiddle section#albums .songs ul li {
+        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;
+        padding: 2vh 0; }
   .mainMiddle section#similar {
     margin: 2vh 4vw;
     width: 100%;
@@ -691,7 +689,8 @@ div[class^='/_'] footer {
     div[class^='/_'] .mainMiddle {
       display: flex;
       height: 63vh;
-      padding: 3vh 0 0; }
+      padding: 3vh 0 0;
+      position: relative; }
       .\/ .mainMiddle #playlists,
       .\/albums .mainMiddle #playlists,
       .\/artist .mainMiddle #playlists,
@@ -956,19 +955,7 @@ div[class^='/_'] footer {
         div[class^='/_'] .mainMiddle section#albums .list {
           width: 100%;
           overflow-x: hidden;
-          float: left; } }
-        @media (min-width: 870px) and (min-width: 1200px) {
-          .\/ .mainMiddle section#albums .list,
-          .\/albums .mainMiddle section#albums .list,
-          .\/artist .mainMiddle section#albums .list,
-          .\/playlist .mainMiddle section#albums .list,
-          .\/playlists .mainMiddle section#albums .list,
-          .\/search .mainMiddle section#albums .list,
-          .\/similar .mainMiddle section#albums .list,
-          div[class^='/ &'] .mainMiddle section#albums .list,
-          div[class^='/_'] .mainMiddle section#albums .list {
-            width: 70%; } }
-@media (min-width: 870px) {
+          float: left; }
           .\/ .mainMiddle section#albums .list img,
           .\/albums .mainMiddle section#albums .list img,
           .\/artist .mainMiddle section#albums .list img,
@@ -1014,6 +1001,24 @@ div[class^='/_'] footer {
             cursor: pointer;
             margin-top: .6em;
             display: block; }
+        .\/ .mainMiddle section#albums .close,
+        .\/albums .mainMiddle section#albums .close,
+        .\/artist .mainMiddle section#albums .close,
+        .\/playlist .mainMiddle section#albums .close,
+        .\/playlists .mainMiddle section#albums .close,
+        .\/search .mainMiddle section#albums .close,
+        .\/similar .mainMiddle section#albums .close,
+        div[class^='/ &'] .mainMiddle section#albums .close,
+        div[class^='/_'] .mainMiddle section#albums .close {
+          position: fixed;
+          top: 0;
+          right: -25em;
+          background: #999;
+          width: 2em;
+          height: 2em;
+          border-radius: 2px;
+          text-align: center;
+          padding-top: .3em; }
         .\/ .mainMiddle section#albums .songs,
         .\/albums .mainMiddle section#albums .songs,
         .\/artist .mainMiddle section#albums .songs,
@@ -1023,22 +1028,15 @@ div[class^='/_'] footer {
         .\/similar .mainMiddle section#albums .songs,
         div[class^='/ &'] .mainMiddle section#albums .songs,
         div[class^='/_'] .mainMiddle section#albums .songs {
-          float: left;
-          width: 100%;
-          padding-left: 2vw;
-          cursor: pointer; } }
-        @media (min-width: 870px) and (min-width: 1200px) {
-          .\/ .mainMiddle section#albums .songs,
-          .\/albums .mainMiddle section#albums .songs,
-          .\/artist .mainMiddle section#albums .songs,
-          .\/playlist .mainMiddle section#albums .songs,
-          .\/playlists .mainMiddle section#albums .songs,
-          .\/search .mainMiddle section#albums .songs,
-          .\/similar .mainMiddle section#albums .songs,
-          div[class^='/ &'] .mainMiddle section#albums .songs,
-          div[class^='/_'] .mainMiddle section#albums .songs {
-            width: 30%; } }
-@media (min-width: 870px) {
+          background: #111;
+          position: fixed;
+          padding: 2vh 2vw;
+          min-height: 100%;
+          max-height: 100%;
+          cursor: pointer;
+          top: 0;
+          z-index: 5;
+          overflow-y: auto; }
       .\/ .mainMiddle section#similar,
       .\/albums .mainMiddle section#similar,
       .\/artist .mainMiddle section#similar,

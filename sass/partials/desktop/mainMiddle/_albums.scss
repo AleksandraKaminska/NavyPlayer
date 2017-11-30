@@ -6,9 +6,6 @@ section#albums {
     }
     .list {
         width: 100%;
-        @media (min-width: 1200px) {
-            width: 70%;
-        }
         overflow-x: hidden;
         float: left;
         img {
@@ -28,13 +25,26 @@ section#albums {
             display: block;
         }
     }
+    .close {
+        position: fixed;
+        top: 0;
+        right: -25em;
+        background: #999;
+        width: 2em;
+        height: 2em;
+        border-radius: 2px;
+        text-align: center;
+        padding-top: .3em;
+    }
     .songs {
-        float: left;
-        width: 100%;
-        @media (min-width: 1200px) {
-            width: 30%;
-        }
-        padding-left: 2vw;
+        background: #111;
+        position: fixed;
+        padding: 2vh 2vw;
+        min-height: 100%;
+        max-height: 100%;
         cursor: pointer;
+        top: 0;
+        z-index: 5;
+        overflow-y: auto;
     }
 }

@@ -2,6 +2,7 @@
     display: flex;
     height: 63vh;
     padding: 3vh 0 0;
+    position: relative;
     @import "mainMiddle/_playlists.scss";
     @import "mainMiddle/_cover.scss";
     @import "mainMiddle/_artist.scss";

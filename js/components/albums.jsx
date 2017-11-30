@@ -12,13 +12,19 @@ class Albums extends React.Component {
                 albumsTracks: response.tracks.data
             })
         });
+        let songs = document.querySelector('.songs');
+        if (innerWidth >= 870 && songs.style.right !== '0em') {
+            songs.style.right = '0em';
+            document.querySelector('.close').style.right = '25em';
+            /*songs.style.right = songs.style.right !== '0em' ? '0em' : '-25em';*/
+        }
     }
 
     render() {
         let i = this.props.i;
         let current = this.props.current;
 
-        let display = i <= current + 5 && i >= current;
+        let display = i <= current + 7 && i >= current;
         let style = {
             display: display ? 'inline-block' : 'none'
         };

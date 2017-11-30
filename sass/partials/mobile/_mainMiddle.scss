@@ -124,14 +124,11 @@
                 display: none;
             }
         }
-        .songs {
-            width: 100%;
-            ul {
-                flex-direction: column;
-                li {
-                    border-bottom: .5px rgba(255, 255, 255, 0.2) solid;
-                    padding: 2vh 0;
-                }
+        .songs ul {
+            flex-direction: column;
+            li {
+                border-bottom: .5px rgba(255, 255, 255, 0.2) solid;
+                padding: 2vh 0;
             }
         }
     }
