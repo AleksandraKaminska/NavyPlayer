@@ -40,12 +40,18 @@ section#albums {
     .songs {
         background: #111;
         position: fixed;
-        padding: 2vh 2vw;
+        padding: 0;
         min-height: 100%;
         max-height: 100%;
         cursor: pointer;
         top: 0;
         z-index: 5;
         overflow-y: auto;
+        li {
+            padding: 2vh 2vw;
+        }
+        li:hover {
+            background-color: rgba(79, 57, 228, 0.14);
+        }
     }
 }

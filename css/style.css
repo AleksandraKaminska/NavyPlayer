@@ -1031,13 +1031,33 @@ div[class^='/_'] footer {
         div[class^='/_'] .mainMiddle section#albums .songs {
           background: #111;
           position: fixed;
-          padding: 2vh 2vw;
+          padding: 0;
           min-height: 100%;
           max-height: 100%;
           cursor: pointer;
           top: 0;
           z-index: 5;
           overflow-y: auto; }
+          .\/ .mainMiddle section#albums .songs li,
+          .\/albums .mainMiddle section#albums .songs li,
+          .\/artist .mainMiddle section#albums .songs li,
+          .\/playlist .mainMiddle section#albums .songs li,
+          .\/playlists .mainMiddle section#albums .songs li,
+          .\/search .mainMiddle section#albums .songs li,
+          .\/similar .mainMiddle section#albums .songs li,
+          div[class^='/ &'] .mainMiddle section#albums .songs li,
+          div[class^='/_'] .mainMiddle section#albums .songs li {
+            padding: 2vh 2vw; }
+          .\/ .mainMiddle section#albums .songs li:hover,
+          .\/albums .mainMiddle section#albums .songs li:hover,
+          .\/artist .mainMiddle section#albums .songs li:hover,
+          .\/playlist .mainMiddle section#albums .songs li:hover,
+          .\/playlists .mainMiddle section#albums .songs li:hover,
+          .\/search .mainMiddle section#albums .songs li:hover,
+          .\/similar .mainMiddle section#albums .songs li:hover,
+          div[class^='/ &'] .mainMiddle section#albums .songs li:hover,
+          div[class^='/_'] .mainMiddle section#albums .songs li:hover {
+            background-color: rgba(79, 57, 228, 0.14); }
       .\/ .mainMiddle section#similar,
       .\/albums .mainMiddle section#similar,
       .\/artist .mainMiddle section#similar,
