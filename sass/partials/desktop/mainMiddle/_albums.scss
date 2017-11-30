@@ -27,9 +27,10 @@ section#albums {
     }
     .close {
         position: fixed;
-        top: 0;
+        top: 10%;
         right: -25em;
-        background: #999;
+        cursor: pointer;
+        background: #4f39e4;
         width: 2em;
         height: 2em;
         border-radius: 2px;
