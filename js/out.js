@@ -14929,9 +14929,10 @@ var Albums = function (_React$Component) {
             });
             var songs = document.querySelector('.songs');
             if (innerWidth >= 870 && songs.style.right !== '0em') {
-                songs.style.right = '0em';
-                document.querySelector('.close').style.right = '25em';
-                /*songs.style.right = songs.style.right !== '0em' ? '0em' : '-25em';*/
+                songs.classList.remove('slidein');
+                songs.classList.add('slideout');
+                document.querySelector('.close').classList.remove('buttonSlidein');
+                document.querySelector('.close').classList.add('buttonSlideout');
             }
         }
     }, {
@@ -15458,8 +15459,10 @@ var ChooseAlbums = function (_React$Component) {
                 innerWidth >= 870 ? _react2.default.createElement(
                     'div',
                     { className: 'close', onClick: function onClick() {
-                            document.querySelector('.close').style.right = '-25em';
-                            document.querySelector('.songs').style.right = '-27em';
+                            document.querySelector('.close').classList.remove('buttonSlideout');
+                            document.querySelector('.close').classList.remove('buttonSlidein');
+                            document.querySelector('.songs').classList.remove('slideout');
+                            document.querySelector('.songs').classList.add('slidein');
                         } },
                     _react2.default.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
                 ) : null,

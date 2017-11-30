@@ -1048,16 +1048,148 @@ div[class^='/_'] footer {
           div[class^='/ &'] .mainMiddle section#albums .songs li,
           div[class^='/_'] .mainMiddle section#albums .songs li {
             padding: 2vh 2vw; }
-          .\/ .mainMiddle section#albums .songs li:hover,
-          .\/albums .mainMiddle section#albums .songs li:hover,
-          .\/artist .mainMiddle section#albums .songs li:hover,
-          .\/playlist .mainMiddle section#albums .songs li:hover,
-          .\/playlists .mainMiddle section#albums .songs li:hover,
-          .\/search .mainMiddle section#albums .songs li:hover,
-          .\/similar .mainMiddle section#albums .songs li:hover,
-          div[class^='/ &'] .mainMiddle section#albums .songs li:hover,
-          div[class^='/_'] .mainMiddle section#albums .songs li:hover {
-            background-color: rgba(79, 57, 228, 0.14); }
+            .\/ .mainMiddle section#albums .songs li:hover,
+            .\/albums .mainMiddle section#albums .songs li:hover,
+            .\/artist .mainMiddle section#albums .songs li:hover,
+            .\/playlist .mainMiddle section#albums .songs li:hover,
+            .\/playlists .mainMiddle section#albums .songs li:hover,
+            .\/search .mainMiddle section#albums .songs li:hover,
+            .\/similar .mainMiddle section#albums .songs li:hover,
+            div[class^='/ &'] .mainMiddle section#albums .songs li:hover,
+            div[class^='/_'] .mainMiddle section#albums .songs li:hover {
+              background-color: rgba(79, 57, 228, 0.14); }
+        .\/ .mainMiddle section#albums .slideout,
+        .\/albums .mainMiddle section#albums .slideout,
+        .\/artist .mainMiddle section#albums .slideout,
+        .\/playlist .mainMiddle section#albums .slideout,
+        .\/playlists .mainMiddle section#albums .slideout,
+        .\/search .mainMiddle section#albums .slideout,
+        .\/similar .mainMiddle section#albums .slideout,
+        div[class^='/ &'] .mainMiddle section#albums .slideout,
+        div[class^='/_'] .mainMiddle section#albums .slideout {
+          -webkit-animation: SLIDEOUT 1.5s 0s 1 forwards;
+          -moz-animation: SLIDEOUT 1.5s 0s 1 forwards;
+          -o-animation: SLIDEOUT 1.5s 0s 1 forwards;
+          animation: SLIDEOUT 1.5s 0s 1 forwards; }
+  @-webkit-keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+  @-moz-keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+  @-o-keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+  @keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+        .\/ .mainMiddle section#albums .slidein,
+        .\/albums .mainMiddle section#albums .slidein,
+        .\/artist .mainMiddle section#albums .slidein,
+        .\/playlist .mainMiddle section#albums .slidein,
+        .\/playlists .mainMiddle section#albums .slidein,
+        .\/search .mainMiddle section#albums .slidein,
+        .\/similar .mainMiddle section#albums .slidein,
+        div[class^='/ &'] .mainMiddle section#albums .slidein,
+        div[class^='/_'] .mainMiddle section#albums .slidein {
+          -webkit-animation: SLIDEIN 1.5s 0s 1 forwards;
+          -moz-animation: SLIDEIN 1.5s 0s 1 forwards;
+          -o-animation: SLIDEIN 1.5s 0s 1 forwards;
+          animation: SLIDEIN 1.5s 0s 1 forwards; }
+  @-webkit-keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+  @-moz-keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+  @-o-keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+  @keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+        .\/ .mainMiddle section#albums .buttonSlideout,
+        .\/albums .mainMiddle section#albums .buttonSlideout,
+        .\/artist .mainMiddle section#albums .buttonSlideout,
+        .\/playlist .mainMiddle section#albums .buttonSlideout,
+        .\/playlists .mainMiddle section#albums .buttonSlideout,
+        .\/search .mainMiddle section#albums .buttonSlideout,
+        .\/similar .mainMiddle section#albums .buttonSlideout,
+        div[class^='/ &'] .mainMiddle section#albums .buttonSlideout,
+        div[class^='/_'] .mainMiddle section#albums .buttonSlideout {
+          -webkit-animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards;
+          -moz-animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards;
+          -o-animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards;
+          animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards; }
+  @-webkit-keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+  @-moz-keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+  @-o-keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+  @keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+        .\/ .mainMiddle section#albums .buttonSlidein,
+        .\/albums .mainMiddle section#albums .buttonSlidein,
+        .\/artist .mainMiddle section#albums .buttonSlidein,
+        .\/playlist .mainMiddle section#albums .buttonSlidein,
+        .\/playlists .mainMiddle section#albums .buttonSlidein,
+        .\/search .mainMiddle section#albums .buttonSlidein,
+        .\/similar .mainMiddle section#albums .buttonSlidein,
+        div[class^='/ &'] .mainMiddle section#albums .buttonSlidein,
+        div[class^='/_'] .mainMiddle section#albums .buttonSlidein {
+          -webkit-animation: BUTTONSLIDEIN 1.5s 0s 1 forwards;
+          -moz-animation: BUTTONSLIDEIN 1.5s 0s 1 forwards;
+          -o-animation: BUTTONSLIDEIN 1.5s 0s 1 forwards;
+          animation: BUTTONSLIDEIN 1.5s 0s 1 forwards; }
+  @-webkit-keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+  @-moz-keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+  @-o-keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+  @keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
       .\/ .mainMiddle section#similar,
       .\/albums .mainMiddle section#similar,
       .\/artist .mainMiddle section#similar,

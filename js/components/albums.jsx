@@ -14,9 +14,10 @@ class Albums extends React.Component {
         });
         let songs = document.querySelector('.songs');
         if (innerWidth >= 870 && songs.style.right !== '0em') {
-            songs.style.right = '0em';
-            document.querySelector('.close').style.right = '25em';
-            /*songs.style.right = songs.style.right !== '0em' ? '0em' : '-25em';*/
+            songs.classList.remove('slidein');
+            songs.classList.add('slideout');
+            document.querySelector('.close').classList.remove('buttonSlidein');
+            document.querySelector('.close').classList.add('buttonSlideout');
         }
     }
 
