@@ -24,7 +24,7 @@ class Albums extends React.Component {
         let i = this.props.i;
         let current = this.props.current;
 
-        let display = i <= current + 7 && i >= current;
+        let display = i <= current + 8 && i >= current;
         let style = {
             display: display ? 'inline-block' : 'none'
         };

@@ -14940,7 +14940,7 @@ var Albums = function (_React$Component) {
             var i = this.props.i;
             var current = this.props.current;
 
-            var display = i <= current + 7 && i >= current;
+            var display = i <= current + 8 && i >= current;
             var style = {
                 display: display ? 'inline-block' : 'none'
             };
@@ -15447,18 +15447,19 @@ var ChooseAlbums = function (_React$Component) {
                 _react2.default.createElement(
                     'article',
                     { className: 'list' },
-                    this.props.albums.length > 6 || this.state.current !== 0 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
+                    this.props.albums.length > 9 || this.state.current !== 0 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
                     _react2.default.createElement(
                         'ul',
                         null,
                         li
                     ),
-                    this.props.albums.length > 6 || this.state.current !== 0 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
+                    this.props.albums.length > 9 || this.state.current !== 0 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
                 ),
                 innerWidth >= 870 ? _react2.default.createElement(
                     'div',
-                    { className: 'close', style: { position: 'fixed', top: 0, right: '-25em', background: '#999', width: '2em', height: '2em', borderRadius: '2px', textAlign: 'center', paddingTop: '0.3em' }, onClick: function onClick() {
-                            document.querySelector('.close').style.right = '-25em';document.querySelector('.songs').style.right = '-27em';
+                    { className: 'close', onClick: function onClick() {
+                            document.querySelector('.close').style.right = '-25em';
+                            document.querySelector('.songs').style.right = '-27em';
                         } },
                     _react2.default.createElement('i', { className: 'fa fa-arrow-right', 'aria-hidden': 'true' })
                 ) : null,

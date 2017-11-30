@@ -69,11 +69,14 @@ class ChooseAlbums extends React.Component {
             <section id="albums">
                 <h2>Albums</h2>
                 <article className="list">
-                        {this.props.albums.length > 6 || this.state.current !== 0 ? <LeftArrow previousSlide={this.previousSlide.bind(this)} /> : null}
+                        {this.props.albums.length > 9 || this.state.current !== 0 ? <LeftArrow previousSlide={this.previousSlide.bind(this)} /> : null}
                         <ul>{li}</ul>
-                        {this.props.albums.length > 6 || this.state.current !== 0 ? <RightArrow nextSlide={this.nextSlide.bind(this)} /> : null}
+                        {this.props.albums.length > 9 || this.state.current !== 0 ? <RightArrow nextSlide={this.nextSlide.bind(this)} /> : null}
                 </article>
-                {innerWidth >= 870 ? <div className="close" style={{position: 'fixed', top: 0, right: '-25em', background: '#999', width: '2em', height: '2em', borderRadius: '2px', textAlign: 'center', paddingTop: '0.3em'}} onClick={()=>{document.querySelector('.close').style.right = '-25em';document.querySelector('.songs').style.right = '-27em';}}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
+                {innerWidth >= 870 ? <div className="close" onClick={()=>{
+                  document.querySelector('.close').style.right = '-25em';
+                  document.querySelector('.songs').style.right = '-27em';
+                }}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
                 <div className="songs" style={innerWidth >= 870 ? {width: '25em', right: '-27em'} : {width: '100%'}}>
                     <ul>{songs}</ul>
                 </div>
