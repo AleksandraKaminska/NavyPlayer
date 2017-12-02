@@ -10,6 +10,12 @@ import {
     changeTrackAction,
     prevTrackAction
 } from './../actions/index.js';
+import {
+  searchArtist,
+  searchAlbums,
+  searchTopTracks,
+  searchSimilarArtists
+} from './functions.js';
 
 const promise = new Promise((resolve, reject) => {
     true ? resolve("Stuff worked!") : reject(Error("It broke"));
@@ -49,59 +55,15 @@ class Search extends React.Component {
         );
     }
 
-    searchArtist = () => {
-        $.ajax({
-            dataType: "jsonp",
-            url: `https://api.deezer.com/artist/${this.props.track.artist.id}?output=jsonp`,
-            success: response => store.dispatch({
-                type: 'FIND_ARTIST',
-                artist: response
-            })
-        });
-    }
-
-    searchTopTracks = () => {
-        $.ajax({
-            dataType: "jsonp",
-            url: `https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
-            success: response => store.dispatch({
-                type: 'FIND_TOP_TRACKS',
-                topTracks: response.data
-            })
-        });
-    }
-
-    searchAlbums = () => {
-        $.ajax({
-            dataType: "jsonp",
-            url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
-            success: response => store.dispatch({
-                type: 'FIND_ALBUMS',
-                albums: response.data
-            })
-        });
-    }
-
-    searchSimilarArtists = () => {
-        $.ajax({
-            dataType: "jsonp",
-            url: `https://api.deezer.com/artist/${this.props.track.artist.id}/related?limit=10&output=jsonp`,
-            success: response => store.dispatch({
-                type: 'FIND_SIMILAR_ARTISTS',
-                similar: response.data
-            })
-        });
-    }
-
     handleSelect = (value, item) => {
         store.dispatch(prevTrackAction(this.props.track));
         store.dispatch(changeTrackAction(item));
         promise.then(result => {
             store.dispatch(autocompleteAction(value));
-            this.searchArtist();
-            this.searchAlbums();
-            this.searchTopTracks();
-            this.searchSimilarArtists();
+            searchArtist(this.props.track.artist.id);
+            searchAlbums(this.props.track.artist.id);
+            searchTopTracks(this.props.track.artist.id);
+            searchSimilarArtists(this.props.track.artist.id);
             DZ.player.pause();
             DZ.player.playTracks([this.props.track.id]);
             store.dispatch(autocompleteAction(""));

@@ -13,6 +13,13 @@ import Template from './components/template.jsx';
 import Main from './components/main.jsx';
 import Search from './components/search.jsx';
 
+import {
+  searchArtist,
+  searchAlbums,
+  searchTopTracks,
+  searchSimilarArtists
+} from './components/functions.js';
+
 class AppContainer extends React.Component {
   randomTrack = () => {
     $.ajax({
@@ -23,44 +30,12 @@ class AppContainer extends React.Component {
           const randomNumber = Math.floor(Math.random() * playlistTracks.length);
           store.dispatch(prevTrackAction(this.props.track));
           store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
-          this.searchArtist();
-          this.searchTopTracks();
-          this.searchAlbums();
-          this.searchSimilarArtists();
+          searchArtist(this.props.track.artist.id);
+          searchAlbums(this.props.track.artist.id);
+          searchTopTracks(this.props.track.artist.id);
+          searchSimilarArtists(this.props.track.artist.id);
           DZ.player.playTracks([this.props.track.id]);
         }
-    });
-  }
-
-  searchArtist = () => {
-    $.ajax({
-      dataType: "jsonp",
-      url: `https://api.deezer.com/artist/${this.props.track.artist.id}?output=jsonp`,
-      success: response => store.dispatch({ type: 'FIND_ARTIST', artist: response })
-    });
-  }
-
-  searchTopTracks = () => {
-    $.ajax({
-        dataType: "jsonp",
-        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/top?output=jsonp`,
-        success : response => store.dispatch({ type: 'FIND_TOP_TRACKS', topTracks: response.data })
-    });
-  }
-
-  searchAlbums = () => {
-    $.ajax({
-      dataType: "jsonp",
-      url: `https://api.deezer.com/artist/${this.props.track.artist.id}/albums?output=jsonp`,
-      success: response => store.dispatch({ type: 'FIND_ALBUMS', albums: response.data })
-    });
-  }
-
-  searchSimilarArtists = () => {
-    $.ajax({
-        dataType: "jsonp",
-        url :`https://api.deezer.com/artist/${this.props.track.artist.id}/related?limit=10&output=jsonp`,
-        success : response => store.dispatch({ type: 'FIND_SIMILAR_ARTISTS', similar: response.data })
     });
   }
 
