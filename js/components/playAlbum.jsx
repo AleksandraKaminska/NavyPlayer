@@ -80,7 +80,7 @@ class PlayAlbum extends React.Component {
 
     render() {
         return (
-            <div className="playAlbum">Play album</div>
+            <div onClick={this.findPlaylist} className="playAlbum">Play album</div>
         );
     }
 }

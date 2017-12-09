@@ -9,7 +9,7 @@ class Albums extends React.Component {
             url: `https://api.deezer.com/album/${this.props.elem.id}?output=jsonp`,
             success: response => store.dispatch({
                 type: 'FIND_ALBUMSTRACKS',
-                albumsTracks: response.tracks.data
+                album: response
             })
         });
         let songs = document.querySelector('.songs');
@@ -41,7 +41,7 @@ class Albums extends React.Component {
 
 const mapStateToProps = function (store) {
     return {
-        albumsTracks: store.albumsTracks
+        album: store.album
     };
 };
 

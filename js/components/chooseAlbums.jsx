@@ -60,11 +60,14 @@ class ChooseAlbums extends React.Component {
                                     length={this.props.albums.length}
                                     i={i} />);
 
-        let songs = this.props.albumsTracks
-                    .map((song, i) => <AlbumsTracks
-                                       song={song}
-                                       i={i}
-                                       key={i} />);
+        let songs = <li></li>;
+        if (this.props.album.tracks) {
+            songs = this.props.album.tracks.data
+                .map((song, i) => <AlbumsTracks
+                                      song={song}
+                                      i={i}
+                                      key={i} />);
+        }
 
         return (
             <section id="albums">
@@ -92,7 +95,7 @@ class ChooseAlbums extends React.Component {
 const mapStateToProps = store => {
     return {
         albums: store.albums,
-        albumsTracks: store.albumsTracks
+        album: store.album
     };
 };
 

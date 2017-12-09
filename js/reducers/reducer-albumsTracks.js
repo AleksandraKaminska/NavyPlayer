@@ -1,7 +1,7 @@
-export default function (state = [], action) {
+export default function (state = {}, action) {
     switch (action.type) {
         case 'FIND_ALBUMSTRACKS':
-            return action.albumsTracks;
+            return action.album;
             break;
     }
     return state;

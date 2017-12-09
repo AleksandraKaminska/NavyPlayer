@@ -14,7 +14,7 @@ import PrevTrackReducer from './reducer-previous-track';
 
 const reducers = combineReducers({
     albums: AlbumsReducer,
-    albumsTracks: AlbumsTracksReducer,
+    album: AlbumsTracksReducer,
     artist: ArtistReducer,
     chosenPlaylist: ChosenPlaylistReducer,
     searchTracks: SearchTracksReducer,

@@ -14647,7 +14647,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(AppContainer);
 
 const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* combineReducers */])({
     albums: __WEBPACK_IMPORTED_MODULE_1__reducer_albums__["a" /* default */],
-    albumsTracks: __WEBPACK_IMPORTED_MODULE_2__reducer_albumsTracks__["a" /* default */],
+    album: __WEBPACK_IMPORTED_MODULE_2__reducer_albumsTracks__["a" /* default */],
     artist: __WEBPACK_IMPORTED_MODULE_3__reducer_artist__["a" /* default */],
     chosenPlaylist: __WEBPACK_IMPORTED_MODULE_6__reducer_chosen_playlist__["a" /* default */],
     searchTracks: __WEBPACK_IMPORTED_MODULE_7__reducer_search_tracks__["a" /* default */],
@@ -14681,10 +14681,10 @@ const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = (function (state = [], action) {
+/* harmony default export */ __webpack_exports__["a"] = (function (state = {}, action) {
     switch (action.type) {
         case 'FIND_ALBUMSTRACKS':
-            return action.albumsTracks;
+            return action.album;
             break;
     }
     return state;
@@ -14899,7 +14899,7 @@ var Albums = function (_React$Component) {
                 success: function success(response) {
                     return _store2.default.dispatch({
                         type: 'FIND_ALBUMSTRACKS',
-                        albumsTracks: response.tracks.data
+                        album: response
                     });
                 }
             });
@@ -14940,7 +14940,7 @@ var Albums = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(store) {
     return {
-        albumsTracks: store.albumsTracks
+        album: store.album
     };
 };
 
@@ -15380,12 +15380,15 @@ var ChooseAlbums = function (_React$Component) {
                     i: i });
             });
 
-            var songs = this.props.albumsTracks.map(function (song, i) {
-                return _react2.default.createElement(_albumsTracks2.default, {
-                    song: song,
-                    i: i,
-                    key: i });
-            });
+            var songs = _react2.default.createElement('li', null);
+            if (this.props.album.tracks) {
+                songs = this.props.album.tracks.data.map(function (song, i) {
+                    return _react2.default.createElement(_albumsTracks2.default, {
+                        song: song,
+                        i: i,
+                        key: i });
+                });
+            }
 
             return _react2.default.createElement(
                 'section',
@@ -15435,7 +15438,7 @@ var ChooseAlbums = function (_React$Component) {
 var mapStateToProps = function mapStateToProps(store) {
     return {
         albums: store.albums,
-        albumsTracks: store.albumsTracks
+        album: store.album
     };
 };
 
@@ -16032,7 +16035,7 @@ var PlayAlbum = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'playAlbum' },
+                { onClick: this.findPlaylist, className: 'playAlbum' },
                 'Play album'
             );
         }
