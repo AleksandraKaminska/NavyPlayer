@@ -39,6 +39,20 @@ class AppContainer extends React.Component {
     });
   }
 
+  randomAlbumTrack = () => {
+      $.ajax({
+          dataType: "jsonp",
+          url: `https://api.deezer.com/album/${this.props.album.id}?output=jsonp`,
+          success: response => {
+              const albumTracks = response.tracks.data;
+              const randomNumber = Math.floor(Math.random() * albumTracks.length);
+              store.dispatch(prevTrackAction(this.props.track));
+              store.dispatch(changeTrackAction(albumTracks[randomNumber], this.props.album.cover_big));
+              DZ.player.playTracks([this.props.track.id]);
+          }
+      });
+  }
+
   componentDidMount() {
     this.randomTrack();
 
@@ -54,14 +68,14 @@ class AppContainer extends React.Component {
     });
     this.intervalId	=	setInterval(() =>	{
       if(finished) {
-        this.randomTrack();
+        this.props.chosenPlaylist ? this.randomTrack() : this.randomAlbumTrack();
         finished = false;
       }
     }, 1000);
   }
 
 	componentWillUnmount(){
-		clearInterval(this.intervalId);
+	  clearInterval(this.intervalId);
 	}
 
   render() {
@@ -80,7 +94,8 @@ const mapStateToProps = store => {
   return {
       chosenPlaylist: store.chosenPlaylist,
       track: store.track,
-      prev: store.prev
+      prev: store.prev,
+      album: store.album
   };
 };
 

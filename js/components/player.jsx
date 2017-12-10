@@ -40,7 +40,7 @@ class Player extends React.Component {
             isPlaying: true
         }, () => {
             DZ.player.pause();
-            this.randomTrack();
+            this.props.chosenPlaylist ? this.randomTrack() : this.randomAlbumTrack();
         });
     }
 
@@ -50,7 +50,7 @@ class Player extends React.Component {
         }, () => {
             DZ.player.pause();
             if (this.props.prev.title === '') {
-                this.randomTrack();
+                this.props.chosenPlaylist ? this.randomTrack() : this.randomAlbumTrack();
             } else {
                 store.dispatch(prevTrackAction(this.props.track));
                 store.dispatch(changeTrackAction(this.props.prev));
@@ -83,6 +83,20 @@ class Player extends React.Component {
         });
     }
 
+    randomAlbumTrack = () => {
+        $.ajax({
+            dataType: "jsonp",
+            url: `https://api.deezer.com/album/${this.props.album.id}?output=jsonp`,
+            success: response => {
+                const albumTracks = response.tracks.data;
+                const randomNumber = Math.floor(Math.random() * albumTracks.length);
+                store.dispatch(prevTrackAction(this.props.track));
+                store.dispatch(changeTrackAction(albumTracks[randomNumber], this.props.album.cover_big));
+                DZ.player.playTracks([this.props.track.id]);
+            }
+        });
+    }
+
     render() {
         return (
             <div className="player">
@@ -106,7 +120,8 @@ const mapStateToProps = store => {
     return {
         track: store.track,
         prev: store.prev,
-        chosenPlaylist: store.chosenPlaylist
+        chosenPlaylist: store.chosenPlaylist,
+        album: store.album
     };
 };
 

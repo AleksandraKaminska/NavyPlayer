@@ -14555,6 +14555,18 @@ var AppContainer = function (_React$Component) {
           DZ.player.playTracks([_this.props.track.id]);
         }
       });
+    }, _this.randomAlbumTrack = function () {
+      $.ajax({
+        dataType: "jsonp",
+        url: 'https://api.deezer.com/album/' + _this.props.album.id + '?output=jsonp',
+        success: function success(response) {
+          var albumTracks = response.tracks.data;
+          var randomNumber = Math.floor(Math.random() * albumTracks.length);
+          _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+          _store2.default.dispatch((0, _index.changeTrackAction)(albumTracks[randomNumber], _this.props.album.cover_big));
+          DZ.player.playTracks([_this.props.track.id]);
+        }
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -14577,7 +14589,7 @@ var AppContainer = function (_React$Component) {
       });
       this.intervalId = setInterval(function () {
         if (finished) {
-          _this2.randomTrack();
+          _this2.props.chosenPlaylist ? _this2.randomTrack() : _this2.randomAlbumTrack();
           finished = false;
         }
       }, 1000);
@@ -14610,7 +14622,8 @@ var mapStateToProps = function mapStateToProps(store) {
   return {
     chosenPlaylist: store.chosenPlaylist,
     track: store.track,
-    prev: store.prev
+    prev: store.prev,
+    album: store.album
   };
 };
 
@@ -14807,7 +14820,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 /* harmony default export */ __webpack_exports__["a"] = (function (state = initialState, action) {
     switch (action.type) {
         case 'CHANGE_TRACK':
-            return action.track.album ? action.track : Object.assign({}, action.track, {album: {cover_big: action.albumCover}});
+            return action.track.album ? Object.assign({}, action.track) : Object.assign({}, action.track, { album: { cover_big: action.albumCover } });
             break;
     }
     return state;
@@ -15974,17 +15987,9 @@ var PlayAlbum = function (_React$Component) {
 
         _this.findAlbum = function (event) {
             event.preventDefault();
-            console.log("FIND_ALBUM: this.props: ", _this.props.album.id);
-            /*store.dispatch(changePlaylistAction(this.props.elem));*/
-            /*let past = document.querySelector('.active');
-            let _this = event.target;*/
+            _store2.default.dispatch((0, _index.changePlaylistAction)(0));
             promise.then(function (result) {
                 _this.randomTrack();
-                /*if (_this !== past) {
-                    past.classList.remove('active');
-                    past.classList.add('fade');
-                    _this.classList.add('active');
-                }*/
             }, function (err) {
                 return console.log(err);
             });
@@ -15996,7 +16001,6 @@ var PlayAlbum = function (_React$Component) {
                 url: 'https://api.deezer.com/album/' + _this.props.album.id + '?output=jsonp',
                 success: function success(response) {
                     var albumTracks = response.tracks.data;
-                    console.log(_this.props.album);
                     var randomNumber = Math.floor(Math.random() * albumTracks.length);
                     _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
                     _store2.default.dispatch((0, _index.changeTrackAction)(albumTracks[randomNumber], _this.props.album.cover_big));
@@ -16010,22 +16014,6 @@ var PlayAlbum = function (_React$Component) {
         };
         return _this;
     }
-
-    /*thisAlbum = () => {
-        $.ajax({
-            dataType: "jsonp",
-            url: `https://api.deezer.com/album/${this.props.album.id}?output=jsonp`,
-            success: data => {
-                console.log("THIS_ALBUM: data: ", data);
-                this.setState({
-                    data: data,
-                })
-            }
-        });
-    }
-     componentDidMount() {
-        this.thisAlbum();
-    }*/
 
     _createClass(PlayAlbum, [{
         key: 'render',
@@ -16044,7 +16032,8 @@ var PlayAlbum = function (_React$Component) {
 var mapStateToProps = function mapStateToProps(store) {
     return {
         track: store.track,
-        album: store.album
+        album: store.album,
+        chosenPlaylist: store.chosenPlaylist
     };
 };
 
@@ -16121,7 +16110,7 @@ var Player = function (_React$Component) {
                 isPlaying: true
             }, function () {
                 DZ.player.pause();
-                _this.randomTrack();
+                _this.props.chosenPlaylist ? _this.randomTrack() : _this.randomAlbumTrack();
             });
         };
 
@@ -16131,7 +16120,7 @@ var Player = function (_React$Component) {
             }, function () {
                 DZ.player.pause();
                 if (_this.props.prev.title === '') {
-                    _this.randomTrack();
+                    _this.props.chosenPlaylist ? _this.randomTrack() : _this.randomAlbumTrack();
                 } else {
                     _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
                     _store2.default.dispatch((0, _index.changeTrackAction)(_this.props.prev));
@@ -16161,6 +16150,20 @@ var Player = function (_React$Component) {
                     (0, _functions.searchTopTracks)(_this.props.track.artist.id);
                     (0, _functions.searchAlbums)(_this.props.track.artist.id);
                     (0, _functions.searchSimilarArtists)(_this.props.track.artist.id);
+                    DZ.player.playTracks([_this.props.track.id]);
+                }
+            });
+        };
+
+        _this.randomAlbumTrack = function () {
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/album/' + _this.props.album.id + '?output=jsonp',
+                success: function success(response) {
+                    var albumTracks = response.tracks.data;
+                    var randomNumber = Math.floor(Math.random() * albumTracks.length);
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(albumTracks[randomNumber], _this.props.album.cover_big));
                     DZ.player.playTracks([_this.props.track.id]);
                 }
             });
@@ -16208,7 +16211,8 @@ var mapStateToProps = function mapStateToProps(store) {
     return {
         track: store.track,
         prev: store.prev,
-        chosenPlaylist: store.chosenPlaylist
+        chosenPlaylist: store.chosenPlaylist,
+        album: store.album
     };
 };
 
