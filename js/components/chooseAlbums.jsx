@@ -85,6 +85,7 @@ class ChooseAlbums extends React.Component {
                 }}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
                 <div className="songs" style={innerWidth >= 870 ? {width: '25em', right: '-27em'} : {width: '100%'}}>
                     {/*<PlayAlbum/>*/}
+                    <PlayAlbum/>
                     <ul>{songs}</ul>
                 </div>
             </section>

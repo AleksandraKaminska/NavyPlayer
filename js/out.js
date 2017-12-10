@@ -1673,10 +1673,11 @@ const autocompleteAction = (autocompleteValue) => {
 /* harmony export (immutable) */ __webpack_exports__["autocompleteAction"] = autocompleteAction;
 
 
-const changeTrackAction = (track) => {
+const changeTrackAction = (track, albumCover) => {
     return {
         type: 'CHANGE_TRACK',
-        track
+        track,
+        albumCover
     }
 };
 /* harmony export (immutable) */ __webpack_exports__["changeTrackAction"] = changeTrackAction;
@@ -14806,7 +14807,7 @@ const initialState = {title: '', artist: {name: ''}, album: {cover_big: ''}, id:
 /* harmony default export */ __webpack_exports__["a"] = (function (state = initialState, action) {
     switch (action.type) {
         case 'CHANGE_TRACK':
-            return action.track;
+            return action.track.album ? action.track : Object.assign({}, action.track, {album: {cover_big: action.albumCover}});
             break;
     }
     return state;
@@ -15422,6 +15423,7 @@ var ChooseAlbums = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'songs', style: innerWidth >= 870 ? { width: '25em', right: '-27em' } : { width: '100%' } },
+                    _react2.default.createElement(_playAlbum2.default, null),
                     _react2.default.createElement(
                         'ul',
                         null,
@@ -15968,74 +15970,69 @@ var PlayAlbum = function (_React$Component) {
     function PlayAlbum(props) {
         _classCallCheck(this, PlayAlbum);
 
-        var _this2 = _possibleConstructorReturn(this, (PlayAlbum.__proto__ || Object.getPrototypeOf(PlayAlbum)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (PlayAlbum.__proto__ || Object.getPrototypeOf(PlayAlbum)).call(this, props));
 
-        _this2.findPlaylist = function (event) {
+        _this.findAlbum = function (event) {
             event.preventDefault();
-            _store2.default.dispatch((0, _index.changePlaylistAction)(_this2.props.elem));
-            var past = document.querySelector('.active');
-            var _this = event.target;
+            console.log("FIND_ALBUM: this.props: ", _this.props.album.id);
+            /*store.dispatch(changePlaylistAction(this.props.elem));*/
+            /*let past = document.querySelector('.active');
+            let _this = event.target;*/
             promise.then(function (result) {
-                _this2.randomTrack();
-                if (_this !== past) {
+                _this.randomTrack();
+                /*if (_this !== past) {
                     past.classList.remove('active');
                     past.classList.add('fade');
                     _this.classList.add('active');
-                }
+                }*/
             }, function (err) {
                 return console.log(err);
             });
         };
 
-        _this2.thisplaylist = function () {
+        _this.randomTrack = function () {
             $.ajax({
                 dataType: "jsonp",
-                url: 'https://api.deezer.com/playlist/' + _this2.props.elem + '?output=jsonp',
-                success: function success(data) {
-                    _this2.setState({
-                        data: data,
-                        picture: data.picture_small && data.picture_small.replace(/56x56/, '64x64')
-                    });
-                }
-            });
-        };
-
-        _this2.randomTrack = function () {
-            $.ajax({
-                dataType: "jsonp",
-                url: 'https://api.deezer.com/playlist/' + _this2.props.chosenPlaylist + '?output=jsonp',
+                url: 'https://api.deezer.com/album/' + _this.props.album.id + '?output=jsonp',
                 success: function success(response) {
-                    var playlistTracks = response.tracks.data;
-                    var randomNumber = Math.floor(Math.random() * playlistTracks.length);
-                    _store2.default.dispatch((0, _index.prevTrackAction)(_this2.props.track));
-                    _store2.default.dispatch((0, _index.changeTrackAction)(playlistTracks[randomNumber]));
-                    (0, _functions.searchArtist)(_this2.props.track.artist.id);
-                    (0, _functions.searchAlbums)(_this2.props.track.artist.id);
-                    (0, _functions.searchTopTracks)(_this2.props.track.artist.id);
-                    (0, _functions.searchSimilarArtists)(_this2.props.track.artist.id);
-                    DZ.player.playTracks([_this2.props.track.id]);
+                    var albumTracks = response.tracks.data;
+                    console.log(_this.props.album);
+                    var randomNumber = Math.floor(Math.random() * albumTracks.length);
+                    _store2.default.dispatch((0, _index.prevTrackAction)(_this.props.track));
+                    _store2.default.dispatch((0, _index.changeTrackAction)(albumTracks[randomNumber], _this.props.album.cover_big));
+                    DZ.player.playTracks([_this.props.track.id]);
                 }
             });
         };
 
-        _this2.state = {
-            data: {},
-            picture: ''
+        _this.state = {
+            data: {}
         };
-        return _this2;
+        return _this;
     }
 
+    /*thisAlbum = () => {
+        $.ajax({
+            dataType: "jsonp",
+            url: `https://api.deezer.com/album/${this.props.album.id}?output=jsonp`,
+            success: data => {
+                console.log("THIS_ALBUM: data: ", data);
+                this.setState({
+                    data: data,
+                })
+            }
+        });
+    }
+     componentDidMount() {
+        this.thisAlbum();
+    }*/
+
     _createClass(PlayAlbum, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.thisplaylist();
-        }
-    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { onClick: this.findPlaylist, className: 'playAlbum' },
+                { onClick: this.findAlbum, className: 'playAlbum' },
                 'Play album'
             );
         }
@@ -16046,8 +16043,8 @@ var PlayAlbum = function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(store) {
     return {
-        chosenPlaylist: store.chosenPlaylist,
-        track: store.track
+        track: store.track,
+        album: store.album
     };
 };
 

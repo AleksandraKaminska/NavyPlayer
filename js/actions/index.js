@@ -19,10 +19,11 @@ export const autocompleteAction = (autocompleteValue) => {
     }
 };
 
-export const changeTrackAction = (track) => {
+export const changeTrackAction = (track, albumCover) => {
     return {
         type: 'CHANGE_TRACK',
-        track
+        track,
+        albumCover
     }
 };
 

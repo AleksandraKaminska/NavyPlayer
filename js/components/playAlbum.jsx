@@ -24,55 +24,52 @@ class PlayAlbum extends React.Component {
         super(props);
         this.state = {
             data: {},
-            picture: ''
         };
     }
 
-    findPlaylist = (event) => {
+    findAlbum = (event) => {
         event.preventDefault();
-        store.dispatch(changePlaylistAction(this.props.elem));
-        let past = document.querySelector('.active');
-        let _this = event.target;
+        console.log("FIND_ALBUM: this.props: ", this.props.album.id);
+        /*store.dispatch(changePlaylistAction(this.props.elem));*/
+        /*let past = document.querySelector('.active');
+        let _this = event.target;*/
         promise.then(result => {
             this.randomTrack();
-            if (_this !== past) {
+            /*if (_this !== past) {
                 past.classList.remove('active');
                 past.classList.add('fade');
                 _this.classList.add('active');
-            }
+            }*/
         }, err => console.log(err));
     }
 
-    thisplaylist = () => {
+    /*thisAlbum = () => {
         $.ajax({
             dataType: "jsonp",
-            url: `https://api.deezer.com/playlist/${this.props.elem}?output=jsonp`,
+            url: `https://api.deezer.com/album/${this.props.album.id}?output=jsonp`,
             success: data => {
+                console.log("THIS_ALBUM: data: ", data);
                 this.setState({
                     data: data,
-                    picture: data.picture_small && data.picture_small.replace(/56x56/, '64x64')
                 })
             }
         });
     }
 
     componentDidMount() {
-        this.thisplaylist();
-    }
+        this.thisAlbum();
+    }*/
 
     randomTrack = () => {
         $.ajax({
             dataType: "jsonp",
-            url: `https://api.deezer.com/playlist/${this.props.chosenPlaylist}?output=jsonp`,
+            url: `https://api.deezer.com/album/${this.props.album.id}?output=jsonp`,
             success: response => {
-                const playlistTracks = response.tracks.data;
-                const randomNumber = Math.floor(Math.random() * playlistTracks.length);
+                const albumTracks = response.tracks.data;
+                console.log(this.props.album);
+                const randomNumber = Math.floor(Math.random() * albumTracks.length);
                 store.dispatch(prevTrackAction(this.props.track));
-                store.dispatch(changeTrackAction(playlistTracks[randomNumber]));
-                searchArtist(this.props.track.artist.id);
-                searchAlbums(this.props.track.artist.id);
-                searchTopTracks(this.props.track.artist.id);
-                searchSimilarArtists(this.props.track.artist.id);
+                store.dispatch(changeTrackAction(albumTracks[randomNumber], this.props.album.cover_big));
                 DZ.player.playTracks([this.props.track.id]);
             }
         });
@@ -80,7 +77,7 @@ class PlayAlbum extends React.Component {
 
     render() {
         return (
-            <div onClick={this.findPlaylist} className="playAlbum">Play album</div>
+            <div onClick={this.findAlbum} className="playAlbum">Play album</div>
         );
     }
 }
@@ -88,8 +85,8 @@ class PlayAlbum extends React.Component {
 
 const mapStateToProps = function (store) {
     return {
-        chosenPlaylist: store.chosenPlaylist,
         track: store.track,
+        album: store.album
     };
 };
 
