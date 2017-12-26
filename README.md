@@ -1,7 +1,7 @@
 # NavyPlayer - Coders Lab final project
 Music app powered by Deezer api- my final project after programming course at Coders Lab.
 
-## My project: https://aleksandrakaminska.github.io/NavyPlayer-deezer-/
+## My project: https://navyplayer.netlify.com
 
 ### Built With:
  - Sass
