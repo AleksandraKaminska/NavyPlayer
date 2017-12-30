@@ -1,9 +1,8 @@
 #playlists {
     display: block;
-    width: calc((100% - 400px) / 2);
+    width: calc((100% - 60vh) / 2);
     div {
         direction: rtl;
-        max-height: 400px;
         padding-left: .5em;
         div {
             direction: ltr;

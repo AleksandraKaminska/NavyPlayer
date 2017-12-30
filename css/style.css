@@ -623,7 +623,7 @@ div[class^='/_'] footer {
       div[class^='/ &'] #search div:first-child,
       div[class^='/_'] #search div:first-child {
         width: 25vw;
-        height: 4.5vh;
+        height: 2.5vh;
         margin-top: 1em; }
         .\/ #search div:first-child input,
         .\/albums #search div:first-child input,
@@ -701,7 +701,7 @@ div[class^='/_'] footer {
       div[class^='/ &'] .mainMiddle #playlists,
       div[class^='/_'] .mainMiddle #playlists {
         display: block;
-        width: calc((100% - 400px) / 2); }
+        width: calc((100% - 60vh) / 2); }
         .\/ .mainMiddle #playlists div,
         .\/albums .mainMiddle #playlists div,
         .\/artist .mainMiddle #playlists div,
@@ -712,7 +712,6 @@ div[class^='/_'] footer {
         div[class^='/ &'] .mainMiddle #playlists div,
         div[class^='/_'] .mainMiddle #playlists div {
           direction: rtl;
-          max-height: 400px;
           padding-left: .5em; }
           .\/ .mainMiddle #playlists div div,
           .\/albums .mainMiddle #playlists div div,
@@ -843,8 +842,8 @@ div[class^='/_'] footer {
         div[class^='/ &'] .mainMiddle section#cover .cover,
         div[class^='/_'] .mainMiddle section#cover .cover {
           position: static;
-          height: 400px;
-          width: 400px;
+          height: 60vh;
+          width: 60vh;
           margin: 0;
           background-size: cover;
           background-position: center; }
@@ -857,7 +856,7 @@ div[class^='/_'] footer {
       .\/similar .mainMiddle #artist,
       div[class^='/ &'] .mainMiddle #artist,
       div[class^='/_'] .mainMiddle #artist {
-        width: calc((100% - 400px) / 2);
+        width: calc((100% - 60vh) / 2);
         display: flex;
         flex-wrap: wrap; }
         .\/ .mainMiddle #artist .info,
