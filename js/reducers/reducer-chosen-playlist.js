@@ -1,4 +1,4 @@
-export default function (state = 3773392382, action) {
+export default function (state = 1479458365, action) {
     switch (action.type) {
         case 'CHANGE_PLAYLIST':
             return action.chosenPlaylist;
