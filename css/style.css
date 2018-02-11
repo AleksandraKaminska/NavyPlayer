@@ -160,7 +160,8 @@ body {
     /*padding: 0 4vw;*/ }
     .mainMiddle section#albums h2 {
       margin-bottom: 3vh;
-      font-size: 1.2em; }
+      font-size: 1.2em;
+      margin-left: 4vw; }
     .mainMiddle section#albums ul {
       display: flex; }
     .mainMiddle section#albums .list {
@@ -182,6 +183,8 @@ body {
       .mainMiddle section#albums .list .nextArrow {
         font-size: 2em;
         display: none; }
+    .mainMiddle section#albums .songs {
+      margin-left: 4vw; }
     .mainMiddle section#albums .songs ul {
       flex-direction: column; }
       .mainMiddle section#albums .songs ul li {

@@ -97,6 +97,7 @@
         h2 {
             margin-bottom: 3vh;
             font-size: 1.2em;
+            margin-left: 4vw;
         }
         ul {
             display: flex;
@@ -123,6 +124,9 @@
                 font-size: 2em;
                 display: none;
             }
+        }
+        .songs {
+            margin-left: 4vw;
         }
         .songs ul {
             flex-direction: column;

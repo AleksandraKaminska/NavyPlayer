@@ -5,77 +5,36 @@ import store from './../store';
 
 import PlayAlbum from './playAlbum.jsx';
 import AlbumsTracks from './albumsTracks.jsx';
-import { LeftArrow, RightArrow } from './arrows.jsx';
 
 class ChooseAlbums extends React.Component {
     constructor(props) {
         super(props);
-        this.scaling = 1.5;
+        this.scaling = 2;
         this.controlsWidth = 40;
         this.state = {
             current: 0,
             currentSliderCount: 0,
-            videoCount: 0,
-            scrollWidth: 0,
-            showCount: 4         
-        }
-    }
-
-    previousSlide(e) {
-        e.preventDefault();
-        let current = this.state.current;
-        let imageArray = this.props.albums.length - 1;
-
-        if (current >= 1) {
-            this.setState({
-                current: current - 1
-            })
-        }
-        if (current <= 0) {
-            this.setState({
-                current: imageArray
-            })
-        }
-    }
-
-    nextSlide(e) {
-        e.preventDefault();
-        let current = this.state.current;
-        let imageArray = this.props.albums.length - 1;
-
-        if ((current >= 0) && (current < imageArray)) {
-            this.setState({
-                current: current + 1
-            })
-        }
-        if (current >= imageArray) {
-            this.setState({
-                current: 0
-            })
+            showCount: $(window).width() <= 414 ? 2 : $(window).width() >= 414 && $(window).width() <= 768 ? 3 : 7
         }
     }
 
     init(){
-        // elements
         let sliderFrame = $(".slider-frame");
         let sliderContainer = $(".slider-container");
         this.setState({
             scrollWidth: 0
         });
 
-        //sizes
-        let windowWidth = window.innerWidth;
-        let frameWidth = window.innerWidth - 80;
+        let windowWidth = $(window).width();
+
         this.setState({
-            showCount: windowWidth >= 0 && windowWidth <= 414 ? 2 : windowWidth >= 414 &&  windowWidth <= 768 ? 3 : 4
+            showCount: windowWidth <= 414 ? 2 : windowWidth >= 414 &&  windowWidth <= 768 ? 3 : 7
         });
+
         let videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
         let videoHeight = Math.round(videoWidth / (16/9));
-        
         let videoHeightDiff = (videoHeight * this.scaling) - videoHeight;
       
-        
-        //set sizes
         sliderFrame.width(windowWidth);
         sliderFrame.height(videoHeight * this.scaling);
         
@@ -83,22 +42,23 @@ class ChooseAlbums extends React.Component {
         sliderContainer.css("top", (videoHeightDiff / 2));
         sliderContainer.css("margin-left", (this.controlsWidth));
         
-        // controls
-        this.controls(frameWidth, this.state.scrollWidth);
+        this.controls();
     }
 
-    controls(frameWidth, scrollWidth) {
+    controls() {
+        let scrollWidth = 0;
+        let frameWidth = $(window).width() - 80;
         let sliderCount;
         let prev = $(".prev");
         let next = $(".next");
 
         next.on("click", () => {
-            sliderCount = this.props.albums.length / this.state.showCount;
+            sliderCount = this.props.albums.length / this.state.showCount - 1;
             scrollWidth = scrollWidth + frameWidth;
             $('.slider-container').animate({
                 left: -scrollWidth
             }, 300, () => { 
-                if ( this.state.currentSliderCount >= sliderCount - 1 ) {
+                if ( this.state.currentSliderCount >= sliderCount ) {
                     $(".slider-container").css("left", 0);
                     this.setState({
                         currentSliderCount: 0
@@ -134,9 +94,8 @@ class ChooseAlbums extends React.Component {
 
     mouseover(e) {
         e.preventDefault();
-        let el = e.currentTarget;
-        let windowWidth = window.innerWidth;
-        let frameWidth = windowWidth - 80;
+        let windowWidth = $(window).width();
+        const el = e.currentTarget;
         let videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
         let videoHeight = Math.round(videoWidth / (16/9));
         let videoWidthDiff = (videoWidth * this.scaling) - videoWidth;
@@ -146,23 +105,21 @@ class ChooseAlbums extends React.Component {
         $(el).css("height", videoHeight * this.scaling);
         $(el).css("top", -(videoHeightDiff / 2));
         
-        if(e.currentTarget.dataset.i === 0 || e.currentTarget.dataset.i % 4 === 0){
+        if(e.currentTarget.dataset.i === 0 || e.currentTarget.dataset.i % 4 === 0) {
             // do nothing
         }
-        else if(e.currentTarget.dataset.i + 1 % 4 === 0 && e.currentTarget.dataset.i !== 0){
+        else if (e.currentTarget.dataset.i + 1 % 4 === 0 && e.currentTarget.dataset.i !== 0) {
             $(e).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
         }
-        else{
+        else {
             $(e).parent().css("margin-left", - (videoWidthDiff / 2));
         }
     }
 
     mouseout(e) {
         e.preventDefault();
-        let el = e.currentTarget;
-        let windowWidth = window.innerWidth;
-        
-        let frameWidth = window.innerWidth - 80;
+        const el = e.currentTarget;
+        let windowWidth = $(window).width();
         let videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
         let videoHeight = Math.round(videoWidth / (16/9));
         
@@ -173,29 +130,23 @@ class ChooseAlbums extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            videoCount: this.props.albums.length
-        });
         this.init();
     }
 
     showAlbumsTracks(e) {
         e.preventDefault();
-        const el = e.currentTarget;
         $.ajax({
             dataType: "jsonp",
-            url: `https://api.deezer.com/album/${el.dataset.id}?output=jsonp`,
+            url: `https://api.deezer.com/album/${e.currentTarget.dataset.id}?output=jsonp`,
             success: response => store.dispatch({
                 type: 'FIND_ALBUMSTRACKS',
                 album: response
             })
         });
-        let songs = document.querySelector('.songs');
-        if (innerWidth >= 870 && songs.style.right !== '0em') {
-            songs.classList.remove('slidein');
-            songs.classList.add('slideout');
-            document.querySelector('.close').classList.remove('buttonSlidein');
-            document.querySelector('.close').classList.add('buttonSlideout');
+        this.mouseout(e);
+        if ($(window).width() >= 870 && $('.songs').css("right") !== '0em') {
+            $('.songs').removeClass('slidein').addClass('slideout');
+            $('.close').removeClass('buttonSlidein').addClass('buttonSlideout');
         }
     }
 
@@ -229,16 +180,6 @@ class ChooseAlbums extends React.Component {
         return (
             <section id="albums">
                 <h2>Albums</h2>
-                {innerWidth >= 870 ? <div className="close" onClick={()=>{
-                  document.querySelector('.close').classList.remove('buttonSlideout');
-                  document.querySelector('.close').classList.remove('buttonSlidein');
-                  document.querySelector('.songs').classList.remove('slideout');
-                  document.querySelector('.songs').classList.add('slidein');
-                }}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
-                <div className="songs" style={innerWidth >= 870 ? {width: '25em', right: '-27em'} : {width: '100%'}}>
-                    <PlayAlbum/>
-                    <ul>{songs}</ul>
-                </div>
                 <div className="slider-frame" style={{marginBottom: '2em'}}>
                     <div className="btn prev"></div>
                     <div className="btn next"></div>
@@ -257,6 +198,14 @@ class ChooseAlbums extends React.Component {
                                 marginBottom: '10em'
                             }}></div>)}
                     </div>
+                </div>
+                {windowWidth >= 870 ? <div className="close" onClick={()=>{
+                  $('.close').removeClass('buttonSlideout buttonSlidein');
+                  $('.songs').removeClass('slideout').addClass('slidein');
+                }}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
+                <div className="songs" style={windowWidth >= 870 ? {width: '25em', right: '-27em'} : {width: '100%'}}>
+                    <PlayAlbum/>
+                    <ul>{songs}</ul>
                 </div>
             </section>
         );
