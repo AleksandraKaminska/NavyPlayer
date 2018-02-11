@@ -104,14 +104,12 @@ class ChooseAlbums extends React.Component {
         $(el).css("width", videoWidth * this.scaling);
         $(el).css("height", videoHeight * this.scaling);
         $(el).css("top", -(videoHeightDiff / 2));
+
+        $(el).find('p').css('display', 'block');
         
-        if(e.currentTarget.dataset.i === 0 || e.currentTarget.dataset.i % 4 === 0) {
-            // do nothing
-        }
-        else if (e.currentTarget.dataset.i + 1 % 4 === 0 && e.currentTarget.dataset.i !== 0) {
+        if (e.currentTarget.dataset.i + 1 % this.state.showCount === 0 && e.currentTarget.dataset.i) {
             $(e).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
-        }
-        else {
+        } else if (e.currentTarget.dataset.i % this.state.showCount) {
             $(e).parent().css("margin-left", - (videoWidthDiff / 2));
         }
     }
@@ -127,6 +125,8 @@ class ChooseAlbums extends React.Component {
         $(el).css("height", videoHeight);
         $(el).css("top", 0);
         $(e).parent().css("margin-left", this.controlsWidth);
+
+        $(el).find('p').css('display', 'none');
     }
 
     componentDidMount() {
@@ -151,13 +151,9 @@ class ChooseAlbums extends React.Component {
     }
 
     render() {
-        let songs = <li></li>;
+        let songs;
         if (this.props.album.tracks) {
-            songs = this.props.album.tracks.data
-                .map((song, i) => <AlbumsTracks
-                                      song={song}
-                                      i={i}
-                                      key={i} />);
+            songs = this.props.album.tracks.data.map((song, i) => <AlbumsTracks song={song} i={i} key={i} />);
         }
 
         let win = $(window);
@@ -180,7 +176,7 @@ class ChooseAlbums extends React.Component {
         return (
             <section id="albums">
                 <h2>Albums</h2>
-                <div className="slider-frame" style={{marginBottom: '2em'}}>
+                <div className="slider-frame">
                     <div className="btn prev"></div>
                     <div className="btn next"></div>
                     <div className="slider-container">
@@ -192,11 +188,10 @@ class ChooseAlbums extends React.Component {
                             style={{
                                 width: videoWidth, 
                                 height: videoHeight, 
-                                backgroundImage: `url(${elem.cover_big})`, 
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                marginBottom: '10em'
-                            }}></div>)}
+                                backgroundImage: `url(${elem.cover_big})`
+                            }}>
+                            <p style={{display: 'none'}}>{elem.title}</p>
+                        </div>)}
                     </div>
                 </div>
                 {windowWidth >= 870 ? <div className="close" onClick={()=>{
@@ -205,7 +200,7 @@ class ChooseAlbums extends React.Component {
                 }}><i className="fa fa-arrow-right" aria-hidden="true"></i></div> : null}
                 <div className="songs" style={windowWidth >= 870 ? {width: '25em', right: '-27em'} : {width: '100%'}}>
                     <PlayAlbum/>
-                    <ul>{songs}</ul>
+                    {songs ? <ul>{songs}</ul> : null}
                 </div>
             </section>
         );

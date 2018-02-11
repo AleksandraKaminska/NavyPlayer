@@ -93,7 +93,6 @@
         }
     }
     section#albums {
-        /*padding: 0 4vw;*/
         h2 {
             margin-bottom: 3vh;
             font-size: 1.2em;
@@ -102,37 +101,34 @@
         ul {
             display: flex;
         }
-        .list {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            overflow-x: auto;
-            li {
-                padding: 0 5px;
-                @media (max-width: 870px) {
-                    display: inline-block !important;
+        .slider-frame {
+            margin-bottom: 2em;
+            .slide {
+                background-size: cover;
+                background-position: center;
+                margin-bottom: 10em;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                cursor: pointer;
+                p {
+                    font-size: 1.7em;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    margin: 1.2em;
+                    text-shadow: 0px 2px 5px rgb(0, 0, 0);
                 }
-            }
-            p {
-                text-align: center;
-                display: block;
-                vertical-align: top;
-                font-size: 1em;
-            }
-            .backArrow,
-            .nextArrow {
-                font-size: 2em;
-                display: none;
             }
         }
         .songs {
             margin-left: 4vw;
-        }
-        .songs ul {
-            flex-direction: column;
-            li {
-                border-bottom: .5px rgba(255, 255, 255, 0.2) solid;
-                padding: 2vh 0;
+            ul {
+                flex-direction: column;
+                li {
+                    border-bottom: .5px rgba(255, 255, 255, 0.2) solid;
+                    padding: 2vh 0;
+                }
             }
         }
     }

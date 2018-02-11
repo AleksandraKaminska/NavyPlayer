@@ -15294,11 +15294,11 @@ var ChooseAlbums = function (_React$Component) {
             $(el).css("height", videoHeight * this.scaling);
             $(el).css("top", -(videoHeightDiff / 2));
 
-            if (e.currentTarget.dataset.i === 0 || e.currentTarget.dataset.i % 4 === 0) {
-                // do nothing
-            } else if (e.currentTarget.dataset.i + 1 % 4 === 0 && e.currentTarget.dataset.i !== 0) {
+            $(el).find('p').css('display', 'block');
+
+            if (e.currentTarget.dataset.i + 1 % this.state.showCount === 0 && e.currentTarget.dataset.i) {
                 $(e).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
-            } else {
+            } else if (e.currentTarget.dataset.i % this.state.showCount) {
                 $(e).parent().css("margin-left", -(videoWidthDiff / 2));
             }
         }
@@ -15315,6 +15315,8 @@ var ChooseAlbums = function (_React$Component) {
             $(el).css("height", videoHeight);
             $(el).css("top", 0);
             $(e).parent().css("margin-left", this.controlsWidth);
+
+            $(el).find('p').css('display', 'none');
         }
     }, {
         key: 'componentDidMount',
@@ -15346,13 +15348,10 @@ var ChooseAlbums = function (_React$Component) {
         value: function render() {
             var _this3 = this;
 
-            var songs = _react2.default.createElement('li', null);
+            var songs = void 0;
             if (this.props.album.tracks) {
                 songs = this.props.album.tracks.data.map(function (song, i) {
-                    return _react2.default.createElement(_albumsTracks2.default, {
-                        song: song,
-                        i: i,
-                        key: i });
+                    return _react2.default.createElement(_albumsTracks2.default, { song: song, i: i, key: i });
                 });
             }
 
@@ -15383,26 +15382,31 @@ var ChooseAlbums = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'slider-frame', style: { marginBottom: '2em' } },
+                    { className: 'slider-frame' },
                     _react2.default.createElement('div', { className: 'btn prev' }),
                     _react2.default.createElement('div', { className: 'btn next' }),
                     _react2.default.createElement(
                         'div',
                         { className: 'slider-container' },
                         this.props.albums.map(function (elem, i) {
-                            return _react2.default.createElement('div', { key: i,
-                                'data-i': i, 'data-id': elem.id, className: 'slide',
-                                onMouseOver: _this3.mouseover.bind(_this3),
-                                onMouseOut: _this3.mouseout.bind(_this3),
-                                onClick: _this3.showAlbumsTracks.bind(_this3),
-                                style: {
-                                    width: videoWidth,
-                                    height: videoHeight,
-                                    backgroundImage: 'url(' + elem.cover_big + ')',
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    marginBottom: '10em'
-                                } });
+                            return _react2.default.createElement(
+                                'div',
+                                { key: i,
+                                    'data-i': i, 'data-id': elem.id, className: 'slide',
+                                    onMouseOver: _this3.mouseover.bind(_this3),
+                                    onMouseOut: _this3.mouseout.bind(_this3),
+                                    onClick: _this3.showAlbumsTracks.bind(_this3),
+                                    style: {
+                                        width: videoWidth,
+                                        height: videoHeight,
+                                        backgroundImage: 'url(' + elem.cover_big + ')'
+                                    } },
+                                _react2.default.createElement(
+                                    'p',
+                                    { style: { display: 'none' } },
+                                    elem.title
+                                )
+                            );
                         })
                     )
                 ),
@@ -15418,11 +15422,11 @@ var ChooseAlbums = function (_React$Component) {
                     'div',
                     { className: 'songs', style: windowWidth >= 870 ? { width: '25em', right: '-27em' } : { width: '100%' } },
                     _react2.default.createElement(_playAlbum2.default, null),
-                    _react2.default.createElement(
+                    songs ? _react2.default.createElement(
                         'ul',
                         null,
                         songs
-                    )
+                    ) : null
                 )
             );
         }
