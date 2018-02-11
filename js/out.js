@@ -15338,8 +15338,14 @@ var ChooseAlbums = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (ChooseAlbums.__proto__ || Object.getPrototypeOf(ChooseAlbums)).call(this, props));
 
+        _this.scaling = 1.5;
+        _this.controlsWidth = 40;
         _this.state = {
-            current: 0
+            current: 0,
+            currentSliderCount: 0,
+            videoCount: 0,
+            scrollWidth: 0,
+            showCount: 4
         };
         return _this;
     }
@@ -15381,16 +15387,144 @@ var ChooseAlbums = function (_React$Component) {
             }
         }
     }, {
+        key: 'init',
+        value: function init() {
+            // elements
+            var sliderFrame = $(".slider-frame");
+            var sliderContainer = $(".slider-container");
+            this.setState({
+                scrollWidth: 0
+            });
+
+            //sizes
+            var windowWidth = window.innerWidth;
+            var frameWidth = window.innerWidth - 80;
+            this.setState({
+                showCount: windowWidth >= 0 && windowWidth <= 414 ? 2 : windowWidth >= 414 && windowWidth <= 768 ? 3 : 4
+            });
+            var videoWidth = (windowWidth - this.controlsWidth * 2) / this.state.showCount;
+            var videoHeight = Math.round(videoWidth / (16 / 9));
+
+            var videoHeightDiff = videoHeight * this.scaling - videoHeight;
+
+            //set sizes
+            sliderFrame.width(windowWidth);
+            sliderFrame.height(videoHeight * this.scaling);
+
+            sliderContainer.height(videoHeight * this.scaling);
+            sliderContainer.css("top", videoHeightDiff / 2);
+            sliderContainer.css("margin-left", this.controlsWidth);
+
+            // controls
+            this.controls(frameWidth, this.state.scrollWidth);
+        }
+    }, {
+        key: 'controls',
+        value: function controls(frameWidth, scrollWidth) {
+            var _this2 = this;
+
+            var sliderCount = void 0;
+            var prev = $(".prev");
+            var next = $(".next");
+
+            next.on("click", function () {
+                sliderCount = _this2.props.albums.length / _this2.state.showCount;
+                scrollWidth = scrollWidth + frameWidth;
+                $('.slider-container').animate({
+                    left: -scrollWidth
+                }, 300, function () {
+                    if (_this2.state.currentSliderCount >= sliderCount - 1) {
+                        $(".slider-container").css("left", 0);
+                        _this2.setState({
+                            currentSliderCount: 0
+                        });
+                        scrollWidth = 0;
+                    } else {
+                        _this2.setState({
+                            currentSliderCount: _this2.state.currentSliderCount + 1
+                        });
+                    }
+                });
+            });
+            prev.on("click", function () {
+                sliderCount = _this2.props.albums.length / _this2.state.showCount;
+                scrollWidth = scrollWidth - frameWidth;
+                $('.slider-container').animate({
+                    left: -scrollWidth
+                }, 300, function () {
+                    if (_this2.state.currentSliderCount === 0) {
+                        $(".slider-container").css("left", 0);
+                        _this2.setState({
+                            currentSliderCount: 0
+                        });
+                        scrollWidth = 0;
+                    } else {
+                        _this2.setState({
+                            currentSliderCount: _this2.state.currentSliderCount - 1
+                        });
+                    }
+                });
+            });
+        }
+    }, {
+        key: 'mouseover',
+        value: function mouseover(e) {
+            e.preventDefault();
+            var el = e.currentTarget;
+            var windowWidth = window.innerWidth;
+            var frameWidth = windowWidth - 80;
+            var videoWidth = (windowWidth - this.controlsWidth * 2) / this.state.showCount;
+            var videoHeight = Math.round(videoWidth / (16 / 9));
+            var videoWidthDiff = videoWidth * this.scaling - videoWidth;
+            var videoHeightDiff = videoHeight * this.scaling - videoHeight;
+
+            $(el).css("width", videoWidth * this.scaling);
+            $(el).css("height", videoHeight * this.scaling);
+            $(el).css("top", -(videoHeightDiff / 2));
+
+            if (e.currentTarget.dataset.i === 0 || e.currentTarget.dataset.i % 4 === 0) {
+                // do nothing
+            } else if (e.currentTarget.dataset.i + 1 % 4 === 0 && e.currentTarget.dataset.i !== 0) {
+                $(e).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
+            } else {
+                $(e).parent().css("margin-left", -(videoWidthDiff / 2));
+            }
+        }
+    }, {
+        key: 'mouseout',
+        value: function mouseout(e) {
+            e.preventDefault();
+            var el = e.currentTarget;
+            var windowWidth = window.innerWidth;
+
+            var frameWidth = window.innerWidth - 80;
+            var videoWidth = (windowWidth - this.controlsWidth * 2) / this.state.showCount;
+            var videoHeight = Math.round(videoWidth / (16 / 9));
+
+            $(el).css("width", videoWidth);
+            $(el).css("height", videoHeight);
+            $(el).css("top", 0);
+            $(e).parent().css("margin-left", this.controlsWidth);
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setState({
+                videoCount: this.props.albums.length
+            });
+            this.init();
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             var li = this.props.albums.map(function (elem, i) {
                 return _react2.default.createElement(_albums2.default, {
                     key: i,
                     elem: elem,
-                    current: _this2.state.current,
-                    length: _this2.props.albums.length,
+                    current: _this3.state.current,
+                    length: _this3.props.albums.length,
                     i: i });
             });
 
@@ -15404,9 +15538,26 @@ var ChooseAlbums = function (_React$Component) {
                 });
             }
 
+            var win = $(window);
+            var slide = $(".slide");
+            var sliderContainer = $(".slider-container");
+
+            //sizes
+            var windowWidth = win.width();
+            var frameWidth = win.width() - 80;
+
+            var videoWidth = (windowWidth - this.controlsWidth * 2) / this.state.showCount;
+            var videoHeight = Math.round(videoWidth / (16 / 9));
+
+            var videoWidthDiff = videoWidth * this.scaling - videoWidth;
+            sliderContainer.width(videoWidth * this.props.albums.length + videoWidthDiff);
+
+            slide.height(videoHeight);
+            slide.width(videoWidth);
+
             return _react2.default.createElement(
                 'section',
-                { id: 'albums' },
+                { id: 'albums', style: { padding: '0 4em' } },
                 _react2.default.createElement(
                     'h2',
                     null,

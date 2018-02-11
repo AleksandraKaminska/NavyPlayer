@@ -157,7 +157,7 @@ body {
           .mainMiddle #artist #topTracks .topTracks ul li:hover {
             margin-left: .5em; }
   .mainMiddle section#albums {
-    padding: 0 4vw; }
+    /*padding: 0 4vw;*/ }
     .mainMiddle section#albums h2 {
       margin-bottom: 3vh;
       font-size: 1.2em; }
@@ -1406,7 +1406,7 @@ div[class^='/_'] footer {
     div[class^='/_'] .login {
       box-shadow: inset 0 0 0 4px #58afd1;
       color: #58afd1;
-      transition: color 0.25s 0.08333s;
+      transition: color 0.25s 0.0833333333s;
       position: relative;
       text-align: center;
       position: absolute;
@@ -1528,5 +1528,29 @@ div[class^='/_'] footer {
       div[class^='/ &'] .login:focus,
       div[class^='/_'] .login:focus {
         outline: 2px dotted #55d7dc; } }
+.slider-frame {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden; }
+  .slider-frame .btn {
+    width: 40px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    z-index: 1000; }
+    .slider-frame .btn.prev {
+      left: 0px; }
+    .slider-frame .btn.next {
+      right: 0px; }
+  .slider-frame .slider-container {
+    transition: margin-left .2s ease, left .5s ease;
+    position: absolute;
+    left: 0; }
+    .slider-frame .slider-container .slide {
+      float: left;
+      position: relative;
+      top: 0;
+      transition: width .2s ease, height .2s ease, top .2s ease; }
 
 /*# sourceMappingURL=style.css.map */
