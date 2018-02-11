@@ -163,22 +163,47 @@ body {
   .mainMiddle section#albums ul {
     display: flex; }
   .mainMiddle section#albums .slider-frame {
-    margin-bottom: 2em; }
-    .mainMiddle section#albums .slider-frame .slide {
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 10em;
+    position: relative;
+    margin: 0 auto 2em auto;
+    overflow: hidden; }
+    .mainMiddle section#albums .slider-frame .btn {
+      width: 40px;
+      height: 70%;
+      background: rgba(0, 0, 0, 0.3);
+      top: 15%;
+      z-index: 5;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      cursor: pointer; }
-      .mainMiddle section#albums .slider-frame .slide p {
-        font-size: 1.7em;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        margin: 1.2em;
-        text-shadow: 0px 2px 5px black; }
+      align-items: center;
+      font-size: 2.5em;
+      position: absolute; }
+      .mainMiddle section#albums .slider-frame .btn.prev {
+        left: 0px; }
+      .mainMiddle section#albums .slider-frame .btn.next {
+        right: 0px; }
+    .mainMiddle section#albums .slider-frame .slider-container {
+      transition: margin-left .2s ease, left .5s ease;
+      position: absolute;
+      left: 0; }
+      .mainMiddle section#albums .slider-frame .slider-container .slide {
+        float: left;
+        position: relative;
+        top: 0;
+        transition: width .2s ease, height .2s ease, top .2s ease;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 10em;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        cursor: pointer; }
+        .mainMiddle section#albums .slider-frame .slider-container .slide p {
+          font-size: 1.7em;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          margin: 1.2em;
+          text-shadow: 0px 2px 5px black; }
   .mainMiddle section#albums .songs {
     margin-left: 4vw; }
     .mainMiddle section#albums .songs ul {
@@ -1527,29 +1552,5 @@ div[class^='/_'] footer {
       div[class^='/ &'] .login:focus,
       div[class^='/_'] .login:focus {
         outline: 2px dotted #55d7dc; } }
-.slider-frame {
-  position: relative;
-  margin: 0 auto;
-  overflow: hidden; }
-  .slider-frame .btn {
-    width: 40px;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0;
-    z-index: 1000; }
-    .slider-frame .btn.prev {
-      left: 0px; }
-    .slider-frame .btn.next {
-      right: 0px; }
-  .slider-frame .slider-container {
-    transition: margin-left .2s ease, left .5s ease;
-    position: absolute;
-    left: 0; }
-    .slider-frame .slider-container .slide {
-      float: left;
-      position: relative;
-      top: 0;
-      transition: width .2s ease, height .2s ease, top .2s ease; }
 
 /*# sourceMappingURL=style.css.map */

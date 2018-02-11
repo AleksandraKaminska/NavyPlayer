@@ -15194,7 +15194,6 @@ var ChooseAlbums = function (_React$Component) {
         _this.scaling = 2;
         _this.controlsWidth = 40;
         _this.state = {
-            current: 0,
             currentSliderCount: 0,
             showCount: $(window).width() <= 414 ? 2 : $(window).width() >= 414 && $(window).width() <= 768 ? 3 : 7
         };
@@ -15224,8 +15223,7 @@ var ChooseAlbums = function (_React$Component) {
             sliderFrame.height(videoHeight * this.scaling);
 
             sliderContainer.height(videoHeight * this.scaling);
-            sliderContainer.css("top", videoHeightDiff / 2);
-            sliderContainer.css("margin-left", this.controlsWidth);
+            sliderContainer.css({ top: videoHeightDiff / 2, marginLeft: this.controlsWidth });
 
             this.controls();
         }
@@ -15290,16 +15288,12 @@ var ChooseAlbums = function (_React$Component) {
             var videoWidthDiff = videoWidth * this.scaling - videoWidth;
             var videoHeightDiff = videoHeight * this.scaling - videoHeight;
 
-            $(el).css("width", videoWidth * this.scaling);
-            $(el).css("height", videoHeight * this.scaling);
-            $(el).css("top", -(videoHeightDiff / 2));
+            $(el).css({ width: videoWidth * this.scaling, height: videoHeight * this.scaling, top: -(videoHeightDiff / 2) }).find('p').css('display', 'block');
 
-            $(el).find('p').css('display', 'block');
-
-            if (e.currentTarget.dataset.i + 1 % this.state.showCount === 0 && e.currentTarget.dataset.i) {
-                $(e).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
-            } else if (e.currentTarget.dataset.i % this.state.showCount) {
-                $(e).parent().css("margin-left", -(videoWidthDiff / 2));
+            if ((parseInt(el.dataset.i) + 1) % this.state.showCount === 0) {
+                $(el).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
+            } else if (parseInt(el.dataset.i) % this.state.showCount) {
+                $(el).parent().css("margin-left", -(videoWidthDiff / 2));
             }
         }
     }, {
@@ -15311,11 +15305,7 @@ var ChooseAlbums = function (_React$Component) {
             var videoWidth = (windowWidth - this.controlsWidth * 2) / this.state.showCount;
             var videoHeight = Math.round(videoWidth / (16 / 9));
 
-            $(el).css("width", videoWidth);
-            $(el).css("height", videoHeight);
-            $(el).css("top", 0);
-            $(e).parent().css("margin-left", this.controlsWidth);
-
+            $(el).css({ width: videoWidth, height: videoHeight, top: 0 }).parent().css("margin-left", this.controlsWidth);
             $(el).find('p').css('display', 'none');
         }
     }, {
@@ -15383,8 +15373,16 @@ var ChooseAlbums = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'slider-frame' },
-                    _react2.default.createElement('div', { className: 'btn prev' }),
-                    _react2.default.createElement('div', { className: 'btn next' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'btn prev' },
+                        _react2.default.createElement('i', { className: 'fa fa-angle-left', 'aria-hidden': 'true' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'btn next' },
+                        _react2.default.createElement('i', { className: 'fa fa-angle-right', 'aria-hidden': 'true' })
+                    ),
                     _react2.default.createElement(
                         'div',
                         { className: 'slider-container' },

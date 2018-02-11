@@ -12,7 +12,6 @@ class ChooseAlbums extends React.Component {
         this.scaling = 2;
         this.controlsWidth = 40;
         this.state = {
-            current: 0,
             currentSliderCount: 0,
             showCount: $(window).width() <= 414 ? 2 : $(window).width() >= 414 && $(window).width() <= 768 ? 3 : 7
         }
@@ -39,8 +38,7 @@ class ChooseAlbums extends React.Component {
         sliderFrame.height(videoHeight * this.scaling);
         
         sliderContainer.height(videoHeight * (this.scaling));
-        sliderContainer.css("top", (videoHeightDiff / 2));
-        sliderContainer.css("margin-left", (this.controlsWidth));
+        sliderContainer.css({top: videoHeightDiff / 2, marginLeft: this.controlsWidth});
         
         this.controls();
     }
@@ -101,16 +99,12 @@ class ChooseAlbums extends React.Component {
         let videoWidthDiff = (videoWidth * this.scaling) - videoWidth;
         let videoHeightDiff = (videoHeight * this.scaling) - videoHeight;
         
-        $(el).css("width", videoWidth * this.scaling);
-        $(el).css("height", videoHeight * this.scaling);
-        $(el).css("top", -(videoHeightDiff / 2));
-
-        $(el).find('p').css('display', 'block');
+        $(el).css({width: videoWidth * this.scaling, height: videoHeight * this.scaling, top: -(videoHeightDiff / 2)}).find('p').css('display', 'block');
         
-        if (e.currentTarget.dataset.i + 1 % this.state.showCount === 0 && e.currentTarget.dataset.i) {
-            $(e).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
-        } else if (e.currentTarget.dataset.i % this.state.showCount) {
-            $(e).parent().css("margin-left", - (videoWidthDiff / 2));
+        if ((parseInt(el.dataset.i) + 1) % this.state.showCount === 0) {
+            $(el).parent().css("margin-left", -(videoWidthDiff - this.controlsWidth));
+        } else if (parseInt(el.dataset.i) % this.state.showCount) {
+            $(el).parent().css("margin-left", - (videoWidthDiff / 2));
         }
     }
 
@@ -121,11 +115,7 @@ class ChooseAlbums extends React.Component {
         let videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
         let videoHeight = Math.round(videoWidth / (16/9));
         
-        $(el).css("width", videoWidth);
-        $(el).css("height", videoHeight);
-        $(el).css("top", 0);
-        $(e).parent().css("margin-left", this.controlsWidth);
-
+        $(el).css({width: videoWidth, height: videoHeight, top: 0}).parent().css("margin-left", this.controlsWidth);
         $(el).find('p').css('display', 'none');
     }
 
@@ -177,8 +167,8 @@ class ChooseAlbums extends React.Component {
             <section id="albums">
                 <h2>Albums</h2>
                 <div className="slider-frame">
-                    <div className="btn prev"></div>
-                    <div className="btn next"></div>
+                    <div className="btn prev"><i className="fa fa-angle-left" aria-hidden="true"></i></div>
+                    <div className="btn next"><i className="fa fa-angle-right" aria-hidden="true"></i></div>
                     <div className="slider-container">
                         {this.props.albums.map((elem, i) => <div key={i} 
                             data-i={i} data-id={elem.id} className="slide" 

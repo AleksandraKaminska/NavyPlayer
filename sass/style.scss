@@ -5,35 +5,3 @@
 @import	"partials/_common.scss";
 @import	"partials/_mobile.scss";
 @import	"partials/_desktop.scss";
-
-.slider-frame{
-    position: relative;
-    margin: 0 auto;
-    overflow: hidden;
-    
-    .btn{
-        width: 40px;
-        height: 100%;
-        background: rgba(0,0,0,0.3);
-        position: absolute;
-        top: 0;
-        z-index: 1000;
-        &.prev{
-            left: 0px;
-        }
-        &.next{
-            right: 0px;
-        }
-    }
-    .slider-container{
-        transition: margin-left .2s ease, left .5s ease;
-        position: absolute;
-        left: 0;
-        .slide{
-            float: left;
-            position: relative;
-            top: 0;
-            transition: width .2s ease, height .2s ease, top .2s ease;
-        }
-    }
-}
