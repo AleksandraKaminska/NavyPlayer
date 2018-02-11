@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import store from './../store';
 
-import Albums from './albums.jsx';
 import PlayAlbum from './playAlbum.jsx';
 import AlbumsTracks from './albumsTracks.jsx';
 import { LeftArrow, RightArrow } from './arrows.jsx';
@@ -58,22 +57,22 @@ class ChooseAlbums extends React.Component {
 
     init(){
         // elements
-        var sliderFrame = $(".slider-frame");
-        var sliderContainer = $(".slider-container");
+        let sliderFrame = $(".slider-frame");
+        let sliderContainer = $(".slider-container");
         this.setState({
             scrollWidth: 0
         });
 
         //sizes
-        var windowWidth = window.innerWidth;
-        var frameWidth = window.innerWidth - 80;
+        let windowWidth = window.innerWidth;
+        let frameWidth = window.innerWidth - 80;
         this.setState({
             showCount: windowWidth >= 0 && windowWidth <= 414 ? 2 : windowWidth >= 414 &&  windowWidth <= 768 ? 3 : 4
         });
-        var videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
-        var videoHeight = Math.round(videoWidth / (16/9));
+        let videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
+        let videoHeight = Math.round(videoWidth / (16/9));
         
-        var videoHeightDiff = (videoHeight * this.scaling) - videoHeight;
+        let videoHeightDiff = (videoHeight * this.scaling) - videoHeight;
       
         
         //set sizes
@@ -90,8 +89,8 @@ class ChooseAlbums extends React.Component {
 
     controls(frameWidth, scrollWidth) {
         let sliderCount;
-        var prev = $(".prev");
-        var next = $(".next");
+        let prev = $(".prev");
+        let next = $(".next");
 
         next.on("click", () => {
             sliderCount = this.props.albums.length / this.state.showCount;
@@ -180,15 +179,27 @@ class ChooseAlbums extends React.Component {
         this.init();
     }
 
-    render() {
-        let li = this.props.albums
-                 .map((elem, i) => <Albums
-                                    key={i}
-                                    elem={elem}
-                                    current={this.state.current}
-                                    length={this.props.albums.length}
-                                    i={i} />);
+    showAlbumsTracks(e) {
+        e.preventDefault();
+        const el = e.currentTarget;
+        $.ajax({
+            dataType: "jsonp",
+            url: `https://api.deezer.com/album/${el.dataset.id}?output=jsonp`,
+            success: response => store.dispatch({
+                type: 'FIND_ALBUMSTRACKS',
+                album: response
+            })
+        });
+        let songs = document.querySelector('.songs');
+        if (innerWidth >= 870 && songs.style.right !== '0em') {
+            songs.classList.remove('slidein');
+            songs.classList.add('slideout');
+            document.querySelector('.close').classList.remove('buttonSlidein');
+            document.querySelector('.close').classList.add('buttonSlideout');
+        }
+    }
 
+    render() {
         let songs = <li></li>;
         if (this.props.album.tracks) {
             songs = this.props.album.tracks.data
@@ -199,30 +210,25 @@ class ChooseAlbums extends React.Component {
         }
 
         let win = $(window);
-        var slide = $(".slide");
-        var sliderContainer = $(".slider-container");
+        let slide = $(".slide");
+        let sliderContainer = $(".slider-container");
 
         //sizes
-        var windowWidth = win.width();
-        var frameWidth = win.width() - 80;
+        let windowWidth = win.width();
+        let frameWidth = win.width() - 80;
     
-        var videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
-        var videoHeight = Math.round(videoWidth / (16/9));
+        let videoWidth = ((windowWidth - this.controlsWidth * 2) / this.state.showCount );
+        let videoHeight = Math.round(videoWidth / (16/9));
 
-        var videoWidthDiff = (videoWidth * this.scaling) - videoWidth;
+        let videoWidthDiff = (videoWidth * this.scaling) - videoWidth;
         sliderContainer.width((videoWidth * this.props.albums.length) + videoWidthDiff);
 
         slide.height(videoHeight);
         slide.width(videoWidth); 
 
         return (
-            <section id="albums" style={{padding: '0 4em'}}>
+            <section id="albums">
                 <h2>Albums</h2>
-                <article className="list">
-                        {this.props.albums.length > 9 || this.state.current !== 0 ? <LeftArrow previousSlide={this.previousSlide.bind(this)} /> : null}
-                        <ul>{li}</ul>
-                        {this.props.albums.length > 9 || this.state.current !== 0 ? <RightArrow nextSlide={this.nextSlide.bind(this)} /> : null}
-                </article>
                 {innerWidth >= 870 ? <div className="close" onClick={()=>{
                   document.querySelector('.close').classList.remove('buttonSlideout');
                   document.querySelector('.close').classList.remove('buttonSlidein');
@@ -233,23 +239,25 @@ class ChooseAlbums extends React.Component {
                     <PlayAlbum/>
                     <ul>{songs}</ul>
                 </div>
-                {/*<div className="slider-frame" style={{marginBottom: '2em'}}>
-    <div className="btn prev"></div>
-    <div className="btn next"></div>
-    <div className="slider-container">
-        {this.props.albums.map((elem, i) => <div key={i} data-i={i} data-img={elem.cover_big} className="slide" 
-            onMouseOver={this.mouseover.bind(this)} 
-            onMouseOut={this.mouseout.bind(this)} style={{
-                width: videoWidth, 
-                height: videoHeight, 
-                backgroundImage: `url(${elem.cover_big})`, 
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                marginBottom: '10em'
-            }}>
-        </div>)}
-    </div>
-</div>*/}
+                <div className="slider-frame" style={{marginBottom: '2em'}}>
+                    <div className="btn prev"></div>
+                    <div className="btn next"></div>
+                    <div className="slider-container">
+                        {this.props.albums.map((elem, i) => <div key={i} 
+                            data-i={i} data-id={elem.id} className="slide" 
+                            onMouseOver={this.mouseover.bind(this)} 
+                            onMouseOut={this.mouseout.bind(this)} 
+                            onClick={this.showAlbumsTracks.bind(this)}
+                            style={{
+                                width: videoWidth, 
+                                height: videoHeight, 
+                                backgroundImage: `url(${elem.cover_big})`, 
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                marginBottom: '10em'
+                            }}></div>)}
+                    </div>
+                </div>
             </section>
         );
     }

@@ -14865,102 +14865,7 @@ $(function () {
 // Redux
 
 /***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(8);
-
-var _store = __webpack_require__(7);
-
-var _store2 = _interopRequireDefault(_store);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Albums = function (_React$Component) {
-    _inherits(Albums, _React$Component);
-
-    function Albums() {
-        _classCallCheck(this, Albums);
-
-        return _possibleConstructorReturn(this, (Albums.__proto__ || Object.getPrototypeOf(Albums)).apply(this, arguments));
-    }
-
-    _createClass(Albums, [{
-        key: 'showAlbumsTracks',
-        value: function showAlbumsTracks() {
-            $.ajax({
-                dataType: "jsonp",
-                url: 'https://api.deezer.com/album/' + this.props.elem.id + '?output=jsonp',
-                success: function success(response) {
-                    return _store2.default.dispatch({
-                        type: 'FIND_ALBUMSTRACKS',
-                        album: response
-                    });
-                }
-            });
-            var songs = document.querySelector('.songs');
-            if (innerWidth >= 870 && songs.style.right !== '0em') {
-                songs.classList.remove('slidein');
-                songs.classList.add('slideout');
-                document.querySelector('.close').classList.remove('buttonSlidein');
-                document.querySelector('.close').classList.add('buttonSlideout');
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var i = this.props.i;
-            var current = this.props.current;
-
-            var display = i <= current + 8 && i >= current;
-            var style = {
-                display: display ? 'inline-block' : 'none'
-            };
-
-            return _react2.default.createElement(
-                'li',
-                { style: style, onClick: this.showAlbumsTracks.bind(this) },
-                _react2.default.createElement('img', { src: this.props.elem.cover_medium.replace(/250x250/, '150x150'), alt: '' }),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    this.props.elem.title
-                )
-            );
-        }
-    }]);
-
-    return Albums;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(store) {
-    return {
-        album: store.album
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Albums);
-
-/***/ }),
+/* 165 */,
 /* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15308,10 +15213,6 @@ var _store = __webpack_require__(7);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _albums = __webpack_require__(165);
-
-var _albums2 = _interopRequireDefault(_albums);
-
 var _playAlbum = __webpack_require__(178);
 
 var _playAlbum2 = _interopRequireDefault(_playAlbum);
@@ -15515,18 +15416,32 @@ var ChooseAlbums = function (_React$Component) {
             this.init();
         }
     }, {
+        key: 'showAlbumsTracks',
+        value: function showAlbumsTracks(e) {
+            e.preventDefault();
+            var el = e.currentTarget;
+            $.ajax({
+                dataType: "jsonp",
+                url: 'https://api.deezer.com/album/' + el.dataset.id + '?output=jsonp',
+                success: function success(response) {
+                    return _store2.default.dispatch({
+                        type: 'FIND_ALBUMSTRACKS',
+                        album: response
+                    });
+                }
+            });
+            var songs = document.querySelector('.songs');
+            if (innerWidth >= 870 && songs.style.right !== '0em') {
+                songs.classList.remove('slidein');
+                songs.classList.add('slideout');
+                document.querySelector('.close').classList.remove('buttonSlidein');
+                document.querySelector('.close').classList.add('buttonSlideout');
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this3 = this;
-
-            var li = this.props.albums.map(function (elem, i) {
-                return _react2.default.createElement(_albums2.default, {
-                    key: i,
-                    elem: elem,
-                    current: _this3.state.current,
-                    length: _this3.props.albums.length,
-                    i: i });
-            });
 
             var songs = _react2.default.createElement('li', null);
             if (this.props.album.tracks) {
@@ -15557,22 +15472,11 @@ var ChooseAlbums = function (_React$Component) {
 
             return _react2.default.createElement(
                 'section',
-                { id: 'albums', style: { padding: '0 4em' } },
+                { id: 'albums' },
                 _react2.default.createElement(
                     'h2',
                     null,
                     'Albums'
-                ),
-                _react2.default.createElement(
-                    'article',
-                    { className: 'list' },
-                    this.props.albums.length > 9 || this.state.current !== 0 ? _react2.default.createElement(_arrows.LeftArrow, { previousSlide: this.previousSlide.bind(this) }) : null,
-                    _react2.default.createElement(
-                        'ul',
-                        null,
-                        li
-                    ),
-                    this.props.albums.length > 9 || this.state.current !== 0 ? _react2.default.createElement(_arrows.RightArrow, { nextSlide: this.nextSlide.bind(this) }) : null
                 ),
                 innerWidth >= 870 ? _react2.default.createElement(
                     'div',
@@ -15592,6 +15496,31 @@ var ChooseAlbums = function (_React$Component) {
                         'ul',
                         null,
                         songs
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'slider-frame', style: { marginBottom: '2em' } },
+                    _react2.default.createElement('div', { className: 'btn prev' }),
+                    _react2.default.createElement('div', { className: 'btn next' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'slider-container' },
+                        this.props.albums.map(function (elem, i) {
+                            return _react2.default.createElement('div', { key: i,
+                                'data-i': i, 'data-id': elem.id, className: 'slide',
+                                onMouseOver: _this3.mouseover.bind(_this3),
+                                onMouseOut: _this3.mouseout.bind(_this3),
+                                onClick: _this3.showAlbumsTracks.bind(_this3),
+                                style: {
+                                    width: videoWidth,
+                                    height: videoHeight,
+                                    backgroundImage: 'url(' + elem.cover_big + ')',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    marginBottom: '10em'
+                                } });
+                        })
                     )
                 )
             );
