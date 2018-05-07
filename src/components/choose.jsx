@@ -2,7 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Choose = () => (
+<<<<<<< HEAD
     <nav className="choose">
+=======
+  <nav className="choose">
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
 		<div>
 			<NavLink to="/artist" activeClassName="active">
 				<button>

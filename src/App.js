@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import store from './store';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { changeTrackAction, prevTrackAction } from './actions/index.js';
 import Home from './routes/Home';
 import { randomAlbumTrack, randomTrack } from './components/functions.js';
 import fetchJsonp from 'fetch-jsonp';
+=======
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './routes/Home';
+import { randomAlbumTrack, randomTrack } from './components/functions.js';
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
 
 import './sass/style.css';
 const { DZ } = window;
 
+<<<<<<< HEAD
 class App extends Component {
   componentDidMount() {
     randomTrack(this.props);
 
+=======
+const promise = new Promise((resolve, reject) => {
+  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+});
+
+class App extends Component {
+  componentDidMount() {
+    promise.then(result => randomTrack(this.props), err => console.log(err))
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
     // load next track
     let finished = false;
     let counter = 0;

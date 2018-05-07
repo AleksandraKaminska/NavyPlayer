@@ -18,6 +18,10 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+<<<<<<< HEAD
+=======
+    "redux-async-initial-state": "^0.2.1",
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
     "styled-components": "^3.2.6"
   },
   "scripts": {

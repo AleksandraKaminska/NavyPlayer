@@ -10,7 +10,10 @@ import {
   randomAlbumTrack,
   randomTrack
 } from './functions.js';
+<<<<<<< HEAD
 import fetchJsonp from 'fetch-jsonp';
+=======
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
 
 const { DZ } = window;
 
@@ -38,7 +41,13 @@ class Player extends Component {
             isPlaying: true
         }, () => {
             DZ.player.pause();
+<<<<<<< HEAD
             this.props.chosenPlaylist ? randomTrack(this.props) : randomAlbumTrack(this.props);
+=======
+            this.props.chosenPlaylist ? (
+                promise.then(result => randomTrack(this.props), err => console.log(err))
+            ) : randomAlbumTrack(this.props);
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
         });
     }
 
@@ -69,6 +78,7 @@ class Player extends Component {
             <div className="player">
                 <div className="playerMain">
                     <button onClick={this.rewind}>
+<<<<<<< HEAD
                         <img src="./images/rewind.svg" alt='rewind'/>
                     </button>
                     <button onClick={this.changeIsPlaying} id='playOrPause'>
@@ -76,6 +86,15 @@ class Player extends Component {
                     </button>
                     <button onClick={this.changeTrack}>
                         <img src="./images/forward.svg" alt='forward'/>
+=======
+                        <img src="./images/rewind.svg" alt="rewind"/>
+                    </button>
+                    <button onClick={this.changeIsPlaying} id="playOrPause">
+                        <img src={this.state.isPlaying ? './images/pause.png' : './images/play.png'} alt="play or pause" />
+                    </button>
+                    <button onClick={this.changeTrack}>
+                        <img src="./images/forward.svg" alt="forward" />
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
                     </button>
                 </div>
             </div>

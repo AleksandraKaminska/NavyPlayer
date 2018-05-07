@@ -18,7 +18,11 @@ export default class ChoosePlaylists extends Component {
 
     toggleOpacity = (event) => {
         if (window.innerWidth >= 870) {
+<<<<<<< HEAD
             Array.from(event.currentTarget.querySelectorAll('div > div:not(.active)'))
+=======
+            event.currentTarget.querySelectorAll('div > div:not(.active)')
+>>>>>>> 267288a7bcf68a41aca3cba2ee7338b528c9a9b4
             .forEach(e => e.className = e.className ? '' : 'fade');
         }
     }
