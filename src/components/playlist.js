@@ -5,8 +5,6 @@ import { changePlaylistAction } from './../actions/index.js';
 import { randomTrack } from './functions.js';
 import fetchJsonp from 'fetch-jsonp';
 
-const { DZ } = window;
-
 const promise = new Promise((resolve, reject) => {
     true ? resolve("Stuff worked!") : reject(Error("It broke"));
 });

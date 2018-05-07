@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import store from './store';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { changeTrackAction, prevTrackAction } from './actions/index.js';
 import Home from './routes/Home';
 import { randomAlbumTrack, randomTrack } from './components/functions.js';
-import fetchJsonp from 'fetch-jsonp';
 
 import './sass/style.css';
 const { DZ } = window;
 
+const promise = new Promise((resolve, reject) => {
+  true ? resolve("Stuff worked!") : reject(Error("It broke"));
+});
+
 class App extends Component {
   componentDidMount() {
-    randomTrack(this.props);
-
+    promise.then(result => randomTrack(this.props), err => console.log(err))
     // load next track
     let finished = false;
     let counter = 0;

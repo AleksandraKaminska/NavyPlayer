@@ -10,7 +10,6 @@ import {
   randomAlbumTrack,
   randomTrack
 } from './functions.js';
-import fetchJsonp from 'fetch-jsonp';
 
 const { DZ } = window;
 
@@ -38,7 +37,9 @@ class Player extends Component {
             isPlaying: true
         }, () => {
             DZ.player.pause();
-            this.props.chosenPlaylist ? randomTrack(this.props) : randomAlbumTrack(this.props);
+            this.props.chosenPlaylist ? (
+                promise.then(result => randomTrack(this.props), err => console.log(err))
+            ) : randomAlbumTrack(this.props);
         });
     }
 

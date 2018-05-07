@@ -7,14 +7,12 @@ const Cover = ({ cover }) => {
         url(${cover && cover.replace(/(500)x\1/, '400x400')})`
     }
     return (
-        <section id='cover'>
-            <div className="cover" style={CoverStyle}></div>
+        <section id="cover">
+            <div className="cover" style={CoverStyle} />
         </section>
     );
 }
 
-const mapStateToProps = ({ track: { album: { cover_big } } }) => ({
-    cover: cover_big
-});
+const mapStateToProps = ({ track: { album: { cover_big } } }) => ({ cover: cover_big });
 
 export default connect(mapStateToProps)(Cover);
