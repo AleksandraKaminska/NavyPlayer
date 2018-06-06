@@ -1,0 +1,15 @@
+@import "sass/modules/_mixins.scss";
+
+.artistRoute {
+  .time, footer {
+      display: none;
+  }
+  @media (min-width: 870px) {
+    @include flex(center);
+    @import "sass/partials/desktop/_main.scss";
+    footer {
+      display: block;
+    }
+  }
+}
+

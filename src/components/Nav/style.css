@@ -1,0 +1,13 @@
+@media (min-width: 870px) {
+  nav {
+    text-transform: uppercase;
+    position: absolute;
+    top: 2.5vh;
+    left: .5vw; }
+    nav a {
+      margin: .6vh 1.5vw;
+      display: inline-block; }
+  .nav {
+    display: block; }
+    .nav .active {
+      font-weight: 500; } }

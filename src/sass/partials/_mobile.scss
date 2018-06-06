@@ -1,0 +1,14 @@
+main {
+    @include flex(flex-start);
+    align-items: flex-start;
+    width: 100vw;
+    height: 77%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 5vw;
+}
+.active button {
+    i, p {
+        color: rgb(118, 165, 202);
+    }
+}

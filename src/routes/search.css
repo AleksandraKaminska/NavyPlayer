@@ -1,0 +1,15 @@
+.searchRoute .time, .searchRoute footer {
+  display: none; }
+
+@media (min-width: 870px) {
+  .searchRoute {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; }
+    .searchRoute main {
+      display: flex;
+      justify-content: space-between;
+      height: 63vh;
+      padding: 0 30px;
+      position: relative; } }
