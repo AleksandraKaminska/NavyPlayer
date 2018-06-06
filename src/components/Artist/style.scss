@@ -1,0 +1,112 @@
+@import "sass/modules/_mixins.scss";
+@import "sass/modules/_variables.scss";
+
+.artist {
+    width: 100%;
+    & > a {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &:last-child {
+            height: 10vh;
+            margin-top: 1em;
+        }
+        img {
+            display: none;
+            width: 64px;
+            min-width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            box-shadow: 0 4px 4px rgba(0,0,0,.5);
+        }
+        p {
+            position: absolute;
+            font-size: 2em;
+            z-index: -1;
+            max-width: calc(100% - 64px);
+            @media (max-width:870px) {
+                top: 130px;
+            }
+        }
+        button {
+            @include button($pink);
+        }
+    }
+    .topTracks {
+        margin: 3vh 0;
+        width: 100%;
+        font-family: 'Playfair Display', serif;
+        h2 {
+            font-size: 1.2em;
+        }
+        ul {
+            margin-top: 2vh;
+            line-height: 5vh;
+            li {
+                border-bottom: .5px rgba(255,255,255,0.1) solid;
+                margin: 1vh auto;
+            }
+        }
+    }
+    @media (min-width: 870px) {
+        width: 25%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2vw;
+        & > a {
+            height: auto;
+            margin-top: 0;
+            flex-wrap: wrap;
+            cursor: pointer;
+            button {
+                margin: 1em 0;
+            }
+            p {
+                bottom: 20vh;
+                left: 7vw;
+                z-index: 0;
+                font-size: 3.5em;
+                text-transform: uppercase;
+                max-width: 65%;
+            }
+        }
+        .topTracks {
+            margin: auto;
+            width: 100%;
+            padding-top: 4vh;
+            font-size: 1.15em;
+            h2 {
+                font-size: 1.15em;
+            }
+            ul {
+                line-height: 6vh;
+                min-height: 35vh;
+                cursor: pointer;
+            }
+            li:hover {
+                margin-left: .5em;
+            }
+        }
+    }
+}
+
+.artistPicture {
+    height: 300px;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 -20px;
+    position: fixed;
+    z-index: -1;
+    & ~ section {
+      background: $navy-color;
+      width: 100vw;
+      margin: 0 -20px;
+      padding: 20px 20px 0;
+      &:first-of-type {
+        box-shadow: 5px 0 100px 50px $navy-color;
+        margin-top: 70%;
+      }
+    }
+}

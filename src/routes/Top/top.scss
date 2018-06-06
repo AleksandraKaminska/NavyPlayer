@@ -1,0 +1,112 @@
+@import "sass/modules/_mixins.scss";
+@import "sass/modules/_variables.scss";
+
+.top {
+  align-items: flex-start;
+  header {
+      z-index: 1;
+  }
+  main {
+      padding-top: 20px;
+      width: 100%;
+  }
+  h3 {
+      font-weight: 400;
+      font-size: 1.2em;
+      line-height: 1.5em;
+  }
+  ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      overflow: hidden;
+      li {
+          margin: 10px 5px;
+          width: 25vw;
+          img {
+              width: 100%;
+              height: auto;
+          }
+      }
+  }
+  .loadMore {
+      @include button($pink);
+  }
+  .top-albums, .playlists {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+  }
+  .top-albums {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      li {
+          padding-bottom: 15px;
+      }
+      figcaption {
+          padding: 5px 0;
+          p {
+              font-weight: 400;
+              line-height: 1.8em;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+              font-size: .9em;
+          }
+          .album-artist {
+              display: flex;
+              align-items: center;
+              p {
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  font-weight: 300;
+                  font-size: .9em;
+                  color: #ccc;
+              }
+          }
+      }
+  }
+  .time, footer {
+    display: none;
+  }
+  @media (min-width: 870px) {
+    @include flex();
+    @import "sass/partials/desktop/_main.scss";
+    h3 {
+      font-size: 1.5em;
+      line-height: 3em;
+    }
+    ul {
+      li {
+        margin: 15px 5px;
+        width: 12vw;
+      }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        height: 11vh;
+        width: 100%;
+    }
+    .loadMore {
+      height: 2.8em;
+      width: 10em;
+      cursor: pointer;
+      line-height: 250%;
+      margin: 1em;
+      padding: 0;
+    }
+    .top-albums {
+      figcaption {
+          p {
+              font-size: 1.3em;
+          }
+      }
+    }
+    footer {
+        display: block;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000a11">
+    <meta name="description" content="NavyPlayer is a music app powered by deezer, a digital service that gives you access to millions of songs.">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Playfair+Display|Reem+Kufi|Roboto+Slab:700|Roboto:300,400,500" rel="stylesheet">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/logo/favicon.ico">
+
+    <title>NavyPlayer</title>
+    <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="dz-root" style='display:none'></div>
+    <div id="root" class="NavyPlayer"></div>
+    <script async>
+      DZ.init({
+        appId: '242742',
+        channelUrl: 'https://navyplayer.netlify.com/',
+        player : {}
+      });
+    </script>
+  </body>
+</html>

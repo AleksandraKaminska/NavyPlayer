@@ -1,0 +1,24 @@
+@import "sass/modules/_mixins.scss";
+
+.choose {
+    width: 100%;
+    height: 10vh;
+    @include flex(space-around);
+    z-index: 2;
+    button {
+        cursor: pointer;
+        width: 1.1em;
+        height: 1.1em;
+        font-size: 1.1em;
+        background: transparent;
+        border: 0;
+        outline: none;
+        p {
+            font-size: .5em;
+        }
+    }
+    @media (min-width: 870px) {
+        display: none;
+    }
+}
+

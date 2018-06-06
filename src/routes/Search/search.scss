@@ -1,0 +1,23 @@
+@import "sass/modules/_mixins.scss";
+
+.searchRoute {
+  .time, footer {
+      display: none;
+  }
+  @media (min-width: 870px) {
+    @import "sass/partials/desktop/_main.scss";
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 11vh;
+      width: 100%;
+    }
+    footer {
+      display: block;
+    }
+    .search {
+      height: 75vh;
+    }
+  }
+}
+

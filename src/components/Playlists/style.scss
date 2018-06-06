@@ -1,0 +1,34 @@
+.playlists {
+    align-items: flex-start;
+    width: 100%;
+    .active {
+        color: #ddd;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,.1);
+        }
+    }
+    ul {
+        li {
+            margin: 1em 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            p {
+                max-width: 90%;
+                display: inline-block;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                word-break: break-word;
+                font-size: 1em;
+                margin: 1em 0;
+            }
+        }
+    }
+}

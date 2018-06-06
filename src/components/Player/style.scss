@@ -1,0 +1,192 @@
+@import "sass/modules/_mixins.scss";
+@import "sass/modules/_variables.scss";
+
+.player {
+    @include flex(space-around);
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    .smallCover {
+        width: 10vh;
+        height: 10vh;
+        display: inline-block;
+        margin: 0;
+        background-size: cover;
+    }
+    .smallTitle {
+        display: inline-block;
+        overflow: hidden;
+        padding: 2vh 3vw;
+        max-height: 10vh;
+        max-width: 40vw;
+        flex-direction: column;
+        justify-content: space-around;
+        p:first-child {
+            font-weight: 500;
+            width: 100%;
+            font-size: 1.1em;
+        }
+    }
+    .controls {
+        @include flex(space-between);
+        position: absolute;
+        right: 5vw;
+        button {
+            &:first-child, &:last-child {
+                display: none;
+            }
+            &:first-child:hover {
+                .volumeSlider {
+                    visibility: visible;
+                }
+            }
+            &:nth-child(3) {
+                margin: 0 1em;
+                img {
+                    width: 2.2em;
+                }
+            }
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+    }
+    .progress {
+        font-size: .9em;
+        font-family: 'Reem Kufi', sans-serif;
+        left: 26vw;
+        bottom: 47vh;
+        top: auto;
+        progress[value] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: black;
+            &::-webkit-progress-bar {
+                background: $progress-bar-color;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+            }
+            &::-webkit-progress-value {
+                background-color: $progress-value-color;
+                border-radius: 5px;
+            }
+        }
+    }
+    & > a {
+        height: 100%;
+        width: 100%;
+    }
+    @media (min-width: 870px) {
+        position: relative;
+        height: 10vh;
+        .controls {
+            right: auto;
+            button, svg {
+                cursor: pointer;
+                margin: 0 0.5em;
+            }
+            button {
+                &:first-child, &:last-child {
+                    display: block;
+                }
+            }
+        }
+        .progress {
+            position: absolute;
+            font-size: 1.1em;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            progress[value] {
+                height: 3px;
+                width: 100vw;
+                left: -26vw;
+            }
+            .time {
+                position: absolute;
+                top: 3.5vh;
+                right: 5vw;
+                display: block;
+                cursor: default;
+                font-size: 1em;
+                .elapsed {
+                    right: 1vw;
+                    position: relative;
+                    & + span {
+                        display: inline-block;
+                        right: .5vw;
+                        position: relative;
+                    }
+                }
+                .duration {
+                    right: 0;
+                    position: relative;
+                }
+            }
+        }
+        .time {
+            position: absolute;
+            top: 1.5vh;
+            right: 0;
+            display: block;
+            font-size: 0.85em;
+            .elapsed {
+                position: absolute;
+                & + span {
+                    display: none;
+                }
+            }
+            .duration {
+                right: -50vw;
+                position: absolute;
+            }
+        }
+    }
+    .volumeSlider {
+        visibility: hidden;
+        position: absolute;
+        top: -144px;
+        left: 0;
+        right: 0;
+        width: 3em;
+        height: 146px;
+        border-radius: 3px;
+        z-index: 1;
+        &:hover {
+            visibility: visible;
+        }
+    }
+    .volumeSlider__lineWrapper {
+        height: 128px;
+        position: absolute;
+        left: 50%;
+        margin-left: -1px;
+        bottom: 8px;
+    }
+    .volumeSlider__bgLine {
+        width: 2px;
+        background-color: #979797;
+        height: 100%;
+    }
+    .volumeSlider__currentLine {
+        height: 30px;
+        background-color: #ff0;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+    }
+    .volumeSlider__ball {
+        width: 10px;
+        height: 10px;
+        background-color: #ff0;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        bottom: 30%;
+        margin-left: -4px;
+        margin-bottom: -8px;
+    }
+}

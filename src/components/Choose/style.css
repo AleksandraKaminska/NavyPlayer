@@ -1,0 +1,1 @@
+.choose{width:100%;height:10vh;display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center;z-index:2}.choose button{cursor:pointer;width:1.1em;height:1.1em;font-size:1.1em;background:transparent;border:0;outline:none}.choose button p{font-size:.5em}@media (min-width: 870px){.choose{display:none}}

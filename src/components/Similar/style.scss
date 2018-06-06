@@ -1,0 +1,52 @@
+@import "sass/modules/_mixins.scss";
+
+.similar {
+    margin: 2vh 0;
+    width: 100%;
+    font-family: 'Reem Kufi', sans-serif;
+    h2 {
+        font-size: 1.2em;
+    }
+    li {
+        @include flex(space-between);
+        flex-wrap: nowrap;
+        border-bottom: .5px rgba(255,255,255,0.2) solid;
+    }
+    img {
+        width: 2.5em;
+        height: auto;
+        border-radius: 50%;
+        margin: 2vh 0;
+        box-shadow: 0 4px 4px rgba(0,0,0,.5);
+    }
+    p {
+        font-size: 1em;
+        margin-left: 15px;
+    }
+    @media (min-width: 870px) {
+        display: block;
+        margin-top: 3vh;
+        padding: 0 5vw;
+        h2 {
+            font-size: 1.4em;
+        }
+        img {
+            width: 3em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        ul {
+            -moz-column-count: 2;
+            -webkit-column-count: 2;
+            column-count: 2;
+            -moz-column-gap: 15vw;
+            -webkit-column-gap: 15vw;
+            column-gap: 15vw;
+            li {
+                cursor: pointer;
+            }
+        }
+    }
+}
+

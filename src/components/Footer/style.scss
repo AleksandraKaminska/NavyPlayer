@@ -1,0 +1,32 @@
+@import "sass/modules/_mixins.scss";
+
+footer {
+    width: 100%;
+    height: 3vh;
+    @include flex(flex-start);
+    align-items: flex-end;
+    font-size: .7em;
+    padding: 0 1vw;
+    img {
+        height: .7em;
+        width: auto;
+    }
+    @media (min-width: 870px) {
+        display: block;
+        position: static;
+        height: 4vh;
+        padding: .5em;
+        cursor: default;
+        font-size: 1em;
+        background: transparent;
+        z-index: 0;
+        p {
+            visibility: visible;
+        }
+        img {
+            height: 1em;
+            position: static;
+        }
+    }
+}
+

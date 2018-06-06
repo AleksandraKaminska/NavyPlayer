@@ -1,0 +1,1 @@
+.title{width:100%;position:absolute;top:50vh;text-align:center;z-index:1;padding:0 2vw}.title h1{font-size:1.1em;line-height:1.8em;font-weight:300}.title h1 span{display:block;font-weight:400;font-size:1.2em}@media (min-width: 870px){.title{position:static;display:block;padding-bottom:1vh}.title h1{font-size:1.3em;line-height:1.5em}.title h1 span{font-size:1.5em}}

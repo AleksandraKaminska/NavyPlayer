@@ -1,0 +1,113 @@
+@import "sass/modules/_mixins.scss";
+
+.home {
+    @media (max-width: 869px) {
+        .albums,
+        .artist,
+        .search,
+        .playlists,
+        .similar,
+        .nav,
+        .smallTitle {
+            display: none;
+        }
+        .player {
+            .progress {
+                position: absolute;
+            }
+            progress[value] {
+                width: 50vw;
+                left: 26%;
+            }
+            .smallCover {
+                width: 50vw;
+                height: 50vw;
+                position: absolute;
+                bottom: 50vh;
+                left: 25%;
+                background-size: cover;
+            }
+            .controls button {
+                display: block;
+                margin: 0 0.8em;
+                &:first-child {
+                    .volume {
+                        left: -1.2em;
+                        top: -140%;
+                        width: 5.5em;
+                        height: 4px;
+                    }
+                }
+            }
+        }
+        footer {
+            p {
+                visibility: hidden;
+            }
+            img {
+                visibility: visible;
+                position: absolute;
+                bottom: 0.3em;
+                left: 0.5em;
+            }
+        }
+    }
+    .artist {
+        img {
+            display: block;
+        }
+        p {
+            margin-left: 1em;
+            font-size: 1.2em;
+            position: static;
+            z-index: 0;
+            text-transform: capitalize;
+        }
+    }
+    .controls {
+        right: auto;
+    }
+    .time {
+        position: absolute;
+        top: 1.5vh;
+        right: 0;
+        display: block;
+        font-size: 0.85em;
+        .elapsed {
+            position: absolute;
+            & + span {
+                display: none;
+            }
+        }
+        .duration {
+            right: -50vw;
+            position: absolute;
+        }
+    }
+
+    .choose {
+        position: absolute;
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        background: transparent;
+        z-index: 0;
+    }
+    @media (min-width: 870px) {
+        @include flex();
+        @import "sass/partials/desktop/_main.scss";
+        .small {
+            display: none;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            height: 11vh;
+            width: 100%;
+        }
+        main {
+            height: 63vh;
+        }
+    }
+}
