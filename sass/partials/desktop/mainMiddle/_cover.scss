@@ -1,0 +1,11 @@
+section#cover {
+    display: block;
+    .cover {
+        position: static;
+        height: 60vh;
+        width: 60vh;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+    }
+}
