@@ -1,0 +1,16 @@
+.search {
+    display: block;
+    height: 13vh;
+    max-width: 30vw;
+    margin-top: 1em;
+    z-index: 2;
+    input {
+        width: 30vw;
+        font-size: .8em;
+        border-radius: 1em;
+        height: 2.5vh;
+    }
+    .results {
+        height: 40vh;
+    }
+}

@@ -1,0 +1,1637 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  position: relative;
+  max-width: 100%;
+  max-height: 100vh;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background: #000a11;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); }
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #000000; }
+
+.loader {
+  display: flex;
+  align-items: center; }
+  .loader__part {
+    background: #ffffff;
+    width: 5px;
+    border-radius: 3px;
+    margin: 0 5px;
+    opacity: 0; }
+
+.loader__part--1 {
+  animation: opacity 0.3s linear forwards, anim-1 0.5s cubic-bezier(0.8, 0, 0.6, 1) infinite alternate;
+  animation-delay: 0.3s; }
+
+@keyframes anim-1 {
+  0% {
+    height: 5px; }
+  100% {
+    height: 35px; } }
+
+.loader__part--2 {
+  animation: opacity 0.3s linear forwards, anim-2 0.5s cubic-bezier(0.8, 0, 0.6, 1) infinite alternate;
+  animation-delay: 0.6s; }
+
+@keyframes anim-2 {
+  0% {
+    height: 5px; }
+  100% {
+    height: 38px; } }
+
+.loader__part--3 {
+  animation: opacity 0.3s linear forwards, anim-3 0.5s cubic-bezier(0.8, 0, 0.6, 1) infinite alternate;
+  animation-delay: 0.9s; }
+
+@keyframes anim-3 {
+  0% {
+    height: 5px; }
+  100% {
+    height: 41px; } }
+
+@keyframes opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.NavyPlayer {
+  height: 100%;
+  width: 100%;
+  background: #000a11; }
+  .NavyPlayer section#login {
+    display: none; }
+  .NavyPlayer a {
+    color: white;
+    text-decoration: none; }
+  .NavyPlayer ul {
+    list-style: none; }
+
+.search, .title, footer, .choose, .albums {
+  width: 100%; }
+
+.search {
+  height: 71vh;
+  width: 100vw;
+  margin-top: 0; }
+  .search input {
+    height: 6vh;
+    width: 100vw;
+    padding: 1.1em;
+    border: 0;
+    font-size: .9em;
+    outline: none;
+    color: white;
+    background: rgba(70, 70, 70, 0.5);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
+    .search input::-webkit-input-placeholder {
+      /* WebKit, Blink, Edge */
+      font-size: 1.2em;
+      color: lightgray; }
+    .search input:-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      font-size: 1.2em;
+      color: lightgray; }
+    .search input::-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      font-size: 1.2em;
+      color: lightgray; }
+    .search input:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      font-size: 1.2em;
+      color: lightgray; }
+  .search .results {
+    overflow-y: auto;
+    height: calc(100% - 6vh); }
+  .search .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    background: #111;
+    width: 100%;
+    height: 14vh;
+    cursor: pointer; }
+    .search .result div {
+      max-width: calc(100% - 3.5em);
+      float: left;
+      overflow-wrap: break-word;
+      color: white;
+      font-family: Raleway;
+      font-size: 1.2em; }
+
+.title {
+  position: absolute;
+  top: 20vh;
+  height: 7vh;
+  text-align: center;
+  padding: 0 0 3vh;
+  z-index: 1; }
+  .title h1 {
+    font-size: 1.3em;
+    color: white;
+    font-family: 'Open Sans', sans-serif; }
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: 71vh;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  main .playlists {
+    width: 100%; }
+    main .playlists .active {
+      color: #ddd;
+      position: relative; }
+      main .playlists .active::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1); }
+    main .playlists div {
+      max-height: 60vh;
+      overflow-y: auto; }
+      main .playlists div div {
+        margin: 1em 0 1em 1em;
+        display: flex;
+        align-items: center; }
+        main .playlists div div img {
+          width: 3em;
+          height: auto; }
+        main .playlists div div p {
+          max-width: 90%;
+          display: inline-block;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-all;
+          word-break: break-all;
+          word-break: break-word;
+          font-size: 1em;
+          margin: 0 1em; }
+  main .artist {
+    width: 100%;
+    padding: 0 3vw; }
+    main .artist > div:first-child {
+      height: 10vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-top: 1em; }
+      main .artist > div:first-child img {
+        width: 64px;
+        min-width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
+      main .artist > div:first-child p {
+        font-size: 1.1em;
+        margin-left: 1em;
+        font-family: 'Playfair Display', serif;
+        max-width: calc(100% - 64px); }
+    main .artist .topTracks {
+      margin: 5vh 5vw 2vh;
+      width: 100%;
+      font-family: 'Playfair Display', serif; }
+      main .artist .topTracks h2 {
+        font-size: 1.2em; }
+      main .artist .topTracks ul {
+        margin-top: 2vh;
+        line-height: 5vh; }
+        main .artist .topTracks ul li {
+          border-bottom: 0.5px rgba(255, 255, 255, 0.1) solid;
+          margin: 1vh auto; }
+        main .artist .topTracks ul li:hover {
+          margin-left: .5em; }
+  main .albums h2 {
+    font-size: 1.2em;
+    margin-left: 4vw; }
+  main .albums ul {
+    display: flex; }
+  main .albums .slider-frame {
+    position: relative;
+    width: 100%;
+    touch-action: pan-y; }
+    main .albums .slider-frame .btn {
+      width: 3vw;
+      height: 11.80045vw;
+      background: rgba(0, 0, 0, 0.3);
+      top: 1.96674vw;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5em;
+      position: absolute; }
+      main .albums .slider-frame .btn.prev {
+        left: 0; }
+      main .albums .slider-frame .btn.next {
+        right: 0; }
+    main .albums .slider-frame .slider-container {
+      white-space: nowrap;
+      margin: 3.93348vw 0;
+      position: absolute;
+      left: 0;
+      transition: left 450ms ease, 450ms transform ease; }
+      main .albums .slider-frame .slider-container:hover {
+        transform: translate3d(-3.49643vw, 0, 0); }
+        main .albums .slider-frame .slider-container:hover .slide {
+          opacity: .3; }
+          main .albums .slider-frame .slider-container:hover .slide:hover {
+            transform: scale(1.5);
+            opacity: 1; }
+            main .albums .slider-frame .slider-container:hover .slide:hover:nth-child(7n + 1) {
+              transform: translate3d(6.99286vw, 0, 0) scale(1.5); }
+              main .albums .slider-frame .slider-container:hover .slide:hover:nth-child(7n + 1) ~ .slide {
+                transform: translate3d(13.98571vw, 0, 0); }
+            main .albums .slider-frame .slider-container:hover .slide:hover:nth-child(7n) {
+              transform: translate3d(-6.99286vw, 0, 0) scale(1.5); }
+  main .albums .slide {
+    position: relative;
+    display: inline-block;
+    width: 13.98571vw;
+    height: 7.86696vw;
+    margin-right: 0.3vw;
+    transition: 450ms all;
+    transform-origin: center left;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer; }
+    main .albums .slide:hover p {
+      opacity: 1; }
+  main .albums .slide:hover ~ .slide {
+    transform: translate3d(6.99286vw, 0, 0); }
+  main .albums .slide p {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: 450ms opacity;
+    padding: 1em;
+    padding-top: calc(50% - 1.5em);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: 0px 2px 5px black; }
+  main .albums .songs {
+    margin-left: 4vw; }
+    main .albums .songs ul {
+      flex-direction: column; }
+      main .albums .songs ul li {
+        border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid;
+        padding: 2vh 0; }
+  main .similar {
+    margin: 2vh 4vw;
+    width: 100%;
+    font-family: 'Reem Kufi', sans-serif; }
+    main .similar h2 {
+      font-size: 1.2em; }
+    main .similar li {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.5px rgba(255, 255, 255, 0.2) solid; }
+    main .similar img {
+      width: 2.5em;
+      height: auto;
+      border-radius: 50%;
+      margin: 2vh 0;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
+    main .similar p {
+      font-size: 1em; }
+
+.player {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 11vh;
+  padding-top: 5vh; }
+  .player a {
+    max-width: 65%; }
+  .player .smallCover {
+    width: 3em;
+    height: 3em;
+    display: inline-block;
+    margin: 0 1vw; }
+  .player .smallTitle {
+    width: 42vw;
+    font-size: .8em;
+    display: inline-block;
+    overflow: hidden; }
+    .player .smallTitle p:first-child {
+      font-weight: bold; }
+  .player .controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; }
+    .player .controls button {
+      background: transparent;
+      border: none;
+      outline: none; }
+      .player .controls button:nth-child(2) {
+        transform: scale(0.5, 0.5); }
+  .player .progress {
+    font-size: .9em;
+    color: white;
+    font-family: 'Reem Kufi', sans-serif; }
+    .player .progress progress[value] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: black; }
+      .player .progress progress[value]::-webkit-progress-bar {
+        background: #d3ceaa;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }
+      .player .progress progress[value]::-webkit-progress-value {
+        background-color: #424242;
+        border-radius: 5px; }
+
+.choose {
+  height: 10vh;
+  margin-top: 5vh;
+  padding: 2vh 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2; }
+  .choose div {
+    display: inline-block; }
+    .choose div button {
+      cursor: pointer;
+      width: 1.1em;
+      height: 1.1em;
+      font-size: 1.1em;
+      background: transparent;
+      color: white;
+      border: 0;
+      outline: none; }
+      .choose div button p {
+        font-size: .5em;
+        font-family: 'Open Sans', sans-serif; }
+
+footer {
+  height: 3vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-items: flex-end;
+  font-size: .7em;
+  padding: 0 1vw; }
+  footer img {
+    height: .7em;
+    width: auto; }
+
+.active button:focus {
+  color: #58afd1; }
+
+.\/ .albums,
+.\/ .artist,
+.\/ .playlists,
+.\/ .search,
+.\/ .similar,
+.\/ .nav,
+.\/ .small,
+.\/albums .albums,
+.\/albums .artist,
+.\/albums .playlists,
+.\/albums .search,
+.\/albums .similar,
+.\/albums .nav,
+.\/albums .small,
+.\/playlists .albums,
+.\/playlists .artist,
+.\/playlists .playlists,
+.\/playlists .search,
+.\/playlists .similar,
+.\/playlists .nav,
+.\/playlists .small,
+.\/similar .albums,
+.\/similar .artist,
+.\/similar .playlists,
+.\/similar .search,
+.\/similar .similar,
+.\/similar .nav,
+.\/similar .small,
+div[class^='/ &'] .albums,
+div[class^='/ &'] .artist,
+div[class^='/ &'] .playlists,
+div[class^='/ &'] .search,
+div[class^='/ &'] .similar,
+div[class^='/ &'] .nav,
+div[class^='/ &'] .small,
+div[class^='/_'] .albums,
+div[class^='/_'] .artist,
+div[class^='/_'] .playlists,
+div[class^='/_'] .search,
+div[class^='/_'] .similar,
+div[class^='/_'] .nav,
+div[class^='/_'] .small {
+  display: none; }
+
+.\/ .time,
+.\/albums .time,
+.\/playlists .time,
+.\/similar .time,
+div[class^='/ &'] .time,
+div[class^='/_'] .time {
+  position: absolute;
+  top: -1.5vh;
+  right: 0;
+  display: block; }
+  .\/ .time .elapsed,
+  .\/albums .time .elapsed,
+  .\/playlists .time .elapsed,
+  .\/similar .time .elapsed,
+  div[class^='/ &'] .time .elapsed,
+  div[class^='/_'] .time .elapsed {
+    position: absolute;
+    right: 88vw; }
+    .\/ .time .elapsed + span,
+    .\/albums .time .elapsed + span,
+    .\/playlists .time .elapsed + span,
+    .\/similar .time .elapsed + span,
+    div[class^='/ &'] .time .elapsed + span,
+    div[class^='/_'] .time .elapsed + span {
+      display: none; }
+  .\/ .time .duration,
+  .\/albums .time .duration,
+  .\/playlists .time .duration,
+  .\/similar .time .duration,
+  div[class^='/ &'] .time .duration,
+  div[class^='/_'] .time .duration {
+    right: 2vw;
+    position: absolute; }
+
+.\/ .player,
+.\/albums .player,
+.\/playlists .player,
+.\/similar .player,
+div[class^='/ &'] .player,
+div[class^='/_'] .player {
+  position: absolute;
+  top: 50%; }
+  .\/ .player progress[value],
+  .\/albums .player progress[value],
+  .\/playlists .player progress[value],
+  .\/similar .player progress[value],
+  div[class^='/ &'] .player progress[value],
+  div[class^='/_'] .player progress[value] {
+    width: 70%;
+    left: 15%; }
+
+.\/ .choose,
+.\/albums .choose,
+.\/playlists .choose,
+.\/similar .choose,
+div[class^='/ &'] .choose,
+div[class^='/_'] .choose {
+  position: absolute;
+  bottom: 5vh;
+  background: transparent; }
+
+.\/ .cover,
+.\/albums .cover,
+.\/playlists .cover,
+.\/similar .cover,
+div[class^='/ &'] .cover,
+div[class^='/_'] .cover {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute; }
+
+.\/ footer,
+.\/albums footer,
+.\/playlists footer,
+.\/similar footer,
+div[class^='/ &'] footer,
+div[class^='/_'] footer {
+  position: absolute;
+  bottom: 0;
+  background: transparent; }
+
+.\/artist #cover,
+.\/artist .title,
+.\/artist .nav,
+.\/artist .time,
+.\/playlist #cover,
+.\/playlist .title,
+.\/playlist .nav,
+.\/playlist .time,
+.\/search #cover,
+.\/search .title,
+.\/search .nav,
+.\/search .time {
+  display: none; }
+
+.\/artist .player,
+.\/playlist .player,
+.\/search .player {
+  position: relative; }
+  .\/artist .player progress[value],
+  .\/playlist .player progress[value],
+  .\/search .player progress[value] {
+    width: 100%; }
+
+.\/artist .choose,
+.\/playlist .choose,
+.\/search .choose {
+  background: rgba(0, 0, 0, 0.5); }
+
+.\/artist footer,
+.\/playlist footer,
+.\/search footer {
+  position: static;
+  background: rgba(0, 0, 0, 0.5); }
+
+.\/artist .small,
+.\/playlist .small,
+.\/search .small {
+  display: flex; }
+
+.\/artist .playlists,
+.\/artist .search {
+  display: none; }
+
+.\/playlist .albums,
+.\/playlist .artist,
+.\/playlist .search,
+.\/playlist .similar {
+  display: none; }
+
+.\/search main {
+  display: none; }
+
+@media (min-width: 870px) {
+  body {
+    /* Track */
+    /* Corner */
+    /* Handle */ }
+    body ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px; }
+    body ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background: rgba(211, 206, 170, 0.5);
+      -webkit-border-radius: 10px;
+      border-radius: 10px; }
+    body ::-webkit-scrollbar-corner {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background: rgba(211, 206, 170, 0.5); }
+    body ::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      background: rgba(66, 66, 66, 0.7);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+  .NavyPlayer {
+    background: -webkit-radial-gradient(#14375a, #000a11);
+    background: -o-radial-gradient(#14375a, #000a11);
+    background: -moz-radial-gradient(#14375a, #000a11);
+    background: radial-gradient(#14375a, #000a11); }
+    .NavyPlayer section#login {
+      display: block; }
+  .\/ a#main_nav,
+  .\/playlists a#main_nav {
+    border-bottom: 3px solid white; }
+  .\/ a:not(#main_nav):not(.carousel__arrow)::after,
+  .\/playlists a:not(#main_nav):not(.carousel__arrow)::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width .7s ease, background-color 1s ease; }
+  .\/ a:not(#main_nav):not(.carousel__arrow):hover::after,
+  .\/playlists a:not(#main_nav):not(.carousel__arrow):hover::after {
+    width: 100%;
+    background: white; }
+  .\/albums a#albums_nav {
+    border-bottom: 3px solid white; }
+  .\/albums a:not(#albums_nav):not(.carousel__arrow)::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width .7s ease, background-color 1s ease; }
+  .\/albums a:not(#albums_nav):not(.carousel__arrow):hover::after {
+    width: 100%;
+    background: white; }
+  .\/similar a#similar_nav {
+    border-bottom: 3px solid white; }
+  .\/similar a:not(#similar_nav):not(.carousel__arrow)::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width .7s ease, background-color 1s ease; }
+  .\/similar a:not(#similar_nav):not(.carousel__arrow):hover::after {
+    width: 100%;
+    background: white; }
+  .\/,
+  .\/albums,
+  .\/artist,
+  .\/playlist,
+  .\/playlists,
+  .\/search,
+  .\/similar,
+  div[class^='/ &'],
+  div[class^='/_'] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; }
+    .\/ nav,
+    .\/albums nav,
+    .\/artist nav,
+    .\/playlist nav,
+    .\/playlists nav,
+    .\/search nav,
+    .\/similar nav,
+    div[class^='/ &'] nav,
+    div[class^='/_'] nav {
+      text-transform: uppercase;
+      position: absolute;
+      top: 2.5vh;
+      left: .5vw; }
+      .\/ nav a,
+      .\/albums nav a,
+      .\/artist nav a,
+      .\/playlist nav a,
+      .\/playlists nav a,
+      .\/search nav a,
+      .\/similar nav a,
+      div[class^='/ &'] nav a,
+      div[class^='/_'] nav a {
+        margin: .6vh 1.5vw;
+        display: inline-block; }
+    .\/ .nav,
+    .\/albums .nav,
+    .\/artist .nav,
+    .\/playlist .nav,
+    .\/playlists .nav,
+    .\/search .nav,
+    .\/similar .nav,
+    div[class^='/ &'] .nav,
+    div[class^='/_'] .nav {
+      display: block; }
+    .\/ .choose,
+    .\/albums .choose,
+    .\/artist .choose,
+    .\/playlist .choose,
+    .\/playlists .choose,
+    .\/search .choose,
+    .\/similar .choose,
+    div[class^='/ &'] .choose,
+    div[class^='/_'] .choose {
+      display: none; }
+    .\/ .search,
+    .\/albums .search,
+    .\/artist .search,
+    .\/playlist .search,
+    .\/playlists .search,
+    .\/search .search,
+    .\/similar .search,
+    div[class^='/ &'] .search,
+    div[class^='/_'] .search {
+      display: block;
+      height: 13vh;
+      max-width: 30vw;
+      margin-top: 1em;
+      z-index: 2; }
+      .\/ .search input,
+      .\/albums .search input,
+      .\/artist .search input,
+      .\/playlist .search input,
+      .\/playlists .search input,
+      .\/search .search input,
+      .\/similar .search input,
+      div[class^='/ &'] .search input,
+      div[class^='/_'] .search input {
+        width: 30vw;
+        font-size: .8em;
+        border-radius: 1em;
+        height: 2.5vh; }
+      .\/ .search .results,
+      .\/albums .search .results,
+      .\/artist .search .results,
+      .\/playlist .search .results,
+      .\/playlists .search .results,
+      .\/search .search .results,
+      .\/similar .search .results,
+      div[class^='/ &'] .search .results,
+      div[class^='/_'] .search .results {
+        height: 40vh; }
+    .\/ .title,
+    .\/albums .title,
+    .\/artist .title,
+    .\/playlist .title,
+    .\/playlists .title,
+    .\/search .title,
+    .\/similar .title,
+    div[class^='/ &'] .title,
+    div[class^='/_'] .title {
+      position: static;
+      display: block; }
+      .\/ .title h1,
+      .\/albums .title h1,
+      .\/artist .title h1,
+      .\/playlist .title h1,
+      .\/playlists .title h1,
+      .\/search .title h1,
+      .\/similar .title h1,
+      div[class^='/ &'] .title h1,
+      div[class^='/_'] .title h1 {
+        font-size: 1.5em; }
+    .\/ main,
+    .\/albums main,
+    .\/artist main,
+    .\/playlist main,
+    .\/playlists main,
+    .\/search main,
+    .\/similar main,
+    div[class^='/ &'] main,
+    div[class^='/_'] main {
+      display: flex;
+      height: 63vh;
+      padding: 3vh 0 0;
+      position: relative; }
+      .\/ main .playlists,
+      .\/albums main .playlists,
+      .\/artist main .playlists,
+      .\/playlist main .playlists,
+      .\/playlists main .playlists,
+      .\/search main .playlists,
+      .\/similar main .playlists,
+      div[class^='/ &'] main .playlists,
+      div[class^='/_'] main .playlists {
+        display: block;
+        width: calc((100% - 60vh) / 2); }
+        .\/ main .playlists div,
+        .\/albums main .playlists div,
+        .\/artist main .playlists div,
+        .\/playlist main .playlists div,
+        .\/playlists main .playlists div,
+        .\/search main .playlists div,
+        .\/similar main .playlists div,
+        div[class^='/ &'] main .playlists div,
+        div[class^='/_'] main .playlists div {
+          direction: rtl;
+          padding-left: .5em; }
+          .\/ main .playlists div div,
+          .\/albums main .playlists div div,
+          .\/artist main .playlists div div,
+          .\/playlist main .playlists div div,
+          .\/playlists main .playlists div div,
+          .\/search main .playlists div div,
+          .\/similar main .playlists div div,
+          div[class^='/ &'] main .playlists div div,
+          div[class^='/_'] main .playlists div div {
+            direction: ltr;
+            opacity: .3;
+            transition: opacity .5s;
+            cursor: pointer;
+            margin: 0 0 2vh; }
+            .\/ main .playlists div div img,
+            .\/albums main .playlists div div img,
+            .\/artist main .playlists div div img,
+            .\/playlist main .playlists div div img,
+            .\/playlists main .playlists div div img,
+            .\/search main .playlists div div img,
+            .\/similar main .playlists div div img,
+            div[class^='/ &'] main .playlists div div img,
+            div[class^='/_'] main .playlists div div img {
+              width: 4em; }
+            .\/ main .playlists div div p,
+            .\/albums main .playlists div div p,
+            .\/artist main .playlists div div p,
+            .\/playlist main .playlists div div p,
+            .\/playlists main .playlists div div p,
+            .\/search main .playlists div div p,
+            .\/similar main .playlists div div p,
+            div[class^='/ &'] main .playlists div div p,
+            div[class^='/_'] main .playlists div div p {
+              display: none; }
+          .\/ main .playlists div div:hover,
+          .\/albums main .playlists div div:hover,
+          .\/artist main .playlists div div:hover,
+          .\/playlist main .playlists div div:hover,
+          .\/playlists main .playlists div div:hover,
+          .\/search main .playlists div div:hover,
+          .\/similar main .playlists div div:hover,
+          div[class^='/ &'] main .playlists div div:hover,
+          div[class^='/_'] main .playlists div div:hover {
+            color: #ddd;
+            position: relative; }
+            .\/ main .playlists div div:hover::after,
+            .\/albums main .playlists div div:hover::after,
+            .\/artist main .playlists div div:hover::after,
+            .\/playlist main .playlists div div:hover::after,
+            .\/playlists main .playlists div div:hover::after,
+            .\/search main .playlists div div:hover::after,
+            .\/similar main .playlists div div:hover::after,
+            div[class^='/ &'] main .playlists div div:hover::after,
+            div[class^='/_'] main .playlists div div:hover::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.1); }
+          .\/ main .playlists div .active,
+          .\/ main .playlists div .fade,
+          .\/albums main .playlists div .active,
+          .\/albums main .playlists div .fade,
+          .\/artist main .playlists div .active,
+          .\/artist main .playlists div .fade,
+          .\/playlist main .playlists div .active,
+          .\/playlist main .playlists div .fade,
+          .\/playlists main .playlists div .active,
+          .\/playlists main .playlists div .fade,
+          .\/search main .playlists div .active,
+          .\/search main .playlists div .fade,
+          .\/similar main .playlists div .active,
+          .\/similar main .playlists div .fade,
+          div[class^='/ &'] main .playlists div .active,
+          div[class^='/ &'] main .playlists div .fade,
+          div[class^='/_'] main .playlists div .active,
+          div[class^='/_'] main .playlists div .fade {
+            opacity: 1; }
+            .\/ main .playlists div .active p,
+            .\/ main .playlists div .fade p,
+            .\/albums main .playlists div .active p,
+            .\/albums main .playlists div .fade p,
+            .\/artist main .playlists div .active p,
+            .\/artist main .playlists div .fade p,
+            .\/playlist main .playlists div .active p,
+            .\/playlist main .playlists div .fade p,
+            .\/playlists main .playlists div .active p,
+            .\/playlists main .playlists div .fade p,
+            .\/search main .playlists div .active p,
+            .\/search main .playlists div .fade p,
+            .\/similar main .playlists div .active p,
+            .\/similar main .playlists div .fade p,
+            div[class^='/ &'] main .playlists div .active p,
+            div[class^='/ &'] main .playlists div .fade p,
+            div[class^='/_'] main .playlists div .active p,
+            div[class^='/_'] main .playlists div .fade p {
+              display: inline-block; }
+          .\/ main .playlists div .active::after,
+          .\/albums main .playlists div .active::after,
+          .\/artist main .playlists div .active::after,
+          .\/playlist main .playlists div .active::after,
+          .\/playlists main .playlists div .active::after,
+          .\/search main .playlists div .active::after,
+          .\/similar main .playlists div .active::after,
+          div[class^='/ &'] main .playlists div .active::after,
+          div[class^='/_'] main .playlists div .active::after {
+            background: transparent; }
+      .\/ main section#cover,
+      .\/albums main section#cover,
+      .\/artist main section#cover,
+      .\/playlist main section#cover,
+      .\/playlists main section#cover,
+      .\/search main section#cover,
+      .\/similar main section#cover,
+      div[class^='/ &'] main section#cover,
+      div[class^='/_'] main section#cover {
+        display: block; }
+        .\/ main section#cover .cover,
+        .\/albums main section#cover .cover,
+        .\/artist main section#cover .cover,
+        .\/playlist main section#cover .cover,
+        .\/playlists main section#cover .cover,
+        .\/search main section#cover .cover,
+        .\/similar main section#cover .cover,
+        div[class^='/ &'] main section#cover .cover,
+        div[class^='/_'] main section#cover .cover {
+          position: static;
+          height: 60vh;
+          width: 60vh;
+          margin: 0;
+          background-size: cover;
+          background-position: center; }
+      .\/ main .artist,
+      .\/albums main .artist,
+      .\/artist main .artist,
+      .\/playlist main .artist,
+      .\/playlists main .artist,
+      .\/search main .artist,
+      .\/similar main .artist,
+      div[class^='/ &'] main .artist,
+      div[class^='/_'] main .artist {
+        width: calc((100% - 60vh) / 2);
+        display: flex;
+        flex-wrap: wrap; }
+        .\/ main .artist > div:first-child,
+        .\/albums main .artist > div:first-child,
+        .\/artist main .artist > div:first-child,
+        .\/playlist main .artist > div:first-child,
+        .\/playlists main .artist > div:first-child,
+        .\/search main .artist > div:first-child,
+        .\/similar main .artist > div:first-child,
+        div[class^='/ &'] main .artist > div:first-child,
+        div[class^='/_'] main .artist > div:first-child {
+          height: auto;
+          margin-top: 0;
+          cursor: pointer; }
+          .\/ main .artist > div:first-child p,
+          .\/albums main .artist > div:first-child p,
+          .\/artist main .artist > div:first-child p,
+          .\/playlist main .artist > div:first-child p,
+          .\/playlists main .artist > div:first-child p,
+          .\/search main .artist > div:first-child p,
+          .\/similar main .artist > div:first-child p,
+          div[class^='/ &'] main .artist > div:first-child p,
+          div[class^='/_'] main .artist > div:first-child p {
+            font-size: 1.3em; }
+        .\/ main .artist .topTracks,
+        .\/albums main .artist .topTracks,
+        .\/artist main .artist .topTracks,
+        .\/playlist main .artist .topTracks,
+        .\/playlists main .artist .topTracks,
+        .\/search main .artist .topTracks,
+        .\/similar main .artist .topTracks,
+        div[class^='/ &'] main .artist .topTracks,
+        div[class^='/_'] main .artist .topTracks {
+          margin: auto;
+          width: 100%;
+          padding-top: 4vh;
+          font-size: 1.15em; }
+          .\/ main .artist .topTracks h2,
+          .\/albums main .artist .topTracks h2,
+          .\/artist main .artist .topTracks h2,
+          .\/playlist main .artist .topTracks h2,
+          .\/playlists main .artist .topTracks h2,
+          .\/search main .artist .topTracks h2,
+          .\/similar main .artist .topTracks h2,
+          div[class^='/ &'] main .artist .topTracks h2,
+          div[class^='/_'] main .artist .topTracks h2 {
+            font-size: 1.15em; }
+          .\/ main .artist .topTracks ul,
+          .\/albums main .artist .topTracks ul,
+          .\/artist main .artist .topTracks ul,
+          .\/playlist main .artist .topTracks ul,
+          .\/playlists main .artist .topTracks ul,
+          .\/search main .artist .topTracks ul,
+          .\/similar main .artist .topTracks ul,
+          div[class^='/ &'] main .artist .topTracks ul,
+          div[class^='/_'] main .artist .topTracks ul {
+            line-height: 6vh;
+            cursor: pointer; }
+      .\/ main .albums,
+      .\/albums main .albums,
+      .\/artist main .albums,
+      .\/playlist main .albums,
+      .\/playlists main .albums,
+      .\/search main .albums,
+      .\/similar main .albums,
+      div[class^='/ &'] main .albums,
+      div[class^='/_'] main .albums {
+        display: block;
+        margin-top: 8vh; }
+        .\/ main .albums h2,
+        .\/albums main .albums h2,
+        .\/artist main .albums h2,
+        .\/playlist main .albums h2,
+        .\/playlists main .albums h2,
+        .\/search main .albums h2,
+        .\/similar main .albums h2,
+        div[class^='/ &'] main .albums h2,
+        div[class^='/_'] main .albums h2 {
+          font-size: 1.4em; }
+        .\/ main .albums .list,
+        .\/albums main .albums .list,
+        .\/artist main .albums .list,
+        .\/playlist main .albums .list,
+        .\/playlists main .albums .list,
+        .\/search main .albums .list,
+        .\/similar main .albums .list,
+        div[class^='/ &'] main .albums .list,
+        div[class^='/_'] main .albums .list {
+          width: 100%;
+          overflow-x: hidden;
+          float: left; }
+          .\/ main .albums .list img,
+          .\/albums main .albums .list img,
+          .\/artist main .albums .list img,
+          .\/playlist main .albums .list img,
+          .\/playlists main .albums .list img,
+          .\/search main .albums .list img,
+          .\/similar main .albums .list img,
+          div[class^='/ &'] main .albums .list img,
+          div[class^='/_'] main .albums .list img {
+            width: 7em;
+            cursor: pointer; }
+          .\/ main .albums .list p,
+          .\/albums main .albums .list p,
+          .\/artist main .albums .list p,
+          .\/playlist main .albums .list p,
+          .\/playlists main .albums .list p,
+          .\/search main .albums .list p,
+          .\/similar main .albums .list p,
+          div[class^='/ &'] main .albums .list p,
+          div[class^='/_'] main .albums .list p {
+            font-size: .9em;
+            width: 7em;
+            font-weight: lighter;
+            cursor: pointer; }
+          .\/ main .albums .list .backArrow,
+          .\/ main .albums .list .nextArrow,
+          .\/albums main .albums .list .backArrow,
+          .\/albums main .albums .list .nextArrow,
+          .\/artist main .albums .list .backArrow,
+          .\/artist main .albums .list .nextArrow,
+          .\/playlist main .albums .list .backArrow,
+          .\/playlist main .albums .list .nextArrow,
+          .\/playlists main .albums .list .backArrow,
+          .\/playlists main .albums .list .nextArrow,
+          .\/search main .albums .list .backArrow,
+          .\/search main .albums .list .nextArrow,
+          .\/similar main .albums .list .backArrow,
+          .\/similar main .albums .list .nextArrow,
+          div[class^='/ &'] main .albums .list .backArrow,
+          div[class^='/ &'] main .albums .list .nextArrow,
+          div[class^='/_'] main .albums .list .backArrow,
+          div[class^='/_'] main .albums .list .nextArrow {
+            cursor: pointer;
+            margin-top: .6em;
+            display: block; }
+        .\/ main .albums .close,
+        .\/albums main .albums .close,
+        .\/artist main .albums .close,
+        .\/playlist main .albums .close,
+        .\/playlists main .albums .close,
+        .\/search main .albums .close,
+        .\/similar main .albums .close,
+        div[class^='/ &'] main .albums .close,
+        div[class^='/_'] main .albums .close {
+          position: fixed;
+          top: 10%;
+          right: -25em;
+          cursor: pointer;
+          background: #4f39e4;
+          width: 2em;
+          height: 2em;
+          border-radius: 2px;
+          text-align: center;
+          padding-top: .3em; }
+        .\/ main .albums .songs,
+        .\/albums main .albums .songs,
+        .\/artist main .albums .songs,
+        .\/playlist main .albums .songs,
+        .\/playlists main .albums .songs,
+        .\/search main .albums .songs,
+        .\/similar main .albums .songs,
+        div[class^='/ &'] main .albums .songs,
+        div[class^='/_'] main .albums .songs {
+          background: #111;
+          position: fixed;
+          padding: 0;
+          min-height: 100%;
+          max-height: 100%;
+          top: 0;
+          z-index: 5;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column; }
+          .\/ main .albums .songs .playAlbum,
+          .\/albums main .albums .songs .playAlbum,
+          .\/artist main .albums .songs .playAlbum,
+          .\/playlist main .albums .songs .playAlbum,
+          .\/playlists main .albums .songs .playAlbum,
+          .\/search main .albums .songs .playAlbum,
+          .\/similar main .albums .songs .playAlbum,
+          div[class^='/ &'] main .albums .songs .playAlbum,
+          div[class^='/_'] main .albums .songs .playAlbum {
+            border: 1px solid #EE3769;
+            color: #EE3769;
+            height: 2.8em;
+            width: 10em;
+            cursor: pointer;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 250%;
+            margin: 1em;
+            align-self: center; }
+          .\/ main .albums .songs li,
+          .\/albums main .albums .songs li,
+          .\/artist main .albums .songs li,
+          .\/playlist main .albums .songs li,
+          .\/playlists main .albums .songs li,
+          .\/search main .albums .songs li,
+          .\/similar main .albums .songs li,
+          div[class^='/ &'] main .albums .songs li,
+          div[class^='/_'] main .albums .songs li {
+            cursor: pointer;
+            padding: 2vh 2vw; }
+            .\/ main .albums .songs li:hover,
+            .\/albums main .albums .songs li:hover,
+            .\/artist main .albums .songs li:hover,
+            .\/playlist main .albums .songs li:hover,
+            .\/playlists main .albums .songs li:hover,
+            .\/search main .albums .songs li:hover,
+            .\/similar main .albums .songs li:hover,
+            div[class^='/ &'] main .albums .songs li:hover,
+            div[class^='/_'] main .albums .songs li:hover {
+              background-color: rgba(79, 57, 228, 0.14); }
+        .\/ main .albums .slideout,
+        .\/albums main .albums .slideout,
+        .\/artist main .albums .slideout,
+        .\/playlist main .albums .slideout,
+        .\/playlists main .albums .slideout,
+        .\/search main .albums .slideout,
+        .\/similar main .albums .slideout,
+        div[class^='/ &'] main .albums .slideout,
+        div[class^='/_'] main .albums .slideout {
+          -webkit-animation: SLIDEOUT 1.5s 0s 1 forwards;
+          -moz-animation: SLIDEOUT 1.5s 0s 1 forwards;
+          -o-animation: SLIDEOUT 1.5s 0s 1 forwards;
+          animation: SLIDEOUT 1.5s 0s 1 forwards; }
+  @-webkit-keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+  @-moz-keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+  @-o-keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+  @keyframes SLIDEOUT {
+    0% {
+      right: -27em; }
+    100% {
+      right: 0; } }
+        .\/ main .albums .slidein,
+        .\/albums main .albums .slidein,
+        .\/artist main .albums .slidein,
+        .\/playlist main .albums .slidein,
+        .\/playlists main .albums .slidein,
+        .\/search main .albums .slidein,
+        .\/similar main .albums .slidein,
+        div[class^='/ &'] main .albums .slidein,
+        div[class^='/_'] main .albums .slidein {
+          -webkit-animation: SLIDEIN 1.5s 0s 1 forwards;
+          -moz-animation: SLIDEIN 1.5s 0s 1 forwards;
+          -o-animation: SLIDEIN 1.5s 0s 1 forwards;
+          animation: SLIDEIN 1.5s 0s 1 forwards; }
+  @-webkit-keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+  @-moz-keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+  @-o-keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+  @keyframes SLIDEIN {
+    0% {
+      right: 0; }
+    100% {
+      right: -27em; } }
+        .\/ main .albums .buttonSlideout,
+        .\/albums main .albums .buttonSlideout,
+        .\/artist main .albums .buttonSlideout,
+        .\/playlist main .albums .buttonSlideout,
+        .\/playlists main .albums .buttonSlideout,
+        .\/search main .albums .buttonSlideout,
+        .\/similar main .albums .buttonSlideout,
+        div[class^='/ &'] main .albums .buttonSlideout,
+        div[class^='/_'] main .albums .buttonSlideout {
+          -webkit-animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards;
+          -moz-animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards;
+          -o-animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards;
+          animation: BUTTONSLIDEOUT 1.5s 0s 1 forwards; }
+  @-webkit-keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+  @-moz-keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+  @-o-keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+  @keyframes BUTTONSLIDEOUT {
+    0% {
+      right: -25em; }
+    100% {
+      right: 25em; } }
+        .\/ main .albums .buttonSlidein,
+        .\/albums main .albums .buttonSlidein,
+        .\/artist main .albums .buttonSlidein,
+        .\/playlist main .albums .buttonSlidein,
+        .\/playlists main .albums .buttonSlidein,
+        .\/search main .albums .buttonSlidein,
+        .\/similar main .albums .buttonSlidein,
+        div[class^='/ &'] main .albums .buttonSlidein,
+        div[class^='/_'] main .albums .buttonSlidein {
+          -webkit-animation: BUTTONSLIDEIN 1.5s 0s 1 forwards;
+          -moz-animation: BUTTONSLIDEIN 1.5s 0s 1 forwards;
+          -o-animation: BUTTONSLIDEIN 1.5s 0s 1 forwards;
+          animation: BUTTONSLIDEIN 1.5s 0s 1 forwards; }
+  @-webkit-keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+  @-moz-keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+  @-o-keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+  @keyframes BUTTONSLIDEIN {
+    0% {
+      right: 25em; }
+    100% {
+      right: -25em; } }
+      .\/ main .similar,
+      .\/albums main .similar,
+      .\/artist main .similar,
+      .\/playlist main .similar,
+      .\/playlists main .similar,
+      .\/search main .similar,
+      .\/similar main .similar,
+      div[class^='/ &'] main .similar,
+      div[class^='/_'] main .similar {
+        display: block;
+        margin: 8vh 10vh 0;
+        padding: 5vh auto; }
+        .\/ main .similar h2,
+        .\/albums main .similar h2,
+        .\/artist main .similar h2,
+        .\/playlist main .similar h2,
+        .\/playlists main .similar h2,
+        .\/search main .similar h2,
+        .\/similar main .similar h2,
+        div[class^='/ &'] main .similar h2,
+        div[class^='/_'] main .similar h2 {
+          font-size: 1.4em; }
+        .\/ main .similar img,
+        .\/albums main .similar img,
+        .\/artist main .similar img,
+        .\/playlist main .similar img,
+        .\/playlists main .similar img,
+        .\/search main .similar img,
+        .\/similar main .similar img,
+        div[class^='/ &'] main .similar img,
+        div[class^='/_'] main .similar img {
+          width: 3em; }
+        .\/ main .similar p,
+        .\/albums main .similar p,
+        .\/artist main .similar p,
+        .\/playlist main .similar p,
+        .\/playlists main .similar p,
+        .\/search main .similar p,
+        .\/similar main .similar p,
+        div[class^='/ &'] main .similar p,
+        div[class^='/_'] main .similar p {
+          font-size: 1.2em; }
+        .\/ main .similar ul,
+        .\/albums main .similar ul,
+        .\/artist main .similar ul,
+        .\/playlist main .similar ul,
+        .\/playlists main .similar ul,
+        .\/search main .similar ul,
+        .\/similar main .similar ul,
+        div[class^='/ &'] main .similar ul,
+        div[class^='/_'] main .similar ul {
+          -moz-column-count: 2;
+          -webkit-column-count: 2;
+          column-count: 2;
+          -moz-column-gap: 15vw;
+          -webkit-column-gap: 15vw;
+          column-gap: 15vw; }
+          .\/ main .similar ul li,
+          .\/albums main .similar ul li,
+          .\/artist main .similar ul li,
+          .\/playlist main .similar ul li,
+          .\/playlists main .similar ul li,
+          .\/search main .similar ul li,
+          .\/similar main .similar ul li,
+          div[class^='/ &'] main .similar ul li,
+          div[class^='/_'] main .similar ul li {
+            cursor: pointer; }
+    .\/ .player,
+    .\/albums .player,
+    .\/artist .player,
+    .\/playlist .player,
+    .\/playlists .player,
+    .\/search .player,
+    .\/similar .player,
+    div[class^='/ &'] .player,
+    div[class^='/_'] .player {
+      position: relative;
+      height: 10vh; }
+      .\/ .player .controls button, .\/ .player .controls svg,
+      .\/albums .player .controls button,
+      .\/albums .player .controls svg,
+      .\/artist .player .controls button,
+      .\/artist .player .controls svg,
+      .\/playlist .player .controls button,
+      .\/playlist .player .controls svg,
+      .\/playlists .player .controls button,
+      .\/playlists .player .controls svg,
+      .\/search .player .controls button,
+      .\/search .player .controls svg,
+      .\/similar .player .controls button,
+      .\/similar .player .controls svg,
+      div[class^='/ &'] .player .controls button,
+      div[class^='/ &'] .player .controls svg,
+      div[class^='/_'] .player .controls button,
+      div[class^='/_'] .player .controls svg {
+        cursor: pointer;
+        margin: 0; }
+      .\/ .player .progress,
+      .\/albums .player .progress,
+      .\/artist .player .progress,
+      .\/playlist .player .progress,
+      .\/playlists .player .progress,
+      .\/search .player .progress,
+      .\/similar .player .progress,
+      div[class^='/ &'] .player .progress,
+      div[class^='/_'] .player .progress {
+        font-size: 1.1em;
+        cursor: pointer; }
+        .\/ .player .progress progress[value],
+        .\/albums .player .progress progress[value],
+        .\/artist .player .progress progress[value],
+        .\/playlist .player .progress progress[value],
+        .\/playlists .player .progress progress[value],
+        .\/search .player .progress progress[value],
+        .\/similar .player .progress progress[value],
+        div[class^='/ &'] .player .progress progress[value],
+        div[class^='/_'] .player .progress progress[value] {
+          height: 3px;
+          width: 100%;
+          left: 0; }
+        .\/ .player .progress .time,
+        .\/albums .player .progress .time,
+        .\/artist .player .progress .time,
+        .\/playlist .player .progress .time,
+        .\/playlists .player .progress .time,
+        .\/search .player .progress .time,
+        .\/similar .player .progress .time,
+        div[class^='/ &'] .player .progress .time,
+        div[class^='/_'] .player .progress .time {
+          position: absolute;
+          top: 4vh;
+          right: 5vw;
+          display: block;
+          cursor: default; }
+          .\/ .player .progress .time .elapsed,
+          .\/albums .player .progress .time .elapsed,
+          .\/artist .player .progress .time .elapsed,
+          .\/playlist .player .progress .time .elapsed,
+          .\/playlists .player .progress .time .elapsed,
+          .\/search .player .progress .time .elapsed,
+          .\/similar .player .progress .time .elapsed,
+          div[class^='/ &'] .player .progress .time .elapsed,
+          div[class^='/_'] .player .progress .time .elapsed {
+            right: 1vw;
+            position: relative; }
+            .\/ .player .progress .time .elapsed + span,
+            .\/albums .player .progress .time .elapsed + span,
+            .\/artist .player .progress .time .elapsed + span,
+            .\/playlist .player .progress .time .elapsed + span,
+            .\/playlists .player .progress .time .elapsed + span,
+            .\/search .player .progress .time .elapsed + span,
+            .\/similar .player .progress .time .elapsed + span,
+            div[class^='/ &'] .player .progress .time .elapsed + span,
+            div[class^='/_'] .player .progress .time .elapsed + span {
+              display: inline-block;
+              right: .5vw;
+              position: relative; }
+          .\/ .player .progress .time .duration,
+          .\/albums .player .progress .time .duration,
+          .\/artist .player .progress .time .duration,
+          .\/playlist .player .progress .time .duration,
+          .\/playlists .player .progress .time .duration,
+          .\/search .player .progress .time .duration,
+          .\/similar .player .progress .time .duration,
+          div[class^='/ &'] .player .progress .time .duration,
+          div[class^='/_'] .player .progress .time .duration {
+            right: 0;
+            position: relative; }
+      .\/ .player .small,
+      .\/albums .player .small,
+      .\/artist .player .small,
+      .\/playlist .player .small,
+      .\/playlists .player .small,
+      .\/search .player .small,
+      .\/similar .player .small,
+      div[class^='/ &'] .player .small,
+      div[class^='/_'] .player .small {
+        display: none; }
+    .\/ footer,
+    .\/albums footer,
+    .\/artist footer,
+    .\/playlist footer,
+    .\/playlists footer,
+    .\/search footer,
+    .\/similar footer,
+    div[class^='/ &'] footer,
+    div[class^='/_'] footer {
+      position: static;
+      height: 5vh;
+      padding: 0 .5em;
+      cursor: default;
+      font-size: 1em;
+      background: transparent; }
+      .\/ footer img,
+      .\/albums footer img,
+      .\/artist footer img,
+      .\/playlist footer img,
+      .\/playlists footer img,
+      .\/search footer img,
+      .\/similar footer img,
+      div[class^='/ &'] footer img,
+      div[class^='/_'] footer img {
+        height: 1em; }
+    .\/ .login,
+    .\/albums .login,
+    .\/artist .login,
+    .\/playlist .login,
+    .\/playlists .login,
+    .\/search .login,
+    .\/similar .login,
+    div[class^='/ &'] .login,
+    div[class^='/_'] .login {
+      box-shadow: inset 0 0 0 4px #58afd1;
+      color: #58afd1;
+      transition: color 0.25s 0.08333s;
+      position: relative;
+      text-align: center;
+      position: absolute;
+      right: 1.5vw;
+      top: 3vh;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1.5;
+      font: 700 .8em 'Roboto Slab', sans-serif;
+      padding: 1em 2em;
+      letter-spacing: .05rem; }
+      .\/ .login::after, .\/ .login::before,
+      .\/albums .login::after,
+      .\/albums .login::before,
+      .\/artist .login::after,
+      .\/artist .login::before,
+      .\/playlist .login::after,
+      .\/playlist .login::before,
+      .\/playlists .login::after,
+      .\/playlists .login::before,
+      .\/search .login::after,
+      .\/search .login::before,
+      .\/similar .login::after,
+      .\/similar .login::before,
+      div[class^='/ &'] .login::after,
+      div[class^='/ &'] .login::before,
+      div[class^='/_'] .login::after,
+      div[class^='/_'] .login::before {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        right: 0; }
+      .\/ .login::before,
+      .\/albums .login::before,
+      .\/artist .login::before,
+      .\/playlist .login::before,
+      .\/playlists .login::before,
+      .\/search .login::before,
+      .\/similar .login::before,
+      div[class^='/ &'] .login::before,
+      div[class^='/_'] .login::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px; }
+      .\/ .login::after,
+      .\/albums .login::after,
+      .\/artist .login::after,
+      .\/playlist .login::after,
+      .\/playlists .login::after,
+      .\/search .login::after,
+      .\/similar .login::after,
+      div[class^='/ &'] .login::after,
+      div[class^='/_'] .login::after {
+        border-top-width: 4px;
+        border-right-width: 4px; }
+      .\/ .login:hover,
+      .\/albums .login:hover,
+      .\/artist .login:hover,
+      .\/playlist .login:hover,
+      .\/playlists .login:hover,
+      .\/search .login:hover,
+      .\/similar .login:hover,
+      div[class^='/ &'] .login:hover,
+      div[class^='/_'] .login:hover {
+        color: #ffe593; }
+        .\/ .login:hover::after, .\/ .login:hover::before,
+        .\/albums .login:hover::after,
+        .\/albums .login:hover::before,
+        .\/artist .login:hover::after,
+        .\/artist .login:hover::before,
+        .\/playlist .login:hover::after,
+        .\/playlist .login:hover::before,
+        .\/playlists .login:hover::after,
+        .\/playlists .login:hover::before,
+        .\/search .login:hover::after,
+        .\/search .login:hover::before,
+        .\/similar .login:hover::after,
+        .\/similar .login:hover::before,
+        div[class^='/ &'] .login:hover::after,
+        div[class^='/ &'] .login:hover::before,
+        div[class^='/_'] .login:hover::after,
+        div[class^='/_'] .login:hover::before {
+          border-color: #ffe593;
+          transition: border-color 0s, width 0.25s, height 0.25s;
+          width: 100%;
+          height: 100%; }
+        .\/ .login:hover::before,
+        .\/albums .login:hover::before,
+        .\/artist .login:hover::before,
+        .\/playlist .login:hover::before,
+        .\/playlists .login:hover::before,
+        .\/search .login:hover::before,
+        .\/similar .login:hover::before,
+        div[class^='/ &'] .login:hover::before,
+        div[class^='/_'] .login:hover::before {
+          transition-delay: 0s, 0s, 0.25s; }
+        .\/ .login:hover::after,
+        .\/albums .login:hover::after,
+        .\/artist .login:hover::after,
+        .\/playlist .login:hover::after,
+        .\/playlists .login:hover::after,
+        .\/search .login:hover::after,
+        .\/similar .login:hover::after,
+        div[class^='/ &'] .login:hover::after,
+        div[class^='/_'] .login:hover::after {
+          transition-delay: 0s, 0.25s, 0s; }
+      .\/ .login:focus,
+      .\/albums .login:focus,
+      .\/artist .login:focus,
+      .\/playlist .login:focus,
+      .\/playlists .login:focus,
+      .\/search .login:focus,
+      .\/similar .login:focus,
+      div[class^='/ &'] .login:focus,
+      div[class^='/_'] .login:focus {
+        outline: 2px dotted #55d7dc; } }

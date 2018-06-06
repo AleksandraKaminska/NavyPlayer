@@ -1,0 +1,26 @@
+.artist {
+    width: calc((100% - 60vh) / 2);
+    display: flex;
+    flex-wrap: wrap;
+    & > div:first-child {
+        height: auto;
+        margin-top: 0;
+        cursor: pointer;
+        p {
+            font-size: 1.3em;
+        }
+    }
+    .topTracks {
+        margin: auto;
+        width: 100%;
+        padding-top: 4vh;
+        font-size: 1.15em;
+        h2 {
+            font-size: 1.15em;
+        }
+        ul {
+            line-height: 6vh;
+            cursor: pointer;
+        }
+    }
+}

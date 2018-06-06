@@ -1,0 +1,42 @@
+.player {
+    position: relative;
+    height: 10vh;
+    .controls {
+        button, svg {
+            cursor: pointer;
+            margin: 0;
+        }
+    }
+    .progress {
+        font-size: 1.1em;
+        cursor: pointer;
+        progress[value] {
+            height: 3px;
+            width: 100%;
+            left: 0;
+        }
+        .time {
+            position: absolute;
+            top: 4vh;
+            right: 5vw;
+            display: block;
+            cursor: default;
+            .elapsed {
+                right: 1vw;
+                position: relative;
+                & + span {
+                    display: inline-block;
+                    right: .5vw;
+                    position: relative;
+                }
+            }
+            .duration {
+                right: 0;
+                position: relative;
+            }
+        }
+    }
+    .small {
+        display: none;
+    }
+}

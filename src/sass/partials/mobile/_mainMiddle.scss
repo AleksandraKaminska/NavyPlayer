@@ -1,0 +1,224 @@
+main {
+    @include flex(flex-start);
+    align-items: flex-start;
+    width: 100vw;
+    height: 71vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .playlists {
+        width: 100%;
+        .active {
+            color: #ddd;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255,255,255,.1);
+            }
+        }
+        div {
+            max-height: 60vh;
+            overflow-y: auto;
+            div {
+                margin: 1em 0 1em 1em;
+                display: flex;
+                align-items: center;
+                img {
+                    width: 3em;
+                    height: auto;
+                }
+                p {
+                    max-width: 90%;
+                    display: inline-block;
+                    overflow-wrap: break-word;
+                    word-wrap: break-word;
+                    -ms-word-break: break-all;
+                    word-break: break-all;
+                    word-break: break-word;
+                    font-size: 1em;
+                    margin: 0 1em;
+                }
+            }
+        }
+    }
+    .artist {
+        width: 100%;
+        padding: 0 3vw;
+        & > div:first-child {
+            height: 10vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: 1em;
+            img {
+                width: 64px;
+                min-width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                box-shadow: 0 4px 4px rgba(0,0,0,.5);
+            }
+            p {
+                font-size: 1.1em;
+                margin-left: 1em;
+                font-family: 'Playfair Display', serif;
+                max-width: calc(100% - 64px);
+            }
+        }
+        .topTracks {
+            margin: 5vh 5vw 2vh;
+            width: 100%;
+            font-family: 'Playfair Display', serif;
+            h2 {
+                font-size: 1.2em;
+            }
+            ul {
+                margin-top: 2vh;
+                line-height: 5vh;
+                li {
+                    border-bottom: .5px rgba(255,255,255,0.1) solid;
+                    margin: 1vh auto;
+                }
+                li:hover {
+                    margin-left: .5em;
+                }
+            }
+        }
+    }
+    .albums {
+        h2 {
+            font-size: 1.2em;
+            margin-left: 4vw;
+        }
+        ul {
+            display: flex;
+        }
+
+        $duration: 450ms;
+        $btnWidth: 3vw;
+        $space: 0.3vw;
+        $slidesCount: 7;
+        $slideWidth: 100vw / $slidesCount - $space;
+        $slideHeight: $slideWidth / (16 / 9);
+        $growFactor: 1.5;
+
+        $moveLeft: -($slideWidth * ($growFactor - 1) / 2);
+        $moveRight: $slideWidth * ($growFactor - 1);
+
+        .slider-frame {
+            position: relative;
+            width: 100%;
+            touch-action: pan-y;
+            .btn {
+                width: $btnWidth;
+                height: $slideHeight * $growFactor;
+                background: rgba(0,0,0,0.3);
+                top: $slideHeight / 4;
+                z-index: 5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2.5em;
+                position: absolute;
+                &.prev {
+                    left: 0;
+                }
+                &.next {
+                    right: 0;
+                }
+            }
+            .slider-container {
+                white-space: nowrap;
+                margin: ($slideHeight / 2) 0;
+                position: absolute;
+                left: 0;
+                transition: left $duration ease, $duration transform ease;
+                &:hover {
+                    transform: translate3d($moveLeft, 0, 0);
+                    .slide {
+                        opacity: .3;
+                        &:hover {
+                            transform: scale($growFactor);
+                            opacity: 1;
+                            &:nth-child(#{$slidesCount}n + 1) {
+                                transform: translate3d($moveRight, 0, 0) scale($growFactor);
+                                & ~ .slide {
+                                    transform: translate3d($moveRight * 2, 0, 0);
+                                }
+                            }
+                            &:nth-child(#{$slidesCount}n) {
+                                transform: translate3d($moveLeft * 2, 0, 0) scale($growFactor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .slide {
+            position: relative;
+            display: inline-block;
+            width: $slideWidth;
+            height: $slideHeight;
+            margin-right: $space;
+            transition: $duration all;
+            transform-origin: center left;
+            background-position: center;
+            background-size: cover;
+            cursor: pointer;
+            &:hover p {
+                opacity: 1;
+            }
+        }
+        .slide:hover ~ .slide {
+            transform: translate3d($moveRight, 0, 0);
+        }
+        .slide p {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            transition: $duration opacity;
+            padding: 1em;
+            padding-top: calc(50% - 1.5em);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            text-shadow: 0px 2px 5px rgb(0, 0, 0);
+        }
+        .songs {
+            margin-left: 4vw;
+            ul {
+                flex-direction: column;
+                li {
+                    border-bottom: .5px rgba(255, 255, 255, 0.2) solid;
+                    padding: 2vh 0;
+                }
+            }
+        }
+    }
+    .similar {
+        margin: 2vh 4vw;
+        width: 100%;
+        font-family: 'Reem Kufi', sans-serif;
+        h2 {
+            font-size: 1.2em;
+        }
+        li {
+            @include flex(space-between);
+            border-bottom: .5px rgba(255,255,255,0.2) solid;
+        }
+        img {
+            width: 2.5em;
+            height: auto;
+            border-radius: 50%;
+            margin: 2vh 0;
+            box-shadow: 0 4px 4px rgba(0,0,0,.5);
+        }
+        p {
+            font-size: 1em;
+        }
+    }
+}
