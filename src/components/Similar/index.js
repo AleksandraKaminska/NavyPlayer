@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from 'actions';
+import * as actions from 'actions'
 import store from 'store'
 import { searchArtistInfo } from 'helperFunctions'
 import fetchJsonp from 'fetch-jsonp'
-import './style.css'
+import './style.scss'
 
 const { DZ } = window
 

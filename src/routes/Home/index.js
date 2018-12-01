@@ -7,7 +7,7 @@ import Choose from 'components/Choose'
 import Footer from 'components/Footer'
 import Artist from 'components/Artist'
 import Title from 'components/Title'
-import './home.css'
+import './home.scss'
 
 const Home = ({ cover }) => {
   return (
@@ -23,8 +23,8 @@ const Home = ({ cover }) => {
           <Nav />
           <Login />
         </header>
-        <Title />
         <main style={{ justifyContent: 'flex-end' }}>
+          <Title />
           <Artist />
         </main>
         <Player />

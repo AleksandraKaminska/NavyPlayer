@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import fetchJsonp from 'fetch-jsonp'
 import store from 'store'
-import * as actions from 'actions';
+import * as actions from 'actions'
 import { randomAlbumTrack, searchArtistInfo } from 'helperFunctions'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 const { DZ } = window
 

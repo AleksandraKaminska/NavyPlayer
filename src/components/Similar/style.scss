@@ -8,8 +8,7 @@
         font-size: 1.2em;
     }
     li {
-        @include flex(space-between);
-        flex-wrap: nowrap;
+        @include flex(space-between, $wrap: false);
         border-bottom: .5px rgba(255,255,255,0.2) solid;
     }
     img {

@@ -200,14 +200,18 @@
             width: 50vw;
         }
         .results {
+            padding-top: 2em;
             h2 {
-                font-size: 1.5em;
+                font-size: 1.2em;
             }
             p {
-                font-size: 1.1em;
+                font-size: .9em;
             }
             p, img {
-                width: 15vw;
+                width: 12vw;
+            }
+            img {
+                border-radius: 5px;
             }
         }
     }

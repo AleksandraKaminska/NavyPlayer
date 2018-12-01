@@ -1,6 +1,8 @@
-@mixin flex($justify: center) {
+@mixin flex($justify: center, $wrap: true) {
     display: flex;
-    flex-wrap: wrap;
+    @if $wrap {
+        flex-wrap: wrap;
+    }
     justify-content: $justify;
     align-items: center;
 }

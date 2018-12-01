@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import store from 'store';
-import AlbumSongs from './albumSongs';
-import fetchJsonp from 'fetch-jsonp';
-import { changeAlbumAction } from 'actions/index.js';
-import './style.css'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import store from 'store'
+import AlbumSongs from './albumSongs'
+import fetchJsonp from 'fetch-jsonp'
+import { changeAlbumAction } from 'actions/index.js'
+import './style.scss'
 
-const windowWidth = window.innerWidth;
-const showCount = windowWidth <= 414 ? 2 : windowWidth > 414 && windowWidth <= 768 ? 3 : 7;
+const windowWidth = window.innerWidth
+const showCount = windowWidth <= 414 ? 2 : windowWidth > 414 && windowWidth <= 768 ? 3 : 7
 
 class Albums extends Component {
     constructor() {
-        super();
-        this.slider = React.createRef();
-        this.close = React.createRef();
-        this.songs = React.createRef();
+        super()
+        this.slider = React.createRef()
+        this.close = React.createRef()
+        this.songs = React.createRef()
         this.state = {
             currentSliderCount: 0,
             scrollWidth: 0
@@ -22,62 +22,62 @@ class Albums extends Component {
     }
 
     handleNext = () => {
-        const { currentSliderCount, scrollWidth } = this.state;
-        this.sliderCount = this.props.albums.length / showCount - 1;
+        const { currentSliderCount, scrollWidth } = this.state
+        this.sliderCount = this.props.albums.length / showCount - 1
         this.setState({
             scrollWidth: scrollWidth + windowWidth
         }, () => {
             if ( currentSliderCount >= this.sliderCount ) {
-                this.slider.current.style.left = 0;
+                this.slider.current.style.left = 0
                 this.setState({
                     currentSliderCount: 0,
                     scrollWidth: 0
-                });
+                })
             } else {
-                this.slider.current.style.left = `${-this.state.scrollWidth}px`;
+                this.slider.current.style.left = `${-this.state.scrollWidth}px`
                 this.setState({
                     currentSliderCount: currentSliderCount + 1
-                });
+                })
             }
-        });
+        })
     }
 
     handlePrev = () => {
-        const { currentSliderCount, scrollWidth } = this.state;
-        this.sliderCount = this.props.albums.length / showCount;
+        const { currentSliderCount, scrollWidth } = this.state
+        this.sliderCount = this.props.albums.length / showCount
         this.setState({
             scrollWidth: scrollWidth - windowWidth
         }, () => {
             if ( currentSliderCount ) {
-                this.slider.current.style.left = `${-this.state.scrollWidth}px`;
+                this.slider.current.style.left = `${-this.state.scrollWidth}px`
                 this.setState({
                     currentSliderCount: currentSliderCount - 1
-                });
+                })
             } else {
-                this.slider.current.style.left = 0;
+                this.slider.current.style.left = 0
                 this.setState({
                     currentSliderCount: 0,
                     scrollWidth: 0
-                });
+                })
             }
-        });
+        })
     }
 
     showAlbumsTracks = e => {
-        e.preventDefault();
+        e.preventDefault()
         fetchJsonp(`https://api.deezer.com/album/${e.currentTarget.dataset.id}?output=jsonp`)
         .then(resp => resp.json())
         .then(album => store.dispatch(changeAlbumAction(album)))
         if (windowWidth >= 870 && this.songs.current.style.right !== '0em') {
-            this.songs.current.classList.remove('slidein');
-            this.songs.current.classList.add('slideout');
-            this.close.current.classList.remove('buttonSlidein');
-            this.close.current.classList.add('buttonSlideout');
+            this.songs.current.classList.remove('slidein')
+            this.songs.current.classList.add('slideout')
+            this.close.current.classList.remove('buttonSlidein')
+            this.close.current.classList.add('buttonSlideout')
         }
     }
 
     render() {
-        const { albums } = this.props;
+        const { albums } = this.props
         return (
             <section className="albums">
                 <h2>Albums</h2>
@@ -117,10 +117,10 @@ class Albums extends Component {
                 ) : null}
                 <AlbumSongs songs={this.songs} />
             </section>
-        );
+        )
     }
 }
 
 const mapStateToProps = ({ albums, album }) => ({ albums, album })
 
-export default connect(mapStateToProps)(Albums);
+export default connect(mapStateToProps)(Albums)

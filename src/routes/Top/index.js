@@ -5,7 +5,7 @@ import Player from 'components/Player'
 import Choose from 'components/Choose'
 import Footer from 'components/Footer'
 import Playlists from 'components/Playlists'
-import './top.css'
+import './top.scss'
 
 const TopRoutes = () => {
   return (
@@ -18,9 +18,7 @@ const TopRoutes = () => {
           </header>
         )
       }
-      <main>
-        <Playlists />
-      </main>
+      <Playlists />
       <Player />
       <Choose />
       <Footer />

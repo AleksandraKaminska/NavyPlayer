@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const SmallCover = ({ cover, title, artist }) => (
   <Link to='/'>
     <div className='small'>
-      <div className='smallCover' style={{ backgroundImage: `url(${cover})` }} />
+      <img className='smallCover' src={cover} alt='cover' />
       <div className='smallTitle'>
         <p>{title}</p>
         <p>{artist}</p>

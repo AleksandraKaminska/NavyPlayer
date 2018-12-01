@@ -8,7 +8,7 @@ import Footer from 'components/Footer'
 import ArtistTop from 'components/Artist'
 import Similar from 'components/Similar'
 import Albums from 'components/Albums'
-import './artist.css'
+import './artist.scss'
 
 class Artist extends Component {
   constructor () {
@@ -66,7 +66,7 @@ class Artist extends Component {
     return (
       <div>
         <div
-          className='background'
+          className='background background--artist'
           style={{
             backgroundImage: `url(${artist.replace(/(300)x\1/, '1000x1000')})`
           }}

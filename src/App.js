@@ -8,7 +8,7 @@ import Top from 'routes/Top'
 import Artist from 'routes/Artist'
 import { random } from 'helperFunctions'
 
-import 'sass/style.css'
+import 'sass/style.scss'
 const { DZ } = window
 
 const Loader = () => (
@@ -45,12 +45,12 @@ class App extends Component {
         finished = false
         init = false
       }
-    });
+    })
   }
 
   componentDidMount() {
     random(this.props)
-    DZ.Event.subscribe('repeat_changed', e => this.setState({ repeat: !!e }));
+    DZ.Event.subscribe('repeat_changed', e => this.setState({ repeat: !!e }))
     this.loadNextTrack()
   }
 

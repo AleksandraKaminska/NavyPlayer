@@ -1,6 +1,6 @@
 import React from 'react'
 import { login } from 'helperFunctions'
-import './style.css'
+import './style.scss'
 
 const Footer = () => (
   <footer>

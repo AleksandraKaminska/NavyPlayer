@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from 'actions';
-import { randomArtistTrack } from 'helperFunctions';
+import * as actions from 'actions'
+import { randomArtistTrack } from 'helperFunctions'
 import store from 'store'
 import fetchJsonp from 'fetch-jsonp'
-import { NavLink } from 'react-router-dom';
-import './style.css'
+import { NavLink } from 'react-router-dom'
+import './style.scss'
 
 const { DZ } = window
 

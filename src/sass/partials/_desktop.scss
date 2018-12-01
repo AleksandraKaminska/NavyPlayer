@@ -1,18 +1,34 @@
 @media (min-width: 870px) {
-    @import	"desktop/_scroll.scss";
-    .NavyPlayer {
-        .background {
-            width: 80vw;
-            filter: blur(0);
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-image: linear-gradient(to right,rgba(0,0,0,0) 5%, $navy-color 92%);
-            }
-        }
+  @import "desktop/_scroll.scss";
+
+  .NavyPlayer {
+    .background {
+      width: 80vw;
+      height: 100%;
+      filter: blur(0);
+      z-index: -1;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, $navy-color 92%);
+      }
+
+      &--artist {
+        width: 100%;
+      }
     }
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.5em 1em;
+  }
 }
