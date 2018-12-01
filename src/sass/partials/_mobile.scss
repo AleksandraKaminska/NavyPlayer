@@ -1,8 +1,5 @@
 main {
-    @include flex(flex-start);
-    align-items: flex-start;
-    width: 100vw;
-    height: 77%;
+    flex: 1 1 100%;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0 5vw;

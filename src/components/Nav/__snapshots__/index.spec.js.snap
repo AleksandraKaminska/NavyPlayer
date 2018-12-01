@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should render self 1`] = `
+<nav
+  className="nav"
+>
+  <img
+    alt=""
+    src="/assets/logo/Logomark_white-resized.png"
+  />
+  <a
+    aria-current="page"
+    className="active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    Explore
+  </a>
+  <a
+    aria-current={null}
+    href="/artist"
+    onClick={[Function]}
+  >
+    Artist
+  </a>
+  <a
+    aria-current={null}
+    href="/search"
+    onClick={[Function]}
+  >
+    <div
+      className="📦pst_relative 📦dspl_inline-flex 📦h_32px 📦box-szg_border-box"
+    >
+      <div
+        className="📦h_32px 📦w_32px 📦ptr-evts_none 📦pst_absolute 📦dspl_flex 📦just-cnt_center 📦algn-itms_center 📦box-szg_border-box"
+      >
+        <svg
+          className="📦z-idx_3 📦w_12px 📦h_12px 📦box-szg_border-box"
+          data-icon="search"
+          style={
+            Object {
+              "fill": "white",
+            }
+          }
+          viewBox="0 0 16 16"
+        >
+          <title>
+            search
+          </title>
+          <path
+            d="M15.55 13.43l-2.67-2.68a6.94 6.94 0 0 0 1.11-3.76c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.39 0 2.68-.42 3.76-1.11l2.68 2.67a1.498 1.498 0 1 0 2.12-2.12zm-8.56-1.44c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </div>
+      <input
+        aria-invalid={false}
+        className="css-5ljhhe 📦color_rgb150-152-161 📦fnt-fam_b77syt 📦fnt-sze_12px 📦f-wght_400 📦ln-ht_16px 📦ltr-spc_0 📦w_280px 📦h_32px 📦pl_32px 📦pr_10px 📦bblr_20px 📦bbrr_20px 📦btlr_20px 📦btrr_20px 📦bg_19g9jz0 📦b-btm_none 📦b-lft_none 📦b-rgt_none 📦b-top_none 📦box-szg_border-box"
+        disabled={false}
+        placeholder="Search"
+        spellCheck={true}
+        type="text"
+      />
+    </div>
+  </a>
+</nav>
+`;

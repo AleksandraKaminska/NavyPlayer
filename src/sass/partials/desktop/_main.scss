@@ -1,7 +1,5 @@
 main {
     display: flex;
-    justify-content: space-between;
-    height: 75vh;
+    flex-wrap: wrap;
     padding: 0 30px;
-    position: relative;
 }

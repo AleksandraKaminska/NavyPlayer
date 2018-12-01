@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-const SmallCover = ({ cover, title, artist }) => (
-  <Link to='/'>
-    <div className='small'>
-      <div className='smallCover' style={{ backgroundImage: `url(${cover})` }} />
-      <div className='smallTitle'>
+export const SmallCover = ({ cover, title, artist }) => (
+  <Link to="/">
+    <div className="small">
+      <img className="smallCover" src={cover} alt="cover" />
+      <div className="smallTitle">
         <p>{title}</p>
         <p>{artist}</p>
       </div>
@@ -14,10 +14,10 @@ const SmallCover = ({ cover, title, artist }) => (
   </Link>
 )
 
-const mapStateToProps = ({ track: { title_short: title, artist, album } }) => ({
-  title,
-  artist: artist.name,
-  cover: album.cover_medium
+const mapStateToProps = ({ track }) => ({
+  title: track.title_short,
+  artist: track.artist.name,
+  cover: track.album.cover_medium
 })
 
 export default connect(mapStateToProps)(SmallCover)

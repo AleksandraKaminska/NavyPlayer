@@ -1,0 +1,55 @@
+@import 'sass/modules/_mixins.scss';
+@import 'sass/modules/_variables.scss';
+
+.artist__songs {
+  margin: 2em 0;
+  width: 100%;
+  padding-left: 2vw;
+  ul {
+    margin-top: 2vh;
+    line-height: 5vh;
+    li {
+      margin: 1em auto;
+      border-radius: 10px;
+    }
+  }
+
+  .artist__song {
+    display: flex;
+    padding: 10px;
+  }
+
+  &__cover {
+    border-radius: 5px;
+    width: 3em;
+    height: 3em;
+
+    & + div {
+      flex-direction: column;
+      margin-left: 1em;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  &__contributors {
+    font-size: 0.8em;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+    padding-top: 4vh;
+    ul {
+      line-height: 6vh;
+      min-height: 35vh;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: rgba(78, 80, 82, 0.5);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist should render self 1`] = `
+<section
+  className="artist__info"
+>
+  <h1
+    className="artist__info__name"
+  >
+    <a
+      aria-current={null}
+      className="artist__info__listen"
+      href="/artist/undefined"
+      onClick={[Function]}
+    >
+      <button
+        onClick={[Function]}
+      >
+        Listen
+      </button>
+    </a>
+  </h1>
+  <p
+    className="artist__info__bio"
+  >
+    
+  </p>
+  <div
+    className="artist__info__genres"
+  />
+</section>
+`;

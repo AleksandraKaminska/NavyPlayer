@@ -3,93 +3,82 @@ import { connect } from 'react-redux'
 import Login from 'components/Login'
 import Nav from 'components/Nav'
 import Player from 'components/Player'
-import Choose from 'components/Choose'
 import Footer from 'components/Footer'
-import ArtistTop from 'components/Artist'
+import ArtistInfo from 'components/Artist'
+import Songs from 'components/Songs'
+import ArtistPlaylists from 'components/ArtistPlaylist'
 import Similar from 'components/Similar'
 import Albums from 'components/Albums'
-import './artist.css'
+import fetchJsonp from 'fetch-jsonp'
+import './artist.scss'
 
 class Artist extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       artist: '',
-      artistImage: ''
+      artistImage: '',
+      artistGeneres: [],
+      artistBio: ''
     }
   }
 
-  componentDidMount () {
-    const { artist } = this.props
-    fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${artist}&api_key=65d425fd474110ff88a87831da65d6da&format=json`)
+  fetchArtistInfo = artist => {
+    fetchJsonp(`https://api.deezer.com/artist/${artist}?output=jsonp`)
       .then(resp => resp.json())
-      .then(({ results }) => this.setState({
-        artist,
-        artistImage: results.artistmatches.artist[0].image.find(e => e.size === 'mega')['#text']
-      }))
+      .then(data =>
+        this.setState({
+          artist,
+          artistImage: data.picture_xl,
+          artistGeneres: [],
+          artistBio: ''
+        })
+      )
   }
 
-  componentDidUpdate () {
+  componentDidMount() {
+    this.fetchArtistInfo(this.props.artist)
+  }
+
+  componentDidUpdate() {
     const { artist } = this.props
     if (artist !== this.state.artist || !artist) {
-      fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${artist}&api_key=65d425fd474110ff88a87831da65d6da&format=json`)
-        .then(resp => resp.json())
-        .then(({ results }) => this.setState({
-          artist,
-          artistImage: results.artistmatches.artist[0].image.find(e => e.size === 'mega')['#text']
-        }))
+      this.fetchArtistInfo(artist)
     }
   }
 
-  render () {
+  render() {
     const { artistImage: artist } = this.state
-    if (window.innerWidth <= 870) {
-      return (
-        <div className='artistRoute'>
-          <main>
-            <div
-              className='artistPicture'
-              style={{
-                backgroundImage: `url(${artist})`
-              }}
-            />
-            <ArtistTop />
-            <Similar />
-            <Albums />
-          </main>
-          <Player />
-          <Choose />
-        </div>
-      )
-    }
-
     return (
-      <div>
-        <div
-          className='background'
-          style={{
-            backgroundImage: `url(${artist.replace(/(300)x\1/, '1000x1000')})`
-          }}
-        />
-        <div className='artistRoute'>
-          <header>
-            <Nav />
-            <Login />
-          </header>
-          <main style={{ justifyContent: 'flex-end' }}>
-            <ArtistTop />
-            <Similar />
-            <Albums />
-          </main>
-          <Player />
-          <Choose />
-          <Footer />
-        </div>
+      <div
+        className="artist background background__artist"
+        style={{
+          backgroundImage: `linear-gradient(to left,rgba(0,0,0,0) 5%, #000a11 92%), url(${artist &&
+            artist.replace(/(300)x\1/, '1000x1000')})`
+        }}
+      >
+        <header>
+          <Nav />
+          <Login />
+        </header>
+        <main>
+          <ArtistInfo data={this.state} />
+          <Songs />
+          <ArtistPlaylists />
+          <Similar />
+          <Albums />
+        </main>
+        <Player />
+        <Footer />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ track: { artist: { name } } }) => ({ artist: name })
+const mapStateToProps = ({
+  track: {
+    artist: { id }
+  }
+}) => ({ artist: id })
 
 export default connect(mapStateToProps)(Artist)

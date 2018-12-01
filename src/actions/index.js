@@ -15,12 +15,6 @@ export const changeTrackAction = (track, coverXl, coverMedium) => ({
   coverMedium
 })
 
-export const prevTrackAction = prev => ({
-  type: 'PREV_TRACK',
-  prev
-})
-
-export const changeArtistPlaylistAction = data => ({
-  type: 'ARTIST_PLAYLIST',
-  data
-})
+export const prevTrackAction = prev => ({ type: 'PREV_TRACK', prev })
+export const changeArtistPlaylistAction = data => ({ type: 'ARTIST_PLAYLIST', data })
+export const fetchChartAction = top => ({ type: 'CHART', top })

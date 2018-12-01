@@ -1,79 +1,77 @@
-@import "sass/modules/_mixins.scss";
-@import "sass/modules/_variables.scss";
+@import 'sass/modules/_mixins.scss';
+@import 'sass/modules/_variables.scss';
 
 .top {
-  align-items: flex-start;
-  header {
-      z-index: 1;
-  }
   main {
-      padding-top: 20px;
-      width: 100%;
+    padding-top: 20px;
   }
   h3 {
-      font-weight: 400;
-      font-size: 1.2em;
-      line-height: 1.5em;
+    font-weight: 400;
+    font-size: 1.2em;
+    line-height: 1.5em;
   }
-  ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      overflow: hidden;
-      li {
-          margin: 10px 5px;
-          width: 25vw;
-          img {
-              width: 100%;
-              height: auto;
-          }
+  .slick-slider {
+    .slick-slide {
+      padding: 5px 10px 20px;
+      width: 25vw;
+      text-align: center;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
       }
-  }
-  .loadMore {
-      @include button($pink);
-  }
-  .top-albums, .playlists {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+    }
+    .btn {
+      background: transparent;
+      border: none;
+      position: absolute;
+      right: 0.5em;
+      top: -2.5em;
+      font-size: 15px;
+      cursor: pointer;
+      &.prev {
+        right: 2em;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
   }
   .top-albums {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      li {
-          padding-bottom: 15px;
+    max-width: 100%;
+    div {
+      padding-bottom: 15px;
+    }
+    figcaption {
+      padding: 5px 0;
+      text-align: left;
+      p {
+        font-weight: 400;
+        line-height: 1.2em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 0.9em;
       }
-      figcaption {
-          padding: 5px 0;
-          p {
-              font-weight: 400;
-              line-height: 1.8em;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              white-space: nowrap;
-              font-size: .9em;
-          }
-          .album-artist {
-              display: flex;
-              align-items: center;
-              p {
-                  text-overflow: ellipsis;
-                  overflow: hidden;
-                  white-space: nowrap;
-                  font-weight: 300;
-                  font-size: .9em;
-                  color: #ccc;
-              }
-          }
+      .album-artist {
+        display: flex;
+        align-items: center;
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          font-weight: 300;
+          font-size: 0.9em;
+          color: #ccc;
+        }
       }
+    }
   }
-  .time, footer {
+  footer {
     display: none;
   }
-  @media (min-width: 870px) {
-    @include flex();
-    @import "sass/partials/desktop/_main.scss";
+  @media (min-width: 768px) {
+    @import 'sass/partials/desktop/_main.scss';
     h3 {
       font-size: 1.5em;
       line-height: 3em;
@@ -84,29 +82,8 @@
         width: 12vw;
       }
     }
-    header {
-        display: flex;
-        justify-content: space-between;
-        height: 11vh;
-        width: 100%;
-    }
-    .loadMore {
-      height: 2.8em;
-      width: 10em;
-      cursor: pointer;
-      line-height: 250%;
-      margin: 1em;
-      padding: 0;
-    }
-    .top-albums {
-      figcaption {
-          p {
-              font-size: 1.3em;
-          }
-      }
-    }
     footer {
-        display: block;
+      display: block;
     }
   }
 }

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Albums renders correctly 1`] = `
+<section
+  className="albums"
+>
+  <h2>
+    Albums
+  </h2>
+  <div
+    className="slider-frame"
+  >
+    <div
+      className="btn prev"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-chevron-left"
+      />
+    </div>
+    <div
+      className="btn next"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-chevron-right"
+      />
+    </div>
+    <div
+      className="slider-container"
+    />
+  </div>
+  <div
+    className="close"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-arrow-right"
+    />
+  </div>
+  <AlbumSongs
+    songsRef={
+      Object {
+        "current": null,
+      }
+    }
+  />
+</section>
+`;

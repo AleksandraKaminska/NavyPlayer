@@ -6,6 +6,7 @@ import AlbumsTracksReducer from './reducer-albumsTracks'
 import ArtistReducer from './reducer-artist'
 import SimilarArtistsReducer from './reducer-similar-artists'
 import TopTracksReducer from './reducer-top-tracks'
+import ArtistPlaylistsReducer from './reducer-artist-playlists'
 import ChosenPlaylistReducer from './reducer-chosen-playlist'
 import TrackReducer from './reducer-track'
 import PrevTrackReducer from './reducer-previous-track'
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   chosenPlaylist: ChosenPlaylistReducer,
   track: TrackReducer,
   topTracks: TopTracksReducer,
+  artistPlaylists: ArtistPlaylistsReducer,
   similar: SimilarArtistsReducer,
   prev: PrevTrackReducer,
   flow: FlowReducer,

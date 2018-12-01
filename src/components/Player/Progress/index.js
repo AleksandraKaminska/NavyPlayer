@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-const { DZ } = window;
+import React, { Component } from 'react'
+const { DZ } = window
 
 export default class Progress extends Component {
     constructor() {
@@ -16,34 +16,31 @@ export default class Progress extends Component {
     }
 
     showPosition = () => {
-        DZ.Event.subscribe('player_position', e => {
+        DZ && DZ.Event.subscribe('player_position', e => {
             if (this.elapsed.current && this.duration.current && this.progress.current) {
-                this.elapsed.current.textContent = this.convertTime(e[0]);
-                this.duration.current.textContent = this.convertTime(e[1]);
-                e[1] && this.progress.current.setAttribute('value', e[0] / e[1]);
+                this.elapsed.current.textContent = this.convertTime(e[0])
+                this.duration.current.textContent = this.convertTime(e[1])
+                e[1] && this.progress.current.setAttribute('value', e[0] / e[1])
             }
-        });
+        })
     }
 
     changeSeek = ({ target, clientX }) => {
         const { x, width } = target.getBoundingClientRect()
-        DZ.player.seek((clientX - x) / width * 100);
+        DZ && DZ.player.seek((clientX - x) / width * 100)
     }
 
     componentDidMount() {
-        this.showPosition();
+        this.showPosition()
     }
 
     render() {
         return (
             <div className="progress">
+                <span className="elapsed" ref={this.elapsed}>0:00</span>
                 <progress onClick={this.changeSeek} value={0} max={1} ref={this.progress} />
-                <div className='time'>
-                    <span className="elapsed" ref={this.elapsed}>0:00</span>
-                    <span> | </span>
-                    <span className="duration" ref={this.duration}>0:00</span>
-                </div>
+                <span className="duration" ref={this.duration}>0:00</span>
             </div>
-        );
+        )
     }
 }

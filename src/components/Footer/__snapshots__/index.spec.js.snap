@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Footer should render self 1`] = `
+<footer>
+  <p
+    onClick={[Function]}
+  >
+    Powered by 
+    <a
+      href="http://www.deezer.com/pl/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Deezer Logo"
+        src="/assets/images/DZ_Logo.png"
+      />
+    </a>
+  </p>
+</footer>
+`;

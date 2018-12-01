@@ -1,26 +1,8 @@
 body {
-  position: relative;
-  max-width: 100%;
-  max-height: 100vh;
-  height: 100vh;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background: $navy-color;
   text-shadow: 0px 4px 4px rgba(0,0,0,.5);
-  @media (max-width: 870px) {
-    @supports (-webkit-appearance:none) {
-      min-height: calc(100vh - 56px);
-      height: calc(100vh - 56px);
-      .home .player {
-        .smallCover {
-          bottom: calc(52vh - 56px);
-        }
-        .progress {
-          bottom: calc(49vh - 56px);
-        }
-      }
-    }
-  }
 }
 
 .wrapper {
@@ -60,26 +42,14 @@ body {
 }
 
 .NavyPlayer {
-  display: block;
-  height: 100%;
-  width: 100%;
-  & > div {
-    height: 100%;
-    width: 100%;
-    position: relative;
-  }
   .background {
-    height: 100%;
-    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center 20%;
-    position: absolute;
-    filter: blur(15px);
-    + div {
-      height: 100%;
-      width: 100%;
-    }
   }
 
   a {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from 'actions';
+import * as actions from 'actions'
 import store from 'store'
 import { searchArtistInfo } from 'helperFunctions'
 import fetchJsonp from 'fetch-jsonp'
-import './style.css'
+import './style.scss'
 
 const { DZ } = window
 
@@ -18,9 +18,9 @@ class Similar extends Component {
         store.dispatch(actions.prevTrackAction(track))
         store.dispatch(this.fetchData(id))
         .then(({ track }) => {
-            DZ.player.pause()
+            DZ && DZ.player.pause()
             searchArtistInfo(track)
-            DZ.player.playTracks([track.id])
+            DZ && DZ.player.playTracks([track.id])
         })
     }
 

@@ -1,29 +1,96 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Login from 'components/Login'
 import Nav from 'components/Nav'
 import Player from 'components/Player'
-import Search from 'components/Search'
-import Choose from 'components/Choose'
+import SearchResults from 'components/SearchResults'
 import Footer from 'components/Footer'
-import './search.css'
+import './search.scss'
+import { connect } from 'react-redux'
+import fetchJsonp from 'fetch-jsonp'
 
-const SearchRoute = () => {
-  return (
-    <div className='searchRoute'>
-      {
-        window.innerWidth >= 870 && (
-          <header>
-            <Nav />
-            <Login />
-          </header>
+class SearchRoute extends Component {
+  constructor() {
+    super()
+    this.searchInput = React.createRef()
+    this.state = {
+      results: {},
+      value: ''
+    }
+  }
+
+  handleChange = event => {
+    const value = event.target.value
+    this.setState({ value })
+    if (value !== '') {
+      fetchJsonp(`https://api.deezer.com/search/track?q=${value}&output=jsonp`)
+        .then(resp => resp.json())
+        .then(({ data }) =>
+          this.setState({
+            results: {
+              tracks: data
+            }
+          })
         )
-      }
-      <Search />
-      <Player />
-      <Choose />
-      <Footer />
-    </div>
-  )
+      fetchJsonp(`https://api.deezer.com/search/album?q=${value}&output=jsonp`)
+        .then(resp => resp.json())
+        .then(({ data }) =>
+          this.setState({
+            results: {
+              ...this.state.results,
+              albums: data
+            }
+          })
+        )
+      fetchJsonp(`https://api.deezer.com/search/artist?q=${value}&output=jsonp`)
+        .then(resp => resp.json())
+        .then(({ data }) =>
+          this.setState({
+            results: {
+              ...this.state.results,
+              artists: data
+            }
+          })
+        )
+      fetchJsonp(
+        `https://api.deezer.com/search/playlist?q=${value}&output=jsonp`
+      )
+        .then(resp => resp.json())
+        .then(({ data }) =>
+          this.setState({
+            results: {
+              ...this.state.results,
+              playlists: data
+            }
+          })
+        )
+    }
+  }
+
+  setRef = ref => {
+    this.searchInput = ref
+  }
+
+  componentDidMount() {
+    this.searchInput.focus()
+  }
+
+  render() {
+    const { results, value } = this.state
+
+    return (
+      <div className="searchRoute">
+        <header>
+          <Nav onChange={this.handleChange} setRef={this.setRef} />
+          <Login />
+        </header>
+        <SearchResults results={results} value={value} />
+        <Player />
+        <Footer />
+      </div>
+    )
+  }
 }
 
-export default SearchRoute
+const mapStateToProps = ({ track }) => ({ track })
+
+export default connect(mapStateToProps)(SearchRoute)
