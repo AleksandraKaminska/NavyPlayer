@@ -10,7 +10,7 @@
   "dependencies": {
     "evergreen-ui": "^4.8.0",
     "fetch-jsonp": "^1.1.3",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
