@@ -1,26 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { Button } from 'antd';
-import logo from './logo.svg';
 import './App.scss';
 
-function App() {
+declare global {
+  interface Window {
+    DZ: object;
+  }
+}
+
+const { DZ } = window
+
+function Top() {
+  return <h2>TOP</h2>;
+}
+
+function Artist() {
+  return <h2>Artist</h2>;
+}
+
+function Search() {
+  return <h2>Search</h2>;
+}
+
+const App = () =>
+{
+  const [repeat, setRepeat] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button type="primary">Button</Button>
-      </header>
+      <Router>
+        <Switch>
+          <Route exact path="/artist">
+            <Artist />
+          </Route>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route>
+            <Top />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
