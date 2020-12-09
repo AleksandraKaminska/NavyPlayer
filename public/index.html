@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#000a11" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="NavyPlayer is a music app powered by deezer, a digital service that gives you access to millions of songs."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -24,11 +24,28 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+
+    <script type="text/javascript" src="https://cdns-files.dzcdn.net/js/min/dz.js"></script>
+    <style>
+      #dzplayer {
+        width: 0 !important;
+      }
+    </style>
+    <title>NavyPlayer</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="dz-root"></div>
+    <div id="root" class="NavyPlayer"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        DZ.init({
+          appId: '242742',
+          channelUrl: 'https://navyplayer.netlify.app',
+          player: {}
+        });
+      });
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
