@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player renders correctly 1`] = `
+<section
+  className="player"
+>
+  <SmallCover />
+  <Controls
+    repeat={false}
+  />
+  <Progress />
+  <Volume
+    changeRepeat={[Function]}
+    repeat={false}
+  />
+</section>
+`;

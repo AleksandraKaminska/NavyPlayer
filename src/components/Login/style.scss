@@ -1,0 +1,18 @@
+@import 'sass/modules/_mixins.scss';
+@import 'sass/modules/_variables.scss';
+
+.login {
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+    @include btn-border-drawing($blue, $yellow);
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 0.8em 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+  }
+}

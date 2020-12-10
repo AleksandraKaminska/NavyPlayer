@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumSongs should render self 1`] = `
+<div
+  className="songs"
+  style={
+    Object {
+      "right": "-27em",
+      "width": "25em",
+    }
+  }
+>
+  <a
+    aria-current={null}
+    className="playAlbum"
+    href="/album/undefined"
+    onClick={[Function]}
+    style={
+      Object {
+        "visibility": undefined,
+      }
+    }
+  >
+    Play album
+  </a>
+</div>
+`;

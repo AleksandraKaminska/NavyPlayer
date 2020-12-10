@@ -1,6 +1,10 @@
-import React, { useState, useReducer, createContext, useContext } from 'react'
+import React, { useState, useReducer, createContext } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { contactsReducer, StateType, mainReducer } from './reducers'
+import { mainReducer } from './reducers'
+import { ContactsStateType, initialContactsState } from './reducers/contactsReducer'
+import Search from './components/Search'
+import Top from './components/Top'
+import ArtistPage from './components/ArtistPage'
 import './App.scss'
 
 declare global {
@@ -11,56 +15,32 @@ declare global {
 
 const { DZ } = window
 
-function Top() {
-  return <h2>TOP</h2>
-}
-
-function Artist() {
-  return <h2>Artist</h2>
-}
-
-function Search() {
-  return <h2>Search</h2>
-}
-
-const initialState: StateType = {
-  contacts: [
-    {
-      id: '098',
-      name: 'Diana Prince',
-      email: 'diana@us.army.mil'
-    },
-    {
-      id: '099',
-      name: 'Bruce Wayne',
-      email: 'bruce@batmail.com'
-    },
-    {
-      id: '100',
-      name: 'Clark Kent',
-      email: 'clark@metropolitan.com'
-    }
-  ],
-  loading: false,
-  error: null
-}
+const Loader = () => (
+  <div className="wrapper">
+    <div className="loader">
+      <div className="loader__part loader__part--1" />
+      <div className="loader__part loader__part--2" />
+      <div className="loader__part loader__part--3" />
+    </div>
+  </div>
+)
 
 export const Context = createContext<{
-  state: StateType
+  state: ContactsStateType
   dispatch: React.Dispatch<any>
 }>({
-  state: initialState,
+  state: initialContactsState,
   dispatch: () => null
 })
 
-export const ContextProvider = (props) => {
-  const [state, dispatch] = useReducer(mainReducer, initialState)
-
-  return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>
+type ContextProviderProps = {
+  reducer: React.Reducer<ContactsStateType, any>
+  initState: ContactsStateType
+  children: any
 }
 
 const App = () => {
-  const [state, dispatch] = useContext(Context)
+  const [state, dispatch] = useReducer(mainReducer, initialContactsState)
   const [repeat, setRepeat] = useState(false)
 
   const delContact = (id) => {
@@ -72,11 +52,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <ContextProvider>
+      <Context.Provider value={{ state, dispatch }}>
         <Router>
           <Switch>
             <Route exact path="/artist">
-              <Artist />
+              <ArtistPage />
             </Route>
             <Route exact path="/search">
               <Search />
@@ -86,7 +66,7 @@ const App = () => {
             </Route>
           </Switch>
         </Router>
-      </ContextProvider>
+      </Context.Provider>
     </div>
   )
 }

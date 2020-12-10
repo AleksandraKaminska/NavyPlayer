@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmallCover should render self 1`] = `
+<a
+  href="/"
+  onClick={[Function]}
+>
+  <div
+    className="small"
+  >
+    <img
+      alt="cover"
+      className="smallCover"
+    />
+    <div
+      className="smallTitle"
+    >
+      <p />
+      <p />
+    </div>
+  </div>
+</a>
+`;

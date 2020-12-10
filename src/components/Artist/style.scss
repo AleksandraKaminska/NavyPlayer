@@ -1,0 +1,67 @@
+@import 'sass/modules/_mixins.scss';
+@import 'sass/modules/_variables.scss';
+
+.artist__info {
+  width: 100%;
+  &__listen {
+    display: inline-block;
+    margin: 0 0.5em;
+    vertical-align: text-bottom;
+
+    &:last-child {
+      margin-top: 1em;
+    }
+    button {
+      @include button($pink);
+    }
+  }
+
+  &__name {
+    font-size: 2em;
+    font-weight: 300;
+    max-width: calc(100% - 64px);
+    margin-bottom: 0.5em;
+  }
+
+  &__bio {
+    line-height: 1.7;
+  }
+
+  &__genres {
+    display: flex;
+    margin-top: 1em;
+  }
+
+  &__genre {
+    margin-right: 1em;
+    text-transform: capitalize;
+    background-color: rgba(91, 95, 99, 0.5);
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+    &__listen {
+      height: auto;
+      margin-top: 0;
+      flex-wrap: wrap;
+      cursor: pointer;
+      button {
+        margin: 0.5em;
+      }
+    }
+
+    &__name {
+      font-size: 2.5em;
+    }
+
+    &__bio {
+      width: 40%;
+    }
+  }
+}

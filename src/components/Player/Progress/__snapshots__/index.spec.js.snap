@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should render self 1`] = `
+<div
+  className="progress"
+>
+  <span
+    className="elapsed"
+  >
+    0:00
+  </span>
+  <progress
+    max={1}
+    onClick={[Function]}
+    value={0}
+  />
+  <span
+    className="duration"
+  >
+    0:00
+  </span>
+</div>
+`;

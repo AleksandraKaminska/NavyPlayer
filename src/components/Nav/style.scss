@@ -1,0 +1,19 @@
+@media (min-width: 768px) {
+  nav {
+    text-transform: uppercase;
+    z-index: 1;
+    a {
+      margin: 0.5em 1em;
+    }
+  }
+  .nav {
+    img {
+      width: 50px;
+      height: auto;
+      vertical-align: middle;
+    }
+    .active {
+      font-weight: 500;
+    }
+  }
+}
