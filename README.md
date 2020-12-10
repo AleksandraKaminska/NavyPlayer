@@ -2,6 +2,8 @@
 
 > logo designed by [zuurw](https://github.com/zuurw)
 
+# App: https://navyplayer.netlify.app/
+
 [![CircleCI](https://circleci.com/gh/AleksandraKaminska/NavyPlayer/tree/master.svg?style=svg)](https://circleci.com/gh/AleksandraKaminska/NavyPlayer/tree/master)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
