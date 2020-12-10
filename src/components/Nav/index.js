@@ -29,8 +29,5 @@ export default Nav
 
 Nav.propTypes = {
   onChange: PropTypes.func,
-  setRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-  ])
+  setRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.instanceOf(Element) })])
 }

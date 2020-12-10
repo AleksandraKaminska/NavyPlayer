@@ -33,7 +33,7 @@ export class Artist extends Component {
         <p className="artist__info__bio">{(data && data.artistBio) || ''}</p>
         <div className="artist__info__genres">
           {data &&
-            data.artistGeneres.map(e => (
+            data.artistGeneres.map((e) => (
               <div key={e} className="artist__info__genre">
                 {e}
               </div>

@@ -36,20 +36,14 @@ export class Playlists extends Component {
 
   componentDidMount() {
     fetchJsonp(`https://api.deezer.com/chart?index=0&limit=20&output=jsonp`)
-      .then(resp => resp.json())
-      .then(({ albums, playlists }) =>
-        store.dispatch(actions.fetchChartAction({ albums, playlists }))
-      )
+      .then((resp) => resp.json())
+      .then(({ albums, playlists }) => store.dispatch(actions.fetchChartAction({ albums, playlists })))
   }
 
   loadMorePlaylists = () => {
-    fetchJsonp(
-      `https://api.deezer.com/chart?index=${
-        this.state.indexPlaylists
-      }&limit=20&output=jsonp`
-    )
-      .then(resp => resp.json())
-      .then(data => {
+    fetchJsonp(`https://api.deezer.com/chart?index=${this.state.indexPlaylists}&limit=20&output=jsonp`)
+      .then((resp) => resp.json())
+      .then((data) => {
         const { top } = this.props
         store.dispatch(
           actions.fetchChartAction({
@@ -66,13 +60,9 @@ export class Playlists extends Component {
   }
 
   loadMoreAlbums = () => {
-    fetchJsonp(
-      `https://api.deezer.com/chart?index=${
-        this.state.indexAlbums
-      }&limit=20&output=jsonp`
-    )
-      .then(resp => resp.json())
-      .then(data => {
+    fetchJsonp(`https://api.deezer.com/chart?index=${this.state.indexAlbums}&limit=20&output=jsonp`)
+      .then((resp) => resp.json())
+      .then((data) => {
         const { top } = this.props
         store.dispatch(
           actions.fetchChartAction({
@@ -88,10 +78,10 @@ export class Playlists extends Component {
       })
   }
 
-  findAlbum = id => {
+  findAlbum = (id) => {
     fetchJsonp(`https://api.deezer.com/album/${id}?output=jsonp`)
-      .then(resp => resp.json())
-      .then(album => {
+      .then((resp) => resp.json())
+      .then((album) => {
         store.dispatch(actions.changeAlbumAction(album))
         randomAlbumTrack({ ...this.props, album })
       })
@@ -132,32 +122,21 @@ export class Playlists extends Component {
         <section className="top-albums">
           <h3>Trending Albums</h3>
           <Slider {...settings} {...{ beforeChange: this.loadMoreAlbums }}>
-            {albums.data.map(
-              ({ id, cover_medium, title, artist: { name } }) => (
-                <div key={id}>
-                  <NavLink
-                    to={`/album/${id}`}
-                    onClick={() => this.findAlbum(id)}
-                  >
-                    <figure>
-                      <img
-                        src={
-                          cover_medium &&
-                          cover_medium.replace(/(250)x\1/, '200x200')
-                        }
-                        alt=""
-                      />
-                      <figcaption>
-                        <p>{title}</p>
-                        <div className="album-artist">
-                          <p>{name}</p>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </NavLink>
-                </div>
-              )
-            )}
+            {albums.data.map(({ id, cover_medium, title, artist: { name } }) => (
+              <div key={id}>
+                <NavLink to={`/album/${id}`} onClick={() => this.findAlbum(id)}>
+                  <figure>
+                    <img src={cover_medium && cover_medium.replace(/(250)x\1/, '200x200')} alt="" />
+                    <figcaption>
+                      <p>{title}</p>
+                      <div className="album-artist">
+                        <p>{name}</p>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </NavLink>
+              </div>
+            ))}
           </Slider>
         </section>
       </main>

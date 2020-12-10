@@ -8,13 +8,14 @@ import './style.scss'
 const { DZ } = window
 
 class Songs extends Component {
-  fetchData = id => {
-    return dispatch => fetchJsonp(`https://api.deezer.com/track/${id}?output=jsonp`)
-    .then(response => response.json())
-    .then(data => dispatch(actions.changeTrackAction(data)))
+  fetchData = (id) => {
+    return (dispatch) =>
+      fetchJsonp(`https://api.deezer.com/track/${id}?output=jsonp`)
+        .then((response) => response.json())
+        .then((data) => dispatch(actions.changeTrackAction(data)))
   }
 
-  playTrack = id => {
+  playTrack = (id) => {
     store.dispatch(actions.prevTrackAction(this.props.track))
     store.dispatch(this.fetchData(id)).then(() => {
       DZ && DZ.player.pause()
@@ -29,21 +30,17 @@ class Songs extends Component {
       <section className="artist__songs">
         <h2>Popular Songs</h2>
         <ul>
-          {
-            topTracks.map(track => (
-              <li onClick={() => this.playTrack(track.id)} key={track.id}>
-                <div className="artist__song">
-                  <img src={track.album.cover_small} alt="" className="artist__songs__cover" />
-                  <div>
-                    <p className="artist__songs__title">{track.title_short}</p>
-                    <p className="artist__songs__contributors">
-                      {track.contributors.map(e => e.name).join(', ')}
-                    </p>
-                  </div>
+          {topTracks.map((track) => (
+            <li onClick={() => this.playTrack(track.id)} key={track.id}>
+              <div className="artist__song">
+                <img src={track.album.cover_small} alt="" className="artist__songs__cover" />
+                <div>
+                  <p className="artist__songs__title">{track.title_short}</p>
+                  <p className="artist__songs__contributors">{track.contributors.map((e) => e.name).join(', ')}</p>
                 </div>
-              </li>
-            ))
-          }
+              </div>
+            </li>
+          ))}
         </ul>
       </section>
     ) : null
@@ -53,4 +50,3 @@ class Songs extends Component {
 const mapStateToProps = ({ topTracks, track }) => ({ topTracks, track })
 
 export default connect(mapStateToProps)(Songs)
-

@@ -1,11 +1,14 @@
 import React, { useState, useReducer, createContext } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Layout, Menu, Breadcrumb } from 'antd'
 import { mainReducer } from './reducers'
 import { ContactsStateType, initialContactsState } from './reducers/contactsReducer'
 import Search from './components/Search'
-import Top from './components/Top'
+import Top from './components/Homepage/Homepage'
 import ArtistPage from './components/ArtistPage'
+import Footer from './components/Footer/Footer'
 import './App.scss'
+import 'antd/dist/antd.css'
 
 declare global {
   interface Window {
@@ -42,6 +45,7 @@ type ContextProviderProps = {
 const App = () => {
   const [state, dispatch] = useReducer(mainReducer, initialContactsState)
   const [repeat, setRepeat] = useState(false)
+  const { Header, Content } = Layout
 
   const delContact = (id) => {
     dispatch({
@@ -53,19 +57,39 @@ const App = () => {
   return (
     <div className="App">
       <Context.Provider value={{ state, dispatch }}>
-        <Router>
-          <Switch>
-            <Route exact path="/artist">
-              <ArtistPage />
-            </Route>
-            <Route exact path="/search">
-              <Search />
-            </Route>
-            <Route>
-              <Top />
-            </Route>
-          </Switch>
-        </Router>
+        <Layout>
+          <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+            <div className="logo" />
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+              <Menu.Item key="1">nav 1</Menu.Item>
+              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="3">Login</Menu.Item>
+            </Menu>
+          </Header>
+          <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+              <Router>
+                <Switch>
+                  <Route exact path="/artist">
+                    <ArtistPage />
+                  </Route>
+                  <Route exact path="/search">
+                    <Search />
+                  </Route>
+                  <Route>
+                    <Top />
+                  </Route>
+                </Switch>
+              </Router>
+            </div>
+          </Content>
+          <Footer />
+        </Layout>
       </Context.Provider>
     </div>
   )

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import Box, { splitBoxProps } from 'ui-box'
-import { Icon, TextInput, withTheme, StackingOrder } from 'evergreen-ui';
+import { Icon, TextInput, withTheme, StackingOrder } from 'evergreen-ui'
 
 class SearchInput extends PureComponent {
   static propTypes = {
@@ -19,12 +19,7 @@ class SearchInput extends PureComponent {
     const iconSize = theme.getIconSizeForInput(height)
 
     return (
-      <Box
-        position="relative"
-        display="inline-flex"
-        height={height}
-        {...matchedProps}
-      >
+      <Box position="relative" display="inline-flex" height={height} {...matchedProps}>
         <Box
           height={height}
           width={height}
@@ -34,12 +29,7 @@ class SearchInput extends PureComponent {
           justifyContent="center"
           alignItems="center"
         >
-          <Icon
-            icon="search"
-            color="white"
-            zIndex={StackingOrder.FOCUSED + 1}
-            size={iconSize}
-          />
+          <Icon icon="search" color="white" zIndex={StackingOrder.FOCUSED + 1} size={iconSize} />
         </Box>
         <TextInput
           height={height}
@@ -47,10 +37,10 @@ class SearchInput extends PureComponent {
           appearance={appearance}
           disabled={disabled}
           width={width}
-          background='rgba(13, 19, 36, .3)'
-          color='rgb(150, 152, 161)'
-          borderRadius='20px'
-          border='none'
+          background="rgba(13, 19, 36, .3)"
+          color="rgb(150, 152, 161)"
+          borderRadius="20px"
+          border="none"
           onChange={onChange}
           innerRef={setRef}
           {...remainingProps}

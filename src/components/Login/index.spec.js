@@ -8,9 +8,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('Login', () => {
   it('should render self', () => {
-    const rendered = renderer.create(
-      <Login track={{}} flow={[]} chosenPlaylist={0} />
-    )
+    const rendered = renderer.create(<Login track={{}} flow={[]} chosenPlaylist={0} />)
     expect(rendered.toJSON()).toMatchSnapshot()
   })
 })

@@ -40,12 +40,7 @@ export class Login extends Component {
 
   render() {
     return (
-      <button
-        className="login"
-        onClick={
-          this.state.loggedin && this.props.flow.length ? this.playFlow : login
-        }
-      >
+      <button className="login" onClick={this.state.loggedin && this.props.flow.length ? this.playFlow : login}>
         {this.state.loggedin ? 'FLOW' : 'Log In'}
       </button>
     )

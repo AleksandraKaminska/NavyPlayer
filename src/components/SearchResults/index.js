@@ -3,12 +3,7 @@ import store from 'store'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from 'actions'
-import {
-  searchArtistInfo,
-  randomAlbumTrack,
-  randomArtistTrack,
-  choosePlaylist
-} from 'helperFunctions'
+import { searchArtistInfo, randomAlbumTrack, randomArtistTrack, choosePlaylist } from 'helperFunctions'
 import './style.scss'
 
 const { DZ } = window
@@ -18,12 +13,7 @@ export class SearchResults extends Component {
 
   handlerRenderItem = (item, type) => {
     return type === 'track' ? (
-      <NavLink
-        to="/"
-        key={item.id}
-        className="result"
-        onClick={() => this.selectSong(item)}
-      >
+      <NavLink to="/" key={item.id} className="result" onClick={() => this.selectSong(item)}>
         <p>
           <span>{item.title_short}</span>
           {item.artist.name}
@@ -35,9 +25,7 @@ export class SearchResults extends Component {
         to={`/album/${item.id}`}
         key={item.id}
         className="result"
-        onClick={() =>
-          randomAlbumTrack({ album: item, track: this.props.track })
-        }
+        onClick={() => randomAlbumTrack({ album: item, track: this.props.track })}
       >
         <p>
           <span>{item.title}</span>
@@ -50,9 +38,7 @@ export class SearchResults extends Component {
         to={`/artist/${item.id}`}
         key={item.id}
         className="result"
-        onClick={() =>
-          randomArtistTrack({ artist: item, track: this.props.track })
-        }
+        onClick={() => randomArtistTrack({ artist: item, track: this.props.track })}
       >
         <p>
           <span>{item.name}</span>
@@ -74,7 +60,7 @@ export class SearchResults extends Component {
     )
   }
 
-  selectSong = item => {
+  selectSong = (item) => {
     store.dispatch(actions.prevTrackAction(this.props.track))
     store.dispatch(actions.changeTrackAction(item))
     searchArtistInfo(item)
@@ -89,15 +75,11 @@ export class SearchResults extends Component {
       <section className="search">
         {value && (
           <div className="results">
-            {this.options.map(el =>
+            {this.options.map((el) =>
               results[el + 's'] ? (
                 <div key={el}>
                   <h2>{el + 's'}</h2>
-                  <div>
-                    {results[el + 's'].map(item =>
-                      this.handlerRenderItem(item, el)
-                    )}
-                  </div>
+                  <div>{results[el + 's'].map((item) => this.handlerRenderItem(item, el))}</div>
                 </div>
               ) : null
             )}
