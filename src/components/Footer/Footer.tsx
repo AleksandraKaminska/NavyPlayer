@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image, Layout, Space } from 'antd'
+import { Button, Layout, Space } from 'antd'
 import login from '../../helpers/login'
 import './Footer.scss'
 
@@ -10,7 +10,7 @@ const FooterPage: React.FC = () => (
     <Space align="baseline">
       <p>Powered by Deezer</p>
       <Button type="link" href="https://deezer.com" target="_blank" rel="noopener noreferrer">
-        <Image src="/assets/images/DeezerLogo.png" alt="Deezer Logo" />
+        <img src="/assets/images/DeezerLogo.png" alt="Deezer Logo" />
       </Button>
     </Space>
   </Footer>
