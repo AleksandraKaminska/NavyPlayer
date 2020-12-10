@@ -1,29 +1,21 @@
-export type TrackStateType = {
-  track: any
-  loading?: boolean
-  error?: null
-}
+import { TrackType } from '../types/deezerData'
 
 export type TracksTracksActionType = {
   type: string
-  payload: any
+  payload: TrackType
 }
 
-export const initialTracksTracksState: TrackStateType = {
-  track: {},
-  loading: false,
-  error: null
-}
-
-const contactsReducer: (state: TrackStateType, action: TracksTracksActionType) => TrackStateType = (state, action) => {
+const contactsReducer: (state: TrackType, action: TracksTracksActionType) => TrackType = (state, action) => {
+  console.log(action)
   switch (action.type) {
     case 'CHANGE_TRACK':
-      return action.payload.track.album
-        ? { ...action.payload.track }
-        : {
-            ...action.payload.track,
-            ...{ album: { cover_xl: action.payload.coverXl, cover_medium: action.payload.coverMedium } }
-          }
+      return action.payload
+    // return action.payload.album
+    // ? { ...action.payload }
+    // : {
+    //     ...action.payload,
+    //     ...{ album: { cover_xl: action.payload.coverXl, cover_medium: action.payload.coverMedium } }
+    //   }
     default:
       return state
   }

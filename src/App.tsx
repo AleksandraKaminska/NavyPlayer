@@ -1,9 +1,9 @@
-import React, { useState, useReducer, createContext } from 'react'
+import React, { useState, useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
-import { mainReducer } from './reducers'
-import { ContactsStateType, initialContactsState } from './reducers/contactsReducer'
-import Search from './components/Search'
+import { Context } from './context/Context'
+import { mainReducer, initialState } from './reducers'
+import Search from './components/Search/Search'
 import Homepage from './components/Homepage/Homepage'
 import ArtistPage from './components/ArtistPage'
 import Header from './components/Header/Header'
@@ -29,22 +29,8 @@ const Loader = () => (
   </div>
 )
 
-export const Context = createContext<{
-  state: ContactsStateType
-  dispatch: React.Dispatch<any>
-}>({
-  state: initialContactsState,
-  dispatch: () => null
-})
-
-type ContextProviderProps = {
-  reducer: React.Reducer<ContactsStateType, any>
-  initState: ContactsStateType
-  children: any
-}
-
 const App = () => {
-  const [state, dispatch] = useReducer(mainReducer, initialContactsState)
+  const [state, dispatch] = useReducer(mainReducer, initialState)
   const [repeat, setRepeat] = useState(false)
   const { Content } = Layout
 
