@@ -1,6 +1,6 @@
 import React, { useState, useReducer, createContext } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Layout, Menu, Breadcrumb } from 'antd'
+import { Layout, Menu, Image } from 'antd'
 import { mainReducer } from './reducers'
 import { ContactsStateType, initialContactsState } from './reducers/contactsReducer'
 import Search from './components/Search'
@@ -61,17 +61,14 @@ const App = () => {
           <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
             <div className="logo" />
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-              <Menu.Item key="1">nav 1</Menu.Item>
-              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="1">
+                <Image src="/assets/images/logo.png" alt="navy player logo" />
+              </Menu.Item>
+              <Menu.Item key="2">Artist</Menu.Item>
               <Menu.Item key="3">Login</Menu.Item>
             </Menu>
           </Header>
           <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
               <Router>
                 <Switch>
