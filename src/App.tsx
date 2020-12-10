@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 import { mainReducer } from './reducers'
 import { ContactsStateType, initialContactsState } from './reducers/contactsReducer'
 import Search from './components/Search'
-import Top from './components/Homepage/Homepage'
+import Homepage from './components/Homepage/Homepage'
 import ArtistPage from './components/ArtistPage'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
@@ -48,13 +48,6 @@ const App = () => {
   const [repeat, setRepeat] = useState(false)
   const { Content } = Layout
 
-  const delContact = (id) => {
-    dispatch({
-      type: 'DEL_CONTACT',
-      payload: id
-    })
-  }
-
   return (
     <div className="App">
       <Context.Provider value={{ state, dispatch }}>
@@ -71,7 +64,7 @@ const App = () => {
                     <Search />
                   </Route>
                   <Route>
-                    <Top />
+                    <Homepage />
                   </Route>
                 </Switch>
               </div>

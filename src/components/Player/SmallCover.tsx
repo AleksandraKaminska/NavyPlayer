@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
 
-export const SmallCover = ({ cover, title, artist }) => (
+const SmallCover: React.FC = () => (
   <Link to="/">
     <div className="small">
-      <img className="smallCover" src={cover} alt="cover" />
-      <div className="smallTitle">
+      {/* <img className="smallCover" src={cover} alt="cover" /> */}
+      {/* <div className="smallTitle">
         <p>{title}</p>
         <p>{artist}</p>
-      </div>
+      </div> */}
     </div>
   </Link>
 )
@@ -20,4 +19,4 @@ const mapStateToProps = ({ track }) => ({
   cover: track.album.cover_medium
 })
 
-export default connect(mapStateToProps)(SmallCover)
+export default SmallCover

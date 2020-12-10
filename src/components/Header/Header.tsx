@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
+import Login from '../Login'
+import Nav from '../Nav'
 
 const Header: React.FC = () => {
   const { Header } = Layout
@@ -19,6 +21,8 @@ const Header: React.FC = () => {
         <Menu.Item key="3">
           <Link to="/artist">Artist</Link>
         </Menu.Item>
+        {/* <Nav /> */}
+        {/* <Login /> */}
       </Menu>
     </Header>
   )
