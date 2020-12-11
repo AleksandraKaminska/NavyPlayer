@@ -47,10 +47,10 @@ export class Login extends Component {
   }
 }
 
-const mapStateToProps = ({ track, flow, chosenPlaylist }) => ({
+const mapStateToProps = ({ track, flow, playlist }) => ({
   track,
   flow,
-  chosenPlaylist
+  playlist
 })
 
 export default connect(mapStateToProps)(Login)
@@ -58,5 +58,5 @@ export default connect(mapStateToProps)(Login)
 Login.propTypes = {
   track: PropTypes.object,
   flow: PropTypes.array,
-  chosenPlaylist: PropTypes.number
+  playlist: PropTypes.number
 }

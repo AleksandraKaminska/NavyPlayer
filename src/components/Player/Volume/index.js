@@ -60,10 +60,10 @@ export class Volume extends Component {
   }
 }
 
-const mapStateToProps = ({ track, prev, chosenPlaylist, album, flow, artist, artistPlaylist }) => ({
+const mapStateToProps = ({ track, prev, playlist, album, flow, artist, artistPlaylist }) => ({
   track,
   prev,
-  chosenPlaylist,
+  playlist,
   album,
   flow,
   artist,

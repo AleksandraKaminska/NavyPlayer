@@ -35,7 +35,7 @@ const randomNumber = (array, state) => {
 //         ? randomArtistTrack(props)
 //         : props.album.id
 //         ? randomAlbumTrack(props)
-//         : props.chosenPlaylist
+//         : props.playlist
 //         ? randomPlaylistTrack(props)
 //         : randomFlowTrack(props)
 //     }
@@ -91,8 +91,8 @@ const randomNumber = (array, state) => {
 //   })
 // }
 
-const fetchData = (chosenPlaylist, state, dispatch) =>
-  fetchJsonp(`https://api.deezer.com/playlist/${chosenPlaylist}?output=jsonp`)
+const fetchData = (playlist, state, dispatch) =>
+  fetchJsonp(`https://api.deezer.com/playlist/${playlist}?output=jsonp`)
     .then((response) => response.json())
     .then(({ tracks }) => {
       if (tracks) {
@@ -108,7 +108,7 @@ export const randomPlaylistTrack: (state, dispatch: DispatchType, playlistID?: n
   playlistID
 ) => {
   dispatch({ type: 'PREV_TRACK', payload: state.track })
-  fetchData(playlistID || state.chosenPlaylist, state, dispatch)
+  fetchData(playlistID || state.playlist, state, dispatch)
 }
 
 export const changePlaylist = (state, dispatch: DispatchType, id?: number) => {
@@ -118,7 +118,7 @@ export const changePlaylist = (state, dispatch: DispatchType, id?: number) => {
   randomPlaylistTrack(
     {
       ...state,
-      chosenPlaylist: id
+      playlist: id
     },
     dispatch
   )

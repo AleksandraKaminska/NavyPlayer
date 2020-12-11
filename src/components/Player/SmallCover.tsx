@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 
-const SmallCover: React.FC = () => (
-  <Link to="/">
-    <div className="small">
-      {/* <img className="smallCover" src={cover} alt="cover" /> */}
-      {/* <div className="smallTitle">
-        <p>{title}</p>
-        <p>{artist}</p>
-      </div> */}
-    </div>
-  </Link>
-)
+const SmallCover: React.FC = () => {
+  const {
+    state: { track }
+  } = useContext(Context)
 
-const mapStateToProps = ({ track }) => ({
-  title: track.title_short,
-  artist: track.artist.name,
-  cover: track.album.cover_medium
-})
+  return (
+    <Link to="/">
+      <div className="small">
+        <img className="smallCover" src={track?.album.cover_medium} alt={track?.album.title} />
+        <div className="smallTitle">
+          <p>{track?.title_short}</p>
+          <p>{track?.artist.name}</p>
+        </div>
+      </div>
+    </Link>
+  )
+}
 
 export default SmallCover

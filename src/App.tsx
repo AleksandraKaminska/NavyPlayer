@@ -18,8 +18,6 @@ declare global {
   }
 }
 
-const { DZ } = window
-
 const App = () => {
   const [state, dispatch] = useReducer(mainReducer, initialState)
   const [repeat, setRepeat] = useState(false)
