@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import isEmpty from 'lodash/isEmpty'
 // import { randomAlbumTrack, randomArtistTrack, choosePlaylist } from '../../helperFunctions'
-import { searchArtistInfo } from '../../helpers/searchArtistInfo'
+import { searchArtistInfo } from '../../helpers/search'
 import { Context } from '../../context/Context'
 import { ArtistType, TrackType } from '../../types/deezerData'
 import './SearchResults.scss'
@@ -59,7 +59,7 @@ function SearchResults({ results }: SearchResultsProps) {
   const selectSong = (item) => {
     dispatch({ type: 'PREV_TRACK', payload: track })
     dispatch({ type: 'CHANGE_TRACK', payload: item })
-    searchArtistInfo(item)
+    searchArtistInfo(item, dispatch)
   }
 
   const handlerRenderItem = (item, type) => {

@@ -14,6 +14,25 @@ export type ArtistType = {
   type?: 'artist'
 }
 
+export type AlbumType = {
+  id?: number
+  cover?: string
+  cover_big?: string
+  cover_medium?: string
+  cover_small?: string
+  cover_xl?: string
+  explicit_lyrics?: boolean
+  fans?: number
+  genre_id?: number
+  link?: string
+  md5_image?: string
+  record_type?: string
+  release_date?: string
+  title?: string
+  tracklist?: string
+  type?: 'album'
+}
+
 export type TrackType = {
   id?: number
   album?: any

@@ -6,7 +6,6 @@ export type TracksTracksActionType = {
 }
 
 const contactsReducer: (state: TrackType, action: TracksTracksActionType) => TrackType = (state, action) => {
-  console.log(action)
   switch (action.type) {
     case 'CHANGE_TRACK':
       return action.payload

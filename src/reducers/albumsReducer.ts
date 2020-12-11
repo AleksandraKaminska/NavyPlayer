@@ -1,27 +1,18 @@
-export type AlbumsStateType = {
-  albums: Array<any>
-  loading?: boolean
-  error?: null
-}
+import { AlbumType } from '../types/deezerData'
 
 export type AlbumsActionType = {
   type: string
-  payload: any
+  payload: {
+    data: Array<AlbumType>
+    total: number
+    next?: string
+  }
 }
 
-export const initialAlbumsState: AlbumsStateType = {
-  albums: [],
-  loading: false,
-  error: null
-}
-
-const contactsReducer: (state: AlbumsStateType, action: AlbumsActionType) => AlbumsStateType = (state, action) => {
+const contactsReducer: (state: Array<AlbumType>, action: AlbumsActionType) => Array<AlbumType> = (state, action) => {
   switch (action.type) {
     case 'FIND_ALBUMS':
-      return {
-        ...state,
-        albums: action.payload
-      }
+      return action.payload.data
     default:
       return state
   }

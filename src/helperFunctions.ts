@@ -105,61 +105,6 @@ const { DZ } = window
 //   store.dispatch(fetchData(playlistID || chosenPlaylist)).then((resp) => resp && searchArtistInfo(resp.track))
 // }
 
-// function searchArtist(id) {
-//   return fetchJsonp(`https://api.deezer.com/artist/${id}?output=jsonp`)
-//     .then((response) => response.json())
-//     .then((artist) =>
-//       store.dispatch({
-//         type: 'FIND_ARTIST',
-//         artist
-//       })
-//     )
-// }
-
-// function searchTopTracks(id) {
-//   return fetchJsonp(`https://api.deezer.com/artist/${id}/top?output=jsonp`)
-//     .then((response) => response.json())
-//     .then(({ data }) =>
-//       store.dispatch({
-//         type: 'FIND_TOP_TRACKS',
-//         topTracks: data || null
-//       })
-//     )
-// }
-
-// function searchArtistPlaylists(id) {
-//   return fetchJsonp(`https://api.deezer.com/artist/${id}/playlists?output=jsonp`)
-//     .then((response) => response.json())
-//     .then(({ data }) =>
-//       store.dispatch({
-//         type: 'FIND_ARTIST_PLAYLISTS',
-//         artistPlaylists: data || null
-//       })
-//     )
-// }
-
-// function searchAlbums(id) {
-//   fetchJsonp(`https://api.deezer.com/artist/${id}/albums?output=jsonp`)
-//     .then((response) => response.json())
-//     .then(({ data }) =>
-//       store.dispatch({
-//         type: 'FIND_ALBUMS',
-//         albums: data || null
-//       })
-//     )
-// }
-
-// function searchSimilarArtists(id) {
-//   fetchJsonp(`https://api.deezer.com/artist/${id}/related?limit=10&output=jsonp`)
-//     .then((response) => response.json())
-//     .then(({ data }) =>
-//       store.dispatch({
-//         type: 'FIND_SIMILAR_ARTISTS',
-//         similar: data || null
-//       })
-//     )
-// }
-
 // export function choosePlaylist(id, props) {
 //   store.dispatch(actions.changePlaylistAction(id))
 //   randomPlaylistTrack({
