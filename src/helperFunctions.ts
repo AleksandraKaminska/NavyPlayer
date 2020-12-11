@@ -1,15 +1,18 @@
 import fetchJsonp from 'fetch-jsonp'
+import { searchArtistInfo } from './helpers/search'
 import { TrackType } from './types/deezerData'
 const { DZ } = window
 
-// function randomNumber(array) {
-//   const prev = store.getState().prev.slice(-1)[0]
-//   let randomNumber = 0
-//   do {
-//     randomNumber = Math.floor(Math.random() * array.length)
-//   } while (array.length > 1 && prev && prev.id === array[randomNumber].id)
-//   return array[randomNumber]
-// }
+type DispatchType = React.Dispatch<{ type: string; payload: any }>
+
+const randomNumber = (array, state) => {
+  const prev = state.previousTracks.slice(-1)[0]
+  let randomNumber = 0
+  do {
+    randomNumber = Math.floor(Math.random() * array.length)
+  } while (array.length > 1 && prev && prev.id === array[randomNumber].id)
+  return array[randomNumber]
+}
 
 // export function random(props) {
 //   const regex = /\/(artist|playlist|album)\/(\d+)/
@@ -88,29 +91,35 @@ const { DZ } = window
 //   })
 // }
 
-// function fetchData(chosenPlaylist) {
-//   return (dispatch) =>
-//     fetchJsonp(`https://api.deezer.com/playlist/${chosenPlaylist}?output=jsonp`)
-//       .then((response) => response.json())
-//       .then(({ tracks }) => {
-//         if (tracks) {
-//           return dispatch(actions.changeTrackAction(randomNumber(tracks.data)))
-//         }
-//       })
-// }
+const fetchData = (chosenPlaylist, state, dispatch) =>
+  fetchJsonp(`https://api.deezer.com/playlist/${chosenPlaylist}?output=jsonp`)
+    .then((response) => response.json())
+    .then(({ tracks }) => {
+      if (tracks) {
+        const track = randomNumber(tracks.data, state)
+        dispatch({ type: 'CHANGE_TRACK', payload: track })
+        searchArtistInfo(track, dispatch)
+      }
+    })
 
-// function randomPlaylistTrack(props, playlistID = null) {
-//   const { chosenPlaylist, track } = props
-//   store.dispatch(actions.prevTrackAction(track))
-//   store.dispatch(fetchData(playlistID || chosenPlaylist)).then((resp) => resp && searchArtistInfo(resp.track))
-// }
+export const randomPlaylistTrack: (state, dispatch: DispatchType, playlistID?: number) => void = (
+  state,
+  dispatch,
+  playlistID
+) => {
+  dispatch({ type: 'PREV_TRACK', payload: state.track })
+  fetchData(playlistID || state.chosenPlaylist, state, dispatch)
+}
 
-// export function choosePlaylist(id, props) {
-//   store.dispatch(actions.changePlaylistAction(id))
-//   randomPlaylistTrack({
-//     ...props,
-//     chosenPlaylist: id
-//   })
-//   store.dispatch(actions.changeAlbumAction(0))
-//   store.dispatch(actions.changeArtistPlaylistAction([]))
-// }
+export const changePlaylist = (state, dispatch: DispatchType, id?: number) => {
+  dispatch({ type: 'CHANGE_PLAYLIST', payload: id })
+  dispatch({ type: 'FIND_ALBUM', payload: 0 })
+  dispatch({ type: 'ARTIST_PLAYLIST', payload: [] })
+  randomPlaylistTrack(
+    {
+      ...state,
+      chosenPlaylist: id
+    },
+    dispatch
+  )
+}

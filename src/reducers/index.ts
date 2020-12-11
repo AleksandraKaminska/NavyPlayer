@@ -4,42 +4,31 @@ import artistReducer from './artistReducer'
 import similarArtistsReducer from './similarArtistsReducer'
 import topTracksReducer from './topTracksReducer'
 import artistPlaylistsReducer from './artistPlaylistsReducer'
-// import chosenPlaylistReducer from './chosenPlaylistReducer'
+import playlistReducer from './playlistReducer'
 import trackReducer from './trackReducer'
 import previousTracksReducer from './previousTracksReducer'
-// import FlowReducer from './reducer-flow'
-// import ArtistPlaylistReducer from './reducer-artist-playlist'
-// import top from './reducer-top'
-import { ArtistType, AlbumType, TrackType } from '../types/deezerData'
+import flowReducer from './flowReducer'
+import artistPlaylistReducer from './artistPlaylistReducer'
+import topChartReducer from './topChartReducer'
+import { ArtistType, AlbumType, TrackType, TopChartType, PlaylistType } from '../types/deezerData'
 
 export type StateType = {
-  album: AlbumType
-  albums: Array<AlbumType>
-  artist: ArtistType
-  chosenPlaylist: any
-  track: TrackType
-  topTracks: Array<TrackType>
-  artistPlaylists: Array<any>
-  similarArtists: Array<ArtistType>
-  previousTracks: Array<TrackType>
-  flow: any
-  artistPlaylist: any
-  top: any
+  album?: AlbumType
+  albums?: Array<AlbumType>
+  artist?: ArtistType
+  playlist?: PlaylistType['id']
+  track?: TrackType
+  topTracks?: Array<TrackType>
+  artistPlaylists?: Array<any>
+  similarArtists?: Array<ArtistType>
+  previousTracks?: Array<TrackType>
+  flow?: any
+  artistPlaylist?: any
+  topChart?: TopChartType
 }
 
 export const initialState: StateType = {
-  album: {},
-  albums: [],
-  artist: {},
-  chosenPlaylist: null,
-  track: {},
-  topTracks: [],
-  artistPlaylists: [],
-  similarArtists: [],
-  previousTracks: [],
-  flow: null,
-  artistPlaylist: null,
-  top: null
+  playlist: 2098157264
 }
 
 export const mainReducer: (state: any, action: any) => any = (state, action) => {
@@ -49,14 +38,14 @@ export const mainReducer: (state: any, action: any) => any = (state, action) => 
     album: albumReducer(state.album, action),
     albums: albumsReducer(state.albums, action),
     artist: artistReducer(state.artist, action),
-    // chosenPlaylist: ChosenPlaylistReducer,
+    playlist: playlistReducer(state.playlist, action),
     track: trackReducer(state.track, action),
     topTracks: topTracksReducer(state.topTracks, action),
     artistPlaylists: artistPlaylistsReducer(state.artistPlaylists, action),
     similarArtists: similarArtistsReducer(state.similarArtists, action),
-    previousTracks: previousTracksReducer(state.previousTracks, action)
-    // flow: FlowReducer,
-    // artistPlaylist: ArtistPlaylistReducer,
-    // top: topReducer
+    previousTracks: previousTracksReducer(state.previousTracks, action),
+    flow: flowReducer(state.flow, action),
+    artistPlaylist: artistPlaylistReducer(state.artistPlaylist, action),
+    topChart: topChartReducer(state.topChart, action)
   }
 }

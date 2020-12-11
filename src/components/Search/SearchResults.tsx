@@ -7,8 +7,6 @@ import { Context } from '../../context/Context'
 import { ArtistType, TrackType } from '../../types/deezerData'
 import './SearchResults.scss'
 
-const { DZ } = window
-
 type SearchResultsProps = {
   results: {
     albums?: {

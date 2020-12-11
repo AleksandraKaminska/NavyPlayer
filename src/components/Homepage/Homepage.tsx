@@ -1,12 +1,10 @@
 import React from 'react'
-import Player from '../Player/Player'
-import Playlists from '../Playlists'
+import Playlists from '../Playlists/Playlists'
 // import './Homepage.scss'
 
 const Homepage = () => (
   <div className="Homepage top background">
-    {/* <Playlists /> */}
-    <Player />
+    <Playlists />
   </div>
 )
 

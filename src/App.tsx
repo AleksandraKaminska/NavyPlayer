@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
 import { Context } from './context/Context'
 import { mainReducer, initialState } from './reducers'
+import Player from './components/Player/Player'
 import Search from './components/Search/Search'
 import Homepage from './components/Homepage/Homepage'
 import ArtistPage from './components/ArtistPage'
@@ -55,6 +56,7 @@ const App = () => {
                 </Switch>
               </div>
             </Content>
+            <Player />
             <Footer />
           </Layout>
         </Router>
