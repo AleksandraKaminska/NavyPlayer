@@ -49,21 +49,19 @@ function Playlists() {
     <section className="Playlists">
       <h3>Top Charts</h3>
       {/* <Slider {...settings} {...{ beforeChange: this.loadMorePlaylists }}> */}
-      {state.topChart && (
-        <Glider
-          draggable
-          hasArrows
-          hasDots
-          slidesToScroll={7}
-          slidesToShow={7}
-          className="gradient-outline"
-          ref={gliderRef}
-        >
-          {state.topChart.playlists.data.map((playlist) => (
-            <Playlist playlist={playlist} key={playlist.id} />
-          ))}
-        </Glider>
-      )}
+      <Glider
+        draggable
+        hasArrows
+        hasDots
+        slidesToScroll={7}
+        slidesToShow={7}
+        className="gradient-outline"
+        ref={gliderRef}
+      >
+        {state.topChart?.playlists.data.map((playlist) => (
+          <Playlist playlist={playlist} key={playlist.id} />
+        ))}
+      </Glider>
     </section>
   )
 }

@@ -60,36 +60,31 @@ function Playlists() {
     <section className="Albums">
       <h3>Trending Albums</h3>
       {/* <Slider {...settings} {...{ beforeChange: this.loadMoreAlbums }}> */}
-      {state.topChart && (
-        <Glider
-          draggable
-          hasArrows
-          hasDots
-          slidesToScroll={7}
-          slidesToShow={7}
-          className="gradient-outline"
-          ref={gliderRef}
-        >
-          {state.topChart.albums.data.map((album) => (
-            <div key={album.id}>
-              <Link to={`/album/${album.id}`} onClick={() => findAlbum(album.id)}>
-                <figure>
-                  <img
-                    src={album.cover_medium && album.cover_medium.replace(/(250)x\1/, '200x200')}
-                    alt={album.title}
-                  />
-                  <figcaption>
-                    <p>{album.title}</p>
-                    <div className="album-artist">
-                      <p>{album.artist?.name}</p>
-                    </div>
-                  </figcaption>
-                </figure>
-              </Link>
-            </div>
-          ))}
-        </Glider>
-      )}
+      <Glider
+        draggable
+        hasArrows
+        hasDots
+        slidesToScroll={7}
+        slidesToShow={7}
+        className="gradient-outline"
+        ref={gliderRef}
+      >
+        {state.topChart?.albums.data.map((album) => (
+          <div key={album.id}>
+            <Link to={`/album/${album.id}`} onClick={() => findAlbum(album.id)}>
+              <figure>
+                <img src={album.cover_medium && album.cover_medium.replace(/(250)x\1/, '200x200')} alt={album.title} />
+                <figcaption>
+                  <p>{album.title}</p>
+                  <div className="album-artist">
+                    <p>{album.artist?.name}</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </Link>
+          </div>
+        ))}
+      </Glider>
     </section>
   )
 }
