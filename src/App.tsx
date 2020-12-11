@@ -20,16 +20,6 @@ declare global {
 
 const { DZ } = window
 
-const Loader = () => (
-  <div className="wrapper">
-    <div className="loader">
-      <div className="loader__part loader__part--1" />
-      <div className="loader__part loader__part--2" />
-      <div className="loader__part loader__part--3" />
-    </div>
-  </div>
-)
-
 const App = () => {
   const [state, dispatch] = useReducer(mainReducer, initialState)
   const [repeat, setRepeat] = useState(false)
