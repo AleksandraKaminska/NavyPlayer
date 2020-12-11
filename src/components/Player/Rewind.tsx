@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Rewind = ({ onClick }) => (
+const Rewind = ({ onClick }: { onClick: () => void }) => (
   <svg
     onClick={onClick}
     xmlns="http://www.w3.org/2000/svg"

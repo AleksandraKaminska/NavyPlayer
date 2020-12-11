@@ -13,7 +13,7 @@ const Player: React.FC = () => {
   return (
     <section className="player">
       <SmallCover />
-      {/* <Controls repeat={repeat} /> */}
+      <Controls repeat={repeat} />
       {/* <Progress /> */}
       {/* <Volume repeat={repeat} changeRepeat={toggleRepeat} /> */}
     </section>

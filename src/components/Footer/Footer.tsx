@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Layout, Space } from 'antd'
-import login from '../../helpers/login'
+import { login } from '../../helpers/login'
 import './Footer.scss'
 
 const { Footer } = Layout

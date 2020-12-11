@@ -6,7 +6,7 @@ export type TrackActionType = {
 }
 
 const previousTracksReducer: (state: Array<TrackType>, action: TrackActionType) => Array<TrackType> = (
-  state,
+  state = [],
   action
 ) => {
   switch (action.type) {
