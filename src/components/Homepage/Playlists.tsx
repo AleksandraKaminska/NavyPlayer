@@ -1,13 +1,12 @@
 import React, { useState, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Glider, { GliderMethods } from 'react-glider'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { Context } from '../../context/Context'
 import Playlist from './Playlist'
 // import { randomAlbumTrack } from 'helperFunctions'
-import 'glider-js/glider.min.css'
+import 'swiper/swiper.scss'
 
 function Playlists() {
-  const gliderRef = useRef<GliderMethods>(null)
   const { state, dispatch } = useContext(Context)
   const [indexPlaylists, setIndexPlaylists] = useState<number>(20)
   const [indexAlbums, setIndexAlbums] = useState<number>(20)
@@ -49,19 +48,18 @@ function Playlists() {
     <section className="Playlists">
       <h3>Top Charts</h3>
       {/* <Slider {...settings} {...{ beforeChange: this.loadMorePlaylists }}> */}
-      <Glider
-        draggable
-        hasArrows
-        hasDots
-        slidesToScroll={7}
-        slidesToShow={7}
-        className="gradient-outline"
-        ref={gliderRef}
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={5}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
       >
         {state.topChart?.playlists.data.map((playlist) => (
-          <Playlist playlist={playlist} key={playlist.id} />
+          <SwiperSlide key={playlist.id}>
+            <Playlist playlist={playlist} key={playlist.id} />
+          </SwiperSlide>
         ))}
-      </Glider>
+      </Swiper>
     </section>
   )
 }

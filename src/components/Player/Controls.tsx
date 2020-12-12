@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Button } from 'antd'
 import { Context } from '../../context/Context'
 import { searchArtistInfo } from '../../helpers/search'
 import { random } from '../../helperFunctions'
-import Rewind from './Rewind'
-import Forward from './Forward'
+import Rewind from './rewind.svg'
+import Forward from './forward.svg'
 import icons from '../../icons'
-import previousTracksReducer from '../../reducers/previousTracksReducer'
 
 const { DZ } = window
 
@@ -29,7 +29,7 @@ function Controls({ repeat }: { repeat: boolean }) {
     setIsPlaying(true)
     DZ?.player.pause()
     if (state.previousTracks?.length && state.track) {
-      const previousTrack = previousTracksReducer[previousTracksReducer.length - 1]
+      const previousTrack = state.previousTracks[state.previousTracks.length - 1]
       dispatch({ type: 'CHANGE_TRACK', payload: previousTrack })
       dispatch({ type: 'PREV_TRACK', payload: previousTrack })
       DZ?.player.playTracks([state.track?.id])
@@ -44,16 +44,16 @@ function Controls({ repeat }: { repeat: boolean }) {
   }, [state.track])
 
   return (
-    <div className="controls">
-      <button>
-        <Rewind onClick={rewind} />
-      </button>
-      <button onClick={changeIsPlaying}>
+    <div className="Controls">
+      <Button onClick={rewind} type="text">
+        <img src={Rewind} alt="rewind" />
+      </Button>
+      <Button onClick={changeIsPlaying} type="text">
         <img src={isPlaying ? '/assets/images/pause.png' : icons.play} alt="play button" />
-      </button>
-      <button>
-        <Forward onClick={changeTrack} />
-      </button>
+      </Button>
+      <Button onClick={changeTrack} type="text">
+        <img src={Forward} alt="forward" />
+      </Button>
     </div>
   )
 }

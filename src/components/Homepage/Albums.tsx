@@ -1,13 +1,12 @@
 import React, { useState, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Glider, { GliderMethods } from 'react-glider'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import fetchJsonp from 'fetch-jsonp'
 import { Context } from '../../context/Context'
 // import { randomAlbumTrack } from 'helperFunctions'
-import 'glider-js/glider.min.css'
+import 'swiper/swiper.scss'
 
 function Playlists() {
-  const gliderRef = useRef<GliderMethods>(null)
   const { state, dispatch } = useContext(Context)
   const [indexPlaylists, setIndexPlaylists] = useState<number>(20)
   const [indexAlbums, setIndexAlbums] = useState<number>(20)
@@ -60,17 +59,14 @@ function Playlists() {
     <section className="Albums">
       <h3>Trending Albums</h3>
       {/* <Slider {...settings} {...{ beforeChange: this.loadMoreAlbums }}> */}
-      <Glider
-        draggable
-        hasArrows
-        hasDots
-        slidesToScroll={7}
-        slidesToShow={7}
-        className="gradient-outline"
-        ref={gliderRef}
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={5}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
       >
         {state.topChart?.albums.data.map((album) => (
-          <div key={album.id}>
+          <SwiperSlide key={album.id}>
             <Link to={`/album/${album.id}`} onClick={() => findAlbum(album.id)}>
               <figure>
                 <img src={album.cover_medium && album.cover_medium.replace(/(250)x\1/, '200x200')} alt={album.title} />
@@ -82,9 +78,9 @@ function Playlists() {
                 </figcaption>
               </figure>
             </Link>
-          </div>
+          </SwiperSlide>
         ))}
-      </Glider>
+      </Swiper>
     </section>
   )
 }

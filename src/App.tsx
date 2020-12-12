@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
 import { Context } from './context/Context'
@@ -6,21 +6,13 @@ import { mainReducer, initialState } from './reducers'
 import Player from './components/Player/Player'
 import Search from './components/Search/Search'
 import Homepage from './components/Homepage/Homepage'
-import ArtistPage from './components/ArtistPage'
+import ArtistPage from './components/ArtistPage/ArtistPage'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import './App.scss'
-import 'antd/dist/antd.css'
-
-declare global {
-  interface Window {
-    DZ: any
-  }
-}
 
 const App = () => {
   const [state, dispatch] = useReducer(mainReducer, initialState)
-  const [repeat, setRepeat] = useState(false)
   const { Content } = Layout
 
   return (

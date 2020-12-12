@@ -14,8 +14,8 @@ const Player: React.FC = () => {
     <section className="player">
       <SmallCover />
       <Controls repeat={repeat} />
-      {/* <Progress /> */}
-      {/* <Volume repeat={repeat} changeRepeat={toggleRepeat} /> */}
+      <Progress />
+      <Volume repeat={repeat} changeRepeat={toggleRepeat} />
     </section>
   )
 }

@@ -16,9 +16,7 @@ function Login() {
       }
     })
 
-  useEffect(() => {
-    getLoginStatus()
-  }, [])
+  useEffect(getLoginStatus, [])
 
   const playFlow = () => {
     dispatch({ type: 'FIND_ALBUMS_TRACKS', payload: 0 })

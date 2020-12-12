@@ -101,3 +101,9 @@ export type TopChartType = {
     total: number
   }
 }
+
+declare global {
+  interface Window {
+    DZ: any
+  }
+}
