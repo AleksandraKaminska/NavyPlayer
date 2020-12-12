@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from 'actions'
 import store from 'store'
 import fetchJsonp from 'fetch-jsonp'
-import './style.scss'
+import './style.less'
 
 const { DZ } = window
 

@@ -10,7 +10,7 @@ import React, { useState, useContext, useEffect } from 'react'
 // import Albums from '../Albums'
 import fetchJsonp from 'fetch-jsonp'
 import { Context } from '../../context/Context'
-// import './artist.scss'
+// import './artist.less'
 
 const ArtistPage: React.FC = () => {
   const { state, dispatch } = useContext(Context)

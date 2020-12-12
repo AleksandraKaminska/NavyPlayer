@@ -1,20 +1,24 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Button } from 'antd'
 import { Context } from '../../context/Context'
 import { randomFlowTrack } from '../../helperFunctions'
 import { login } from '../../helpers/login'
-// import './style.scss'
+// import './style.less'
 const { DZ } = window
 
 function Login() {
   const { state, dispatch } = useContext(Context)
   const [logged, setLogged] = useState(false)
+
   const getLoginStatus = () =>
-    DZ?.getLoginStatus(({ status }) => {
-      setLogged(status === 'connected')
-      if (!logged && status === 'connected') {
-        login(dispatch)
-      }
-    })
+    DZ?.ready(() =>
+      DZ?.getLoginStatus(({ status }) => {
+        setLogged(status === 'connected')
+        if (!logged && status === 'connected') {
+          login(dispatch)
+        }
+      })
+    )
 
   useEffect(getLoginStatus, [])
 
@@ -25,7 +29,7 @@ function Login() {
   }
 
   const handleClick = () => {
-    if (logged && state.flow.length) {
+    if (logged) {
       playFlow()
     } else {
       login(dispatch)
@@ -33,9 +37,9 @@ function Login() {
   }
 
   return (
-    <button className="login" onClick={handleClick}>
+    <Button className="login" size="large" type="primary" ghost onClick={handleClick}>
       {logged ? 'FLOW' : 'Log In'}
-    </button>
+    </Button>
   )
 }
 

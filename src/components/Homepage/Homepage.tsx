@@ -5,7 +5,7 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { Context } from '../../context/Context'
 import Playlists from './Playlists'
 import Albums from './Albums'
-import './Homepage.scss'
+import './Homepage.less'
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 

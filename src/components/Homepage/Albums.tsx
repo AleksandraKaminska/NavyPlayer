@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import fetchJsonp from 'fetch-jsonp'
 import { Context } from '../../context/Context'
 // import { randomAlbumTrack } from 'helperFunctions'
-import 'swiper/swiper.scss'
+import 'swiper/swiper.less'
 
 function Playlists() {
   const { state, dispatch } = useContext(Context)

@@ -10,6 +10,7 @@ import previousTracksReducer from './previousTracksReducer'
 import flowReducer from './flowReducer'
 import artistPlaylistReducer from './artistPlaylistReducer'
 import topChartReducer from './topChartReducer'
+import searchReducer, { SearchStateType } from './searchReducer'
 import { ArtistType, AlbumType, TrackType, TopChartType, PlaylistType } from '../types/deezerData'
 
 export type StateType = {
@@ -25,6 +26,7 @@ export type StateType = {
   flow?: any
   artistPlaylist?: any
   topChart?: TopChartType
+  searchResults?: SearchStateType
 }
 
 export const initialState: StateType = {
@@ -46,6 +48,7 @@ export const mainReducer: (state: any, action: any) => any = (state, action) => 
     previousTracks: previousTracksReducer(state.previousTracks, action),
     flow: flowReducer(state.flow, action),
     artistPlaylist: artistPlaylistReducer(state.artistPlaylist, action),
-    topChart: topChartReducer(state.topChart, action)
+    topChart: topChartReducer(state.topChart, action),
+    searchResults: searchReducer(state.search, action)
   }
 }

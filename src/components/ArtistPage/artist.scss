@@ -1,4 +1,4 @@
-@import 'sass/modules/_mixins.scss';
+@import 'sass/modules/_mixins.less';
 
 .artist {
   h2 {
@@ -10,7 +10,7 @@
     display: none;
   }
   @media (min-width: 768px) {
-    @import 'sass/partials/desktop/_main.scss';
+    @import 'sass/partials/desktop/_main.less';
     footer {
       display: block;
     }

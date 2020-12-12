@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { Input } from 'antd'
-const { Search } = Input
+import fetchJsonp from 'fetch-jsonp'
+import { Context } from '../../context/Context'
+import './SearchInput.less'
 
-type SearchInputProps = {
-  placeholder: string
-  handleChange?: any
-}
+function SearchInput() {
+  const { dispatch } = useContext(Context)
 
-function SearchInput({ placeholder, handleChange }: SearchInputProps, ref) {
+  const fetchResults = async (value: string) =>
+    await (await fetchJsonp(`https://api.deezer.com/search/autocomplete?q=${value}&output=jsonp`)).json()
+
+  const handleChange = async ({ target }) => {
+    if (target.value !== '') {
+      const data = await fetchResults(target.value)
+      dispatch({ type: 'SEARCH', payload: data })
+    }
+  }
+
   return (
-    <Search placeholder={placeholder} allowClear onSearch={handleChange} style={{ width: 200, margin: '0 10px' }} />
+    <Link to="/search" className="SearchInput">
+      <Input.Search
+        placeholder="Search"
+        size="large"
+        allowClear
+        onChange={handleChange}
+        bordered={false}
+        style={{ width: '100%' }}
+      />
+    </Link>
   )
 }
 
-export default React.forwardRef(SearchInput)
+export default SearchInput

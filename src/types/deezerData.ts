@@ -36,7 +36,7 @@ export type AlbumType = {
 
 export type TrackType = {
   id: number
-  album: any
+  album: AlbumType
   artist: ArtistType
   duration: number
   explicit_content_cover: number
@@ -89,7 +89,7 @@ export type TopChartType = {
     total: number
   }
   playlists: {
-    data: Array<any>
+    data: Array<PlaylistType>
     total: number
   }
   podcasts: {

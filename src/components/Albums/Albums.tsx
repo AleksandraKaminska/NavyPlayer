@@ -2,7 +2,7 @@ import React, { useRef, useState, useContext } from 'react'
 // import AlbumSongs from './albumSongs'
 import fetchJsonp from 'fetch-jsonp'
 import { Context } from '../../context/Context'
-// import './style.scss'
+// import './style.less'
 
 const windowWidth = window.innerWidth
 const showCount = windowWidth <= 414 ? 2 : windowWidth > 414 && windowWidth < 768 ? 3 : 7

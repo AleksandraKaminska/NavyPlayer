@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { randomArtistTrack } from '../../helperFunctions'
 import { Context } from '../../context/Context'
-// import './style.scss'
+// import './style.less'
 
 function Artist() {
   const { state, dispatch } = useContext(Context)

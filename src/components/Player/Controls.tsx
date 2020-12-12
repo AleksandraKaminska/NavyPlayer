@@ -1,31 +1,30 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Button } from 'antd'
+import { ReactSVG } from 'react-svg'
+import { Button, Space, Tooltip } from 'antd'
 import { Context } from '../../context/Context'
 import { searchArtistInfo } from '../../helpers/search'
 import { random } from '../../helperFunctions'
-import Rewind from './rewind.svg'
-import Forward from './forward.svg'
-import icons from '../../icons'
-
+import PlayIcon from './play.svg'
+import RewindIcon from './rewind.svg'
+import ForwardIcon from './forward.svg'
 const { DZ } = window
 
 function Controls({ repeat }: { repeat: boolean }) {
   const { state, dispatch } = useContext(Context)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
-  const changeIsPlaying = () => {
-    const playing = DZ?.player.isPlaying() || false
-    setIsPlaying(playing)
-    playing ? DZ?.player.pause() : DZ?.player.play()
+  const changeIsPlaying = (): void => {
+    setIsPlaying(!isPlaying)
+    isPlaying ? DZ?.player.pause() : DZ?.player.play()
   }
 
-  const changeTrack = () => {
+  const changeTrack = (): void => {
     setIsPlaying(true)
     DZ?.player.pause()
     repeat ? DZ?.player.playTracks([state.track?.id]) : random(state, dispatch)
   }
 
-  const rewind = () => {
+  const rewind = (): void => {
     setIsPlaying(true)
     DZ?.player.pause()
     if (state.previousTracks?.length && state.track) {
@@ -44,17 +43,27 @@ function Controls({ repeat }: { repeat: boolean }) {
   }, [state.track])
 
   return (
-    <div className="Controls">
-      <Button onClick={rewind} type="text">
-        <img src={Rewind} alt="rewind" />
-      </Button>
-      <Button onClick={changeIsPlaying} type="text">
-        <img src={isPlaying ? '/assets/images/pause.png' : icons.play} alt="play button" />
-      </Button>
-      <Button onClick={changeTrack} type="text">
-        <img src={Forward} alt="forward" />
-      </Button>
-    </div>
+    <Space className="Controls" align="center">
+      <Tooltip title="Previous">
+        <Button onClick={rewind} type="text">
+          <ReactSVG src={RewindIcon} />
+        </Button>
+      </Tooltip>
+      <Tooltip title={isPlaying ? 'Pause' : 'Play'}>
+        <Button onClick={changeIsPlaying} type="text">
+          {isPlaying ? (
+            <img src="/assets/images/pause.png" alt="pause button" width="24px" style={{ verticalAlign: 'baseline' }} />
+          ) : (
+            <ReactSVG src={PlayIcon} />
+          )}
+        </Button>
+      </Tooltip>
+      <Tooltip title="Next">
+        <Button onClick={changeTrack} type="text">
+          <ReactSVG src={ForwardIcon} />
+        </Button>
+      </Tooltip>
+    </Space>
   )
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const CracoLessPlugin = require('craco-less')
 
 module.exports = {
@@ -7,7 +8,13 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: { '@primary-color': '#1DA57A' },
+            modifyVars: {
+              '@menu-dark-bg': '#000a11',
+              '@component-background': '#000a11',
+              '@layout-header-background': '#000a11',
+              '@layout-footer-background': 'rgba(3,3,15,0.6)',
+              '@layout-body-background': '#000a11'
+            },
             javascriptEnabled: true
           }
         }

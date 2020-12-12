@@ -1,44 +1,50 @@
 import React, { useEffect, useState } from 'react'
-import { Progress as AntProgress } from 'antd'
+import { Progress as AntProgress, Row, Col } from 'antd'
 const { DZ } = window
+import './Progress.less'
 
-function Progress() {
-  const [elapsed, setElapsed] = useState('00:00')
-  const [duration, setDuration] = useState('00:00')
-  const [progress, setProgress] = useState(0)
+const Progress = () => {
+  const [elapsed, setElapsed] = useState<string>('00:00')
+  const [duration, setDuration] = useState<string>('00:00')
+  const [progress, setProgress] = useState<number>(0)
 
-  const convertTime = (time) => {
+  const convertTime = (time: number): string => {
     const min = Math.floor(time / 60)
     const s = Math.floor(time % 60)
     return `${min}:${(s < 10 ? '0' : '') + s}`
   }
 
-  const showPosition = () =>
-    DZ?.Event.subscribe('player_position', (e) => {
-      setElapsed(convertTime(e[0]))
-      setDuration(convertTime(e[1]))
-      if (e[1]) {
-        setProgress((e[0] / e[1]) * 100)
+  const showPosition = (): void =>
+    DZ?.Event.subscribe('player_position', ([elapsed, duration]: Array<number>): void => {
+      setElapsed(convertTime(elapsed))
+      setDuration(convertTime(duration))
+      if (duration) {
+        setProgress((elapsed / duration) * 100)
       }
     })
 
-  const changeSeek = ({ target, clientX }) => {
-    const { x, width } = target.getBoundingClientRect()
-    DZ?.player.seek(((clientX - x) / width) * 100)
+  const changeSeek = (event: React.MouseEvent<HTMLElement, MouseEvent>): void => {
+    const node = event.target as HTMLElement
+    const { x, width } = node.getBoundingClientRect()
+    DZ?.player.seek(((event.clientX - x) / width) * 100)
   }
 
-  useEffect(showPosition, [])
+  useEffect(showPosition)
 
   return (
-    <div className="progress">
-      <span className="elapsed">{elapsed}</span>
-      <AntProgress
-        // onClick={changeSeek}
-        percent={progress}
-        showInfo={false}
-      />
-      <span className="duration">{duration}</span>
-    </div>
+    <Row className="Progress">
+      <Col span={2} className="elapsed">
+        {elapsed}
+      </Col>
+      <Col span={20}>
+        <div className="controller" onClick={changeSeek}>
+          <AntProgress percent={progress} showInfo={false} strokeWidth={3} />
+        </div>
+      </Col>
+      <Col span={2} className="duration">
+        {duration}
+      </Col>
+    </Row>
   )
 }
 
