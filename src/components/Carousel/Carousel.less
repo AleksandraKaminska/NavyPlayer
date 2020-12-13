@@ -1,0 +1,58 @@
+@import '~antd/dist/antd.dark.less';
+
+.Carousel {
+  padding: 0 20px 50px;
+  text-align: left;
+  h2 {
+    padding: 12px 8px;
+  }
+  a {
+    color: @text-color;
+    &:hover {
+      color: @text-color;
+      text-decoration: underline;
+    }
+  }
+  p {
+    margin: 10px 0 0;
+    font-weight: 500;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+  span {
+    color: @text-color-secondary;
+    font-size: 0.9em;
+  }
+  img {
+    border-radius: 5px;
+    max-width: 100%;
+  }
+
+  [data-rounded='true'] {
+    text-align: center;
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .ant-carousel {
+    .slick-prev, .slick-next, .slick-prev:hover, .slick-next:hover {
+      font-size: 1.4em;
+      color: currentColor;
+      position: absolute;
+      top: -30px;
+      left: auto;
+    }
+    .slick-next {
+      right: 5px;
+    }
+    .slick-prev {
+      right: 25px;
+    }
+    .slide {
+      padding: 0 10px;
+    }
+  }
+}

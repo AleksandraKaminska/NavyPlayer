@@ -3,7 +3,25 @@
 .Cover {
   color: @white;
   text-align: left;
+  img {
+    width: 42px;
+    border-radius: 5px;
+  }
+  a {
+    color: @text-color;
+    &:hover {
+      color: @text-color;
+      text-decoration: underline;
+    }
+  }
+  .name {
+    color: @text-color-secondary;
+    font-size: 0.9em;
+    line-height: 1;
+  }
   .title {
-    font-weight: 900;
+    line-height: 1;
+    font-weight: 500;
+    display: block;
   }
 }

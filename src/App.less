@@ -1,7 +1,64 @@
 @import 'antd/dist/antd.less';
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
-// @import '~antd/dist/antd.compact.less'; // Introduce the official compact less style entry file
 
 .App {
-  text-align: center;
+  p {
+    margin: 0
+  }
+  .deezer {
+    text-align: right;
+    padding: 0 20px;
+  }
+  .deezerLogo {
+    height: 1em;
+    width: auto;
+  }
+
+  .ant-layout {
+    text-align: center;
+    height: 100vh;
+  }
+
+  .ant-layout-header {
+    padding: 0 15px;
+     @media (min-width: 768px) {
+      padding: 0 25px;
+    }
+    @media (min-width: 992px) {
+      padding: 0 50px;
+    }
+  }
+
+  .site-layout {
+    height: 100%;
+    max-height: calc(100vh - 64px - 73px);
+    overflow: auto;
+    padding: 0 15px;
+    @media (min-width: 768px) {
+      padding: 0 25px;
+    }
+    @media (min-width: 992px) {
+      padding: 0 50px;
+    }
+    @media (min-width: 1200px) {
+      padding: 0 50px;
+    }
+    @media (min-width: 1600px) {
+      max-width: 1600px;
+      margin: 64px auto 64px;
+    }
+  }
+
+  .site-layout-background {
+    padding: 24px 0;
+    @media (min-width: 768px) {
+      padding: 24px 0;
+    }
+    @media (min-width: 992px) {
+      padding: 24px;
+    }
+    @media (min-width: 1200px) {
+      padding: 24px;
+    }
+  }
 }

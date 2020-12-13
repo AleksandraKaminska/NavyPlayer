@@ -6,32 +6,31 @@ export type SearchActionType = {
 }
 
 export type SearchStateType = {
-  radios: {
-    data: Array<any>
-  }
-  tracks: {
+  tracks?: {
     data: Array<TrackType>
   }
-  albums: {
+  albums?: {
     data: Array<AlbumType>
   }
-  artists: {
+  artists?: {
     data: Array<ArtistType>
   }
-  playlists: {
+  playlists?: {
     data: Array<PlaylistType>
   }
-  podcasts: {
-    data: Array<any>
-  }
-  total: number
-  next: string
+  total?: number
+  next?: string
 }
 
 const searchReducer: (state: SearchStateType, action: SearchActionType) => SearchStateType = (state, action) => {
   switch (action.type) {
     case 'SEARCH':
-      return action.payload
+      return Object.keys(action.payload).reduce((obj, key) => {
+        if (key !== 'podcasts' && key !== 'radios') {
+          obj[key] = action.payload[key]
+        }
+        return obj
+      }, {})
     default:
       return state
   }

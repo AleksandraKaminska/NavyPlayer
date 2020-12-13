@@ -5,7 +5,7 @@ export type ArtistPlaylistsActionType = {
 
 const similarArtistsReducer: (state: any, action: ArtistPlaylistsActionType) => any = (state, action) => {
   switch (action.type) {
-    case 'FIND_ARTIST_PLAYLISTS':
+    case 'ARTIST_PLAYLISTS':
       return action.payload
     default:
       return state

@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Layout } from 'antd'
+import { Layout, Space, Button } from 'antd'
+import { login } from './helpers/login'
+import DeezerLogo from './deezerLogo.svg'
 import { Context } from './context/Context'
 import { mainReducer, initialState } from './reducers'
 import Search from './components/Search/Search'
@@ -20,10 +22,10 @@ const App = () => {
         <Router>
           <Layout>
             <Header />
-            <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-              <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+            <Content className="site-layout">
+              <div className="site-layout-background">
                 <Switch>
-                  <Route exact path="/artist">
+                  <Route path="/artists">
                     <ArtistPage />
                   </Route>
                   <Route exact path="/search">
@@ -33,6 +35,14 @@ const App = () => {
                     <Homepage />
                   </Route>
                 </Switch>
+              </div>
+              <div onClick={login} className="deezer">
+                <Space align="baseline">
+                  <p>Powered by Deezer</p>
+                  <Button type="link" href="https://deezer.com" target="_blank" rel="noopener noreferrer">
+                    <img src={DeezerLogo} alt="Deezer Logo" className="deezerLogo" />
+                  </Button>
+                </Space>
               </div>
             </Content>
             <Footer />

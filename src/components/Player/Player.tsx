@@ -13,16 +13,16 @@ const Player = () => {
   return (
     <section className="Player">
       <Row align="middle">
-        <Col span={5} className="align-start">
+        <Col xs={{ span: 6 }} xl={{ span: 5 }} className="align-start">
           <SmallCover />
         </Col>
-        <Col span={3}>
+        <Col xs={{ span: 6, offset: 1 }} xl={{ span: 3, offset: 0 }}>
           <Controls repeat={repeat} />
         </Col>
-        <Col span={14}>
+        <Col xs={{ span: 3, offset: 1 }} xl={{ span: 14, offset: 0 }}>
           <Progress />
         </Col>
-        <Col span={2}>
+        <Col xs={{ span: 6, offset: 1 }} xl={{ span: 2, offset: 0 }}>
           <Volume repeat={repeat} changeRepeat={toggleRepeat} />
         </Col>
       </Row>

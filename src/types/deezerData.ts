@@ -80,23 +80,19 @@ export type UserType = {
 }
 
 export type TopChartType = {
-  albums: {
+  albums?: {
     data: Array<AlbumType>
     total: number
   }
-  artists: {
+  artists?: {
     data: Array<ArtistType>
     total: number
   }
-  playlists: {
+  playlists?: {
     data: Array<PlaylistType>
     total: number
   }
-  podcasts: {
-    data: Array<any>
-    total: number
-  }
-  tracks: {
+  tracks?: {
     data: Array<TrackType>
     total: number
   }

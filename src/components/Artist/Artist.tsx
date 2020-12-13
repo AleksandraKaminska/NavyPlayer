@@ -1,38 +1,22 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { randomArtistTrack } from '../../helperFunctions'
+import { changeArtistTrackList } from '../../helperFunctions'
 import { Context } from '../../context/Context'
-// import './style.less'
+import { ArtistType } from '../../types/deezerData'
 
-function Artist() {
+function Artist({ data }: { data?: ArtistType }) {
   const { state, dispatch } = useContext(Context)
-
-  const runArtistPlaylist = () => {
-    dispatch({ type: 'CHANGE_PLAYLIST', payload: 0 })
-    dispatch({ type: 'FIND_ALBUMS_TRACKS', payload: 0 })
-    randomArtistTrack(state, dispatch)
-  }
-
-  return (
-    <section className="Artist">
-      <h1 className="name">
-        {state.artist?.name}
-        <Link to={`/artist/${state.artist?.id}`} className="listen">
-          <button onClick={runArtistPlaylist}>Listen</button>
-        </Link>
-      </h1>
-
-      {/* <p className="bio">{(data && data.artistBio) || ''}</p>
-      <div className="genres">
-        {data &&
-          data.artistGeneres.map((e) => (
-            <div key={e} className="artist__info__genre">
-              {e}
-            </div>
-          ))}
-      </div> */}
-    </section>
-  )
+  return data ? (
+    <div className="Artist">
+      <Link to={`/artists/${data.id}`} onClick={() => changeArtistTrackList(state, dispatch, data.id)}>
+        <img src={data.picture_medium} alt={data.name} />
+      </Link>
+      <Link to={`/artists/${data.id}`}>
+        <p>{data.name}</p>
+      </Link>
+      <span>{data.nb_fan} Fans</span>
+    </div>
+  ) : null
 }
 
 export default Artist

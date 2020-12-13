@@ -4,6 +4,12 @@ const { DZ } = window
 
 type DispatchType = React.Dispatch<{ type: string; payload: any }>
 
+export const searchApi: (value: string, type?: string, limit?: number) => Promise<any> = async (
+  value,
+  type = 'autocomplete',
+  limit = 10
+) => await (await fetchJsonp(`https://api.deezer.com/search/${type}?q=${value}&limit=${limit}&output=jsonp`)).json()
+
 export const searchArtistInfo = ({ id, artist }: TrackType, dispatch: DispatchType): void => {
   const ARTIST_API = `https://api.deezer.com/artist/${artist?.id}`
   searchArtist(dispatch, ARTIST_API)
@@ -16,12 +22,12 @@ export const searchArtistInfo = ({ id, artist }: TrackType, dispatch: DispatchTy
 
 const searchArtist = (dispatch: DispatchType, url: string) => fetch(url, dispatch, 'FIND_ARTIST')
 
-const searchTopTracks = (dispatch: DispatchType, url: string) => fetch(`${url}/top`, dispatch, 'FIND_TOP_TRACKS')
+const searchTopTracks = (dispatch: DispatchType, url: string) => fetch(`${url}/top`, dispatch, 'ARTIST_TRACK_LIST')
 
 const searchArtistPlaylists = (dispatch: DispatchType, url: string) =>
-  fetch(`${url}/playlists`, dispatch, 'FIND_ARTIST_PLAYLISTS')
+  fetch(`${url}/playlists`, dispatch, 'ARTIST_PLAYLISTS')
 
-const searchAlbums = (dispatch: DispatchType, url: string) => fetch(`${url}/albums`, dispatch, 'FIND_ALBUMS')
+const searchAlbums = (dispatch: DispatchType, url: string) => fetch(`${url}/albums`, dispatch, 'ALBUMS')
 
 const searchSimilarArtists = (dispatch: DispatchType, url: string) =>
   fetch(`${url}/related`, dispatch, 'FIND_SIMILAR_ARTISTS')

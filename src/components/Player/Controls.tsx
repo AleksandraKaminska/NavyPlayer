@@ -21,7 +21,7 @@ function Controls({ repeat }: { repeat: boolean }) {
   const changeTrack = (): void => {
     setIsPlaying(true)
     DZ?.player.pause()
-    repeat ? DZ?.player.playTracks([state.track?.id]) : random(state, dispatch)
+    repeat ? DZ.player.setRepeat(2) : random(state, dispatch)
   }
 
   const rewind = (): void => {
@@ -31,21 +31,22 @@ function Controls({ repeat }: { repeat: boolean }) {
       const previousTrack = state.previousTracks[state.previousTracks.length - 1]
       dispatch({ type: 'CHANGE_TRACK', payload: previousTrack })
       dispatch({ type: 'PREV_TRACK', payload: previousTrack })
-      DZ?.player.playTracks([state.track?.id])
-      searchArtistInfo(state.track, dispatch)
-    } else {
-      random(state, dispatch)
+      searchArtistInfo(previousTrack, dispatch)
     }
   }
 
+  DZ?.Event.subscribe('track_end', () => {
+    changeTrack()
+  })
+
   useEffect(() => {
-    setIsPlaying(true)
-  }, [state.track])
+    changeTrack()
+  }, [])
 
   return (
     <Space className="Controls" align="center">
       <Tooltip title="Previous">
-        <Button onClick={rewind} type="text">
+        <Button onClick={rewind} type="text" disabled={state.previousTracks?.length === 0}>
           <ReactSVG src={RewindIcon} />
         </Button>
       </Tooltip>

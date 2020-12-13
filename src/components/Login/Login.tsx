@@ -23,8 +23,8 @@ function Login() {
   useEffect(getLoginStatus, [])
 
   const playFlow = () => {
-    dispatch({ type: 'FIND_ALBUMS_TRACKS', payload: 0 })
-    dispatch({ type: 'ARTIST_PLAYLIST', payload: [] })
+    dispatch({ type: 'ALBUMS_TRACKS', payload: 0 })
+    dispatch({ type: 'ARTIST_TRACK_LIST', payload: undefined })
     randomFlowTrack(state, dispatch)
   }
 

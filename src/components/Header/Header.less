@@ -1,6 +1,4 @@
 .Header {
-  padding-left: 0;
-  padding-right: 0;
   border-bottom: 1px solid #33363b;
   .menu {
     padding: 0 50px;
@@ -10,5 +8,20 @@
   .align-center {
     display: flex;
     align-items: center;
+  }
+  .logo {
+    height: 2.5em;
+  }
+  .menu  {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+  .ant-btn  {
+    display: none;
+    @media (min-width: 768px) {
+      display: inline-block;
+    }
   }
 }

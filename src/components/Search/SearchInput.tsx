@@ -1,20 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import debounce from 'lodash/debounce'
 import { Input } from 'antd'
-import fetchJsonp from 'fetch-jsonp'
+import { searchApi } from '../../helpers/search'
 import { Context } from '../../context/Context'
 import './SearchInput.less'
 
 function SearchInput() {
   const { dispatch } = useContext(Context)
+  const [loading, setLoading] = useState<boolean>(false)
 
-  const fetchResults = async (value: string) =>
-    await (await fetchJsonp(`https://api.deezer.com/search/autocomplete?q=${value}&output=jsonp`)).json()
+  const handleChange = debounce(({ target }) => search(target.value), 250)
 
-  const handleChange = async ({ target }) => {
-    if (target.value !== '') {
-      const data = await fetchResults(target.value)
+  const search = async (value: string) => {
+    if (value !== '') {
+      setLoading(true)
+      const data = await searchApi(value)
       dispatch({ type: 'SEARCH', payload: data })
+      setLoading(false)
     }
   }
 
@@ -26,6 +29,8 @@ function SearchInput() {
         allowClear
         onChange={handleChange}
         bordered={false}
+        loading={loading}
+        onSearch={search}
         style={{ width: '100%' }}
       />
     </Link>

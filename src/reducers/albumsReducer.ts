@@ -11,7 +11,7 @@ export type AlbumsActionType = {
 
 const contactsReducer: (state: Array<AlbumType>, action: AlbumsActionType) => Array<AlbumType> = (state, action) => {
   switch (action.type) {
-    case 'FIND_ALBUMS':
+    case 'ALBUMS':
       return action.payload.data
     default:
       return state

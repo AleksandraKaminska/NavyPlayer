@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
-import { choosePlaylist } from 'helperFunctions'
+import { Link } from 'react-router-dom'
+import { choosePlaylist } from '../../helperFunctions'
 import './style.less'
 
 export class ArtistPlaylist extends Component {

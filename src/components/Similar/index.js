@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as actions from 'actions'
-import store from 'store'
-import { searchArtistInfo } from 'helperFunctions'
+import { connect } from '../Album/node_modules/react-redux'
+import * as actions from '../Album/node_modules/actions'
+import store from '../Album/node_modules/store'
+import { searchArtistInfo } from '../Album/node_modules/helperFunctions'
 import fetchJsonp from 'fetch-jsonp'
 import './style.less'
 
