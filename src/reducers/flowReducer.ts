@@ -7,7 +7,7 @@ export type AlbumsTracksActionType = {
 
 const contactsReducer: (state: AlbumType, action: AlbumsTracksActionType) => AlbumType = (state, action) => {
   switch (action.type) {
-    case 'ALBUM':
+    case 'FLOW':
       return action.payload
     default:
       return state

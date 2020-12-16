@@ -2,13 +2,18 @@ import { TrackType } from '../types/deezerData'
 
 export type ArtistTrackListActionType = {
   type: string
-  payload: Array<TrackType>
+  payload: ArtistTrackListStateType
 }
 
-const artistTrackListReducer: (state: Array<TrackType>, action: ArtistTrackListActionType) => Array<TrackType> = (
-  state,
-  action
-) => {
+export type ArtistTrackListStateType = {
+  data: Array<TrackType>
+  total: number
+}
+
+const artistTrackListReducer: (
+  state: ArtistTrackListStateType,
+  action: ArtistTrackListActionType
+) => ArtistTrackListStateType = (state, action) => {
   switch (action.type) {
     case 'ARTIST_TRACK_LIST':
       return action.payload

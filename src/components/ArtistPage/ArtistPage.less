@@ -1,5 +1,24 @@
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+
 .ArtistPage {
-  h1 {
-    margin: 0;
+  .name {
+    margin: -24px -74px -70px !important;
+    padding: 100px 66px 150px;
+    background-size: cover;
+    background-position: center;
+    h1 {
+      margin: 0;
+      font-size: 5.5em;
+    }
+    span {
+      font-size: 1.1em;
+    }
+  }
+  .site-custom-tab-bar {
+    z-index: 1;
+  }
+
+  a.ant-typography, .ant-typography a, a {
+    color: @text-color;
   }
 }

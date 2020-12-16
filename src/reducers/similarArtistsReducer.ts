@@ -2,13 +2,18 @@ import { ArtistType } from '../types/deezerData'
 
 export type SimilarArtistActionType = {
   type: string
-  payload: Array<ArtistType>
+  payload: SimilarArtistStateType
 }
 
-const similarArtistsReducer: (state: Array<ArtistType>, action: SimilarArtistActionType) => Array<ArtistType> = (
-  state,
-  action
-) => {
+export type SimilarArtistStateType = {
+  data: Array<ArtistType>
+  total: number
+}
+
+const similarArtistsReducer: (
+  state: SimilarArtistStateType,
+  action: SimilarArtistActionType
+) => SimilarArtistStateType = (state, action) => {
   switch (action.type) {
     case 'FIND_SIMILAR_ARTISTS':
       return action.payload

@@ -41,7 +41,7 @@ const Progress = () => {
           <AntProgress percent={progress} showInfo={false} strokeWidth={3} />
         </div>
       </Col>
-      <Col span={2} className="duration">
+      <Col span={1} offset={1} className="duration">
         {duration}
       </Col>
     </Row>

@@ -1,9 +1,19 @@
+import { PlaylistType } from '../types/deezerData'
+
 export type ArtistPlaylistsActionType = {
   type: string
-  payload: any
+  payload: ArtistPlaylistsStateType
 }
 
-const similarArtistsReducer: (state: any, action: ArtistPlaylistsActionType) => any = (state, action) => {
+export type ArtistPlaylistsStateType = {
+  data: Array<PlaylistType>
+  total: number
+}
+
+const similarArtistsReducer: (
+  state: ArtistPlaylistsStateType,
+  action: ArtistPlaylistsActionType
+) => ArtistPlaylistsStateType = (state, action) => {
   switch (action.type) {
     case 'ARTIST_PLAYLISTS':
       return action.payload

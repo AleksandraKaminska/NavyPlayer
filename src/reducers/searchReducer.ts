@@ -20,6 +20,7 @@ export type SearchStateType = {
   }
   total?: number
   next?: string
+  value?: string
 }
 
 const searchReducer: (state: SearchStateType, action: SearchActionType) => SearchStateType = (state, action) => {

@@ -1,13 +1,13 @@
 import albumsReducer from './albumsReducer'
 import albumReducer from './albumReducer'
 import artistReducer from './artistReducer'
-import similarArtistsReducer from './similarArtistsReducer'
-import artistPlaylistsReducer from './artistPlaylistsReducer'
+import similarArtistsReducer, { SimilarArtistStateType } from './similarArtistsReducer'
+import artistPlaylistsReducer, { ArtistPlaylistsStateType } from './artistPlaylistsReducer'
 import playlistReducer from './playlistReducer'
 import trackReducer from './trackReducer'
 import previousTracksReducer from './previousTracksReducer'
 import flowReducer from './flowReducer'
-import artistTrackListReducer from './artistTrackListReducer'
+import artistTrackListReducer, { ArtistTrackListStateType } from './artistTrackListReducer'
 import topChartReducer from './topChartReducer'
 import searchReducer, { SearchStateType } from './searchReducer'
 import { ArtistType, AlbumType, TrackType, TopChartType, PlaylistType } from '../types/deezerData'
@@ -18,11 +18,11 @@ export type StateType = {
   artist?: ArtistType
   playlist?: PlaylistType
   track?: TrackType
-  artistPlaylists?: Array<any>
-  similarArtists?: Array<ArtistType>
+  artistPlaylists?: ArtistPlaylistsStateType
+  similarArtists?: SimilarArtistStateType
   previousTracks?: Array<TrackType>
   flow?: any
-  artistTrackList?: any
+  artistTrackList?: ArtistTrackListStateType
   topChart?: TopChartType
   searchResults?: SearchStateType
 }
@@ -30,8 +30,6 @@ export type StateType = {
 export const initialState: StateType = {}
 
 export const mainReducer: (state: any, action: any) => any = (state, action) => {
-  // console.log(state)
-  // console.log(action)
   return {
     album: albumReducer(state.album, action),
     albums: albumsReducer(state.albums, action),

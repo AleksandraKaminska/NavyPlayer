@@ -1,10 +1,9 @@
-import React, { useRef, useEffect, useContext } from 'react'
+import React, { useRef } from 'react'
 import { Link, LinkProps, useLocation } from 'react-router-dom'
 import { RightOutlined, LeftOutlined } from '@ant-design/icons'
-import { Row, Col, Carousel, Button } from 'antd'
-import { Context } from '../../context/Context'
-import { searchApi } from '../../helpers/search'
+import { Row, Col, Carousel, Button, Typography } from 'antd'
 import './Carousel.less'
+const { Title } = Typography
 
 export interface CarouselRef {
   goTo: (slide: number, dontAnimate?: boolean) => void
@@ -24,15 +23,14 @@ type CarouselProps = {
   onSlideChange?: any
   rounded?: boolean
   type?: string
+} & {
+  [extraPropName: string]: any
 }
 
-function Slider({ children, title, link, data, slider, onSlideChange, className, rounded, type }: CarouselProps) {
+function Slider(props: CarouselProps) {
   const carousel = useRef<CarouselRef | null>(null)
   const { state }: any = useLocation()
-  const {
-    state: { searchResults },
-    dispatch
-  } = useContext(Context)
+  const { children, title, link, data, slider, onSlideChange, className, rounded, type } = props
   const currentType = type && state?.type === type + 's'
 
   const header = link ? (
@@ -47,17 +45,9 @@ function Slider({ children, title, link, data, slider, onSlideChange, className,
     title
   )
 
-  useEffect(() => {
-    if (currentType) {
-      searchApi('hello', type, 100).then(({ data }) =>
-        dispatch({ type: 'SEARCH', payload: { ...searchResults, [type + 's']: { data } } })
-      )
-    }
-  }, [state?.type, type])
-
   return (
     <div className={`Carousel ${className || ''}`}>
-      <h2>{header}</h2>
+      <Title level={2}>{header}</Title>
       {slider ? (
         <>
           <Carousel
@@ -111,7 +101,7 @@ function Slider({ children, title, link, data, slider, onSlideChange, className,
           </Carousel>
         </>
       ) : (
-        <Row justify="space-between">
+        <Row justify="space-between" gutter={[16, 32]} {...props}>
           {data?.map((element) => (
             <Col key={element.id} data-rounded={rounded}>
               {React.cloneElement(children, { data: element, rounded: rounded })}

@@ -1,16 +1,23 @@
-import React, { useContext, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { Table } from 'antd'
+import React, { useContext } from 'react'
+import { Link, LinkProps, useLocation } from 'react-router-dom'
+import { Table, Space, Typography } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
-import { Icon } from './Search'
-import { searchArtistInfo, searchApi } from '../../helpers/search'
+import { Icon } from '../Search/Search'
+import { searchArtistInfo } from '../../helpers/search'
 import { Context } from '../../context/Context'
 import { TrackType } from '../../types/deezerData'
-import './Search.less'
+import './Tracks.less'
+const { Title } = Typography
 
-function Tracks() {
+type TracksProps = {
+  data?: Array<TrackType>
+  title: string
+  link: LinkProps['to']
+}
+
+function Tracks({ data, title, link }: TracksProps) {
   const {
-    state: { searchResults, track },
+    state: { track },
     dispatch
   } = useContext(Context)
   const { state }: any = useLocation()
@@ -20,8 +27,6 @@ function Tracks() {
     dispatch({ type: 'CHANGE_TRACK', payload: item })
     searchArtistInfo(item, dispatch)
   }
-
-  const data = state?.type === 'tracks' ? searchResults?.tracks?.data : searchResults?.tracks?.data.slice(0, 6)
 
   const dataSource = data?.map((track) => {
     const handleClick = () => selectSong(track)
@@ -70,14 +75,6 @@ function Tracks() {
     }
   ]
 
-  useEffect(() => {
-    if (state?.type === 'tracks') {
-      searchApi('hello', 'track', 100).then(({ data }) => {
-        dispatch({ type: 'SEARCH', payload: { ...searchResults, tracks: { data } } })
-      })
-    }
-  }, [state?.type])
-
   return (
     <Table
       className="Tracks"
@@ -88,13 +85,17 @@ function Tracks() {
       size="middle"
       title={() =>
         state?.type === 'tracks' ? (
-          <h2>{searchResults?.tracks?.data.length} Tracks</h2>
+          <Title level={2}>
+            {data?.length} {title}
+          </Title>
         ) : (
-          <h2>
-            <Link to={{ pathname: '/search', state: { type: 'tracks' } }}>
-              Tracks <Icon />
+          <Title level={2}>
+            <Link to={link}>
+              <Space align="baseline">
+                {title} <Icon />
+              </Space>
             </Link>
-          </h2>
+          </Title>
         )
       }
     />

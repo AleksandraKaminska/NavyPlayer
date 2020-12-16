@@ -7,7 +7,7 @@ import { Context } from '../../context/Context'
 import './SearchInput.less'
 
 function SearchInput() {
-  const { dispatch } = useContext(Context)
+  const { state, dispatch } = useContext(Context)
   const [loading, setLoading] = useState<boolean>(false)
 
   const handleChange = debounce(({ target }) => search(target.value), 250)
@@ -16,7 +16,7 @@ function SearchInput() {
     if (value !== '') {
       setLoading(true)
       const data = await searchApi(value)
-      dispatch({ type: 'SEARCH', payload: data })
+      dispatch({ type: 'SEARCH', payload: { ...data, value: value || state.searchResults?.value } })
       setLoading(false)
     }
   }
