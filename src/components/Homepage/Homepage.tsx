@@ -37,7 +37,7 @@ const Homepage = () => {
   }, [])
 
   return state.topChart ? (
-    <div className="Homepage">
+    <div className="Homepage" data-testid="homepage">
       <Carousel
         className="playlists"
         title="Popular playlists"

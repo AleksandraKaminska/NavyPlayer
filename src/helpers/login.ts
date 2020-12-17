@@ -11,6 +11,7 @@ export const login = (dispatch) =>
             fetchJsonp(`https://api.deezer.com${URL}`)
               .then((resp) => resp.json())
               .then(({ data }) => {
+                console.log(data)
                 if (data?.length) {
                   dispatch({
                     type: 'FLOW',

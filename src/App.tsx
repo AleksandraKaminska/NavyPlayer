@@ -39,13 +39,7 @@ const App = () => {
               <div onClick={login} className="deezer">
                 <Space align="baseline">
                   <p>Powered by Deezer</p>
-                  <Button
-                    type="link"
-                    href="https://deezer.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="deezer-logo"
-                  >
+                  <Button type="link" href="https://deezer.com" target="_blank" name="deezer logo">
                     <img src={DeezerLogo} alt="Deezer Logo" className="deezerLogo" />
                   </Button>
                 </Space>
