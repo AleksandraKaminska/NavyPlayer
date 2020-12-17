@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { getByText, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Album from './Album'
 import { AlbumType, ArtistType } from '../../types/deezerData'
@@ -53,4 +53,5 @@ test('does not render if data props not passed', () => {
   render(<Album />, { wrapper: BrowserRouter })
   expect(screen.queryByAltText(/album title/i)).not.toBeInTheDocument()
   expect(screen.queryByText(/album title/i)).not.toBeInTheDocument()
+  expect(screen.queryByText(/name/i)).not.toBeInTheDocument()
 })
