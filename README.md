@@ -4,6 +4,15 @@
 
 # App: https://navyplayer.netlify.app/
 
+## To do:
+
+- [ ] tests
+- [ ] albums page
+- [ ] mobile UI
+- [ ] search history
+- [ ] volume
+- [ ] fix for player
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
