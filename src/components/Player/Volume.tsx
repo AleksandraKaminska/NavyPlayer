@@ -7,7 +7,7 @@ import RepeatIcon from './repeat.svg'
 import './Volume.less'
 const { DZ } = window
 
-function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }) {
+function Volume({ repeat, changeRepeat }: { repeat: number; changeRepeat: any }) {
   const line = useRef(null)
   const ball = useRef(null)
   const [muted, setMuted] = useState<boolean>(false)
@@ -36,11 +36,6 @@ function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }
     return vol
   }
 
-  const handleRepeat = (): void => {
-    DZ?.player.setRepeat(repeat ? 0 : 2)
-    changeRepeat()
-  }
-
   const handleMute = (): void => {
     DZ?.player.setMute(!muted)
     setMuted(!muted)
@@ -52,7 +47,7 @@ function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }
     <Row className="Volume">
       <Col span={12}>
         <Tooltip title="Repeat">
-          <Button type="text" className={className} onClick={handleRepeat}>
+          <Button type="text" className={className} onClick={changeRepeat}>
             <ReactSVG src={RepeatIcon} />
           </Button>
         </Tooltip>

@@ -22,7 +22,6 @@ function Tracks({ data, title, link }: TracksProps) {
   const { state }: any = useLocation()
 
   const selectSong = (item: TrackType) => {
-    dispatch({ type: 'PREV_TRACK', payload: track })
     dispatch({ type: 'CHANGE_TRACK', payload: item })
     searchArtistInfo(item, dispatch)
   }

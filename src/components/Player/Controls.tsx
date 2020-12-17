@@ -2,15 +2,15 @@ import React, { useState, useEffect, useContext } from 'react'
 import { ReactSVG } from 'react-svg'
 import { Button, Space, Tooltip } from 'antd'
 import { DispatchContext, StateContext } from '../../context/Context'
-import { searchArtistInfo } from '../../helpers/search'
-import { random } from '../../helperFunctions'
+// import { random } from '../../helperFunctions'
 import PlayIcon from './play.svg'
 import RewindIcon from './rewind.svg'
 import ForwardIcon from './forward.svg'
 import { StateType } from '../../reducers'
+import { CurrentTrackType } from '../../types/deezerData'
 const { DZ } = window
 
-function Controls({ repeat }: { repeat: boolean }) {
+function Controls() {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
@@ -20,35 +20,18 @@ function Controls({ repeat }: { repeat: boolean }) {
     isPlaying ? DZ?.player.pause() : DZ?.player.play()
   }
 
-  const changeTrack = (): void => {
-    setIsPlaying(true)
-    DZ?.player.pause()
-    repeat ? DZ.player.setRepeat(2) : random(state, dispatch)
-  }
-
-  const rewind = (): void => {
-    setIsPlaying(true)
-    DZ?.player.pause()
-    if (state.previousTracks?.length && state.track) {
-      const previousTrack = state.previousTracks[state.previousTracks.length - 1]
-      dispatch({ type: 'CHANGE_TRACK', payload: previousTrack })
-      dispatch({ type: 'PREV_TRACK', payload: previousTrack })
-      searchArtistInfo(previousTrack, dispatch)
-    }
-  }
-
-  DZ?.Event.subscribe('track_end', () => {
-    changeTrack()
-  })
-
   useEffect(() => {
-    changeTrack()
+    DZ?.ready(() => {
+      DZ?.Event.subscribe('current_track', ({ track, index }: { track: CurrentTrackType; index: number }) => {
+        dispatch({ type: 'CHANGE_TRACK', payload: track })
+      })
+    })
   }, [])
 
   return (
     <Space className="Controls" align="center">
       <Tooltip title="Previous">
-        <Button onClick={rewind} type="text" disabled={state.previousTracks?.length === 0}>
+        <Button onClick={() => DZ.player.prev()} type="text" disabled={state.previousTracks?.length === 0}>
           <ReactSVG src={RewindIcon} />
         </Button>
       </Tooltip>
@@ -62,7 +45,7 @@ function Controls({ repeat }: { repeat: boolean }) {
         </Button>
       </Tooltip>
       <Tooltip title="Next">
-        <Button onClick={changeTrack} type="text">
+        <Button onClick={() => DZ.player.next()} type="text">
           <ReactSVG src={ForwardIcon} />
         </Button>
       </Tooltip>

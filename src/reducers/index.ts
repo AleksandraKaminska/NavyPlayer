@@ -5,7 +5,6 @@ import similarArtistsReducer, { SimilarArtistStateType } from './similarArtistsR
 import artistPlaylistsReducer, { ArtistPlaylistsStateType } from './artistPlaylistsReducer'
 import playlistReducer from './playlistReducer'
 import trackReducer from './trackReducer'
-import previousTracksReducer from './previousTracksReducer'
 import flowReducer, { FlowStateType } from './flowReducer'
 import artistTrackListReducer, { ArtistTrackListStateType } from './artistTrackListReducer'
 import topChartReducer from './topChartReducer'
@@ -38,7 +37,6 @@ export const reducer: (state: any, action: any) => any = (state, action) => {
     track: trackReducer(state.track, action),
     artistPlaylists: artistPlaylistsReducer(state.artistPlaylists, action),
     similarArtists: similarArtistsReducer(state.similarArtists, action),
-    previousTracks: previousTracksReducer(state.previousTracks, action),
     flow: flowReducer(state.flow, action),
     artistTrackList: artistTrackListReducer(state.artistTrackList, action),
     topChart: topChartReducer(state.topChart, action),

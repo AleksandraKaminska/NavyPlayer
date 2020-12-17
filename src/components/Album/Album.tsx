@@ -1,15 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { StateContext, DispatchContext } from '../../context/Context'
+import { DispatchContext } from '../../context/Context'
 import { AlbumType } from '../../types/deezerData'
-import { changeAlbum } from '../../helperFunctions'
-import { StateType } from '../../reducers'
+import { playAlbum } from '../../helperFunctions'
 
 function Album({ data }: { data?: AlbumType }) {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
-  const state = useContext<StateType>(StateContext)
   return data ? (
-    <div className="Album" onClick={() => changeAlbum(state, dispatch, data.id)}>
+    <div className="Album" onClick={() => playAlbum(dispatch, data)}>
       <Link to={`/albums/${data.id}`}>
         <img src={data?.cover_medium} alt={data.title} />
       </Link>

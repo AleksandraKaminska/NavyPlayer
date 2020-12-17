@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Row, Col, Typography, Button, Space } from 'antd'
 import { StateContext, DispatchContext } from '../../context/Context'
-import { random } from '../../helperFunctions'
+import { randomFlowTrack } from '../../helperFunctions'
 import './ArtistPage.less'
 import { StateType } from '../../reducers'
 
@@ -28,7 +28,7 @@ const Header = () => {
       <Col>
         <Space size="large">
           <Text>{numberWithSpaces(artist?.nb_fan)} fans</Text>
-          <Button type="primary" onClick={() => random(state, dispatch)}>
+          <Button type="primary" onClick={() => console.log('change artist')}>
             Listen
           </Button>
         </Space>
