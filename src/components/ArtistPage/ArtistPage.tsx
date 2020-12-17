@@ -8,7 +8,7 @@ import Playlist from '../Playlist/Playlist'
 import Artist from '../Artist/Artist'
 import Album from '../Album/Album'
 import { StateContext, DispatchContext } from '../../context/Context'
-import { searchArtistPlaylists, searchAlbums, searchSimilarArtists, ARTIST_API } from '../../helpers/search'
+import { searchArtistInfo } from '../../helpers/requests'
 import './ArtistPage.less'
 import { AlbumType, ArtistType, PlaylistType } from '../../types/deezerData'
 import { StateType } from '../../reducers'
@@ -26,10 +26,9 @@ const ArtistPage: React.FC = () => {
   const { state: locationState }: any = useLocation()
 
   useEffect(() => {
-    const url = ARTIST_API + artist?.id
-    searchArtistPlaylists(dispatch, url)
-    searchAlbums(dispatch, url)
-    searchSimilarArtists(dispatch, url)
+    if (artist?.id) {
+      searchArtistInfo(artist.id, dispatch)
+    }
   }, [artist?.id])
 
   return artist ? (

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Row, Col, Typography, Button, Space } from 'antd'
 import { StateContext, DispatchContext } from '../../context/Context'
-import { randomFlowTrack } from '../../helperFunctions'
+import { playArtistTracks } from '../../helperFunctions'
 import './ArtistPage.less'
 import { StateType } from '../../reducers'
 
@@ -14,7 +14,7 @@ const Header = () => {
 
   const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
-  return (
+  return artist ? (
     <Row
       gutter={[16, 12]}
       className="name"
@@ -28,13 +28,13 @@ const Header = () => {
       <Col>
         <Space size="large">
           <Text>{numberWithSpaces(artist?.nb_fan)} fans</Text>
-          <Button type="primary" onClick={() => console.log('change artist')}>
+          <Button type="primary" onClick={() => playArtistTracks(dispatch, artist)}>
             Listen
           </Button>
         </Space>
       </Col>
     </Row>
-  )
+  ) : null
 }
 
 export default Header

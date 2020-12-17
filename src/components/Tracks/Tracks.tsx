@@ -3,12 +3,12 @@ import { Link, LinkProps, useLocation } from 'react-router-dom'
 import { Table, Space, Typography } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
 import { Icon } from '../Search/Search'
-import { searchArtistInfo } from '../../helpers/search'
-import { DispatchContext, StateContext } from '../../context/Context'
+import { searchArtistInfo } from '../../helpers/requests'
+import { DispatchContext } from '../../context/Context'
 import { TrackType } from '../../types/deezerData'
 import './Tracks.less'
-import { StateType } from '../../reducers'
 const { Title } = Typography
+const { DZ } = window
 
 type TracksProps = {
   data?: Array<TrackType>
@@ -18,12 +18,12 @@ type TracksProps = {
 
 function Tracks({ data, title, link }: TracksProps) {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
-  const { track } = useContext<StateType>(StateContext)
   const { state }: any = useLocation()
 
   const selectSong = (item: TrackType) => {
+    DZ?.ready(() => DZ?.player?.playTracks([item.id]))
     dispatch({ type: 'CHANGE_TRACK', payload: item })
-    searchArtistInfo(item, dispatch)
+    searchArtistInfo(item.artist.id, dispatch)
   }
 
   const dataSource = data?.map((track) => {

@@ -1,4 +1,4 @@
-import { searchArtistInfo } from './helpers/search'
+import fetchJsonp from 'fetch-jsonp'
 import { StateType } from './reducers'
 import { AlbumType, ArtistType, PlaylistType, TrackType } from './types/deezerData'
 const { DZ } = window
@@ -20,31 +20,23 @@ export const randomFlowTrack = (state: StateType, dispatch: DispatchType) => {
   console.log(state.flow?.data, track)
   if (track) {
     dispatch({ type: 'CHANGE_TRACK', payload: track })
-    searchArtistInfo(track, dispatch)
   }
 }
 
-export const playPlaylist = (dispatch: DispatchType, data: PlaylistType) => {
-  DZ?.player.playPlaylist(data.id, (response) => console.log(response))
-  const track = DZ.player.getCurrentTrack()
-  dispatch({ type: 'CHANGE_TRACK', payload: track })
-  dispatch({ type: 'PLAYLIST', payload: data })
-  console.log(data, track, DZ.player.getTrackList(), DZ.player.getCurrentIndex())
-}
+export const playPlaylist = (dispatch: DispatchType, data: PlaylistType) =>
+  DZ?.player.playPlaylist(data.id, () => dispatch({ type: 'PLAYLIST', payload: data }))
 
-export const playAlbum = (dispatch: DispatchType, data: AlbumType) => {
-  DZ?.player.playAlbum(data.id, (response) => console.log(response))
-  const track = DZ.player.getCurrentTrack()
-  dispatch({ type: 'CHANGE_TRACK', payload: track })
-  dispatch({ type: 'ALBUM', payload: data })
-  console.log(data, track, DZ.player.getTrackList(), DZ.player.getCurrentIndex())
-}
+export const playAlbum = (dispatch: DispatchType, data: AlbumType) =>
+  DZ?.player.playAlbum(data.id, () => dispatch({ type: 'ALBUM', payload: data }))
 
-export const playArtistRadio = (dispatch: DispatchType, data: ArtistType) => {
-  DZ.player.playRadio(data.id, 'artist', (response) => console.log(response))
-  const track = DZ.player.getCurrentTrack()
-  dispatch({ type: 'CHANGE_TRACK', payload: track })
-  dispatch({ type: 'ARTIST_RADIO', payload: data })
-  console.log(data, track, DZ.player.getTrackList(), DZ.player.getCurrentIndex())
-  // searchArtistInfo(track, dispatch)
-}
+export const playArtistRadio = (dispatch: DispatchType, data: ArtistType) =>
+  DZ.player.playRadio(data.id, 'artist', () => dispatch({ type: 'ARTIST_RADIO', payload: data }))
+
+export const playArtistTracks = (dispatch: DispatchType, data: ArtistType) =>
+  fetchJsonp(`https://api.deezer.com/artist/${data.id}/top?limit=100&output=jsonp`)
+    .then((resp) => resp.json())
+    .then(({ data: tracks }) => {
+      DZ.player.playTracks(tracks.map(({ id }) => id))
+      dispatch({ type: 'ARTIST_TRACKS_LIST', payload: tracks })
+      dispatch({ type: 'ARTIST', payload: data })
+    })

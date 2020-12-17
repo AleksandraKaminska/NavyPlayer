@@ -8,7 +8,7 @@ import Album from '../Album/Album'
 import Playlist from '../Playlist/Playlist'
 import Artist from '../Artist/Artist'
 import { DispatchContext, StateContext } from '../../context/Context'
-import { searchApi } from '../../helpers/search'
+import { searchApi } from '../../helpers/requests'
 import './Search.less'
 import { StateType } from '../../reducers'
 

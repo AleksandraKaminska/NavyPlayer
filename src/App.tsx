@@ -14,7 +14,6 @@ import './App.less'
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { Content } = Layout
 
   return (
     <div className="App">
@@ -23,7 +22,7 @@ const App = () => {
           <Router>
             <Layout>
               <Header />
-              <Content className="site-layout">
+              <Layout.Content className="site-layout">
                 <div className="site-layout-background">
                   <Switch>
                     <Route path="/artists">
@@ -45,7 +44,7 @@ const App = () => {
                     </Button>
                   </Space>
                 </div>
-              </Content>
+              </Layout.Content>
               <Footer />
             </Layout>
           </Router>

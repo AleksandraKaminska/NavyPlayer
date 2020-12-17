@@ -15,7 +15,7 @@ const artistTrackListReducer: (
   action: ArtistTrackListActionType
 ) => ArtistTrackListStateType = (state, action) => {
   switch (action.type) {
-    case 'ARTIST_TRACK_LIST':
+    case 'ARTIST_TRACKS_LIST':
       return action.payload
     default:
       return state

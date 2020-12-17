@@ -1,12 +1,19 @@
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+
 .Player {
   .align-start {
     display: flex;
     justify-content: flex-start;
   }
   .button {
-    color: white;
+    color: @white;
     &:disabled {
       color: grey;
+    }
+  }
+  .repeat, .shuffle {
+    &.active {
+      color: @primary-7;
     }
   }
 }

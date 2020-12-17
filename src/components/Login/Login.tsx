@@ -4,7 +4,6 @@ import { StateContext, DispatchContext } from '../../context/Context'
 import { randomFlowTrack } from '../../helperFunctions'
 import { login } from '../../helpers/login'
 import { StateType } from '../../reducers'
-// import './style.less'
 const { DZ } = window
 
 function Login() {
@@ -24,15 +23,9 @@ function Login() {
 
   useEffect(getLoginStatus, [])
 
-  const playFlow = () => {
-    dispatch({ type: 'ALBUMS_TRACKS', payload: 0 })
-    dispatch({ type: 'ARTIST_TRACK_LIST', payload: undefined })
-    randomFlowTrack(state, dispatch)
-  }
-
   const handleClick = () => {
     if (logged) {
-      playFlow()
+      randomFlowTrack(state, dispatch)
     } else {
       login(dispatch)
     }

@@ -7,7 +7,7 @@ export type ArtistActionType = {
 
 const contactsReducer: (state: ArtistType, action: ArtistActionType) => ArtistType = (state, action) => {
   switch (action.type) {
-    case 'FIND_ARTIST':
+    case 'ARTIST':
       return action.payload
     default:
       return state
