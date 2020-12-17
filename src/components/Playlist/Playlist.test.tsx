@@ -1,9 +1,14 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Playlist from './Playlist'
+import { changePlaylist } from '../../helperFunctions'
 import { PlaylistType, UserType } from '../../types/deezerData'
+
+jest.mock('../../helperFunctions')
+
+const mockedChangePlaylist = changePlaylist as jest.Mocked<any>
 
 const user: UserType = {
   id: 123,
@@ -37,6 +42,12 @@ test('renders correctly', () => {
   expect(screen.getByAltText(/title/i)).toHaveAttribute('src', 'picture-medium-url')
   expect(screen.getByText(/title/i)).toBeInTheDocument()
   expect(screen.getByText(/123 tracks/i)).toBeInTheDocument()
+})
+
+test('calls change playlist function on click', () => {
+  render(<Playlist data={playlist} />, { wrapper: BrowserRouter })
+  fireEvent.click(screen.getByTestId('playlist'))
+  expect(mockedChangePlaylist).toBeCalled()
 })
 
 test('does not render if data props not passed', () => {

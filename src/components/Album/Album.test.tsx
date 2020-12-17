@@ -1,9 +1,14 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Album from './Album'
+import { changeAlbum } from '../../helperFunctions'
 import { AlbumType, ArtistType } from '../../types/deezerData'
+
+jest.mock('../../helperFunctions')
+
+const mockedChangeAlbum = changeAlbum as jest.Mocked<any>
 
 const artist: ArtistType = {
   id: 1,
@@ -47,6 +52,12 @@ test('renders correctly', () => {
   expect(screen.getByAltText(/album title/i)).toHaveAttribute('src', 'cover-medium-url')
   expect(screen.getByText(/album title/i)).toBeInTheDocument()
   expect(screen.getByText(/name/i)).toBeInTheDocument()
+})
+
+test('calls change album function on click', () => {
+  render(<Album data={album} />, { wrapper: BrowserRouter })
+  fireEvent.click(screen.getByTestId('album'))
+  expect(mockedChangeAlbum).toBeCalled()
 })
 
 test('does not render if data props not passed', () => {

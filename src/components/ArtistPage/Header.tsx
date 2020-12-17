@@ -22,7 +22,7 @@ const Header = () => {
         backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0) 10%, #000a11 95%), url(${artist?.picture_xl})`
       }}
     >
-      <Col span={24}>
+      <Col>
         <Title>{artist?.name}</Title>
       </Col>
       <Col>

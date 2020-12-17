@@ -8,6 +8,7 @@ import PlayIcon from './play.svg'
 import RewindIcon from './rewind.svg'
 import ForwardIcon from './forward.svg'
 import { StateType } from '../../reducers'
+import { time } from 'console'
 const { DZ } = window
 
 function Controls({ repeat }: { repeat: boolean }) {
@@ -23,7 +24,7 @@ function Controls({ repeat }: { repeat: boolean }) {
   const changeTrack = (): void => {
     setIsPlaying(true)
     DZ?.player.pause()
-    repeat ? DZ.player.setRepeat(2) : random(state, dispatch)
+    repeat ? DZ?.player.playTracks([state.track?.id]) : random(state, dispatch)
   }
 
   const rewind = (): void => {
@@ -37,13 +38,15 @@ function Controls({ repeat }: { repeat: boolean }) {
     }
   }
 
+  useEffect(() => {
+    DZ?.ready(() => {
+      changeTrack()
+    })
+  }, [])
+
   DZ?.Event.subscribe('track_end', () => {
     changeTrack()
   })
-
-  useEffect(() => {
-    changeTrack()
-  }, [])
 
   return (
     <Space className="Controls" align="center">

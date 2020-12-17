@@ -34,6 +34,20 @@ export type AlbumType = {
   artist?: ArtistType
 }
 
+export type CurrentTrackType = {
+  album: {
+    id: string
+    title: string
+  }
+  artist: {
+    id: string
+    name: string
+  }
+  duration: string
+  id: string
+  title: string
+}
+
 export type TrackType = {
   id: number
   album: AlbumType
@@ -59,7 +73,7 @@ export type PlaylistType = {
   creation_date: string
   link: string
   md5_image: string
-  nb_tracks: number
+  nb_tracks?: number
   picture: string
   picture_big: string
   picture_medium: string

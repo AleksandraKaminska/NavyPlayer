@@ -95,7 +95,7 @@ function Slider(props: CarouselProps) {
           >
             {data?.map((element) => (
               <div key={element.id} className="slide" data-rounded={rounded?.toString()}>
-                {React.cloneElement(children, { data: element, rounded: rounded })}
+                {React.cloneElement(children, { data: element })}
               </div>
             ))}
           </Carousel>
@@ -104,7 +104,7 @@ function Slider(props: CarouselProps) {
         <Row justify="space-between" gutter={[16, 32]} {...props}>
           {data?.map((element) => (
             <Col key={element.id} data-rounded={rounded?.toString()}>
-              {React.cloneElement(children, { data: element, rounded: rounded })}
+              {React.cloneElement(children, { data: element })}
             </Col>
           ))}
         </Row>

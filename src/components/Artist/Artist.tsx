@@ -10,7 +10,11 @@ function Artist({ data }: { data?: ArtistType }) {
   const state = useContext<StateType>(StateContext)
   return data ? (
     <div className="Artist">
-      <Link to={`/artists/${data.id}`} onClick={() => changeArtistTrackList(state, dispatch, data.id)}>
+      <Link
+        to={`/artists/${data.id}`}
+        data-testid="artist"
+        onClick={() => changeArtistTrackList(state, dispatch, data.id)}
+      >
         <img src={data.picture_medium} alt={data.name} />
       </Link>
       <Link to={`/artists/${data.id}`}>

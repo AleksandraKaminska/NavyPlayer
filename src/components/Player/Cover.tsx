@@ -12,10 +12,10 @@ const Cover = () => {
     <Space className="Cover">
       <img src={track?.album?.cover_small} alt={track?.album?.title} />
       <div className="data">
-        <Link to={`/album/${track?.album?.id}`} className="title">
+        <Link to={`/albums/${track?.album?.id}`} className="title">
           {track?.title_short}
         </Link>
-        <Link to={`/artist/${track?.artist.id}`} className="name">
+        <Link to={`/artists/${track?.artist.id}`} className="name">
           {track?.artist.name}
         </Link>
       </div>
