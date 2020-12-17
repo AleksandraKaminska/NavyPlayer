@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Button } from 'antd'
-import { Context } from '../../context/Context'
+import { StateContext, DispatchContext } from '../../context/Context'
 import { randomFlowTrack } from '../../helperFunctions'
 import { login } from '../../helpers/login'
+import { StateType } from '../../reducers'
 // import './style.less'
 const { DZ } = window
 
 function Login() {
-  const { state, dispatch } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const state = useContext<StateType>(StateContext)
   const [logged, setLogged] = useState(false)
 
   const getLoginStatus = () =>

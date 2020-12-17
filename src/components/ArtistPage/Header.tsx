@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
 import { Row, Col, Typography, Button, Space } from 'antd'
-import { Context } from '../../context/Context'
+import { StateContext, DispatchContext } from '../../context/Context'
 import { random } from '../../helperFunctions'
 import './ArtistPage.less'
+import { StateType } from '../../reducers'
 
 const { Title, Text } = Typography
 
 const Header = () => {
-  const { state, dispatch } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const state = useContext<StateType>(StateContext)
   const { artist } = state
 
   const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')

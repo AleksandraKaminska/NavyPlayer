@@ -7,15 +7,14 @@ import Carousel from '../Carousel/Carousel'
 import Album from '../Album/Album'
 import Playlist from '../Playlist/Playlist'
 import Artist from '../Artist/Artist'
-import { Context } from '../../context/Context'
+import { DispatchContext, StateContext } from '../../context/Context'
 import { searchApi } from '../../helpers/search'
 import './Search.less'
+import { StateType } from '../../reducers'
 
 function Search() {
-  const {
-    state: { searchResults },
-    dispatch
-  } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const { searchResults } = useContext<StateType>(StateContext)
   const { state }: any = useLocation()
 
   const getData: (type: string, slice?: number) => Array<any> = (type, slice = 5) =>

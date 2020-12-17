@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 import { Input } from 'antd'
 import { searchApi } from '../../helpers/search'
-import { Context } from '../../context/Context'
+import { DispatchContext, StateContext } from '../../context/Context'
 import './SearchInput.less'
+import { StateType } from '../../reducers'
 
 function SearchInput() {
-  const { state, dispatch } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const state = useContext<StateType>(StateContext)
   const [loading, setLoading] = useState<boolean>(false)
 
   const handleChange = debounce(({ target }) => search(target.value), 250)

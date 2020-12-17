@@ -4,9 +4,10 @@ import { Table, Space, Typography } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
 import { Icon } from '../Search/Search'
 import { searchArtistInfo } from '../../helpers/search'
-import { Context } from '../../context/Context'
+import { DispatchContext, StateContext } from '../../context/Context'
 import { TrackType } from '../../types/deezerData'
 import './Tracks.less'
+import { StateType } from '../../reducers'
 const { Title } = Typography
 
 type TracksProps = {
@@ -16,10 +17,8 @@ type TracksProps = {
 }
 
 function Tracks({ data, title, link }: TracksProps) {
-  const {
-    state: { track },
-    dispatch
-  } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const { track } = useContext<StateType>(StateContext)
   const { state }: any = useLocation()
 
   const selectSong = (item: TrackType) => {

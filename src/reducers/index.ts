@@ -29,7 +29,7 @@ export type StateType = {
 
 export const initialState: StateType = {}
 
-export const mainReducer: (state: any, action: any) => any = (state, action) => {
+export const reducer: (state: any, action: any) => any = (state, action) => {
   return {
     album: albumReducer(state.album, action),
     albums: albumsReducer(state.albums, action),

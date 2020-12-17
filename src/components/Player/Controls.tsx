@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { ReactSVG } from 'react-svg'
 import { Button, Space, Tooltip } from 'antd'
-import { Context } from '../../context/Context'
+import { DispatchContext, StateContext } from '../../context/Context'
 import { searchArtistInfo } from '../../helpers/search'
 import { random } from '../../helperFunctions'
 import PlayIcon from './play.svg'
 import RewindIcon from './rewind.svg'
 import ForwardIcon from './forward.svg'
+import { StateType } from '../../reducers'
 const { DZ } = window
 
 function Controls({ repeat }: { repeat: boolean }) {
-  const { state, dispatch } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const state = useContext<StateType>(StateContext)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
   const changeIsPlaying = (): void => {

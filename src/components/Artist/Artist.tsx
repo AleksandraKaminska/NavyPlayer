@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { changeArtistTrackList } from '../../helperFunctions'
-import { Context } from '../../context/Context'
+import { StateContext, DispatchContext } from '../../context/Context'
 import { ArtistType } from '../../types/deezerData'
+import { StateType } from '../../reducers'
 
 function Artist({ data }: { data?: ArtistType }) {
-  const { state, dispatch } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const state = useContext<StateType>(StateContext)
   return data ? (
     <div className="Artist">
       <Link to={`/artists/${data.id}`} onClick={() => changeArtistTrackList(state, dispatch, data.id)}>

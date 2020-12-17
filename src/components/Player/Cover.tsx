@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Space } from 'antd'
-import { Context } from '../../context/Context'
+import { StateContext } from '../../context/Context'
 import './Cover.less'
+import { StateType } from '../../reducers'
 
 const Cover = () => {
-  const {
-    state: { track }
-  } = useContext(Context)
+  const { track } = useContext<StateType>(StateContext)
 
   return (
     <Space className="Cover">

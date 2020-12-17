@@ -2,16 +2,18 @@ import React, { useEffect, useContext, useState } from 'react'
 import fetchJsonp from 'fetch-jsonp'
 import { Spin } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
-import { Context } from '../../context/Context'
+import { StateContext, DispatchContext } from '../../context/Context'
 import Playlist from '../Playlist/Playlist'
 import Carousel from '../Carousel/Carousel'
 import Album from '../Album/Album'
 import './Homepage.less'
+import { StateType } from '../../reducers'
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
 const Homepage = () => {
-  const { state, dispatch } = useContext(Context)
+  const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
+  const state = useContext<StateType>(StateContext)
   const [index, setIndex] = useState<number>(0)
 
   const loadMore = async () => {
