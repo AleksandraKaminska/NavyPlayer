@@ -3,7 +3,7 @@ import { Row, Col } from 'antd'
 import Controls from './Controls'
 import Progress from './Progress'
 import Volume from './Volume'
-import SmallCover from './Cover'
+import Cover from './Cover'
 import './Player.less'
 
 const Player = () => {
@@ -14,7 +14,7 @@ const Player = () => {
     <section className="Player">
       <Row align="middle">
         <Col xs={{ span: 6 }} xl={{ span: 5 }} className="align-start">
-          <SmallCover />
+          <Cover />
         </Col>
         <Col xs={{ span: 6, offset: 1 }} xl={{ span: 3, offset: 0 }}>
           <Controls repeat={repeat} />
