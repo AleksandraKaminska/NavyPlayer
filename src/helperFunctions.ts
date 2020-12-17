@@ -44,7 +44,7 @@ export const randomFlowTrack = (state: StateType, dispatch: DispatchType) => {
   dispatch({ type: 'ALBUM', payload: undefined })
   dispatch({ type: 'PLAYLIST', payload: undefined })
   dispatch({ type: 'PREV_TRACK', payload: state.track })
-  const track = randomTrack(state.flow, state.track)
+  const track = randomTrack(state.flow?.data || [], state.track)
   dispatch({ type: 'CHANGE_TRACK', payload: track })
   searchArtistInfo(track, dispatch)
 }

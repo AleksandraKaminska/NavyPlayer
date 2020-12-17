@@ -1,11 +1,15 @@
-import { AlbumType } from '../types/deezerData'
+import { TrackType } from '../types/deezerData'
 
-export type AlbumsTracksActionType = {
+export type FlowActionType = {
   type: string
-  payload: AlbumType
+  payload: FlowStateType
 }
 
-const contactsReducer: (state: AlbumType, action: AlbumsTracksActionType) => AlbumType = (state, action) => {
+export type FlowStateType = {
+  data: Array<TrackType>
+}
+
+const contactsReducer: (state: FlowStateType, action: FlowActionType) => FlowStateType = (state, action) => {
   switch (action.type) {
     case 'FLOW':
       return action.payload

@@ -2,7 +2,7 @@
 
 > logo designed by [zuurw](https://github.com/zuurw)
 
-#App: https://navyplayer.netlify.app/
+# App: https://navyplayer.netlify.app/
 
 # Getting Started with Create React App
 
