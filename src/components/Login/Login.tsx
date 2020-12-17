@@ -38,7 +38,7 @@ function Login() {
 
   return (
     <Button className="login" size="large" type="primary" ghost onClick={handleClick}>
-      {logged ? 'FLOW' : 'Log In'}
+      {logged ? 'Flow' : 'Log In'}
     </Button>
   )
 }
