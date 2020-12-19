@@ -1,0 +1,34 @@
+@import '~antd/dist/antd.dark.less';
+
+.AlbumPage {
+  .name {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  img {
+    border-radius: 5px;
+  }
+  h1 {
+    margin: 0;
+  }
+  .track {
+    cursor: pointer;
+  }
+  .artist {
+    color: @text-color-secondary;
+    font-size: 1.6em;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .info {
+    font-size: 1em;
+  }
+  .site-custom-tab-bar {
+    z-index: 1;
+  }
+  a.ant-typography, .ant-typography a, a {
+    color: @text-color;
+  }
+}

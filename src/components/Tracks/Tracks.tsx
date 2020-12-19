@@ -31,14 +31,14 @@ function Tracks({ data, title, link }: TracksProps) {
     const handleClick = () => selectSong(track)
     return {
       key: track.id,
-      cover: <img src={track.album.cover_small} alt={track.title_short} onClick={handleClick} />,
+      cover: <img src={track.album?.cover_small} alt={track.title_short} onClick={handleClick} />,
       title: (
         <Link to={{ pathname: '/search', state }} onClick={handleClick}>
           {track.title_short}
         </Link>
       ),
       artist: <Link to={`/artists/${track.artist.id}`}>{track.artist?.name}</Link>,
-      album: <Link to={`/albums/${track.album.id}`}>{track.album?.title}</Link>
+      album: <Link to={`/albums/${track.album?.id}`}>{track.album?.title}</Link>
     }
   })
 

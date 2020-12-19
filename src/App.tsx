@@ -8,6 +8,7 @@ import { reducer, initialState } from './reducers'
 import Search from './components/Search/Search'
 import Homepage from './components/Homepage/Homepage'
 import ArtistPage from './components/ArtistPage/ArtistPage'
+import AlbumPage from './components/AlbumPage/AlbumPage'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import './App.less'
@@ -26,8 +27,11 @@ const App = () => {
               <Content className="site-layout">
                 <div className="site-layout-background">
                   <Switch>
-                    <Route path="/artists">
+                    <Route exact path="/artists/:id?">
                       <ArtistPage />
+                    </Route>
+                    <Route exact path="/albums/:id?">
+                      <AlbumPage />
                     </Route>
                     <Route exact path="/search">
                       <Search />

@@ -2,10 +2,7 @@ import React, { useContext } from 'react'
 import { Row, Col, Typography, Button, Space } from 'antd'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { random } from '../../helperFunctions'
-import './ArtistPage.less'
 import { StateType } from '../../reducers'
-
-const { Title, Text } = Typography
 
 const Header = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
@@ -23,11 +20,11 @@ const Header = () => {
       }}
     >
       <Col>
-        <Title>{artist?.name}</Title>
+        <Typography.Title>{artist?.name}</Typography.Title>
       </Col>
       <Col>
         <Space size="large">
-          <Text>{numberWithSpaces(artist?.nb_fan)} fans</Text>
+          <Typography.Text>{numberWithSpaces(artist?.nb_fan)} fans</Typography.Text>
           <Button type="primary" onClick={() => random(state, dispatch)}>
             Listen
           </Button>

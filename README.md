@@ -7,7 +7,6 @@
 ## To do:
 
 - [ ] tests
-- [ ] albums page
 - [ ] mobile UI
 - [ ] search history
 - [ ] volume
