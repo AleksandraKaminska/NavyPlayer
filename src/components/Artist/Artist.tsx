@@ -20,7 +20,7 @@ function Artist({ data }: { data?: ArtistType }) {
       <Link to={`/artists/${data.id}`}>
         <p>{data.name}</p>
       </Link>
-      <span>{data.nb_fan} Fans</span>
+      {data.nb_fan && <span>{data.nb_fan} Fans</span>}
     </div>
   ) : null
 }
