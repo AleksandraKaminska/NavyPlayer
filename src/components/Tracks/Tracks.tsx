@@ -13,7 +13,7 @@ const { Title } = Typography
 type TracksProps = {
   data?: Array<TrackType>
   title: string
-  link: LinkProps['to']
+  link?: LinkProps['to']
 }
 
 function Tracks({ data, title, link }: TracksProps) {
@@ -87,7 +87,7 @@ function Tracks({ data, title, link }: TracksProps) {
           <Title level={2}>
             {data?.length} {title}
           </Title>
-        ) : (
+        ) : link ? (
           <Title level={2}>
             <Link to={link}>
               <Space align="baseline">
@@ -95,6 +95,8 @@ function Tracks({ data, title, link }: TracksProps) {
               </Space>
             </Link>
           </Title>
+        ) : (
+          <Title level={2}>{title}</Title>
         )
       }
     />

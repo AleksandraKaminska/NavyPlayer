@@ -7,8 +7,9 @@ import Artist from '../Artist/Artist'
 import Playlist from '../Playlist/Playlist'
 import Carousel from '../Carousel/Carousel'
 import Album from '../Album/Album'
-import './Homepage.less'
 import { StateType } from '../../reducers'
+import Tracks from '../Tracks/Tracks'
+import './Homepage.less'
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
@@ -70,6 +71,7 @@ const Homepage = () => {
       >
         <Album />
       </Carousel>
+      <Tracks data={state.topChart?.tracks?.data} title="Popular tracks" />
     </div>
   ) : (
     <Spin indicator={antIcon} />
