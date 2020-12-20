@@ -1,15 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { Row, Col, Space, Typography, Button, Table } from 'antd'
-import { ColumnsType } from 'antd/lib/table'
+import { useParams } from 'react-router-dom'
+import { Row, Col, Space, Typography, Button } from 'antd'
 import { changePlaylist } from '../../helperFunctions'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { StateType } from '../../reducers'
-import { PlaylistType, TrackType } from '../../types/deezerData'
-import { searchArtistInfo } from '../../helpers/search'
+import { PlaylistType } from '../../types/deezerData'
 import { fetchPlaylist } from '../../helpers/requests'
 import Spin from '../Spin/Spin'
 import './PlaylistPage.less'
+import Tracks from '../Tracks/Tracks'
 
 const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
@@ -18,25 +17,6 @@ const convertTime = (time: number): string => {
   const min = Math.floor((time % 3600) / 60)
   return `${h ? h + ' h ' : ''}${min ? min + ' min ' : ''}${time < 60 ? time + ' s' : ''}`
 }
-
-const columns: ColumnsType<{
-  key: number
-  number: number
-  title: JSX.Element
-}> = [
-  {
-    title: '#',
-    dataIndex: 'number',
-    key: 'number',
-    width: 50
-  },
-  {
-    title: 'Title',
-    dataIndex: 'title',
-    key: 'title',
-    ellipsis: true
-  }
-]
 
 const PlaylistPage = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
@@ -54,25 +34,6 @@ const PlaylistPage = () => {
       })
     }
   }, [id])
-
-  const selectSong = (item: TrackType) => {
-    dispatch({ type: 'PREV_TRACK', payload: state.track })
-    dispatch({ type: 'CHANGE_TRACK', payload: item })
-    searchArtistInfo(item, dispatch)
-  }
-
-  const dataSource = playlist?.tracks?.data?.map((track, id) => {
-    const handleClick = () => selectSong(track)
-    return {
-      key: track.id,
-      number: id + 1,
-      title: (
-        <span onClick={handleClick} className="track">
-          {track.title_short}
-        </span>
-      )
-    }
-  })
 
   return !loading && playlist ? (
     <div className="PlaylistPage">
@@ -102,7 +63,7 @@ const PlaylistPage = () => {
           </Row>
         </Col>
       </Row>
-      <Table className="Tracks" dataSource={dataSource} columns={columns} pagination={false} size="middle" />
+      <Tracks data={playlist?.tracks?.data} title="" withNumbers showHeader />
     </div>
   ) : (
     <Spin />

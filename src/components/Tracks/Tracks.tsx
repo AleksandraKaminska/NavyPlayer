@@ -35,7 +35,7 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
       key: track.id,
       cover: <img src={track.album?.cover_small} alt={track.title_short} onClick={handleClick} />,
       title: (
-        <Link to={{ pathname: '/search', state }} onClick={handleClick}>
+        <Link to={{ state }} onClick={handleClick}>
           {track.title_short}
         </Link>
       ),
