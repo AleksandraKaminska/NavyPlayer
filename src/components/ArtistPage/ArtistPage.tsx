@@ -17,7 +17,6 @@ import { fetchArtist, fetchArtistTopTracks } from '../../helpers/requests'
 import './ArtistPage.less'
 
 const stateLink = (type: 'playlists' | 'artists' | 'albums' | 'tracks' | 'all') => ({
-  pathname: '/artists',
   state: { type }
 })
 
@@ -25,7 +24,7 @@ const ArtistPage: React.FC = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
   const { state: locationState }: any = useLocation()
-  const { id } = useParams<{ id?: string }>()
+  const { id } = useParams<{ id: string }>()
   const [loading, setLoading] = useState<boolean>(false)
   const [artist, setArtist] = useState<ArtistType | undefined>(state.artist)
   const [artistTrackList, setArtistTrackLits] = useState<Array<TrackType> | undefined>(state.artistTrackList?.data)
@@ -57,6 +56,7 @@ const ArtistPage: React.FC = () => {
         <TabPane tab={<Link to={stateLink('all')}>Discography</Link>} key="all">
           <Row justify="start">
             <Col span={12}>
+              {console.log(artistTrackList)}
               <Tracks data={artistTrackList?.slice(0, 10)} title="Popular Tracks" link={stateLink('tracks')} />
             </Col>
             <Col span={11} offset={1}>
@@ -71,7 +71,7 @@ const ArtistPage: React.FC = () => {
           </Row>
         </TabPane>
         <TabPane tab={<Link to={stateLink('tracks')}>Top tracks</Link>} key="tracks">
-          <Tracks data={state.artistTrackList?.data} title="Popular Tracks" link={stateLink('tracks')} />
+          <Tracks data={artistTrackList} title="Popular Tracks" link={stateLink('tracks')} />
         </TabPane>
         <TabPane tab={<Link to={stateLink('artists')}>Similar artists</Link>} key="artists">
           <Artists data={state.similarArtists?.data} />

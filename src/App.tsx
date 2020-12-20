@@ -28,13 +28,13 @@ const App = () => {
               <Content className="site-layout">
                 <div className="site-layout-background">
                   <Switch>
-                    <Route exact path="/artists/:id?">
+                    <Route exact path="/artists/:id">
                       <ArtistPage />
                     </Route>
-                    <Route exact path="/albums/:id?">
+                    <Route exact path="/albums/:id">
                       <AlbumPage />
                     </Route>
-                    <Route exact path="/playlists/:id?">
+                    <Route exact path="/playlists/:id">
                       <PlaylistPage />
                     </Route>
                     <Route exact path="/search">

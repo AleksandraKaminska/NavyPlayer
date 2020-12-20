@@ -41,7 +41,7 @@ const columns: ColumnsType<{
 const AlbumPage = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
-  const { id } = useParams<{ id?: string }>()
+  const { id } = useParams<{ id: string }>()
   const [loading, setLoading] = useState<boolean>(false)
   const [album, setAlbum] = useState<AlbumType | undefined>(state.album)
 
