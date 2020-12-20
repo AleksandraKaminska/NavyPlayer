@@ -30,7 +30,7 @@ export type AlbumType = {
   release_date: string
   title: string
   tracklist: string
-  tracks: { data: Array<TrackType> }
+  tracks?: { data: Array<TrackType> }
   type: 'album'
   artist?: ArtistType
   duration?: number

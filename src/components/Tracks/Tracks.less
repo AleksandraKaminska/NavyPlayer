@@ -1,8 +1,33 @@
+@import '~antd/dist/antd.dark.less';
+
 .Tracks {
   padding: 50px 20px 0;
   img {
     border-radius: 5px;
     width: 40px;
     cursor: pointer;
+    position: relative;
+  }
+  .image {
+    position: relative;
+    .overlay {
+      top: 0.125em;
+      left: 0.125em;
+      position: absolute;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.25em;
+      .anticon {
+        color: @white;
+        transition: transform 100ms ease-in;
+        &:hover {
+          transform: scale3d(1.2, 1.2, 1.2);
+        }
+      }
+    }
+    &:hover .overlay {
+      display: flex;
+    }
   }
 }

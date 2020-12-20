@@ -46,7 +46,7 @@ test('renders correctly', () => {
 
 test('calls change playlist function on click', () => {
   render(<Playlist data={playlist} />, { wrapper: BrowserRouter })
-  fireEvent.click(screen.getByTestId('playlist'))
+  fireEvent.click(screen.getAllByRole('img')[1])
   expect(mockedChangePlaylist).toBeCalled()
 })
 

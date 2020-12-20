@@ -56,7 +56,7 @@ test('renders correctly', () => {
 
 test('calls change album function on click', () => {
   render(<Album data={album} />, { wrapper: BrowserRouter })
-  fireEvent.click(screen.getByTestId('album'))
+  fireEvent.click(screen.getAllByRole('img')[1])
   expect(mockedChangeAlbum).toBeCalled()
 })
 

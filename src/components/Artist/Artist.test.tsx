@@ -35,7 +35,7 @@ test('renders correctly', () => {
 })
 test("calls change artist's track list function on click", () => {
   render(<Artist data={artist} />, { wrapper: BrowserRouter })
-  fireEvent.click(screen.getByTestId('artist'))
+  fireEvent.click(screen.getAllByRole('img')[1])
   expect(mockedChangeArtistTrackList).toBeCalled()
 })
 

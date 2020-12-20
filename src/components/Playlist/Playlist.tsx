@@ -11,7 +11,7 @@ function Playlist({ data }: { data?: PlaylistType }) {
   const state = useContext<StateType>(StateContext)
   return data ? (
     <div className="Playlist">
-      <Link to={`/playlists/${data.id}`} data-testid="playlist">
+      <Link to={`/playlists/${data.id}`}>
         <img src={data.picture_medium} alt={data.title} />
         <div className="overlay">
           <PlayCircleFilled onClick={() => changePlaylist(state, dispatch, data)} />

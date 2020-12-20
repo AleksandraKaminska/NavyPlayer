@@ -10,7 +10,7 @@ function Album({ data }: { data?: AlbumType }) {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
   return data ? (
-    <div className="Album" data-testid="album">
+    <div className="Album">
       <Link to={`/albums/${data.id}`}>
         <img src={data?.cover_medium} alt={data.title} />
         <div className="overlay">

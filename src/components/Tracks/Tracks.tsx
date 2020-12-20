@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, LinkProps, useLocation } from 'react-router-dom'
 import { Table, Space, Typography } from 'antd'
+import { PlayCircleFilled } from '@ant-design/icons'
 import { ColumnsType } from 'antd/lib/table'
 import { Icon } from '../Search/Search'
 import { convertTime as durationTime } from '../Player/Progress'
@@ -34,7 +35,14 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
     const handleClick = () => selectSong(track)
     const obj = {
       key: track.id,
-      cover: <img src={track.album?.cover_small} alt={track.title_short} onClick={handleClick} />,
+      cover: (
+        <div className="image">
+          <img src={track.album?.cover_small} alt={track.title_short} />
+          <div className="overlay">
+            <PlayCircleFilled onClick={handleClick} />
+          </div>
+        </div>
+      ),
       title: (
         <Link to={{ state }} onClick={handleClick}>
           {track.title_short}

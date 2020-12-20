@@ -100,7 +100,7 @@ const AlbumPage = () => {
             <Col>
               <Space size="large">
                 <Typography.Text className="info">
-                  {new Date(album?.release_date).getFullYear()}•{numberWithSpaces(album?.tracks.data.length)} tracks,{' '}
+                  {new Date(album?.release_date).getFullYear()}•{numberWithSpaces(album?.tracks?.data.length)} tracks,{' '}
                   {convertTime(album?.duration || 0)}
                 </Typography.Text>
               </Space>
