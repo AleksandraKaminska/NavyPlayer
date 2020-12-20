@@ -8,7 +8,6 @@ import Album from '../Album/Album'
 import { StateType } from '../../reducers'
 import Tracks from '../Tracks/Tracks'
 import Spin from '../Spin/Spin'
-import './Homepage.less'
 
 const Homepage = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)

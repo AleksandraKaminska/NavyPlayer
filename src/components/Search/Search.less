@@ -1,9 +1,6 @@
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
 
 .Search {
-  a:not(:hover) {
-    color: @text-color;
-  }
   .menu {
     border-bottom: none;
   }
@@ -13,37 +10,5 @@
   }
   .ant-menu-item {
     text-transform: capitalize;
-  }
-  .Artists {
-    padding: 0 20px 50px;
-    text-align: center;
-    h2 {
-      padding: 12px 8px;
-      text-align: left;
-    }
-    a {
-      color: @text-color;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    p {
-      margin: 10px 0 0;
-      font-weight: 500;
-      max-width: 250px;
-      white-space: nowrap;
-      overflow: hidden !important;
-      text-overflow: ellipsis;
-    }
-    span {
-      color: @text-color-secondary;
-      font-size: 0.9em;
-    }
-    img {
-      border-radius: 5px;
-    }
-    img {
-      border-radius: 50%;
-    }
   }
 }
