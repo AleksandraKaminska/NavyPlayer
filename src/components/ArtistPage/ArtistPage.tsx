@@ -56,7 +56,6 @@ const ArtistPage: React.FC = () => {
         <TabPane tab={<Link to={stateLink('all')}>Discography</Link>} key="all">
           <Row justify="start">
             <Col span={12}>
-              {console.log(artistTrackList)}
               <Tracks data={artistTrackList?.slice(0, 10)} title="Popular Tracks" link={stateLink('tracks')} />
             </Col>
             <Col span={11} offset={1}>

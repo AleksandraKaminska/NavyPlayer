@@ -3,12 +3,13 @@ import { Link, LinkProps, useLocation } from 'react-router-dom'
 import { Table, Space, Typography } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
 import { Icon } from '../Search/Search'
+import { convertTime as durationTime } from '../Player/Progress'
 import { searchArtistInfo } from '../../helpers/search'
 import { DispatchContext, StateContext } from '../../context/Context'
 import { TrackType } from '../../types/deezerData'
-import './Tracks.less'
 import { StateType } from '../../reducers'
 const { Title } = Typography
+import './Tracks.less'
 
 type TracksProps = {
   data?: Array<TrackType>
@@ -40,7 +41,8 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
         </Link>
       ),
       artist: <Link to={`/artists/${track.artist.id}`}>{track.artist?.name}</Link>,
-      album: <Link to={`/albums/${track.album?.id}`}>{track.album?.title}</Link>
+      album: <Link to={`/albums/${track.album?.id}`}>{track.album?.title}</Link>,
+      duration: durationTime(track.duration)
     }
 
     return withNumbers ? { ...obj, number: id + 1 } : obj
@@ -53,6 +55,7 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
     title: JSX.Element
     artist: JSX.Element
     album: JSX.Element
+    duration?: string
   }> = () => {
     const columns = [
       {
@@ -77,6 +80,12 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
         dataIndex: 'album',
         key: 'album',
         ellipsis: true
+      },
+      {
+        title: 'Duration',
+        dataIndex: 'duration',
+        key: 'duration',
+        width: 80
       }
     ]
 
