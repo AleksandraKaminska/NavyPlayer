@@ -9,11 +9,11 @@ import Artist from '../Artist/Artist'
 import Album from '../Album/Album'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { searchArtistPlaylists, searchAlbums, searchSimilarArtists, ARTIST_API } from '../../helpers/search'
-import { AlbumType, ArtistType, PlaylistType } from '../../types/deezerData'
+import { AlbumType, ArtistType, PlaylistType, TrackType } from '../../types/deezerData'
 import { StateType } from '../../reducers'
 const { TabPane } = Tabs
 import Spin from '../Spin/Spin'
-import { fetchArtist } from '../../helpers/requests'
+import { fetchArtist, fetchArtistTopTracks } from '../../helpers/requests'
 import './ArtistPage.less'
 
 const stateLink = (type: 'playlists' | 'artists' | 'albums' | 'tracks' | 'all') => ({
@@ -28,13 +28,14 @@ const ArtistPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>()
   const [loading, setLoading] = useState<boolean>(false)
   const [artist, setArtist] = useState<ArtistType | undefined>(state.artist)
+  const [artistTrackList, setArtistTrackLits] = useState<Array<TrackType> | undefined>(state.artistTrackList?.data)
 
   useEffect(() => {
     const url = ARTIST_API + artist?.id
     searchArtistPlaylists(dispatch, url)
     searchAlbums(dispatch, url)
     searchSimilarArtists(dispatch, url)
-  }, [id, artist?.id])
+  }, [artist?.id])
 
   useEffect(() => {
     if (id) {
@@ -42,6 +43,9 @@ const ArtistPage: React.FC = () => {
       fetchArtist(id).then((data: ArtistType) => {
         setArtist(data)
         setLoading(false)
+      })
+      fetchArtistTopTracks(id).then(({ data }: { data: Array<TrackType> }) => {
+        setArtistTrackLits(data)
       })
     }
   }, [id])
@@ -53,11 +57,7 @@ const ArtistPage: React.FC = () => {
         <TabPane tab={<Link to={stateLink('all')}>Discography</Link>} key="all">
           <Row justify="start">
             <Col span={12}>
-              <Tracks
-                data={state.artistTrackList?.data?.slice(0, 10)}
-                title="Popular Tracks"
-                link={stateLink('tracks')}
-              />
+              <Tracks data={artistTrackList?.slice(0, 10)} title="Popular Tracks" link={stateLink('tracks')} />
             </Col>
             <Col span={11} offset={1}>
               <Playlists data={state.artistPlaylists?.data?.slice(0, 3)} wrap={false} />
