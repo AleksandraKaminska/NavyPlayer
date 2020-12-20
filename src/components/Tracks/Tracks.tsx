@@ -36,10 +36,10 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
     const obj = {
       key: track.id,
       cover: (
-        <div className="image">
+        <div className="image" onClick={handleClick}>
           <img src={track.album?.cover_small} alt={track.title_short} />
           <div className="overlay">
-            <PlayCircleFilled onClick={handleClick} />
+            <PlayCircleFilled />
           </div>
         </div>
       ),
