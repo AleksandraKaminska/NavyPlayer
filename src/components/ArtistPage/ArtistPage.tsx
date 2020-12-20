@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react'
-import { useLocation, Link } from 'react-router-dom'
-import { Row, Col, Tabs, Empty } from 'antd'
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation, Link, useParams } from 'react-router-dom'
+import { Row, Col, Tabs } from 'antd'
 import Header from './Header'
 import Carousel from '../Carousel/Carousel'
 import Tracks from '../Tracks/Tracks'
@@ -9,10 +9,12 @@ import Artist from '../Artist/Artist'
 import Album from '../Album/Album'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { searchArtistPlaylists, searchAlbums, searchSimilarArtists, ARTIST_API } from '../../helpers/search'
-import './ArtistPage.less'
 import { AlbumType, ArtistType, PlaylistType } from '../../types/deezerData'
 import { StateType } from '../../reducers'
 const { TabPane } = Tabs
+import Spin from '../Spin/Spin'
+import { fetchArtist } from '../../helpers/requests'
+import './ArtistPage.less'
 
 const stateLink = (type: 'playlists' | 'artists' | 'albums' | 'tracks' | 'all') => ({
   pathname: '/artists',
@@ -22,17 +24,29 @@ const stateLink = (type: 'playlists' | 'artists' | 'albums' | 'tracks' | 'all') 
 const ArtistPage: React.FC = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
-  const { artist } = state
   const { state: locationState }: any = useLocation()
+  const { id } = useParams<{ id?: string }>()
+  const [loading, setLoading] = useState<boolean>(false)
+  const [artist, setArtist] = useState<ArtistType | undefined>(state.artist)
 
   useEffect(() => {
     const url = ARTIST_API + artist?.id
     searchArtistPlaylists(dispatch, url)
     searchAlbums(dispatch, url)
     searchSimilarArtists(dispatch, url)
-  }, [artist?.id])
+  }, [id, artist?.id])
 
-  return artist ? (
+  useEffect(() => {
+    if (id) {
+      setLoading(true)
+      fetchArtist(id).then((data: ArtistType) => {
+        setArtist(data)
+        setLoading(false)
+      })
+    }
+  }, [id])
+
+  return artist && !loading ? (
     <div className="ArtistPage">
       <Header />
       <Tabs activeKey={locationState?.type || 'all'}>
@@ -68,7 +82,7 @@ const ArtistPage: React.FC = () => {
       </Tabs>
     </div>
   ) : (
-    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+    <Spin />
   )
 }
 

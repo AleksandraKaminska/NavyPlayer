@@ -13,7 +13,7 @@ function Artist({ data }: { data?: ArtistType }) {
       <Link
         to={`/artists/${data.id}`}
         data-testid="artist"
-        onClick={() => changeArtistTrackList(state, dispatch, data.id)}
+        onClick={() => changeArtistTrackList(state, dispatch, data)}
       >
         <img src={data.picture_medium} alt={data.name} />
       </Link>

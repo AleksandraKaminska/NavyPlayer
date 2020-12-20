@@ -19,9 +19,6 @@ export const random = (state: StateType, dispatch: DispatchType) => {
   const href = window.location.href.match(regex)
   if (href) {
     switch (href[1]) {
-      case 'artists':
-        changeArtistTrackList(state, dispatch, parseInt(href[2]))
-        break
       case 'playlists':
         changePlaylist(state, dispatch, parseInt(href[2]))
     }
@@ -31,7 +28,7 @@ export const random = (state: StateType, dispatch: DispatchType) => {
       : state.playlist
       ? changePlaylist(state, dispatch, state.playlist.id)
       : state?.artist
-      ? changeArtistTrackList(state, dispatch, state.artist.id)
+      ? changeArtistTrackList(state, dispatch, state.artist)
       : state.flow
       ? randomFlowTrack(state, dispatch)
       : null
@@ -69,8 +66,8 @@ export const changeAlbum = (state: StateType, dispatch: DispatchType, album: Alb
     searchArtistInfo(newTrack, dispatch)
   })
 
-export const changeArtistTrackList = (state: StateType, dispatch: DispatchType, id?: ArtistType['id']) =>
-  fetchArtistTopTracks(id).then((data) => {
+export const changeArtistTrackList = (state: StateType, dispatch: DispatchType, artist: ArtistType) =>
+  fetchArtistTopTracks(artist.id).then((data) => {
     dispatch({ type: 'ALBUM', payload: undefined })
     dispatch({ type: 'PLAYLIST', payload: undefined })
     dispatch({ type: 'ARTIST_TRACK_LIST', payload: data })

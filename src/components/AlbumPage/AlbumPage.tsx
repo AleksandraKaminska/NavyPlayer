@@ -1,18 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Empty, Row, Col, Space, Typography, Button, Table, Spin } from 'antd'
-import { LoadingOutlined } from '@ant-design/icons'
+import { Row, Col, Space, Typography, Button, Table } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
 import { random } from '../../helperFunctions'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { StateType } from '../../reducers'
-import './AlbumPage.less'
 import { AlbumType, TrackType } from '../../types/deezerData'
 import { searchArtistInfo } from '../../helpers/search'
 import { fetchAlbum } from '../../helpers/requests'
-const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+import Spin from '../Spin/Spin'
+import './AlbumPage.less'
 
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
+const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
 const convertTime = (time: number): string => {
   const h = Math.floor(time / 3600)
@@ -109,7 +108,7 @@ const AlbumPage = () => {
       <Table className="Tracks" dataSource={dataSource} columns={columns} pagination={false} size="middle" />
     </div>
   ) : (
-    <Spin indicator={antIcon} />
+    <Spin />
   )
 }
 

@@ -1,7 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react'
 import fetchJsonp from 'fetch-jsonp'
-import { Spin } from 'antd'
-import { LoadingOutlined } from '@ant-design/icons'
 import { StateContext, DispatchContext } from '../../context/Context'
 import Artist from '../Artist/Artist'
 import Playlist from '../Playlist/Playlist'
@@ -9,9 +7,8 @@ import Carousel from '../Carousel/Carousel'
 import Album from '../Album/Album'
 import { StateType } from '../../reducers'
 import Tracks from '../Tracks/Tracks'
+import Spin from '../Spin/Spin'
 import './Homepage.less'
-
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
 const Homepage = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
@@ -74,7 +71,7 @@ const Homepage = () => {
       <Tracks data={state.topChart?.tracks?.data} title="Popular tracks" />
     </div>
   ) : (
-    <Spin indicator={antIcon} />
+    <Spin />
   )
 }
 
