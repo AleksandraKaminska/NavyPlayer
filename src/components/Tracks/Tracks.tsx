@@ -14,9 +14,11 @@ type TracksProps = {
   data?: Array<TrackType>
   title: string
   link?: LinkProps['to']
+  withNumbers?: boolean
+  showHeader?: boolean
 }
 
-function Tracks({ data, title, link }: TracksProps) {
+function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksProps) {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const { track } = useContext<StateType>(StateContext)
   const { state }: any = useLocation()
@@ -27,9 +29,9 @@ function Tracks({ data, title, link }: TracksProps) {
     searchArtistInfo(item, dispatch)
   }
 
-  const dataSource = data?.map((track) => {
+  const dataSource = data?.map((track, id) => {
     const handleClick = () => selectSong(track)
-    return {
+    const obj = {
       key: track.id,
       cover: <img src={track.album?.cover_small} alt={track.title_short} onClick={handleClick} />,
       title: (
@@ -40,46 +42,63 @@ function Tracks({ data, title, link }: TracksProps) {
       artist: <Link to={`/artists/${track.artist.id}`}>{track.artist?.name}</Link>,
       album: <Link to={`/albums/${track.album?.id}`}>{track.album?.title}</Link>
     }
+
+    return withNumbers ? { ...obj, number: id + 1 } : obj
   })
 
-  const columns: ColumnsType<{
+  const columns: () => ColumnsType<{
     key: number
+    number?: number
     cover: JSX.Element
     title: JSX.Element
     artist: JSX.Element
     album: JSX.Element
-  }> = [
-    {
-      title: 'Cover',
-      dataIndex: 'cover',
-      key: 'cover',
-      width: 70
-    },
-    {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'title',
-      ellipsis: true
-    },
-    {
-      title: 'Artist',
-      dataIndex: 'artist',
-      key: 'artist'
-    },
-    {
-      title: 'Album',
-      dataIndex: 'album',
-      key: 'album',
-      ellipsis: true
-    }
-  ]
+  }> = () => {
+    const columns = [
+      {
+        title: '',
+        dataIndex: 'cover',
+        key: 'cover',
+        width: 70
+      },
+      {
+        title: 'Title',
+        dataIndex: 'title',
+        key: 'title',
+        ellipsis: true
+      },
+      {
+        title: 'Artist',
+        dataIndex: 'artist',
+        key: 'artist'
+      },
+      {
+        title: 'Album',
+        dataIndex: 'album',
+        key: 'album',
+        ellipsis: true
+      }
+    ]
+
+    return withNumbers
+      ? [
+          {
+            title: '#',
+            dataIndex: 'number',
+            key: 'number',
+            width: 50
+          },
+          ...columns
+        ]
+      : columns
+  }
 
   return (
     <Table
       className="Tracks"
       dataSource={dataSource}
-      showHeader={false}
-      columns={columns}
+      showHeader={showHeader}
+      columns={columns()}
       pagination={false}
       size="middle"
       title={() =>

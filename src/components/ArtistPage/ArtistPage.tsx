@@ -71,7 +71,7 @@ const ArtistPage: React.FC = () => {
           </Row>
         </TabPane>
         <TabPane tab={<Link to={stateLink('tracks')}>Top tracks</Link>} key="tracks">
-          <Tracks data={artistTrackList} title="Popular Tracks" link={stateLink('tracks')} />
+          <Tracks data={artistTrackList} title="Popular Tracks" link={stateLink('tracks')} withNumbers showHeader />
         </TabPane>
         <TabPane tab={<Link to={stateLink('artists')}>Similar artists</Link>} key="artists">
           <Artists data={state.similarArtists?.data} />
