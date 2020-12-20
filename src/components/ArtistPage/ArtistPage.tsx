@@ -48,7 +48,7 @@ const ArtistPage: React.FC = () => {
 
   return artist && !loading ? (
     <div className="ArtistPage">
-      <Header />
+      <Header artist={artist} />
       <Tabs activeKey={locationState?.type || 'all'}>
         <TabPane tab={<Link to={stateLink('all')}>Discography</Link>} key="all">
           <Row justify="start">

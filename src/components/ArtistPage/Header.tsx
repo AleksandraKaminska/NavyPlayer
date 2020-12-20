@@ -3,13 +3,13 @@ import { Row, Col, Typography, Button, Space } from 'antd'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { random } from '../../helperFunctions'
 import { StateType } from '../../reducers'
+import { ArtistType } from '../../types/deezerData'
 
-const Header = () => {
+const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
+const Header = ({ artist }: { artist: ArtistType }) => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
-  const { artist } = state
-
-  const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
   return (
     <Row
