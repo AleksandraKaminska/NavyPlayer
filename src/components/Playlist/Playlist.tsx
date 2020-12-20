@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { PlayCircleFilled } from '@ant-design/icons'
 import { changePlaylist } from '../../helperFunctions'
 import { DispatchContext, StateContext } from '../../context/Context'
 import { PlaylistType } from '../../types/deezerData'
@@ -10,8 +11,11 @@ function Playlist({ data }: { data?: PlaylistType }) {
   const state = useContext<StateType>(StateContext)
   return data ? (
     <div className="Playlist">
-      <Link to={`/playlists/${data.id}`} data-testid="playlist" onClick={() => changePlaylist(state, dispatch, data)}>
+      <Link to={`/playlists/${data.id}`} data-testid="playlist">
         <img src={data.picture_medium} alt={data.title} />
+        <div className="overlay">
+          <PlayCircleFilled onClick={() => changePlaylist(state, dispatch, data)} />
+        </div>
       </Link>
       <Link to={`/playlists/${data.id}`}>
         <p>{data.title}</p>

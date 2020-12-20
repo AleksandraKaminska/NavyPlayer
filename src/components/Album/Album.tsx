@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { PlayCircleFilled } from '@ant-design/icons'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { AlbumType } from '../../types/deezerData'
 import { changeAlbum } from '../../helperFunctions'
@@ -9,9 +10,12 @@ function Album({ data }: { data?: AlbumType }) {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
   return data ? (
-    <div className="Album" data-testid="album" onClick={() => changeAlbum(state, dispatch, data)}>
+    <div className="Album" data-testid="album">
       <Link to={`/albums/${data.id}`}>
         <img src={data?.cover_medium} alt={data.title} />
+        <div className="overlay">
+          <PlayCircleFilled onClick={() => changeAlbum(state, dispatch, data)} />
+        </div>
       </Link>
       <Link to={`/albums/${data.id}`}>
         <p>{data.title}</p>

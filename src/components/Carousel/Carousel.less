@@ -24,10 +24,45 @@
     margin-bottom: 10px;
   }
 
+  a:first-of-type {
+    position: relative;
+    display: inline-block;
+    .overlay {
+      top: -10px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      background-color: rgba(0,0, 0, 0.5);
+      display: none;
+      justify-content: flex-start;
+      align-items: flex-end;
+      font-size: 3em;
+      .anticon {
+        margin-bottom: 0.75em;
+        margin-left: 0.5em;
+        color: @white;
+        transition: transform 100ms ease-in;
+        &:hover {
+          transform: scale3d(1.2, 1.2, 1.2);
+        }
+      }
+    }
+    &:hover .overlay {
+      display: flex;
+    }
+  }
+
   [data-rounded='true'] {
     text-align: center;
-    img {
-      border-radius: 50%;
+    a:first-of-type {
+      img, .overlay {
+        border-radius: 50%;
+        justify-content: center;
+        .anticon {
+          margin-left: 0;
+        }
+      }
     }
   }
 

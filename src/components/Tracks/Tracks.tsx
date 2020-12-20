@@ -55,7 +55,7 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
     title: JSX.Element
     artist: JSX.Element
     album: JSX.Element
-    duration?: string
+    duration: string
   }> = () => {
     const columns = [
       {
