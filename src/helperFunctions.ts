@@ -1,4 +1,3 @@
-import fetchJsonp from 'fetch-jsonp'
 import { fetchAlbum, fetchArtistTopTracks, fetchPlaylist } from './helpers/requests'
 import { searchArtistInfo } from './helpers/search'
 import { StateType } from './reducers'
@@ -14,26 +13,16 @@ const randomTrack = (data: Array<TrackType>, previousTrack?: TrackType): TrackTy
   return track
 }
 
-export const random = (state: StateType, dispatch: DispatchType) => {
-  const regex = /\/(artists|playlists|albums)\/(\d+)/
-  const href = window.location.href.match(regex)
-  if (href) {
-    switch (href[1]) {
-      case 'playlists':
-        changePlaylist(state, dispatch, parseInt(href[2]))
-    }
-  } else {
-    state.album
-      ? changeAlbum(state, dispatch, state.album)
-      : state.playlist
-      ? changePlaylist(state, dispatch, state.playlist.id)
-      : state?.artist
-      ? changeArtistTrackList(state, dispatch, state.artist)
-      : state.flow
-      ? randomFlowTrack(state, dispatch)
-      : null
-  }
-}
+export const random = (state: StateType, dispatch: DispatchType) =>
+  state.album
+    ? changeAlbum(state, dispatch, state.album)
+    : state.playlist
+    ? changePlaylist(state, dispatch, state.playlist)
+    : state?.artist
+    ? changeArtistTrackList(state, dispatch, state.artist)
+    : state.flow
+    ? randomFlowTrack(state, dispatch)
+    : null
 
 export const randomFlowTrack = (state: StateType, dispatch: DispatchType) => {
   dispatch({ type: 'ALBUM', payload: undefined })
@@ -46,8 +35,8 @@ export const randomFlowTrack = (state: StateType, dispatch: DispatchType) => {
   }
 }
 
-export const changePlaylist = (state: StateType, dispatch: DispatchType, id?: PlaylistType['id']) =>
-  fetchPlaylist(id).then((data) => {
+export const changePlaylist = (state: StateType, dispatch: DispatchType, playlist: PlaylistType) =>
+  fetchPlaylist(playlist.id).then((data) => {
     dispatch({ type: 'ALBUM', payload: undefined })
     dispatch({ type: 'PLAYLIST', payload: data })
     dispatch({ type: 'PREV_TRACK', payload: state.track })

@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Row, Col, Space, Typography, Button, Table } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
-import { changeAlbum } from '../../helperFunctions'
+import { changePlaylist } from '../../helperFunctions'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { StateType } from '../../reducers'
-import { AlbumType, TrackType } from '../../types/deezerData'
+import { PlaylistType, TrackType } from '../../types/deezerData'
 import { searchArtistInfo } from '../../helpers/search'
-import { fetchAlbum } from '../../helpers/requests'
+import { fetchPlaylist } from '../../helpers/requests'
 import Spin from '../Spin/Spin'
-import './AlbumPage.less'
+import './PlaylistPage.less'
 
 const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
@@ -38,18 +38,18 @@ const columns: ColumnsType<{
   }
 ]
 
-const AlbumPage = () => {
+const PlaylistPage = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
   const { id } = useParams<{ id?: string }>()
   const [loading, setLoading] = useState<boolean>(false)
-  const [album, setAlbum] = useState<AlbumType | undefined>(state.album)
+  const [playlist, setPlaylist] = useState<PlaylistType | undefined>(state.playlist)
 
   useEffect(() => {
     if (id) {
       setLoading(true)
-      fetchAlbum(id).then((data: AlbumType) => {
-        setAlbum(data)
+      fetchPlaylist(id).then((data: PlaylistType) => {
+        setPlaylist(data)
         setLoading(false)
       })
     }
@@ -61,7 +61,7 @@ const AlbumPage = () => {
     searchArtistInfo(item, dispatch)
   }
 
-  const dataSource = album?.tracks?.data?.map((track, id) => {
+  const dataSource = playlist?.tracks?.data?.map((track, id) => {
     const handleClick = () => selectSong(track)
     return {
       key: track.id,
@@ -74,30 +74,28 @@ const AlbumPage = () => {
     }
   })
 
-  return !loading && album ? (
-    <div className="AlbumPage">
+  return !loading && playlist ? (
+    <div className="PlaylistPage">
       <Row gutter={32} align="bottom">
         <Col>
-          <img src={album?.cover_medium} alt={album?.title} />
+          <img src={playlist?.picture_medium} alt={playlist?.title} />
         </Col>
         <Col>
           <Row gutter={[16, 12]} className="name">
             <Col>
-              <Typography.Title>{album?.title}</Typography.Title>
-              <Link to={`/artists/${album?.artist?.id}`}>
-                <Typography.Text className="artist">{album?.artist?.name}</Typography.Text>
-              </Link>
+              <Typography.Title>{playlist?.title}</Typography.Title>
+              <Typography.Text className="description">{playlist?.description}</Typography.Text>
             </Col>
             <Col>
               <Space size="large">
                 <Typography.Text className="info">
-                  {new Date(album?.release_date).getFullYear()}•{numberWithSpaces(album?.tracks.data.length)} tracks,{' '}
-                  {convertTime(album?.duration || 0)}
+                  {new Date(playlist?.creation_date).toLocaleDateString()}•{numberWithSpaces(playlist?.nb_tracks)}{' '}
+                  tracks, {convertTime(playlist?.duration || 0)}
                 </Typography.Text>
               </Space>
             </Col>
             <Col>
-              <Button type="primary" onClick={() => changeAlbum(state, dispatch, album)}>
+              <Button type="primary" onClick={() => changePlaylist(state, dispatch, playlist)}>
                 Listen
               </Button>
             </Col>
@@ -111,4 +109,4 @@ const AlbumPage = () => {
   )
 }
 
-export default AlbumPage
+export default PlaylistPage

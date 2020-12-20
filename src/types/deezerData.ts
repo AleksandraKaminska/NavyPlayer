@@ -83,6 +83,9 @@ export type PlaylistType = {
   picture_xl: string
   public: boolean
   title: string
+  tracks?: { data: Array<TrackType> }
+  description?: string
+  duration?: number
   tracklist: string
   type: 'playlist'
   user: UserType

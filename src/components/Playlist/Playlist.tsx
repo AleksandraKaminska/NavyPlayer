@@ -10,11 +10,7 @@ function Playlist({ data }: { data?: PlaylistType }) {
   const state = useContext<StateType>(StateContext)
   return data ? (
     <div className="Playlist">
-      <Link
-        to={`/playlists/${data.id}`}
-        data-testid="playlist"
-        onClick={() => changePlaylist(state, dispatch, data.id)}
-      >
+      <Link to={`/playlists/${data.id}`} data-testid="playlist" onClick={() => changePlaylist(state, dispatch, data)}>
         <img src={data.picture_medium} alt={data.title} />
       </Link>
       <Link to={`/playlists/${data.id}`}>

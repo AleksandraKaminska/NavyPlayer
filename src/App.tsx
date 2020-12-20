@@ -9,6 +9,7 @@ import Search from './components/Search/Search'
 import Homepage from './components/Homepage/Homepage'
 import ArtistPage from './components/ArtistPage/ArtistPage'
 import AlbumPage from './components/AlbumPage/AlbumPage'
+import PlaylistPage from './components/PlaylistPage/PlaylistPage'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import './App.less'
@@ -32,6 +33,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/albums/:id?">
                       <AlbumPage />
+                    </Route>
+                    <Route exact path="/playlists/:id?">
+                      <PlaylistPage />
                     </Route>
                     <Route exact path="/search">
                       <Search />
