@@ -15,14 +15,6 @@ const Header = () => {
             <Link to="/">
               <img src="/assets/images/logo.png" alt="navy player logo" className="logo" width={156.3} height={35} />
             </Link>
-            <Menu className="menu" mode="horizontal" selectedKeys={[pathname]}>
-              <Menu.Item key="/">
-                <Link to="/">Explore</Link>
-              </Menu.Item>
-              <Menu.Item key="/artists">
-                <Link to="/artists">Artist</Link>
-              </Menu.Item>
-            </Menu>
           </Space>
         </Col>
         <Col className="align-center" xs={{ span: 11, offset: 1 }} xl={{ span: 8, offset: 2 }}>
