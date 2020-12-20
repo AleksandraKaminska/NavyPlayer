@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Row, Col, Typography, Button, Space } from 'antd'
 import { StateContext, DispatchContext } from '../../context/Context'
-import { random } from '../../helperFunctions'
+import { changeArtistTrackList } from '../../helperFunctions'
 import { StateType } from '../../reducers'
 import { ArtistType } from '../../types/deezerData'
 
@@ -25,7 +25,7 @@ const Header = ({ artist }: { artist: ArtistType }) => {
       <Col>
         <Space size="large">
           <Typography.Text>{numberWithSpaces(artist?.nb_fan)} fans</Typography.Text>
-          <Button type="primary" onClick={() => random(state, dispatch)}>
+          <Button type="primary" onClick={() => changeArtistTrackList(state, dispatch, artist)}>
             Listen
           </Button>
         </Space>
