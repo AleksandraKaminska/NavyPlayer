@@ -7,6 +7,7 @@ import { StateContext, DispatchContext } from '../../context/Context'
 import { StateType } from '../../reducers'
 import { AlbumType, TrackType } from '../../types/deezerData'
 import { searchArtistInfo } from '../../helpers/search'
+import { convertTime as durationTime } from '../Player/Progress'
 import { fetchAlbum } from '../../helpers/requests'
 import Spin from '../Spin/Spin'
 import './AlbumPage.less'
@@ -23,6 +24,7 @@ const columns: ColumnsType<{
   key: number
   number: number
   title: JSX.Element
+  duration: string
 }> = [
   {
     title: '#',
@@ -35,6 +37,12 @@ const columns: ColumnsType<{
     dataIndex: 'title',
     key: 'title',
     ellipsis: true
+  },
+  {
+    title: 'Duration',
+    dataIndex: 'duration',
+    key: 'duration',
+    width: 80
   }
 ]
 
@@ -70,7 +78,8 @@ const AlbumPage = () => {
         <span onClick={handleClick} className="track">
           {track.title_short}
         </span>
-      )
+      ),
+      duration: durationTime(track.duration)
     }
   })
 

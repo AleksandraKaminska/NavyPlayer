@@ -7,8 +7,8 @@ import { StateType } from '../../reducers'
 import { PlaylistType } from '../../types/deezerData'
 import { fetchPlaylist } from '../../helpers/requests'
 import Spin from '../Spin/Spin'
-import './PlaylistPage.less'
 import Tracks from '../Tracks/Tracks'
+import './PlaylistPage.less'
 
 const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 

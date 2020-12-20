@@ -3,16 +3,16 @@ import { Progress as AntProgress, Row, Col } from 'antd'
 const { DZ } = window
 import './Progress.less'
 
+export const convertTime = (time: number): string => {
+  const min = Math.floor(time / 60)
+  const s = Math.floor(time % 60)
+  return `${min}:${(s < 10 ? '0' : '') + s}`
+}
+
 const Progress = () => {
   const [elapsed, setElapsed] = useState<string>('00:00')
   const [duration, setDuration] = useState<string>('00:00')
   const [progress, setProgress] = useState<number>(0)
-
-  const convertTime = (time: number): string => {
-    const min = Math.floor(time / 60)
-    const s = Math.floor(time % 60)
-    return `${min}:${(s < 10 ? '0' : '') + s}`
-  }
 
   const showPosition = (): void =>
     DZ?.Event.subscribe('player_position', ([elapsed, duration]: Array<number>): void => {
