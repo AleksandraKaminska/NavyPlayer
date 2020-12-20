@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Row, Col, Space, Typography, Button, Table } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
-import { random } from '../../helperFunctions'
+import { changeAlbum } from '../../helperFunctions'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { StateType } from '../../reducers'
 import { AlbumType, TrackType } from '../../types/deezerData'
@@ -98,7 +98,7 @@ const AlbumPage = () => {
               </Space>
             </Col>
             <Col>
-              <Button type="primary" onClick={() => random(state, dispatch)}>
+              <Button type="primary" onClick={() => changeAlbum(state, dispatch, album)}>
                 Listen
               </Button>
             </Col>
