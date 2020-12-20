@@ -1,44 +1,61 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { Empty, Row, Col, Space, Typography, Button, Table } from 'antd'
+import React, { useContext, useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { Empty, Row, Col, Space, Typography, Button, Table, Spin } from 'antd'
+import { LoadingOutlined } from '@ant-design/icons'
 import { ColumnsType } from 'antd/lib/table'
 import { random } from '../../helperFunctions'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { StateType } from '../../reducers'
 import './AlbumPage.less'
-import { TrackType } from '../../types/deezerData'
+import { AlbumType, TrackType } from '../../types/deezerData'
 import { searchArtistInfo } from '../../helpers/search'
+import { fetchAlbum } from '../../helpers/requests'
 const numberWithSpaces = (n?: number) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 
 const convertTime = (time: number): string => {
   const h = Math.floor(time / 3600)
   const min = Math.floor(time / 60)
   const s = Math.floor(time % 60)
-  return `${h ? h + ' h ' : ''}${min ? min + ' min ' : ''}${s} s`
+  return `${h ? h + ' h ' : ''}${min ? min + ' min ' : ''}${s ? s + ' s' : ''}`
 }
 
-const AlbumPage: React.FC = () => {
+const columns: ColumnsType<{
+  key: number
+  number: number
+  title: JSX.Element
+}> = [
+  {
+    title: '#',
+    dataIndex: 'number',
+    key: 'number',
+    width: 50
+  },
+  {
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'title',
+    ellipsis: true
+  }
+]
+
+const AlbumPage = () => {
   const dispatch = useContext<React.Dispatch<any>>(DispatchContext)
   const state = useContext<StateType>(StateContext)
+  const { id } = useParams<{ id?: string }>()
+  const [loading, setLoading] = useState<boolean>(false)
+  const [album, setAlbum] = useState<AlbumType | undefined>(state.album)
 
-  const columns: ColumnsType<{
-    key: number
-    number: number
-    title: JSX.Element
-  }> = [
-    {
-      title: '#',
-      dataIndex: 'number',
-      key: 'number',
-      width: 50
-    },
-    {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'title',
-      ellipsis: true
+  useEffect(() => {
+    if (id) {
+      setLoading(true)
+      fetchAlbum(id).then((data: AlbumType) => {
+        setAlbum(data)
+        setLoading(false)
+      })
     }
-  ]
+  }, [id])
 
   const selectSong = (item: TrackType) => {
     dispatch({ type: 'PREV_TRACK', payload: state.track })
@@ -46,7 +63,7 @@ const AlbumPage: React.FC = () => {
     searchArtistInfo(item, dispatch)
   }
 
-  const dataSource = state.album?.tracks?.data?.map((track, id) => {
+  const dataSource = album?.tracks?.data?.map((track, id) => {
     const handleClick = () => selectSong(track)
     return {
       key: track.id,
@@ -59,25 +76,25 @@ const AlbumPage: React.FC = () => {
     }
   })
 
-  return state.album ? (
+  return !loading && album ? (
     <div className="AlbumPage">
       <Row gutter={32} align="bottom">
         <Col>
-          <img src={state.album?.cover_medium} alt={state.album?.title} />
+          <img src={album?.cover_medium} alt={album?.title} />
         </Col>
         <Col>
           <Row gutter={[16, 12]} className="name">
             <Col>
-              <Typography.Title>{state.album?.title}</Typography.Title>
-              <Link to={`/artists/${state.album?.artist?.id}`}>
-                <Typography.Text className="artist">{state.album?.artist?.name}</Typography.Text>
+              <Typography.Title>{album?.title}</Typography.Title>
+              <Link to={`/artists/${album?.artist?.id}`}>
+                <Typography.Text className="artist">{album?.artist?.name}</Typography.Text>
               </Link>
             </Col>
             <Col>
               <Space size="large">
                 <Typography.Text className="info">
-                  {new Date(state.album?.release_date).getFullYear()}•
-                  {numberWithSpaces(state.album?.tracks.data.length)} tracks, {convertTime(state.album?.duration || 0)}
+                  {new Date(album?.release_date).getFullYear()}•{numberWithSpaces(album?.tracks.data.length)} tracks,{' '}
+                  {convertTime(album?.duration || 0)}
                 </Typography.Text>
               </Space>
             </Col>
@@ -92,7 +109,7 @@ const AlbumPage: React.FC = () => {
       <Table className="Tracks" dataSource={dataSource} columns={columns} pagination={false} size="middle" />
     </div>
   ) : (
-    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+    <Spin indicator={antIcon} />
   )
 }
 
