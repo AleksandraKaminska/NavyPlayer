@@ -30,6 +30,10 @@ const ArtistPage: React.FC = () => {
   const [artistTrackList, setArtistTrackLits] = useState<Array<TrackType> | undefined>(state.artistTrackList?.data)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     const url = ARTIST_API + artist?.id
     searchArtistPlaylists(dispatch, url)
     searchAlbums(dispatch, url)
