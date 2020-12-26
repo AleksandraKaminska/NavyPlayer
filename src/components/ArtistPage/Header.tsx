@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Parallax } from 'react-parallax'
 import { Row, Col, Typography, Button, Space } from 'antd'
 import { StateContext, DispatchContext } from '../../context/Context'
 import { changeArtistTrackList } from '../../helperFunctions'
@@ -12,25 +13,21 @@ const Header = ({ artist }: { artist: ArtistType }) => {
   const state = useContext<StateType>(StateContext)
 
   return (
-    <Row
-      gutter={[16, 12]}
-      className="name"
-      style={{
-        backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0) 10%, #000a11 95%), url(${artist?.picture_xl})`
-      }}
-    >
-      <Col>
-        <Typography.Title>{artist?.name}</Typography.Title>
-      </Col>
-      <Col>
-        <Space size="large">
-          <Typography.Text>{numberWithSpaces(artist?.nb_fan)} fans</Typography.Text>
-          <Button type="primary" onClick={() => changeArtistTrackList(state, dispatch, artist)}>
-            Listen
-          </Button>
-        </Space>
-      </Col>
-    </Row>
+    <Parallax bgImage={artist.picture_xl} strength={-350} className="banner">
+      <Row gutter={[16, 12]} className="name">
+        <Col>
+          <Typography.Title>{artist.name}</Typography.Title>
+        </Col>
+        <Col>
+          <Space size="large">
+            <Typography.Text>{numberWithSpaces(artist.nb_fan)} fans</Typography.Text>
+            <Button type="primary" onClick={() => changeArtistTrackList(state, dispatch, artist)}>
+              Listen
+            </Button>
+          </Space>
+        </Col>
+      </Row>
+    </Parallax>
   )
 }
 

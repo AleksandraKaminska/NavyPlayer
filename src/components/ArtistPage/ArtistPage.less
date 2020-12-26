@@ -1,14 +1,26 @@
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
 
 .ArtistPage {
-  .name {
+  .banner {
     margin: -24px -74px 0 !important;
     padding: 15px 66px 15px;
     height: 50vh;
-    min-height: 340px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    min-height: 600px;
+    &::after {
+      content: "";
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to bottom,rgba(0,0,0,0) 55%,  #000a11 99%);
+    }
+  }
+  .react-parallax-content {
+    position: absolute;
+    top: 30%;
+  }
+  .name {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;

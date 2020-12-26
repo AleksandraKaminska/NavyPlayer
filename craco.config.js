@@ -12,7 +12,7 @@ module.exports = {
               '@menu-dark-bg': '#000a11',
               '@component-background': '#000a11',
               '@layout-header-background': '#000a11',
-              '@layout-footer-background': 'rgba(3,3,15,0.6)',
+              '@layout-footer-background': '#000a11',
               '@layout-body-background': '#000a11'
             },
             javascriptEnabled: true
