@@ -17,7 +17,6 @@ const Homepage = () => {
   const loadMore = async () => {
     const resp = await (await fetchJsonp(`https://api.deezer.com/chart?index=${index}&limit=20&output=jsonp`)).json()
     const data = await resp
-    console.log(data)
     dispatch({
       type: 'TOP_CHART',
       payload: data
