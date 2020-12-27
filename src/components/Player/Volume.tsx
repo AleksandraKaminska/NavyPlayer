@@ -23,6 +23,7 @@ function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }
 
   const handleMute = (): void => {
     DZ?.player.setMute(!muted)
+    setVolume(muted ? DZ?.player.getVolume() : 0)
     setMuted(!muted)
   }
 
