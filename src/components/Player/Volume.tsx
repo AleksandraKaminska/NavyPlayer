@@ -9,7 +9,7 @@ const { DZ } = window
 
 function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }) {
   const [muted, setMuted] = useState<boolean>(false)
-  const [volume, setVolume] = useState<number>(0)
+  const [volume, setVolume] = useState<number>(50)
 
   const onChange = (value: number) => {
     setVolume(value)
@@ -26,10 +26,6 @@ function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }
     setVolume(muted ? DZ?.player.getVolume() : 0)
     setMuted(!muted)
   }
-
-  useEffect(() => {
-    setVolume(DZ?.player.getVolume())
-  }, [])
 
   const className = `repeat ${repeat ? 'active' : ''}`
 
