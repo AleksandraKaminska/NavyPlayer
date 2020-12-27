@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Progress as AntProgress, Row, Col } from 'antd'
+import { Slider, Row, Col } from 'antd'
 const { DZ } = window
 import './Progress.less'
 
@@ -10,23 +10,25 @@ export const convertTime = (time: number): string => {
 }
 
 const Progress = () => {
-  const [elapsed, setElapsed] = useState<string>('00:00')
-  const [duration, setDuration] = useState<string>('00:00')
+  const [elapsed, setElapsed] = useState<number>(0)
+  const [duration, setDuration] = useState<number>(0)
   const [progress, setProgress] = useState<number>(0)
 
   const showPosition = (): void =>
     DZ?.Event.subscribe('player_position', ([elapsed, duration]: Array<number>): void => {
-      setElapsed(convertTime(elapsed))
-      setDuration(convertTime(duration))
+      setElapsed(elapsed)
+      setDuration(duration)
       if (duration) {
         setProgress((elapsed / duration) * 100)
       }
     })
 
-  const changeSeek = (event: React.MouseEvent<HTMLElement, MouseEvent>): void => {
-    const node = event.target as HTMLElement
-    const { x, width } = node.getBoundingClientRect()
-    DZ?.player.seek(((event.clientX - x) / width) * 100)
+  const onAfterChange = (value: number) => DZ?.player.seek(value)
+
+  const tipFormatter = (value?: number) => {
+    if (value) {
+      return convertTime((value * duration) / 100)
+    }
   }
 
   useEffect(showPosition)
@@ -34,15 +36,13 @@ const Progress = () => {
   return (
     <Row className="Progress">
       <Col span={2} className="elapsed">
-        {elapsed}
+        {convertTime(elapsed)}
       </Col>
       <Col span={20}>
-        <div className="controller" onClick={changeSeek}>
-          <AntProgress percent={progress} showInfo={false} strokeWidth={3} />
-        </div>
+        <Slider defaultValue={progress} onAfterChange={onAfterChange} tipFormatter={tipFormatter} />
       </Col>
       <Col span={1} offset={1} className="duration">
-        {duration}
+        {convertTime(duration)}
       </Col>
     </Row>
   )
