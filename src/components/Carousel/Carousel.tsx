@@ -101,9 +101,9 @@ function Slider(props: CarouselProps) {
           </Carousel>
         </>
       ) : (
-        <Row justify="space-between" gutter={[16, 32]} {...props}>
+        <Row gutter={[data?.length < 5 ? 16 : 24, 32]} {...props}>
           {data?.map((element) => (
-            <Col key={element.id} data-rounded={rounded?.toString()}>
+            <Col key={element.id} data-rounded={rounded?.toString()} span={24 / Math.min(data.length, 5)}>
               {React.cloneElement(children, { data: element })}
             </Col>
           ))}

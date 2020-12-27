@@ -33,7 +33,7 @@ function Controls({ repeat }: { repeat: boolean }) {
       const previousTrack = state.previousTracks[state.previousTracks.length - 1]
       dispatch({ type: 'CHANGE_TRACK', payload: previousTrack })
       dispatch({ type: 'PREV_TRACK', payload: previousTrack })
-      searchArtistInfo(previousTrack, dispatch)
+      searchArtistInfo([previousTrack], dispatch)
     }
   }
 
@@ -43,7 +43,7 @@ function Controls({ repeat }: { repeat: boolean }) {
     })
   }, [])
 
-  DZ?.Event.subscribe('track_end', () => {
+  DZ.Event.subscribe('track_end', () => {
     changeTrack()
   })
 
