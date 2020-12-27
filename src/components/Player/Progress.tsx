@@ -39,7 +39,7 @@ const Progress = () => {
         {convertTime(elapsed)}
       </Col>
       <Col span={20}>
-        <Slider defaultValue={progress} onAfterChange={onAfterChange} tipFormatter={tipFormatter} />
+        <Slider value={progress} onAfterChange={onAfterChange} tipFormatter={tipFormatter} />
       </Col>
       <Col span={1} offset={1} className="duration">
         {convertTime(duration)}
