@@ -8,7 +8,6 @@ import PlayIcon from './play.svg'
 import RewindIcon from './rewind.svg'
 import ForwardIcon from './forward.svg'
 import { StateType } from '../../reducers'
-import { time } from 'console'
 const { DZ } = window
 
 function Controls({ repeat }: { repeat: boolean }) {
