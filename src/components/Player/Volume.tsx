@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ReactSVG } from 'react-svg'
-import { Button, Row, Col, Tooltip } from 'antd'
+import { Button, Row, Col, Tooltip, Slider } from 'antd'
 import MutedVolumeIcon from './mutedVolume.svg'
 import VolumeIcon from './volume.svg'
 import RepeatIcon from './repeat.svg'
@@ -8,32 +8,12 @@ import './Volume.less'
 const { DZ } = window
 
 function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }) {
-  const line = useRef(null)
-  const ball = useRef(null)
   const [muted, setMuted] = useState<boolean>(false)
+  const [volume, setVolume] = useState<number>(0)
 
-  const setVolume = (event) => {
-    const vol = getVolPercent(event)
-    // if (line && ball && line.current && ball.current) {
-    //   line.current.style.width = ball.current.style.left = vol + '%'
-    // }
-    DZ?.player.setVolume(vol)
-  }
-
-  const getVolPercent = ({ currentTarget, clientX }) => {
-    const { left, right, width } = currentTarget.getBoundingClientRect()
-    if (clientX <= left) {
-      return 0
-    } else if (clientX >= right) {
-      return 100
-    }
-    const vol = ((clientX - left) / width) * 100
-    if (vol <= 6) {
-      return 0
-    } else if (vol >= 94) {
-      return 100
-    }
-    return vol
+  const onChange = (value: number) => {
+    setVolume(value)
+    DZ?.player.setVolume(value)
   }
 
   const handleRepeat = (): void => {
@@ -45,6 +25,10 @@ function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }
     DZ?.player.setMute(!muted)
     setMuted(!muted)
   }
+
+  useEffect(() => {
+    setVolume(DZ?.player.getVolume())
+  }, [])
 
   const className = `repeat ${repeat ? 'active' : ''}`
 
@@ -58,16 +42,15 @@ function Volume({ repeat, changeRepeat }: { repeat: boolean; changeRepeat: any }
         </Tooltip>
       </Col>
       <Col span={12}>
-        <Tooltip title="Mute">
+        <Tooltip
+          title={<Slider vertical value={volume} onChange={onChange} />}
+          overlayClassName="volume-sider"
+          arrowPointAtCenter
+        >
           <Button type="text" onClick={handleMute}>
             <ReactSVG src={muted ? MutedVolumeIcon : VolumeIcon} />
           </Button>
         </Tooltip>
-        <div className="volumeSlider" onClick={(ev) => setVolume(ev)}>
-          <div className="volumeSlider__bgLine" />
-          <div className="volumeSlider__currentLine" ref={line} />
-          <div className="volumeSlider__ball" ref={ball} />
-        </div>
       </Col>
     </Row>
   )
