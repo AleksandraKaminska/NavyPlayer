@@ -43,7 +43,7 @@ function Controls({ repeat }: { repeat: boolean }) {
     })
   }, [])
 
-  DZ.Event.subscribe('track_end', () => {
+  DZ?.Event.subscribe('track_end', () => {
     changeTrack()
   })
 
