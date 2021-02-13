@@ -12,10 +12,10 @@ export const searchApi: (value?: string, type?: string, limit?: number) => Promi
   limit = 10
 ) => await (await fetchJsonp(`https://api.deezer.com/search/${type}?q=${value}&limit=${limit}&output=jsonp`)).json()
 
-export const searchArtistInfo = ({ id, artist }: TrackType, dispatch: DispatchType): void => {
-  searchArtist(dispatch, ARTIST_API + artist?.id)
-  searchTopTracks(dispatch, ARTIST_API + artist?.id)
-  DZ?.ready(() => DZ?.player?.playTracks([id]))
+export const searchArtistInfo = (tracks: Array<TrackType>, dispatch: DispatchType): void => {
+  searchArtist(dispatch, ARTIST_API + tracks[0].artist?.id)
+  searchTopTracks(dispatch, ARTIST_API + tracks[0].artist?.id)
+  DZ?.ready(() => DZ?.player?.playTracks(tracks.map(({ id }) => id)))
 }
 
 const searchArtist = (dispatch: DispatchType, url: string) => fetch(url, dispatch, 'FIND_ARTIST')

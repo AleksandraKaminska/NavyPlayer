@@ -19,7 +19,8 @@ const Progress = () => {
       setElapsed(elapsed)
       setDuration(duration)
       if (duration) {
-        setProgress((elapsed / duration) * 100)
+        const percent = (elapsed / duration) * 100
+        setProgress(percent)
       }
     })
 
@@ -33,7 +34,7 @@ const Progress = () => {
     }
   }
 
-  useEffect(showPosition)
+  useEffect(() => showPosition)
 
   return (
     <Row className="Progress">

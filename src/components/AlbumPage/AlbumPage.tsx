@@ -66,7 +66,7 @@ const AlbumPage = () => {
   const selectSong = (item: TrackType) => {
     dispatch({ type: 'PREV_TRACK', payload: state.track })
     dispatch({ type: 'CHANGE_TRACK', payload: item })
-    searchArtistInfo(item, dispatch)
+    searchArtistInfo([item], dispatch)
   }
 
   const dataSource = album?.tracks?.data?.map((track, id) => {

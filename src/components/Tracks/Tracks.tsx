@@ -28,7 +28,7 @@ function Tracks({ data, title, link, withNumbers, showHeader = false }: TracksPr
   const selectSong = (item: TrackType) => {
     dispatch({ type: 'PREV_TRACK', payload: track })
     dispatch({ type: 'CHANGE_TRACK', payload: item })
-    searchArtistInfo(item, dispatch)
+    searchArtistInfo([item], dispatch)
   }
 
   const dataSource = data?.map((track, id) => {

@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Layout, Space, Button } from 'antd'
-import { login } from './helpers/login'
+import Layout from 'antd/lib/layout'
 import { StateContext, DispatchContext } from './context/Context'
 import { reducer, initialState } from './reducers'
 import Search from './components/Search/Search'
@@ -16,7 +15,6 @@ import './App.less'
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { Content } = Layout
 
   return (
     <div className="App">
@@ -25,7 +23,7 @@ const App = () => {
           <Router>
             <Layout>
               <Header />
-              <Content className="site-layout">
+              <Layout.Content className="site-layout">
                 <div className="site-layout-background">
                   <Switch>
                     <Route exact path="/artists/:id">
@@ -45,7 +43,7 @@ const App = () => {
                     </Route>
                   </Switch>
                 </div>
-              </Content>
+              </Layout.Content>
               <Player />
               <Footer />
             </Layout>
