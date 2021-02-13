@@ -9,7 +9,6 @@
 - [ ] tests
 - [ ] mobile UI
 - [ ] search history
-- [ ] fix for player
 
 # Getting Started with Create React App
 
